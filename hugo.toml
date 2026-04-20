@@ -4,6 +4,11 @@ title = "AI Solutions Wiki"
 enableRobotsTXT = true
 enableGitInfo = false
 buildFuture = true
+
+[minify]
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepQuotes = true
 [pagination]
   pagerSize = 20
 
