@@ -62,4 +62,4 @@ The workshop format described in this wiki's [Three Workshop Method](../three-wo
 - Red Hat Open Practice Library GitHub repository: [https://github.com/openpracticelibrary/openpracticelibrary](https://github.com/openpracticelibrary/openpracticelibrary)
 - Event Storming practice page: [https://openpracticelibrary.com/practice/event-storming/](https://openpracticelibrary.com/practice/event-storming/)
 - Impact Mapping practice page: [https://openpracticelibrary.com/practice/impact-mapping/](https://openpracticelibrary.com/practice/impact-mapping/)
-- Linda Mohamed's workshop methodology: [https://ai-workshops.online](https://ai-workshops.online)
+- Linda Mohamed's workshop methodology: [https://www.lindamohamed.com/](https://www.lindamohamed.com/)
