@@ -1317,6 +1317,20 @@ img { max-width: 100%; height: auto; display: block; }
 
 .footer-tagline { color: rgb(255 255 255 / 0.3); }
 
+.footer-legal {
+  color: rgb(255 255 255 / 0.4);
+}
+
+.footer-legal a {
+  color: rgb(255 255 255 / 0.5);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-legal a:hover {
+  color: rgb(255 255 255 / 0.8);
+}
+
 /* ---- Responsive ---- */
 @media (max-width: 1100px) {
   .article-layout {
