@@ -1,0 +1,435 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "ai-workshops" [ref=e4] [cursor=pointer]:
+        - /url: https://ai-workshops.online/
+      - navigation [ref=e5]:
+        - link "Workshops" [ref=e6] [cursor=pointer]:
+          - /url: "#method"
+        - link "Industries" [ref=e7] [cursor=pointer]:
+          - /url: "#industries"
+        - link "Method" [ref=e8] [cursor=pointer]:
+          - /url: "#method"
+        - link "Book a Call" [ref=e9] [cursor=pointer]:
+          - /url: "#cta"
+      - button "Toggle dark mode" [ref=e11] [cursor=pointer]
+  - generic [ref=e14]:
+    - generic [ref=e15]: AWS Community Hero - Vienna
+    - heading "AI workshops that deliver working prototypes not just slide decks." [level=1] [ref=e16]:
+      - text: AI workshops that deliver
+      - text: working prototypes
+      - text: not just slide decks.
+    - paragraph [ref=e17]: Structured, hands-on workshops that take your team from idea to working AI prototype in 3 sessions. AWS-funded options available.
+    - generic [ref=e18]:
+      - link "Book a Free Idea Call" [ref=e19] [cursor=pointer]:
+        - /url: "#cta"
+        - text: Book a Free Idea Call
+      - link "See Workshop Formats" [ref=e20] [cursor=pointer]:
+        - /url: "#method"
+        - text: See Workshop Formats
+    - generic [ref=e21]:
+      - generic [ref=e22]:
+        - generic [ref=e23]: 12+
+        - generic [ref=e24]: Years in IT
+      - generic [ref=e26]:
+        - generic [ref=e27]: 6+
+        - generic [ref=e28]: Years AI/Cloud
+      - generic [ref=e30]:
+        - generic [ref=e31]: AWS
+        - generic [ref=e32]: Community Hero
+      - generic [ref=e34]:
+        - generic [ref=e35]: 100%
+        - generic [ref=e36]: AWS Fundable
+  - generic [ref=e38]:
+    - generic [ref=e39]: The Problem
+    - heading "Most AI initiatives stall at the PowerPoint stage." [level=2] [ref=e40]:
+      - text: Most AI initiatives stall
+      - text: at the PowerPoint stage.
+    - paragraph [ref=e41]: Companies invest in strategy sessions and receive reports. Months pass. Nothing ships.
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - heading "Your team has AI ideas but no roadmap" [level=3] [ref=e45]
+        - paragraph [ref=e46]: Everyone knows AI matters. But turning vague ambitions into a concrete, prioritized plan that your team can actually execute is where most organizations get stuck.
+      - generic [ref=e47]:
+        - heading "Consultants deliver reports, not results" [level=3] [ref=e49]
+        - paragraph [ref=e50]: Traditional consulting produces impressive documents. But documents don't process data, automate workflows, or generate value. Your business needs working software.
+      - generic [ref=e51]:
+        - heading "Prototypes take months and cost too much" [level=3] [ref=e53]
+        - paragraph [ref=e54]: By the time a vendor delivers a prototype, the business context has shifted, the budget is spent, and executive sponsors have lost patience. Speed matters.
+  - generic [ref=e56]:
+    - generic [ref=e57]: The Method
+    - heading "3 workshops. 3 weeks. One working prototype." [level=2] [ref=e58]:
+      - text: 3 workshops. 3 weeks.
+      - text: One working prototype.
+    - paragraph [ref=e59]: A proven, structured flow that moves your organization from "we want AI" to a decision-ready prototype - without the months of back-and-forth.
+    - generic [ref=e60]:
+      - generic [ref=e61]:
+        - generic [ref=e63]: "01"
+        - generic [ref=e64]:
+          - generic [ref=e67]:
+            - generic [ref=e68]: Goal Workshop
+            - generic [ref=e69]: 2 hours
+          - heading "Define the problem, discover the opportunity" [level=3] [ref=e70]
+          - paragraph [ref=e71]: We map your organization's AI ambitions to concrete business problems. Using structured facilitation, we identify and prioritize use cases by business value and technical feasibility.
+          - list [ref=e72]:
+            - listitem [ref=e73]: Prioritized AI use case list
+            - listitem [ref=e74]: Business value assessment
+            - listitem [ref=e75]: Clear problem statements
+      - generic [ref=e76]:
+        - generic [ref=e78]: "02"
+        - generic [ref=e79]:
+          - generic [ref=e82]:
+            - generic [ref=e83]: Concept Workshop
+            - generic [ref=e84]: 3 hours
+          - heading "Architecture, AWS services, and cost estimates" [level=3] [ref=e85]
+          - paragraph [ref=e86]: Technical deep-dive on the top use cases. We design the architecture, select the right AWS AI services, estimate infrastructure costs, and define what a prototype would look like.
+          - list [ref=e87]:
+            - listitem [ref=e88]: Architecture concepts
+            - listitem [ref=e89]: AWS service mapping
+            - listitem [ref=e90]: Cost estimates per use case
+      - generic [ref=e91]:
+        - generic [ref=e92]: "03"
+        - generic [ref=e93]:
+          - generic [ref=e96]:
+            - generic [ref=e97]: Decision Workshop
+            - generic [ref=e98]: 2 hours
+          - heading "Live prototype demo and go/no-go decisions" [level=3] [ref=e99]
+          - paragraph [ref=e100]: We present a working prototype of the selected use case. Your team evaluates it live, makes go/no-go decisions for each idea, and leaves with a concrete implementation roadmap.
+          - list [ref=e101]:
+            - listitem [ref=e102]: Working prototype demo
+            - listitem [ref=e103]: Go/no-go decisions per use case
+            - listitem [ref=e104]: Implementation roadmap
+    - generic [ref=e106]:
+      - text: From first call to working prototype in
+      - strong [ref=e107]: 3 weeks
+  - generic [ref=e109]:
+    - generic [ref=e110]: Workshop Formats
+    - heading "Choose your starting point" [level=2] [ref=e111]
+    - paragraph [ref=e112]: Every engagement is tailored. Start where it makes sense for your organization and expand from there.
+    - generic [ref=e113]:
+      - generic [ref=e114]:
+        - generic [ref=e117]: 1 session - 2 deliverables
+        - heading "Discovery" [level=3] [ref=e118]
+        - paragraph [ref=e119]: Find your best AI opportunity and understand where to focus first.
+        - generic [ref=e120]: €4,000
+        - list [ref=e121]:
+          - listitem [ref=e122]: Prioritized use case shortlist
+          - listitem [ref=e123]: Business value assessment
+        - link "Get Started" [ref=e124] [cursor=pointer]:
+          - /url: "#cta"
+      - generic [ref=e125]:
+        - generic [ref=e128]: 1 session - 3 deliverables
+        - heading "Concept" [level=3] [ref=e129]
+        - paragraph [ref=e130]: Prove technical feasibility before committing budget to development.
+        - generic [ref=e131]: €5,000
+        - list [ref=e132]:
+          - listitem [ref=e133]: Architecture concept
+          - listitem [ref=e134]: AWS service mapping
+          - listitem [ref=e135]: Cost estimate
+        - link "Get Started" [ref=e136] [cursor=pointer]:
+          - /url: "#cta"
+      - generic [ref=e137]:
+        - generic [ref=e138]: Most Popular
+        - generic [ref=e141]: 2 sessions - 3 deliverables
+        - heading "Prototype" [level=3] [ref=e142]
+        - paragraph [ref=e143]: See it work before you commit. A working prototype changes the conversation.
+        - generic [ref=e144]: €7,000
+        - list [ref=e145]:
+          - listitem [ref=e146]: Working prototype
+          - listitem [ref=e147]: Architecture concept
+          - listitem [ref=e148]: Implementation roadmap
+        - link "Get Started" [ref=e149] [cursor=pointer]:
+          - /url: "#cta"
+      - generic [ref=e150]:
+        - generic [ref=e153]: 4 sessions - 8 deliverables
+        - heading "Comprehensive" [level=3] [ref=e154]
+        - paragraph [ref=e155]: Full transformation roadmap - from AI strategy to multiple working prototypes.
+        - generic [ref=e156]: €16,000
+        - list [ref=e157]:
+          - listitem [ref=e158]: Multiple prototypes
+          - listitem [ref=e159]: Full transformation roadmap
+          - listitem [ref=e160]: Funding application support
+          - listitem [ref=e161]: Implementation planning
+        - link "Get Started" [ref=e162] [cursor=pointer]:
+          - /url: "#cta"
+    - generic [ref=e164]:
+      - text: Costs up to
+      - strong [ref=e165]: 100% fundable
+      - text: for eligible AWS cloud projects.
+      - link "Learn about AWS funding" [ref=e166] [cursor=pointer]:
+        - /url: "#funding"
+  - generic [ref=e168]:
+    - generic [ref=e169]: Industries
+    - heading "Deep expertise across complex industries" [level=2] [ref=e170]:
+      - text: Deep expertise across
+      - text: complex industries
+    - paragraph [ref=e171]: AI looks different in every sector. Bring domain knowledge to workshops that understand your regulatory context, data landscape, and competitive pressures.
+    - generic [ref=e172]:
+      - generic [ref=e173]:
+        - heading "Media & Broadcasting" [level=3] [ref=e175]
+        - paragraph [ref=e176]: Video processing automation, AI-powered content tagging, accessibility features, and audience intelligence at scale.
+        - generic [ref=e177]:
+          - generic [ref=e178]: Video Processing
+          - generic [ref=e179]: Content Automation
+          - generic [ref=e180]: Accessibility
+      - generic [ref=e181]:
+        - heading "Geospatial & GIS" [level=3] [ref=e183]
+        - paragraph [ref=e184]: Satellite data analysis, location intelligence pipelines, and AI-enhanced mapping for government and enterprise.
+        - generic [ref=e185]:
+          - generic [ref=e186]: Satellite Analysis
+          - generic [ref=e187]: Location Intelligence
+          - generic [ref=e188]: Mapping
+      - generic [ref=e189]:
+        - heading "Energy & Utilities" [level=3] [ref=e191]
+        - paragraph [ref=e192]: Predictive maintenance for infrastructure, grid optimization, and AI-driven sustainability reporting.
+        - generic [ref=e193]:
+          - generic [ref=e194]: Predictive Maintenance
+          - generic [ref=e195]: Grid Optimization
+          - generic [ref=e196]: Sustainability
+      - generic [ref=e197]:
+        - heading "Financial Services" [level=3] [ref=e199]
+        - paragraph [ref=e200]: Compliance automation, fraud detection pipelines, intelligent document processing for KYC and reporting.
+        - generic [ref=e201]:
+          - generic [ref=e202]: Compliance Automation
+          - generic [ref=e203]: Fraud Detection
+          - generic [ref=e204]: Document Processing
+      - generic [ref=e205]:
+        - heading "Manufacturing & Logistics" [level=3] [ref=e207]
+        - paragraph [ref=e208]: Visual quality control, supply chain intelligence, and predictive maintenance for complex production environments.
+        - generic [ref=e209]:
+          - generic [ref=e210]: Quality Control
+          - generic [ref=e211]: Supply Chain
+          - generic [ref=e212]: Predictive Maintenance
+      - generic [ref=e213]:
+        - heading "Public Sector" [level=3] [ref=e215]
+        - paragraph [ref=e216]: Government digitization, accessible citizen services, document automation, and compliant AI deployment.
+        - generic [ref=e217]:
+          - generic [ref=e218]: Government Digitization
+          - generic [ref=e219]: Accessibility
+          - generic [ref=e220]: Citizen Services
+  - generic [ref=e222]:
+    - generic [ref=e223]: Use Cases
+    - heading "Real AI applications, across real industries" [level=2] [ref=e224]:
+      - text: Real AI applications,
+      - text: across real industries
+    - paragraph [ref=e225]: Explore detailed use cases showing how AI prototypes have solved specific problems - from media automation to document processing to geospatial intelligence.
+    - generic [ref=e226]:
+      - link "AI Video Editing Automation Auto-cut press conferences, generate highlight reels, process live feeds." [ref=e227] [cursor=pointer]:
+        - /url: https://ai-workshops.online/use-cases/ai-video-editing-automation/
+        - heading "AI Video Editing Automation" [level=3] [ref=e228]
+        - paragraph [ref=e229]: Auto-cut press conferences, generate highlight reels, process live feeds.
+      - link "AI Transcription with Speaker Attribution Multi-speaker transcription for news, podcasts, and enterprise meetings." [ref=e230] [cursor=pointer]:
+        - /url: https://ai-workshops.online/use-cases/ai-transcription-speaker-attribution/
+        - heading "AI Transcription with Speaker Attribution" [level=3] [ref=e231]
+        - paragraph [ref=e232]: Multi-speaker transcription for news, podcasts, and enterprise meetings.
+      - link "Intelligent Document Processing Automated extraction from contracts, invoices, and forms." [ref=e233] [cursor=pointer]:
+        - /url: https://ai-workshops.online/use-cases/ai-document-processing/
+        - heading "Intelligent Document Processing" [level=3] [ref=e234]
+        - paragraph [ref=e235]: Automated extraction from contracts, invoices, and forms.
+      - link "AI Use Case Prioritization From 57 ideas to 3 fundable prototypes - a structured scoring framework." [ref=e236] [cursor=pointer]:
+        - /url: https://ai-workshops.online/use-cases/ai-use-case-prioritization/
+        - heading "AI Use Case Prioritization" [level=3] [ref=e237]
+        - paragraph [ref=e238]: From 57 ideas to 3 fundable prototypes - a structured scoring framework.
+      - link "Multi-Agent AI Systems Orchestrating multiple AI agents for complex enterprise workflows." [ref=e239] [cursor=pointer]:
+        - /url: https://ai-workshops.online/use-cases/ai-multi-agent-systems/
+        - heading "Multi-Agent AI Systems" [level=3] [ref=e240]
+        - paragraph [ref=e241]: Orchestrating multiple AI agents for complex enterprise workflows.
+      - link "AWS AI Funding Up to 100% funded PoC development - how to access it." [ref=e242] [cursor=pointer]:
+        - /url: https://ai-workshops.online/use-cases/aws-ai-funding/
+        - heading "AWS AI Funding" [level=3] [ref=e243]
+        - paragraph [ref=e244]: Up to 100% funded PoC development - how to access it.
+    - link "Browse all use cases" [ref=e246] [cursor=pointer]:
+      - /url: https://ai-workshops.online/use-cases/
+      - text: Browse all use cases
+  - generic [ref=e249]:
+    - generic [ref=e250]:
+      - generic [ref=e251]: Deliverables
+      - heading "What clients walk away with" [level=2] [ref=e252]
+      - paragraph [ref=e253]: Every workshop produces concrete, decision-ready outputs - not just insights and recommendations.
+      - list [ref=e254]:
+        - listitem [ref=e255]:
+          - generic [ref=e257]:
+            - strong [ref=e258]: AI Use Case Shortlist
+            - paragraph [ref=e259]: Prioritized by business value and technical feasibility, ready to present to leadership.
+        - listitem [ref=e260]:
+          - generic [ref=e262]:
+            - strong [ref=e263]: Architecture Concepts
+            - paragraph [ref=e264]: Technical designs mapped to AWS services with clear implementation paths.
+        - listitem [ref=e265]:
+          - generic [ref=e267]:
+            - strong [ref=e268]: Working Prototypes
+            - paragraph [ref=e269]: Functional, demo-ready software your team can evaluate and build on.
+        - listitem [ref=e270]:
+          - generic [ref=e272]:
+            - strong [ref=e273]: AWS Cost Estimates
+            - paragraph [ref=e274]: Realistic infrastructure costs so finance has what they need to approve next steps.
+        - listitem [ref=e275]:
+          - generic [ref=e277]:
+            - strong [ref=e278]: Implementation Roadmap
+            - paragraph [ref=e279]: Phased plan from prototype to production, with team requirements and timelines.
+        - listitem [ref=e280]:
+          - generic [ref=e282]:
+            - strong [ref=e283]: Funding Applications
+            - paragraph [ref=e284]: Pre-prepared AWS funding applications for eligible cloud and AI projects.
+    - generic [ref=e286]:
+      - generic [ref=e287]:
+        - blockquote [ref=e288]: "\"The 3-workshop format gave us a working prototype in under a month. We went from vague AI ambitions to a funded PoC with a clear implementation plan. Exceptional facilitation.\""
+        - generic [ref=e291]:
+          - strong [ref=e292]: Enterprise Client
+          - text: Financial Services, Vienna
+      - generic [ref=e293]:
+        - blockquote [ref=e294]: "\"Linda brought both the strategic vision and the technical depth. We had an architecture concept, cost estimates, and a working demo - all within 3 weeks.\""
+        - generic [ref=e297]:
+          - strong [ref=e298]: CTO
+          - text: Media & Broadcasting, DACH region
+  - generic [ref=e301]:
+    - generic [ref=e302]: AWS Community Hero
+    - generic [ref=e303]: AWS Funding
+    - heading "Up to 100% funded through AWS" [level=2] [ref=e304]:
+      - text: Up to 100% funded
+      - text: through AWS
+    - paragraph [ref=e305]: As an AWS Community Hero and certified partner, I navigate the funding process for you - from application to approval.
+    - generic [ref=e306]:
+      - generic [ref=e307]:
+        - generic [ref=e309]: Up to €10,000
+        - heading "Proof of Concept Funding" [level=3] [ref=e310]
+        - paragraph [ref=e311]: AWS funds eligible PoC projects at up to €10,000. Workshop deliverables are designed to meet funding application requirements out of the box.
+        - list [ref=e312]:
+          - listitem [ref=e313]: Covers prototype development costs
+          - listitem [ref=e314]: Fast approval for qualified projects
+          - listitem [ref=e315]: Application support included
+      - generic [ref=e316]:
+        - generic [ref=e318]: Up to €400,000
+        - heading "Cloud Migration Funding" [level=3] [ref=e319]
+        - paragraph [ref=e320]: Larger cloud transformation projects can qualify for up to €400,000 in AWS migration funding. I help you structure the project to maximize eligibility.
+        - list [ref=e321]:
+          - listitem [ref=e322]: Full migration cost coverage
+          - listitem [ref=e323]: Multi-phase project structuring
+          - listitem [ref=e324]: End-to-end application support
+    - paragraph [ref=e326]: Not all projects qualify. Eligibility depends on project scope, AWS services used, and business criteria. I assess your project's funding potential in the free Idea Call.
+  - generic [ref=e329]:
+    - generic [ref=e330]:
+      - img "Linda Mohamed" [ref=e332]
+      - generic [ref=e333]:
+        - generic [ref=e334]: AWS Community Hero
+        - generic [ref=e335]: Based in Vienna
+        - generic [ref=e336]: Working globally
+    - generic [ref=e337]:
+      - generic [ref=e338]: About
+      - heading "Linda Mohamed" [level=2] [ref=e339]
+      - paragraph [ref=e340]: AWS Community Hero - AI & Cloud Consultant
+      - paragraph [ref=e341]: I've spent 12+ years in enterprise IT - 6 of them focused on AI and cloud architecture. Before going independent, I worked at EY and ebcont, which means I understand both the technical complexity and the organizational dynamics that make or break AI initiatives.
+      - paragraph [ref=e342]: As an AWS Community Hero, I work at the intersection of business strategy and hands-on engineering. I don't just advise - I build. The 3-workshop method was designed to cut through the noise and get organizations to a working prototype as fast as possible.
+      - paragraph [ref=e343]:
+        - text: I work with partners like
+        - strong [ref=e344]: AION Advisory
+        - text: for engagements that require additional strategic depth, and I'm a trusted resource for AWS-funded innovation projects across the DACH region.
+      - generic [ref=e345]:
+        - link "lindamohamed.com" [ref=e346] [cursor=pointer]:
+          - /url: https://lindamohamed.com
+          - text: lindamohamed.com
+        - link "Speaking Profile" [ref=e347] [cursor=pointer]:
+          - /url: https://lindamohamed.com/speaking
+          - text: Speaking Profile
+  - generic [ref=e350]:
+    - generic [ref=e351]: Get Started
+    - heading "Start with a free 30-minute Idea Call" [level=2] [ref=e352]:
+      - text: Start with a free
+      - text: 30-minute Idea Call
+    - paragraph [ref=e353]: No commitment. No slides. Just a conversation about your AI goals and whether the workshop format is the right fit for your organization.
+    - generic [ref=e354]:
+      - generic [ref=e356]: Understand your current AI maturity
+      - generic [ref=e358]: Identify your highest-value use cases
+      - generic [ref=e360]: Assess AWS funding eligibility
+      - generic [ref=e362]: Recommend the right workshop format
+    - generic [ref=e363]:
+      - link "Book a Free Idea Call" [ref=e364] [cursor=pointer]:
+        - /url: https://outlook.office365.com/owa/calendar/Letstalk1@lindamohamed.com/bookings/
+        - text: Book a Free Idea Call
+      - link "View All Workshops" [ref=e365] [cursor=pointer]:
+        - /url: https://www.lindamohamed.com/workshops
+        - text: View All Workshops
+    - generic [ref=e366]:
+      - paragraph [ref=e367]: Ready to start?
+      - generic [ref=e368]:
+        - link "Workshop Series €2,000/mo × 3" [ref=e369] [cursor=pointer]:
+          - /url: https://www.lindamohamed.com/offers/m6KponLm
+          - generic [ref=e370]: Workshop Series
+          - generic [ref=e371]: €2,000/mo × 3
+        - link "1:1 Consulting 60 min session" [ref=e372] [cursor=pointer]:
+          - /url: https://www.lindamohamed.com/offers/HL2FFzBM
+          - generic [ref=e373]: 1:1 Consulting
+          - generic [ref=e374]: 60 min session
+    - paragraph [ref=e375]: "Or email directly: hello@lindamohamed.com"
+  - contentinfo [ref=e376]:
+    - generic [ref=e377]:
+      - generic [ref=e378]:
+        - generic [ref=e379]:
+          - link "ai-workshops" [ref=e380] [cursor=pointer]:
+            - /url: https://ai-workshops.online/
+          - paragraph [ref=e381]: Enterprise AI workshops that deliver working prototypes - not just slide decks. Based in Vienna, working globally.
+          - generic [ref=e382]:
+            - link "LinkedIn" [ref=e383] [cursor=pointer]:
+              - /url: https://linkedin.com/in/lindamohamed
+            - link "GitHub" [ref=e384] [cursor=pointer]:
+              - /url: https://github.com/lindamohamed
+            - link "Website" [ref=e385] [cursor=pointer]:
+              - /url: https://lindamohamed.com
+        - generic [ref=e386]:
+          - heading "Workshops" [level=4] [ref=e387]
+          - list [ref=e388]:
+            - listitem [ref=e389]:
+              - link "The Method" [ref=e390] [cursor=pointer]:
+                - /url: "#method"
+            - listitem [ref=e391]:
+              - link "Packages & Pricing" [ref=e392] [cursor=pointer]:
+                - /url: "#packages"
+            - listitem [ref=e393]:
+              - link "Industries" [ref=e394] [cursor=pointer]:
+                - /url: "#industries"
+            - listitem [ref=e395]:
+              - link "Use Cases" [ref=e396] [cursor=pointer]:
+                - /url: https://ai-workshops.online/use-cases/
+            - listitem [ref=e397]:
+              - link "AWS Funding" [ref=e398] [cursor=pointer]:
+                - /url: "#funding"
+            - listitem [ref=e399]:
+              - link "Book a Call" [ref=e400] [cursor=pointer]:
+                - /url: "#cta"
+        - generic [ref=e401]:
+          - heading "Linda Mohamed" [level=4] [ref=e402]
+          - list [ref=e403]:
+            - listitem [ref=e404]:
+              - link "lindamohamed.com" [ref=e405] [cursor=pointer]:
+                - /url: https://lindamohamed.com
+            - listitem [ref=e406]:
+              - link "Speaking Profile" [ref=e407] [cursor=pointer]:
+                - /url: https://lindamohamed.com/speaking
+            - listitem [ref=e408]:
+              - link "About" [ref=e409] [cursor=pointer]:
+                - /url: "#about"
+        - generic [ref=e410]:
+          - heading "Ecosystem" [level=4] [ref=e411]
+          - list [ref=e412]:
+            - listitem [ref=e413]:
+              - link "ai-workshops.live" [ref=e414] [cursor=pointer]:
+                - /url: https://ai-workshops.live
+            - listitem [ref=e415]:
+              - link "ai-workshops.digital" [ref=e416] [cursor=pointer]:
+                - /url: https://ai-workshops.digital
+            - listitem [ref=e417]:
+              - link "ai-solutions.wiki" [ref=e418] [cursor=pointer]:
+                - /url: https://ai-solutions.wiki
+            - listitem [ref=e419]:
+              - link "freelancer-templates.org" [ref=e420] [cursor=pointer]:
+                - /url: https://freelancer-templates.org
+            - listitem [ref=e421]:
+              - link "SISY Ecosystem" [ref=e422] [cursor=pointer]:
+                - /url: https://sisy.digital
+      - generic [ref=e423]:
+        - paragraph [ref=e424]: © 2026 Linda Mohamed. All rights reserved.
+        - generic [ref=e425]:
+          - link "Imprint" [ref=e426] [cursor=pointer]:
+            - /url: https://ai-workshops.online/imprint
+          - link "Privacy Policy" [ref=e427] [cursor=pointer]:
+            - /url: https://ai-workshops.online/privacy
