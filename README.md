@@ -1,5 +1,11 @@
 # AI Solutions Wiki
 
+> Built and maintained by **[Linda Mohamed](https://www.lindamohamed.com)** — AWS Community Hero · AI Solutions Architect · Speaker
+>
+> [📅 Book a free call](https://outlook.office.com/book/Letstalk1@lindamohamed.com/) · [🎓 Workshops](https://www.lindamohamed.com/workshops) · [LinkedIn](https://linkedin.com/in/lindamohamed) · [YouTube](https://youtube.com/@mrs_lee_g) · [GitHub](https://github.com/linda-mhmd)
+
+---
+
 A knowledge base for building production AI systems. Think of it as a Wikipedia for the full stack of AI engineering — not just "call the API" tutorials, but everything required to take an AI system to production and keep it running.
 
 **Live site:** [ai-solutions.wiki](https://ai-solutions.wiki)
@@ -64,6 +70,17 @@ Articles cross-link to related articles. Follow the links to discover the full s
 
 ---
 
+## Work With Linda
+
+This wiki is maintained by **Linda Mohamed**, AWS Community Hero and AI Solutions Architect based in Austria. If you are building AI systems and want expert guidance:
+
+- **[Free 30-min discovery call](https://outlook.office.com/book/Letstalk1@lindamohamed.com/)** — discuss your AI use case, architecture questions, or team challenges
+- **[AI Workshops](https://www.lindamohamed.com/workshops)** — hands-on sessions for teams getting started with production AI on AWS
+- **[AI Workshops Online](https://ai-workshops.online)** — self-paced and live online workshops
+- **[lindamohamed.com](https://www.lindamohamed.com)** — consulting, speaking, and advisory
+
+---
+
 ## Tech Stack
 
 - **[Hugo](https://gohugo.io/)** — static site generator
@@ -77,7 +94,7 @@ Articles cross-link to related articles. Follow the links to discover the full s
 You need Hugo installed. See [gohugo.io/installation](https://gohugo.io/installation/) for instructions.
 
 ```bash
-git clone https://github.com/mzzavaa/ai-solutions-wiki.git
+git clone https://github.com/linda-mhmd/ai-solutions-wiki.git
 cd ai-solutions-wiki
 hugo server
 ```
@@ -127,10 +144,10 @@ Contributions are welcome. Articles get better when people who have built produc
 
 The AI industry produces enormous amounts of content. Most of it is tutorials that stop at the prototype stage, vendor marketing, or research papers that assume graduate-level background knowledge.
 
-There is a consistent gap: no reference resource for the engineering required between "working prototype" and "production system." The patterns exist — they are discovered by every team that has shipped AI to production — but they are not organized anywhere that a newcomer can find them.
+There is a consistent gap: no reference resource for the engineering required between "working prototype" and "production system." The patterns exist (they are discovered by every team that has shipped AI to production), but they are not organized anywhere that a newcomer can find them.
 
 This wiki is an attempt to fill that gap.
 
 ---
 
-**GitHub:** [github.com/mzzavaa/ai-solutions-wiki](https://github.com/mzzavaa/ai-solutions-wiki)
+**Created by [Linda Mohamed](https://www.lindamohamed.com)** · [ai-solutions.wiki](https://ai-solutions.wiki) · [github.com/linda-mhmd](https://github.com/linda-mhmd)

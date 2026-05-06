@@ -5,6 +5,18 @@ date: 2026-03-24
 tags: ["project-management", "beginner", "about", "wiki", "ai-solutions"]
 ---
 
+## Who Made This
+
+The AI Solutions Wiki is built and maintained by **[Linda Mohamed](https://www.lindamohamed.com)**, an AWS Community Hero and AI Solutions Architect based in Austria. Linda works with teams across Europe building production AI systems on AWS — from first prototype to governed, observable, production-grade deployments.
+
+If you want to work together:
+
+- **[Book a free 30-minute call](https://outlook.office.com/book/Letstalk1@lindamohamed.com/)** — architecture review, use-case scoping, or team questions
+- **[AI Workshops](https://www.lindamohamed.com/workshops)** — hands-on workshops for teams building with AI on AWS
+- **[LinkedIn](https://linkedin.com/in/lindamohamed)** · **[YouTube](https://youtube.com/@mrs_lee_g)** · **[GitHub](https://github.com/linda-mhmd)**
+
+---
+
 ## What This Wiki Is
 
 The AI Solutions Wiki is a practical knowledge base for teams building AI-powered products and workflows. The focus is on applied AI - not theoretical research, not vendor marketing, but the real patterns, tools, and decisions that come up when you are turning an idea into a working system.

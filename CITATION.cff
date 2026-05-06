@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this knowledge base in your work, please cite it as below."
+type: software
+title: "AI Solutions Wiki"
+abstract: >
+  A practical knowledge base for building production AI systems.
+  Covers AI engineering patterns, RAG, agent orchestration, MLOps,
+  cloud infrastructure, EU AI governance, and software engineering
+  foundations for teams shipping AI to production.
+authors:
+  - family-names: Mohamed
+    given-names: Linda
+    alias: linda-mhmd
+    affiliation: "Independent AI Solutions Architect"
+    country: AT
+    orcid: ""
+    website: "https://www.lindamohamed.com"
+url: "https://ai-solutions.wiki"
+repository-code: "https://github.com/linda-mhmd/ai-solutions-wiki"
+license: CC-BY-4.0
+date-released: "2026-03-24"
+keywords:
+  - artificial-intelligence
+  - machine-learning
+  - mlops
+  - rag
+  - ai-agents
+  - aws
+  - production-ai
+  - ai-engineering
+  - knowledge-base
+  - large-language-models
