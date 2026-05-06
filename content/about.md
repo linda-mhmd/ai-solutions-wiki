@@ -13,7 +13,7 @@ If you want to work together:
 
 - **[Book a free 30-minute call](https://outlook.office.com/book/Letstalk1@lindamohamed.com/)** - architecture review, use-case scoping, or team questions
 - **[AI Workshops](https://www.lindamohamed.com/workshops)** - hands-on workshops for teams building with AI on AWS
-- **[LinkedIn](https://linkedin.com/in/lindamohamed)** · **[YouTube](https://youtube.com/@mrs_lee_g)** · **[GitHub](https://github.com/linda-mhmd)**
+- **[LinkedIn](https://www.linkedin.com/in/linda-mohamed/)** · **[YouTube](https://youtube.com/@mrs_lee_g)** · **[GitHub](https://github.com/linda-mhmd)**
 
 ---
 

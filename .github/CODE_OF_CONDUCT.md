@@ -27,4 +27,4 @@ This code of conduct applies to contributions made via GitHub - pull requests, i
 
 Instances of unacceptable behavior may be reported by opening a GitHub issue or contacting the maintainer directly at [lindamohamed.com](https://www.lindamohamed.com). Reports will be reviewed and responded to within 7 days.
 
-Maintainer: **Linda Mohamed** - [linkedin.com/in/lindamohamed](https://linkedin.com/in/lindamohamed)
+Maintainer: **Linda Mohamed** - [linkedin.com/in/linda-mohamed/](https://linkedin.com/in/linda-mohamed/)

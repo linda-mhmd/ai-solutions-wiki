@@ -2,7 +2,7 @@
 
 > Built and maintained by **[Linda Mohamed](https://www.lindamohamed.com)** - AWS Community Hero · AI Solutions Architect · Speaker
 >
-> [📅 Book a free call](https://outlook.office.com/book/Letstalk1@lindamohamed.com/) · [🎓 Workshops](https://www.lindamohamed.com/workshops) · [LinkedIn](https://linkedin.com/in/lindamohamed) · [YouTube](https://youtube.com/@mrs_lee_g) · [GitHub](https://github.com/linda-mhmd)
+> [📅 Book a free call](https://outlook.office.com/book/Letstalk1@lindamohamed.com/) · [🎓 Workshops](https://www.lindamohamed.com/workshops) · [LinkedIn](https://www.linkedin.com/in/linda-mohamed/) · [YouTube](https://youtube.com/@mrs_lee_g) · [GitHub](https://github.com/linda-mhmd)
 
 ---
 

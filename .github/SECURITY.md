@@ -14,7 +14,7 @@ If you find a security issue - for example, a compromised dependency in the buil
 
 **Do not open a public GitHub issue for security vulnerabilities.**
 
-Report privately by contacting the maintainer at [lindamohamed.com](https://www.lindamohamed.com) or via [LinkedIn](https://linkedin.com/in/lindamohamed).
+Report privately by contacting the maintainer at [lindamohamed.com](https://www.lindamohamed.com) or via [LinkedIn](https://www.linkedin.com/in/linda-mohamed/).
 
 Include:
 
