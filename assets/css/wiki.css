@@ -1190,6 +1190,72 @@ img { max-width: 100%; height: auto; display: block; }
   border-top: 1px solid var(--border);
 }
 
+/* ---- Author Byline ---- */
+.author-byline {
+  margin-top: 48px;
+  padding: 20px 24px;
+  background: var(--surface, #f8fafc);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 12px;
+}
+
+.author-byline-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.author-byline-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text, #0f172a);
+  margin: 0;
+}
+
+.author-byline-name a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent, #2563eb);
+  transition: color 0.15s;
+}
+
+.author-byline-name a:hover { color: var(--accent, #2563eb); }
+
+.author-byline-role {
+  font-size: 0.85rem;
+  color: var(--text-muted, #64748b);
+  margin: 4px 0 0;
+}
+
+.author-byline-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.author-byline-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary, #334155);
+  background: white;
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.author-byline-links a:hover {
+  color: var(--accent, #2563eb);
+  border-color: var(--accent, #2563eb);
+  background: white;
+}
+
 .article-taxonomy { display: flex; flex-direction: column; gap: 10px; }
 
 .taxonomy-group {
@@ -1260,11 +1326,28 @@ img { max-width: 100%; height: auto; display: block; }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
   gap: 40px;
   margin-bottom: 40px;
   padding-bottom: 40px;
   border-bottom: 1px solid rgb(255 255 255 / 0.1);
+}
+
+.footer-brand-link {
+  font-size: 0.875rem;
+  margin-top: 8px;
+}
+
+.footer-brand-link a {
+  color: rgb(255 255 255 / 0.75);
+  text-decoration: none;
+  border-bottom: 1px solid rgb(255 255 255 / 0.2);
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.footer-brand-link a:hover {
+  color: white;
+  border-bottom-color: rgb(255 255 255 / 0.6);
 }
 
 .footer-logo {
@@ -1338,6 +1421,12 @@ img { max-width: 100%; height: auto; display: block; }
   }
   .article-sidebar {
     display: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1fr;
   }
 }
 
