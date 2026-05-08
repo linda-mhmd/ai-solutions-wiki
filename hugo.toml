@@ -26,8 +26,13 @@ buildFuture = true
     startLevel = 2
 
 [params]
-  description = "The definitive knowledge base for AI solutions, frameworks, tools, and best practices. Practical guidance for teams building with AI."
-  author = "AI Solutions Wiki"
+  description = "Engineering reference for production AI systems: architecture patterns, evaluation methods, operational practices, governance, and tooling for teams building enterprise-grade AI. Maintained by AWS Community Hero Linda Mohamed."
+  author = "Linda Mohamed"
+  authorName = "Linda Mohamed"
+  authorURL = "https://lindamohamed.com"
+  authorRole = "AWS Community Hero, AI Architect"
+  twitterHandle = ""
+  defaultOgImage = "/og-default.svg"
   siteURL = "https://ai-solutions.wiki"
   workshopsURL = "https://ai-workshops.online"
   workshopsOverviewURL = "https://www.lindamohamed.com/workshops"
