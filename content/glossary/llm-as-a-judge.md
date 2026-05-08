@@ -11,7 +11,9 @@ related:
   - glossary/llmops
   - glossary/chain-of-thought
   - glossary/llm
-  - guides/evaluation-strategies
+  - guides/llm-evaluation-methods
+  - guides/agent-evaluation-guide
+  - guides/rag-evaluation-guide
 ---
 
 LLM-as-a-judge is the practice of using a language model to score, compare, or critique the outputs of another language model (or its own outputs). It is the dominant evaluation methodology for open-ended generation tasks where automated string-overlap metrics (BLEU, ROUGE, exact match) are inadequate. The technique was systematised by Zheng et al. (2023) in the MT-Bench / Chatbot Arena work, which demonstrated that strong judge models reach approximately 80% agreement with human preference, comparable to human-human agreement on the same tasks.

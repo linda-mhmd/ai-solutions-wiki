@@ -64,7 +64,7 @@
   "logo" ("/favicon.svg" | absURL)
   "description" .Site.Params.description
   "founder" (dict "@id" $personId)
-  "sameAs" (slice "https://github.com/mzzavaa/the-juggling-company" "https://www.linkedin.com/in/linda-mohamed/")
+  "sameAs" (slice "https://github.com/linda-mhmd/ai-solutions-wiki" "https://www.linkedin.com/in/linda-mohamed/")
 }}
 
 {{ $person := dict
@@ -73,7 +73,7 @@
   "name" "Linda Mohamed"
   "url" "https://lindamohamed.com"
   "jobTitle" "AWS Community Hero, AI Architect"
-  "sameAs" (slice "https://www.linkedin.com/in/linda-mohamed/" "https://github.com/mzzavaa")
+  "sameAs" (slice "https://www.linkedin.com/in/linda-mohamed/" "https://github.com/linda-mhmd" "https://github.com/mzzavaa")
 }}
 
 {{ $website := dict
@@ -98,17 +98,17 @@
   {{ $items := slice (dict "@type" "ListItem" "position" 1 "name" "Home" "item" $siteURL) }}
   {{ $pos := 1 }}
   {{ $ancestors := slice }}
-  {{ range .Ancestors }}{{ $ancestors = $ancestors | append . }}{{ end }}
-  {{ range (seq (len $ancestors) -1 1) }}
-    {{ $i := sub . 1 }}
-    {{ $ancestor := index $ancestors $i }}
-    {{ $pos = add $pos 1 }}
-    {{ $items = $items | append (dict "@type" "ListItem" "position" $pos "name" $ancestor.Title "item" $ancestor.Permalink) }}
+  {{ range .Ancestors }}{{ if not .IsHome }}{{ $ancestors = $ancestors | append . }}{{ end }}{{ end }}
+  {{ if gt (len $ancestors) 0 }}
+    {{ range (seq (len $ancestors) -1 1) }}
+      {{ $i := sub . 1 }}
+      {{ $ancestor := index $ancestors $i }}
+      {{ $pos = add $pos 1 }}
+      {{ $items = $items | append (dict "@type" "ListItem" "position" $pos "name" $ancestor.Title "item" $ancestor.Permalink) }}
+    {{ end }}
   {{ end }}
-  {{ if .IsPage }}
-    {{ $pos = add $pos 1 }}
-    {{ $items = $items | append (dict "@type" "ListItem" "position" $pos "name" .Title "item" .Permalink) }}
-  {{ end }}
+  {{ $pos = add $pos 1 }}
+  {{ $items = $items | append (dict "@type" "ListItem" "position" $pos "name" .Title "item" .Permalink) }}
   {{ $breadcrumbs := dict "@type" "BreadcrumbList" "itemListElement" $items }}
   {{ $graph = $graph | append $breadcrumbs }}
 {{ end }}

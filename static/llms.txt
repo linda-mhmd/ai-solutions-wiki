@@ -4,13 +4,13 @@
 
 This site is an open, vendor-neutral knowledge base aimed at engineers, architects, and decision-makers shipping AI in production. Content is organised around the layers of a real AI stack — data, models, retrieval, orchestration, evaluation, deployment, observability, and governance — with cross-links between concepts, patterns, tools, and reference architectures.
 
-Editorial standard: each entry follows a consistent structure (definition, mechanism, when to use, trade-offs, references) and links to primary sources where applicable (vendor documentation, ISO / NIST / EU standards, peer-reviewed literature). Source: https://github.com/mzzavaa/the-juggling-company
+Editorial standard: each entry follows a consistent structure (definition, mechanism, when to use, trade-offs, references) and links to primary sources where applicable (vendor documentation, ISO / NIST / EU standards, peer-reviewed literature). Source repository: https://github.com/linda-mhmd/ai-solutions-wiki. Citation metadata: CITATION.cff in the source repository (CFF 1.2.0, CC-BY-4.0).
 
 ## Maintainer
 
 - [Linda Mohamed](https://lindamohamed.com): AWS Community Hero, AI Architect, founder of the AI workshop programme at https://ai-workshops.online
 - LinkedIn: https://www.linkedin.com/in/linda-mohamed/
-- GitHub: https://github.com/mzzavaa
+- GitHub: https://github.com/linda-mhmd
 
 ## Foundations
 
