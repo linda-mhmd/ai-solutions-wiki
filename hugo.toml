@@ -5,6 +5,11 @@ enableRobotsTXT = true
 enableGitInfo = false
 buildFuture = true
 
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
 [minify]
   [minify.tdewolff]
     [minify.tdewolff.html]

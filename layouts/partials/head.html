@@ -64,6 +64,21 @@
   "logo" ("/favicon.svg" | absURL)
   "description" .Site.Params.description
   "founder" (dict "@id" $personId)
+  "founders" (slice (dict "@id" $personId))
+  "foundingDate" "2026-03-24"
+  "knowsAbout" (slice
+    "Artificial Intelligence"
+    "Machine Learning"
+    "Large Language Models"
+    "Retrieval-Augmented Generation"
+    "AI Agents"
+    "MLOps"
+    "Amazon Web Services"
+    "AI Governance"
+    "EU AI Act"
+    "NIST AI Risk Management Framework"
+    "ISO/IEC 42001"
+    "Software Architecture")
   "sameAs" (slice "https://github.com/linda-mhmd/ai-solutions-wiki" "https://www.linkedin.com/in/linda-mohamed/")
 }}
 
@@ -128,8 +143,13 @@
   {{ if $desc }}{{ $defined = merge $defined (dict "description" $desc) }}{{ end }}
   {{ $graph = $graph | append $defined }}
 {{ else if and .IsPage (ne .Kind "section") }}
+  {{ $articleType := "Article" }}
+  {{ if eq .Section "guides" }}{{ $articleType = "TechArticle" }}{{ end }}
+  {{ if eq .Section "comparisons" }}{{ $articleType = "TechArticle" }}{{ end }}
+  {{ if eq .Section "patterns" }}{{ $articleType = "TechArticle" }}{{ end }}
+  {{ if eq .Section "architecture" }}{{ $articleType = "TechArticle" }}{{ end }}
   {{ $article := dict
-    "@type" "Article"
+    "@type" $articleType
     "@id" (printf "%s#article" .Permalink)
     "headline" .Title
     "url" .Permalink
@@ -147,6 +167,47 @@
   {{ if .Lastmod }}{{ $article = merge $article (dict "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")) }}{{ end }}
   {{ with .Params.tags }}{{ $article = merge $article (dict "keywords" (delimit . ", ")) }}{{ end }}
   {{ $graph = $graph | append $article }}
+  {{ if .Params.howto }}
+    {{ $steps := slice }}
+    {{ $stepNum := 0 }}
+    {{ with .Params.howto_steps }}
+      {{ range . }}
+        {{ $stepNum = add $stepNum 1 }}
+        {{ $steps = $steps | append (dict "@type" "HowToStep" "position" $stepNum "name" .name "text" .text) }}
+      {{ end }}
+    {{ end }}
+    {{ $howto := dict
+      "@type" "HowTo"
+      "@id" (printf "%s#howto" .Permalink)
+      "name" .Title
+      "url" .Permalink
+      "image" $ogImageAbs
+      "author" (dict "@id" $personId)
+      "publisher" (dict "@id" $orgId)
+      "inLanguage" $lang
+    }}
+    {{ if $desc }}{{ $howto = merge $howto (dict "description" $desc) }}{{ end }}
+    {{ if gt (len $steps) 0 }}{{ $howto = merge $howto (dict "step" $steps) }}{{ end }}
+    {{ with .Params.howto_total_time }}{{ $howto = merge $howto (dict "totalTime" .) }}{{ end }}
+    {{ $graph = $graph | append $howto }}
+  {{ end }}
+  {{ with .Params.faq }}
+    {{ $faqItems := slice }}
+    {{ range . }}
+      {{ $faqItems = $faqItems | append (dict
+        "@type" "Question"
+        "name" .question
+        "acceptedAnswer" (dict "@type" "Answer" "text" .answer)) }}
+    {{ end }}
+    {{ if gt (len $faqItems) 0 }}
+      {{ $faq := dict
+        "@type" "FAQPage"
+        "@id" (printf "%s#faq" $.Permalink)
+        "mainEntity" $faqItems
+      }}
+      {{ $graph = $graph | append $faq }}
+    {{ end }}
+  {{ end }}
 {{ end }}
 
 {{ $jsonld := dict "@context" "https://schema.org" "@graph" $graph }}
@@ -160,7 +221,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
 {{ range .AlternativeOutputFormats -}}
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
