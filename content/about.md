@@ -53,8 +53,19 @@ The content is also useful for anyone who needs to explain AI decisions to stake
 
 **Ideas** - short concept pieces for automation use cases worth exploring.
 
+## Adjacent Resources
+
+The wiki is part of a small ecosystem of free and paid resources for technical practitioners and freelance engineers shipping AI:
+
+- **[Freelancer Templates](https://freelancer-templates.org)** — production-grade contracts, proposals, statements of work, briefs, and project documentation templates for AI and software freelancers. The reference set used in client engagements.
+- **[Freelancer Automation](https://freelancer-automation.com)** — automation recipes, AI playbooks, and workflow examples for solo operators and small consultancies. Practical patterns for billing, intake, scoping, and delivery automation.
+- **[AI Workshops Online](https://ai-workshops.online)** — structured workshop programmes that take teams from first prototype to production AI on AWS.
+- **[Always Ahead Newsletter](https://alwaysahead.org)** — weekly notes on AI engineering, governance, and the state of practice.
+
+These are run by the same author and link back to the wiki for canonical technical reference.
+
 ## How the Content Is Maintained
 
-Articles are reviewed and updated as tools evolve and new patterns emerge. Pricing information and model capabilities change frequently - always verify current pricing at the provider's official documentation before making architecture decisions based on figures quoted here.
+Articles are reviewed and updated as tools evolve and new patterns emerge. Pricing information and model capabilities change frequently — always verify current pricing at the provider's official documentation before making architecture decisions based on figures quoted here.
 
-If you find an error or a gap, the best way to contribute is through the GitHub repository at [github.com/mzzavaa/ai-solutions-wiki](https://github.com/mzzavaa/ai-solutions-wiki).
+If you find an error or a gap, the best way to contribute is through the GitHub repository at [github.com/linda-mhmd/ai-solutions-wiki](https://github.com/linda-mhmd/ai-solutions-wiki).

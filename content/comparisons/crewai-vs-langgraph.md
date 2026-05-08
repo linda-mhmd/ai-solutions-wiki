@@ -59,3 +59,26 @@ CrewAI on AWS typically runs as a container on ECS or a long-running Lambda (if 
 ## Summary
 
 Use CrewAI for flexible, role-based workflows where iteration speed matters and the workflow does not require strict auditability. Use LangGraph for production workflows where you need precise control over state, conditional execution, human-in-the-loop gates, and complete observability.
+
+## See Also
+
+- [AI Agent](/glossary/ai-agent/), [Multi-Agent Systems](/glossary/multi-agent-systems/), [Multi-Agent Orchestration](/glossary/multi-agent-orchestration/)
+- [Tool Use](/glossary/tool-use/), [Function Calling](/glossary/function-calling/), [Model Context Protocol](/glossary/model-context-protocol/)
+- [Single-Agent vs Multi-Agent](/comparisons/single-agent-vs-multi-agent/)
+- [CrewAI vs Strands](/comparisons/crewai-vs-strands/), [Autogen vs CrewAI](/comparisons/autogen-vs-crewai/)
+- [AgentCore vs Bedrock Agents](/comparisons/agentcore-vs-bedrock-agents/)
+- [LangChain vs LlamaIndex](/comparisons/langchain-vs-llamaindex/), [LangChain vs DSPy](/comparisons/langchain-vs-dspy/)
+
+## Sources and Further Reading
+
+- Yao, S., Zhao, J., Yu, D., et al. (2023). *ReAct: Synergizing Reasoning and Acting in Language Models.* ICLR 2023. arXiv:2210.03629. [https://arxiv.org/abs/2210.03629](https://arxiv.org/abs/2210.03629)
+- Wu, Q., Bansal, G., Zhang, J., et al. (2023). *AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation.* arXiv:2308.08155. [https://arxiv.org/abs/2308.08155](https://arxiv.org/abs/2308.08155)
+- Hong, S., Zheng, X., Chen, J., et al. (2024). *MetaGPT: Meta Programming for Multi-Agent Collaborative Framework.* ICLR 2024. arXiv:2308.00352. [https://arxiv.org/abs/2308.00352](https://arxiv.org/abs/2308.00352)
+- Schick, T., Dwivedi-Yu, J., Dessì, R., et al. (2023). *Toolformer: Language Models Can Teach Themselves to Use Tools.* NeurIPS 2023. arXiv:2302.04761. [https://arxiv.org/abs/2302.04761](https://arxiv.org/abs/2302.04761)
+- Patil, S. G., Zhang, T., Wang, X., Gonzalez, J. E. (2023). *Gorilla: Large Language Model Connected with Massive APIs.* arXiv:2305.15334. [https://arxiv.org/abs/2305.15334](https://arxiv.org/abs/2305.15334)
+- LangGraph documentation. [https://langchain-ai.github.io/langgraph/](https://langchain-ai.github.io/langgraph/)
+- CrewAI documentation. [https://docs.crewai.com/](https://docs.crewai.com/)
+- AWS. *Strands Agents (open-source agent framework).* [https://strandsagents.com/](https://strandsagents.com/)
+- AWS. *Amazon Bedrock Converse API tool use.* [https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-call.html](https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-call.html)
+- AWS. *Amazon Bedrock AgentCore.* [https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/)
+- Anthropic. *Building effective agents.* [https://www.anthropic.com/research/building-effective-agents](https://www.anthropic.com/research/building-effective-agents)

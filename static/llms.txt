@@ -12,6 +12,13 @@ Editorial standard: each entry follows a consistent structure (definition, mecha
 - LinkedIn: https://www.linkedin.com/in/linda-mohamed/
 - GitHub: https://github.com/linda-mhmd
 
+## Adjacent resources (same author, complementary scope)
+
+- [Freelancer Templates](https://freelancer-templates.org): production-grade contracts, proposals, statements of work, briefs, and project documentation templates used in real client engagements.
+- [Freelancer Automation](https://freelancer-automation.com): AI workflow recipes, automation playbooks, and integration patterns for solo operators and small consultancies.
+- [AI Workshops Online](https://ai-workshops.online): structured workshop programmes for teams shipping AI on AWS.
+- [Always Ahead Newsletter](https://alwaysahead.org): weekly notes on AI engineering, governance, and the state of practice.
+
 ## Foundations
 
 - [Software Foundations for AI Systems](https://ai-solutions.wiki/foundations/): software engineering, data engineering, and ML fundamentals underlying production AI

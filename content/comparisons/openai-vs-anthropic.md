@@ -101,3 +101,24 @@ Pricing changes frequently; check current rates. General patterns:
 **Choose Anthropic when** you prioritize safety, need long context processing, are on AWS, or need strong analytical and writing capabilities.
 
 **Consider both** for production systems. Multi-provider architectures provide redundancy and allow routing to the best model for each task. Abstract your LLM calls behind an interface that allows switching providers.
+
+## See Also
+
+- [Claude vs GPT](/comparisons/claude-vs-gpt/), [GPT-4 vs Claude Enterprise](/comparisons/gpt4-vs-claude-enterprise/)
+- [Bedrock vs Azure OpenAI](/comparisons/bedrock-vs-azure-openai/), [Huggingface vs Bedrock](/comparisons/huggingface-vs-bedrock/)
+- [Function Calling](/glossary/function-calling/), [Tool Use](/glossary/tool-use/), [Model Context Protocol](/glossary/model-context-protocol/)
+- [LLM (glossary)](/glossary/llm/), [Foundation Models](/glossary/foundation-models/)
+- [AI Safety](/glossary/ai-safety/), [Guardrails](/glossary/guardrails/), [Responsible AI](/glossary/responsible-ai/)
+
+## Sources and Further Reading
+
+- OpenAI (2023). *GPT-4 Technical Report.* arXiv:2303.08774. [https://arxiv.org/abs/2303.08774](https://arxiv.org/abs/2303.08774)
+- OpenAI (2024). *Learning to Reason with LLMs (o1 system card).* [https://openai.com/index/learning-to-reason-with-llms/](https://openai.com/index/learning-to-reason-with-llms/)
+- Anthropic. *Constitutional AI: Harmlessness from AI Feedback.* arXiv:2212.08073. [https://arxiv.org/abs/2212.08073](https://arxiv.org/abs/2212.08073)
+- Bai, Y., Kadavath, S., Kundu, S., et al. (2022). *Constitutional AI: Harmlessness from AI Feedback.* arXiv:2212.08073. [https://arxiv.org/abs/2212.08073](https://arxiv.org/abs/2212.08073)
+- Bai, Y., Jones, A., Ndousse, K., et al. (2022). *Training a Helpful and Harmless Assistant with RLHF.* arXiv:2204.05862. [https://arxiv.org/abs/2204.05862](https://arxiv.org/abs/2204.05862)
+- Ouyang, L., Wu, J., Jiang, X., et al. (2022). *Training Language Models to Follow Instructions with Human Feedback.* NeurIPS 2022. arXiv:2203.02155. [https://arxiv.org/abs/2203.02155](https://arxiv.org/abs/2203.02155)
+- Chiang, W.-L., Zheng, L., Sheng, Y., et al. (2024). *Chatbot Arena.* ICML 2024. arXiv:2403.04132. [https://arxiv.org/abs/2403.04132](https://arxiv.org/abs/2403.04132)
+- OpenAI Platform documentation. [https://platform.openai.com/docs/](https://platform.openai.com/docs/)
+- Anthropic API documentation. [https://docs.anthropic.com/](https://docs.anthropic.com/)
+- Anthropic. *Building effective agents.* [https://www.anthropic.com/research/building-effective-agents](https://www.anthropic.com/research/building-effective-agents)

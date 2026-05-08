@@ -39,3 +39,23 @@ Pricing for both services is per-token and changes frequently - check current pr
 ## Recommendation
 
 Default to the AI service from the cloud provider you are already using. The integration, security, and operational benefits of staying within one provider's ecosystem are substantial. Deviate from that default when a specific model requirement, compliance constraint, or cost factor makes the cross-cloud approach clearly worth the overhead.
+
+## See Also
+
+- [Bedrock vs Vertex AI](/comparisons/bedrock-vs-vertex-ai/), [SageMaker vs Bedrock](/comparisons/sagemaker-vs-bedrock/)
+- [AWS vs Azure AI](/comparisons/aws-vs-azure-ai/), [AWS vs GCP AI](/comparisons/aws-vs-gcp-ai/)
+- [OpenAI vs Anthropic](/comparisons/openai-vs-anthropic/), [Claude vs GPT](/comparisons/claude-vs-gpt/)
+- [LLM (glossary)](/glossary/llm/), [Foundation Models](/glossary/foundation-models/)
+- [Function Calling](/glossary/function-calling/), [Guardrails](/glossary/guardrails/)
+
+## Sources and Further Reading
+
+- AWS. *Amazon Bedrock User Guide.* [https://docs.aws.amazon.com/bedrock/latest/userguide/](https://docs.aws.amazon.com/bedrock/latest/userguide/)
+- AWS. *Bedrock Guardrails.* [https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html)
+- AWS. *Bedrock model catalogue.* [https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html](https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html)
+- AWS. *Bedrock Converse API.* [https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-call.html](https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-call.html)
+- Microsoft. *Azure OpenAI Service documentation.* [https://learn.microsoft.com/en-us/azure/ai-services/openai/](https://learn.microsoft.com/en-us/azure/ai-services/openai/)
+- Microsoft. *Azure OpenAI content filtering.* [https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/content-filter](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/content-filter)
+- Microsoft. *Azure AI Foundry (model catalogue).* [https://learn.microsoft.com/en-us/azure/ai-foundry/](https://learn.microsoft.com/en-us/azure/ai-foundry/)
+- AWS Well-Architected Generative AI Lens. [https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.html](https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.html)
+- European Parliament & Council. *Regulation (EU) 2024/1689 on Artificial Intelligence (EU AI Act).* [https://eur-lex.europa.eu/eli/reg/2024/1689/oj](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)

@@ -30,4 +30,11 @@ The wiki covers the engineering surface of applied AI:
 
 Entries follow a consistent structure: definition, mechanism, when to use, trade-offs, and references. Where applicable, content links to primary sources (AWS / Azure / GCP documentation, ISO / NIST / EU standards, original research). The site is built with Hugo, served as static HTML, and indexed by [Pagefind](/glossary/pagefind/) for offline-first full-text search.
 
+## Adjacent resources
+
+For freelancers and small consultancies shipping AI, two sister sites complement the wiki:
+
+- **[Freelancer Templates](https://freelancer-templates.org)** — contracts, proposals, statements of work, project briefs, and documentation templates
+- **[Freelancer Automation](https://freelancer-automation.com)** — AI workflow recipes, automation playbooks, and operator-focused integration patterns
+
 Citation: see `CITATION.cff` in the [source repository](https://github.com/linda-mhmd/ai-solutions-wiki) (CFF 1.2.0, CC-BY-4.0).
