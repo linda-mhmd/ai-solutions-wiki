@@ -2,58 +2,68 @@
 <style>
   /* ---- Foundations Section Landing Page ---- */
   .foundations-hero {
-    background: linear-gradient(160deg, #0f172a 0%, #1c1407 50%, #0f172a 100%);
-    padding: 72px 24px 64px;
-    text-align: center;
-    border-bottom: 1px solid #1e293b;
+    background-color: #faf8f4;
+    background-image:
+      linear-gradient(rgba(180, 140, 100, 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(180, 140, 100, 0.12) 1px, transparent 1px);
+    background-size: 28px 28px;
+    padding: 72px 0 64px;
+    border-bottom: 1px solid #ded7cc;
+  }
+  [data-theme="dark"] .foundations-hero {
+    background-color: var(--surface);
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    border-bottom-color: var(--border);
   }
 
   .foundations-hero-inner {
-    max-width: 640px;
+    max-width: 1280px;
     margin: 0 auto;
+    padding: 0 32px;
   }
 
   .foundations-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #fbbf24;
-    background: rgb(251 191 36 / 0.12);
-    border: 1px solid rgb(251 191 36 / 0.25);
-    border-radius: 100px;
-    padding: 4px 14px;
-    margin-bottom: 20px;
-    letter-spacing: 0.05em;
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #b85c38;
+    font-family: var(--font-mono);
+    letter-spacing: 0.12em;
     text-transform: uppercase;
+    margin-bottom: 16px;
   }
+  [data-theme="dark"] .foundations-badge { color: #d4785a; }
 
   .foundations-hero h1 {
     font-size: clamp(1.75rem, 4vw, 2.6rem);
     font-weight: 800;
-    color: #f1f5f9;
+    color: var(--text-primary);
     letter-spacing: -0.02em;
     margin-bottom: 16px;
     line-height: 1.2;
+    max-width: 680px;
   }
 
   .foundations-hero p {
     font-size: 1.05rem;
-    color: #94a3b8;
+    color: var(--text-secondary);
     line-height: 1.65;
+    max-width: 600px;
   }
 
   /* ---- Intro section ---- */
   .foundations-intro {
-    padding: 56px 24px;
+    padding: 56px 0;
     border-bottom: 1px solid var(--border);
     background: var(--surface);
   }
 
   .foundations-intro-inner {
-    max-width: 720px;
+    max-width: 1280px;
     margin: 0 auto;
+    padding: 0 32px;
   }
 
   .foundations-intro-inner p {
@@ -69,22 +79,25 @@
 
   /* ---- Principles grid section ---- */
   .foundations-principles {
-    padding: 64px 24px 80px;
+    padding: 64px 0 80px;
   }
 
   .foundations-principles-inner {
-    max-width: 1100px;
+    max-width: 1280px;
     margin: 0 auto;
+    padding: 0 32px;
   }
 
   .foundations-section-label {
-    font-size: 0.75rem;
+    font-size: 0.68rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #d97706;
+    letter-spacing: 0.12em;
+    color: #b85c38;
+    font-family: var(--font-mono);
     margin-bottom: 8px;
   }
+  [data-theme="dark"] .foundations-section-label { color: #d4785a; }
 
   .foundations-section-title {
     font-size: 1.5rem;
@@ -104,45 +117,45 @@
 
   /* ---- Principle card icon ---- */
   .principle-card-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius);
-    background: rgb(217 119 6 / 0.1);
-    color: #d97706;
+    width: 36px;
+    height: 36px;
+    border-radius: 3px;
+    background: rgba(184, 92, 56, 0.08);
+    color: #b85c38;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 12px;
     flex-shrink: 0;
   }
+  [data-theme="dark"] .principle-card-icon { background: rgba(212, 120, 90, 0.1); color: #d4785a; }
 
   /* ---- Principle cards grid ---- */
   .principle-cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    gap: 0;
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
   }
 
   .principle-card {
-    background: var(--light-bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
+    background: var(--bg);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
     overflow: hidden;
-    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+    transition: border-color 0.15s;
     text-decoration: none;
     display: flex;
     flex-direction: column;
   }
 
-  .principle-card:hover {
-    border-color: #d97706;
-    box-shadow: 0 4px 24px rgb(217 119 6 / 0.12);
-    transform: translateY(-2px);
-  }
+  .principle-card:hover { background: #faf8f4; text-decoration: none; }
+  [data-theme="dark"] .principle-card:hover { background: var(--surface); }
 
   .principle-card-accent {
-    height: 4px;
-    background: linear-gradient(90deg, #d97706, #f59e0b);
+    height: 3px;
+    background: #b85c38;
   }
 
   .principle-card-body {
@@ -151,13 +164,15 @@
   }
 
   .principle-card-number {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #d97706;
+    letter-spacing: 0.12em;
+    color: #b85c38;
+    font-family: var(--font-mono);
     margin-bottom: 8px;
   }
+  [data-theme="dark"] .principle-card-number { color: #d4785a; }
 
   .principle-card-body h3 {
     font-size: 1.1rem;
@@ -190,23 +205,26 @@
   }
 
   .principle-card-tag {
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: #92400e;
-    background: rgb(217 119 6 / 0.1);
-    border: 1px solid rgb(217 119 6 / 0.2);
-    border-radius: 4px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #b85c38;
+    background: transparent;
+    border: 1px solid rgba(184, 92, 56, 0.3);
+    border-radius: 3px;
     padding: 2px 8px;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.08em;
+    font-family: var(--font-mono);
   }
+  [data-theme="dark"] .principle-card-tag { color: #d4785a; border-color: rgba(212, 120, 90, 0.3); }
 
   .principle-card-arrow {
     font-size: 0.825rem;
-    color: #d97706;
+    color: #b85c38;
     font-weight: 600;
     white-space: nowrap;
   }
+  [data-theme="dark"] .principle-card-arrow { color: #d4785a; }
 
   /* ---- Responsive ---- */
   @media (max-width: 600px) {
@@ -219,7 +237,7 @@
 <!-- Hero -->
 <div class="foundations-hero">
   <div class="foundations-hero-inner">
-    <span class="foundations-badge">Layer 3 &mdash; Software Foundations</span>
+    <div class="foundations-badge">Layer 3: Software Foundations</div>
     <h1>{{ .Title }}</h1>
     {{ with .Description }}
     <p>{{ . }}</p>
@@ -245,7 +263,7 @@
 
     <div class="principle-cards-grid">
 
-      <a href="{{ $.Site.BaseURL }}foundations/solid-principles/" class="principle-card">
+      <a href="{{ "foundations/solid-principles/" | relURL }}" class="principle-card">
         <div class="principle-card-accent"></div>
         <div class="principle-card-body">
           <span class="principle-card-icon">
@@ -261,7 +279,7 @@
         </div>
       </a>
 
-      <a href="{{ $.Site.BaseURL }}foundations/clean-architecture/" class="principle-card">
+      <a href="{{ "foundations/clean-architecture/" | relURL }}" class="principle-card">
         <div class="principle-card-accent"></div>
         <div class="principle-card-body">
           <span class="principle-card-icon">
@@ -277,7 +295,7 @@
         </div>
       </a>
 
-      <a href="{{ $.Site.BaseURL }}foundations/design-patterns/" class="principle-card">
+      <a href="{{ "foundations/design-patterns/" | relURL }}" class="principle-card">
         <div class="principle-card-accent"></div>
         <div class="principle-card-body">
           <span class="principle-card-icon">
@@ -293,7 +311,7 @@
         </div>
       </a>
 
-      <a href="{{ $.Site.BaseURL }}foundations/domain-driven-design/" class="principle-card">
+      <a href="{{ "foundations/domain-driven-design/" | relURL }}" class="principle-card">
         <div class="principle-card-accent"></div>
         <div class="principle-card-body">
           <span class="principle-card-icon">
@@ -309,7 +327,7 @@
         </div>
       </a>
 
-      <a href="{{ $.Site.BaseURL }}foundations/testing-strategy/" class="principle-card">
+      <a href="{{ "foundations/testing-strategy/" | relURL }}" class="principle-card">
         <div class="principle-card-accent"></div>
         <div class="principle-card-body">
           <span class="principle-card-icon">
@@ -325,7 +343,7 @@
         </div>
       </a>
 
-      <a href="{{ $.Site.BaseURL }}foundations/ci-cd/" class="principle-card">
+      <a href="{{ "foundations/ci-cd/" | relURL }}" class="principle-card">
         <div class="principle-card-accent"></div>
         <div class="principle-card-body">
           <span class="principle-card-icon">
@@ -341,7 +359,7 @@
         </div>
       </a>
 
-      <a href="{{ $.Site.BaseURL }}foundations/api-design/" class="principle-card">
+      <a href="{{ "foundations/api-design/" | relURL }}" class="principle-card">
         <div class="principle-card-accent"></div>
         <div class="principle-card-body">
           <span class="principle-card-icon">
@@ -357,7 +375,7 @@
         </div>
       </a>
 
-      <a href="{{ $.Site.BaseURL }}foundations/security/" class="principle-card">
+      <a href="{{ "foundations/security/" | relURL }}" class="principle-card">
         <div class="principle-card-accent"></div>
         <div class="principle-card-body">
           <span class="principle-card-icon">
@@ -373,7 +391,7 @@
         </div>
       </a>
 
-      <a href="{{ $.Site.BaseURL }}foundations/well-architected/" class="principle-card">
+      <a href="{{ "foundations/well-architected/" | relURL }}" class="principle-card">
         <div class="principle-card-accent"></div>
         <div class="principle-card-body">
           <span class="principle-card-icon">

@@ -44,4 +44,4 @@ Data lineage is not a one-time documentation exercise. It must be captured autom
 
 - Bose, R., & Frew, J. (2005). Lineage retrieval for scientific data processing: A survey. *ACM Computing Surveys, 37*(1), 1–28. (Survey of provenance/lineage models in scientific computing.)
 - Buneman, P., & Tan, W.C. (2019). Data provenance. *Communications of the ACM, 62*(12), 31–33.
-- European Parliament and Council. (2024). *Regulation (EU) 2024/1689 (EU AI Act)*, Annex IV — Technical documentation requirements for high-risk AI systems, including training data provenance.
+- European Parliament and Council. (2024). *Regulation (EU) 2024/1689 (EU AI Act)*, Annex IV, Technical documentation requirements for high-risk AI systems, including training data provenance.

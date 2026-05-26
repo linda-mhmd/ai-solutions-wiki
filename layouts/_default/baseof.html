@@ -4,12 +4,14 @@
   {{ partial "head.html" . }}
 </head>
 <body>
+  <div class="reading-progress" aria-hidden="true"></div>
   {{ partial "nav.html" . }}
   <main id="main-content">
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "footer.html" . }}
 
+  <script src="{{ "js/wiki-library.js" | relURL }}" defer></script>
   <script src="{{ "pagefind/pagefind-ui.js" | relURL }}"></script>
   <script>
     window.addEventListener('DOMContentLoaded', function() {
@@ -34,7 +36,7 @@
         });
       }
 
-      // Restore query from URL — skip on the dedicated search page (it handles its own restoration)
+      // Restore query from URL (skip on the dedicated search page, which handles its own restoration)
       if (initialQuery && !document.getElementById('search-page')) {
         const input = document.querySelector('#search input[type=text]');
         if (input) {
@@ -119,6 +121,32 @@
       }
     });
 
+    // TOC active heading via IntersectionObserver
+    const tocLinks = document.querySelectorAll('.toc-inner nav ul li a');
+    if (tocLinks.length > 0) {
+      const headingMap = new Map();
+      tocLinks.forEach(link => {
+        const id = decodeURIComponent(link.getAttribute('href').replace('#', ''));
+        headingMap.set(id, link);
+      });
+      let activeId = null;
+      const tocObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            if (headingMap.has(id)) {
+              if (activeId && headingMap.has(activeId)) {
+                headingMap.get(activeId).classList.remove('toc-active');
+              }
+              activeId = id;
+              headingMap.get(id).classList.add('toc-active');
+            }
+          }
+        });
+      }, { rootMargin: '-80px 0px -65% 0px', threshold: 0 });
+      document.querySelectorAll('.article-body h2[id], .article-body h3[id]').forEach(h => tocObserver.observe(h));
+    }
+
     // Mobile hamburger menu
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -137,6 +165,23 @@
         });
       });
     }
+
+    // Copy-to-clipboard for code blocks
+    document.querySelectorAll('.code-copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const code = btn.closest('.code-block')?.querySelector('code');
+        if (!code || !navigator.clipboard) return;
+        navigator.clipboard.writeText(code.textContent.trim()).then(() => {
+          const label = btn.querySelector('.code-copy-label');
+          btn.classList.add('copied');
+          if (label) label.textContent = 'Copied';
+          setTimeout(() => {
+            btn.classList.remove('copied');
+            if (label) label.textContent = 'Copy';
+          }, 2000);
+        }).catch(() => {});
+      });
+    });
   </script>
 </body>
 </html>

@@ -16,11 +16,11 @@ The consequences of pipeline compromise are not theoretical. Three incidents sha
 
 **SolarWinds (2020):** Attackers compromised the Orion build system and injected malicious code into signed software updates distributed to 18,000 customers, including multiple US federal agencies. The build system was the attack vector precisely because it had legitimate signing authority.
 
-**Codecov (2021):** An attacker modified Codecov's `bash` uploader script hosted on their infrastructure. Customers piping this script directly into `bash` in their CI pipelines exported their environment variables — including `GITHUB_TOKEN`, AWS credentials, and other secrets — to an attacker-controlled server. Thousands of organizations were affected, including Twilio, Hashicorp, and Rapid7 (CVE-2021-3639).
+**Codecov (2021):** An attacker modified Codecov's `bash` uploader script hosted on their infrastructure. Customers piping this script directly into `bash` in their CI pipelines exported their environment variables, including `GITHUB_TOKEN`, AWS credentials, and other secrets, to an attacker-controlled server. Thousands of organizations were affected, including Twilio, Hashicorp, and Rapid7 (CVE-2021-3639).
 
 **ua-parser-js (2021):** The npm package `ua-parser-js` was hijacked after an attacker gained access to the maintainer's npm account. Malicious versions containing a cryptominer and credential-stealing code were published and briefly served to downstream consumers. Any CI pipeline that ran `npm install` in the affected window pulled the malicious code.
 
-Each of these attacks succeeded because build systems are trusted by definition — they produce the artifacts that ship to users. GitHub Actions runs arbitrary code inside your infrastructure, and that code has the same trust level as your engineering team.
+Each of these attacks succeeded because build systems are trusted by definition, they produce the artifacts that ship to users. GitHub Actions runs arbitrary code inside your infrastructure, and that code has the same trust level as your engineering team.
 
 ## Common GitHub Actions Vulnerabilities
 
@@ -84,7 +84,7 @@ The SHA corresponds to the specific commit you audited. It cannot be silently ch
 
 ### pull_request_target Misuse
 
-`pull_request_target` was introduced to allow workflows to access repository secrets when triggered by pull requests from forks — a common need for things like posting test results. The trigger runs in the context of the base branch (your repo), not the fork, giving it access to secrets.
+`pull_request_target` was introduced to allow workflows to access repository secrets when triggered by pull requests from forks, a common need for things like posting test results. The trigger runs in the context of the base branch (your repo), not the fork, giving it access to secrets.
 
 The critical mistake is combining `pull_request_target` with a checkout of the PR's head commit:
 
@@ -108,7 +108,7 @@ Public repositories present a specific risk: anyone can open a pull request. Wor
 
 ### Artifact and Cache Poisoning
 
-GitHub Actions caches (via `actions/cache`) are shared across branches within a repository. A cache entry written by a branch can be read by another branch, including `main`. If an attacker can control what goes into a cache — for example, by poisoning a dependency cache from a feature branch — they can cause the main branch build to use malicious cached artifacts.
+GitHub Actions caches (via `actions/cache`) are shared across branches within a repository. A cache entry written by a branch can be read by another branch, including `main`. If an attacker can control what goes into a cache, for example, by poisoning a dependency cache from a feature branch, they can cause the main branch build to use malicious cached artifacts.
 
 Artifact poisoning follows a similar pattern: an attacker who can write to GitHub's artifact storage for a workflow run can potentially influence dependent workflows that consume those artifacts.
 
@@ -275,7 +275,7 @@ on:
 
 jobs:
   test:
-    # Run tests — no secrets needed, no problem
+    # Run tests, no secrets needed, no problem
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - run: npm test
@@ -288,7 +288,7 @@ jobs:
 
 AI pipelines extend the CI/CD attack surface in ways that are not always obvious.
 
-**Training data pipelines** often pull from external sources — S3 buckets, Hugging Face datasets, web scrapes. A compromised CI pipeline with access to these sources can poison training data or exfiltrate proprietary datasets. Training data is a sensitive artifact that deserves the same protection as source code.
+**Training data pipelines** often pull from external sources, S3 buckets, Hugging Face datasets, web scrapes. A compromised CI pipeline with access to these sources can poison training data or exfiltrate proprietary datasets. Training data is a sensitive artifact that deserves the same protection as source code.
 
 **Model weights are deployment artifacts.** A build pipeline that trains and publishes model weights has the same risk profile as one that publishes software packages. Artifact signing and provenance (via SLSA or sigstore) apply to model weights as much as to binaries.
 

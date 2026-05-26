@@ -1,0 +1,144 @@
+{{ define "main" }}
+
+{{ $l0 := where .Pages "Params.level" 0 }}
+{{ $l1 := where .Pages "Params.level" 1 }}
+{{ $l2 := where .Pages "Params.level" 2 }}
+{{ $l3 := where .Pages "Params.level" 3 }}
+{{ $l4 := where .Pages "Params.level" 4 }}
+{{ $first := index (.Pages.ByParam "level") 0 }}
+
+<!-- HERO -->
+<section class="bz-hero">
+  <div class="bz-container">
+    <div class="bz-hero-inner">
+      <div class="bz-hero-text">
+        <h1 class="bz-hero-h1">You don't need to know how to code.<br>But you should understand what's possible.</h1>
+        <p class="bz-hero-sub">A structured path through the concepts that matter. For product managers, finance professionals, vibe coders, and anyone turning an idea into something real.</p>
+        <div class="bz-hero-actions">
+          {{ with $first }}<a href="{{ .RelPermalink }}" class="bz-btn-primary">Start Learning</a>{{ end }}
+          <a href="#toc" class="bz-btn-ghost">Jump to contents</a>
+        </div>
+      </div>
+      <div class="bz-hero-visual">
+        <img src="/img/basics/compass-cover.png" alt="" aria-hidden="true" class="bz-hero-img">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO THIS IS FOR -->
+<section class="bz-audience">
+  <div class="bz-container">
+    <p class="bz-audience-label">Who this is for</p>
+    <div class="bz-audience-grid">
+      <div class="bz-audience-cell">
+        <span class="bz-audience-title">Product Managers</span>
+        <span class="bz-audience-desc">Understand what engineers are building so you can ask better questions and scope work accurately.</span>
+      </div>
+      <div class="bz-audience-cell">
+        <span class="bz-audience-title">Finance & Business</span>
+        <span class="bz-audience-desc">Evaluate technical proposals, costs, and risks without relying entirely on the engineering team.</span>
+      </div>
+      <div class="bz-audience-cell">
+        <span class="bz-audience-title">Vibe Coders</span>
+        <span class="bz-audience-desc">Use AI tools to build software by understanding the vocabulary. You direct. The AI writes.</span>
+      </div>
+      <div class="bz-audience-cell">
+        <span class="bz-audience-title">Students & Switchers</span>
+        <span class="bz-audience-desc">Build the mental model before you write a single line of code. Start here.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAIRCASE DIAGRAM -->
+<section class="bz-stack">
+  <div class="bz-container">
+    <img src="/img/basics/stack-staircase.png" alt="The five foundational levels: from computers and the internet at Level 0, up to AI and vibe coding at Level 4. Each level builds on the one before." class="bz-stack-img">
+  </div>
+</section>
+
+<!-- SECTION DIVIDER -->
+<div class="bz-section-divider">
+  <div class="bz-container">
+    <span class="bz-divider-num">01.</span>
+    <span class="bz-divider-name">Five levels, one foundation.</span>
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<section class="bz-toc" id="toc">
+  <div class="bz-container">
+
+    {{ $levels := slice
+      (dict "tag" "Level 0" "name" "The Computer" "pages" $l0)
+      (dict "tag" "Level 1" "name" "How Code Works" "pages" $l1)
+      (dict "tag" "Level 2" "name" "Managing Work" "pages" $l2)
+      (dict "tag" "Level 3" "name" "The Infrastructure" "pages" $l3)
+      (dict "tag" "Level 4" "name" "AI and Building" "pages" $l4)
+    }}
+
+    {{ range $levels }}
+    {{ $lv := . }}
+    <div class="bz-toc-level">
+      <div class="bz-toc-level-hd">
+        <span class="bz-toc-level-tag">{{ $lv.tag }}</span>
+        <span class="bz-toc-level-name">{{ $lv.name }}</span>
+      </div>
+      {{ range $lv.pages }}
+      <a href="{{ .RelPermalink }}" class="bz-toc-row">
+        <span class="bz-toc-row-title">{{ .Title }}</span>
+        <span class="bz-toc-row-desc">{{ .Description }}</span>
+        {{ if .Params.youtube_id }}<span class="bz-toc-row-tag">Video</span>{{ end }}
+      </a>
+      {{ end }}
+    </div>
+    {{ end }}
+
+  </div>
+</section>
+
+<!-- TUTORIALS -->
+<section class="bz-tutorials">
+  <div class="bz-container">
+    <h2 class="bz-section-label">Handpicked tutorials</h2>
+    <div class="bz-tutorial-list">
+      <a href="https://www.youtube.com/watch?v=tpIctyqH29Q" class="bz-tutorial-row" target="_blank" rel="noopener">
+        <span class="bz-tutorial-source">Crash Course, 12 min</span>
+        <span class="bz-tutorial-title">Crash Course Computer Science: How Computers Work</span>
+      </a>
+      <a href="https://www.youtube.com/watch?v=Dxcc6ycZ73M" class="bz-tutorial-row" target="_blank" rel="noopener">
+        <span class="bz-tutorial-source">Code.org, 4 min</span>
+        <span class="bz-tutorial-title">How Does the Internet Work?</span>
+      </a>
+      <a href="https://www.youtube.com/watch?v=8JJ101D3knE" class="bz-tutorial-row" target="_blank" rel="noopener">
+        <span class="bz-tutorial-source">freeCodeCamp, 1 hr</span>
+        <span class="bz-tutorial-title">Git and GitHub for Beginners: Crash Course</span>
+      </a>
+      <a href="https://www.youtube.com/watch?v=s7wmiS2mSXY" class="bz-tutorial-row" target="_blank" rel="noopener">
+        <span class="bz-tutorial-source">MuleSoft, 3 min</span>
+        <span class="bz-tutorial-title">What is an API? Plain English</span>
+      </a>
+      <a href="https://www.youtube.com/@TechWorldwithNana" class="bz-tutorial-row" target="_blank" rel="noopener">
+        <span class="bz-tutorial-source">TechWorld with Nana</span>
+        <span class="bz-tutorial-title">DevOps, Docker, Kubernetes, Git: all beginner-friendly</span>
+      </a>
+      <a href="https://www.youtube.com/watch?v=zjkBMFhNj_g" class="bz-tutorial-row" target="_blank" rel="noopener">
+        <span class="bz-tutorial-source">3Blue1Brown, 19 min</span>
+        <span class="bz-tutorial-title">But What is a Neural Network?</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bz-cta">
+  <div class="bz-container">
+    <p class="bz-cta-eyebrow">Start here</p>
+    <h2 class="bz-cta-title">Start with the first question.</h2>
+    <p class="bz-cta-sub">You don't need to read everything at once. Start with "What is a Computer?" and everything else builds from there.</p>
+    {{ with $first }}<a href="{{ .RelPermalink }}" class="bz-btn-primary bz-btn-white">{{ .Title }}</a>{{ end }}
+  </div>
+</section>
+
+{{ end }}

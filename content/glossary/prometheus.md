@@ -34,6 +34,6 @@ Instrument your AI services with Prometheus client libraries (available for Pyth
 
 ## Sources
 
-- Beyer, B., Jones, C., Petoff, J., & Murphy, N. R. (Eds.). (2016). *Site Reliability Engineering*. O'Reilly Media. Chapter 6: Monitoring Distributed Systems. (The four golden signals: latency, traffic, errors, and saturation — the foundation for Prometheus metric design.)
+- Beyer, B., Jones, C., Petoff, J., & Murphy, N. R. (Eds.). (2016). *Site Reliability Engineering*. O'Reilly Media. Chapter 6: Monitoring Distributed Systems. (The four golden signals: latency, traffic, errors, and saturation, the foundation for Prometheus metric design.)
 - Prometheus Authors. (2016). *Prometheus: From open-source to commercial offering*. CNCF Blog. (Prometheus architecture; pull-based scraping, time-series storage, and PromQL query language.)
 - Turnbull, J. (2018). *Monitoring with Prometheus*. Turnbull Press. (Prometheus instrumentation, alerting, federation, and integration with Grafana for production monitoring systems.)

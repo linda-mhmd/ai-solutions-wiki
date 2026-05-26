@@ -8,7 +8,7 @@ categories: ["Foundations"]
 
 An API is a contract between systems. Once published, it is consumed by callers who build against it, often without the ability to update their code when the API changes. This constraint - that breaking changes break callers - is the defining characteristic of API design. Most of the principles in this domain exist to preserve the contract while allowing the implementation to evolve.
 
-Roy Fielding defined REST in his 2000 doctoral dissertation "Architectural Styles and the Design of Network-based Software Architectures." GraphQL was developed at Facebook and open-sourced in 2015. gRPC was open-sourced by Google in 2015, building on their internal Stubby RPC system. These three paradigms dominate modern API design, each with different strengths that make them appropriate for different contexts.
+Roy Fielding defined REST in his 2000 doctoral dissertation "Architectural Styles and the Design of Network-based Software Architectures." GraphQL was developed internally at Facebook from around 2012 and open-sourced in 2015. gRPC was open-sourced by Google in 2015, building on their internal Stubby RPC system. These three paradigms dominate modern API design, each with different strengths that make them appropriate for different contexts.
 
 ---
 

@@ -36,4 +36,4 @@ Subnet design directly affects security posture, availability, and operational f
 
 - Fuller, V., & Li, T. (2006). *Classless Inter-Domain Routing (CIDR): The Internet Address Assignment and Aggregation Plan*. RFC 4632. IETF. (CIDR notation and subnet mask calculation; the standard defining how IP address ranges are divided into subnets.)
 - Droms, R. (1997). *Dynamic Host Configuration Protocol*. RFC 2131. IETF. (DHCP address allocation within subnets; the mechanism by which AWS assigns private IP addresses to resources in subnets.)
-- AWS. (2024). *Amazon VPC User Guide: Subnets*. Amazon Web Services. (AWS subnet types — public, private, and isolated; route table configuration; availability zone placement and multi-AZ design.)
+- AWS. (2024). *Amazon VPC User Guide: Subnets*. Amazon Web Services. (AWS subnet types, public, private, and isolated; route table configuration; availability zone placement and multi-AZ design.)

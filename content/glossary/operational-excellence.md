@@ -42,4 +42,4 @@ Operational maturity for AI systems means that model updates, rollbacks, and ret
 
 - AWS. (2023). *AWS Well-Architected Framework: Operational Excellence Pillar*. Amazon Web Services. (Definitive reference for the five operational excellence design principles: organization, prepare, operate, evolve, and best practices.)
 - Kim, G., Humble, J., Debois, P., & Willis, J. (2016). *The DevOps Handbook*. IT Revolution Press. (Operational practices for high-performing technology organizations: flow, feedback, and learning for AI/ML systems.)
-- Beyer, B., Jones, C., Petoff, J., & Murphy, N. R. (Eds.). (2016). *Site Reliability Engineering*. O'Reilly Media. Chapter 14: Managing Incidents. (Incident response, postmortems, and continuous improvement — the SRE approach to operational excellence.)
+- Beyer, B., Jones, C., Petoff, J., & Murphy, N. R. (Eds.). (2016). *Site Reliability Engineering*. O'Reilly Media. Chapter 14: Managing Incidents. (Incident response, postmortems, and continuous improvement, the SRE approach to operational excellence.)

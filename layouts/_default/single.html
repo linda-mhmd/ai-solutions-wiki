@@ -1,4 +1,8 @@
 {{ define "main" }}
+<meta name="wiki:url" content="{{ .RelPermalink }}">
+<meta name="wiki:title" content="{{ .Title }}">
+<meta name="wiki:section" content="{{ .Section }}">
+{{ with .Params.tags }}<meta name="wiki:tags" content="{{ delimit . "," }}">{{ end }}
 <div class="article-layout">
   <div class="article-container">
     {{ partial "breadcrumbs.html" . }}
@@ -54,6 +58,8 @@
         {{ .Content }}
       </div>
 
+      {{ partial "faqs.html" . }}
+
       {{ partial "author-byline.html" . }}
 
       <div data-pagefind-ignore>{{ partial "cta.html" . }}</div>
@@ -84,10 +90,30 @@
           {{ end }}
         </div>
       </footer>
+
+      {{ if or .PrevInSection .NextInSection }}
+      <nav class="bz-article-nav" aria-label="Article navigation" data-pagefind-ignore>
+        <div class="bz-article-nav-inner">
+          {{ with .PrevInSection }}
+          <a href="{{ .RelPermalink }}" class="bz-nav-prev">
+            <span class="bz-nav-dir">← Previous</span>
+            <span class="bz-nav-title">{{ .Title }}</span>
+          </a>
+          {{ else }}<div></div>{{ end }}
+          {{ with .NextInSection }}
+          <a href="{{ .RelPermalink }}" class="bz-nav-next">
+            <span class="bz-nav-dir">Next →</span>
+            <span class="bz-nav-title">{{ .Title }}</span>
+          </a>
+          {{ end }}
+        </div>
+      </nav>
+      {{ end }}
     </article>
   </div>
 
   <div class="article-sidebar" data-pagefind-ignore>
+    {{ partial "library-panel.html" . }}
     {{ partial "toc.html" . }}
     {{ partial "tool-context.html" . }}
     {{ partial "related.html" . }}

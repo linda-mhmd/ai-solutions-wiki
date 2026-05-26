@@ -59,6 +59,6 @@ The principles' broad adoption is partly due to their high-level, technology-neu
 
 ## Sources
 
-1. OECD. "Recommendation of the Council on Artificial Intelligence." OECD Legal Instruments, OECD/LEGAL/0449, May 22, 2019. [https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0449](https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0449) — The primary legal instrument adopting the five AI principles.
-2. OECD.AI Policy Observatory. "OECD Principles on AI." [https://oecd.ai/en/ai-principles](https://oecd.ai/en/ai-principles) — Official landing page with updated guidance and country implementation tracking.
-3. OECD. "G20 AI Principles." June 2019. [https://oecd.ai/en/g20](https://oecd.ai/en/g20) — G20 adoption of the OECD principles, extending their reach to non-OECD member economies including China, Brazil, and India.
+1. OECD. "Recommendation of the Council on Artificial Intelligence." OECD Legal Instruments, OECD/LEGAL/0449, May 22, 2019. [https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0449](https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0449), The primary legal instrument adopting the five AI principles.
+2. OECD.AI Policy Observatory. "OECD Principles on AI." [https://oecd.ai/en/ai-principles](https://oecd.ai/en/ai-principles), Official landing page with updated guidance and country implementation tracking.
+3. OECD. "G20 AI Principles." June 2019. [https://oecd.ai/en/g20](https://oecd.ai/en/g20), G20 adoption of the OECD principles, extending their reach to non-OECD member economies including China, Brazil, and India.

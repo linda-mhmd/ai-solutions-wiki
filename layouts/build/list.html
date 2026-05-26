@@ -2,75 +2,85 @@
 <style>
   /* ---- Build Page Styles ---- */
   .build-hero {
-    background: linear-gradient(160deg, #0f172a 0%, #1e293b 50%, #162032 100%);
-    padding: 72px 24px 64px;
-    text-align: center;
-    border-bottom: 1px solid #1e293b;
+    background-color: #faf8f4;
+    background-image:
+      linear-gradient(rgba(180, 140, 100, 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(180, 140, 100, 0.12) 1px, transparent 1px);
+    background-size: 28px 28px;
+    padding: 72px 0 64px;
+    border-bottom: 1px solid #ded7cc;
+  }
+  [data-theme="dark"] .build-hero {
+    background-color: var(--surface);
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    border-bottom-color: var(--border);
   }
 
   .build-hero-inner {
-    max-width: 640px;
+    max-width: 1280px;
     margin: 0 auto;
+    padding: 0 32px;
   }
 
   .build-hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #60a5fa;
-    background: rgb(96 165 250 / 0.12);
-    border: 1px solid rgb(96 165 250 / 0.25);
-    border-radius: 100px;
-    padding: 4px 14px;
-    margin-bottom: 20px;
-    letter-spacing: 0.05em;
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #b85c38;
+    font-family: var(--font-mono);
+    letter-spacing: 0.12em;
     text-transform: uppercase;
+    margin-bottom: 16px;
   }
+  [data-theme="dark"] .build-hero-badge { color: #d4785a; }
 
   .build-hero h1 {
     font-size: clamp(1.75rem, 4vw, 2.6rem);
     font-weight: 800;
-    color: #f1f5f9;
+    color: var(--text-primary);
     letter-spacing: -0.02em;
     margin-bottom: 16px;
     line-height: 1.2;
+    max-width: 680px;
   }
 
   .build-hero p {
     font-size: 1.05rem;
-    color: #94a3b8;
+    color: var(--text-secondary);
     line-height: 1.65;
     margin-bottom: 32px;
+    max-width: 600px;
   }
 
   .build-hero-stats {
     display: flex;
-    justify-content: center;
-    gap: 36px;
+    gap: 40px;
     padding-top: 24px;
-    border-top: 1px solid rgb(255 255 255 / 0.1);
+    border-top: 1px solid #ded7cc;
   }
+  [data-theme="dark"] .build-hero-stats { border-top-color: var(--border); }
 
   .build-stat {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 2px;
   }
 
   .build-stat strong {
     font-size: 1.25rem;
-    font-weight: 700;
-    color: #f1f5f9;
+    font-weight: 800;
+    color: var(--text-primary);
+    font-family: var(--font-mono);
   }
 
   .build-stat span {
-    font-size: 0.75rem;
-    color: #64748b;
+    font-size: 0.68rem;
+    color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
+    font-family: var(--font-mono);
   }
 
   /* ---- Architecture overview ---- */
@@ -206,7 +216,7 @@
   .legend-dot {
     width: 10px;
     height: 10px;
-    border-radius: 50%;
+    border-radius: 2px;
   }
 
   .legend-dot.beginner { background: #10b981; }
@@ -231,20 +241,18 @@
   }
 
   .project-card {
-    background: var(--light-bg);
+    background: var(--bg);
     border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
+    border-radius: 4px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+    transition: border-color 0.15s;
     text-decoration: none;
   }
 
   .project-card:hover {
-    border-color: var(--primary);
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-2px);
+    border-color: #b85c38;
     text-decoration: none;
   }
 
@@ -256,31 +264,15 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
+    border-bottom: 1px solid var(--border);
   }
 
-  .project-illustration.rag-bg {
-    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-  }
-
-  .project-illustration.agent-bg {
-    background: linear-gradient(135deg, #1a0a2e 0%, #4c1d95 100%);
-  }
-
-  .project-illustration.chat-bg {
-    background: linear-gradient(135deg, #0a1628 0%, #1e3a5f 100%);
-  }
-
-  .project-illustration.pipeline-bg {
-    background: linear-gradient(135deg, #0a1f0a 0%, #14532d 100%);
-  }
-
-  .project-illustration.classify-bg {
-    background: linear-gradient(135deg, #1f0a0a 0%, #7c2d12 100%);
-  }
-
-  .project-illustration.search-bg {
-    background: linear-gradient(135deg, #0f1728 0%, #0c4a6e 100%);
-  }
+  .project-illustration.rag-bg { background: #0f172a; }
+  .project-illustration.agent-bg { background: #1a0a2e; }
+  .project-illustration.chat-bg { background: #0a1628; }
+  .project-illustration.pipeline-bg { background: #0a1f0a; }
+  .project-illustration.classify-bg { background: #1f0a0a; }
+  .project-illustration.search-bg { background: #0f1728; }
 
   /* Mini CSS diagrams inside illustrations */
   .mini-diagram {
@@ -340,12 +332,13 @@
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    padding: 3px 8px;
-    border-radius: 100px;
+    letter-spacing: 0.1em;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-family: var(--font-mono);
   }
 
   .difficulty-badge.beginner {
@@ -416,14 +409,16 @@
 
   /* ---- CTA ---- */
   .build-cta {
-    padding: 64px 24px;
-    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+    padding: 64px 0;
+    background: #111;
+    border-top: 1px solid #222;
     text-align: center;
   }
 
   .build-cta-inner {
-    max-width: 560px;
+    max-width: 1280px;
     margin: 0 auto;
+    padding: 0 32px;
   }
 
   .build-cta h2 {
@@ -431,13 +426,17 @@
     font-weight: 700;
     color: #f1f5f9;
     margin-bottom: 12px;
+    letter-spacing: -0.02em;
   }
 
   .build-cta p {
-    color: rgb(255 255 255 / 0.65);
+    color: rgba(255, 255, 255, 0.55);
     font-size: 0.975rem;
     line-height: 1.6;
     margin-bottom: 28px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .cta-group {
@@ -457,15 +456,14 @@
     font-size: 0.9rem;
     font-weight: 600;
     padding: 10px 20px;
-    border-radius: var(--radius);
+    border-radius: 3px;
     text-decoration: none;
-    border: 1px solid rgb(255 255 255 / 0.25);
-    transition: border-color 0.15s, background 0.15s;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: border-color 0.15s;
   }
 
   .cta-outline:hover {
-    border-color: rgb(255 255 255 / 0.5);
-    background: rgb(255 255 255 / 0.05);
+    border-color: rgba(255, 255, 255, 0.4);
     text-decoration: none;
   }
 
@@ -480,10 +478,7 @@
 <!-- Hero -->
 <section class="build-hero">
   <div class="build-hero-inner">
-    <div class="build-hero-badge">
-      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-      Project Guides
-    </div>
+    <div class="build-hero-badge">Project Guides</div>
     <h1>{{ .Title }}</h1>
     <p>{{ .Description }}</p>
     <div class="build-hero-stats">
@@ -561,7 +556,7 @@
         <div class="project-card-body">
           <div class="project-card-top">
             <span class="difficulty-badge beginner">
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
               Beginner
             </span>
             <span class="est-time">
@@ -602,7 +597,7 @@
         <div class="project-card-body">
           <div class="project-card-top">
             <span class="difficulty-badge beginner">
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
               Beginner
             </span>
             <span class="est-time">
@@ -641,7 +636,7 @@
         <div class="project-card-body">
           <div class="project-card-top">
             <span class="difficulty-badge intermediate">
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
               Intermediate
             </span>
             <span class="est-time">
@@ -681,7 +676,7 @@
         <div class="project-card-body">
           <div class="project-card-top">
             <span class="difficulty-badge intermediate">
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
               Intermediate
             </span>
             <span class="est-time">
@@ -722,7 +717,7 @@
         <div class="project-card-body">
           <div class="project-card-top">
             <span class="difficulty-badge advanced">
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/></svg>
               Advanced
             </span>
             <span class="est-time">
@@ -748,7 +743,7 @@
 
       <!-- Project 6: Multi-Agent System -->
       <a href="{{ "patterns/" | relURL }}" class="project-card">
-        <div class="project-illustration agent-bg" style="background: linear-gradient(135deg, #0a1628 0%, #312e81 100%);">
+        <div class="project-illustration agent-bg">
           <div class="mini-diagram">
             <div class="mini-node violet">Orchestrator</div>
             <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
@@ -762,7 +757,7 @@
         <div class="project-card-body">
           <div class="project-card-top">
             <span class="difficulty-badge advanced">
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/></svg>
               Advanced
             </span>
             <span class="est-time">

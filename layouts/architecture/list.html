@@ -2,46 +2,55 @@
 <style>
   /* ---- Architecture Page Styles ---- */
   .arch-hero {
-    background: linear-gradient(160deg, #0f172a 0%, #1c1535 50%, #0f172a 100%);
-    padding: 72px 24px 64px;
-    text-align: center;
-    border-bottom: 1px solid #1e293b;
+    background-color: #faf8f4;
+    background-image:
+      linear-gradient(rgba(180, 140, 100, 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(180, 140, 100, 0.12) 1px, transparent 1px);
+    background-size: 28px 28px;
+    padding: 72px 0 64px;
+    border-bottom: 1px solid #ded7cc;
+  }
+  [data-theme="dark"] .arch-hero {
+    background-color: var(--surface);
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    border-bottom-color: var(--border);
   }
 
   .arch-hero-inner {
-    max-width: 640px;
+    max-width: 1280px;
     margin: 0 auto;
+    padding: 0 32px;
   }
 
   .arch-hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #a78bfa;
-    background: rgb(167 139 250 / 0.12);
-    border: 1px solid rgb(167 139 250 / 0.25);
-    border-radius: 100px;
-    padding: 4px 14px;
-    margin-bottom: 20px;
-    letter-spacing: 0.05em;
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #b85c38;
+    font-family: var(--font-mono);
+    letter-spacing: 0.12em;
     text-transform: uppercase;
+    margin-bottom: 16px;
   }
+  [data-theme="dark"] .arch-hero-badge { color: #d4785a; }
 
   .arch-hero h1 {
     font-size: clamp(1.75rem, 4vw, 2.6rem);
     font-weight: 800;
-    color: #f1f5f9;
+    color: var(--text-primary);
     letter-spacing: -0.02em;
     margin-bottom: 16px;
     line-height: 1.2;
+    max-width: 680px;
   }
 
   .arch-hero p {
     font-size: 1.05rem;
-    color: #94a3b8;
+    color: var(--text-secondary);
     line-height: 1.65;
+    max-width: 600px;
   }
 
   /* ---- Shared section styles ---- */
@@ -92,16 +101,15 @@
   }
 
   .pattern-card {
-    background: var(--light-bg);
+    background: var(--bg);
     border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
+    border-radius: 4px;
     overflow: hidden;
-    transition: border-color 0.15s, box-shadow 0.15s;
+    transition: border-color 0.15s;
   }
 
-  .pattern-card:hover {
-    box-shadow: var(--shadow);
-  }
+  .pattern-card:hover { background: #faf8f4; }
+  [data-theme="dark"] .pattern-card:hover { background: var(--surface); }
 
   .pattern-card.rag-pattern:hover { border-color: #2563eb; }
   .pattern-card.agent-pattern:hover { border-color: #7c3aed; }
@@ -119,11 +127,11 @@
     border-bottom: 1px solid var(--border);
   }
 
-  .rag-pattern .arch-diagram-area { background: linear-gradient(135deg, rgb(37 99 235 / 0.05) 0%, rgb(37 99 235 / 0.02) 100%); }
-  .agent-pattern .arch-diagram-area { background: linear-gradient(135deg, rgb(124 58 237 / 0.05) 0%, rgb(124 58 237 / 0.02) 100%); }
-  .pipeline-pattern .arch-diagram-area { background: linear-gradient(135deg, rgb(16 185 129 / 0.05) 0%, rgb(16 185 129 / 0.02) 100%); }
-  .event-pattern .arch-diagram-area { background: linear-gradient(135deg, rgb(217 119 6 / 0.05) 0%, rgb(217 119 6 / 0.02) 100%); }
-  .micro-pattern .arch-diagram-area { background: linear-gradient(135deg, rgb(236 72 153 / 0.05) 0%, rgb(236 72 153 / 0.02) 100%); }
+  .rag-pattern .arch-diagram-area { background: rgb(37 99 235 / 0.04); }
+  .agent-pattern .arch-diagram-area { background: rgb(124 58 237 / 0.04); }
+  .pipeline-pattern .arch-diagram-area { background: rgb(16 185 129 / 0.04); }
+  .event-pattern .arch-diagram-area { background: rgb(217 119 6 / 0.04); }
+  .micro-pattern .arch-diagram-area { background: rgb(236 72 153 / 0.04); }
 
   /* Diagram primitives */
   .diag-row {
@@ -140,6 +148,8 @@
     gap: 5px;
     align-items: center;
   }
+  .diag-col--lg { gap: 10px; }
+  .diag-row--lg { gap: 8px; }
 
   .diag-node {
     padding: 6px 12px;
@@ -202,13 +212,14 @@
   /* Event bus diagram */
   .diag-bus {
     padding: 5px 20px;
-    border-radius: 100px;
+    border-radius: 3px;
     font-size: 0.72rem;
     font-weight: 700;
     border: 2px solid #d97706;
     color: #d97706;
     background: rgb(217 119 6 / 0.08);
-    letter-spacing: 0.03em;
+    letter-spacing: 0.06em;
+    font-family: var(--font-mono);
   }
 
   .diag-bus-row {
@@ -263,18 +274,16 @@
     align-items: flex-start;
     gap: 12px;
     padding: 16px;
-    background: var(--light-bg);
+    background: var(--bg);
     border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
+    border-radius: 3px;
     color: var(--text-primary);
     text-decoration: none;
-    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+    transition: border-color 0.15s;
   }
 
   .foundation-card:hover {
-    border-color: var(--primary);
-    box-shadow: var(--shadow);
-    transform: translateY(-1px);
+    border-color: #b85c38;
     text-decoration: none;
   }
 
@@ -363,14 +372,16 @@
 
   /* ---- CTA ---- */
   .arch-cta {
-    padding: 64px 24px;
-    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+    padding: 64px 0;
+    background: #111;
+    border-top: 1px solid #222;
     text-align: center;
   }
 
   .arch-cta-inner {
-    max-width: 520px;
+    max-width: 1280px;
     margin: 0 auto;
+    padding: 0 32px;
   }
 
   .arch-cta h2 {
@@ -378,13 +389,17 @@
     font-weight: 700;
     color: #f1f5f9;
     margin-bottom: 12px;
+    letter-spacing: -0.02em;
   }
 
   .arch-cta p {
-    color: rgb(255 255 255 / 0.65);
+    color: rgba(255, 255, 255, 0.55);
     font-size: 0.975rem;
     line-height: 1.6;
     margin-bottom: 28px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .cta-group {
@@ -426,10 +441,7 @@
 <!-- Hero -->
 <section class="arch-hero">
   <div class="arch-hero-inner">
-    <div class="arch-hero-badge">
-      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>
-      Visual Reference
-    </div>
+    <div class="arch-hero-badge">Visual Reference</div>
     <h1>{{ .Title }}</h1>
     <p>{{ .Description }}</p>
   </div>
@@ -450,15 +462,15 @@
           <div class="diag-col">
             <div class="diag-row">
               <div class="diag-node blue">User Query</div>
-              <div class="diag-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+              <div class="diag-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
               <div class="diag-node blue">Embedder</div>
             </div>
-            <div class="diag-arrow down"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="diag-arrow down"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
             <div class="diag-row">
               <div class="diag-node blue">Vector DB</div>
-              <div class="diag-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+              <div class="diag-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
               <div class="diag-node blue">Context</div>
-              <div class="diag-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+              <div class="diag-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
               <div class="diag-node green">LLM</div>
             </div>
           </div>
@@ -486,15 +498,15 @@
           <div class="diag-col">
             <div class="diag-row">
               <div class="diag-node gray">Goal</div>
-              <div class="diag-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+              <div class="diag-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
               <div class="diag-loop">
                 <span class="diag-loop-label">loop</span>
                 <div class="diag-node violet">Reason</div>
-                <div class="diag-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+                <div class="diag-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
                 <div class="diag-node violet">Act</div>
               </div>
             </div>
-            <div class="diag-arrow down"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="diag-arrow down"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
             <div class="diag-node gray">Result</div>
           </div>
         </div>
@@ -523,17 +535,17 @@
               <div class="diag-node green">Ingest</div>
               <div class="diag-label">source</div>
             </div>
-            <div class="diag-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="diag-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
             <div class="diag-col">
               <div class="diag-node green">Transform</div>
               <div class="diag-label">AI step</div>
             </div>
-            <div class="diag-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="diag-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
             <div class="diag-col">
               <div class="diag-node green">Validate</div>
               <div class="diag-label">gate</div>
             </div>
-            <div class="diag-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="diag-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
             <div class="diag-col">
               <div class="diag-node green">Load</div>
               <div class="diag-label">sink</div>
@@ -560,17 +572,17 @@
       <!-- Event-driven Pattern -->
       <div class="pattern-card event-pattern">
         <div class="arch-diagram-area">
-          <div class="diag-col" style="gap:10px;">
-            <div class="diag-row" style="gap:8px;">
+          <div class="diag-col diag-col--lg">
+            <div class="diag-row diag-row--lg">
               <div class="diag-node amber">Producer A</div>
               <div class="diag-node amber">Producer B</div>
             </div>
             <div class="diag-row">
-              <div class="diag-arrow down"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
-              <div class="diag-arrow down"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+              <div class="diag-arrow down"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+              <div class="diag-arrow down"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
             </div>
             <div class="diag-bus">Event Bus</div>
-            <div class="diag-arrow down"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="diag-arrow down"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
             <div class="diag-bus-row">
               <div class="diag-node amber">AI Consumer</div>
               <div class="diag-node amber">Log Consumer</div>
@@ -597,10 +609,10 @@
       <!-- Microservices Pattern -->
       <div class="pattern-card micro-pattern">
         <div class="arch-diagram-area">
-          <div class="diag-col" style="gap:10px;">
+          <div class="diag-col diag-col--lg">
             <div class="diag-node gray">API Gateway</div>
-            <div class="diag-arrow down"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
-            <div class="diag-row" style="gap:6px;">
+            <div class="diag-arrow down"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="diag-row">
               <div class="diag-node pink">LLM Svc</div>
               <div class="diag-node pink">Embed Svc</div>
               <div class="diag-node pink">Search Svc</div>

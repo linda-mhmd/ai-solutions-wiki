@@ -17,7 +17,7 @@ related:
 
 **This page is a build guide.** For the architectural pattern describing dual-write consistency guarantees and training-serving skew prevention, see [Real-Time Feature Computation Pattern](/patterns/stream-processing-ai/).
 
-Batch data pipelines compute features from historical data on scheduled intervals, typically hourly or daily. For AI use cases requiring fresh signals — fraud detection scores, real-time recommendation ranking, dynamic pricing — this latency is too high. A fraud model running on hour-old transaction features will miss velocity attacks entirely. Real-time streaming pipelines compute features and trigger inference as events arrive, reducing feature freshness from hours to seconds.
+Batch data pipelines compute features from historical data on scheduled intervals, typically hourly or daily. For AI use cases requiring fresh signals, fraud detection scores, real-time recommendation ranking, dynamic pricing, this latency is too high. A fraud model running on hour-old transaction features will miss velocity attacks entirely. Real-time streaming pipelines compute features and trigger inference as events arrive, reducing feature freshness from hours to seconds.
 
 ## Architecture Overview
 
@@ -126,7 +126,7 @@ Real-time pipelines are more complex to operate than batch. Start with the use c
 
 ## Sources
 
-- Kleppmann, M. *Designing Data-Intensive Applications.* O'Reilly Media, 2017. — Chapters 10–11 cover stream processing, exactly-once semantics, and the trade-offs between batch and streaming architectures. The standard reference for distributed data systems.
-- Apache Flink Documentation. "Event Time and Watermarks." https://nightlies.apache.org/flink/flink-docs-stable/docs/concepts/time/ — Authoritative reference for the watermark and late-data handling patterns described above.
-- Confluent Documentation. "Schema Registry." https://docs.confluent.io/platform/current/schema-registry/index.html — Schema evolution strategy referenced in the Operational Considerations section.
-- Kreps, J. "The Log: What Every Software Engineer Should Know About Real-Time Data's Unifying Abstraction." *LinkedIn Engineering Blog* (2013). https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying — Foundational essay on log-based event streaming that underpins Kafka and streaming pipelines.
+- Kleppmann, M. *Designing Data-Intensive Applications.* O'Reilly Media, 2017., Chapters 10–11 cover stream processing, exactly-once semantics, and the trade-offs between batch and streaming architectures. The standard reference for distributed data systems.
+- Apache Flink Documentation. "Event Time and Watermarks." https://nightlies.apache.org/flink/flink-docs-stable/docs/concepts/time/, Authoritative reference for the watermark and late-data handling patterns described above.
+- Confluent Documentation. "Schema Registry." https://docs.confluent.io/platform/current/schema-registry/index.html, Schema evolution strategy referenced in the Operational Considerations section.
+- Kreps, J. "The Log: What Every Software Engineer Should Know About Real-Time Data's Unifying Abstraction." *LinkedIn Engineering Blog* (2013). https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying, Foundational essay on log-based event streaming that underpins Kafka and streaming pipelines.

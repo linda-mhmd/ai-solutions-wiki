@@ -139,7 +139,7 @@ Real-time feature computation adds significant operational complexity over batch
 
 ## Sources
 
-- Kreps, J., Narkhede, N., and Rao, J. "Kafka: A Distributed Messaging System for Log Processing." *NetDB Workshop at VLDB* (2011). https://www.microsoft.com/en-us/research/wp-content/uploads/2017/09/Kafka.pdf — Original Kafka paper describing the log-based event streaming model this pattern depends on.
-- Zaharia, M. et al. "Apache Spark: A Unified Engine for Big Data Processing." *Communications of the ACM* 59, no. 11 (2016): 56–65. https://dl.acm.org/doi/10.1145/2934664 — Covers structured streaming and stateful computation in Spark, an alternative to Flink for this pattern.
-- Marz, N., and Warren, J. *Big Data: Principles and Best Practices of Scalable Real-Time Data Systems.* Manning Publications, 2015. — Introduces the Lambda Architecture (batch layer + speed layer), the historical predecessor to the unified streaming approach described here.
-- Apache Flink Documentation. "Stateful Stream Processing." https://nightlies.apache.org/flink/flink-docs-stable/docs/concepts/stateful-stream-processing/ — Reference for windowed aggregations, state backends, and exactly-once semantics used in the Flink examples above.
+- Kreps, J., Narkhede, N., and Rao, J. "Kafka: A Distributed Messaging System for Log Processing." *NetDB Workshop at VLDB* (2011). https://www.microsoft.com/en-us/research/wp-content/uploads/2017/09/Kafka.pdf, Original Kafka paper describing the log-based event streaming model this pattern depends on.
+- Zaharia, M. et al. "Apache Spark: A Unified Engine for Big Data Processing." *Communications of the ACM* 59, no. 11 (2016): 56–65. https://dl.acm.org/doi/10.1145/2934664, Covers structured streaming and stateful computation in Spark, an alternative to Flink for this pattern.
+- Marz, N., and Warren, J. *Big Data: Principles and Best Practices of Scalable Real-Time Data Systems.* Manning Publications, 2015., Introduces the Lambda Architecture (batch layer + speed layer), the historical predecessor to the unified streaming approach described here.
+- Apache Flink Documentation. "Stateful Stream Processing." https://nightlies.apache.org/flink/flink-docs-stable/docs/concepts/stateful-stream-processing/, Reference for windowed aggregations, state backends, and exactly-once semantics used in the Flink examples above.

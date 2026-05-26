@@ -12,17 +12,17 @@ related:
   - guides/agile-for-ai-projects
 ---
 
-Conference-driven development is not a formal methodology — it is a practice pattern that technical practitioners discover when they notice that conference deadlines produce different work than internal ones. A talk with a live audience creates three forcing functions simultaneously: a fixed non-negotiable deadline, a simplicity constraint (a 30-minute demo cannot be a complex system), and accountability through public questioning. These constraints reliably turn 80%-done prototypes into finished, explicable systems.
+Conference-driven development is not a formal methodology, it is a practice pattern that technical practitioners discover when they notice that conference deadlines produce different work than internal ones. A talk with a live audience creates three forcing functions simultaneously: a fixed non-negotiable deadline, a simplicity constraint (a 30-minute demo cannot be a complex system), and accountability through public questioning. These constraints reliably turn 80%-done prototypes into finished, explicable systems.
 
 This guide covers the practical engineering decisions involved in conference-driven development for AI systems: how to structure demos that won't fail on stage, how to use talk preparation as a design forcing function, and how the developer relations feedback loop accelerates learning.
 
 ## Why Conference Deadlines Work
 
-Internal deadlines are negotiable. A talk slot at a conference is not — cancellation carries professional cost, and the audience expects working demonstrations. This difference is psychologically significant but also structurally meaningful.
+Internal deadlines are negotiable. A talk slot at a conference is not, cancellation carries professional cost, and the audience expects working demonstrations. This difference is psychologically significant but also structurally meaningful.
 
 Martin Fowler's concept of the **software spike** is relevant here: a time-boxed investigation into a technical question, producing a prototype whose purpose is to answer that question rather than to be production-ready. Conference talks function as public spikes with an externally enforced time box. The forced scope reduction that comes from fitting a demo into a 20–40 minute slot is equivalent to the constraint that makes spikes valuable: you cannot explore everything, so you explore the most important thing.
 
-The talk also forces **articulation**. The cognitive work of explaining a system to an audience who did not build it reveals assumptions and gaps that solo development allows to persist. Richard Feynman's observation — that you do not understand something until you can explain it simply — maps directly to the experience of preparing an AI system talk: you discover what you actually understand versus what you assumed you understood.
+The talk also forces **articulation**. The cognitive work of explaining a system to an audience who did not build it reveals assumptions and gaps that solo development allows to persist. Richard Feynman's observation, that you do not understand something until you can explain it simply, maps directly to the experience of preparing an AI system talk: you discover what you actually understand versus what you assumed you understood.
 
 ## Demo Architecture for AI Talks
 
@@ -32,9 +32,9 @@ Live AI demos fail for predictable reasons. Designing against those failure mode
 
 Production AI systems have latency that is acceptable in applications but long in a live demo context. A 3-second inference call that is invisible in a chat interface is uncomfortable silence on stage. Design a fallback ladder:
 
-1. **Live demo with real inference** — preferred; demonstrates actual system behavior
-2. **Pre-computed responses cached by input** — serve deterministic outputs for the demo inputs; the system runs but responses are fast and predictable
-3. **Recorded walkthrough** — video of the system operating correctly; no live inference; acceptable as absolute fallback
+1. **Live demo with real inference**, preferred; demonstrates actual system behavior
+2. **Pre-computed responses cached by input**, serve deterministic outputs for the demo inputs; the system runs but responses are fast and predictable
+3. **Recorded walkthrough**, video of the system operating correctly; no live inference; acceptable as absolute fallback
 
 The cache-based approach (option 2) is underused. It preserves the interactivity of a live demo while eliminating latency and API failure risk. The implementation is simple: hash the demo inputs, store expected outputs, return cached outputs when a hash match is found in a demo environment variable.
 
@@ -54,9 +54,9 @@ def cached_inference(prompt: str, run_fn):
 
 Demo environments must be isolated from production and from development environments that accumulate state. Specific requirements:
 
-- **Seeded random state** — any stochastic components should use fixed seeds in demo mode so output is reproducible across rehearsals
-- **Offline capability** — if the venue wifi fails, the demo should still run (use local model serving where possible)
-- **Visible state** — print or display the actual system inputs and outputs during the demo; audiences cannot verify that a system is working if they cannot see what it is processing
+- **Seeded random state**, any stochastic components should use fixed seeds in demo mode so output is reproducible across rehearsals
+- **Offline capability**, if the venue wifi fails, the demo should still run (use local model serving where possible)
+- **Visible state**, print or display the actual system inputs and outputs during the demo; audiences cannot verify that a system is working if they cannot see what it is processing
 
 ### Data Selection
 
@@ -69,7 +69,7 @@ AI conference talks that explain both a problem and a technical approach follow 
 1. **The problem** (2–3 minutes): State the problem in concrete terms. What breaks without your approach? What does failure look like?
 2. **The naive approach and why it fails** (3–5 minutes): Show what a simpler solution does wrong. This grounds the architecture decision that follows.
 3. **Your approach** (10–15 minutes): The demo lives here. Walk through the system operating on real inputs. Show the code, the architecture, the output.
-4. **What does not work** (3–5 minutes): Honest treatment of limitations, failure cases, and open problems. This is the highest-signal section for technical audiences — it distinguishes practitioners from marketers.
+4. **What does not work** (3–5 minutes): Honest treatment of limitations, failure cases, and open problems. This is the highest-signal section for technical audiences, it distinguishes practitioners from marketers.
 5. **What to take away** (2 minutes): A pattern, a mental model, or a code snippet the audience can apply.
 
 The "what does not work" section is not optional for a credible AI talk. The field has a significant marketing-to-reality gap, and audiences with engineering experience detect it. A talk that acknowledges where the system fails is more trustworthy and more useful than one that does not.
@@ -97,13 +97,13 @@ The timing matters: release the repository at the talk, not before. Pre-talk rel
 
 ## When Not to Give a Talk
 
-Conference-driven development has costs. Preparing a good 30-minute talk on a technical topic takes 20–40 hours of preparation for an experienced speaker; more for a first talk. The demo must be finished before the talk slot, not during — which means accepting talk slots on ideas that are genuinely prototyped, not just planned.
+Conference-driven development has costs. Preparing a good 30-minute talk on a technical topic takes 20–40 hours of preparation for an experienced speaker; more for a first talk. The demo must be finished before the talk slot, not during, which means accepting talk slots on ideas that are genuinely prototyped, not just planned.
 
 The timing heuristic for AI talks: a technique is most valuable to conference audiences when it is 6–18 months old. Early enough to be novel to most practitioners; late enough that you have honest production experience and can speak to failure modes. Talks about techniques that are 3 months old tend to be theoretical; talks about techniques that are 3 years old tend to be explaining what practitioners already know.
 
 ## Sources
 
-- Fowler, M. "Spike Solution." *Agile Glossary.* https://martinfowler.com/bliki/Spike.html — The spike concept as a time-boxed investigation, which conference-driven development formalizes with an external deadline.
-- Feynman, R. P. *Surely You're Joking, Mr. Feynman!* W. W. Norton & Company, 1985. — The source of the teaching-as-understanding principle referenced above.
-- Humble, J., and Farley, D. *Continuous Delivery: Reliable Software Releases Through Build, Test, and Deployment Automation.* Addison-Wesley, 2010. — The deployment pipeline as automated confidence; the demo fallback ladder applies the same risk-reduction logic to live presentations.
-- Nygard, M. T. *Release It!: Design and Deploy Production-Ready Software* (2nd ed.). Pragmatic Bookshelf, 2018. — Circuit breaker and stability patterns that apply to demo resilience design.
+- Fowler, M. "Spike Solution." *Agile Glossary.* https://martinfowler.com/bliki/Spike.html, The spike concept as a time-boxed investigation, which conference-driven development formalizes with an external deadline.
+- Feynman, R. P. *Surely You're Joking, Mr. Feynman!* W. W. Norton & Company, 1985., The source of the teaching-as-understanding principle referenced above.
+- Humble, J., and Farley, D. *Continuous Delivery: Reliable Software Releases Through Build, Test, and Deployment Automation.* Addison-Wesley, 2010., The deployment pipeline as automated confidence; the demo fallback ladder applies the same risk-reduction logic to live presentations.
+- Nygard, M. T. *Release It!: Design and Deploy Production-Ready Software* (2nd ed.). Pragmatic Bookshelf, 2018., Circuit breaker and stability patterns that apply to demo resilience design.

@@ -37,6 +37,6 @@ Always hold out a test set that the model never sees during training. Evaluate o
 
 ## Sources
 
-1. Vapnik, V.N. (1998). *Statistical Learning Theory.* Wiley. — Foundational theoretical framework for supervised learning, introducing VC dimension, structural risk minimization, and support vector machines.
-2. Mitchell, T. (1997). *Machine Learning.* McGraw-Hill. — Canonical graduate-level textbook defining the formal problem setup for supervised learning; introduced the definition of learning algorithms that most textbooks still cite.
-3. Goodfellow, I., Bengio, Y., and Courville, A. (2016). *Deep Learning.* MIT Press, Chapter 5 ("Machine Learning Basics"). — Modern treatment of supervised learning covering bias-variance tradeoff, generalization, and the connection to neural network training. [https://www.deeplearningbook.org/](https://www.deeplearningbook.org/)
+1. Vapnik, V.N. (1998). *Statistical Learning Theory.* Wiley., Foundational theoretical framework for supervised learning, introducing VC dimension, structural risk minimization, and support vector machines.
+2. Mitchell, T. (1997). *Machine Learning.* McGraw-Hill., Canonical graduate-level textbook defining the formal problem setup for supervised learning; introduced the definition of learning algorithms that most textbooks still cite.
+3. Goodfellow, I., Bengio, Y., and Courville, A. (2016). *Deep Learning.* MIT Press, Chapter 5 ("Machine Learning Basics")., Modern treatment of supervised learning covering bias-variance tradeoff, generalization, and the connection to neural network training. [https://www.deeplearningbook.org/](https://www.deeplearningbook.org/)

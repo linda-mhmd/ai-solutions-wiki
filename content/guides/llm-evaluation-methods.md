@@ -42,7 +42,7 @@ Compare model output against a known correct answer:
 
 **Exact match.** The output exactly matches the reference. Useful for factual QA with short, unambiguous answers. Too strict for open-ended generation.
 
-**BLEU and ROUGE.** Measure n-gram overlap between output and reference. BLEU (Papineni et al., 2002) was designed for machine translation; ROUGE (Lin, 2004) for summarization. Both are poorly correlated with human judgment for open-ended generation tasks — this limitation is well-documented in the literature. Not recommended as primary metrics for LLM evaluation.
+**BLEU and ROUGE.** Measure n-gram overlap between output and reference. BLEU (Papineni et al., 2002) was designed for machine translation; ROUGE (Lin, 2004) for summarization. Both are poorly correlated with human judgment for open-ended generation tasks, this limitation is well-documented in the literature. Not recommended as primary metrics for LLM evaluation.
 
 **BERTScore.** Uses contextual BERT embeddings to compute semantic similarity between output and reference tokens (Zhang et al., 2020). Better than n-gram metrics for paraphrased but correct answers because it captures semantic equivalence, not surface-form overlap. Still requires reference answers.
 
@@ -150,12 +150,12 @@ LLM evaluation is an ongoing practice, not a one-time task. Build the infrastruc
 
 ## Sources
 
-- Hendrycks, D. et al. "Measuring Massive Multitask Language Understanding." *ICLR* (2021). https://arxiv.org/abs/2009.03300 — The MMLU benchmark.
-- Zellers, R. et al. "HellaSwag: Can a Machine Really Finish Your Sentence?" *ACL* (2019). https://arxiv.org/abs/1905.07830 — HellaSwag benchmark and the adversarial filtering methodology.
-- Chen, M. et al. "Evaluating Large Language Models Trained on Code." (2021). https://arxiv.org/abs/2107.03374 — Introduces HumanEval and the pass@k metric.
-- Lin, S. et al. "TruthfulQA: Measuring How Models Mimic Human Falsehoods." *ACL* (2022). https://arxiv.org/abs/2109.07958 — TruthfulQA benchmark design and analysis.
-- Zheng, L. et al. "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena." *NeurIPS* (2023). https://arxiv.org/abs/2306.05685 — MT-Bench and the LLM-as-judge methodology, including analysis of positional and verbosity biases.
-- Zhang, T. et al. "BERTScore: Evaluating Text Generation with BERT." *ICLR* (2020). https://arxiv.org/abs/1904.09675 — BERTScore metric.
-- Papineni, K. et al. "BLEU: a Method for Automatic Evaluation of Machine Translation." *ACL* (2002). https://dl.acm.org/doi/10.3115/1073083.1073135 — Original BLEU paper.
-- Lin, C.-Y. "ROUGE: A Package for Automatic Evaluation of Summaries." *ACL Workshop on Text Summarization* (2004). https://aclanthology.org/W04-1013/ — Original ROUGE paper.
-- Cohen, J. "A Coefficient of Agreement for Nominal Scales." *Educational and Psychological Measurement* 20, no. 1 (1960): 37–46. — Cohen's kappa, the inter-annotator agreement metric referenced in the human evaluation section.
+- Hendrycks, D. et al. "Measuring Massive Multitask Language Understanding." *ICLR* (2021). https://arxiv.org/abs/2009.03300, The MMLU benchmark.
+- Zellers, R. et al. "HellaSwag: Can a Machine Really Finish Your Sentence?" *ACL* (2019). https://arxiv.org/abs/1905.07830, HellaSwag benchmark and the adversarial filtering methodology.
+- Chen, M. et al. "Evaluating Large Language Models Trained on Code." (2021). https://arxiv.org/abs/2107.03374, Introduces HumanEval and the pass@k metric.
+- Lin, S. et al. "TruthfulQA: Measuring How Models Mimic Human Falsehoods." *ACL* (2022). https://arxiv.org/abs/2109.07958, TruthfulQA benchmark design and analysis.
+- Zheng, L. et al. "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena." *NeurIPS* (2023). https://arxiv.org/abs/2306.05685, MT-Bench and the LLM-as-judge methodology, including analysis of positional and verbosity biases.
+- Zhang, T. et al. "BERTScore: Evaluating Text Generation with BERT." *ICLR* (2020). https://arxiv.org/abs/1904.09675, BERTScore metric.
+- Papineni, K. et al. "BLEU: a Method for Automatic Evaluation of Machine Translation." *ACL* (2002). https://dl.acm.org/doi/10.3115/1073083.1073135, Original BLEU paper.
+- Lin, C.-Y. "ROUGE: A Package for Automatic Evaluation of Summaries." *ACL Workshop on Text Summarization* (2004). https://aclanthology.org/W04-1013/, Original ROUGE paper.
+- Cohen, J. "A Coefficient of Agreement for Nominal Scales." *Educational and Psychological Measurement* 20, no. 1 (1960): 37–46., Cohen's kappa, the inter-annotator agreement metric referenced in the human evaluation section.

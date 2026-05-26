@@ -47,7 +47,7 @@ The pipeline uses a multi-signal scoring system:
 
 Each signal contributes to a composite score. After all candidates are scored, the pipeline **sorts all clips by composite score** to select the top results. This is straightforward sorting applied to an AI output.
 
-The scoring framework follows the structure of WSJF (Weighted Shortest Job First), the prioritization method from SAFe (Scaled Agile Framework). Each signal is weighted by its reliability and relevance; the composite is a weighted sum. Sorting by this composite is equivalent to sorting by a business-value-adjusted priority score — a pattern applicable to any multi-criteria AI ranking problem.
+The scoring framework follows the structure of WSJF (Weighted Shortest Job First), the prioritization method from SAFe (Scaled Agile Framework). Each signal is weighted by its reliability and relevance; the composite is a weighted sum. Sorting by this composite is equivalent to sorting by a business-value-adjusted priority score, a pattern applicable to any multi-criteria AI ranking problem.
 
 ## Search Optimization Through Tiered Analysis
 
@@ -89,7 +89,7 @@ top_indices = np.argpartition(scores, -5)[-5:]  # O(n) partial sort for top-k
 
 ## Sources
 
-- Cormen, T. H., Leiserson, C. E., Rivest, R. L., and Stein, C. *Introduction to Algorithms* (4th ed., 2022). MIT Press. https://mitpress.mit.edu/9780262046305/ — The definitive reference for algorithm complexity analysis, sorting, and search data structures.
-- Peters, T. "Timsort." CPython source and original description (2002). https://bugs.python.org/issue4585 — Original description of the algorithm behind Python's `sorted()`.
-- Malkov, Y. A., and Yashunin, D. A. "Efficient and Robust Approximate Nearest Neighbor Search Using Hierarchical Navigable Small World Graphs." *IEEE Transactions on Pattern Analysis and Machine Intelligence* 42, no. 4 (2020): 824–836. https://arxiv.org/abs/1603.09320 — The HNSW algorithm used in production vector databases for approximate nearest-neighbor search.
-- Scaled Agile Framework. "Weighted Shortest Job First (WSJF)." https://scaledagileframework.com/wsjf/ — The prioritization model referenced for multi-signal composite scoring.
+- Cormen, T. H., Leiserson, C. E., Rivest, R. L., and Stein, C. *Introduction to Algorithms* (4th ed., 2022). MIT Press. https://mitpress.mit.edu/9780262046305/, The definitive reference for algorithm complexity analysis, sorting, and search data structures.
+- Peters, T. "Timsort." CPython source and original description (2002). https://bugs.python.org/issue4585, Original description of the algorithm behind Python's `sorted()`.
+- Malkov, Y. A., and Yashunin, D. A. "Efficient and Robust Approximate Nearest Neighbor Search Using Hierarchical Navigable Small World Graphs." *IEEE Transactions on Pattern Analysis and Machine Intelligence* 42, no. 4 (2020): 824–836. https://arxiv.org/abs/1603.09320, The HNSW algorithm used in production vector databases for approximate nearest-neighbor search.
+- Scaled Agile Framework. "Weighted Shortest Job First (WSJF)." https://scaledagileframework.com/wsjf/, The prioritization model referenced for multi-signal composite scoring.

@@ -12,6 +12,46 @@ A regional telecom provider with 2 million subscribers handled 180,000 customer 
 
 The chatbot combines a RAG-based knowledge system with account-aware tools and a human escalation path.
 
+<div class="bz-arch">
+  <div class="bz-arch-layer">
+    <span class="bz-arch-layer-label">Conversation</span>
+    <div class="bz-arch-layer-content">
+      <span class="bz-arch-chip">LLM + system prompt</span>
+      <span class="bz-arch-chip">Persona and guardrails</span>
+      <span class="bz-arch-chip">Multi-turn context</span>
+      <span class="bz-arch-chip-note">Defines capability boundaries: what it can and cannot do. Manages conversation history</span>
+    </div>
+  </div>
+  <div class="bz-arch-layer">
+    <span class="bz-arch-layer-label">Knowledge</span>
+    <div class="bz-arch-layer-content">
+      <span class="bz-arch-chip">450 articles</span>
+      <span class="bz-arch-chip">Vector database</span>
+      <span class="bz-arch-chip">Semantic retrieval</span>
+      <span class="bz-arch-chip-note">Billing, technical support, plan info, account management; retrieved at query time</span>
+    </div>
+  </div>
+  <div class="bz-arch-layer">
+    <span class="bz-arch-layer-label">Account tools</span>
+    <div class="bz-arch-layer-content">
+      <span class="bz-arch-chip">Plan details API</span>
+      <span class="bz-arch-chip">Billing history</span>
+      <span class="bz-arch-chip">Outage status</span>
+      <span class="bz-arch-chip">Open tickets</span>
+      <span class="bz-arch-chip-note">Live account data; invoked only when the question requires customer-specific information</span>
+    </div>
+  </div>
+  <div class="bz-arch-layer">
+    <span class="bz-arch-layer-label">Escalation</span>
+    <div class="bz-arch-layer-content">
+      <span class="bz-arch-chip">Sentiment threshold</span>
+      <span class="bz-arch-chip">Loop detection</span>
+      <span class="bz-arch-chip">Human handoff</span>
+      <span class="bz-arch-chip-note">Transfers full transcript so the customer does not repeat themselves to the agent</span>
+    </div>
+  </div>
+</div>
+
 **Conversational layer** - An LLM handles conversation management with a system prompt defining the chatbot's persona, capabilities, and guardrails. The prompt explicitly defines what the chatbot can and cannot do: it can check account balances, explain plans, troubleshoot common issues, and process simple changes. It cannot override billing disputes, authorize credits above $25, or handle complaints involving regulatory agencies.
 
 **Knowledge retrieval** - Product documentation, FAQ content, troubleshooting guides, and policy documents are chunked and embedded in a vector database. When the customer asks a question, the system retrieves relevant content and includes it in the model's context. The knowledge base covers 450 articles across billing, technical support, plan information, and account management.

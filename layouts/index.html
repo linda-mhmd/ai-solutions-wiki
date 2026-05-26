@@ -1,219 +1,111 @@
 {{ define "main" }}
-<!-- Hero / Search -->
-<section class="hero">
-  <div class="hero-container">
-    <div class="hero-badge">
-      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-      AI Knowledge Base
-    </div>
-    <h1>Everything you need to build with AI</h1>
-    <p class="hero-subtitle">Practical frameworks, tool guides, industry solutions, and step-by-step tutorials. Built for teams turning AI ideas into real products.</p>
-    <div class="hero-search">
-      <div id="hero-search"></div>
-    </div>
-    <div class="hero-stats">
-      <div class="stat">
-        <strong>{{ len (where .Site.RegularPages "Type" "!=" "page") }}+</strong>
-        <span>Articles</span>
+
+<!-- HERO -->
+<section class="idx-hero">
+  <div class="bz-container">
+    <div class="idx-hero-inner">
+      <div class="idx-hero-text">
+        <h1 class="idx-hero-h1">Production AI for teams that ship.</h1>
+        <p class="idx-hero-sub">Architecture patterns, implementation guides, and tool references. Built for engineers turning AI into working systems.</p>
+        <div class="idx-hero-search">
+          <div id="hero-search"></div>
+        </div>
       </div>
-      <div class="stat">
-        <strong>{{ len .Site.Sections }}</strong>
-        <span>Sections</span>
-      </div>
-      <div class="stat">
-        <strong>{{ with .Site.GetPage "solutions" }}{{ len .Sections }}{{ end }}</strong>
-        <span>Industries</span>
-      </div>
-      <div class="stat">
-        <strong>Free</strong>
-        <span>Always</span>
+      <div class="idx-hero-visual">
+        <img src="/img/basics/diagram-production-ai.png" alt="" aria-hidden="true" class="idx-hero-img">
       </div>
     </div>
   </div>
 </section>
 
-<!-- Category Grid -->
-<section class="section-categories">
-  <div class="content-container">
-    <h2 class="section-title">Browse by section</h2>
-    <div class="category-grid">
-      <a href="{{ "layers/" | relURL }}" class="category-card">
-        <div class="category-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 12.5-8.58 3.91a2 2 0 0 1-1.66 0L3.42 12.5"/><path d="m22 17.5-8.58 3.91a2 2 0 0 1-1.66 0L3.42 17.5"/></svg>
-        </div>
-        <h3>Layers</h3>
-        <p>The foundational layers of AI systems — from data and models to orchestration and interfaces.</p>
-        <span class="card-link">Explore layers
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </span>
+<!-- SECTION DIVIDER -->
+<div class="bz-section-divider" style="background-image:url('/img/basics/divider-infrastructure.png')">
+  <div class="bz-container">
+    <span class="bz-divider-num">01.</span>
+    <span class="bz-divider-name">Browse by section.</span>
+  </div>
+</div>
+
+<!-- SECTIONS -->
+<section class="idx-sections">
+  <div class="bz-container">
+    <div class="idx-section-grid">
+      <a href="{{ "layers/" | relURL }}" class="idx-section-row">
+        <span class="idx-section-name">Layers</span>
+        <span class="idx-section-desc">The foundational layers of AI systems, from data and models to orchestration and interfaces.</span>
       </a>
-      <a href="{{ "getting-started/" | relURL }}" class="category-card">
-        <div class="category-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3"/><path d="m9 12 2 2 4-4"/></svg>
-        </div>
-        <h3>Getting Started</h3>
-        <p>Your first steps with AI — core concepts, setup guides, and a clear path from zero to working.</p>
-        <span class="card-link">Start here
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </span>
+      <a href="{{ "getting-started/" | relURL }}" class="idx-section-row">
+        <span class="idx-section-name">Getting Started</span>
+        <span class="idx-section-desc">Core concepts, setup guides, and a clear path from zero to working.</span>
       </a>
-      <a href="{{ "build/" | relURL }}" class="category-card">
-        <div class="category-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path d="M12 4v1M12 19v1M4 12h1M19 12h1M6.3 6.3l.7.7M17 17l.7.7M6.3 17.7l.7-.7M17 7l.7-.7"/></svg>
-        </div>
-        <h3>Build</h3>
-        <p>Hands-on guides for building AI features, integrating APIs, and shipping production-ready systems.</p>
-        <span class="card-link">Start building
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </span>
+      <a href="{{ "build/" | relURL }}" class="idx-section-row">
+        <span class="idx-section-name">Build</span>
+        <span class="idx-section-desc">Hands-on guides for building AI features, integrating APIs, and shipping production-ready systems.</span>
       </a>
-      <a href="{{ "architecture/" | relURL }}" class="category-card">
-        <div class="category-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M3 9h3M3 15h3M9 3v3M15 3v3M21 9h-3M21 15h-3M9 21v-3M15 21v-3"/></svg>
-        </div>
-        <h3>Architecture</h3>
-        <p>System design patterns, reference architectures, and decisions for scalable AI infrastructure.</p>
-        <span class="card-link">View architecture
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </span>
+      <a href="{{ "architecture/" | relURL }}" class="idx-section-row">
+        <span class="idx-section-name">Architecture</span>
+        <span class="idx-section-desc">System design patterns and reference architectures for scalable AI infrastructure.</span>
       </a>
-      <a href="{{ "solutions/" | relURL }}" class="category-card">
-        <div class="category-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
-        </div>
-        <h3>Industry Solutions</h3>
-        <p>AI applications for media, finance, insurance, geospatial, and more.</p>
-        <span class="card-link">Browse solutions
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </span>
+      <a href="{{ "solutions/" | relURL }}" class="idx-section-row">
+        <span class="idx-section-name">Industry Solutions</span>
+        <span class="idx-section-desc">AI applications for media, finance, insurance, geospatial, and more.</span>
       </a>
-      <a href="{{ "guides/" | relURL }}" class="category-card">
-        <div class="category-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-        </div>
-        <h3>How-to Guides</h3>
-        <p>Step-by-step tutorials covering AI architecture, testing, MLOps, and production deployment.</p>
-        <span class="card-link">Read guides
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </span>
+      <a href="{{ "guides/" | relURL }}" class="idx-section-row">
+        <span class="idx-section-name">How-to Guides</span>
+        <span class="idx-section-desc">Step-by-step tutorials covering AI architecture, testing, MLOps, and production deployment.</span>
       </a>
-      <a href="{{ "frameworks/" | relURL }}" class="category-card">
-        <div class="category-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <h3>Frameworks</h3>
-        <p>Governance, ethics, regulatory, and methodology frameworks for AI teams.</p>
-        <span class="card-link">See frameworks
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </span>
+      <a href="{{ "frameworks/" | relURL }}" class="idx-section-row">
+        <span class="idx-section-name">Frameworks</span>
+        <span class="idx-section-desc">Governance, ethics, regulatory, and methodology frameworks for AI teams.</span>
       </a>
-      <a href="{{ "tools/" | relURL }}" class="category-card">
-        <div class="category-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-        </div>
-        <h3>Tool Reviews</h3>
-        <p>Deep dives into AWS AI services, LLM platforms, and frameworks.</p>
-        <span class="card-link">Explore tools
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </span>
+      <a href="{{ "tools/" | relURL }}" class="idx-section-row">
+        <span class="idx-section-name">Tool Reviews</span>
+        <span class="idx-section-desc">Deep dives into AWS AI services, LLM platforms, and developer frameworks.</span>
       </a>
-      <a href="{{ "comparisons/" | relURL }}" class="category-card">
-        <div class="category-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
-        </div>
-        <h3>Comparisons</h3>
-        <p>Side-by-side analysis to help you choose the right tools.</p>
-        <span class="card-link">Compare tools
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </span>
+      <a href="{{ "comparisons/" | relURL }}" class="idx-section-row">
+        <span class="idx-section-name">Comparisons</span>
+        <span class="idx-section-desc">Side-by-side analysis to help you choose the right tools and approaches.</span>
       </a>
-      <a href="{{ "glossary/" | relURL }}" class="category-card">
-        <div class="category-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
-        </div>
-        <h3>Glossary</h3>
-        <p>Plain-English definitions for AI, ML, and cloud terminology.</p>
-        <span class="card-link">Look up terms
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </span>
+      <a href="{{ "glossary/" | relURL }}" class="idx-section-row">
+        <span class="idx-section-name">Glossary</span>
+        <span class="idx-section-desc">Plain-English definitions for AI, ML, and cloud terminology.</span>
       </a>
-      <a href="{{ "patterns/" | relURL }}" class="category-card">
-        <div class="category-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-        </div>
-        <h3>Patterns</h3>
-        <p>Reusable technical patterns for RAG, agents, pipelines, and more.</p>
-        <span class="card-link">View patterns
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </span>
+      <a href="{{ "patterns/" | relURL }}" class="idx-section-row">
+        <span class="idx-section-name">Patterns</span>
+        <span class="idx-section-desc">Reusable technical patterns for RAG, agents, pipelines, and more.</span>
       </a>
-      <a href="{{ "ideas/" | relURL }}" class="category-card">
-        <div class="category-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
-        </div>
-        <h3>AI Ideas</h3>
-        <p>Daily AI sparks - quick concepts to inspire your next project.</p>
-        <span class="card-link">Get inspired
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </span>
-      </a>
-      <a href="{{ "case-patterns/" | relURL }}" class="category-card">
-        <div class="category-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
-        </div>
-        <h3>Case Patterns</h3>
-        <p>Real-world AI implementation patterns drawn from production use cases.</p>
-        <span class="card-link">View cases
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </span>
+      <a href="{{ "case-patterns/" | relURL }}" class="idx-section-row">
+        <span class="idx-section-name">Case Patterns</span>
+        <span class="idx-section-desc">Real-world AI implementation patterns drawn from production use cases.</span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- Latest Articles -->
-<section class="section-latest">
-  <div class="content-container">
-    <div class="section-header">
-      <h2 class="section-title">Latest articles</h2>
-    </div>
-    <div class="article-grid">
-      {{ range first 6 (where .Site.RegularPages "Type" "!=" "page") }}
-      <article class="article-card">
-        <div class="card-meta-top">
-          <span class="section-badge">{{ .Section | humanize | title }}</span>
-        </div>
-        <h3 class="card-title">
-          <a href="{{ .Permalink }}">{{ .Title }}</a>
-        </h3>
-        {{ with .Description }}
-        <p class="card-description">{{ . | truncate 120 }}</p>
-        {{ end }}
-        <div class="card-footer">
-          <span class="card-date">{{ .Date.Format "Jan 2, 2006" }}</span>
-          {{ if .Site.Params.showReadingTime }}
-          <span class="card-read">{{ .ReadingTime }} min</span>
-          {{ end }}
-        </div>
-      </article>
+<!-- LATEST ARTICLES -->
+<section class="idx-latest">
+  <div class="bz-container">
+    <p class="bz-section-label">From the wiki</p>
+    <div class="idx-article-list">
+      {{ range first 8 (where .Site.RegularPages "Type" "!=" "page") }}
+      <a href="{{ .RelPermalink }}" class="idx-article-row">
+        <span class="idx-article-section">{{ .Section | humanize | title }}</span>
+        <span class="idx-article-title">{{ .Title }}</span>
+        <span class="idx-article-date">{{ .Date.Format "Jan 2006" }}</span>
+      </a>
       {{ end }}
     </div>
   </div>
 </section>
 
-<!-- Workshop CTA Banner -->
-<section class="section-cta-banner">
-  <div class="content-container">
-    <div class="cta-banner">
-      <div class="cta-banner-content">
-        <h2>Ready to build your first AI solution?</h2>
-        <p>From this wiki to a working prototype. Our structured workshop methodology gets your team from idea to deployed AI in three sessions.</p>
-        <a href="{{ .Site.Params.workshopsURL }}" class="cta-button large" target="_blank" rel="noopener">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" x2="3" y1="12" y2="12"/></svg>
-          Visit AI Workshops Online
-        </a>
-      </div>
-    </div>
+<!-- CTA -->
+<section class="bz-cta">
+  <div class="bz-container">
+    <p class="bz-cta-eyebrow">Workshops</p>
+    <h2 class="bz-cta-title">From knowledge to working prototype.</h2>
+    <p class="bz-cta-sub">Structured methodology. Zero to deployed AI in three sessions. For teams that need to move fast without guessing.</p>
+    <a href="{{ .Site.Params.workshopsURL }}" class="bz-btn-primary" target="_blank" rel="noopener">AI Workshops Online</a>
   </div>
 </section>
+
 {{ end }}

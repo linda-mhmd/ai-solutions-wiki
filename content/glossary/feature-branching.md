@@ -42,6 +42,6 @@ Many successful teams use a hybrid: short-lived feature branches (hours to a cou
 
 ## Sources
 
-- Driessen, V. (2010). A successful Git branching model. *nvie.com*. (Original Gitflow model; feature branches, release branches, and hotfix branches — the most widely cited feature-branching strategy.)
+- Driessen, V. (2010). A successful Git branching model. *nvie.com*. (Original Gitflow model; feature branches, release branches, and hotfix branches, the most widely cited feature-branching strategy.)
 - Fowler, M. (2020). Patterns for managing source code branches. *martinfowler.com*. (Comprehensive taxonomy of branching strategies; trade-offs between feature branching, trunk-based development, and hybrid models.)
 - Forsgren, N., Humble, J., & Kim, G. (2018). *Accelerate: The Science of Lean Software and DevOps*. IT Revolution Press. (DORA research showing trunk-based development outperforms long-lived feature branches on delivery performance metrics.)

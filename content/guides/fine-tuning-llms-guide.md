@@ -71,7 +71,7 @@ Update all model parameters on your dataset. Produces the best results but requi
 
 Train small adapter matrices that modify the model's behavior without changing the original weights. Much cheaper than full fine-tuning, with results that are often comparable.
 
-The key insight (Hu et al., 2022): the weight updates ΔW needed to adapt a model to a new task are intrinsically low-rank. Rather than updating the full weight matrix W ∈ ℝ^(d×k), LoRA decomposes the update as ΔW = BA where B ∈ ℝ^(d×r) and A ∈ ℝ^(r×k), with rank r ≪ min(d, k). A 4096×4096 weight matrix has 16.8M parameters; at rank 8, the LoRA adapter has only 65K — a 245× reduction in trainable parameters.
+The key insight (Hu et al., 2022): the weight updates ΔW needed to adapt a model to a new task are intrinsically low-rank. Rather than updating the full weight matrix W ∈ ℝ^(d×k), LoRA decomposes the update as ΔW = BA where B ∈ ℝ^(d×r) and A ∈ ℝ^(r×k), with rank r ≪ min(d, k). A 4096×4096 weight matrix has 16.8M parameters; at rank 8, the LoRA adapter has only 65K, a 245× reduction in trainable parameters.
 
 **When to use:** Most fine-tuning use cases. LoRA has become the default approach for practical fine-tuning. Hugging Face's `peft` library provides a standard implementation.
 
@@ -122,7 +122,7 @@ Evaluate fine-tuned models rigorously:
 
 ## Cost Considerations
 
-**Training cost.** Fine-tuning via API (OpenAI, Bedrock) costs approximately $8–$25 per million training tokens as of early 2026 — verify current pricing at provider documentation before budgeting, as these figures change. Self-hosted fine-tuning costs GPU hours ($1–$5/hour for single-GPU on cloud providers, more for multi-GPU).
+**Training cost.** Fine-tuning via API (OpenAI, Bedrock) costs approximately $8–$25 per million training tokens as of early 2026, verify current pricing at provider documentation before budgeting, as these figures change. Self-hosted fine-tuning costs GPU hours ($1–$5/hour for single-GPU on cloud providers, more for multi-GPU).
 
 **Inference cost.** Fine-tuned models are often the same cost to run as base models. The savings come from using a smaller fine-tuned model instead of a larger prompted model.
 
@@ -132,8 +132,8 @@ Fine-tuning is a powerful technique when applied to the right problems. The deci
 
 ## Sources
 
-- Hu, E. J., Shen, Y., Wallis, P., Allen-Zhu, Z., Li, Y., Wang, S., Wang, L., and Chen, W. "LoRA: Low-Rank Adaptation of Large Language Models." *ICLR* (2022). https://arxiv.org/abs/2106.09685 — The original LoRA paper. Demonstrates that intrinsic rank of weight updates is low, enabling efficient fine-tuning with adapter matrices.
-- Dettmers, T., Pagnoni, A., Holtzman, A., and Zettlemoyer, L. "QLoRA: Efficient Finetuning of Quantized LLMs." *NeurIPS* (2023). https://arxiv.org/abs/2305.14314 — Introduces NF4 quantization and the double quantization technique that enables fine-tuning 65B models on a single 48GB GPU.
-- Hu, E. J. et al. "Towards a Unified View of Parameter-Efficient Transfer Learning." *ICLR* (2022). https://arxiv.org/abs/2110.04366 — Unified framework comparing LoRA, adapters, prefix tuning, and prompt tuning. Useful for understanding when each PEFT method is appropriate.
-- Kirkpatrick, J. et al. "Overcoming Catastrophic Forgetting in Neural Networks." *PNAS* 114, no. 13 (2017): 3521–3526. https://arxiv.org/abs/1612.00796 — Elastic Weight Consolidation (EWC), a regularization approach to catastrophic forgetting mentioned in the training problems section.
-- Hugging Face. "PEFT: State-of-the-Art Parameter-Efficient Fine-Tuning." https://github.com/huggingface/peft — The standard Python library for LoRA, QLoRA, prompt tuning, and other PEFT methods referenced in this guide.
+- Hu, E. J., Shen, Y., Wallis, P., Allen-Zhu, Z., Li, Y., Wang, S., Wang, L., and Chen, W. "LoRA: Low-Rank Adaptation of Large Language Models." *ICLR* (2022). https://arxiv.org/abs/2106.09685, The original LoRA paper. Demonstrates that intrinsic rank of weight updates is low, enabling efficient fine-tuning with adapter matrices.
+- Dettmers, T., Pagnoni, A., Holtzman, A., and Zettlemoyer, L. "QLoRA: Efficient Finetuning of Quantized LLMs." *NeurIPS* (2023). https://arxiv.org/abs/2305.14314, Introduces NF4 quantization and the double quantization technique that enables fine-tuning 65B models on a single 48GB GPU.
+- Hu, E. J. et al. "Towards a Unified View of Parameter-Efficient Transfer Learning." *ICLR* (2022). https://arxiv.org/abs/2110.04366, Unified framework comparing LoRA, adapters, prefix tuning, and prompt tuning. Useful for understanding when each PEFT method is appropriate.
+- Kirkpatrick, J. et al. "Overcoming Catastrophic Forgetting in Neural Networks." *PNAS* 114, no. 13 (2017): 3521–3526. https://arxiv.org/abs/1612.00796, Elastic Weight Consolidation (EWC), a regularization approach to catastrophic forgetting mentioned in the training problems section.
+- Hugging Face. "PEFT: State-of-the-Art Parameter-Efficient Fine-Tuning." https://github.com/huggingface/peft, The standard Python library for LoRA, QLoRA, prompt tuning, and other PEFT methods referenced in this guide.

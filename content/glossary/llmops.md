@@ -34,5 +34,5 @@ LLMOps requires collaboration between ML engineers, platform engineers, and appl
 ## Sources
 
 - Sculley, D., et al. (2015). Hidden technical debt in machine learning systems. *NeurIPS 2015*. (Foundational ML engineering paper; the operational challenges LLMOps inherits from MLOps.)
-- Liang, P., et al. (2022). Holistic evaluation of language models (HELM). *arXiv:2211.09110*. (HELM; systematic LLM evaluation framework covering accuracy, robustness, fairness, and efficiency — what LLMOps evaluation pipelines measure.)
+- Liang, P., et al. (2022). Holistic evaluation of language models (HELM). *arXiv:2211.09110*. (HELM; systematic LLM evaluation framework covering accuracy, robustness, fairness, and efficiency, what LLMOps evaluation pipelines measure.)
 - Shankar, S., et al. (2022). Operationalizing machine learning: An interview study. *arXiv:2209.09125*. (Empirical study of ML production challenges; many findings directly apply to LLM operational practices.)

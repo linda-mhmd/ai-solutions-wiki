@@ -76,7 +76,7 @@ Attackers cause excessive resource consumption through crafted inputs that trigg
 
 ## Sources
 
-- OWASP. "OWASP Top 10 for Large Language Model Applications — Version 2.0." (2025). https://owasp.org/www-project-top-10-for-large-language-model-applications/ — The canonical source for this list. Version 2.0 restructured from the 2023 v1.1 list; the 2025 edition reflects production deployment experience with agentic and multi-modal systems.
-- OWASP GenAI Working Group. https://genai.owasp.org — The project page with supplementary guidance, extended mappings to MITRE ATLAS, and tooling references.
-- Greshake, K. et al. "Not What You've Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection." (2023). https://arxiv.org/abs/2302.12173 — Formal analysis of indirect prompt injection (LLM01), demonstrating attacks on LLM-integrated applications through document and web content.
-- Perez, E. and Ribeiro, I. "Ignore Previous Prompt: Attack Techniques For Language Models." (2022). https://arxiv.org/abs/2211.09527 — Systematic study of prompt injection techniques referenced in the LLM01 section.
+- OWASP. "OWASP Top 10 for Large Language Model Applications, Version 2.0." (2025). https://owasp.org/www-project-top-10-for-large-language-model-applications/, The canonical source for this list. Version 2.0 restructured from the 2023 v1.1 list; the 2025 edition reflects production deployment experience with agentic and multi-modal systems.
+- OWASP GenAI Working Group. https://genai.owasp.org, The project page with supplementary guidance, extended mappings to MITRE ATLAS, and tooling references.
+- Greshake, K. et al. "Not What You've Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection." (2023). https://arxiv.org/abs/2302.12173, Formal analysis of indirect prompt injection (LLM01), demonstrating attacks on LLM-integrated applications through document and web content.
+- Perez, E. and Ribeiro, I. "Ignore Previous Prompt: Attack Techniques For Language Models." (2022). https://arxiv.org/abs/2211.09527, Systematic study of prompt injection techniques referenced in the LLM01 section.

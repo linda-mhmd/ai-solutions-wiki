@@ -39,5 +39,5 @@ Use SQS Standard for most workloads. Use FIFO queues only when message ordering 
 ## Sources
 
 - Birman, K. P., & Joseph, T. A. (1987). Reliable communication in the presence of failures. *ACM Transactions on Computer Systems*, 5(1), 47–76. (Foundational work on reliable message delivery in distributed systems; the theoretical basis for message queue durability and at-least-once delivery guarantees.)
-- Hohpe, G., & Woolf, B. (2003). *Enterprise Integration Patterns*. Addison-Wesley. Chapter 3: Messaging Channels. (Message queue patterns; point-to-point channels, dead-letter channels, and competing consumers — the canonical reference for messaging architecture.)
+- Hohpe, G., & Woolf, B. (2003). *Enterprise Integration Patterns*. Addison-Wesley. Chapter 3: Messaging Channels. (Message queue patterns; point-to-point channels, dead-letter channels, and competing consumers, the canonical reference for messaging architecture.)
 - Vogels, W. (2004). Eventually consistent. *ACM Queue*. (Eventual consistency through async messaging; the design philosophy underlying SQS standard queues.)

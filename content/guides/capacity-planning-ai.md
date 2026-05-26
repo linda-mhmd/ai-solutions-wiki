@@ -18,7 +18,7 @@ AI inference workloads have different capacity planning requirements than tradit
 
 A model's GPU memory consumption includes:
 
-- **Model weights** - The base memory requirement. A 7B parameter model in FP16 (2 bytes/parameter) requires approximately 14 GB for weights alone. A 70B model requires approximately 140 GB. These figures cover only the stored parameters — they are not the total GPU memory required for inference.
+- **Model weights** - The base memory requirement. A 7B parameter model in FP16 (2 bytes/parameter) requires approximately 14 GB for weights alone. A 70B model requires approximately 140 GB. These figures cover only the stored parameters, they are not the total GPU memory required for inference.
 - **KV cache** - Memory required to store key-value attention pairs during generation. Scales with batch size × sequence length × number of layers × head dimension × 2 (K and V). At batch size 8 and 2048-token sequences on a 32-layer model, KV cache adds approximately 4–8 GB. At batch size 32 or 8192-token contexts, KV cache can exceed model weight memory. vLLM's PagedAttention manages KV cache in non-contiguous blocks to improve utilisation, but does not eliminate this constraint [1].
 - **Activation memory** - Temporary memory during forward pass computation.
 - **Framework overhead** - CUDA context, library allocations, and buffer space.

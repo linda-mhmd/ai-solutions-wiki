@@ -1,0 +1,21 @@
+{{- $skip := slice "ideas" "software-engineering" "search" "imprint" "privacy" -}}
+{{- $priority := slice "getting-started" "architecture" "guides" "comparisons" "solutions" "tools" "frameworks" "layers" "foundations" "patterns" "case-patterns" "glossary" -}}
+# AI Solutions Wiki
+
+> Production AI knowledge base for teams building AI systems. Covers RAG, agents, architecture patterns, observability, governance, tools, frameworks, comparisons, and industry solutions. Maintained by Linda Mohamed, AI architect and AWS Community Hero.
+
+Homepage: https://ai-solutions.wiki
+About: https://ai-solutions.wiki/about/
+Consulting & Workshops: https://lindamohamed.com
+AI Workshops: https://ai-workshops.online
+Freelancer Automation: https://freelancer-automation.com
+{{ range $priority }}
+{{- $section := $.Site.GetPage . }}
+{{- if $section }}
+
+## {{ $section.Title }}
+{{ range $section.RegularPagesRecursive -}}
+- [{{ .Title }}]({{ .Permalink }}){{ with .Description }}: {{ . }}{{ end }}
+{{ end -}}
+{{- end }}
+{{- end }}

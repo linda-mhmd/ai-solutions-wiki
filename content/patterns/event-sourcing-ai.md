@@ -89,7 +89,7 @@ A simpler alternative for audit logging is appending structured log entries to C
 
 ## Sources and Further Reading
 
-1. Evans, E. (2003). *Domain-Driven Design: Tackling Complexity in the Heart of Software.* Addison-Wesley. — Introduced the strategic and tactical design patterns of DDD, the conceptual foundation from which Event Sourcing emerged.
-2. Young, G. (2010). "CQRS Documents." Self-published. [https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf](https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf) — Greg Young's canonical description of CQRS and its relationship to Event Sourcing.
-3. Fowler, M. "Event Sourcing." *martinfowler.com*, 2005. [https://martinfowler.com/eaaDev/EventSourcing.html](https://martinfowler.com/eaaDev/EventSourcing.html) — Canonical pattern description.
-4. Kleppmann, M. (2017). *Designing Data-Intensive Applications.* O'Reilly Media. — Chapter 11 ("Stream Processing") covers event logs, derived data, and the relationship between stream processing and event sourcing at the systems level.
+1. Evans, E. (2003). *Domain-Driven Design: Tackling Complexity in the Heart of Software.* Addison-Wesley., Introduced the strategic and tactical design patterns of DDD, the conceptual foundation from which Event Sourcing emerged.
+2. Young, G. (2010). "CQRS Documents." Self-published. [https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf](https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf), Greg Young's canonical description of CQRS and its relationship to Event Sourcing.
+3. Fowler, M. "Event Sourcing." *martinfowler.com*, 2005. [https://martinfowler.com/eaaDev/EventSourcing.html](https://martinfowler.com/eaaDev/EventSourcing.html), Canonical pattern description.
+4. Kleppmann, M. (2017). *Designing Data-Intensive Applications.* O'Reilly Media., Chapter 11 ("Stream Processing") covers event logs, derived data, and the relationship between stream processing and event sourcing at the systems level.

@@ -40,4 +40,4 @@ Data contracts shift the relationship between data teams from reactive ("why did
 
 - Majchrzak, T. A., Heidari, S., & Spinczyk, O. (2020). Data contracts for API-based data ecosystems. *IEEE International Conference on Web Services*. (Academic framework for formalizing data contracts in API-driven architectures.)
 - Breck, E., et al. (2017). The ML test score: A rubric for ML production readiness. *IEEE Big Data 2017*. (Google ML readiness criteria; data schema validation and monitoring is a core test.)
-- Kleppmann, M. (2017). *Designing Data-Intensive Applications*. O'Reilly Media. Chapter 4: Encoding and Evolution. (Foundational treatment of schema evolution, backward/forward compatibility — the technical basis for data contract versioning.)
+- Kleppmann, M. (2017). *Designing Data-Intensive Applications*. O'Reilly Media. Chapter 4: Encoding and Evolution. (Foundational treatment of schema evolution, backward/forward compatibility, the technical basis for data contract versioning.)

@@ -36,4 +36,4 @@ Use at least two availability zones for high availability. Place all data-proces
 
 - Rekhter, Y., Moskowitz, B., Karrenberg, D., de Groot, G. J., & Lear, E. (1996). *Address Allocation for Private Internets*. RFC 1918. IETF. (The RFC defining private IP address ranges used in VPC CIDR blocks; 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16.)
 - Mogul, J., & Postel, J. (1985). *Internet Standard Subnetting Procedure*. RFC 950. IETF. (Original subnet masking standard; the foundation for CIDR and VPC subnet design.)
-- AWS. (2024). *Amazon VPC User Guide*. Amazon Web Services. (VPC architecture: subnets, route tables, internet gateways, security groups, NACLs, and VPC endpoints — the authoritative reference for AWS network isolation.)
+- AWS. (2024). *Amazon VPC User Guide*. Amazon Web Services. (VPC architecture: subnets, route tables, internet gateways, security groups, NACLs, and VPC endpoints, the authoritative reference for AWS network isolation.)

@@ -39,5 +39,5 @@ For technical leaders evaluating model architectures, batch normalization is a t
 
 ## Sources
 
-1. Ioffe, S. and Szegedy, C. (2015). "Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift." *Proceedings of the 32nd International Conference on Machine Learning (ICML 2015).* — Original paper introducing batch normalization; demonstrated 14× faster training on ImageNet classification. [https://arxiv.org/abs/1502.03167](https://arxiv.org/abs/1502.03167)
-2. Ba, J.L., Kiros, J.R., and Hinton, G.E. (2016). "Layer Normalization." *arXiv:1607.06450.* — Introduced layer normalization as the alternative that became standard in transformer models, normalizing across features rather than batch dimension. [https://arxiv.org/abs/1607.06450](https://arxiv.org/abs/1607.06450)
+1. Ioffe, S. and Szegedy, C. (2015). "Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift." *Proceedings of the 32nd International Conference on Machine Learning (ICML 2015).*, Original paper introducing batch normalization; demonstrated 14× faster training on ImageNet classification. [https://arxiv.org/abs/1502.03167](https://arxiv.org/abs/1502.03167)
+2. Ba, J.L., Kiros, J.R., and Hinton, G.E. (2016). "Layer Normalization." *arXiv:1607.06450.*, Introduced layer normalization as the alternative that became standard in transformer models, normalizing across features rather than batch dimension. [https://arxiv.org/abs/1607.06450](https://arxiv.org/abs/1607.06450)

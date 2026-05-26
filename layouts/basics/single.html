@@ -1,0 +1,104 @@
+{{ define "main" }}
+<meta name="wiki:url" content="{{ .RelPermalink }}">
+<meta name="wiki:title" content="{{ .Title }}">
+<meta name="wiki:section" content="basics">
+{{ with .Params.tags }}<meta name="wiki:tags" content="{{ delimit . "," }}">{{ end }}
+<div class="article-layout">
+  <div class="article-container">
+    {{ partial "breadcrumbs.html" . }}
+
+    <article class="article-content">
+      <header class="article-header">
+        <div class="article-meta-top" data-pagefind-ignore>
+          <a href="{{ "/basics/" | relURL }}" class="section-badge">Basics</a>
+          {{ with .Params.level }}
+          <span class="bz-level-pill">Level {{ . }}</span>
+          {{ end }}
+        </div>
+
+        <h1 data-pagefind-meta="title">{{ .Title }}</h1>
+
+        {{ with .Description }}
+        <p class="article-description">{{ . }}</p>
+        {{ end }}
+
+        <div class="article-meta" data-pagefind-ignore>
+          <span class="meta-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            {{ .ReadingTime }} min read
+          </span>
+          <span class="meta-item">No prior knowledge needed</span>
+        </div>
+      </header>
+
+      {{ if .Params.youtube_id }}
+      <div class="bz-video-card" data-pagefind-ignore>
+        <a href="https://www.youtube.com/watch?v={{ .Params.youtube_id }}" target="_blank" rel="noopener" class="bz-video-card-link">
+          <div class="bz-video-thumb">
+            <img src="https://img.youtube.com/vi/{{ .Params.youtube_id }}/mqdefault.jpg"
+                 alt="{{ .Params.youtube_title | default "Video tutorial" }} thumbnail"
+                 loading="lazy">
+            <div class="bz-play-btn" aria-hidden="true">▶</div>
+          </div>
+          <div class="bz-video-info">
+            <span class="bz-video-label">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#ff0000" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              Recommended watch
+            </span>
+            <p class="bz-video-title">{{ .Params.youtube_title | default "Video tutorial" }}</p>
+            {{ with .Params.youtube_channel }}<p class="bz-video-channel">{{ . }}</p>{{ end }}
+          </div>
+          <span class="bz-video-cta">Watch on YouTube →</span>
+        </a>
+      </div>
+      {{ end }}
+
+      <div class="article-body" data-pagefind-body>
+        {{ .Content }}
+      </div>
+
+      {{ if .Params.docs }}
+      <div class="bz-docs-link" data-pagefind-ignore>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        <span>Official documentation:</span>
+        <a href="{{ .Params.docs }}" target="_blank" rel="noopener">{{ .Params.docs_label | default .Params.docs }}</a>
+      </div>
+      {{ end }}
+
+      {{ partial "faqs.html" . }}
+
+      {{ partial "library-panel.html" . }}
+      {{ partial "author-byline.html" . }}
+    </article>
+
+    <!-- Next / Prev navigation within Basics -->
+    {{ with .Parent }}
+    {{ $siblings := .Pages.ByParam "level" }}
+    {{ $current := $.Page }}
+    {{ range $i, $p := $siblings }}
+      {{ if eq $p.RelPermalink $current.RelPermalink }}
+        {{ $prev := index $siblings (sub $i 1) }}
+        {{ $next := index $siblings (add $i 1) }}
+        <nav class="bz-article-nav" aria-label="Basics navigation" data-pagefind-ignore>
+          <div class="bz-article-nav-inner">
+            {{ if and $prev (ge $i 1) }}
+            <a href="{{ $prev.RelPermalink }}" class="bz-nav-prev">
+              <span class="bz-nav-dir">← Previous</span>
+              <span class="bz-nav-title">{{ $prev.Title }}</span>
+            </a>
+            {{ else }}<div></div>{{ end }}
+            {{ if $next }}
+            <a href="{{ $next.RelPermalink }}" class="bz-nav-next">
+              <span class="bz-nav-dir">Next →</span>
+              <span class="bz-nav-title">{{ $next.Title }}</span>
+            </a>
+            {{ end }}
+          </div>
+        </nav>
+      {{ end }}
+    {{ end }}
+    {{ end }}
+
+  </div>
+</div>
+{{ end }}

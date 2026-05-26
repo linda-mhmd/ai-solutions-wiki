@@ -16,9 +16,60 @@ related:
 
 Retrieval-Augmented Generation (RAG) is the standard architecture for giving AI models access to private knowledge without fine-tuning. Instead of baking knowledge into model weights, RAG retrieves relevant documents at query time and includes them in the model's context. The concept is simple; building a production system that works reliably is not.
 
+<div class="bz-arch">
+  <div class="bz-arch-layer">
+    <span class="bz-arch-layer-label">Indexing</span>
+    <div class="bz-arch-layer-content">
+      <span class="bz-arch-chip">Ingest documents</span>
+      <span class="bz-arch-chip">Clean and chunk</span>
+      <span class="bz-arch-chip">Embed chunks</span>
+      <span class="bz-arch-chip">Store vectors</span>
+      <span class="bz-arch-chip-note">Runs once at setup, then incrementally as the knowledge base updates. Steps 1-4 below</span>
+    </div>
+  </div>
+  <div class="bz-arch-layer">
+    <span class="bz-arch-layer-label">Query</span>
+    <div class="bz-arch-layer-content">
+      <span class="bz-arch-chip">Embed query</span>
+      <span class="bz-arch-chip">Retrieve top-k</span>
+      <span class="bz-arch-chip">Re-rank</span>
+      <span class="bz-arch-chip">Generate answer</span>
+      <span class="bz-arch-chip-note">Runs on every user request. Steps 5-6 below</span>
+    </div>
+  </div>
+</div>
+
 ## Step 1 - Document Ingestion
 
-Before documents can be retrieved, they need to be in a form the system can work with. Document ingestion covers:
+Before documents can be retrieved, they need to be in a form the system can work with.
+
+<div class="bz-flow">
+  <div class="bz-flow-step">
+    <span class="bz-flow-step-tag">Source</span>
+    <span class="bz-flow-step-name">Raw documents</span>
+    <span class="bz-flow-step-desc">PDFs, Word, HTML, Markdown, plain text; each format needs its own parser</span>
+  </div>
+  <div class="bz-flow-arrow">→</div>
+  <div class="bz-flow-step">
+    <span class="bz-flow-step-tag">Clean</span>
+    <span class="bz-flow-step-name">Strip noise</span>
+    <span class="bz-flow-step-desc">Remove headers, footers, page numbers, boilerplate; preserve structure and headings</span>
+  </div>
+  <div class="bz-flow-arrow">→</div>
+  <div class="bz-flow-step">
+    <span class="bz-flow-step-tag">Chunk</span>
+    <span class="bz-flow-step-name">Split content</span>
+    <span class="bz-flow-step-desc">Semantic boundaries or 512-token windows with 50-100 token overlap</span>
+  </div>
+  <div class="bz-flow-arrow">→</div>
+  <div class="bz-flow-step">
+    <span class="bz-flow-step-tag">Index</span>
+    <span class="bz-flow-step-name">Embed and store</span>
+    <span class="bz-flow-step-desc">Titan Embeddings to vectors; stored in OpenSearch, pgvector, or Bedrock Knowledge Bases</span>
+  </div>
+</div>
+
+Document ingestion covers:
 
 **Format handling** - PDFs, Word documents, HTML, Markdown, and plain text all need different extraction pipelines. Amazon Textract handles PDFs with complex layouts (tables, multi-column, scanned documents). For clean text formats, simpler parsers suffice.
 
@@ -61,7 +112,35 @@ For production systems over 1 million chunks, or with high query throughput, ded
 
 ## Step 5 - Retrieval Tuning
 
-Retrieval quality is what makes or breaks a RAG system. Tuning approaches:
+Retrieval quality is what makes or breaks a RAG system. At query time, the pipeline runs in reverse:
+
+<div class="bz-flow">
+  <div class="bz-flow-step">
+    <span class="bz-flow-step-tag">Query</span>
+    <span class="bz-flow-step-name">User question</span>
+    <span class="bz-flow-step-desc">Optionally expanded to multiple phrasings before retrieval to improve recall</span>
+  </div>
+  <div class="bz-flow-arrow">→</div>
+  <div class="bz-flow-step">
+    <span class="bz-flow-step-tag">Retrieve</span>
+    <span class="bz-flow-step-name">Hybrid search</span>
+    <span class="bz-flow-step-desc">Semantic similarity + BM25 keyword; fetch top 20 candidates from vector store</span>
+  </div>
+  <div class="bz-flow-arrow">→</div>
+  <div class="bz-flow-step">
+    <span class="bz-flow-step-tag">Re-rank</span>
+    <span class="bz-flow-step-name">Cross-encoder</span>
+    <span class="bz-flow-step-desc">Score all 20; pass only top 5 to generation; significantly improves precision</span>
+  </div>
+  <div class="bz-flow-arrow">→</div>
+  <div class="bz-flow-step">
+    <span class="bz-flow-step-tag">Generate</span>
+    <span class="bz-flow-step-name">Answer with context</span>
+    <span class="bz-flow-step-desc">Context + question → LLM → cited answer at temperature 0.1-0.3</span>
+  </div>
+</div>
+
+Tuning approaches:
 
 **Hybrid search** - Combine semantic similarity with keyword (BM25) search. Semantic handles conceptual queries; keyword handles specific terms, codes, and names. The combination outperforms either alone for most enterprise knowledge bases.
 
@@ -82,7 +161,7 @@ Production RAG systems benefit from evaluation infrastructure: regularly testing
 
 ## Sources
 
-- Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., ... and Kiela, D. "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks." *NeurIPS* (2020). https://arxiv.org/abs/2005.11401 — The original RAG paper introducing the retrieve-then-generate architecture.
-- Gao, Y. et al. "Retrieval-Augmented Generation for Large Language Models: A Survey." (2023). https://arxiv.org/abs/2312.10997 — Comprehensive survey of RAG variants including Naive RAG, Advanced RAG, and Modular RAG architectures, with a taxonomy of chunking, retrieval, and generation strategies.
-- Robertson, S. and Zaragoza, H. "The Probabilistic Relevance Framework: BM25 and Beyond." *Foundations and Trends in Information Retrieval* 3, no. 4 (2009): 333–389. — The BM25 algorithm referenced in the hybrid search section; the standard keyword retrieval baseline.
-- Nogueira, R. and Cho, K. "Passage Re-ranking with BERT." (2019). https://arxiv.org/abs/1901.04085 — Foundational work on cross-encoder re-ranking, which underpins the two-stage retrieve-then-rerank pattern described above.
+- Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., ... and Kiela, D. "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks." *NeurIPS* (2020). https://arxiv.org/abs/2005.11401, The original RAG paper introducing the retrieve-then-generate architecture.
+- Gao, Y. et al. "Retrieval-Augmented Generation for Large Language Models: A Survey." (2023). https://arxiv.org/abs/2312.10997, Comprehensive survey of RAG variants including Naive RAG, Advanced RAG, and Modular RAG architectures, with a taxonomy of chunking, retrieval, and generation strategies.
+- Robertson, S. and Zaragoza, H. "The Probabilistic Relevance Framework: BM25 and Beyond." *Foundations and Trends in Information Retrieval* 3, no. 4 (2009): 333–389., The BM25 algorithm referenced in the hybrid search section; the standard keyword retrieval baseline.
+- Nogueira, R. and Cho, K. "Passage Re-ranking with BERT." (2019). https://arxiv.org/abs/1901.04085, Foundational work on cross-encoder re-ranking, which underpins the two-stage retrieve-then-rerank pattern described above.

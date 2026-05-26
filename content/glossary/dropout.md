@@ -39,4 +39,4 @@ As a technical leader, you encounter dropout as a hyperparameter in model config
 
 ## Sources
 
-1. Srivastava, N., Hinton, G., Krizhevsky, A., Sutskever, I., and Salakhutdinov, R. (2014). "Dropout: A Simple Way to Prevent Neural Networks from Overfitting." *Journal of Machine Learning Research* 15, pp. 1929–1958. — Original paper introducing dropout; includes theoretical motivation (ensemble interpretation) and empirical results across vision, speech, and NLP benchmarks. [https://jmlr.org/papers/v15/srivastava14a.html](https://jmlr.org/papers/v15/srivastava14a.html)
+1. Srivastava, N., Hinton, G., Krizhevsky, A., Sutskever, I., and Salakhutdinov, R. (2014). "Dropout: A Simple Way to Prevent Neural Networks from Overfitting." *Journal of Machine Learning Research* 15, pp. 1929–1958., Original paper introducing dropout; includes theoretical motivation (ensemble interpretation) and empirical results across vision, speech, and NLP benchmarks. [https://jmlr.org/papers/v15/srivastava14a.html](https://jmlr.org/papers/v15/srivastava14a.html)

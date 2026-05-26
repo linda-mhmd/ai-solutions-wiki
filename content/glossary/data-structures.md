@@ -83,6 +83,6 @@ The data structure is not an implementation detail - it defines the performance 
 
 ## Sources
 
-- Cormen, T. H., Leiserson, C. E., Rivest, R. L., & Stein, C. (2022). *Introduction to Algorithms* (4th ed.). MIT Press. (Definitive reference for arrays, trees, hash tables, graphs, and complexity analysis — the standard algorithms textbook.)
+- Cormen, T. H., Leiserson, C. E., Rivest, R. L., & Stein, C. (2022). *Introduction to Algorithms* (4th ed.). MIT Press. (Definitive reference for arrays, trees, hash tables, graphs, and complexity analysis, the standard algorithms textbook.)
 - Knuth, D. E. (1997). *The Art of Computer Programming*, Vol. 1: Fundamental Algorithms (3rd ed.). Addison-Wesley. (Foundational treatment of data structures including linked lists, trees, and stacks; original mathematical analysis of algorithm performance.)
 - Sedgewick, R., & Wayne, K. (2011). *Algorithms* (4th ed.). Addison-Wesley. (Practical implementations of core data structures; covers heaps, hash tables, balanced trees, and graphs with Java implementations.)

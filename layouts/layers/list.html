@@ -2,42 +2,54 @@
 <style>
   /* ---- Layers Page Styles ---- */
   .layers-hero {
-    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
-    padding: 72px 24px 56px;
-    text-align: center;
-    border-bottom: 1px solid #1e293b;
+    background-color: #faf8f4;
+    background-image:
+      linear-gradient(rgba(180, 140, 100, 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(180, 140, 100, 0.12) 1px, transparent 1px);
+    background-size: 28px 28px;
+    padding: 72px 0 56px;
+    border-bottom: 1px solid #ded7cc;
+  }
+  [data-theme="dark"] .layers-hero {
+    background-color: var(--surface);
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    border-bottom-color: var(--border);
+  }
+
+  .layers-hero-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
   }
 
   .layers-hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #a78bfa;
-    background: rgb(167 139 250 / 0.12);
-    border: 1px solid rgb(167 139 250 / 0.25);
-    border-radius: 100px;
-    padding: 4px 14px;
-    margin-bottom: 20px;
-    letter-spacing: 0.05em;
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #b85c38;
+    font-family: var(--font-mono);
+    letter-spacing: 0.12em;
     text-transform: uppercase;
+    margin-bottom: 16px;
   }
+  [data-theme="dark"] .layers-hero-badge { color: #d4785a; }
 
   .layers-hero h1 {
     font-size: clamp(1.75rem, 4vw, 2.75rem);
     font-weight: 800;
-    color: #f1f5f9;
+    color: var(--text-primary);
     letter-spacing: -0.02em;
     margin-bottom: 16px;
     line-height: 1.2;
+    max-width: 680px;
   }
 
   .layers-hero p {
-    font-size: 1.1rem;
-    color: #94a3b8;
+    font-size: 1.05rem;
+    color: var(--text-secondary);
     max-width: 600px;
-    margin: 0 auto;
     line-height: 1.6;
   }
 
@@ -104,16 +116,17 @@
   }
 
   .layer-num-badge {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 800;
     color: #fff;
     flex-shrink: 0;
+    font-family: var(--font-mono);
   }
 
   .layer-num-line {
@@ -138,13 +151,16 @@
 
   .layer-label {
     display: inline-block;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    padding: 3px 10px;
-    border-radius: 100px;
+    letter-spacing: 0.12em;
+    padding: 2px 8px;
+    border-radius: 3px;
     margin-bottom: 10px;
+    font-family: var(--font-mono);
+    border: 1px solid currentColor;
+    opacity: 0.85;
   }
 
   .layer-1 .layer-label { background: rgb(124 58 237 / 0.1); color: #7c3aed; }
@@ -180,25 +196,20 @@
     align-items: center;
     gap: 12px;
     padding: 14px 16px;
-    background: var(--light-bg);
+    background: var(--bg);
     border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
+    border-radius: 3px;
     color: var(--text-primary);
     text-decoration: none;
     font-size: 0.875rem;
     font-weight: 500;
-    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+    transition: border-color 0.15s;
   }
 
-  .topic-card:hover {
-    box-shadow: var(--shadow);
-    transform: translateY(-1px);
-    text-decoration: none;
-  }
-
+  .topic-card:hover { text-decoration: none; }
   .layer-1 .topic-card:hover { border-color: #7c3aed; }
   .layer-2 .topic-card:hover { border-color: #2563eb; }
-  .layer-3 .topic-card:hover { border-color: #d97706; }
+  .layer-3 .topic-card:hover { border-color: #b85c38; }
   .layer-4 .topic-card:hover { border-color: #059669; }
 
   .topic-icon {
@@ -225,9 +236,16 @@
 
   /* ---- Bottom CTA ---- */
   .layers-cta {
-    padding: 64px 24px;
+    padding: 64px 0;
     text-align: center;
-    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+    background: #111;
+    border-top: 1px solid #222;
+  }
+
+  .layers-cta-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
   }
 
   .layers-cta h2 {
@@ -235,13 +253,15 @@
     font-weight: 700;
     color: #f1f5f9;
     margin-bottom: 12px;
+    letter-spacing: -0.02em;
   }
 
   .layers-cta p {
-    color: rgb(255 255 255 / 0.65);
+    color: rgba(255, 255, 255, 0.55);
     font-size: 0.975rem;
     max-width: 480px;
     margin: 0 auto 28px;
+    line-height: 1.6;
   }
 
   .cta-group {
@@ -261,15 +281,14 @@
     font-size: 0.9rem;
     font-weight: 600;
     padding: 10px 20px;
-    border-radius: var(--radius);
+    border-radius: 3px;
     text-decoration: none;
-    border: 1px solid rgb(255 255 255 / 0.25);
-    transition: border-color 0.15s, background 0.15s;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: border-color 0.15s;
   }
 
   .cta-outline:hover {
-    border-color: rgb(255 255 255 / 0.5);
-    background: rgb(255 255 255 / 0.05);
+    border-color: rgba(255, 255, 255, 0.4);
     text-decoration: none;
   }
 
@@ -288,20 +307,19 @@
 
 <!-- Hero -->
 <section class="layers-hero">
-  <div class="layers-hero-badge">
-    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>
-    Conceptual Map
-  </div>
-  <h1>{{ .Title }}</h1>
-  <p>{{ .Description }}</p>
+  <div class="layers-hero-inner">
+    <div class="layers-hero-badge">Conceptual Map</div>
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
 
-  <!-- Stack navigation -->
-  <nav class="stack-nav" aria-label="Jump to layer">
-    <a href="#layer-1" class="stack-nav-item layer-1">01 - AI Capabilities</a>
-    <a href="#layer-2" class="stack-nav-item layer-2">02 - Engineering Patterns</a>
-    <a href="#layer-3" class="stack-nav-item layer-3">03 - Software Foundations</a>
-    <a href="#layer-4" class="stack-nav-item layer-4">04 - Infrastructure</a>
-  </nav>
+    <!-- Stack navigation -->
+    <nav class="stack-nav" aria-label="Jump to layer">
+      <a href="#layer-1" class="stack-nav-item layer-1">01: AI Capabilities</a>
+      <a href="#layer-2" class="stack-nav-item layer-2">02: Engineering Patterns</a>
+      <a href="#layer-3" class="stack-nav-item layer-3">03: Software Foundations</a>
+      <a href="#layer-4" class="stack-nav-item layer-4">04: Infrastructure</a>
+    </nav>
+  </div>
 </section>
 
 <!-- Layer 1: AI Capabilities -->
@@ -370,7 +388,7 @@
     </div>
   </div>
   <div class="layer-connector">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
   </div>
 </section>
 
@@ -440,7 +458,7 @@
     </div>
   </div>
   <div class="layer-connector">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
   </div>
 </section>
 
@@ -510,7 +528,7 @@
     </div>
   </div>
   <div class="layer-connector">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
   </div>
 </section>
 
@@ -582,17 +600,13 @@
 
 <!-- Bottom CTA -->
 <section class="layers-cta">
-  <h2>Start exploring any layer</h2>
-  <p>Each layer builds on the ones below it. Dive in where you are, or work top-to-bottom for the full picture.</p>
-  <div class="cta-group">
-    <a href="{{ "getting-started/" | relURL }}" class="cta-button large">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-      Getting Started Guide
-    </a>
-    <a href="{{ "build/" | relURL }}" class="cta-outline">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-      Browse Build Guides
-    </a>
+  <div class="layers-cta-inner">
+    <h2>Start exploring any layer</h2>
+    <p>Each layer builds on the ones below it. Dive in where you are, or work top-to-bottom for the full picture.</p>
+    <div class="cta-group">
+      <a href="{{ "getting-started/" | relURL }}" class="cta-button large">Getting Started Guide →</a>
+      <a href="{{ "build/" | relURL }}" class="cta-outline">Browse Build Guides</a>
+    </div>
   </div>
 </section>
 {{ end }}

@@ -1,0 +1,11 @@
+{{ if .Params.faqs }}
+<section class="article-faqs" aria-label="Frequently asked questions" data-pagefind-ignore>
+  <p class="article-faqs-title">Frequently asked questions</p>
+  {{ range .Params.faqs }}
+  <details class="faq-item">
+    <summary class="faq-question">{{ .question }}</summary>
+    <div class="faq-answer">{{ .answer | markdownify }}</div>
+  </details>
+  {{ end }}
+</section>
+{{ end }}

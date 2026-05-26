@@ -40,5 +40,5 @@ Use ElastiCache Serverless for variable workloads to avoid capacity planning. Se
 ## Sources
 
 - Carlson, J. L. (2013). *Redis in Action*. Manning. (Redis data structures: strings, hashes, lists, sets, sorted sets; caching, rate limiting, and session storage patterns.)
-- Sanfilippo, S. (2009). Redis: Remote Dictionary Server. *Redis.io*. (Original Redis implementation; in-memory data structure store with persistence options — the primary reference for Redis architecture.)
+- Sanfilippo, S. (2009). Redis: Remote Dictionary Server. *Redis.io*. (Original Redis implementation; in-memory data structure store with persistence options, the primary reference for Redis architecture.)
 - Mäkinen, M. (2020). Semantic caching for AI applications. *Redis Blog*. (Semantic caching using Redis vector similarity search; applies to AI prompt caching and RAG query deduplication.)

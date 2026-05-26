@@ -7,10 +7,12 @@
       </a>
       <ul class="nav-links">
 
+        <li><a href="{{ "/basics/" | relURL }}" class="nav-direct-link nav-basics-link">Start at Zero</a></li>
+
         <li class="nav-group">
           <button class="nav-group-btn" aria-haspopup="true" aria-expanded="false">
             Learn
-            <svg class="nav-caret" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="nav-caret" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </button>
           <div class="nav-dropdown" role="menu" aria-label="Learn">
             <p class="nav-dropdown-label">Learn</p>
@@ -23,7 +25,7 @@
         <li class="nav-group">
           <button class="nav-group-btn" aria-haspopup="true" aria-expanded="false">
             Build
-            <svg class="nav-caret" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="nav-caret" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </button>
           <div class="nav-dropdown" role="menu" aria-label="Build">
             <p class="nav-dropdown-label">Build</p>
@@ -35,7 +37,7 @@
         <li class="nav-group">
           <button class="nav-group-btn" aria-haspopup="true" aria-expanded="false">
             Explore
-            <svg class="nav-caret" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="nav-caret" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </button>
           <div class="nav-dropdown nav-dropdown--wide" role="menu" aria-label="Explore">
             <p class="nav-dropdown-label">Explore</p>
@@ -48,18 +50,22 @@
           </div>
         </li>
 
-        <li><a href="{{ "/about/" | relURL }}" class="nav-direct-link">About</a></li>
+        <li><a href="https://ai-workshops.online" class="nav-direct-link" target="_blank" rel="noopener">Workshops</a></li>
+        <li><a href="{{ "/about/" | relURL }}" class="nav-direct-link">About Linda</a></li>
 
       </ul>
     </div>
     <div class="nav-right">
+      <a href="{{ "/my-library/" | relURL }}" class="nav-library-link" aria-label="My Library" title="My Library">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>
+      </a>
       <a href="{{ "/search/" | relURL }}" class="nav-search-link" aria-label="Search">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
       </a>
       <div id="search"></div>
       <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
       </button>
       <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
@@ -71,6 +77,13 @@
   <!-- Mobile menu panel -->
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
     <nav class="mobile-nav">
+
+      <div class="mobile-nav-group">
+        <p class="mobile-nav-group-label">Start Here</p>
+        <ul class="mobile-nav-links">
+          <li><a href="{{ "/basics/" | relURL }}" style="color: var(--accent); font-weight: 700">Start at Zero →</a></li>
+        </ul>
+      </div>
 
       <div class="mobile-nav-group">
         <p class="mobile-nav-group-label">Learn</p>
@@ -104,7 +117,8 @@
       <div class="mobile-nav-group">
         <p class="mobile-nav-group-label">About</p>
         <ul class="mobile-nav-links">
-          <li><a href="{{ "/about/" | relURL }}">About</a></li>
+          <li><a href="{{ "/about/" | relURL }}">About Linda</a></li>
+          <li><a href="https://ai-workshops.online" target="_blank" rel="noopener">Workshops</a></li>
         </ul>
       </div>
 

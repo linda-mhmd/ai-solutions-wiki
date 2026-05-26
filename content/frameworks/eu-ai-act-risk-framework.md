@@ -78,6 +78,6 @@ February 2025: Prohibitions on unacceptable risk systems in effect. August 2025:
 
 ## Sources
 
-1. European Parliament and Council. "Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)." *Official Journal of the European Union* L Series, 12 July 2024. [https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202401689](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202401689) — The primary legal text.
-2. European Commission. "AI Act Explorer." [https://artificialintelligenceact.eu/](https://artificialintelligenceact.eu/) — Article-by-article annotated reference maintained by the Future of Life Institute.
-3. European Commission. "High-Level Expert Group on Artificial Intelligence: Ethics Guidelines for Trustworthy AI." April 2019. — The precursor guidelines that shaped the Act's risk classification principles.
+1. European Parliament and Council. "Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)." *Official Journal of the European Union* L Series, 12 July 2024. [https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202401689](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202401689), The primary legal text.
+2. European Commission. "AI Act Explorer." [https://artificialintelligenceact.eu/](https://artificialintelligenceact.eu/), Article-by-article annotated reference maintained by the Future of Life Institute.
+3. European Commission. "High-Level Expert Group on Artificial Intelligence: Ethics Guidelines for Trustworthy AI." April 2019., The precursor guidelines that shaped the Act's risk classification principles.

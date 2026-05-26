@@ -37,5 +37,5 @@ Size shards based on your expected throughput (1 MB/s write, 2 MB/s read per sha
 ## Sources
 
 - Akidau, T., Baldacci, A., Balikov, K., Čuklev, D., Perry, J., Whittle, S., Lam, W., Malone, B., Nathan, D., & Saecker, M. (2013). MillWheel: Fault-tolerant stream processing at internet scale. *Proceedings of the VLDB Endowment*, 6(11), 1033–1044. (Stream processing foundations at scale; watermarks, exactly-once semantics, and out-of-order data handling underlying Kinesis design.)
-- Zaharia, M., Das, T., Li, H., Hunter, T., Shenker, S., & Stoica, I. (2013). Discretized streams: Fault-tolerant streaming computation at scale. *Proceedings of ACM SOSP*, 423–438. (Streaming computation at scale; fault tolerance via micro-batching — the theoretical basis for streaming data pipelines like Kinesis.)
+- Zaharia, M., Das, T., Li, H., Hunter, T., Shenker, S., & Stoica, I. (2013). Discretized streams: Fault-tolerant streaming computation at scale. *Proceedings of ACM SOSP*, 423–438. (Streaming computation at scale; fault tolerance via micro-batching, the theoretical basis for streaming data pipelines like Kinesis.)
 - AWS. (2024). *Amazon Kinesis Data Streams Developer Guide*. Amazon Web Services. (Shards, enhanced fan-out, iterator types, and the Kinesis Client Library architecture.)

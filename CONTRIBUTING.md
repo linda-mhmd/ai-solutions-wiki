@@ -1,6 +1,6 @@
 # Contributing to AI Solutions Wiki
 
-AI Solutions Wiki is a community knowledge base. Contributions of all kinds are welcome — new articles, corrections, deeper citations, and real-world solution examples.
+AI Solutions Wiki is a community knowledge base. Contributions of all kinds are welcome: new articles, corrections, deeper citations, and real-world solution examples.
 
 ## How to Contribute
 
@@ -35,7 +35,7 @@ Glossary articles live in `content/glossary/`. Good additions:
 
 ### Fix content errors
 
-If you find an inaccuracy — a wrong date, misattributed paper, or factually incorrect technical claim — please open a pull request with a correction and a source citation.
+If you find an inaccuracy (a wrong date, misattributed paper, or factually incorrect technical claim), please open a pull request with a correction and a source citation.
 
 ## Frontmatter Reference
 
@@ -82,11 +82,11 @@ related:
 ## Style Guide
 
 - Write for a technically literate audience (software engineers, architects, technical leads)
-- Cite primary sources — original papers, official documentation, RFCs — not blog posts about papers
+- Cite primary sources (original papers, official documentation, RFCs), not blog posts about papers
 - Use Wikipedia-style encyclopedic tone: accurate, neutral, no marketing language
 - Include a `## Sources and Further Reading` section with numbered citations
 - Link to related wiki articles using relative paths in `related:` frontmatter
-- Accuracy over comprehensiveness — a shorter correct article is better than a longer inaccurate one
+- Accuracy over comprehensiveness: a shorter correct article is better than a longer inaccurate one
 
 ## Getting Help
 

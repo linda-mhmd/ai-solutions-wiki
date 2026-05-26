@@ -41,6 +41,6 @@ Use random forests as a strong baseline model for any structured data problem. T
 
 ## Sources
 
-1. Breiman, L. (2001). "Random Forests." *Machine Learning* 45(1), pp. 5–32. — Original paper introducing random forests, defining the bagging + random feature selection combination and proving convergence. [https://link.springer.com/article/10.1023/A:1010933404324](https://link.springer.com/article/10.1023/A:1010933404324)
-2. Breiman, L. (1996). "Bagging Predictors." *Machine Learning* 24(2), pp. 123–140. — Introduced bootstrap aggregating (bagging), the ensemble technique that random forests extend with feature randomization.
-3. Strobl, C., Boulesteix, A.-L., Zeileis, A., and Hothorn, T. (2007). "Bias in Random Forest Variable Importance Measures: Illustrations, Sources and a Solution." *BMC Bioinformatics* 8:25. — Analysis of feature importance measurement in random forests; important reading for anyone using importance scores to interpret models.
+1. Breiman, L. (2001). "Random Forests." *Machine Learning* 45(1), pp. 5–32., Original paper introducing random forests, defining the bagging + random feature selection combination and proving convergence. [https://link.springer.com/article/10.1023/A:1010933404324](https://link.springer.com/article/10.1023/A:1010933404324)
+2. Breiman, L. (1996). "Bagging Predictors." *Machine Learning* 24(2), pp. 123–140., Introduced bootstrap aggregating (bagging), the ensemble technique that random forests extend with feature randomization.
+3. Strobl, C., Boulesteix, A.-L., Zeileis, A., and Hothorn, T. (2007). "Bias in Random Forest Variable Importance Measures: Illustrations, Sources and a Solution." *BMC Bioinformatics* 8:25., Analysis of feature importance measurement in random forests; important reading for anyone using importance scores to interpret models.

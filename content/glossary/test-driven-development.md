@@ -49,4 +49,4 @@ TDD forces you to design testable interfaces. AI code written without tests tend
 
 - Beck, K. (2003). *Test-Driven Development: By Example*. Addison-Wesley. (The foundational TDD book; introduced and defined the red-green-refactor cycle.)
 - Fowler, M. (2005). Test-driven development. *martinfowler.com*. (Canonical online reference for TDD terminology and practices.)
-- Freeman, S., & Pryce, N. (2009). *Growing Object-Oriented Software, Guided by Tests*. Addison-Wesley. (Outside-in TDD; acceptance tests driving unit test design — particularly relevant for AI application integration testing.)
+- Freeman, S., & Pryce, N. (2009). *Growing Object-Oriented Software, Guided by Tests*. Addison-Wesley. (Outside-in TDD; acceptance tests driving unit test design, particularly relevant for AI application integration testing.)

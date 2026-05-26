@@ -1,11 +1,11 @@
 {{/* Tool Context Sidebar Partial
      Renders on /tools/* pages.
      Frontmatter fields read:
-       alternatives.open_source  — list of tool page paths (e.g. ["tools/ollama","tools/vllm"])
-       alternatives.aws          — single tool page path
-       alternatives.azure        — single tool page path
-       alternatives.gcp          — single tool page path
-       solutions                 — list of solution page paths
+       alternatives.open_source: list of tool page paths (e.g. ["tools/ollama","tools/vllm"])
+       alternatives.aws: single tool page path
+       alternatives.azure: single tool page path
+       alternatives.gcp: single tool page path
+       solutions: list of solution page paths
 */}}
 {{ $isTools := eq .Section "tools" }}
 {{ if $isTools }}
@@ -28,7 +28,7 @@
   <ul class="tool-context-list">
     {{ range $solutions }}
     <li>
-      <a href="{{ .Permalink }}">
+      <a href="{{ .RelPermalink }}">
         <span class="tool-context-title">{{ .Title }}</span>
         {{ with .Description }}<span class="tool-context-desc">{{ . | truncate 70 }}</span>{{ end }}
       </a>
@@ -69,11 +69,11 @@
       {{ if reflect.IsSlice . }}
         {{ range . }}
           {{ $p := $.Site.GetPage . }}
-          {{ if $p }}<a href="{{ $p.Permalink }}">{{ $p.Title }}</a>{{ end }}
+          {{ if $p }}<a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>{{ end }}
         {{ end }}
       {{ else }}
         {{ $p := $.Site.GetPage . }}
-        {{ if $p }}<a href="{{ $p.Permalink }}">{{ $p.Title }}</a>{{ end }}
+        {{ if $p }}<a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>{{ end }}
       {{ end }}
     </dd>
     {{ end }}
@@ -85,7 +85,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
       AWS
     </dt>
-    <dd class="tool-alt-entries"><a href="{{ $p.Permalink }}">{{ $p.Title }}</a></dd>
+    <dd class="tool-alt-entries"><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></dd>
     {{ end }}
     {{ end }}
 
@@ -96,7 +96,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
       Azure
     </dt>
-    <dd class="tool-alt-entries"><a href="{{ $p.Permalink }}">{{ $p.Title }}</a></dd>
+    <dd class="tool-alt-entries"><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></dd>
     {{ end }}
     {{ end }}
 
@@ -107,7 +107,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
       GCP
     </dt>
-    <dd class="tool-alt-entries"><a href="{{ $p.Permalink }}">{{ $p.Title }}</a></dd>
+    <dd class="tool-alt-entries"><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></dd>
     {{ end }}
     {{ end }}
 
