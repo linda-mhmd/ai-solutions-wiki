@@ -5,6 +5,11 @@ enableRobotsTXT = true
 enableGitInfo = false
 buildFuture = true
 
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
 [minify]
   [minify.tdewolff]
     [minify.tdewolff.html]
@@ -26,13 +31,20 @@ buildFuture = true
     startLevel = 2
 
 [params]
-  description = "The definitive knowledge base for AI solutions, frameworks, tools, and best practices. Practical guidance for teams building with AI."
-  author = "AI Solutions Wiki"
+  description = "Engineering reference for production AI systems: architecture patterns, evaluation methods, operational practices, governance, and tooling for teams building enterprise-grade AI. Maintained by AWS Community Hero Linda Mohamed."
+  author = "Linda Mohamed"
+  authorName = "Linda Mohamed"
+  authorURL = "https://lindamohamed.com"
+  authorRole = "AWS Community Hero, AI Architect"
+  twitterHandle = ""
+  defaultOgImage = "/og-default.svg"
   siteURL = "https://ai-solutions.wiki"
   workshopsURL = "https://ai-workshops.online"
   workshopsOverviewURL = "https://www.lindamohamed.com/workshops"
   workshopSeriesURL = "https://www.lindamohamed.com/offers/m6KponLm"
   consultingURL = "https://www.lindamohamed.com/offers/HL2FFzBM"
+  freelancerTemplatesURL = "https://freelancer-templates.org"
+  freelancerAutomationURL = "https://freelancer-automation.com"
   primaryColor = "#2563eb"
   accentColor = "#10b981"
   darkBg = "#0f172a"

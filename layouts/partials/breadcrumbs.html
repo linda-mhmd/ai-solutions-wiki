@@ -8,9 +8,8 @@
       </a>
     </li>
     {{ $ancestors := slice }}
-    {{ range .Ancestors }}
-      {{ $ancestors = $ancestors | append . }}
-    {{ end }}
+    {{ range .Ancestors }}{{ if not .IsHome }}{{ $ancestors = $ancestors | append . }}{{ end }}{{ end }}
+    {{ if gt (len $ancestors) 0 }}
     {{ range (seq (len $ancestors) -1 1) }}
       {{ $i := sub . 1 }}
       {{ $ancestor := index $ancestors $i }}
@@ -18,6 +17,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
         <a href="{{ $ancestor.RelPermalink }}">{{ $ancestor.Title }}</a>
       </li>
+    {{ end }}
     {{ end }}
     {{ if not .IsSection }}
     <li>

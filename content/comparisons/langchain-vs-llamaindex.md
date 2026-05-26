@@ -91,3 +91,21 @@ LangChain and LlamaIndex are not mutually exclusive. A common pattern is using L
 ## The Alternative: Build Without a Framework
 
 For simple applications (single LLM call, basic RAG), consider using the LLM provider's SDK directly. Frameworks add value when you need their abstractions; for straightforward use cases, they add complexity without proportional benefit. Start simple and introduce a framework when the complexity warrants it.
+
+## See Also
+
+- [RAG (glossary)](/glossary/rag/), [Agentic RAG](/glossary/agentic-rag/), [Vector Database](/glossary/vector-database/)
+- [Tool Use](/glossary/tool-use/), [Function Calling](/glossary/function-calling/), [Model Context Protocol](/glossary/model-context-protocol/)
+- [LangChain vs DSPy](/comparisons/langchain-vs-dspy/), [CrewAI vs LangGraph](/comparisons/crewai-vs-langgraph/)
+- [RAG vs Fine-Tuning](/comparisons/rag-vs-fine-tuning/)
+
+## Sources and Further Reading
+
+- Lewis, P., Perez, E., Piktus, A., et al. (2020). *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.* NeurIPS 2020. arXiv:2005.11401. [https://arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401)
+- Yao, S., Zhao, J., Yu, D., et al. (2023). *ReAct: Synergizing Reasoning and Acting in Language Models.* ICLR 2023. arXiv:2210.03629. [https://arxiv.org/abs/2210.03629](https://arxiv.org/abs/2210.03629)
+- Khattab, O., Singhvi, A., Maheshwari, P., et al. (2024). *DSPy: Compiling Declarative Language Model Calls into State-of-the-Art Pipelines.* ICLR 2024. arXiv:2310.03714. [https://arxiv.org/abs/2310.03714](https://arxiv.org/abs/2310.03714)
+- Gao, Y., Xiong, Y., Gao, X., et al. (2023). *Retrieval-Augmented Generation for Large Language Models: A Survey.* arXiv:2312.10997. [https://arxiv.org/abs/2312.10997](https://arxiv.org/abs/2312.10997)
+- LangChain documentation. [https://python.langchain.com/docs/introduction/](https://python.langchain.com/docs/introduction/)
+- LangGraph documentation. [https://langchain-ai.github.io/langgraph/](https://langchain-ai.github.io/langgraph/)
+- LlamaIndex documentation. [https://docs.llamaindex.ai/](https://docs.llamaindex.ai/)
+- AWS. *Amazon Bedrock Knowledge Bases.* [https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html)

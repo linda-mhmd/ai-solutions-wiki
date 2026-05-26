@@ -74,3 +74,25 @@ For most enterprise teams starting an AI project:
 1. Begin with RAG if missing knowledge is the problem. It ships faster, requires no training data, and solves the most common quality gap.
 2. Improve prompting if the issue is behavioral. Better system prompts with examples solve most behavioral problems without training infrastructure.
 3. Consider fine-tuning only when you have validated the use case in production, have a labeled dataset of 5,000+ examples, and have a measurable quality gap that prompting and RAG do not close.
+
+## See Also
+
+- [RAG (glossary)](/glossary/rag/), [Agentic RAG](/glossary/agentic-rag/), [Fine-Tuning (glossary)](/glossary/fine-tuning/)
+- [Prompt Engineering](/glossary/prompt-engineering/), [Function Calling](/glossary/function-calling/)
+- [RAG vs Long Context](/comparisons/rag-vs-long-context/)
+- [Custom ML vs Foundation Models](/comparisons/custom-ml-vs-foundation-models/)
+- [Fine-Tuning vs Prompt Engineering](/comparisons/fine-tuning-vs-prompt-engineering/)
+
+## Sources and Further Reading
+
+- Lewis, P., Perez, E., Piktus, A., et al. (2020). *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.* NeurIPS 2020. arXiv:2005.11401. [https://arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401)
+- Hu, E. J., Shen, Y., Wallis, P., et al. (2022). *LoRA: Low-Rank Adaptation of Large Language Models.* ICLR 2022. arXiv:2106.09685. [https://arxiv.org/abs/2106.09685](https://arxiv.org/abs/2106.09685)
+- Dettmers, T., Pagnoni, A., Holtzman, A., Zettlemoyer, L. (2023). *QLoRA: Efficient Finetuning of Quantized LLMs.* NeurIPS 2023. arXiv:2305.14314. [https://arxiv.org/abs/2305.14314](https://arxiv.org/abs/2305.14314)
+- Ouyang, L., Wu, J., Jiang, X., et al. (2022). *Training Language Models to Follow Instructions with Human Feedback.* NeurIPS 2022. arXiv:2203.02155. [https://arxiv.org/abs/2203.02155](https://arxiv.org/abs/2203.02155)
+- Asai, A., Wu, Z., Wang, Y., Sil, A., Hajishirzi, H. (2024). *Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection.* ICLR 2024. arXiv:2310.11511. [https://arxiv.org/abs/2310.11511](https://arxiv.org/abs/2310.11511)
+- Gao, Y., Xiong, Y., Gao, X., et al. (2023). *Retrieval-Augmented Generation for Large Language Models: A Survey.* arXiv:2312.10997. [https://arxiv.org/abs/2312.10997](https://arxiv.org/abs/2312.10997)
+- Ovadia, O., Brief, M., Mishaeli, M., Elisha, O. (2024). *Fine-Tuning or Retrieval? Comparing Knowledge Injection in LLMs.* EMNLP 2024. arXiv:2312.05934. [https://arxiv.org/abs/2312.05934](https://arxiv.org/abs/2312.05934)
+- AWS. *Amazon Bedrock Knowledge Bases.* [https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html)
+- AWS. *Amazon Bedrock model customization (fine-tuning, continued pre-training).* [https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
+- OpenAI. *Fine-tuning guide.* [https://platform.openai.com/docs/guides/fine-tuning](https://platform.openai.com/docs/guides/fine-tuning)
+- Anthropic. *Prompt engineering overview.* [https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)

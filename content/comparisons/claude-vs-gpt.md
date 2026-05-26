@@ -67,3 +67,24 @@ For large-scale deployments, run cost projections against your estimated token v
 - Your use case is high-stakes and quality is critical - run both on representative samples
 - You have specific regulatory requirements that need verification with both providers
 - You want optionality to switch if one provider's pricing or terms change
+
+## See Also
+
+- [LLM (glossary)](/glossary/llm/), [Foundation Models](/glossary/foundation-models/), [Long-Context Model](/glossary/long-context-model/)
+- [Function Calling](/glossary/function-calling/), [Tool Use](/glossary/tool-use/), [Model Context Protocol](/glossary/model-context-protocol/)
+- [Chain-of-Thought](/glossary/chain-of-thought/), [Inference-Time Compute](/glossary/inference-time-compute/)
+- [OpenAI vs Anthropic](/comparisons/openai-vs-anthropic/), [GPT-4 vs Claude Enterprise](/comparisons/gpt4-vs-claude-enterprise/)
+- [Bedrock vs Azure OpenAI](/comparisons/bedrock-vs-azure-openai/)
+
+## Sources and Further Reading
+
+- Anthropic (2024). *Claude 3 Model Card and Technical Report.* [https://www-cdn.anthropic.com/de8ba9b01c9ab7cbabf5c33b80b7bbc618857627/Model_Card_Claude_3.pdf](https://www-cdn.anthropic.com/de8ba9b01c9ab7cbabf5c33b80b7bbc618857627/Model_Card_Claude_3.pdf)
+- OpenAI (2023). *GPT-4 Technical Report.* arXiv:2303.08774. [https://arxiv.org/abs/2303.08774](https://arxiv.org/abs/2303.08774)
+- OpenAI (2024). *Learning to Reason with LLMs (o1 system card).* [https://openai.com/index/learning-to-reason-with-llms/](https://openai.com/index/learning-to-reason-with-llms/)
+- Anthropic. *Constitutional AI: Harmlessness from AI Feedback.* arXiv:2212.08073. [https://arxiv.org/abs/2212.08073](https://arxiv.org/abs/2212.08073)
+- Bai, Y., Jones, A., Ndousse, K., et al. (2022). *Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback.* arXiv:2204.05862. [https://arxiv.org/abs/2204.05862](https://arxiv.org/abs/2204.05862)
+- Chiang, W.-L., Zheng, L., Sheng, Y., et al. (2024). *Chatbot Arena: An Open Platform for Evaluating LLMs by Human Preference.* ICML 2024. arXiv:2403.04132. [https://arxiv.org/abs/2403.04132](https://arxiv.org/abs/2403.04132)
+- Anthropic API documentation. [https://docs.anthropic.com/](https://docs.anthropic.com/)
+- OpenAI Platform documentation. [https://platform.openai.com/docs/](https://platform.openai.com/docs/)
+- AWS. *Anthropic Claude on Amazon Bedrock.* [https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-anthropic-claude-messages.html](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-anthropic-claude-messages.html)
+- Microsoft. *Azure OpenAI models.* [https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models)

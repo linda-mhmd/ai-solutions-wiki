@@ -77,3 +77,21 @@ For pure vector search workloads, Pinecone typically delivers lower and more con
 **OpenSearch to Pinecone:** Export vectors and metadata, upsert into Pinecone. Simpler operationally but loses full-text search and analytics capabilities.
 
 For many RAG applications, the practical advice is: start with OpenSearch if you are on AWS and need more than just vector search, or start with Pinecone if you want the simplest possible vector search and do not need additional search capabilities.
+
+## See Also
+
+- [Vector Database (glossary)](/glossary/vector-database/), [Embeddings](/glossary/embeddings/), [RAG](/glossary/rag/)
+- [Chroma vs Qdrant](/comparisons/chroma-vs-qdrant/), [Weaviate vs pgvector](/comparisons/weaviate-vs-pgvector/), [Milvus vs OpenSearch](/comparisons/milvus-vs-opensearch/)
+- [OpenSearch vs Elasticsearch](/comparisons/opensearch-vs-elasticsearch/), [Kendra vs OpenSearch RAG](/comparisons/kendra-vs-opensearch-rag/)
+- [Agentic RAG](/glossary/agentic-rag/), [RAG Evaluation](/glossary/rag-evaluation/)
+
+## Sources and Further Reading
+
+- Malkov, Y. A., Yashunin, D. A. (2020). *Efficient and robust approximate nearest neighbor search using Hierarchical Navigable Small World graphs (HNSW).* IEEE TPAMI. arXiv:1603.09320. [https://arxiv.org/abs/1603.09320](https://arxiv.org/abs/1603.09320)
+- Johnson, J., Douze, M., Jégou, H. (2017). *Billion-scale similarity search with GPUs (FAISS).* IEEE Transactions on Big Data. arXiv:1702.08734. [https://arxiv.org/abs/1702.08734](https://arxiv.org/abs/1702.08734)
+- Jégou, H., Douze, M., Schmid, C. (2011). *Product Quantization for Nearest Neighbor Search.* IEEE TPAMI. [https://lear.inrialpes.fr/pubs/2011/JDS11/jegou_searching_with_quantization.pdf](https://lear.inrialpes.fr/pubs/2011/JDS11/jegou_searching_with_quantization.pdf)
+- Lewis, P., Perez, E., Piktus, A., et al. (2020). *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.* NeurIPS 2020. arXiv:2005.11401. [https://arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401)
+- Pinecone documentation. [https://docs.pinecone.io/](https://docs.pinecone.io/)
+- AWS. *Amazon OpenSearch Service vector engine.* [https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vector-search.html](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vector-search.html)
+- AWS. *Amazon OpenSearch k-NN plugin.* [https://opensearch.org/docs/latest/search-plugins/knn/index/](https://opensearch.org/docs/latest/search-plugins/knn/index/)
+- ANN Benchmarks (community-maintained ANN library benchmark). [https://ann-benchmarks.com/](https://ann-benchmarks.com/)

@@ -1,36 +1,219 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="theme-color" content="{{ .Site.Params.primaryColor | default "#2563eb" }}">
 
 <title>{{ if .IsHome }}Production AI Architecture and Implementation Guides | AI Solutions Wiki{{ else }}{{ .Title }} | AI Solutions Wiki{{ end }}</title>
 
-{{ with .Description }}
-  <meta name="description" content="{{ . }}">
-{{ else }}
-  {{ with .Site.Params.description }}
-    <meta name="description" content="{{ . }}">
-  {{ end }}
-{{ end }}
+{{ $desc := or .Description .Summary .Site.Params.description }}
+{{ with $desc }}<meta name="description" content="{{ . }}">{{ end }}
+
+{{ $authorName := .Site.Params.authorName | default "Linda Mohamed" }}
+<meta name="author" content="{{ $authorName }}">
+
+{{ with .Params.tags }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
+
+{{ $defaultOgImage := .Site.Params.defaultOgImage | default "/og-default.png" }}
+{{ $ogImage := or .Params.image $defaultOgImage }}
+{{ $ogImageAbs := $ogImage | absURL }}
 
 {{ if .IsPage }}
   <meta property="og:type" content="article">
   <meta property="og:title" content="{{ .Title }}">
-  {{ with .Description }}<meta property="og:description" content="{{ . }}">{{ end }}
-  {{ with .Params.image }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
+  {{ with $desc }}<meta property="og:description" content="{{ . }}">{{ end }}
+  <meta property="og:image" content="{{ $ogImageAbs }}">
+  <meta property="og:image:alt" content="{{ .Title }} | {{ .Site.Title }}">
   <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
   {{ with .Lastmod }}<meta property="article:modified_time" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">{{ end }}
+  <meta property="article:author" content="{{ $authorName }}">
+  {{ with .Params.tags }}{{ range . }}<meta property="article:tag" content="{{ . }}">
+  {{ end }}{{ end }}
 {{ else }}
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ .Title }}">
+  {{ with $desc }}<meta property="og:description" content="{{ . }}">{{ end }}
+  <meta property="og:image" content="{{ $ogImageAbs }}">
+  <meta property="og:image:alt" content="{{ .Site.Title }}">
 {{ end }}
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:locale" content="{{ replace (.Site.LanguageCode | default "en-us") "-" "_" }}">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ .Title }}">
-{{ with .Description }}<meta name="twitter:description" content="{{ . }}">{{ end }}
+{{ with $desc }}<meta name="twitter:description" content="{{ . }}">{{ end }}
+<meta name="twitter:image" content="{{ $ogImageAbs }}">
+<meta name="twitter:image:alt" content="{{ .Title }}">
+{{ with .Site.Params.twitterHandle }}<meta name="twitter:site" content="{{ . }}">
+<meta name="twitter:creator" content="{{ . }}">{{ end }}
 
 <link rel="canonical" href="{{ .Permalink }}">
+
+{{/* JSON-LD structured data — boosts rich results and LLM/AI search comprehension */}}
+{{ $siteURL := .Site.Params.siteURL | default (.Site.BaseURL | strings.TrimRight "/") }}
+{{ $orgId := printf "%s#organization" $siteURL }}
+{{ $personId := "https://lindamohamed.com#person" }}
+{{ $websiteId := printf "%s#website" $siteURL }}
+{{ $lang := .Site.LanguageCode | default "en-us" }}
+
+{{ $organization := dict
+  "@type" "Organization"
+  "@id" $orgId
+  "name" .Site.Title
+  "url" $siteURL
+  "logo" ("/favicon.svg" | absURL)
+  "description" .Site.Params.description
+  "founder" (dict "@id" $personId)
+  "founders" (slice (dict "@id" $personId))
+  "foundingDate" "2026-03-24"
+  "knowsAbout" (slice
+    "Artificial Intelligence"
+    "Machine Learning"
+    "Large Language Models"
+    "Retrieval-Augmented Generation"
+    "AI Agents"
+    "MLOps"
+    "Amazon Web Services"
+    "AI Governance"
+    "EU AI Act"
+    "NIST AI Risk Management Framework"
+    "ISO/IEC 42001"
+    "Software Architecture")
+  "sameAs" (slice "https://github.com/linda-mhmd/ai-solutions-wiki" "https://www.linkedin.com/in/linda-mohamed/")
+}}
+
+{{ $person := dict
+  "@type" "Person"
+  "@id" $personId
+  "name" "Linda Mohamed"
+  "url" "https://lindamohamed.com"
+  "jobTitle" "AWS Community Hero, AI Architect"
+  "sameAs" (slice "https://www.linkedin.com/in/linda-mohamed/" "https://github.com/linda-mhmd" "https://github.com/mzzavaa")
+}}
+
+{{ $website := dict
+  "@type" "WebSite"
+  "@id" $websiteId
+  "url" $siteURL
+  "name" .Site.Title
+  "description" .Site.Params.description
+  "publisher" (dict "@id" $orgId)
+  "inLanguage" $lang
+  "potentialAction" (dict
+    "@type" "SearchAction"
+    "target" (dict
+      "@type" "EntryPoint"
+      "urlTemplate" (printf "%s/search/?q={search_term_string}" $siteURL))
+    "query-input" "required name=search_term_string")
+}}
+
+{{ $graph := slice $organization $person $website }}
+
+{{ if not .IsHome }}
+  {{ $items := slice (dict "@type" "ListItem" "position" 1 "name" "Home" "item" $siteURL) }}
+  {{ $pos := 1 }}
+  {{ $ancestors := slice }}
+  {{ range .Ancestors }}{{ if not .IsHome }}{{ $ancestors = $ancestors | append . }}{{ end }}{{ end }}
+  {{ if gt (len $ancestors) 0 }}
+    {{ range (seq (len $ancestors) -1 1) }}
+      {{ $i := sub . 1 }}
+      {{ $ancestor := index $ancestors $i }}
+      {{ $pos = add $pos 1 }}
+      {{ $items = $items | append (dict "@type" "ListItem" "position" $pos "name" $ancestor.Title "item" $ancestor.Permalink) }}
+    {{ end }}
+  {{ end }}
+  {{ $pos = add $pos 1 }}
+  {{ $items = $items | append (dict "@type" "ListItem" "position" $pos "name" .Title "item" .Permalink) }}
+  {{ $breadcrumbs := dict "@type" "BreadcrumbList" "itemListElement" $items }}
+  {{ $graph = $graph | append $breadcrumbs }}
+{{ end }}
+
+{{ if and .IsPage (eq .Section "glossary") }}
+  {{ $defined := dict
+    "@type" "DefinedTerm"
+    "@id" (printf "%s#definedterm" .Permalink)
+    "name" .Title
+    "url" .Permalink
+    "inDefinedTermSet" (dict
+      "@type" "DefinedTermSet"
+      "name" "AI Solutions Wiki Glossary"
+      "url" (printf "%s/glossary/" $siteURL))
+    "isPartOf" (dict "@id" $websiteId)
+  }}
+  {{ if $desc }}{{ $defined = merge $defined (dict "description" $desc) }}{{ end }}
+  {{ $graph = $graph | append $defined }}
+{{ else if and .IsPage (ne .Kind "section") }}
+  {{ $articleType := "Article" }}
+  {{ if eq .Section "guides" }}{{ $articleType = "TechArticle" }}{{ end }}
+  {{ if eq .Section "comparisons" }}{{ $articleType = "TechArticle" }}{{ end }}
+  {{ if eq .Section "patterns" }}{{ $articleType = "TechArticle" }}{{ end }}
+  {{ if eq .Section "architecture" }}{{ $articleType = "TechArticle" }}{{ end }}
+  {{ $article := dict
+    "@type" $articleType
+    "@id" (printf "%s#article" .Permalink)
+    "headline" .Title
+    "url" .Permalink
+    "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")
+    "wordCount" .WordCount
+    "image" $ogImageAbs
+    "articleSection" (.Section | humanize | title)
+    "author" (dict "@id" $personId)
+    "publisher" (dict "@id" $orgId)
+    "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
+    "isPartOf" (dict "@id" $websiteId)
+    "inLanguage" $lang
+  }}
+  {{ if $desc }}{{ $article = merge $article (dict "description" $desc) }}{{ end }}
+  {{ if .Lastmod }}{{ $article = merge $article (dict "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")) }}{{ end }}
+  {{ with .Params.tags }}{{ $article = merge $article (dict "keywords" (delimit . ", ")) }}{{ end }}
+  {{ $graph = $graph | append $article }}
+  {{ if .Params.howto }}
+    {{ $steps := slice }}
+    {{ $stepNum := 0 }}
+    {{ with .Params.howto_steps }}
+      {{ range . }}
+        {{ $stepNum = add $stepNum 1 }}
+        {{ $steps = $steps | append (dict "@type" "HowToStep" "position" $stepNum "name" .name "text" .text) }}
+      {{ end }}
+    {{ end }}
+    {{ $howto := dict
+      "@type" "HowTo"
+      "@id" (printf "%s#howto" .Permalink)
+      "name" .Title
+      "url" .Permalink
+      "image" $ogImageAbs
+      "author" (dict "@id" $personId)
+      "publisher" (dict "@id" $orgId)
+      "inLanguage" $lang
+    }}
+    {{ if $desc }}{{ $howto = merge $howto (dict "description" $desc) }}{{ end }}
+    {{ if gt (len $steps) 0 }}{{ $howto = merge $howto (dict "step" $steps) }}{{ end }}
+    {{ with .Params.howto_total_time }}{{ $howto = merge $howto (dict "totalTime" .) }}{{ end }}
+    {{ $graph = $graph | append $howto }}
+  {{ end }}
+  {{ with .Params.faq }}
+    {{ $faqItems := slice }}
+    {{ range . }}
+      {{ $faqItems = $faqItems | append (dict
+        "@type" "Question"
+        "name" .question
+        "acceptedAnswer" (dict "@type" "Answer" "text" .answer)) }}
+    {{ end }}
+    {{ if gt (len $faqItems) 0 }}
+      {{ $faq := dict
+        "@type" "FAQPage"
+        "@id" (printf "%s#faq" $.Permalink)
+        "mainEntity" $faqItems
+      }}
+      {{ $graph = $graph | append $faq }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $jsonld := dict "@context" "https://schema.org" "@graph" $graph }}
+<script type="application/ld+json">
+{{ $jsonld | jsonify (dict "indent" "  ") | safeJS }}
+</script>
 
 {{ $css := resources.Get "css/wiki.css" | minify }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
@@ -38,7 +221,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
 {{ range .AlternativeOutputFormats -}}
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}

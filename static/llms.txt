@@ -1,0 +1,57 @@
+# AI Solutions Wiki
+
+> Engineering reference for production AI systems. Architecture patterns, evaluation methods, operational practices, governance frameworks, and tooling for teams building enterprise-grade AI. Maintained by AWS Community Hero Linda Mohamed.
+
+This site is an open, vendor-neutral knowledge base aimed at engineers, architects, and decision-makers shipping AI in production. Content is organised around the layers of a real AI stack — data, models, retrieval, orchestration, evaluation, deployment, observability, and governance — with cross-links between concepts, patterns, tools, and reference architectures.
+
+Editorial standard: each entry follows a consistent structure (definition, mechanism, when to use, trade-offs, references) and links to primary sources where applicable (vendor documentation, ISO / NIST / EU standards, peer-reviewed literature). Source repository: https://github.com/linda-mhmd/ai-solutions-wiki. Citation metadata: CITATION.cff in the source repository (CFF 1.2.0, CC-BY-4.0).
+
+## Maintainer
+
+- [Linda Mohamed](https://lindamohamed.com): AWS Community Hero, AI Architect, founder of the AI workshop programme at https://ai-workshops.online
+- LinkedIn: https://www.linkedin.com/in/linda-mohamed/
+- GitHub: https://github.com/linda-mhmd
+
+## Adjacent resources (same author, complementary scope)
+
+- [Freelancer Templates](https://freelancer-templates.org): production-grade contracts, proposals, statements of work, briefs, and project documentation templates used in real client engagements.
+- [Freelancer Automation](https://freelancer-automation.com): AI workflow recipes, automation playbooks, and integration patterns for solo operators and small consultancies.
+- [AI Workshops Online](https://ai-workshops.online): structured workshop programmes for teams shipping AI on AWS.
+- [Always Ahead Newsletter](https://alwaysahead.org): weekly notes on AI engineering, governance, and the state of practice.
+
+## Foundations
+
+- [Software Foundations for AI Systems](https://ai-solutions.wiki/foundations/): software engineering, data engineering, and ML fundamentals underlying production AI
+- [Glossary](https://ai-solutions.wiki/glossary/): definitional reference for AI, ML, MLOps, data, software architecture, and governance terms
+- [Layers](https://ai-solutions.wiki/layers/): the layered model of an AI system — from infrastructure to interface
+
+## Architecture
+
+- [Architecture](https://ai-solutions.wiki/architecture/): reference architectures and design analysis for AI systems
+- [Patterns](https://ai-solutions.wiki/patterns/): reusable technical patterns (RAG, agents, pipelines, orchestration)
+- [Case Patterns](https://ai-solutions.wiki/case-patterns/): production implementation patterns drawn from real use cases
+
+## Build and Operate
+
+- [Build](https://ai-solutions.wiki/build/): hands-on guides for building AI features and shipping production systems
+- [Guides](https://ai-solutions.wiki/guides/): step-by-step tutorials covering MLOps, testing, evaluation, deployment
+- [Tools](https://ai-solutions.wiki/tools/): vendor-neutral analysis of AWS, Azure, GCP, and open-source AI services
+- [Comparisons](https://ai-solutions.wiki/comparisons/): side-by-side comparisons (CrewAI vs LangGraph, RAG vs Fine-Tuning, Bedrock vs Azure OpenAI, Pinecone vs OpenSearch, etc.)
+
+## Solutions and Domains
+
+- [Solutions](https://ai-solutions.wiki/solutions/): industry-specific AI applications (media, financial services, insurance, geospatial)
+
+## Frameworks and Governance
+
+- [Frameworks](https://ai-solutions.wiki/frameworks/): governance, regulatory, and methodological frameworks for AI teams (EU AI Act, NIST AI RMF, ISO 42001, GDPR, NIS2, DORA)
+
+## Discovery
+
+- [Sitemap](https://ai-solutions.wiki/sitemap.xml): full URL index
+- [RSS feed](https://ai-solutions.wiki/index.xml): latest articles
+- [Search index (JSON)](https://ai-solutions.wiki/index.json): structured site index
+
+## Citation
+
+If you cite this resource, please reference the maintainer and the specific page URL. Citation metadata is provided in `CITATION.cff` in the source repository.
