@@ -1,0 +1,166 @@
+{{ define "main" }}
+
+{{ $levelNum := .Params.level_num }}
+{{ $articles := where .Site.Pages "Params.level" $levelNum }}
+{{ $articles = where $articles "Section" "basics" }}
+
+<!-- LEVEL HERO: full width -->
+<section class="lvl-hero">
+  <div class="bz-container">
+    <div class="lvl-hero-inner">
+      <div class="lvl-hero-meta">
+        <a href="{{ "/basics/" | relURL }}" class="lvl-back-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          Start at Zero
+        </a>
+        <span class="lvl-badge">Level {{ $levelNum }}</span>
+      </div>
+      <h1 class="lvl-hero-h1">{{ .Title }}</h1>
+      <p class="lvl-hero-sub">{{ .Description }}</p>
+      <div class="lvl-hero-stats">
+        <div class="lvl-stat">
+          <span class="lvl-stat-num">{{ len $articles }}</span>
+          <span class="lvl-stat-label">articles</span>
+        </div>
+        <div class="lvl-stat-divider"></div>
+        <div class="lvl-stat">
+          <span class="lvl-stat-num">Level {{ $levelNum }}</span>
+          <span class="lvl-stat-label">of 4</span>
+        </div>
+        {{ if gt $levelNum 0 }}
+        <div class="lvl-stat-divider"></div>
+        <div class="lvl-stat">
+          <span class="lvl-stat-num">Level {{ sub $levelNum 1 }}</span>
+          <span class="lvl-stat-label">prerequisite</span>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK POSITION BAR: full width, sticky -->
+<section class="lvl-stack-bar">
+  <div class="bz-container">
+    <div class="lvl-stack-track">
+      {{ range $i := slice 0 1 2 3 4 }}
+      <a href="{{ printf "/levels/level-%d/" $i | relURL }}"
+         class="lvl-stack-pip {{ if eq $i $levelNum }}lvl-stack-pip--active{{ end }}">
+        <span class="lvl-stack-pip-num">{{ $i }}</span>
+        <span class="lvl-stack-pip-name">
+          {{ if eq $i 0 }}Foundation
+          {{ else if eq $i 1 }}Code
+          {{ else if eq $i 2 }}Collaboration
+          {{ else if eq $i 3 }}Infrastructure
+          {{ else }}AI
+          {{ end }}
+        </span>
+      </a>
+      {{ if lt $i 4 }}<span class="lvl-stack-arrow">→</span>{{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- TWO-COLUMN LAYOUT: content + sidebar -->
+<div class="article-layout">
+
+  <!-- MAIN CONTENT -->
+  <div class="article-container lvl-body-inner">
+
+    <div class="article-body">
+      {{ .Content }}
+    </div>
+
+    <!-- ARTICLE CARDS FOR THIS LEVEL -->
+    {{ with $articles }}
+    <div class="lvl-articles-section">
+      <h2 class="lvl-section-heading">
+        <span class="lvl-section-num">{{ len $articles }}</span> articles at this level
+      </h2>
+      <div class="lvl-article-grid">
+        {{ range . }}
+        <a href="{{ .RelPermalink }}" class="lvl-article-card">
+          <span class="lvl-article-card-title">{{ .Title }}</span>
+          <span class="lvl-article-card-desc">{{ .Description }}</span>
+          {{ if .Params.youtube_id }}<span class="lvl-article-tag">Video</span>{{ end }}
+          <span class="lvl-article-card-arrow">→</span>
+        </a>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    <!-- PREV / NEXT LEVEL -->
+    <div class="lvl-nav-row">
+      {{ if gt $levelNum 0 }}
+      <a href="{{ printf "/levels/level-%d/" (sub $levelNum 1) | relURL }}" class="lvl-nav-prev">
+        <span class="lvl-nav-dir">← Previous level</span>
+        <span class="lvl-nav-title">Level {{ sub $levelNum 1 }}</span>
+      </a>
+      {{ else }}<div></div>{{ end }}
+
+      {{ if lt $levelNum 4 }}
+      <a href="{{ printf "/levels/level-%d/" (add $levelNum 1) | relURL }}" class="lvl-nav-next">
+        <span class="lvl-nav-dir">Next level →</span>
+        <span class="lvl-nav-title">Level {{ add $levelNum 1 }}</span>
+      </a>
+      {{ end }}
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="article-sidebar" data-pagefind-ignore>
+
+    <!-- TOC generated from page headings -->
+    {{ partial "toc.html" . }}
+
+    <!-- Articles in this level -->
+    {{ with $articles }}
+    <aside class="lvl-sb-box">
+      <div class="lvl-sb-box-header">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <span>Level {{ $levelNum }} articles</span>
+      </div>
+      <ul class="lvl-sb-list">
+        {{ range . }}
+        <li><a href="{{ .RelPermalink }}" class="lvl-sb-link">{{ .Title }}</a></li>
+        {{ end }}
+      </ul>
+    </aside>
+    {{ end }}
+
+    <!-- All levels navigation -->
+    <aside class="lvl-sb-box">
+      <div class="lvl-sb-box-header">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <span>All levels</span>
+      </div>
+      <ul class="lvl-sb-list">
+        {{ range $i := slice 0 1 2 3 4 }}
+        {{ $label := "" }}
+        {{ if eq $i 0 }}{{ $label = "The Foundation" }}
+        {{ else if eq $i 1 }}{{ $label = "How Code Works" }}
+        {{ else if eq $i 2 }}{{ $label = "Managing Work" }}
+        {{ else if eq $i 3 }}{{ $label = "The Infrastructure" }}
+        {{ else }}{{ $label = "AI and Building" }}{{ end }}
+        <li>
+          <a href="{{ printf "/levels/level-%d/" $i | relURL }}"
+             class="lvl-sb-link {{ if eq $i $levelNum }}lvl-sb-link--active{{ end }}">
+            <span class="lvl-sb-num">{{ $i }}</span>
+            {{ $label }}
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </aside>
+
+    <!-- Related articles -->
+    {{ partial "related.html" . }}
+
+  </div><!-- /sidebar -->
+
+</div><!-- /article-layout -->
+
+{{ end }}

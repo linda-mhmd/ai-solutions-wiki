@@ -1,6 +1,6 @@
 ---
 title: "Tool Use (in Language Models)"
-description: "The capability of a language model to invoke external tools — APIs, code execution, retrieval, computation — and incorporate their results into subsequent reasoning. Foundational mechanism behind agents, function calling, and MCP."
+description: "The capability of a language model to invoke external tools: APIs, code execution, retrieval, computation: and incorporate their results into subsequent reasoning. Foundational mechanism behind agents, function calling, and MCP."
 date: 2026-05-08
 lastmod: 2026-05-08
 categories: [Glossary]
@@ -13,7 +13,7 @@ related:
   - glossary/llm
 ---
 
-Tool use is the umbrella capability of a language model to invoke external systems — APIs, code execution sandboxes, retrieval indices, calculators, browsers, databases — and condition its subsequent generation on the returned results. It is the broadest level of abstraction; specific mechanisms include [function calling](/glossary/function-calling/), the [Model Context Protocol](/glossary/model-context-protocol/), code interpreters, and bespoke prompted tool grammars. Tool use is what turns a language model from a static text generator into an actor in a software environment, and is the foundational primitive of [AI agents](/glossary/ai-agent/).
+Tool use is the umbrella capability of a language model to invoke external systems, APIs, code execution sandboxes, retrieval indices, calculators, browsers, databases, and condition its subsequent generation on the returned results. It is the broadest level of abstraction; specific mechanisms include [function calling](/glossary/function-calling/), the [Model Context Protocol](/glossary/model-context-protocol/), code interpreters, and bespoke prompted tool grammars. Tool use is what turns a language model from a static text generator into an actor in a software environment, and is the foundational primitive of [AI agents](/glossary/ai-agent/).
 
 ## Mechanism
 
@@ -21,18 +21,18 @@ A tool-using model is conditioned, by training and/or by prompt, to either gener
 
 Three main implementation styles co-exist in production systems:
 
-- **Trained tool use** — the model is post-trained on examples of correct tool use (Toolformer; Schick et al., 2023). The model emits structured tool calls natively in a provider-defined format. Examples: Anthropic Claude tool use, OpenAI function calling, Google Gemini function calling, Mistral function calling, AWS Bedrock Converse `toolUse`.
-- **Prompted tool use** — the model is given a prompt-level grammar (e.g. ReAct's `Thought / Action / Observation`; Yao et al., 2023) and follows it without dedicated training. Less reliable but model-agnostic.
-- **Code as tools** — the model writes code (Python, SQL, JavaScript) that is executed in a sandbox; the executed result is the observation. Strong on numeric reasoning (PoT; Chen et al., 2023) and open-ended computation. Used in OpenAI Code Interpreter, Anthropic Computer Use, AgentCore Code Interpreter.
+- **Trained tool use**: the model is post-trained on examples of correct tool use (Toolformer; Schick et al., 2023). The model emits structured tool calls natively in a provider-defined format. Examples: Anthropic Claude tool use, OpenAI function calling, Google Gemini function calling, Mistral function calling, AWS Bedrock Converse `toolUse`.
+- **Prompted tool use**: the model is given a prompt-level grammar (e.g. ReAct's `Thought / Action / Observation`; Yao et al., 2023) and follows it without dedicated training. Less reliable but model-agnostic.
+- **Code as tools**: the model writes code (Python, SQL, JavaScript) that is executed in a sandbox; the executed result is the observation. Strong on numeric reasoning (PoT; Chen et al., 2023) and open-ended computation. Used in OpenAI Code Interpreter, Anthropic Computer Use, AgentCore Code Interpreter.
 
 ## When Tool Use Helps
 
 Empirical evidence (Schick et al., 2023; Mialon et al., 2023; Patil et al., 2023) supports tool use whenever the task involves:
 
-- **Computation** the model performs unreliably (arithmetic, statistics, unit conversion) — delegate to a calculator or Python.
-- **Knowledge** the model lacks or might hallucinate (private documents, current events, large catalogues) — delegate to retrieval (see [RAG](/glossary/rag/) and [Agentic RAG](/glossary/agentic-rag/)).
-- **Side effects** in external systems (write to a database, send an email, create a ticket) — these *must* be tools; the model cannot "do" them in text.
-- **Determinism** requirements — programmatic checks (regex, schema validation, formal verification) belong in tools.
+- **Computation** the model performs unreliably (arithmetic, statistics, unit conversion): delegate to a calculator or Python.
+- **Knowledge** the model lacks or might hallucinate (private documents, current events, large catalogues): delegate to retrieval (see [RAG](/glossary/rag/) and [Agentic RAG](/glossary/agentic-rag/)).
+- **Side effects** in external systems (write to a database, send an email, create a ticket): these *must* be tools; the model cannot "do" them in text.
+- **Determinism** requirements: programmatic checks (regex, schema validation, formal verification) belong in tools.
 
 ## When Tool Use Hurts
 
@@ -66,23 +66,23 @@ A practical engineering rule for whether to wire a capability as a tool or rely 
 
 ## Frameworks Implementing Tool Use
 
-- **OpenAI** — function calling, structured outputs, Code Interpreter
-- **Anthropic** — tool use, computer use, code execution beta
-- **Google** — Gemini function calling, code execution
-- **AWS** — Bedrock Converse `toolUse`, AgentCore (Runtime, Gateway, Code Interpreter, Browser)
-- **Open frameworks** — LangGraph, CrewAI, LlamaIndex, AWS Strands, AutoGen, smolagents, DSPy
-- **Cross-host protocol** — Model Context Protocol ([MCP](/glossary/model-context-protocol/))
+- **OpenAI**: function calling, structured outputs, Code Interpreter
+- **Anthropic**: tool use, computer use, code execution beta
+- **Google**: Gemini function calling, code execution
+- **AWS**: Bedrock Converse `toolUse`, AgentCore (Runtime, Gateway, Code Interpreter, Browser)
+- **Open frameworks**: LangGraph, CrewAI, LlamaIndex, AWS Strands, AutoGen, smolagents, DSPy
+- **Cross-host protocol**: Model Context Protocol ([MCP](/glossary/model-context-protocol/))
 
 See [CrewAI vs LangGraph](/comparisons/crewai-vs-langgraph/), [LangChain vs LlamaIndex](/comparisons/langchain-vs-llamaindex/), and [LangChain vs DSPy](/comparisons/langchain-vs-dspy/) for framework-level comparisons.
 
 ## Related Concepts
 
-- [Function Calling](/glossary/function-calling/) — the most common provider-native implementation of tool use
-- [Model Context Protocol](/glossary/model-context-protocol/) — the cross-host standard for tool exposure
-- [AI Agent](/glossary/ai-agent/) — the higher-level system built on tool use
-- [Agentic RAG](/glossary/agentic-rag/) — retrieval-as-tool, the most common production tool-use pattern
-- [Hallucination](/glossary/hallucination/) — well-designed tool use is the primary mitigation
-- [Guardrails](/glossary/guardrails/) — runtime layer that gates tool calls
+- [Function Calling](/glossary/function-calling/): the most common provider-native implementation of tool use
+- [Model Context Protocol](/glossary/model-context-protocol/): the cross-host standard for tool exposure
+- [AI Agent](/glossary/ai-agent/): the higher-level system built on tool use
+- [Agentic RAG](/glossary/agentic-rag/): retrieval-as-tool, the most common production tool-use pattern
+- [Hallucination](/glossary/hallucination/): well-designed tool use is the primary mitigation
+- [Guardrails](/glossary/guardrails/): runtime layer that gates tool calls
 
 ## Sources and Further Reading
 

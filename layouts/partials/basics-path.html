@@ -1,0 +1,46 @@
+{{/* Basics Learning Path Sidebar
+     Shows the full Level 0-4 progression with current article highlighted.
+     Only renders on basics section pages.
+*/}}
+{{ if eq .Section "basics" }}
+
+{{ $levels := slice
+  (dict "num" 0 "name" "The Computer")
+  (dict "num" 1 "name" "How Code Works")
+  (dict "num" 2 "name" "Managing Work")
+  (dict "num" 3 "name" "The Infrastructure")
+  (dict "num" 4 "name" "AI and Building")
+}}
+
+{{ $allBasics := where .Site.RegularPages "Section" "basics" }}
+{{ $currentLevel := .Params.level | default 0 }}
+
+<aside class="bz-path-sidebar">
+  <div class="bz-path-header">
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+    <span>The Basics Series</span>
+  </div>
+  {{ range $levels }}
+  {{ $lv := . }}
+  {{ $pagesAtLevel := where $allBasics "Params.level" $lv.num }}
+  {{ $pagesAtLevel = $pagesAtLevel.ByParam "level" }}
+  {{ if $pagesAtLevel }}
+  <div class="bz-path-level {{ if eq $lv.num $currentLevel }}bz-path-level-active{{ end }}">
+    <div class="bz-path-level-hd">
+      <span class="bz-path-level-num">L{{ $lv.num }}</span>
+      <span class="bz-path-level-name">{{ $lv.name }}</span>
+    </div>
+    <ul class="bz-path-list">
+      {{ range $pagesAtLevel }}
+      <li class="{{ if eq .RelPermalink $.RelPermalink }}bz-path-current{{ end }}">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+  {{ end }}
+  {{ end }}
+  <a href="/basics/" class="bz-path-overview-link">View full Basics overview →</a>
+</aside>
+
+{{ end }}

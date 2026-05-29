@@ -12,6 +12,12 @@ related:
 
 Stream processing is the continuous computation of results as data arrives, rather than waiting to collect a batch and process it all at once. Data flows through a processing pipeline record by record or in micro-batches, producing results with low latency.
 
+
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/data-projection.png" alt="A dark cylinder projecting continuous rows of red light points in real time: a stream of signals arriving faster than any batch could capture." loading="lazy">
+  <figcaption>Stream processing handles data as it arrives. Not stored, then processed. Processed as it moves. The projection never stops. The system must keep up or fall behind permanently.</figcaption>
+</figure>
+
 The distinction from batch processing is fundamental: batch operates on bounded datasets (all records from yesterday), while stream processing operates on unbounded datasets (records that keep arriving indefinitely).
 
 ## Core Concepts

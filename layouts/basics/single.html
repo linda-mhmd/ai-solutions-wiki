@@ -100,5 +100,11 @@
     {{ end }}
 
   </div>
+
+  <div class="article-sidebar" data-pagefind-ignore>
+    {{ partial "basics-path.html" . }}
+    {{ partial "toc.html" . }}
+    {{ partial "related.html" . }}
+  </div>
 </div>
 {{ end }}

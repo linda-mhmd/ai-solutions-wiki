@@ -1,6 +1,6 @@
 ---
 title: "Reasoning Models"
-description: "Language models post-trained to allocate substantial inference-time compute to internal reasoning before producing final answers — the o1 / R1 generation."
+description: "Language models post-trained to allocate substantial inference-time compute to internal reasoning before producing final answers: the o1 / R1 generation."
 date: 2026-05-08
 lastmod: 2026-05-08
 categories: [Glossary]
@@ -13,21 +13,21 @@ related:
   - glossary/direct-preference-optimization
 ---
 
-Reasoning models are large language models post-trained to allocate substantial inference-time compute to internal reasoning before producing a final answer. Where a conventional LLM emits its answer immediately after the prompt, a reasoning model first generates a long, often hidden, chain of thought that explores, plans, backtracks, and verifies — sometimes for thousands or tens of thousands of tokens — and only then produces the visible response. The class was established by OpenAI's o1 (September 2024), generalised by DeepSeek's R1 (January 2025), and is now represented in every major model family (o3, Claude with extended thinking, Gemini 2.0 Flash Thinking, Qwen3, GLM-Z1). Reasoning models trade latency and cost for substantially higher accuracy on math, coding, scientific reasoning, and planning tasks — a different scaling axis from parameter count.
+Reasoning models are large language models post-trained to allocate substantial inference-time compute to internal reasoning before producing a final answer. Where a conventional LLM emits its answer immediately after the prompt, a reasoning model first generates a long, often hidden, chain of thought that explores, plans, backtracks, and verifies, sometimes for thousands or tens of thousands of tokens, and only then produces the visible response. The class was established by OpenAI's o1 (September 2024), generalised by DeepSeek's R1 (January 2025), and is now represented in every major model family (o3, Claude with extended thinking, Gemini 2.0 Flash Thinking, Qwen3, GLM-Z1). Reasoning models trade latency and cost for substantially higher accuracy on math, coding, scientific reasoning, and planning tasks, a different scaling axis from parameter count.
 
 ## Mechanism
 
 A reasoning model is a transformer LLM trained with a two-part objective:
 
-1. **Reasoning generation** — produce a long chain of intermediate thoughts (often delimited by special tokens or simply by a model-internal convention).
-2. **Answer extraction** — produce the final answer conditioned on the reasoning trace.
+1. **Reasoning generation**, produce a long chain of intermediate thoughts (often delimited by special tokens or simply by a model-internal convention).
+2. **Answer extraction**, produce the final answer conditioned on the reasoning trace.
 
 Two principal training recipes have been published:
 
 - **Search + distillation** (early o1 hypotheses; explicit in works like rStar-Math; Chen et al., 2025). Generate reasoning traces via search (best-of-N, MCTS, process-reward-model-guided search), filter for correctness, and distil into a single-pass model. Inference is fast because the search has been amortised into the model.
 - **RL with verifiable rewards** (DeepSeek-R1; DeepSeek-AI, 2025). Start from a base model. Define rewards that can be machine-verified (math answer correctness, code passing tests, formal proofs). Run RL (Group Relative Policy Optimisation, GRPO) with these rewards. The model learns to extend its chain of thought when the reward improves with more thinking. R1-Zero showed this works *without* an SFT cold start, producing emergent reasoning.
 
-The R1 technical report demonstrated that the reasoning behaviour itself emerges from the RL signal — the model spontaneously develops verification, backtracking, and re-reading of the prompt as effective strategies for the verifier-checked rewards. This was the first widely-replicated open recipe for reasoning models.
+The R1 technical report demonstrated that the reasoning behaviour itself emerges from the RL signal, the model spontaneously develops verification, backtracking, and re-reading of the prompt as effective strategies for the verifier-checked rewards. This was the first widely-replicated open recipe for reasoning models.
 
 ## Inference-Time Behaviour
 
@@ -47,7 +47,7 @@ The thinking section may be hidden from the user (OpenAI o1, Claude extended thi
 
 ## Why Reasoning Models Matter
 
-The empirical result, established across o1, R1, and successors: on hard reasoning benchmarks (AIME, MATH-500, GPQA Diamond, Codeforces, FrontierMath), reasoning models outperform conventional LLMs by large margins, and accuracy continues to improve with thinking-token budget — a different scaling regime than pretraining-compute scaling (Snell et al., 2024). For sufficiently hard problems, a smaller reasoning model with more thinking can outperform a larger conventional model.
+The empirical result, established across o1, R1, and successors: on hard reasoning benchmarks (AIME, MATH-500, GPQA Diamond, Codeforces, FrontierMath), reasoning models outperform conventional LLMs by large margins, and accuracy continues to improve with thinking-token budget, a different scaling regime than pretraining-compute scaling (Snell et al., 2024). For sufficiently hard problems, a smaller reasoning model with more thinking can outperform a larger conventional model.
 
 This shifts cost economics: instead of paying for parameter count, you pay for thinking tokens. The right axis for a given task depends on whether the task benefits from reasoning at all (highly structured domains like math and coding: yes; conversational helpfulness, summarisation: marginal).
 
@@ -85,10 +85,10 @@ The reasoning-model class went from closed-only (o1, September 2024) to open-rep
 
 ## Related Concepts
 
-- [Chain-of-Thought](/glossary/chain-of-thought/) — the prompting precursor; reasoning models internalise CoT through training
-- [Inference-Time Compute](/glossary/inference-time-compute/) — the scaling phenomenon reasoning models exploit
-- [Direct Preference Optimization](/glossary/direct-preference-optimization/) — alternative post-training; orthogonal to reasoning training but often combined
-- [Reinforcement Learning](/glossary/reinforcement-learning/) — RL with verifiable rewards is the dominant reasoning-training recipe
+- [Chain-of-Thought](/glossary/chain-of-thought/): the prompting precursor; reasoning models internalise CoT through training
+- [Inference-Time Compute](/glossary/inference-time-compute/): the scaling phenomenon reasoning models exploit
+- [Direct Preference Optimization](/glossary/direct-preference-optimization/): alternative post-training; orthogonal to reasoning training but often combined
+- [Reinforcement Learning](/glossary/reinforcement-learning/): RL with verifiable rewards is the dominant reasoning-training recipe
 - [LLM](/glossary/llm/), [Foundation Models](/glossary/foundation-models/)
 
 ## Sources and Further Reading

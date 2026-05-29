@@ -149,8 +149,8 @@ This happens in under 100ms for well-optimised apps.
 </div>
 
 <figure class="bz-figure">
-<img src="/img/basics/diagram-infrastructure.png" alt="Infrastructure stack diagram showing CDN at the edge, load balancer, multiple app server instances, and a database cluster with read replicas">
-<figcaption>A production server stack. Each layer handles a specific concern: edge caching, load distribution, application logic, and data persistence. This is what "deploying to the cloud" actually means.</figcaption>
+<img src="/img/dark-cherry/grid-foundation.png" alt="A dark industrial floor with red neon grid seams laid in precise layers: infrastructure built in sections, each zone isolated and addressable." loading="lazy">
+<figcaption>A production server stack. Each layer handles a specific concern: edge caching, load distribution, application logic, data persistence. This is what deploying to the cloud actually means. The grid is already there. You configure how traffic moves through it.</figcaption>
 </figure>
 
 ## Further reading

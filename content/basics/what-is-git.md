@@ -25,6 +25,11 @@ Git is a free, open-source tool that runs on your computer and tracks every chan
 
 Git was created by Linus Torvalds in 2005 to manage development of the Linux kernel after the previous version control tool lost its free license. It was designed for speed, distributed workflows, and handling large codebases. Today it is used by virtually every software project regardless of size.
 
+<figure class="bz-figure">
+  <img src="/img/wardrobe/polaroid-wall-git-commits.png" alt="A cork board covered in Polaroid photographs of outfits arranged chronologically, each pinned with a deep red pin: commits pinned to the wall of project history." loading="lazy">
+  <figcaption>Every Git commit is a Polaroid pinned to the wall. Each snapshot has a timestamp, a label, and a fixed state. You can navigate the wall in any direction: forward, backward, or sideways onto a different branch.</figcaption>
+</figure>
+
 ## Git lives on your computer
 
 Unlike most tools you use, Git does not run in the browser. It runs locally on your machine. When you use Git, you are working with a database of changes stored in a hidden folder called `.git` inside your project.
@@ -97,8 +102,8 @@ Teams typically have:
 - `fix/login-bug`, a specific bug fix
 
 <figure class="bz-figure">
-<img src="/img/basics/diagram-version-control.png" alt="Version control diagram showing main branch with commits, a feature branch diverging, and a merge point where the feature rejoins main">
-<figcaption>Branching isolates work in progress. Features develop in parallel without touching the stable <code>main</code> branch until they are ready to merge.</figcaption>
+<img src="/img/wardrobe/racks-git-branches.png" alt="Two dark clothing racks side by side in an atelier: parallel tracks of work in progress, each isolated until the merge point." loading="lazy">
+<figcaption>Branches are parallel tracks. Each rack holds its own work in progress. Nothing merges into main until it is ready and reviewed.</figcaption>
 </figure>
 
 ### Merge and rebase
@@ -175,8 +180,8 @@ Git is not GitHub. Git is the tool. GitHub is a website that hosts Git repositor
 There are also alternatives to GitHub: [GitLab](https://gitlab.com/) (popular for self-hosting and CI/CD) and [Bitbucket](https://bitbucket.org/) (common in enterprise Jira-heavy teams).
 
 <figure class="bz-figure">
-<img src="/img/basics/diagram-git-github.png" alt="Diagram showing Git as a local tool on a developer's machine, with git push and git pull arrows connecting to GitHub in the cloud, which multiple teammates also connect to">
-<figcaption>Git runs locally. GitHub is a remote hosting service. The two connect via <code>push</code> and <code>pull</code>. Multiple developers sync through the shared remote.</figcaption>
+<img src="/img/dark-cherry/gears-mechanism.png" alt="Dark industrial gears interlocked under red light: local and remote mechanisms synchronised, each change driving the state of the other." loading="lazy">
+<figcaption>Git runs locally. GitHub is the shared remote. Push and pull keep every machine in sync. The gears only move together when developers communicate through the same remote.</figcaption>
 </figure>
 
 ## Further reading

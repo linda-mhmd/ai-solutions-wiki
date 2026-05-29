@@ -23,6 +23,11 @@ faqs:
 Version control is a system that records every change made to a set of files over time. You can go back to any previous version, see exactly what changed and who changed it, and work with other people on the same files without creating chaos.
 {{< /quickanswer >}}
 
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/vortex-complexity.png" alt="A dark spiraling vortex with a deep red core: complexity that would pull you under without a system to navigate it." loading="lazy">
+  <figcaption>Without version control, software projects become this. Every change is a risk. Every mistake is permanent. Version control gives you a map of the spiral and the ability to climb back out.</figcaption>
+</figure>
+
 ## The problem it solves
 
 You have done this. Everyone has done this:

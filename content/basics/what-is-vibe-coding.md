@@ -23,6 +23,11 @@ faqs:
 Vibe coding means using AI tools, Claude, Cursor, GitHub Copilot, v0, to build software by describing what you want in plain English. You are the architect and decision-maker. The AI writes the code. The term was coined by AI researcher Andrej Karpathy in February 2025 and it describes a genuine shift in how software gets made.
 {{< /quickanswer >}}
 
+<figure class="bz-figure">
+  <img src="/img/wardrobe/ai-stylist-vibe-coding.png" alt="A person seated in a dark leather atelier chair with arms gesturing outward, dark garments seemingly arranged around them: describing intent, receiving execution." loading="lazy">
+  <figcaption>The AI Stylist model. You describe what you want: the vibe, the occasion, the constraint. The AI assembles the result. Your job shifts from sewing to direction.</figcaption>
+</figure>
+
 ## What actually changed
 
 Before large language models, if you wanted to build software and could not code:

@@ -12,6 +12,12 @@ related:
 
 A subnet is a subdivision of a VPC's IP address range, placed in a specific availability zone. Subnets segment your network into logical sections with different access controls and routing rules. Each resource launched in a VPC (EC2 instance, RDS instance, ECS task, Lambda function) is placed in a specific subnet.
 
+
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/grid-foundation.png" alt="A dark floor grid with red seam lines dividing it into distinct zones: each segment bounded, addressable, and isolated from adjacent sections." loading="lazy">
+  <figcaption>A subnet is a zone within the grid. It has its own address range. Traffic routes differently depending on whether it is public-facing or private. The division is administrative, not physical.</figcaption>
+</figure>
+
 ## How It Works
 
 Each subnet is associated with a route table that determines where network traffic is directed. A subnet is considered "public" if its route table includes a route to an internet gateway (allowing direct internet access) and "private" if it does not.

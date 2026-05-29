@@ -88,8 +88,8 @@ You do not need to memorise the hardware, but knowing the parts exist helps you 
 </div>
 
 <figure class="bz-figure">
-<img src="/img/basics/concepts-core-four.png" alt="The four core concepts of a computer: CPU, RAM, Storage, and Operating System, shown as interlocking layers">
-<figcaption>The four components that define any computer system, from a pocket calculator to a data centre node.</figcaption>
+<img src="/img/dark-cherry/gears-mechanism.png" alt="Dark industrial gears interlocked under red light: four components working in coordinated sequence to produce output." loading="lazy">
+<figcaption>CPU, RAM, storage, and operating system. Four interlocking components. Remove any one and the machine stops. Each transforms input from the previous and passes it forward.</figcaption>
 </figure>
 
 ## How a computer understands anything: bits and bytes

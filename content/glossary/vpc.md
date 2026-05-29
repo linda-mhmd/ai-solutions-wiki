@@ -12,6 +12,12 @@ related:
 
 A Virtual Private Cloud (VPC) is a logically isolated virtual network within AWS where you launch resources. It gives you full control over IP address ranges, subnets, route tables, and network gateways. Every EC2 instance, RDS database, Lambda function (when VPC-attached), and ECS task runs within a VPC.
 
+
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/grid-foundation.png" alt="A dark industrial floor grid with precise red-lit seams: isolated sections of the same foundation, separated by invisible boundaries." loading="lazy">
+  <figcaption>A VPC is your section of the cloud's grid. The physical infrastructure is shared. The network boundaries are yours. Traffic stays inside unless you explicitly open a door.</figcaption>
+</figure>
+
 ## How It Works
 
 When you create a VPC, you define a CIDR block (IP address range, e.g., 10.0.0.0/16). Within the VPC, you create subnets in specific availability zones, configure route tables to control traffic flow, and attach internet gateways or NAT gateways for external connectivity. Security groups (instance-level firewalls) and network ACLs (subnet-level firewalls) control inbound and outbound traffic.

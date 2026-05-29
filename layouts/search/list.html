@@ -1,61 +1,17 @@
 {{ define "main" }}
-<style>
-  .search-page {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 2.5rem 1.5rem 5rem;
-    min-height: 60vh;
-  }
 
-  .search-page-header {
-    margin-bottom: 2rem;
-  }
-
-  .search-page-header h1 {
-    font-size: 1.875rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin: 0 0 0.4rem;
-  }
-
-  .search-page-header p {
-    color: var(--text-muted);
-    font-size: 0.9375rem;
-    margin: 0;
-  }
-
-  #search-page .pagefind-ui {
-    max-width: 100%;
-  }
-
-  #search-page .pagefind-ui__search-input {
-    font-size: 1.0625rem !important;
-    padding: 0.8125rem 1.125rem 0.8125rem 2.75rem !important;
-    height: auto !important;
-  }
-
-  #search-page .pagefind-ui__results-container {
-    margin-top: 1.5rem;
-  }
-
-  @media (max-width: 600px) {
-    .search-page {
-      padding: 1.5rem 1rem 3rem;
-    }
-
-    .search-page-header h1 {
-      font-size: 1.375rem;
-    }
-  }
-</style>
-
-<div class="search-page">
-  <div class="search-page-header">
-    <h1>{{ .Title }}</h1>
-    <p>{{ .Description }}</p>
+<section class="search-hero">
+  <div class="bz-container">
+    <h1 class="search-hero-title">{{ .Title }}</h1>
+    <p class="search-hero-desc">{{ .Description }}</p>
   </div>
-  <div id="search-page"></div>
-</div>
+</section>
+
+<section class="search-body">
+  <div class="bz-container">
+    <div id="search-page"></div>
+  </div>
+</section>
 
 <script>
   window.addEventListener('DOMContentLoaded', function() {
@@ -94,4 +50,5 @@
     });
   });
 </script>
+
 {{ end }}

@@ -13,13 +13,13 @@ related:
   - glossary/long-context-model
 ---
 
-Prompt caching is an LLM serving optimisation in which the attention key/value (KV) tensors computed for a shared prompt prefix are stored and reused across subsequent requests, instead of being recomputed each time. For applications that send many requests with the same long prefix — system prompts, document context, agent histories, few-shot examples, RAG-augmented prompts — prompt caching reduces both time-to-first-token latency and per-call cost by an amount proportional to the cached prefix length. Cache discounts of 50–90% are typical at provider APIs (Anthropic, OpenAI, Google, AWS Bedrock).
+Prompt caching is an LLM serving optimisation in which the attention key/value (KV) tensors computed for a shared prompt prefix are stored and reused across subsequent requests, instead of being recomputed each time. For applications that send many requests with the same long prefix, system prompts, document context, agent histories, few-shot examples, RAG-augmented prompts, prompt caching reduces both time-to-first-token latency and per-call cost by an amount proportional to the cached prefix length. Cache discounts of 50–90% are typical at provider APIs (Anthropic, OpenAI, Google, AWS Bedrock).
 
 ## Mechanism
 
 A transformer's attention layer computes Query, Key, and Value tensors for each token. For autoregressive generation, the KV tensors of the input tokens do not depend on tokens to their right, so once computed they can be reused. This is *KV caching* and it is the standard inference optimisation for generation within a single request.
 
-Prompt caching extends this across requests. The server identifies a shared prefix between a new request and a recent request, retrieves the cached KV tensors for that prefix, and skips the prefill computation for those tokens. The prefill phase — typically the latency bottleneck for long prompts — collapses to the suffix only.
+Prompt caching extends this across requests. The server identifies a shared prefix between a new request and a recent request, retrieves the cached KV tensors for that prefix, and skips the prefill computation for those tokens. The prefill phase, typically the latency bottleneck for long prompts, collapses to the suffix only.
 
 For the cache hit to be valid, the prefix must be identical *bit-for-bit*: same tokens, same model version, same model parameters. Even one differing token invalidates the prefix from that point on. Provider implementations specify the granularity (Anthropic uses explicit `cache_control` markers; OpenAI's automatic caching keys on the first ~1024 tokens; Bedrock and Google have similar semantics).
 
@@ -64,11 +64,11 @@ Prompt caching is *cross-request* KV cache reuse. Within a single request, *intr
 
 ## Related Concepts
 
-- [Inference-Time Compute](/glossary/inference-time-compute/) — orthogonal scaling axis; caching is about *reducing* inference compute
-- [Long-Context Model](/glossary/long-context-model/) — long-context use cases benefit most from caching
-- [Prompt Engineering](/glossary/prompt-engineering/) — schema design for cache-friendliness is part of prompt engineering
-- [Token Budget](/glossary/token-budget/) — caching changes the cost calculus for token-heavy prompts
-- [Transformer Architecture](/glossary/transformer-architecture/) — the substrate KV caching exploits
+- [Inference-Time Compute](/glossary/inference-time-compute/): orthogonal scaling axis; caching is about *reducing* inference compute
+- [Long-Context Model](/glossary/long-context-model/): long-context use cases benefit most from caching
+- [Prompt Engineering](/glossary/prompt-engineering/): schema design for cache-friendliness is part of prompt engineering
+- [Token Budget](/glossary/token-budget/): caching changes the cost calculus for token-heavy prompts
+- [Transformer Architecture](/glossary/transformer-architecture/): the substrate KV caching exploits
 
 ## Sources and Further Reading
 

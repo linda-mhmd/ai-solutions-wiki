@@ -12,6 +12,12 @@ related:
 
 A message queue is a communication mechanism where messages are sent to a queue by producers and consumed by consumers asynchronously. The queue acts as a buffer between services, decoupling the producer from the consumer so they can operate independently, at different speeds, and without direct knowledge of each other.
 
+
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/cable-sparks.png" alt="An industrial cable under tension with sparks at the junction: a high-energy transfer point where two systems exchange work without blocking each other." loading="lazy">
+  <figcaption>A message queue is the cable between systems that do not run at the same speed. The producer fires messages. The consumer processes them when ready. The queue absorbs the difference in pace.</figcaption>
+</figure>
+
 ## How It Works
 
 A producer sends a message to the queue. The message persists in the queue until a consumer retrieves and processes it. After successful processing, the consumer acknowledges the message (deletes it from the queue). If processing fails, the message becomes visible again for retry or is moved to a dead-letter queue after repeated failures.

@@ -13,6 +13,12 @@ related:
 
 The OECD Principles on Artificial Intelligence, adopted in May 2019, were the first intergovernmental standard for responsible AI. Originally endorsed by 36 OECD member countries and subsequently adopted by the G20, the principles now have adherence from over 40 countries. They have become the foundational reference point for national AI strategies, regulatory frameworks, and corporate AI ethics policies worldwide.
 
+
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/prism-precision.png" alt="A black prism with a precise red laser: a structured framework that refracts broad values into defined, implementable principles." loading="lazy">
+  <figcaption>The OECD AI Principles take broad values (trustworthiness, human oversight, transparency) and refract them into five concrete principles that governments and organisations can implement and audit.</figcaption>
+</figure>
+
 ## The Five Principles
 
 The OECD AI Principles are organized into five value-based principles for the responsible stewardship of trustworthy AI.

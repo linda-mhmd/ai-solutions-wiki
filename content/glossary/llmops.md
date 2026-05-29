@@ -15,6 +15,12 @@ related:
 
 LLMOps (Large Language Model Operations) is the set of practices, tools, and infrastructure patterns for developing, deploying, monitoring, and maintaining applications built on large language models. It extends MLOps concepts to address the unique operational challenges of LLM-based systems, including prompt management, context window optimization, cost control, and evaluation of non-deterministic outputs.
 
+
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/grid-foundation.png" alt="A dark industrial floor with red neon grid seams: the operational infrastructure beneath a running system." loading="lazy">
+  <figcaption>LLMOps is the grid under the model. The model gets the attention. The grid makes it reliable, observable, cost-controlled, and safe to update. Without it, production is an accident waiting to happen.</figcaption>
+</figure>
+
 ## How LLMOps Differs from MLOps
 
 Traditional MLOps focuses on training pipelines, feature stores, model versioning, and performance metrics like accuracy and F1 score. LLMOps introduces different concerns. Most organizations use pre-trained models rather than training from scratch, so the focus shifts to prompt engineering, fine-tuning, and retrieval augmentation. Evaluation is harder because outputs are free-form text rather than numerical predictions. Costs scale with token consumption rather than compute time alone. And the attack surface includes prompt injection and jailbreaking, which do not exist in traditional ML.

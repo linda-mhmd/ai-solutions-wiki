@@ -23,6 +23,11 @@ faqs:
 Code is a set of instructions written in a formal language that a computer can follow. Unlike human languages, code must be precisely correct, a single misplaced character causes it to fail. But this precision is also what makes it powerful: the computer will do exactly what you describe, every time, at billions of operations per second.
 {{< /quickanswer >}}
 
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/prism-precision.png" alt="A black geometric prism on a dark surface with a deep red laser beam cutting through it precisely: input transformed into structured output." loading="lazy">
+  <figcaption>Code is a precise set of instructions that transforms input into output. The prism does not interpret. It does exactly what physics requires. Code is the same: unambiguous, exact, deterministic.</figcaption>
+</figure>
+
 ## Code is a recipe
 
 The clearest analogy for code is a recipe. A recipe defines:

@@ -13,6 +13,12 @@ related:
 
 The transformer is a neural network architecture introduced in the 2017 paper "Attention Is All You Need" by Vaswani et al. It processes input sequences entirely through attention mechanisms, without recurrence or convolution. Virtually all modern large language models (GPT, Claude, Llama, Gemini) are built on transformer variants.
 
+
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/prism-precision.png" alt="A black geometric prism with a red laser beam entering one face and refracting through the structure: raw input transformed into structured, weighted output." loading="lazy">
+  <figcaption>The transformer does what the prism does. It takes a sequence of tokens, applies attention to reweight relationships, and produces a transformed representation. The geometry is precise. Nothing is random.</figcaption>
+</figure>
+
 ## How It Works
 
 A transformer consists of an encoder (processes input) and a decoder (produces output), though many modern models use only one half. Each layer contains two sub-components: a multi-head self-attention mechanism and a feed-forward neural network. Layer normalization and residual connections stabilize training.

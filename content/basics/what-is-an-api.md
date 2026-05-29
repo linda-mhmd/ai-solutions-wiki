@@ -36,8 +36,8 @@ You do not need to know how the kitchen works. You just need to know the menu (w
 An API defines: what you can ask for, how to ask for it, what you will get back, and what errors look like. [More: Introduction to web APIs, MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction)
 
 <figure class="bz-figure">
-<img src="/img/basics/diagram-api-contract.png" alt="API as a contract between client and server: the client sends a structured request, the API defines the rules, the server processes and returns a structured response">
-<figcaption>The API is the contract layer between client and server. It hides implementation complexity and defines a stable interface both sides agree on.</figcaption>
+<img src="/img/dark-cherry/cable-sparks.png" alt="An industrial cable under tension with red sparks at the connection point: two systems making contact, exchanging data at the boundary." loading="lazy">
+<figcaption>The API is the contact point. Every request and response is a spark crossing this junction. Both sides agree on the protocol before the first request is sent.</figcaption>
 </figure>
 
 ## What an API request looks like

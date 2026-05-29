@@ -23,6 +23,11 @@ faqs:
 "The cloud" means computing resources, servers, storage, databases, networking, that you rent over the internet instead of owning yourself. You pay for what you use, scale up or down instantly, and never need to buy hardware. The joke that "the cloud is just someone else's computer" is true. It is just very well-managed, very reliable someone else's computers.
 {{< /quickanswer >}}
 
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/grid-foundation.png" alt="A dark concrete floor with deep red neon seams tracing a precise grid: infrastructure laid down before anything visible is built on top." loading="lazy">
+  <figcaption>The cloud is infrastructure you rent instead of own. The grid is already there. You build on top of it. When you are done, you stop paying. The grid remains for the next tenant.</figcaption>
+</figure>
+
 ## Why the cloud changed everything
 
 Before cloud computing (roughly pre-2006), running a web app required:

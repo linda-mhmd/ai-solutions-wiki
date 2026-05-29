@@ -62,8 +62,8 @@ The result is systems that can do things programmers could never explicitly code
 </div>
 
 <figure class="bz-figure">
-<img src="/img/basics/comparison-code-vs-ai.png" alt="Side-by-side comparison of traditional code (explicit if/else rules) versus AI/ML (data-driven pattern learning), showing where each approach works best">
-<figcaption>The fundamental shift: from handwritten rules to learned patterns. Neither approach is universally better. Production systems often combine both.</figcaption>
+<img src="/img/dark-cherry/prism-precision.png" alt="A black geometric prism with a precise red laser entering one face and refracting through the structure: raw input transformed into structured, weighted output." loading="lazy">
+<figcaption>Traditional code is explicit rules written by hand. Machine learning is a system that learns the rules from data. The same input goes in. The transformation is different. The output is calibrated, not declared.</figcaption>
 </figure>
 
 ## Types of machine learning
@@ -183,8 +183,8 @@ There is a difference between using an AI tool (ChatGPT, Midjourney) and **build
 This is how AI-powered products work. The AI is one component inside a larger system, alongside a database, a server, APIs, and user interface. The earlier articles in this series describe all those other components.
 
 <figure class="bz-figure">
-<img src="/img/basics/diagram-production-ai.png" alt="Production AI system diagram showing user input flowing through an application layer, to an LLM API (Claude/OpenAI), with RAG pulling from a vector database, results returned and displayed to the user">
-<figcaption>A production AI system is not just an LLM. The model is one component, alongside retrieval, databases, business logic, and a user interface. Understanding the other components in this series is what lets you build and evaluate these systems.</figcaption>
+<img src="/img/dark-cherry/architect-system.png" alt="A human silhouette facing a vast red-lit industrial system: one person, many components, all integrated into a single production system." loading="lazy">
+<figcaption>A production AI system is not just an LLM. The model is one component alongside retrieval, databases, business logic, and a user interface. The architect sees the whole. Understanding all the other components in this series is what lets you build and evaluate these systems.</figcaption>
 </figure>
 
 ## Further reading

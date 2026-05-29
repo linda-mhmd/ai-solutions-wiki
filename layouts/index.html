@@ -1,99 +1,566 @@
 {{ define "main" }}
 
-<!-- HERO -->
+{{/* Pre-compute section counts */}}
+{{ $cGuides    := len (where .Site.RegularPages "Section" "guides") }}
+{{ $cTools     := len (where .Site.RegularPages "Section" "tools") }}
+{{ $cPatterns  := len (where .Site.RegularPages "Section" "patterns") }}
+{{ $cCompare   := len (where .Site.RegularPages "Section" "comparisons") }}
+{{ $cFramework := len (where .Site.RegularPages "Section" "frameworks") }}
+{{ $cSolutions := len (where .Site.RegularPages "Section" "solutions") }}
+{{ $cCaseP     := len (where .Site.RegularPages "Section" "case-patterns") }}
+{{ $cGlossary  := len (where .Site.RegularPages "Section" "glossary") }}
+{{ $cAll       := len .Site.RegularPages }}
+
+<!-- HERO: cinematic full-bleed crossfade -->
 <section class="idx-hero">
+  <div class="idx-hero-overlay" aria-hidden="true"></div>
   <div class="bz-container">
     <div class="idx-hero-inner">
-      <div class="idx-hero-text">
-        <h1 class="idx-hero-h1">Production AI for teams that ship.</h1>
-        <p class="idx-hero-sub">Architecture patterns, implementation guides, and tool references. Built for engineers turning AI into working systems.</p>
-        <div class="idx-hero-search">
-          <div id="hero-search"></div>
-        </div>
+      <h1 class="idx-hero-h1">Production AI<br>for teams that ship.</h1>
+      <p class="idx-hero-sub">Architecture patterns, implementation guides, and tool references. Built for engineers turning AI into working systems.</p>
+      <div class="idx-hero-search">
+        <div id="hero-search"></div>
       </div>
-      <div class="idx-hero-visual">
-        <img src="/img/basics/diagram-production-ai.png" alt="" aria-hidden="true" class="idx-hero-img">
+      <div class="idx-hero-counts">
+        <span class="idx-hero-count-item"><strong>{{ $cGuides }}</strong> guides</span>
+        <span class="idx-hero-count-sep"></span>
+        <span class="idx-hero-count-item"><strong>{{ $cTools }}</strong> tools</span>
+        <span class="idx-hero-count-sep"></span>
+        <span class="idx-hero-count-item"><strong>{{ $cGlossary }}</strong> definitions</span>
+        <span class="idx-hero-count-sep"></span>
+        <span class="idx-hero-count-item"><strong>{{ $cAll }}+</strong> articles</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SECTION DIVIDER -->
-<div class="bz-section-divider" style="background-image:url('/img/basics/divider-infrastructure.png')">
+<!-- STATS STRIP -->
+<div class="idx-stats-strip">
+  <div class="bz-container">
+    <div class="idx-stats-inner">
+      <a href="{{ "/guides/" | relURL }}" class="idx-stat-block">
+        <span class="idx-stat-num">{{ $cGuides }}</span>
+        <span class="idx-stat-label">How-to Guides</span>
+      </a>
+      <a href="{{ "/tools/" | relURL }}" class="idx-stat-block">
+        <span class="idx-stat-num">{{ $cTools }}</span>
+        <span class="idx-stat-label">Tool Reviews</span>
+      </a>
+      <a href="{{ "/patterns/" | relURL }}" class="idx-stat-block">
+        <span class="idx-stat-num">{{ $cPatterns }}</span>
+        <span class="idx-stat-label">Patterns</span>
+      </a>
+      <a href="{{ "/comparisons/" | relURL }}" class="idx-stat-block">
+        <span class="idx-stat-num">{{ $cCompare }}</span>
+        <span class="idx-stat-label">Comparisons</span>
+      </a>
+      <a href="{{ "/glossary/" | relURL }}" class="idx-stat-block">
+        <span class="idx-stat-num">{{ $cGlossary }}</span>
+        <span class="idx-stat-label">Glossary Terms</span>
+      </a>
+      <a href="{{ "/frameworks/" | relURL }}" class="idx-stat-block">
+        <span class="idx-stat-num">{{ $cFramework }}</span>
+        <span class="idx-stat-label">Frameworks</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- AI SYSTEM STACK DIAGRAM -->
+<section class="idx-stack">
+  <div class="bz-container">
+    <div class="idx-stack-intro">
+      <div>
+        <p class="bz-section-label">The AI Stack</p>
+        <h2 class="idx-stack-h2">Where every article fits.</h2>
+      </div>
+      <p class="idx-stack-sub">Every guide, pattern, and tool review maps to one of these five layers. The wiki covers all of them. Understanding the stack helps you know what to read next and why each layer depends on the one below it.</p>
+    </div>
+
+    <div class="idx-stack-diagram">
+
+      <div class="idx-stack-layer">
+        <div class="idx-stack-layer-meta">
+          <span class="idx-stack-layer-num">Layer 05</span>
+          <span class="idx-stack-layer-name">Applications</span>
+        </div>
+        <div class="idx-stack-chips">
+          <a href="{{ "/solutions/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">Industry Solutions</a>
+          <a href="{{ "/case-patterns/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">Case Patterns</a>
+          <span class="idx-stack-chip idx-stack-chip--dim">Chatbots</span>
+          <span class="idx-stack-chip idx-stack-chip--dim">RAG Search</span>
+          <span class="idx-stack-chip idx-stack-chip--dim">Agent Systems</span>
+          <span class="idx-stack-chip idx-stack-chip--dim">Dashboards</span>
+          <span class="idx-stack-chip idx-stack-chip--dim">Classification</span>
+        </div>
+      </div>
+
+      <div class="idx-stack-layer">
+        <div class="idx-stack-layer-meta">
+          <span class="idx-stack-layer-num">Layer 04</span>
+          <span class="idx-stack-layer-name">Orchestration</span>
+        </div>
+        <div class="idx-stack-chips">
+          <a href="{{ "/patterns/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">Patterns</a>
+          <a href="{{ "/guides/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">Guides</a>
+          <span class="idx-stack-chip idx-stack-chip--dim">Prompt Engineering</span>
+          <span class="idx-stack-chip idx-stack-chip--dim">Tool Calling</span>
+          <span class="idx-stack-chip idx-stack-chip--dim">Agentic Loops</span>
+          <span class="idx-stack-chip idx-stack-chip--dim">Memory</span>
+          <span class="idx-stack-chip idx-stack-chip--dim">Routing</span>
+        </div>
+      </div>
+
+      <div class="idx-stack-layer">
+        <div class="idx-stack-layer-meta">
+          <span class="idx-stack-layer-num">Layer 03</span>
+          <span class="idx-stack-layer-name">Models</span>
+        </div>
+        <div class="idx-stack-chips">
+          <a href="{{ "/tools/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">Tool Reviews</a>
+          <a href="{{ "/comparisons/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">Comparisons</a>
+          <span class="idx-stack-chip idx-stack-chip--dim">Foundation Models</span>
+          <span class="idx-stack-chip idx-stack-chip--dim">Fine-tuning</span>
+          <span class="idx-stack-chip idx-stack-chip--dim">Embeddings</span>
+          <span class="idx-stack-chip idx-stack-chip--dim">Evaluation</span>
+          <span class="idx-stack-chip idx-stack-chip--dim">Inference</span>
+        </div>
+      </div>
+
+      <div class="idx-stack-layer">
+        <div class="idx-stack-layer-meta">
+          <span class="idx-stack-layer-num">Layer 02</span>
+          <span class="idx-stack-layer-name">Data</span>
+        </div>
+        <div class="idx-stack-chips">
+          <a href="{{ "/guides/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">Guides</a>
+          <a href="{{ "/glossary/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">Glossary</a>
+          <span class="idx-stack-chip idx-stack-chip--dim">Vector Stores</span>
+          <span class="idx-stack-chip idx-stack-chip--dim">Pipelines</span>
+          <span class="idx-stack-chip idx-stack-chip--dim">Preprocessing</span>
+          <span class="idx-stack-chip idx-stack-chip--dim">Lineage</span>
+          <span class="idx-stack-chip idx-stack-chip--dim">Feature Stores</span>
+        </div>
+      </div>
+
+      <div class="idx-stack-layer">
+        <div class="idx-stack-layer-meta">
+          <span class="idx-stack-layer-num">Layer 01</span>
+          <span class="idx-stack-layer-name">Infrastructure</span>
+        </div>
+        <div class="idx-stack-chips">
+          <a href="{{ "/frameworks/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">Frameworks</a>
+          <a href="{{ "/tools/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">Tools</a>
+          <span class="idx-stack-chip idx-stack-chip--dim">Cloud / AWS</span>
+          <span class="idx-stack-chip idx-stack-chip--dim">APIs</span>
+          <span class="idx-stack-chip idx-stack-chip--dim">Monitoring</span>
+          <span class="idx-stack-chip idx-stack-chip--dim">Security</span>
+          <span class="idx-stack-chip idx-stack-chip--dim">Cost Management</span>
+        </div>
+      </div>
+
+    </div>
+    <p class="idx-stack-note">Data flows up. Governance and compliance apply to every layer.</p>
+  </div>
+</section>
+
+<!-- SECTION DIVIDER 01 -->
+<div class="bz-section-divider">
   <div class="bz-container">
     <span class="bz-divider-num">01.</span>
     <span class="bz-divider-name">Browse by section.</span>
   </div>
 </div>
 
-<!-- SECTIONS -->
+<!-- SECTION CARDS -->
 <section class="idx-sections">
   <div class="bz-container">
     <div class="idx-section-grid">
-      <a href="{{ "layers/" | relURL }}" class="idx-section-row">
-        <span class="idx-section-name">Layers</span>
-        <span class="idx-section-desc">The foundational layers of AI systems, from data and models to orchestration and interfaces.</span>
+
+      <a href="{{ "/guides/" | relURL }}" class="idx-section-card">
+        <div class="idx-section-card-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
+          <span class="idx-section-card-count">{{ $cGuides }}</span>
+        </div>
+        <span class="idx-section-card-name">How-to Guides</span>
+        <span class="idx-section-card-desc">Step-by-step tutorials covering AI architecture, testing, MLOps, and production deployment.</span>
       </a>
-      <a href="{{ "getting-started/" | relURL }}" class="idx-section-row">
-        <span class="idx-section-name">Getting Started</span>
-        <span class="idx-section-desc">Core concepts, setup guides, and a clear path from zero to working.</span>
+
+      <a href="{{ "/tools/" | relURL }}" class="idx-section-card">
+        <div class="idx-section-card-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          <span class="idx-section-card-count">{{ $cTools }}</span>
+        </div>
+        <span class="idx-section-card-name">Tool Reviews</span>
+        <span class="idx-section-card-desc">Deep dives into AWS AI services, LLM platforms, and developer frameworks.</span>
       </a>
-      <a href="{{ "build/" | relURL }}" class="idx-section-row">
-        <span class="idx-section-name">Build</span>
-        <span class="idx-section-desc">Hands-on guides for building AI features, integrating APIs, and shipping production-ready systems.</span>
+
+      <a href="{{ "/patterns/" | relURL }}" class="idx-section-card">
+        <div class="idx-section-card-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <span class="idx-section-card-count">{{ $cPatterns }}</span>
+        </div>
+        <span class="idx-section-card-name">Patterns</span>
+        <span class="idx-section-card-desc">Reusable technical patterns for RAG, agents, pipelines, and production AI systems.</span>
       </a>
-      <a href="{{ "architecture/" | relURL }}" class="idx-section-row">
-        <span class="idx-section-name">Architecture</span>
-        <span class="idx-section-desc">System design patterns and reference architectures for scalable AI infrastructure.</span>
+
+      <a href="{{ "/comparisons/" | relURL }}" class="idx-section-card">
+        <div class="idx-section-card-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <span class="idx-section-card-count">{{ $cCompare }}</span>
+        </div>
+        <span class="idx-section-card-name">Comparisons</span>
+        <span class="idx-section-card-desc">Side-by-side analysis to help you choose the right tools and approaches.</span>
       </a>
-      <a href="{{ "solutions/" | relURL }}" class="idx-section-row">
-        <span class="idx-section-name">Industry Solutions</span>
-        <span class="idx-section-desc">AI applications for media, finance, insurance, geospatial, and more.</span>
+
+      <a href="{{ "/frameworks/" | relURL }}" class="idx-section-card">
+        <div class="idx-section-card-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span class="idx-section-card-count">{{ $cFramework }}</span>
+        </div>
+        <span class="idx-section-card-name">Frameworks</span>
+        <span class="idx-section-card-desc">Governance, ethics, regulatory, and methodology frameworks for AI teams.</span>
       </a>
-      <a href="{{ "guides/" | relURL }}" class="idx-section-row">
-        <span class="idx-section-name">How-to Guides</span>
-        <span class="idx-section-desc">Step-by-step tutorials covering AI architecture, testing, MLOps, and production deployment.</span>
+
+      <a href="{{ "/glossary/" | relURL }}" class="idx-section-card">
+        <div class="idx-section-card-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span class="idx-section-card-count">{{ $cGlossary }}</span>
+        </div>
+        <span class="idx-section-card-name">Glossary</span>
+        <span class="idx-section-card-desc">Plain-English definitions for AI, ML, and cloud engineering terminology.</span>
       </a>
-      <a href="{{ "frameworks/" | relURL }}" class="idx-section-row">
-        <span class="idx-section-name">Frameworks</span>
-        <span class="idx-section-desc">Governance, ethics, regulatory, and methodology frameworks for AI teams.</span>
+
+      <a href="{{ "/case-patterns/" | relURL }}" class="idx-section-card">
+        <div class="idx-section-card-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <span class="idx-section-card-count">{{ $cCaseP }}</span>
+        </div>
+        <span class="idx-section-card-name">Case Patterns</span>
+        <span class="idx-section-card-desc">Real-world AI implementation patterns drawn from production use cases.</span>
       </a>
-      <a href="{{ "tools/" | relURL }}" class="idx-section-row">
-        <span class="idx-section-name">Tool Reviews</span>
-        <span class="idx-section-desc">Deep dives into AWS AI services, LLM platforms, and developer frameworks.</span>
+
+      <a href="{{ "/solutions/" | relURL }}" class="idx-section-card">
+        <div class="idx-section-card-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          <span class="idx-section-card-count">{{ $cSolutions }}</span>
+        </div>
+        <span class="idx-section-card-name">Industry Solutions</span>
+        <span class="idx-section-card-desc">AI applications for media, finance, insurance, geospatial, and more.</span>
       </a>
-      <a href="{{ "comparisons/" | relURL }}" class="idx-section-row">
-        <span class="idx-section-name">Comparisons</span>
-        <span class="idx-section-desc">Side-by-side analysis to help you choose the right tools and approaches.</span>
+
+      <a href="{{ "/layers/" | relURL }}" class="idx-section-card">
+        <div class="idx-section-card-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          <span class="idx-section-card-count"></span>
+        </div>
+        <span class="idx-section-card-name">Layers</span>
+        <span class="idx-section-card-desc">The foundational layers of AI systems, from data and models to orchestration.</span>
       </a>
-      <a href="{{ "glossary/" | relURL }}" class="idx-section-row">
-        <span class="idx-section-name">Glossary</span>
-        <span class="idx-section-desc">Plain-English definitions for AI, ML, and cloud terminology.</span>
+
+      <a href="{{ "/architecture/" | relURL }}" class="idx-section-card">
+        <div class="idx-section-card-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span class="idx-section-card-count"></span>
+        </div>
+        <span class="idx-section-card-name">Architecture</span>
+        <span class="idx-section-card-desc">System design patterns and reference architectures for scalable AI infrastructure.</span>
       </a>
-      <a href="{{ "patterns/" | relURL }}" class="idx-section-row">
-        <span class="idx-section-name">Patterns</span>
-        <span class="idx-section-desc">Reusable technical patterns for RAG, agents, pipelines, and more.</span>
+
+      <a href="{{ "/build/" | relURL }}" class="idx-section-card">
+        <div class="idx-section-card-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          <span class="idx-section-card-count"></span>
+        </div>
+        <span class="idx-section-card-name">Build</span>
+        <span class="idx-section-card-desc">Hands-on project guides for building real AI systems from architecture to working code.</span>
       </a>
-      <a href="{{ "case-patterns/" | relURL }}" class="idx-section-row">
-        <span class="idx-section-name">Case Patterns</span>
-        <span class="idx-section-desc">Real-world AI implementation patterns drawn from production use cases.</span>
+
+      <a href="{{ "/getting-started/" | relURL }}" class="idx-section-card">
+        <div class="idx-section-card-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 8 16 12 12 16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          <span class="idx-section-card-count"></span>
+        </div>
+        <span class="idx-section-card-name">Getting Started</span>
+        <span class="idx-section-card-desc">Core concepts, setup guides, and a clear path from zero to working.</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION DIVIDER 02 -->
+<div class="bz-section-divider">
+  <div class="bz-container">
+    <span class="bz-divider-num">02.</span>
+    <span class="bz-divider-name">Start here.</span>
+  </div>
+</div>
+
+<!-- FEATURED EDITORIAL PICKS -->
+<section class="idx-featured">
+  <div class="bz-container">
+    <p class="bz-section-label">Staff picks</p>
+    <div class="idx-feature-grid">
+
+      <a href="{{ "/guides/building-rag-systems/" | relURL }}" class="idx-feature-card">
+        <img src="/img/dark-cherry/data-projection.png"
+             alt="A cylinder projecting rows of red data points, representing document retrieval and indexing in a RAG pipeline."
+             class="idx-feature-img" loading="lazy">
+        <div class="idx-feature-body">
+          <span class="idx-feature-section">Guide</span>
+          <span class="idx-feature-title">Building RAG Systems</span>
+          <span class="idx-feature-desc">End-to-end retrieval-augmented generation: document ingestion, embedding, vector search, and ranked responses in production.</span>
+          <span class="idx-feature-cta">Read the guide →</span>
+        </div>
+      </a>
+
+      <a href="{{ "/frameworks/eu-ai-act-risk-framework/" | relURL }}" class="idx-feature-card">
+        <img src="/img/dark-cherry/architect-system.png"
+             alt="A silhouette facing a red-lit industrial tower representing regulatory oversight and compliance architecture."
+             class="idx-feature-img" loading="lazy">
+        <div class="idx-feature-body">
+          <span class="idx-feature-section">Framework</span>
+          <span class="idx-feature-title">EU AI Act Risk Framework</span>
+          <span class="idx-feature-desc">Classify your AI system under the EU AI Act. Understand what risk tier applies and which obligations follow from it.</span>
+          <span class="idx-feature-cta">Read the framework →</span>
+        </div>
+      </a>
+
+      <a href="{{ "/guides/capacity-planning-ai/" | relURL }}" class="idx-feature-card">
+        <img src="/img/dark-cherry/gears-mechanism.png"
+             alt="Dark industrial gears under red light representing the mechanics of load planning and system capacity."
+             class="idx-feature-img" loading="lazy">
+        <div class="idx-feature-body">
+          <span class="idx-feature-section">Guide</span>
+          <span class="idx-feature-title">Capacity Planning for AI</span>
+          <span class="idx-feature-desc">GPU, memory, throughput, and cost estimation for LLM workloads. Before you commit to infrastructure.</span>
+          <span class="idx-feature-cta">Read the guide →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION DIVIDER 03 -->
+<div class="bz-section-divider">
+  <div class="bz-container">
+    <span class="bz-divider-num">03.</span>
+    <span class="bz-divider-name">Find your path.</span>
+  </div>
+</div>
+
+<!-- ROLE-BASED ENTRY PATHS -->
+<section class="idx-roles">
+  <div class="bz-container">
+    <p class="bz-section-label">Who is this for</p>
+    <div class="idx-role-grid">
+
+      <a href="{{ "/for/product-managers/" | relURL }}" class="idx-role-card">
+        <span class="idx-role-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </span>
+        <span class="idx-role-name">Product Manager</span>
+        <span class="idx-role-desc">Understand what engineers are building, how long it takes, and when the AI approach is wrong.</span>
+        <span class="idx-role-cta">Start reading →</span>
+      </a>
+
+      <a href="{{ "/for/founders/" | relURL }}" class="idx-role-card">
+        <span class="idx-role-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+        </span>
+        <span class="idx-role-name">Founder</span>
+        <span class="idx-role-desc">Decide what to build, who to hire, and whether the approach your team proposes will work.</span>
+        <span class="idx-role-cta">Start reading →</span>
+      </a>
+
+      <a href="{{ "/for/vibe-coders/" | relURL }}" class="idx-role-card">
+        <span class="idx-role-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </span>
+        <span class="idx-role-name">Vibe Coder</span>
+        <span class="idx-role-desc">You direct, AI writes. Know enough to debug, deploy, and keep the system running.</span>
+        <span class="idx-role-cta">Start reading →</span>
+      </a>
+
+      <a href="{{ "/for/consultants/" | relURL }}" class="idx-role-card">
+        <span class="idx-role-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>
+        </span>
+        <span class="idx-role-name">Consultant</span>
+        <span class="idx-role-desc">Speak AI fluently: governance vocabulary, risk frameworks, and architecture evaluation.</span>
+        <span class="idx-role-cta">Start reading →</span>
+      </a>
+
+      <a href="{{ "/for/finance-business/" | relURL }}" class="idx-role-card">
+        <span class="idx-role-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </span>
+        <span class="idx-role-name">Finance and Business</span>
+        <span class="idx-role-desc">Evaluate proposals, build a business case, and understand the regulatory obligations that apply.</span>
+        <span class="idx-role-cta">Start reading →</span>
+      </a>
+
+      <a href="{{ "/for/students-switchers/" | relURL }}" class="idx-role-card">
+        <span class="idx-role-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </span>
+        <span class="idx-role-name">Student or Switcher</span>
+        <span class="idx-role-desc">Start from zero. Computers, internet, code, then AI in a sequence that actually makes sense.</span>
+        <span class="idx-role-cta">Start reading →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- LEARNING PROGRESSION -->
+<section class="idx-pathway">
+  <div class="bz-container">
+    <div class="idx-pathway-intro">
+      <div>
+        <p class="bz-section-label">The learning path</p>
+        <h2 class="idx-pathway-h2">Five levels, one clear direction.</h2>
+      </div>
+      <p class="idx-pathway-sub">Every article is assigned a level. You always know what comes before it and what comes next. Level 0 assumes no technical background. Level 4 covers production AI systems at scale.</p>
+    </div>
+
+    <div class="bz-flow">
+      <div class="bz-flow-step">
+        <span class="bz-flow-step-tag">Level 0</span>
+        <span class="bz-flow-step-name">Computers and the Internet</span>
+        <span class="bz-flow-step-desc">How hardware, networks, and the web actually work. No prior knowledge assumed.</span>
+      </div>
+      <div class="bz-flow-arrow">→</div>
+      <div class="bz-flow-step">
+        <span class="bz-flow-step-tag">Level 1 and 2</span>
+        <span class="bz-flow-step-name">Code and Collaboration</span>
+        <span class="bz-flow-step-desc">Terminals, logic, Git, APIs, and version control.</span>
+      </div>
+      <div class="bz-flow-arrow">→</div>
+      <div class="bz-flow-step">
+        <span class="bz-flow-step-tag">Level 3</span>
+        <span class="bz-flow-step-name">Cloud and Infrastructure</span>
+        <span class="bz-flow-step-desc">Databases, cloud services, APIs, and scalable system design.</span>
+      </div>
+      <div class="bz-flow-arrow">→</div>
+      <div class="bz-flow-step">
+        <span class="bz-flow-step-tag">Level 4</span>
+        <span class="bz-flow-step-name">AI and Production Systems</span>
+        <span class="bz-flow-step-desc">LLMs, RAG, agents, MLOps, and shipping AI to production.</span>
+      </div>
+    </div>
+
+    <div class="idx-pathway-actions">
+      <a href="{{ "/basics/" | relURL }}" class="bz-btn-primary">Start at Level 0</a>
+      <a href="{{ "/learn/" | relURL }}" class="idx-pathway-link">
+        View all learning paths
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
     </div>
   </div>
 </section>
 
+<!-- SECTION DIVIDER 04 -->
+<div class="bz-section-divider">
+  <div class="bz-container">
+    <span class="bz-divider-num">04.</span>
+    <span class="bz-divider-name">Recently added.</span>
+  </div>
+</div>
+
 <!-- LATEST ARTICLES -->
 <section class="idx-latest">
   <div class="bz-container">
-    <p class="bz-section-label">From the wiki</p>
-    <div class="idx-article-list">
-      {{ range first 8 (where .Site.RegularPages "Type" "!=" "page") }}
-      <a href="{{ .RelPermalink }}" class="idx-article-row">
-        <span class="idx-article-section">{{ .Section | humanize | title }}</span>
-        <span class="idx-article-title">{{ .Title }}</span>
-        <span class="idx-article-date">{{ .Date.Format "Jan 2006" }}</span>
+    <div class="idx-latest-inner">
+
+      <div class="idx-latest-main">
+        <p class="bz-section-label">From the wiki</p>
+        <div class="idx-article-list">
+          {{ range first 12 (.Site.RegularPages.ByLastmod.Reverse) }}
+          <a href="{{ .RelPermalink }}" class="idx-article-row">
+            <span class="idx-article-section">{{ .Section | humanize | title }}</span>
+            <span class="idx-article-title">{{ .Title }}</span>
+            <span class="idx-article-date">{{ .Date.Format "Jan 2006" }}</span>
+          </a>
+          {{ end }}
+        </div>
+      </div>
+
+      <div class="idx-latest-sidebar">
+        <p class="bz-section-label">Quick access</p>
+        <div class="idx-quick-cards">
+          <a href="{{ "/basics/" | relURL }}" class="idx-quick-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <div>
+              <span class="idx-quick-card-title">Start at Zero</span>
+              <span class="idx-quick-card-desc">No coding background needed</span>
+            </div>
+          </a>
+          <a href="{{ "/glossary/" | relURL }}" class="idx-quick-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <div>
+              <span class="idx-quick-card-title">Look up a term</span>
+              <span class="idx-quick-card-desc">{{ $cGlossary }} plain-English definitions</span>
+            </div>
+          </a>
+          <a href="{{ "/comparisons/" | relURL }}" class="idx-quick-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            <div>
+              <span class="idx-quick-card-title">Compare tools</span>
+              <span class="idx-quick-card-desc">{{ $cCompare }} side-by-side breakdowns</span>
+            </div>
+          </a>
+          <a href="{{ "/for/" | relURL }}" class="idx-quick-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <div>
+              <span class="idx-quick-card-title">Your learning path</span>
+              <span class="idx-quick-card-desc">Guides tailored to your role</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TOPIC CLOUD -->
+<section class="idx-topics">
+  <div class="bz-container">
+    <div class="idx-topics-header">
+      <p class="bz-section-label">Browse by topic</p>
+      <a href="{{ "/explore/" | relURL }}" class="idx-pathway-link">
+        Full library
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
-      {{ end }}
+    </div>
+    <div class="idx-topic-cloud">
+      <a href="{{ "/search/?q=rag" | relURL }}" class="idx-topic-tag idx-topic-tag--primary">RAG</a>
+      <a href="{{ "/search/?q=llm" | relURL }}" class="idx-topic-tag idx-topic-tag--primary">LLMs</a>
+      <a href="{{ "/search/?q=agents" | relURL }}" class="idx-topic-tag idx-topic-tag--primary">AI Agents</a>
+      <a href="{{ "/search/?q=mlops" | relURL }}" class="idx-topic-tag idx-topic-tag--primary">MLOps</a>
+      <a href="{{ "/search/?q=aws" | relURL }}" class="idx-topic-tag idx-topic-tag--primary">AWS</a>
+      <a href="{{ "/search/?q=vector+database" | relURL }}" class="idx-topic-tag">Vector Databases</a>
+      <a href="{{ "/search/?q=embeddings" | relURL }}" class="idx-topic-tag">Embeddings</a>
+      <a href="{{ "/search/?q=prompt+engineering" | relURL }}" class="idx-topic-tag">Prompt Engineering</a>
+      <a href="{{ "/search/?q=fine+tuning" | relURL }}" class="idx-topic-tag">Fine-tuning</a>
+      <a href="{{ "/search/?q=eu+ai+act" | relURL }}" class="idx-topic-tag">EU AI Act</a>
+      <a href="{{ "/search/?q=data+pipeline" | relURL }}" class="idx-topic-tag">Data Pipelines</a>
+      <a href="{{ "/search/?q=monitoring" | relURL }}" class="idx-topic-tag">Monitoring</a>
+      <a href="{{ "/search/?q=fastapi" | relURL }}" class="idx-topic-tag">FastAPI</a>
+      <a href="{{ "/search/?q=bedrock" | relURL }}" class="idx-topic-tag">AWS Bedrock</a>
+      <a href="{{ "/search/?q=claude" | relURL }}" class="idx-topic-tag">Claude</a>
+      <a href="{{ "/search/?q=testing" | relURL }}" class="idx-topic-tag">Testing</a>
+      <a href="{{ "/search/?q=security" | relURL }}" class="idx-topic-tag">Security</a>
+      <a href="{{ "/search/?q=iso+42001" | relURL }}" class="idx-topic-tag">ISO 42001</a>
+      <a href="{{ "/search/?q=langchain" | relURL }}" class="idx-topic-tag">LangChain</a>
+      <a href="{{ "/search/?q=kubernetes" | relURL }}" class="idx-topic-tag">Kubernetes</a>
+      <a href="{{ "/search/?q=transformer" | relURL }}" class="idx-topic-tag">Transformers</a>
+      <a href="{{ "/search/?q=inference" | relURL }}" class="idx-topic-tag">Inference</a>
+      <a href="{{ "/search/?q=cost" | relURL }}" class="idx-topic-tag">Cost Optimisation</a>
+      <a href="{{ "/search/?q=architecture" | relURL }}" class="idx-topic-tag">Architecture</a>
     </div>
   </div>
 </section>
@@ -104,7 +571,7 @@
     <p class="bz-cta-eyebrow">Workshops</p>
     <h2 class="bz-cta-title">From knowledge to working prototype.</h2>
     <p class="bz-cta-sub">Structured methodology. Zero to deployed AI in three sessions. For teams that need to move fast without guessing.</p>
-    <a href="{{ .Site.Params.workshopsURL }}" class="bz-btn-primary" target="_blank" rel="noopener">AI Workshops Online</a>
+    <a href="{{ .Site.Params.workshopsURL }}" class="bz-btn-primary" target="_blank" rel="noopener">AI Workshops Online<svg class="ext-icon-inline" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="opens in new tab"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg></a>
   </div>
 </section>
 

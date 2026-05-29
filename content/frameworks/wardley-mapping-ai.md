@@ -12,6 +12,12 @@ related:
 
 Wardley Mapping, created by Simon Wardley, visualizes the components needed to serve a user need, positioned by their maturity (from novel to commodity). The map reveals strategic opportunities: where to build custom solutions (novel components), where to use managed services (product-stage components), and where to use commodities (utility-stage components). For AI strategy, Wardley Maps answer the critical build-vs-buy questions that determine where an organization invests its AI engineering effort.
 
+
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/architect-system.png" alt="A human silhouette in darkness facing a massive red-lit industrial structure: the strategist studying the system before deciding where to build." loading="lazy">
+  <figcaption>Wardley Mapping puts you in this position: facing the full architecture of your value chain, understanding what is novel and what is commodity, deciding where your effort creates competitive advantage.</figcaption>
+</figure>
+
 ## How a Wardley Map Works
 
 A Wardley Map has two axes:

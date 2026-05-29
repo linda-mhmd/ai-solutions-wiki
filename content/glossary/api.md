@@ -12,6 +12,12 @@ related:
 
 An API (Application Programming Interface) is a defined contract that lets two pieces of software communicate. One side exposes endpoints and operations; the other side calls them. The implementation details on either side are hidden - you do not need to know how Bedrock runs inference to call the Bedrock API.
 
+
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/cable-sparks.png" alt="An industrial cable connection with red sparks at the junction: two systems making contact, transferring data at the boundary." loading="lazy">
+  <figcaption>An API is the defined junction between two systems. The sparks are the requests and responses. The cable is the agreed protocol. Without it, the systems cannot communicate.</figcaption>
+</figure>
+
 ## What an API Is
 
 When you call `bedrock_client.invoke_model(modelId="...", body=...)`, you are using an API. The API defines: what endpoint to call, what parameters to pass, what authentication to provide, and what response to expect. The internal implementation - which GPU processed the request, how the model is loaded - is invisible to the caller.

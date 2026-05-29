@@ -1,6 +1,6 @@
 ---
 title: "Agentic RAG"
-description: "Retrieval-Augmented Generation systems in which the language model actively plans, queries, critiques, and re-queries — moving from a single-shot retrieve-then-read pipeline to an agent loop over retrieval tools."
+description: "Retrieval-Augmented Generation systems in which the language model actively plans, queries, critiques, and re-queries: moving from a single-shot retrieve-then-read pipeline to an agent loop over retrieval tools."
 date: 2026-05-08
 lastmod: 2026-05-08
 categories: [Glossary]
@@ -24,7 +24,7 @@ A minimal agentic RAG loop:
 
 1. The agent receives a user query.
 2. It plans (explicitly or implicitly): does this question need retrieval? If so, what sub-queries?
-3. It calls a retrieval tool (vector search, keyword search, hybrid, web search, structured-database query) — typically via [function calling](/glossary/function-calling/) or [MCP](/glossary/model-context-protocol/).
+3. It calls a retrieval tool (vector search, keyword search, hybrid, web search, structured-database query), typically via [function calling](/glossary/function-calling/) or [MCP](/glossary/model-context-protocol/).
 4. It evaluates the retrieved evidence: is it sufficient? relevant? from a trustworthy source?
 5. If insufficient, it issues additional queries (with refined keywords, alternate sources, or decomposed sub-questions). If sufficient, it generates an answer with citations.
 6. Optionally it self-critiques the draft against the retrieved evidence and revises (Self-RAG; Asai et al., 2024).
@@ -35,12 +35,12 @@ The agent loop terminates when the model judges the answer is complete, when a t
 
 Several named variants in the literature represent points on a spectrum of agency:
 
-- **Self-RAG** (Asai et al., 2024) — the model is post-trained to emit reflection tokens (`Retrieve`, `IsRel`, `IsSup`, `IsUse`) that decide when to retrieve and how to grade evidence.
-- **CRAG / Corrective RAG** (Yan et al., 2024) — a lightweight retrieval evaluator triages retrieved documents into Correct, Incorrect, Ambiguous; ambiguous and incorrect cases trigger web search.
-- **Adaptive-RAG** (Jeong et al., 2024) — a query classifier routes simple queries to direct LLM, single-hop queries to single-step retrieval, multi-hop queries to multi-step retrieval.
-- **Agentic decomposition** — the agent rewrites the query into sub-questions (HyDE; Gao et al., 2023), retrieves for each, and synthesises.
-- **Tool-augmented RAG** — retrieval is one tool alongside calculators, code interpreters, and APIs (ReAct lineage; Yao et al., 2023).
-- **Long-context hybrid** — for long-context models, the agent decides whether to retrieve at all or stuff the context window directly. See [RAG vs Long Context](/comparisons/rag-vs-long-context/).
+- **Self-RAG** (Asai et al., 2024): the model is post-trained to emit reflection tokens (`Retrieve`, `IsRel`, `IsSup`, `IsUse`) that decide when to retrieve and how to grade evidence.
+- **CRAG / Corrective RAG** (Yan et al., 2024): a lightweight retrieval evaluator triages retrieved documents into Correct, Incorrect, Ambiguous; ambiguous and incorrect cases trigger web search.
+- **Adaptive-RAG** (Jeong et al., 2024): a query classifier routes simple queries to direct LLM, single-hop queries to single-step retrieval, multi-hop queries to multi-step retrieval.
+- **Agentic decomposition**: the agent rewrites the query into sub-questions (HyDE; Gao et al., 2023), retrieves for each, and synthesises.
+- **Tool-augmented RAG**: retrieval is one tool alongside calculators, code interpreters, and APIs (ReAct lineage; Yao et al., 2023).
+- **Long-context hybrid**: for long-context models, the agent decides whether to retrieve at all or stuff the context window directly. See [RAG vs Long Context](/comparisons/rag-vs-long-context/).
 
 ## When to Use Agentic RAG
 
@@ -81,12 +81,12 @@ The right architecture when:
 
 ## Related Concepts
 
-- [RAG](/glossary/rag/) — the underlying retrieval pattern
-- [AI Agent](/glossary/ai-agent/) — the broader agent paradigm
-- [Tool Use](/glossary/tool-use/) and [Function Calling](/glossary/function-calling/) — the mechanisms by which retrieval becomes a tool
-- [Vector Database](/glossary/vector-database/) — the storage backing most retrieval tools
-- [RAG Evaluation](/glossary/rag-evaluation/) — measuring agentic RAG is harder than pipeline RAG
-- [Long-Context Model](/glossary/long-context-model/) — the alternative to retrieval for some tasks
+- [RAG](/glossary/rag/): the underlying retrieval pattern
+- [AI Agent](/glossary/ai-agent/): the broader agent paradigm
+- [Tool Use](/glossary/tool-use/) and [Function Calling](/glossary/function-calling/): the mechanisms by which retrieval becomes a tool
+- [Vector Database](/glossary/vector-database/): the storage backing most retrieval tools
+- [RAG Evaluation](/glossary/rag-evaluation/): measuring agentic RAG is harder than pipeline RAG
+- [Long-Context Model](/glossary/long-context-model/): the alternative to retrieval for some tasks
 
 ## Sources and Further Reading
 

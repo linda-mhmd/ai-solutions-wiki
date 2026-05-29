@@ -23,6 +23,11 @@ faqs:
 Open source software is software whose code is publicly available. Anyone can read it, use it, modify it, and distribute it, subject to the terms of the licence. This is how most of the infrastructure of the internet was built: collectively, by thousands of contributors around the world.
 {{< /quickanswer >}}
 
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/data-projection.png" alt="A dark industrial cylinder projecting rows of red light points onto a surface: a single source broadcasting openly to everyone in range." loading="lazy">
+  <figcaption>Open source is code that projects outward. Anyone can read it, copy it, modify it, and send changes back. The original source keeps emitting. The community shapes what reflects back.</figcaption>
+</figure>
+
 ## The idea behind open source
 
 Most commercial software, Microsoft Word, Adobe Photoshop, Salesforce, is **proprietary**. The company keeps the source code private. You can use the software but you cannot see how it works, change it, or build on top of it.

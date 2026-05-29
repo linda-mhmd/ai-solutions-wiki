@@ -14,6 +14,12 @@ related:
 
 Data lineage is the practice of tracking data from its point of origin through every transformation, movement, and aggregation it undergoes until it reaches its final use. In AI systems, data lineage answers the question: where did the data used to train or serve this model come from, and what happened to it along the way?
 
+
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/data-projection.png" alt="A dark industrial cylinder projecting ordered rows of red points onto a surface: every point traceable back to the source that emitted it." loading="lazy">
+  <figcaption>Data lineage is the projection record. Every data point in a dashboard or model output came from somewhere. Lineage tracks the path from source to destination so you can answer: where did this number come from?</figcaption>
+</figure>
+
 ## Why Data Lineage Matters for AI
 
 AI model quality is bounded by data quality. When a model produces unexpected outputs, the investigation often traces back to a data issue: a broken ETL job, a schema change in a source system, a filtering step that excluded important records, or a labeling error. Without data lineage, this investigation requires manual detective work across multiple systems. With data lineage, you can trace from the model's training dataset back through every transformation to the original source records.

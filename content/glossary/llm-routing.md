@@ -1,6 +1,6 @@
 ---
 title: "LLM Routing"
-description: "Architectures that direct each request to one of several available language models based on cost, capability, latency, or quality requirements — the multi-model production pattern."
+description: "Architectures that direct each request to one of several available language models based on cost, capability, latency, or quality requirements: the multi-model production pattern."
 date: 2026-05-08
 lastmod: 2026-05-08
 categories: [Glossary]
@@ -18,9 +18,9 @@ LLM routing is the architectural pattern of dispatching each incoming request to
 
 ## Why Routing Matters
 
-The cost gap between flagship and economy tier models within the same provider is typically 10–30× per token; cross-provider it can exceed 100×. Most production traffic is dominated by simple queries — extractions, classifications, lookups, formatted summaries — that economy-tier models handle indistinguishably from flagship models. Sending all traffic to the flagship is a structural waste; sending all traffic to the economy tier degrades quality on the hard subset. Routing recovers the Pareto frontier.
+The cost gap between flagship and economy tier models within the same provider is typically 10–30× per token; cross-provider it can exceed 100×. Most production traffic is dominated by simple queries, extractions, classifications, lookups, formatted summaries, that economy-tier models handle indistinguishably from flagship models. Sending all traffic to the flagship is a structural waste; sending all traffic to the economy tier degrades quality on the hard subset. Routing recovers the Pareto frontier.
 
-The empirical result (Ong et al., 2024 — RouteLLM; Šakota et al., 2024 — FORC; Hu et al., 2024 — RouterBench) is that learned routers can match flagship-only quality at 30–80% of the cost on representative production workloads.
+The empirical result (Ong et al., 2024, RouteLLM; Šakota et al., 2024, FORC; Hu et al., 2024, RouterBench) is that learned routers can match flagship-only quality at 30–80% of the cost on representative production workloads.
 
 ## Routing Strategies
 
@@ -43,7 +43,7 @@ The classical FrugalGPT result (Chen et al., 2023) showed cascades can match GPT
 
 ### 3. Learned predictive routing
 
-Train a small classifier — a few-billion-parameter model or even a sentence-transformer — to predict which model will produce the highest-quality answer for a given query. RouteLLM (Ong et al., 2024) trains routers on Chatbot Arena preference data; FrugalGPT (Chen et al., 2023) routes between API tiers; Hybrid LLM (Ding et al., 2024) routes between local and remote models.
+Train a small classifier, a few-billion-parameter model or even a sentence-transformer, to predict which model will produce the highest-quality answer for a given query. RouteLLM (Ong et al., 2024) trains routers on Chatbot Arena preference data; FrugalGPT (Chen et al., 2023) routes between API tiers; Hybrid LLM (Ding et al., 2024) routes between local and remote models.
 
 The classifier inference cost (typically <1ms) is negligible relative to LLM inference, so the routing decision is effectively free.
 
@@ -67,12 +67,12 @@ The router knows the *capability profile* of each model (function calling suppor
 
 ## Frameworks and Tools
 
-- **LiteLLM** — universal proxy with built-in routing, fallbacks, retries, cost tracking.
-- **OpenRouter** — managed routing service with curated model catalogue.
-- **Portkey, Helicone, Langfuse, Datadog LLM Observability** — gateway / observability layers that include routing primitives.
-- **AWS Bedrock + intelligent prompt routing** — managed routing across Bedrock-hosted models.
-- **NVIDIA NIM, vLLM, SGLang** — local-serving stacks with routing primitives for self-hosted multi-model setups.
-- **RouteLLM, RouterBench** — open research routers and benchmarks.
+- **LiteLLM**: universal proxy with built-in routing, fallbacks, retries, cost tracking.
+- **OpenRouter**: managed routing service with curated model catalogue.
+- **Portkey, Helicone, Langfuse, Datadog LLM Observability**: gateway / observability layers that include routing primitives.
+- **AWS Bedrock + intelligent prompt routing**: managed routing across Bedrock-hosted models.
+- **NVIDIA NIM, vLLM, SGLang**: local-serving stacks with routing primitives for self-hosted multi-model setups.
+- **RouteLLM, RouterBench**: open research routers and benchmarks.
 
 See also [AI Gateway](/glossary/ai-gateway/) for the broader operational layer.
 
@@ -87,11 +87,11 @@ Routing is overhead. Skip it when:
 
 ## Related Concepts
 
-- [AI Gateway](/glossary/ai-gateway/) — the runtime layer that often hosts routing
-- [LLM as a Judge](/glossary/llm-as-a-judge/) — frequently used as the quality gate in cascading routers
-- [Inference-Time Compute](/glossary/inference-time-compute/) — routing is a way to allocate inference compute optimally
-- [Reasoning Models](/glossary/reasoning-models/) — common to route only the hardest queries to reasoning models
-- [Prompt Caching](/glossary/prompt-caching/) — interacts with routing decisions
+- [AI Gateway](/glossary/ai-gateway/): the runtime layer that often hosts routing
+- [LLM as a Judge](/glossary/llm-as-a-judge/): frequently used as the quality gate in cascading routers
+- [Inference-Time Compute](/glossary/inference-time-compute/): routing is a way to allocate inference compute optimally
+- [Reasoning Models](/glossary/reasoning-models/): common to route only the hardest queries to reasoning models
+- [Prompt Caching](/glossary/prompt-caching/): interacts with routing decisions
 - [Cost Optimization (AWS Well-Architected pillar)](/glossary/cost-optimization-pillar/)
 
 ## Sources and Further Reading

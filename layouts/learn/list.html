@@ -1,0 +1,143 @@
+{{ define "main" }}
+
+<!-- LEARN HUB HERO -->
+<section class="hub-hero">
+  <div class="bz-container">
+    <nav class="sl-breadcrumb" aria-label="breadcrumb">
+      <a href="{{ "/" | relURL }}" class="sl-breadcrumb-home">AI Solutions Wiki</a>
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      <span>Learn</span>
+    </nav>
+    <h1 class="hub-h1">Every learning path on the wiki.</h1>
+    <p class="hub-desc">From "what is a computer" to production AI systems. Pick the path that fits where you are now. Each one is self-contained and ordered so you always know what comes next.</p>
+  </div>
+</section>
+
+<!-- PROGRESSION FLOW -->
+<div class="bz-container">
+  <div class="bz-flow" style="">
+    <div class="bz-flow-step">
+      <span class="bz-flow-step-tag">Foundation</span>
+      <span class="bz-flow-step-name">Computers and the Internet</span>
+      <span class="bz-flow-step-desc">How hardware, networks, and the web actually work.</span>
+    </div>
+    <div class="bz-flow-arrow">→</div>
+    <div class="bz-flow-step">
+      <span class="bz-flow-step-tag">Level 1-2</span>
+      <span class="bz-flow-step-name">Code and Collaboration</span>
+      <span class="bz-flow-step-desc">Terminals, logic, Git, version control.</span>
+    </div>
+    <div class="bz-flow-arrow">→</div>
+    <div class="bz-flow-step">
+      <span class="bz-flow-step-tag">Level 3</span>
+      <span class="bz-flow-step-name">Infrastructure</span>
+      <span class="bz-flow-step-desc">Databases, APIs, servers, cloud.</span>
+    </div>
+    <div class="bz-flow-arrow">→</div>
+    <div class="bz-flow-step">
+      <span class="bz-flow-step-tag">Level 4</span>
+      <span class="bz-flow-step-name">AI and Building</span>
+      <span class="bz-flow-step-desc">Production AI, vibe coding, language models.</span>
+    </div>
+  </div>
+</div>
+
+<!-- LEARNING PATHS -->
+<section class="hub-section">
+  <div class="bz-container">
+    <p class="bz-section-label">Choose your path</p>
+    <div class="hub-learn-grid">
+
+      <!-- Start at Zero -->
+      <a href="{{ "/basics/" | relURL }}" class="hub-learn-card hub-learn-card--featured">
+        <div class="hub-learn-card-header">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          <span class="hub-learn-card-tag">Recommended start</span>
+        </div>
+        <h2 class="hub-learn-card-name">Start at Zero</h2>
+        <p class="hub-learn-card-desc">The complete structured path from "what is a computer" through AI systems. Assumes no technical background. Every article is self-contained and links forward to the next concept. The right starting point for most readers.</p>
+        <div class="hub-learn-card-meta">
+          <span>9 articles</span>
+          <span>Levels 0-4</span>
+          <span>No prior knowledge</span>
+        </div>
+      </a>
+
+      <!-- Levels -->
+      <a href="{{ "/levels/" | relURL }}" class="hub-learn-card">
+        <div class="hub-learn-card-header">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <span class="hub-learn-card-tag">Structured</span>
+        </div>
+        <h2 class="hub-learn-card-name">Levels</h2>
+        <p class="hub-learn-card-desc">Five explicit skill levels (0 to 4) from computers to AI. Navigate by level rather than by topic. Each level has a clear prerequisite and a defined outcome. Good if you already have some knowledge and want to locate exactly where you are.</p>
+        <div class="hub-learn-card-meta">
+          <span>5 levels</span>
+          <span>Level-gated content</span>
+        </div>
+      </a>
+
+      <!-- Layers -->
+      <a href="{{ "/layers/" | relURL }}" class="hub-learn-card">
+        <div class="hub-learn-card-header">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          <span class="hub-learn-card-tag">Conceptual</span>
+        </div>
+        <h2 class="hub-learn-card-name">Layers</h2>
+        <p class="hub-learn-card-desc">A conceptual map of the entire wiki organised as four layers: AI Capabilities, Engineering Patterns, Software Foundations, and Infrastructure. Helps you understand how everything connects before you read the individual articles.</p>
+        <div class="hub-learn-card-meta">
+          <span>4 layers</span>
+          <span>Full wiki map</span>
+        </div>
+      </a>
+
+      <!-- Getting Started -->
+      <a href="{{ "/getting-started/" | relURL }}" class="hub-learn-card">
+        <div class="hub-learn-card-header">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 8 16 12 12 16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          <span class="hub-learn-card-tag">Quick path</span>
+        </div>
+        <h2 class="hub-learn-card-name">Getting Started</h2>
+        <p class="hub-learn-card-desc">Three paths: understand AI systems, build something real, or find a specific answer fast. Each path takes you from your starting point to a concrete outcome in the shortest route possible. Good for readers who are already technical.</p>
+        <div class="hub-learn-card-meta">
+          <span>3 paths</span>
+          <span>Goal-oriented</span>
+        </div>
+      </a>
+
+      <!-- Foundations -->
+      <a href="{{ "/foundations/" | relURL }}" class="hub-learn-card">
+        <div class="hub-learn-card-header">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span class="hub-learn-card-tag">Technical depth</span>
+        </div>
+        <h2 class="hub-learn-card-name">Foundations</h2>
+        <p class="hub-learn-card-desc">API design, system contracts, and the architectural decisions that sit beneath every production AI system. Covers the principles that determine whether a system stays maintainable as it scales. For readers with a technical background who want to go deeper.</p>
+        <div class="hub-learn-card-meta">
+          <span>API design</span>
+          <span>Architecture principles</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- NOT SURE -->
+<section class="hub-fallback">
+  <div class="bz-container">
+    <div class="hub-fallback-inner">
+      <div>
+        <h2 class="hub-fallback-h2">Not sure which path fits your situation?</h2>
+        <p class="hub-fallback-desc">The "For You" section breaks this down by role. Product managers, founders, vibe coders, and consultants each get a tailored reading list.</p>
+      </div>
+      <a href="{{ "/for/" | relURL }}" class="bz-btn-primary">Find your path</a>
+    </div>
+  </div>
+</section>
+
+<div class="bz-container">
+  {{ partial "cta.html" . }}
+</div>
+
+{{ end }}

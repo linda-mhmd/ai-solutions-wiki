@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="bz-hero-visual">
-        <img src="/img/basics/compass-cover.png" alt="" aria-hidden="true" class="bz-hero-img">
+        <img src="/img/dark-cherry/grid-foundation.png" alt="" aria-hidden="true" class="bz-hero-img">
       </div>
     </div>
   </div>
@@ -31,30 +31,74 @@
   <div class="bz-container">
     <p class="bz-audience-label">Who this is for</p>
     <div class="bz-audience-grid">
-      <div class="bz-audience-cell">
+      <a href="{{ "/for/product-managers/" | relURL }}" class="bz-audience-cell bz-audience-cell--link">
         <span class="bz-audience-title">Product Managers</span>
         <span class="bz-audience-desc">Understand what engineers are building so you can ask better questions and scope work accurately.</span>
-      </div>
-      <div class="bz-audience-cell">
-        <span class="bz-audience-title">Finance & Business</span>
+      </a>
+      <a href="{{ "/for/finance-business/" | relURL }}" class="bz-audience-cell bz-audience-cell--link">
+        <span class="bz-audience-title">Finance and Business</span>
         <span class="bz-audience-desc">Evaluate technical proposals, costs, and risks without relying entirely on the engineering team.</span>
-      </div>
-      <div class="bz-audience-cell">
+      </a>
+      <a href="{{ "/for/vibe-coders/" | relURL }}" class="bz-audience-cell bz-audience-cell--link">
         <span class="bz-audience-title">Vibe Coders</span>
         <span class="bz-audience-desc">Use AI tools to build software by understanding the vocabulary. You direct. The AI writes.</span>
-      </div>
-      <div class="bz-audience-cell">
-        <span class="bz-audience-title">Students & Switchers</span>
+      </a>
+      <a href="{{ "/for/students-switchers/" | relURL }}" class="bz-audience-cell bz-audience-cell--link">
+        <span class="bz-audience-title">Students and Switchers</span>
         <span class="bz-audience-desc">Build the mental model before you write a single line of code. Start here.</span>
-      </div>
+      </a>
+      <a href="{{ "/for/founders/" | relURL }}" class="bz-audience-cell bz-audience-cell--link">
+        <span class="bz-audience-title">Founders and Entrepreneurs</span>
+        <span class="bz-audience-desc">Know what you are building before the first sprint. Scope, hire, and make the right calls early.</span>
+      </a>
+      <a href="{{ "/for/consultants/" | relURL }}" class="bz-audience-cell bz-audience-cell--link">
+        <span class="bz-audience-title">Consultants and Advisors</span>
+        <span class="bz-audience-desc">Speak AI fluently with clients. Governance frameworks, technical vocabulary, and strategic tools.</span>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- STAIRCASE DIAGRAM -->
+<!-- LEVEL ARCHITECTURE -->
 <section class="bz-stack">
   <div class="bz-container">
-    <img src="/img/basics/stack-staircase.png" alt="The five foundational levels: from computers and the internet at Level 0, up to AI and vibe coding at Level 4. Each level builds on the one before." class="bz-stack-img">
+    <div class="bz-arch">
+      <div class="bz-arch-layer">
+        <a href="{{ "/levels/level-4/" | relURL }}" class="bz-arch-layer-label bz-arch-layer-label--link">Level 4</a>
+        <div class="bz-arch-layer-content">
+          <a href="{{ "/levels/level-4/" | relURL }}" class="bz-arch-chip bz-arch-chip--link">AI and Building</a>
+          <span class="bz-arch-chip-note">Vibe coding, production AI, working with language models, directing rather than writing</span>
+        </div>
+      </div>
+      <div class="bz-arch-layer">
+        <a href="{{ "/levels/level-3/" | relURL }}" class="bz-arch-layer-label bz-arch-layer-label--link">Level 3</a>
+        <div class="bz-arch-layer-content">
+          <a href="{{ "/levels/level-3/" | relURL }}" class="bz-arch-chip bz-arch-chip--link">The Infrastructure</a>
+          <span class="bz-arch-chip-note">Databases, servers, APIs, the cloud. Where software runs and how it connects</span>
+        </div>
+      </div>
+      <div class="bz-arch-layer">
+        <a href="{{ "/levels/level-2/" | relURL }}" class="bz-arch-layer-label bz-arch-layer-label--link">Level 2</a>
+        <div class="bz-arch-layer-content">
+          <a href="{{ "/levels/level-2/" | relURL }}" class="bz-arch-chip bz-arch-chip--link">Managing Work</a>
+          <span class="bz-arch-chip-note">Version control, Git, open source. How teams collaborate on code without destroying each other's work</span>
+        </div>
+      </div>
+      <div class="bz-arch-layer">
+        <a href="{{ "/levels/level-1/" | relURL }}" class="bz-arch-layer-label bz-arch-layer-label--link">Level 1</a>
+        <div class="bz-arch-layer-content">
+          <a href="{{ "/levels/level-1/" | relURL }}" class="bz-arch-chip bz-arch-chip--link">How Code Works</a>
+          <span class="bz-arch-chip-note">Terminals, code, the logic behind software. What happens when you run a command</span>
+        </div>
+      </div>
+      <div class="bz-arch-layer">
+        <a href="{{ "/levels/level-0/" | relURL }}" class="bz-arch-layer-label bz-arch-layer-label--link">Level 0</a>
+        <div class="bz-arch-layer-content">
+          <a href="{{ "/levels/level-0/" | relURL }}" class="bz-arch-chip bz-arch-chip--link">The Foundation</a>
+          <span class="bz-arch-chip-note">Computers, the internet, how hardware and networks function. Start here</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -106,26 +150,32 @@
       <a href="https://www.youtube.com/watch?v=tpIctyqH29Q" class="bz-tutorial-row" target="_blank" rel="noopener">
         <span class="bz-tutorial-source">Crash Course, 12 min</span>
         <span class="bz-tutorial-title">Crash Course Computer Science: How Computers Work</span>
+        <svg class="bz-tutorial-ext" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="opens in new tab"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
       </a>
       <a href="https://www.youtube.com/watch?v=Dxcc6ycZ73M" class="bz-tutorial-row" target="_blank" rel="noopener">
         <span class="bz-tutorial-source">Code.org, 4 min</span>
         <span class="bz-tutorial-title">How Does the Internet Work?</span>
+        <svg class="bz-tutorial-ext" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="opens in new tab"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
       </a>
       <a href="https://www.youtube.com/watch?v=8JJ101D3knE" class="bz-tutorial-row" target="_blank" rel="noopener">
         <span class="bz-tutorial-source">freeCodeCamp, 1 hr</span>
         <span class="bz-tutorial-title">Git and GitHub for Beginners: Crash Course</span>
+        <svg class="bz-tutorial-ext" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="opens in new tab"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
       </a>
       <a href="https://www.youtube.com/watch?v=s7wmiS2mSXY" class="bz-tutorial-row" target="_blank" rel="noopener">
         <span class="bz-tutorial-source">MuleSoft, 3 min</span>
         <span class="bz-tutorial-title">What is an API? Plain English</span>
+        <svg class="bz-tutorial-ext" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="opens in new tab"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
       </a>
       <a href="https://www.youtube.com/@TechWorldwithNana" class="bz-tutorial-row" target="_blank" rel="noopener">
         <span class="bz-tutorial-source">TechWorld with Nana</span>
         <span class="bz-tutorial-title">DevOps, Docker, Kubernetes, Git: all beginner-friendly</span>
+        <svg class="bz-tutorial-ext" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="opens in new tab"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
       </a>
       <a href="https://www.youtube.com/watch?v=zjkBMFhNj_g" class="bz-tutorial-row" target="_blank" rel="noopener">
         <span class="bz-tutorial-source">3Blue1Brown, 19 min</span>
         <span class="bz-tutorial-title">But What is a Neural Network?</span>
+        <svg class="bz-tutorial-ext" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="opens in new tab"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
       </a>
     </div>
   </div>

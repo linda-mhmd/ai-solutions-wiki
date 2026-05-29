@@ -1,6 +1,6 @@
 ---
 title: "Direct Preference Optimization (DPO)"
-description: "An alignment method that fine-tunes language models directly on preference data without training an explicit reward model — the practical alternative to RLHF for most production teams."
+description: "An alignment method that fine-tunes language models directly on preference data without training an explicit reward model: the practical alternative to RLHF for most production teams."
 date: 2026-05-08
 lastmod: 2026-05-08
 categories: [Glossary]
@@ -37,12 +37,12 @@ The Rafailov et al. result is that the optimum of this loss is mathematically eq
 
 The DPO line has spawned a family of preference-learning methods, each addressing specific limitations:
 
-- **IPO** (Azar et al., 2024) — Identity Preference Optimisation, removes DPO's susceptibility to overfitting on the Bradley–Terry assumption.
-- **KTO** (Ethayarajh et al., 2024) — Kahneman-Tversky Optimisation, requires only single-sample binary feedback (good/bad) rather than pairs. Cheaper data, comparable quality.
-- **ORPO** (Hong et al., 2024) — Odds Ratio Preference Optimisation, fuses SFT and preference optimisation into a single training stage, eliminating the need for a separate SFT pass.
-- **SimPO** (Meng et al., 2024) — Simple Preference Optimisation, removes the reference policy entirely, using length-normalised log-probabilities.
-- **CPO** (Xu et al., 2024) — Contrastive Preference Optimisation, originally for machine translation; tightens the loss with hard-negative contrasting.
-- **RLOO / GRPO** (DeepSeek-AI, 2024 / 2025) — return to RL with simpler estimators (REINFORCE-like, group-relative advantage); GRPO underpins DeepSeek-R1's reasoning training.
+- **IPO** (Azar et al., 2024): Identity Preference Optimisation, removes DPO's susceptibility to overfitting on the Bradley–Terry assumption.
+- **KTO** (Ethayarajh et al., 2024): Kahneman-Tversky Optimisation, requires only single-sample binary feedback (good/bad) rather than pairs. Cheaper data, comparable quality.
+- **ORPO** (Hong et al., 2024): Odds Ratio Preference Optimisation, fuses SFT and preference optimisation into a single training stage, eliminating the need for a separate SFT pass.
+- **SimPO** (Meng et al., 2024): Simple Preference Optimisation, removes the reference policy entirely, using length-normalised log-probabilities.
+- **CPO** (Xu et al., 2024): Contrastive Preference Optimisation, originally for machine translation; tightens the loss with hard-negative contrasting.
+- **RLOO / GRPO** (DeepSeek-AI, 2024 / 2025): return to RL with simpler estimators (REINFORCE-like, group-relative advantage); GRPO underpins DeepSeek-R1's reasoning training.
 
 The 2024–2025 consensus is that DPO is a strong default; SimPO and KTO are increasingly adopted; ORPO is attractive for compute-constrained pipelines; and RL-based methods (PPO, GRPO) remain preferred when the reward signal is verifiable (math, code, reasoning) rather than purely preferential.
 
@@ -50,14 +50,14 @@ The 2024–2025 consensus is that DPO is a strong default; SimPO and KTO are inc
 
 DPO is the right tool when:
 
-- A preference dataset (chosen vs rejected pairs) is available — either human-labelled or LLM-as-a-judge labelled (see [LLM-as-a-Judge](/glossary/llm-as-a-judge/))
+- A preference dataset (chosen vs rejected pairs) is available, either human-labelled or LLM-as-a-judge labelled (see [LLM-as-a-Judge](/glossary/llm-as-a-judge/))
 - The behaviour to align is preference-based (helpfulness, style, safety) rather than verifiable (correctness on a known answer)
 - Engineering simplicity matters: no PPO infrastructure, no reward-model training pipeline
 - The team has enough compute for a full preference-tuning pass on the SFT model
 
 It is not the right tool when:
 
-- The signal is verifiable (correctness, code passing tests, formal proofs) — RL with verifiable reward (GRPO-style) gets more out of the same data
+- The signal is verifiable (correctness, code passing tests, formal proofs), RL with verifiable reward (GRPO-style) gets more out of the same data
 - Preference data is scarce (consider KTO with single-sample binary feedback)
 - The base model is already well-aligned and the goal is narrow behaviour change (consider targeted SFT)
 - The deployment is online and requires on-policy adaptation (DPO is offline by construction)
@@ -83,11 +83,11 @@ It is not the right tool when:
 
 ## Related Concepts
 
-- [Fine-Tuning](/glossary/fine-tuning/) — DPO is a specialised post-training fine-tuning method
-- [Reinforcement Learning](/glossary/reinforcement-learning/) — DPO bypasses RL but the objective is RL-derived
-- [LLM-as-a-Judge](/glossary/llm-as-a-judge/) — frequently used to label preference pairs at scale
-- [Foundation Models](/glossary/foundation-models/) — most modern foundation models are post-trained with DPO or a successor
-- [Hallucination](/glossary/hallucination/) — alignment methods including DPO partially mitigate it
+- [Fine-Tuning](/glossary/fine-tuning/): DPO is a specialised post-training fine-tuning method
+- [Reinforcement Learning](/glossary/reinforcement-learning/): DPO bypasses RL but the objective is RL-derived
+- [LLM-as-a-Judge](/glossary/llm-as-a-judge/): frequently used to label preference pairs at scale
+- [Foundation Models](/glossary/foundation-models/): most modern foundation models are post-trained with DPO or a successor
+- [Hallucination](/glossary/hallucination/): alignment methods including DPO partially mitigate it
 
 ## Sources and Further Reading
 

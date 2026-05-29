@@ -23,6 +23,11 @@ faqs:
 The terminal (also called the command line or shell) is a text-based way to control your computer. Instead of clicking buttons, you type commands. Developers use it because it is faster, more precise, and many developer tools only work through it.
 {{< /quickanswer >}}
 
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/terminal-interface.png" alt="A dark industrial terminal with a mechanical keyboard and deep red glowing screen: a command interface built for precision, not decoration." loading="lazy">
+  <figcaption>The terminal is a direct line to the machine. No icons, no menus, no abstraction. You type an instruction. The computer executes it. That is the entire contract.</figcaption>
+</figure>
+
 ## It looks scary. It is not.
 
 The terminal is just a different way of talking to your computer, text instead of clicks. Everything you do by clicking icons and menus can also be done in the terminal. And many things you need to do as a builder can *only* be done in the terminal.

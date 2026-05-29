@@ -1,0 +1,106 @@
+{{ define "main" }}
+
+{{ $count := len .Pages }}
+
+<!-- GLOSSARY HERO -->
+<section class="sl-hero">
+  <div class="bz-container">
+    <nav class="sl-breadcrumb" aria-label="breadcrumb">
+      <a href="{{ "/" | relURL }}" class="sl-breadcrumb-home">AI Solutions Wiki</a>
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      <span>Glossary</span>
+    </nav>
+    <div class="sl-hero-inner">
+      <h1 class="sl-h1">AI Glossary</h1>
+      <p class="sl-desc">Plain-language definitions for AI, ML, and cloud engineering terms. {{ $count }} entries, A to Z.</p>
+      <div class="sl-hero-meta">
+        <span class="sl-hero-count">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          {{ $count }} terms defined
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- A-Z JUMP NAV -->
+{{ $letters := slice "A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "N" "O" "P" "Q" "R" "S" "T" "U" "V" "W" "X" "Y" "Z" }}
+<div class="gl-alpha-bar">
+  <div class="bz-container">
+    <div class="gl-alpha-nav">
+      {{ range $letters }}
+      <a href="#gl-{{ . | lower }}" class="gl-alpha-link">{{ . }}</a>
+      {{ end }}
+    </div>
+  </div>
+</div>
+
+<!-- BODY: A-Z groups + sidebar -->
+<div class="article-layout">
+
+  <div class="article-container">
+
+    <!-- Group pages alphabetically -->
+    {{ $grouped := .Pages.ByTitle.GroupByParam "title" }}
+    {{ range $letters }}
+    {{ $letter := . }}
+    {{ $terms := where $.Pages "Title" "like" (printf "^[%s%s]" $letter (lower $letter)) }}
+    {{ if $terms }}
+    <div class="gl-group" id="gl-{{ $letter | lower }}">
+      <span class="gl-group-letter">{{ $letter }}</span>
+      <ul class="gl-term-list">
+        {{ range $terms.ByTitle }}
+        <li class="gl-term">
+          <a href="{{ .RelPermalink }}" class="gl-term-link">
+            <span class="gl-term-name">{{ .Title }}</span>
+            {{ with .Description }}
+            <span class="gl-term-desc">{{ . | truncate 100 }}</span>
+            {{ end }}
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+    {{ end }}
+
+    {{ partial "cta.html" . }}
+
+  </div><!-- /main -->
+
+  <!-- SIDEBAR -->
+  <div class="article-sidebar" data-pagefind-ignore>
+
+    <!-- Alphabet quick-jump (compact) -->
+    <aside class="sl-sb-box">
+      <div class="sl-sb-header">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        <span>Jump to letter</span>
+      </div>
+      <div class="gl-sb-alpha">
+        {{ range $letters }}
+        <a href="#gl-{{ . | lower }}" class="gl-sb-alpha-link">{{ . }}</a>
+        {{ end }}
+      </div>
+    </aside>
+
+    <!-- Related sections -->
+    <aside class="sl-sb-box">
+      <div class="sl-sb-header">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <span>Related sections</span>
+      </div>
+      <ul class="sl-sb-list">
+        <li><a href="{{ "/guides/"       | relURL }}" class="sl-sb-link">Guides</a></li>
+        <li><a href="{{ "/frameworks/"   | relURL }}" class="sl-sb-link">Frameworks</a></li>
+        <li><a href="{{ "/patterns/"     | relURL }}" class="sl-sb-link">Patterns</a></li>
+        <li><a href="{{ "/comparisons/"  | relURL }}" class="sl-sb-link">Comparisons</a></li>
+        <li><a href="{{ "/tools/"        | relURL }}" class="sl-sb-link">Tools</a></li>
+      </ul>
+    </aside>
+
+  </div><!-- /sidebar -->
+
+</div><!-- /article-layout -->
+
+{{ end }}

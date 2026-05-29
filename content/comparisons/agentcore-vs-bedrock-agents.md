@@ -13,13 +13,13 @@ Both Amazon Bedrock AgentCore and Amazon Bedrock Agents let teams operate AI age
 
 **Amazon Bedrock Agents** is a managed agent service. You declare an agent in the Bedrock console or via API: a foundation model, instructions, action groups (Lambda-backed APIs), knowledge bases, and optional guardrails. AWS handles orchestration, tool invocation, knowledge retrieval, and trace generation. The agent definition lives inside Bedrock; the framework is implicit.
 
-**Amazon Bedrock AgentCore** is a runtime layer. It does not define how the agent reasons. Instead, it provides services your agent code consumes: AgentCore Runtime (sandboxed serverless execution with long-running session affinity), AgentCore Identity (token vending and OAuth flows for agents acting on behalf of users), AgentCore Memory (short- and long-term memory stores), AgentCore Gateway (tool registration and discovery), AgentCore Browser, AgentCore Code Interpreter, and AgentCore Observability. You bring the agent — written in Strands, LangGraph, CrewAI, AutoGen, LlamaIndex, or your own framework — and AgentCore runs and operates it.
+**Amazon Bedrock AgentCore** is a runtime layer. It does not define how the agent reasons. Instead, it provides services your agent code consumes: AgentCore Runtime (sandboxed serverless execution with long-running session affinity), AgentCore Identity (token vending and OAuth flows for agents acting on behalf of users), AgentCore Memory (short- and long-term memory stores), AgentCore Gateway (tool registration and discovery), AgentCore Browser, AgentCore Code Interpreter, and AgentCore Observability. You bring the agent: written in Strands, LangGraph, CrewAI, AutoGen, LlamaIndex, or your own framework: and AgentCore runs and operates it.
 
 Put differently: Bedrock Agents is an opinionated abstraction; AgentCore is unopinionated infrastructure.
 
 ## Framework Neutrality
 
-Bedrock Agents has one model — the Bedrock agent definition. You configure, you do not write the orchestration loop. This is fast for simple agents and limits surface area for misconfiguration, but escape hatches are limited if your reasoning loop diverges from the supported pattern.
+Bedrock Agents has one model, the Bedrock agent definition. You configure, you do not write the orchestration loop. This is fast for simple agents and limits surface area for misconfiguration, but escape hatches are limited if your reasoning loop diverges from the supported pattern.
 
 AgentCore is framework-agnostic. Strands is the AWS-native default, but a LangGraph or CrewAI agent runs on AgentCore Runtime with the same operational guarantees. This matters when:
 
@@ -37,7 +37,7 @@ AgentCore Runtime is a serverless execution environment with first-class support
 
 ## Identity and Tool Authorization
 
-Bedrock Agents performs tool calls through Lambda-backed action groups. Authorization is at the Lambda execution role level — the agent does not act under a user identity by default.
+Bedrock Agents performs tool calls through Lambda-backed action groups. Authorization is at the Lambda execution role level, the agent does not act under a user identity by default.
 
 AgentCore Identity gives agents an OAuth-aware identity broker. The agent can request tokens scoped to the calling user (Cognito, Okta, Microsoft Entra, GitHub, Google), so downstream API calls happen under the user's identity, not a shared service role. This is the right primitive for agents acting on behalf of authenticated end-users in enterprise environments.
 
@@ -112,4 +112,4 @@ Choose Bedrock Agents for configuration-driven simplicity. Choose AgentCore when
 - Schick, T., Dwivedi-Yu, J., Dessì, R., et al. (2023). *Toolformer: Language Models Can Teach Themselves to Use Tools.* NeurIPS 2023. arXiv:2302.04761. [https://arxiv.org/abs/2302.04761](https://arxiv.org/abs/2302.04761)
 - Anthropic (2024). *Introducing the Model Context Protocol.* [https://www.anthropic.com/news/model-context-protocol](https://www.anthropic.com/news/model-context-protocol)
 - OpenTelemetry specification (the trace format AgentCore Observability emits). [https://opentelemetry.io/docs/specs/otel/](https://opentelemetry.io/docs/specs/otel/)
-- AWS Well-Architected Framework — Generative AI Lens. [https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.html](https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.html)
+- AWS Well-Architected Framework, Generative AI Lens. [https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.html](https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.html)

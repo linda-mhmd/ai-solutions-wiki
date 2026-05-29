@@ -13,6 +13,12 @@ related:
 
 A neural network is a computational model inspired by biological neurons, consisting of layers of interconnected nodes (neurons) that learn to map inputs to outputs by adjusting connection weights during training. Neural networks are the foundation of modern AI, powering everything from image recognition to language models.
 
+
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/gears-mechanism.png" alt="Dark industrial gears interlocked under red light: each component transforming motion from the previous layer and passing it forward." loading="lazy">
+  <figcaption>A neural network is layers of transformations. Each layer receives the output of the last, applies weights, and passes its result forward. Like gears, the meaning emerges from the chain, not any single component.</figcaption>
+</figure>
+
 ## How It Works
 
 A neural network has three types of layers: an input layer (receives raw data), one or more hidden layers (perform computations), and an output layer (produces predictions). Each neuron receives inputs, multiplies them by learned weights, adds a bias term, and passes the result through an activation function that introduces non-linearity.

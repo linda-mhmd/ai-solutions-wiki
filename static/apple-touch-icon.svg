@@ -1,34 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#1d4ed8"/>
-      <stop offset="100%" stop-color="#3b82f6"/>
-    </linearGradient>
-  </defs>
+  <!-- Background (iOS clips to rounded square automatically; we add our own for other contexts) -->
+  <rect width="180" height="180" rx="36" fill="#0d0d0d"/>
 
-  <!-- Background (iOS clips to rounded square automatically) -->
-  <rect width="180" height="180" fill="url(#bg)"/>
+  <!-- Left bracket [ (open book left cover) -->
+  <path d="M32 40 L22 40 L22 138 L32 138"
+        fill="none" stroke="#9b2335" stroke-width="10"
+        stroke-linecap="round" stroke-linejoin="round"/>
 
-  <!-- Top layer: filled white diamond -->
-  <polygon points="90,28 28,59 90,90 152,59" fill="white"/>
+  <!-- Open book bottom spine curve -->
+  <path d="M22 127 Q71 156 131 127"
+        fill="none" stroke="#9b2335" stroke-width="8.5"
+        stroke-linecap="round"/>
 
-  <!-- Middle layer: white chevron -->
-  <polyline
-    points="28,79 90,110 152,79"
-    fill="none"
-    stroke="white"
-    stroke-width="13.5"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
+  <!-- "Ai" bold text -->
+  <text x="32" y="120"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="74" font-weight="700"
+        fill="#9b2335">Ai</text>
 
-  <!-- Bottom layer: lighter chevron -->
-  <polyline
-    points="28,104 90,135 152,104"
-    fill="none"
-    stroke="rgba(255,255,255,0.55)"
-    stroke-width="13.5"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
+  <!-- Circuit: vertical backbone -->
+  <line x1="130" y1="52" x2="130" y2="120"
+        stroke="#9b2335" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Branch 1 + node (top) -->
+  <line x1="130" y1="60" x2="153" y2="60"
+        stroke="#9b2335" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="162" cy="60" r="8.5" fill="#9b2335"/>
+
+  <!-- Branch 2 + node (middle) -->
+  <line x1="130" y1="88" x2="153" y2="88"
+        stroke="#9b2335" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="162" cy="88" r="8.5" fill="#9b2335"/>
+
+  <!-- Branch 3 + node (bottom) -->
+  <line x1="130" y1="120" x2="153" y2="120"
+        stroke="#9b2335" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="162" cy="120" r="8.5" fill="#9b2335"/>
 </svg>

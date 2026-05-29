@@ -8,6 +8,12 @@ tags: ["ai-ml", "beginner", "foundation-models", "llm", "pre-training", "transfe
 
 A foundation model is a large AI model trained on broad data at scale, designed to be adapted to a wide range of downstream tasks. The term distinguishes these general-purpose models from earlier AI systems that were trained specifically for a single narrow task (e.g., a model trained only to classify spam email).
 
+
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/architect-system.png" alt="A human silhouette facing a vast red-lit industrial tower: a single structure large enough to underpin many purposes." loading="lazy">
+  <figcaption>A foundation model is the tower. It was built at enormous scale. You do not rebuild it. You stand in front of it, understand what it offers, and design your system around what it can do.</figcaption>
+</figure>
+
 Foundation models are the architectural shift that made modern enterprise AI practical: instead of training a new model from scratch for each use case, you adapt a single pre-trained foundation model - through prompting, fine-tuning, or retrieval augmentation - to your specific application.
 
 ## What Makes a Model a Foundation Model

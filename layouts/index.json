@@ -1,0 +1,16 @@
+{{- $skip := slice "ideas" "software-engineering" "search" "imprint" "privacy" -}}
+{{- $pages := slice -}}
+{{- range .Site.RegularPages -}}
+  {{- $section := .Section -}}
+  {{- if not (in $skip $section) -}}
+    {{- $pages = $pages | append (dict
+      "title"       .Title
+      "url"         .RelPermalink
+      "section"     $section
+      "description" .Description
+      "tags"        .Params.tags
+      "date"        (.Date.Format "2006-01-02")
+    ) -}}
+  {{- end -}}
+{{- end -}}
+{{- $pages | jsonify (dict "indent" "  ") -}}

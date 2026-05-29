@@ -12,6 +12,12 @@ related:
 
 A data contract is a formal agreement between a data producer and its consumers that defines the structure, semantics, quality guarantees, and service level objectives for a dataset or data stream. It is the data equivalent of an API contract.
 
+
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/storage-lockers.png" alt="Dark metal storage lockers with consistent red-lit rows: each compartment conforming to the same dimensions, interface, and access protocol." loading="lazy">
+  <figcaption>A data contract specifies the interface between data producers and consumers. The lockers are identical by agreement. The producer promises the schema. The consumer relies on it. When the promise breaks, the pipeline breaks.</figcaption>
+</figure>
+
 Without data contracts, upstream teams change column names, alter data types, or modify business logic without notifying downstream consumers. The result: broken dashboards, failed pipelines, and degraded model performance. Data contracts make these dependencies explicit and enforceable.
 
 ## What a Data Contract Specifies

@@ -23,6 +23,11 @@ faqs:
 A database is a system for storing structured data in a way that makes it easy to find, update, and delete specific records. Every app that remembers anything, your account, your order history, your settings, your messages, stores that data in a database.
 {{< /quickanswer >}}
 
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/storage-lockers.png" alt="Rows of dark metal storage lockers with red-lit compartments glowing from within: organised, indexed, immediately retrievable." loading="lazy">
+  <figcaption>A database is organized storage with an address system. Every row has a location. Every query is a retrieval instruction. Speed comes from knowing exactly where to look.</figcaption>
+</figure>
+
 ## The simplest explanation
 
 A spreadsheet is a database. It has rows (records) and columns (fields). A proper database takes this idea and makes it:

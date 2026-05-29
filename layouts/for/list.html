@@ -1,0 +1,108 @@
+{{ define "main" }}
+
+<!-- FOR YOU HUB HERO -->
+<section class="hub-hero">
+  <div class="bz-container">
+    <nav class="sl-breadcrumb" aria-label="breadcrumb">
+      <a href="{{ "/" | relURL }}" class="sl-breadcrumb-home">AI Solutions Wiki</a>
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      <span>For You</span>
+    </nav>
+    <h1 class="hub-h1">Find your path.</h1>
+    <p class="hub-desc">The wiki is organised around the problems you actually face. Pick the role that fits and get a reading path built for your situation, not for a generic reader.</p>
+  </div>
+</section>
+
+<!-- AUDIENCE CARDS -->
+<section class="hub-section">
+  <div class="bz-container">
+    <div class="hub-audience-grid">
+
+      <a href="{{ "/for/product-managers/" | relURL }}" class="hub-audience-card">
+        <figure class="bz-figure hub-audience-figure">
+          <img src="/img/wardrobe/stylists-brief-ai.png" alt="A brief and notes representing direction-setting and structured planning." loading="lazy">
+        </figure>
+        <div class="hub-audience-body">
+          <span class="hub-audience-role">Product Manager</span>
+          <p class="hub-audience-desc">You are accountable for what ships. That means you need to understand what engineers are actually building, how long it takes, and when the AI approach is wrong. This path gives you the vocabulary to ask the right questions in every room.</p>
+          <span class="hub-audience-cta">Start reading →</span>
+        </div>
+      </a>
+
+      <a href="{{ "/for/finance-business/" | relURL }}" class="hub-audience-card">
+        <figure class="bz-figure hub-audience-figure">
+          <img src="/img/wardrobe/imposing-grid-discipline.png" alt="A structured grid of fabric swatches representing systematic analysis and disciplined evaluation." loading="lazy">
+        </figure>
+        <div class="hub-audience-body">
+          <span class="hub-audience-role">Finance and Business</span>
+          <p class="hub-audience-desc">AI projects have real cost structures, lead times, and regulatory obligations. This path helps you evaluate proposals, build a business case, and understand what governance requirements apply to your industry.</p>
+          <span class="hub-audience-cta">Start reading →</span>
+        </div>
+      </a>
+
+      <a href="{{ "/for/vibe-coders/" | relURL }}" class="hub-audience-card">
+        <figure class="bz-figure hub-audience-figure">
+          <img src="/img/wardrobe/ai-stylist-vibe-coding.png" alt="A person in an atelier chair directing work, representing AI-directed building." loading="lazy">
+        </figure>
+        <div class="hub-audience-body">
+          <span class="hub-audience-role">Vibe Coder</span>
+          <p class="hub-audience-desc">You use AI tools to build software. You direct. The AI writes. But things break, and you need to understand enough to debug, deploy, and keep it running. This path covers the vocabulary that makes you a better director.</p>
+          <span class="hub-audience-cta">Start reading →</span>
+        </div>
+      </a>
+
+      <a href="{{ "/for/students-switchers/" | relURL }}" class="hub-audience-card">
+        <figure class="bz-figure hub-audience-figure">
+          <img src="/img/wardrobe/fitting-room-local-dev.png" alt="A man at an ornate mirror in a fitting room, representing starting from scratch in a new context." loading="lazy">
+        </figure>
+        <div class="hub-audience-body">
+          <span class="hub-audience-role">Student or Career Switcher</span>
+          <p class="hub-audience-desc">You are building your mental model from zero. No prior knowledge assumed. This path starts with computers, the internet, and code, then builds up through AI systems in a sequence that actually makes sense.</p>
+          <span class="hub-audience-cta">Start reading →</span>
+        </div>
+      </a>
+
+      <a href="{{ "/for/founders/" | relURL }}" class="hub-audience-card">
+        <figure class="bz-figure hub-audience-figure">
+          <img src="/img/wardrobe/stepping-out-deployment.png" alt="A silhouette stepping outside a door, representing the moment of launch and first decisions." loading="lazy">
+        </figure>
+        <div class="hub-audience-body">
+          <span class="hub-audience-role">Founder or Entrepreneur</span>
+          <p class="hub-audience-desc">You need to decide what to build, who to hire, and whether the AI approach your team proposes will actually work. This path gives you the technical literacy to make those calls without getting lost in the details.</p>
+          <span class="hub-audience-cta">Start reading →</span>
+        </div>
+      </a>
+
+      <a href="{{ "/for/consultants/" | relURL }}" class="hub-audience-card">
+        <figure class="bz-figure hub-audience-figure">
+          <img src="/img/dark-cherry/architect-system.png" alt="A silhouette facing an illuminated industrial tower, representing strategic oversight and advisory work." loading="lazy">
+        </figure>
+        <div class="hub-audience-body">
+          <span class="hub-audience-role">Consultant or Advisor</span>
+          <p class="hub-audience-desc">Your clients expect you to speak AI fluently. That means governance frameworks, risk vocabulary, EU AI Act basics, and the ability to tell a good architecture from a bad one. This path builds that fluency fast.</p>
+          <span class="hub-audience-cta">Start reading →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- NOT SURE WHERE TO START -->
+<section class="hub-fallback">
+  <div class="bz-container">
+    <div class="hub-fallback-inner">
+      <div>
+        <h2 class="hub-fallback-h2">Not sure which path fits?</h2>
+        <p class="hub-fallback-desc">Start with the basics. Level 0 assumes nothing and builds up from "what is a computer" through AI and production systems. Anyone can follow it.</p>
+      </div>
+      <a href="{{ "/basics/" | relURL }}" class="bz-btn-primary">Start at Zero</a>
+    </div>
+  </div>
+</section>
+
+<div class="bz-container">
+  {{ partial "cta.html" . }}
+</div>
+
+{{ end }}

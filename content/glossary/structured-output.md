@@ -12,7 +12,7 @@ related:
   - glossary/prompt-engineering
 ---
 
-Structured output is the practice of constraining a language model's generation so that the output conforms to a specified schema — typically a JSON Schema, regular expression, context-free grammar, or Pydantic / dataclass type. It is the engineering technique that makes [function calling](/glossary/function-calling/) and machine-readable LLM responses reliable in production: prompting alone produces schema-violating output at non-trivial rates, while constrained decoding can reduce this rate to zero.
+Structured output is the practice of constraining a language model's generation so that the output conforms to a specified schema, typically a JSON Schema, regular expression, context-free grammar, or Pydantic / dataclass type. It is the engineering technique that makes [function calling](/glossary/function-calling/) and machine-readable LLM responses reliable in production: prompting alone produces schema-violating output at non-trivial rates, while constrained decoding can reduce this rate to zero.
 
 ## Mechanism
 
@@ -42,7 +42,7 @@ Avoid structured output when:
 
 - The output is end-user-facing prose (unnecessary cost; readability suffers)
 - The schema is unstable and frequently changes (constraint compilation has overhead)
-- The constraint is so restrictive it harms quality (over-constrained schemas can collapse into degenerate outputs — see the discussion in Tam et al., 2024)
+- The constraint is so restrictive it harms quality (over-constrained schemas can collapse into degenerate outputs, see the discussion in Tam et al., 2024)
 
 ## Quality Trade-off
 
@@ -55,29 +55,29 @@ A subtle finding from recent work (Tam et al., 2024) is that strict schema const
 ## Common Pitfalls
 
 - **Deeply nested schemas.** Constrained decoding handles them, but error rates on the *content* (semantic correctness of values) rise with nesting depth. Flatten where possible.
-- **Free-text fields with hidden constraints.** A `string` field with an instruction like "must be a valid SQL query" is *not* constrained — only the type is. Validate semantically with a downstream check.
+- **Free-text fields with hidden constraints.** A `string` field with an instruction like "must be a valid SQL query" is *not* constrained: only the type is. Validate semantically with a downstream check.
 - **Enums beat free-text.** Where the value should come from a fixed set, model it as an enum in the schema. Reliability and downstream code simplicity both improve.
 - **Required vs optional.** Mark only what is truly required; over-required schemas force the model to invent values.
 - **`additionalProperties: true`.** Allowing extra properties is convenient but creates a downstream parsing surface. Set `additionalProperties: false` in JSON Schema where supported.
 
 ## Implementations
 
-- **Outlines** (Willard & Louf, 2023) — open-source constrained-decoding library, used as the reference implementation for many providers.
-- **Microsoft Guidance** — programming model for constrained generation with templated control flow.
-- **LMQL** (Beurer-Kellner et al., 2023) — query language with first-class constraint syntax.
-- **OpenAI Structured Outputs** — provider-native JSON Schema enforcement, August 2024 release.
-- **Anthropic tool use** — schema enforcement via native tool-use API.
-- **Google Gemini structured output** — `responseSchema` parameter on Gemini API.
-- **AWS Bedrock Converse `toolUse`** — schema-validated tool inputs.
-- **Pydantic + Instructor** — Python ergonomics layer over multiple provider backends, validates with Pydantic.
+- **Outlines** (Willard & Louf, 2023): open-source constrained-decoding library, used as the reference implementation for many providers.
+- **Microsoft Guidance**: programming model for constrained generation with templated control flow.
+- **LMQL** (Beurer-Kellner et al., 2023): query language with first-class constraint syntax.
+- **OpenAI Structured Outputs**: provider-native JSON Schema enforcement, August 2024 release.
+- **Anthropic tool use**: schema enforcement via native tool-use API.
+- **Google Gemini structured output**: `responseSchema` parameter on Gemini API.
+- **AWS Bedrock Converse `toolUse`**: schema-validated tool inputs.
+- **Pydantic + Instructor**: Python ergonomics layer over multiple provider backends, validates with Pydantic.
 
 ## Related Concepts
 
-- [Function Calling](/glossary/function-calling/) — structured output is the underlying mechanism
-- [Tool Use](/glossary/tool-use/) — depends on structured output for reliable tool dispatch
-- [Prompt Engineering](/glossary/prompt-engineering/) — schema design is a form of prompt engineering
-- [LLM-as-a-Judge](/glossary/llm-as-a-judge/) — judges typically emit structured scores
-- [Hallucination](/glossary/hallucination/) — schema-level validity does not prevent semantic hallucination
+- [Function Calling](/glossary/function-calling/): structured output is the underlying mechanism
+- [Tool Use](/glossary/tool-use/): depends on structured output for reliable tool dispatch
+- [Prompt Engineering](/glossary/prompt-engineering/): schema design is a form of prompt engineering
+- [LLM-as-a-Judge](/glossary/llm-as-a-judge/): judges typically emit structured scores
+- [Hallucination](/glossary/hallucination/): schema-level validity does not prevent semantic hallucination
 
 ## Sources and Further Reading
 

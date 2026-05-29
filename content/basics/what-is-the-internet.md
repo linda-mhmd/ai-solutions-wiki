@@ -23,6 +23,11 @@ faqs:
 The internet is billions of computers connected to each other through physical cables, fibre, and wireless links. They communicate by following shared rules called protocols. When you visit a website, your computer sends a request across this network and receives a response, usually in under a second.
 {{< /quickanswer >}}
 
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/cable-sparks.png" alt="An industrial cable under tension with red sparks flying at the connection point: the moment data crosses a boundary between two systems." loading="lazy">
+  <figcaption>The internet is billions of these connections firing simultaneously. Every request you send travels through physical cables, routers, and servers before the response reaches you.</figcaption>
+</figure>
+
 ## It is a physical thing
 
 The internet often gets described as a "cloud" or something abstract. It is not. It is an enormous physical infrastructure:

@@ -30,7 +30,7 @@ The router is typically trained end-to-end with the rest of the model. To preven
 
 ## Why MoE Matters
 
-The empirical result, established across Switch Transformer (Fedus et al., 2022), GLaM (Du et al., 2022), and the Mixtral / DeepSeek line: at fixed compute budget, MoE models reach lower loss than dense models with the same active-parameter count, because the additional capacity in the un-activated experts encodes specialised knowledge the router can dispatch to as needed. The trade-off is memory — all experts must be loaded for routing to be possible, even though only k are used per token.
+The empirical result, established across Switch Transformer (Fedus et al., 2022), GLaM (Du et al., 2022), and the Mixtral / DeepSeek line: at fixed compute budget, MoE models reach lower loss than dense models with the same active-parameter count, because the additional capacity in the un-activated experts encodes specialised knowledge the router can dispatch to as needed. The trade-off is memory, all experts must be loaded for routing to be possible, even though only k are used per token.
 
 For inference economics, this means MoE models offer dense-model-like *speed* with much-larger-model-like *quality*, at the cost of dense-model-like-N× *memory*. This shifts the bottleneck from compute to memory bandwidth, with implications for serving infrastructure (high-memory GPUs, model parallelism strategies that shard experts across devices).
 
@@ -66,11 +66,11 @@ Dense models remain preferable when:
 
 ## Related Concepts
 
-- [Transformer Architecture](/glossary/transformer-architecture/) — the substrate MoE replaces the MLP sublayer in
-- [Foundation Models](/glossary/foundation-models/) — many recent foundation models are MoE
-- [Quantization](/glossary/quantization/) — interacts non-trivially with MoE sparsity
-- [Inference-Time Compute](/glossary/inference-time-compute/) — orthogonal scaling axis
-- [Knowledge Distillation](/glossary/knowledge-distillation/) — MoE → dense distillation is a common deployment pattern
+- [Transformer Architecture](/glossary/transformer-architecture/): the substrate MoE replaces the MLP sublayer in
+- [Foundation Models](/glossary/foundation-models/): many recent foundation models are MoE
+- [Quantization](/glossary/quantization/): interacts non-trivially with MoE sparsity
+- [Inference-Time Compute](/glossary/inference-time-compute/): orthogonal scaling axis
+- [Knowledge Distillation](/glossary/knowledge-distillation/): MoE → dense distillation is a common deployment pattern
 
 ## Sources and Further Reading
 

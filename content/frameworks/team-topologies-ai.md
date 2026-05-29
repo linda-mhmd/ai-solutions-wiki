@@ -12,6 +12,12 @@ related:
 
 Team Topologies, developed by Matthew Skelton and Manuel Pais, defines four fundamental team types and three interaction modes for organizing technology teams. The framework optimizes for fast flow of change by reducing cognitive load, clarifying team boundaries, and designing deliberate interaction patterns. For AI organizations, Team Topologies addresses the structural question that every scaling AI program faces: how to organize data scientists, ML engineers, data engineers, and platform engineers into teams that deliver effectively without creating bottlenecks.
 
+
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/gears-mechanism.png" alt="Dark industrial gears under red light: each component sized and positioned so the mechanism works without friction." loading="lazy">
+  <figcaption>Team Topologies is the discipline of sizing and positioning teams so the organisation works like this mechanism. Cognitive load is the friction. The framework reduces it by design.</figcaption>
+</figure>
+
 ## The Four Team Types Applied to AI
 
 ### Stream-Aligned Teams

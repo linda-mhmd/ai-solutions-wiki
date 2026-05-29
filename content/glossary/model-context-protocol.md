@@ -18,9 +18,9 @@ The Model Context Protocol (MCP) is an open specification that defines how langu
 
 MCP defines three roles:
 
-- **Host** — the application that hosts the language model (an IDE assistant, agent runtime, or chat application)
-- **Client** — a connector inside the host that speaks MCP to a single server
-- **Server** — a process that exposes capabilities (tools, resources, prompts, sampling, roots) to clients
+- **Host**: the application that hosts the language model (an IDE assistant, agent runtime, or chat application)
+- **Client**: a connector inside the host that speaks MCP to a single server
+- **Server**: a process that exposes capabilities (tools, resources, prompts, sampling, roots) to clients
 
 Communication happens over JSON-RPC 2.0 either via stdio (for local servers) or HTTP with Server-Sent Events (for remote servers). A server advertises its capabilities through a structured manifest. Clients discover capabilities at session initialisation, then call tools, fetch resources, or request prompts as the model reasons.
 
@@ -45,9 +45,9 @@ MCP is not the right abstraction when:
 
 MCP servers expose three primary capability classes:
 
-- **Tools** — model-invoked functions with structured input/output (analogous to function calling, but over a standard transport)
-- **Resources** — read-only data the host can attach to model context (file contents, database rows, API responses)
-- **Prompts** — server-curated prompt templates the user or model can invoke
+- **Tools**: model-invoked functions with structured input/output (analogous to function calling, but over a standard transport)
+- **Resources**: read-only data the host can attach to model context (file contents, database rows, API responses)
+- **Prompts**: server-curated prompt templates the user or model can invoke
 
 This separation matters: tools are *actions* the model decides to take, resources are *context* the user or host supplies, and prompts are *workflows* the server publishes. Conflating them produces poorer agent behaviour because the model cannot reason about authority and side effects.
 
@@ -75,11 +75,11 @@ For production agent platforms with many tools and many hosts, the operational c
 
 ## Related Concepts
 
-- [Function Calling](/glossary/function-calling/) — the in-process tool-invocation primitive MCP standardises across processes
-- [Tool Use](/glossary/tool-use/) — the broader behaviour MCP enables in LLM agents
-- [AI Agent](/glossary/ai-agent/) — the consumer of MCP tools and resources
-- [AI Gateway](/glossary/ai-gateway/) — runtime layer often paired with MCP for policy enforcement
-- [AWS AgentCore](/glossary/aws-agentcore/) — AgentCore Gateway exposes tools over MCP
+- [Function Calling](/glossary/function-calling/): the in-process tool-invocation primitive MCP standardises across processes
+- [Tool Use](/glossary/tool-use/): the broader behaviour MCP enables in LLM agents
+- [AI Agent](/glossary/ai-agent/): the consumer of MCP tools and resources
+- [AI Gateway](/glossary/ai-gateway/): runtime layer often paired with MCP for policy enforcement
+- [AWS AgentCore](/glossary/aws-agentcore/): AgentCore Gateway exposes tools over MCP
 
 ## Sources and Further Reading
 

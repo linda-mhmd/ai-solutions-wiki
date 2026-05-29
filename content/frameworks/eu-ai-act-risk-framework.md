@@ -18,6 +18,12 @@ related:
 
 The EU AI Act (Regulation 2024/1689) is the first comprehensive AI regulation worldwide. It classifies AI systems into four risk tiers and scales compliance requirements accordingly. The Act applies to any organization that develops, deploys, or distributes AI systems in the EU market, regardless of where the organization is headquartered. This framework document details the risk classification system, requirements per tier, and implementation timeline.
 
+
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/vortex-complexity.png" alt="A dark spiraling vortex with a deep red core: unmanaged risk that pulls systems and organisations toward the center." loading="lazy">
+  <figcaption>The EU AI Act risk framework exists to prevent this. Unclassified risk compounds. The framework gives you a map: four risk tiers, defined obligations at each level, a path through the spiral.</figcaption>
+</figure>
+
 ## Risk Tier 1: Unacceptable Risk (Prohibited)
 
 Article 5 bans AI systems that pose an unacceptable risk to fundamental rights. These prohibitions took effect on 2 February 2025. Prohibited practices include AI systems that use subliminal, manipulative, or deceptive techniques to distort behavior and cause significant harm, systems that exploit vulnerabilities related to age, disability, or socioeconomic situation, social scoring systems that evaluate individuals based on social behavior or personal characteristics leading to detrimental treatment, real-time remote biometric identification in publicly accessible spaces for law enforcement (with narrow exceptions), emotion recognition systems in workplaces and educational institutions, untargeted scraping of facial images from the internet or CCTV to build facial recognition databases, and biometric categorization systems that infer sensitive attributes such as race, political opinions, or sexual orientation.

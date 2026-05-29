@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode | default "en" }}" data-theme="light">
+<html lang="{{ .Site.LanguageCode | default "en" }}" data-theme="dark">
 <head>
   {{ partial "head.html" . }}
 </head>
@@ -14,19 +14,8 @@
   <script src="{{ "js/wiki-library.js" | relURL }}" defer></script>
   <script src="{{ "pagefind/pagefind-ui.js" | relURL }}"></script>
   <script>
-    window.addEventListener('DOMContentLoaded', function() {
-      const params = new URLSearchParams(window.location.search);
-      const initialQuery = params.get('q') || '';
-
-      const mainSearch = new PagefindUI({
-        element: "#search",
-        showSubResults: true,
-        showImages: false,
-        showFilters: true,
-        baseUrl: "{{ "" | relURL }}"
-      });
-
-      if (document.getElementById('hero-search')) {
+    if (document.getElementById('hero-search')) {
+      window.addEventListener('DOMContentLoaded', function() {
         new PagefindUI({
           element: "#hero-search",
           showSubResults: false,
@@ -34,31 +23,8 @@
           showFilters: false,
           baseUrl: "{{ "" | relURL }}"
         });
-      }
-
-      // Restore query from URL (skip on the dedicated search page, which handles its own restoration)
-      if (initialQuery && !document.getElementById('search-page')) {
-        const input = document.querySelector('#search input[type=text]');
-        if (input) {
-          input.value = initialQuery;
-          input.dispatchEvent(new Event('input', { bubbles: true }));
-        }
-      }
-
-      // Sync search query to URL params for bookmarkable filtered searches
-      document.addEventListener('input', function(e) {
-        if (e.target.closest('#search') && e.target.type === 'text') {
-          const url = new URL(window.location);
-          const val = e.target.value.trim();
-          if (val) {
-            url.searchParams.set('q', val);
-          } else {
-            url.searchParams.delete('q');
-          }
-          window.history.replaceState({}, '', url);
-        }
       });
-    });
+    }
   </script>
   <script>
     // Dark mode toggle
@@ -82,25 +48,32 @@
         link.classList.add('active');
         const group = link.closest('.nav-group');
         if (group) {
-          const btn = group.querySelector('.nav-group-btn');
+          const btn = group.querySelector('.nav-group-btn, .nav-group-link');
           if (btn) btn.classList.add('active');
         }
       }
     });
 
     // Desktop dropdown toggle (click for keyboard/touch)
-    document.querySelectorAll('.nav-group-btn').forEach(btn => {
+    document.querySelectorAll('.nav-group-btn, .nav-group-link').forEach(btn => {
       btn.addEventListener('click', (e) => {
-        e.stopPropagation();
         const group = btn.closest('.nav-group');
+        const mega = group ? group.querySelector('.nav-mega, .nav-dropdown') : null;
+        if (!mega) return; // no dropdown: follow the link normally
+        e.preventDefault();
+        e.stopPropagation();
         const isOpen = group.classList.contains('open');
         document.querySelectorAll('.nav-group.open').forEach(g => {
           g.classList.remove('open');
-          g.querySelector('.nav-group-btn').setAttribute('aria-expanded', 'false');
+          const trigger = g.querySelector('.nav-group-btn, .nav-group-link');
+          if (trigger) trigger.setAttribute('aria-expanded', 'false');
         });
         if (!isOpen) {
           group.classList.add('open');
           btn.setAttribute('aria-expanded', 'true');
+        } else {
+          // Second click on an open group: navigate to the hub page
+          window.location.href = btn.getAttribute('href');
         }
       });
     });
@@ -108,7 +81,8 @@
     document.addEventListener('click', () => {
       document.querySelectorAll('.nav-group.open').forEach(g => {
         g.classList.remove('open');
-        g.querySelector('.nav-group-btn').setAttribute('aria-expanded', 'false');
+        const trigger = g.querySelector('.nav-group-btn, .nav-group-link');
+        if (trigger) trigger.setAttribute('aria-expanded', 'false');
       });
     });
 
@@ -116,7 +90,8 @@
       if (e.key === 'Escape') {
         document.querySelectorAll('.nav-group.open').forEach(g => {
           g.classList.remove('open');
-          g.querySelector('.nav-group-btn').setAttribute('aria-expanded', 'false');
+          const trigger = g.querySelector('.nav-group-btn, .nav-group-link');
+          if (trigger) trigger.setAttribute('aria-expanded', 'false');
         });
       }
     });

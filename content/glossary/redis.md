@@ -11,6 +11,12 @@ related:
 
 Redis is an open-source, in-memory data store used as a cache, message broker, and real-time data structure server. It stores data in memory for sub-millisecond read and write latency, supporting data structures like strings, hashes, lists, sets, sorted sets, and streams.
 
+
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/storage-lockers.png" alt="Rows of dark metal storage lockers with red-lit compartments: each slot addressable by key, retrievable in under a millisecond." loading="lazy">
+  <figcaption>Redis is a locker room where every slot has a key and retrieval is instant. No disk seek, no query planner. You know the key, you get the value, in microseconds.</figcaption>
+</figure>
+
 ## How It Works
 
 Redis keeps all data in RAM, providing extremely fast access (typically < 1ms). Data can be persisted to disk for durability, but the primary value is speed. Redis supports atomic operations on complex data structures, pub/sub messaging, Lua scripting, and transactions.

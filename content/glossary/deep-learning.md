@@ -13,6 +13,12 @@ related:
 
 Deep learning is a subset of machine learning that uses neural networks with many layers (hence "deep") to automatically learn hierarchical representations from data. Unlike traditional machine learning, which requires manual feature engineering, deep learning models learn to extract features directly from raw inputs - pixels, text tokens, audio waveforms.
 
+
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/vortex-complexity.png" alt="A dark spiraling vortex with a deep red core: depth that compounds with each layer, pulling structure from raw signal." loading="lazy">
+  <figcaption>Deep learning is the vortex. Each layer pulls a little more structure from the noise. The deeper the network, the more abstract the representations. The core only becomes visible after many layers of transformation.</figcaption>
+</figure>
+
 ## How It Differs from Traditional ML
 
 In traditional machine learning, a data scientist manually selects and engineers features (e.g., extracting edge histograms from images, computing TF-IDF scores from text). The model then learns a mapping from these hand-crafted features to predictions.

@@ -22,9 +22,9 @@ LLM-as-a-judge is the practice of using a language model to score, compare, or c
 
 A judge prompt typically takes one of three forms:
 
-- **Pointwise scoring** — the judge receives a single response and rates it on a scale (e.g. 1–5) along one or more axes (helpfulness, faithfulness, factuality).
-- **Pairwise comparison** — the judge receives two candidate responses (A and B) and selects the better one, optionally with a "tie" option. This is the format used in Chatbot Arena and most preference-learning datasets.
-- **Reference-based grading** — the judge receives a candidate response and a reference (gold) answer and scores the candidate against the reference.
+- **Pointwise scoring**: the judge receives a single response and rates it on a scale (e.g. 1–5) along one or more axes (helpfulness, faithfulness, factuality).
+- **Pairwise comparison**: the judge receives two candidate responses (A and B) and selects the better one, optionally with a "tie" option. This is the format used in Chatbot Arena and most preference-learning datasets.
+- **Reference-based grading**: the judge receives a candidate response and a reference (gold) answer and scores the candidate against the reference.
 
 Judges are typically prompted to produce a chain-of-thought rationale before the final score, which improves calibration (Zheng et al., 2023; see [Chain-of-Thought](/glossary/chain-of-thought/)). Production systems usually constrain the final score with structured-output decoding (see [Function Calling](/glossary/function-calling/)) to make scores parseable.
 
@@ -39,7 +39,7 @@ It is the right tool when:
 
 It is *not* the right tool when:
 
-- The task has a clear ground truth and exact-match or programmatic checks suffice (use those — they are deterministic, free, and unbiased)
+- The task has a clear ground truth and exact-match or programmatic checks suffice (use those, they are deterministic, free, and unbiased)
 - Stakes are high and a single judge's error tolerance is unacceptable (consider ensembles, human review, or formal verification)
 - The judge model has not been calibrated against human labels for this specific task
 
@@ -63,11 +63,11 @@ A judge is only useful if its scores correlate with the metric you actually care
 4. Iterate the judge prompt until agreement is acceptable for the use case (typical thresholds: κ > 0.6, ρ > 0.7).
 5. Re-calibrate when the judge model, candidate model, or task distribution changes.
 
-Liu et al. (2023) — G-Eval — provides a reference framework for chain-of-thought-based reference-free evaluation with explicit calibration steps. Fu et al. (2024) — GPTScore — uses log-probabilities of the judge for fine-grained continuous scores.
+Liu et al. (2023), G-Eval, provides a reference framework for chain-of-thought-based reference-free evaluation with explicit calibration steps. Fu et al. (2024), GPTScore, uses log-probabilities of the judge for fine-grained continuous scores.
 
 ## Production Patterns
 
-- **Ensembles.** Multiple judge models reduce single-judge bias and increase agreement with humans. Verga et al. (2024) — *PoLL* — shows that an ensemble of small judges can match or beat a single large judge at lower cost.
+- **Ensembles.** Multiple judge models reduce single-judge bias and increase agreement with humans. Verga et al. (2024): *PoLL*: shows that an ensemble of small judges can match or beat a single large judge at lower cost.
 - **Constrained rubrics.** Decompose evaluation into binary or low-cardinality axes (factual? grounded? complete? safe?) and combine. Easier to calibrate than holistic scores.
 - **Reference-augmented judging.** When references exist, providing them substantially reduces variance.
 - **Confidence thresholding.** When the judge is uncertain (low log-prob, ties, ensemble disagreement), escalate to human review.
@@ -75,16 +75,16 @@ Liu et al. (2023) — G-Eval — provides a reference framework for chain-of-tho
 
 ## Frameworks
 
-- **Promptfoo, DeepEval, Ragas, OpenAI Evals, Anthropic Evaluator, AWS Bedrock Evaluation, Langfuse, Phoenix** — production-grade evaluation harnesses with built-in LLM-judge primitives. See [DeepEval vs Promptfoo](/comparisons/deepeval-vs-promptfoo/).
-- **Chatbot Arena / LMSYS** — open community-maintained pairwise preference benchmark with crowdsourced human votes; the de facto reference for judge calibration on chat models.
+- **Promptfoo, DeepEval, Ragas, OpenAI Evals, Anthropic Evaluator, AWS Bedrock Evaluation, Langfuse, Phoenix**: production-grade evaluation harnesses with built-in LLM-judge primitives. See [DeepEval vs Promptfoo](/comparisons/deepeval-vs-promptfoo/).
+- **Chatbot Arena / LMSYS**: open community-maintained pairwise preference benchmark with crowdsourced human votes; the de facto reference for judge calibration on chat models.
 
 ## Related Concepts
 
-- [RAG Evaluation](/glossary/rag-evaluation/) — judges are the dominant tool for RAG faithfulness and relevance scoring
-- [Golden Dataset](/glossary/golden-dataset/) — the human-labelled set against which judges are calibrated
-- [Chain-of-Thought](/glossary/chain-of-thought/) — judges typically reason before scoring
-- [LLMOps](/glossary/llmops/) — judge pipelines are part of the evaluation stack
-- [Hallucination](/glossary/hallucination/) — judges are the practical mechanism for measuring hallucination rates
+- [RAG Evaluation](/glossary/rag-evaluation/): judges are the dominant tool for RAG faithfulness and relevance scoring
+- [Golden Dataset](/glossary/golden-dataset/): the human-labelled set against which judges are calibrated
+- [Chain-of-Thought](/glossary/chain-of-thought/): judges typically reason before scoring
+- [LLMOps](/glossary/llmops/): judge pipelines are part of the evaluation stack
+- [Hallucination](/glossary/hallucination/): judges are the practical mechanism for measuring hallucination rates
 
 ## Sources and Further Reading
 

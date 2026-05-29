@@ -46,7 +46,7 @@ It is not the right primitive when:
 
 Function-calling reliability depends heavily on schema design. Empirical guidance from production systems and provider documentation:
 
-- **Names matter.** Use verbs (`search_docs`, `create_ticket`) — the model uses the name as the strongest signal for when to invoke the function.
+- **Names matter.** Use verbs (`search_docs`, `create_ticket`): the model uses the name as the strongest signal for when to invoke the function.
 - **Descriptions are prompts.** The `description` field is concatenated into the model's context. Spend effort on it. Describe pre-conditions, side effects, and when not to call.
 - **Constrain enums aggressively.** Replace free-text arguments with enums where possible. The model is more reliable selecting from a closed set than free-typing.
 - **Avoid deeply nested schemas.** Flatten where you can. Nested arrays of objects are a known source of malformed calls.
@@ -58,7 +58,7 @@ OpenAI's structured-outputs feature (Lutkevich, 2024) and Anthropic's tool-use s
 
 Modern APIs (OpenAI Chat Completions, Anthropic Messages, Bedrock Converse) support emitting multiple function calls in a single assistant turn. The runtime executes them concurrently and returns all results in the next user turn. This pattern reduces wall-clock latency for independent reads (e.g. fetching weather and stock price simultaneously) and is the default for retrieval-heavy agents.
 
-For multi-step plans, the agent loop iterates: the model emits a tool call, receives a result, reasons, emits the next call. The [ReAct pattern](https://arxiv.org/abs/2210.03629) (Yao et al., 2023) — interleaving Reasoning traces with Action steps — is the foundational paradigm; modern implementations omit the explicit "Thought:" prefix because reasoning is implicit in the post-tool conditioning.
+For multi-step plans, the agent loop iterates: the model emits a tool call, receives a result, reasons, emits the next call. The [ReAct pattern](https://arxiv.org/abs/2210.03629) (Yao et al., 2023), interleaving Reasoning traces with Action steps, is the foundational paradigm; modern implementations omit the explicit "Thought:" prefix because reasoning is implicit in the post-tool conditioning.
 
 ## Reliability and Failure Modes
 
@@ -70,7 +70,7 @@ Production function-calling systems exhibit several recurring failure modes that
 - **Premature termination.** The model returns a natural-language answer without calling the required tool. Mitigation: tool-choice forcing (`tool_choice: "required"` in OpenAI; `tool_choice: {"type": "tool"}` in Anthropic).
 - **Tool-loop divergence.** The model repeatedly calls the same tool with the same arguments. Mitigation: deduplicate identical calls in the agent loop and bound the iteration count.
 
-Patil et al. (2023) — Gorilla — quantified the gap between closed and open models on tool-use benchmarks; subsequent work (Berkeley Function Calling Leaderboard, 2024–2025) tracks this systematically.
+Patil et al. (2023), Gorilla, quantified the gap between closed and open models on tool-use benchmarks; subsequent work (Berkeley Function Calling Leaderboard, 2024–2025) tracks this systematically.
 
 ## Function Calling vs Alternatives
 
@@ -83,12 +83,12 @@ Patil et al. (2023) — Gorilla — quantified the gap between closed and open m
 
 ## Related Concepts
 
-- [Tool Use](/glossary/tool-use/) — the broader behaviour function calling implements
-- [Model Context Protocol](/glossary/model-context-protocol/) — standardised cross-process tool invocation
-- [Structured Output](/glossary/structured-output/) — the underlying decoding technique enabling reliable function calls
-- [AI Agent](/glossary/ai-agent/) — the system that consumes function calling as a primitive
-- [Prompt Engineering](/glossary/prompt-engineering/) — schema descriptions are part of prompt engineering
-- [Hallucination](/glossary/hallucination/) — function-calling reduces hallucination by grounding answers in tool results
+- [Tool Use](/glossary/tool-use/): the broader behaviour function calling implements
+- [Model Context Protocol](/glossary/model-context-protocol/): standardised cross-process tool invocation
+- [Structured Output](/glossary/structured-output/): the underlying decoding technique enabling reliable function calls
+- [AI Agent](/glossary/ai-agent/): the system that consumes function calling as a primitive
+- [Prompt Engineering](/glossary/prompt-engineering/): schema descriptions are part of prompt engineering
+- [Hallucination](/glossary/hallucination/): function-calling reduces hallucination by grounding answers in tool results
 
 ## Sources and Further Reading
 

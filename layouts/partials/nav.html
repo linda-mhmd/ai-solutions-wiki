@@ -2,55 +2,115 @@
   <nav class="nav-container">
     <div class="nav-left">
       <a href="{{ "/" | relURL }}" class="nav-logo">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        <img src="/img/logo-transparent.png" alt="AI Solutions Wiki" class="nav-logo-img" width="48" height="48">
         <span>AI Solutions Wiki</span>
       </a>
       <ul class="nav-links">
 
         <li><a href="{{ "/basics/" | relURL }}" class="nav-direct-link nav-basics-link">Start at Zero</a></li>
 
+        <!-- For You mega menu -->
         <li class="nav-group">
-          <button class="nav-group-btn" aria-haspopup="true" aria-expanded="false">
+          <a href="{{ "/for/" | relURL }}" class="nav-group-link">
+            For You
+            <svg class="nav-caret" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="nav-mega nav-mega--audience" role="menu" aria-label="For You">
+            <div class="nav-mega-top">
+              <span class="nav-mega-header">Who are you?</span>
+              <a href="{{ "/for/" | relURL }}" class="nav-mega-view-all">See all paths →</a>
+            </div>
+            <div class="nav-mega-grid">
+              <a href="{{ "/for/product-managers/" | relURL }}" class="nav-mega-card" role="menuitem">
+                <span class="nav-mega-card-title">Product Manager</span>
+                <span class="nav-mega-card-desc">Understand AI proposals, scope work, and ask better questions in every project room.</span>
+              </a>
+              <a href="{{ "/for/finance-business/" | relURL }}" class="nav-mega-card" role="menuitem">
+                <span class="nav-mega-card-title">Finance and Business</span>
+                <span class="nav-mega-card-desc">Evaluate AI costs, timelines, and regulatory obligations with confidence.</span>
+              </a>
+              <a href="{{ "/for/vibe-coders/" | relURL }}" class="nav-mega-card" role="menuitem">
+                <span class="nav-mega-card-title">Vibe Coder</span>
+                <span class="nav-mega-card-desc">Direct the AI, debug what breaks, and deploy something that actually runs.</span>
+              </a>
+              <a href="{{ "/for/students-switchers/" | relURL }}" class="nav-mega-card" role="menuitem">
+                <span class="nav-mega-card-title">Student or Career Switcher</span>
+                <span class="nav-mega-card-desc">Build the mental model from the ground up. No assumptions about what you know.</span>
+              </a>
+              <a href="{{ "/for/founders/" | relURL }}" class="nav-mega-card" role="menuitem">
+                <span class="nav-mega-card-title">Founder or Entrepreneur</span>
+                <span class="nav-mega-card-desc">Know what you are building before the first sprint. Scope, hire, and decide early.</span>
+              </a>
+              <a href="{{ "/for/consultants/" | relURL }}" class="nav-mega-card" role="menuitem">
+                <span class="nav-mega-card-title">Consultant or Advisor</span>
+                <span class="nav-mega-card-desc">Speak AI fluently with clients. Governance frameworks, vocabulary, strategic tools.</span>
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <!-- Learn dropdown -->
+        <li class="nav-group">
+          <a href="{{ "/learn/" | relURL }}" class="nav-group-link">
             Learn
             <svg class="nav-caret" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-          </button>
-          <div class="nav-dropdown" role="menu" aria-label="Learn">
-            <p class="nav-dropdown-label">Learn</p>
+          </a>
+          <div class="nav-dropdown nav-dropdown--learn" role="menu" aria-label="Learn">
+            <a href="{{ "/learn/" | relURL }}" class="nav-dropdown-view-all" role="menuitem">All learning paths →</a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="{{ "/basics/" | relURL }}" role="menuitem">Start at Zero</a>
+            <a href="{{ "/levels/" | relURL }}" role="menuitem">Levels</a>
             <a href="{{ "/layers/" | relURL }}" role="menuitem">Layers</a>
             <a href="{{ "/getting-started/" | relURL }}" role="menuitem">Getting Started</a>
             <a href="{{ "/foundations/" | relURL }}" role="menuitem">Foundations</a>
           </div>
         </li>
 
+        <!-- Build dropdown -->
         <li class="nav-group">
-          <button class="nav-group-btn" aria-haspopup="true" aria-expanded="false">
+          <a href="{{ "/build/" | relURL }}" class="nav-group-link">
             Build
             <svg class="nav-caret" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-          </button>
+          </a>
           <div class="nav-dropdown" role="menu" aria-label="Build">
-            <p class="nav-dropdown-label">Build</p>
+            <a href="{{ "/build/" | relURL }}" class="nav-dropdown-view-all" role="menuitem">All build guides →</a>
+            <div class="nav-dropdown-divider"></div>
             <a href="{{ "/build/" | relURL }}" role="menuitem">Build</a>
             <a href="{{ "/architecture/" | relURL }}" role="menuitem">Architecture</a>
           </div>
         </li>
 
+        <!-- Explore mega menu -->
         <li class="nav-group">
-          <button class="nav-group-btn" aria-haspopup="true" aria-expanded="false">
+          <a href="{{ "/explore/" | relURL }}" class="nav-group-link">
             Explore
             <svg class="nav-caret" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-          </button>
-          <div class="nav-dropdown nav-dropdown--wide" role="menu" aria-label="Explore">
-            <p class="nav-dropdown-label">Explore</p>
-            <a href="{{ "/solutions/" | relURL }}" role="menuitem">Solutions</a>
-            <a href="{{ "/guides/" | relURL }}" role="menuitem">Guides</a>
-            <a href="{{ "/tools/" | relURL }}" role="menuitem">Tools</a>
-            <a href="{{ "/frameworks/" | relURL }}" role="menuitem">Frameworks</a>
-            <a href="{{ "/comparisons/" | relURL }}" role="menuitem">Comparisons</a>
-            <a href="{{ "/glossary/" | relURL }}" role="menuitem">Glossary</a>
+          </a>
+          <div class="nav-mega nav-mega--explore" role="menu" aria-label="Explore">
+            <div class="nav-mega-top">
+              <span class="nav-mega-header">Reference library</span>
+              <a href="{{ "/explore/" | relURL }}" class="nav-mega-view-all">Browse all →</a>
+            </div>
+            <div class="nav-mega-2col">
+              <div class="nav-mega-col">
+                <span class="nav-mega-col-label">Reference</span>
+                <a href="{{ "/tools/" | relURL }}" role="menuitem">Tools</a>
+                <a href="{{ "/glossary/" | relURL }}" role="menuitem">Glossary</a>
+                <a href="{{ "/comparisons/" | relURL }}" role="menuitem">Comparisons</a>
+                <a href="{{ "/frameworks/" | relURL }}" role="menuitem">Frameworks</a>
+              </div>
+              <div class="nav-mega-col">
+                <span class="nav-mega-col-label">In Depth</span>
+                <a href="{{ "/guides/" | relURL }}" role="menuitem">Guides</a>
+                <a href="{{ "/solutions/" | relURL }}" role="menuitem">Solutions</a>
+                <a href="{{ "/patterns/" | relURL }}" role="menuitem">Patterns</a>
+                <a href="{{ "/case-patterns/" | relURL }}" role="menuitem">Case Patterns</a>
+              </div>
+            </div>
           </div>
         </li>
 
-        <li><a href="https://ai-workshops.online" class="nav-direct-link" target="_blank" rel="noopener">Workshops</a></li>
+        <li><a href="https://ai-workshops.online" class="nav-direct-link nav-ext-link" target="_blank" rel="noopener">Workshops<svg class="nav-ext-icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="opens in new tab"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg></a></li>
         <li><a href="{{ "/about/" | relURL }}" class="nav-direct-link">About Linda</a></li>
 
       </ul>
@@ -59,10 +119,14 @@
       <a href="{{ "/my-library/" | relURL }}" class="nav-library-link" aria-label="My Library" title="My Library">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>
       </a>
+      <form class="nav-search-form" action="{{ "/search/" | relURL }}" method="get" role="search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="search" name="q" placeholder="Search..." class="nav-search-input" aria-label="Search the wiki" autocomplete="off">
+      </form>
+      <!-- Mobile search icon (shown instead of form below breakpoint) -->
       <a href="{{ "/search/" | relURL }}" class="nav-search-link" aria-label="Search">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
       </a>
-      <div id="search"></div>
       <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
         <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
         <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
@@ -81,13 +145,29 @@
       <div class="mobile-nav-group">
         <p class="mobile-nav-group-label">Start Here</p>
         <ul class="mobile-nav-links">
-          <li><a href="{{ "/basics/" | relURL }}" style="color: var(--accent); font-weight: 700">Start at Zero →</a></li>
+          <li><a href="{{ "/basics/" | relURL }}" class="mobile-nav-accent">Start at Zero</a></li>
+        </ul>
+      </div>
+
+      <div class="mobile-nav-group">
+        <p class="mobile-nav-group-label">For You</p>
+        <ul class="mobile-nav-links">
+          <li><a href="{{ "/for/" | relURL }}" class="mobile-nav-hub">All paths overview</a></li>
+          <li><a href="{{ "/for/product-managers/" | relURL }}">Product Manager</a></li>
+          <li><a href="{{ "/for/finance-business/" | relURL }}">Finance and Business</a></li>
+          <li><a href="{{ "/for/vibe-coders/" | relURL }}">Vibe Coder</a></li>
+          <li><a href="{{ "/for/students-switchers/" | relURL }}">Student or Career Switcher</a></li>
+          <li><a href="{{ "/for/founders/" | relURL }}">Founder or Entrepreneur</a></li>
+          <li><a href="{{ "/for/consultants/" | relURL }}">Consultant or Advisor</a></li>
         </ul>
       </div>
 
       <div class="mobile-nav-group">
         <p class="mobile-nav-group-label">Learn</p>
         <ul class="mobile-nav-links">
+          <li><a href="{{ "/learn/" | relURL }}" class="mobile-nav-hub">All learning paths</a></li>
+          <li><a href="{{ "/basics/" | relURL }}">Start at Zero</a></li>
+          <li><a href="{{ "/levels/" | relURL }}">Levels</a></li>
           <li><a href="{{ "/layers/" | relURL }}">Layers</a></li>
           <li><a href="{{ "/getting-started/" | relURL }}">Getting Started</a></li>
           <li><a href="{{ "/foundations/" | relURL }}">Foundations</a></li>
@@ -97,7 +177,7 @@
       <div class="mobile-nav-group">
         <p class="mobile-nav-group-label">Build</p>
         <ul class="mobile-nav-links">
-          <li><a href="{{ "/build/" | relURL }}">Build</a></li>
+          <li><a href="{{ "/build/" | relURL }}" class="mobile-nav-hub">All build guides</a></li>
           <li><a href="{{ "/architecture/" | relURL }}">Architecture</a></li>
         </ul>
       </div>
@@ -105,12 +185,14 @@
       <div class="mobile-nav-group">
         <p class="mobile-nav-group-label">Explore</p>
         <ul class="mobile-nav-links">
-          <li><a href="{{ "/solutions/" | relURL }}">Solutions</a></li>
+          <li><a href="{{ "/explore/" | relURL }}" class="mobile-nav-hub">Browse all sections</a></li>
           <li><a href="{{ "/guides/" | relURL }}">Guides</a></li>
           <li><a href="{{ "/tools/" | relURL }}">Tools</a></li>
-          <li><a href="{{ "/frameworks/" | relURL }}">Frameworks</a></li>
+          <li><a href="{{ "/patterns/" | relURL }}">Patterns</a></li>
           <li><a href="{{ "/comparisons/" | relURL }}">Comparisons</a></li>
+          <li><a href="{{ "/frameworks/" | relURL }}">Frameworks</a></li>
           <li><a href="{{ "/glossary/" | relURL }}">Glossary</a></li>
+          <li><a href="{{ "/solutions/" | relURL }}">Solutions</a></li>
         </ul>
       </div>
 
@@ -118,7 +200,7 @@
         <p class="mobile-nav-group-label">About</p>
         <ul class="mobile-nav-links">
           <li><a href="{{ "/about/" | relURL }}">About Linda</a></li>
-          <li><a href="https://ai-workshops.online" target="_blank" rel="noopener">Workshops</a></li>
+          <li><a href="https://ai-workshops.online" target="_blank" rel="noopener">Workshops<svg class="ext-icon-inline" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="opens in new tab"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg></a></li>
         </ul>
       </div>
 

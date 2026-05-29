@@ -19,40 +19,40 @@ Chain-of-thought (CoT) prompting is a technique for improving large language mod
 
 A CoT prompt supplies the model with one or more demonstrations in which the answer is preceded by an explicit chain of intermediate reasoning. The model, conditioned on the demonstrations, generates similar reasoning traces for new inputs before emitting the final answer. Two principal variants:
 
-- **Few-shot CoT** (Wei et al., 2022) — the demonstrations include reasoning traces written by hand.
-- **Zero-shot CoT** (Kojima et al., 2022) — appending the phrase *"Let's think step by step"* to the prompt elicits reasoning without demonstrations, achieving substantial gains on the original benchmarks.
+- **Few-shot CoT** (Wei et al., 2022): the demonstrations include reasoning traces written by hand.
+- **Zero-shot CoT** (Kojima et al., 2022): appending the phrase *"Let's think step by step"* to the prompt elicits reasoning without demonstrations, achieving substantial gains on the original benchmarks.
 
-Mechanistically, CoT works by allocating *more inference-time compute* to a problem: the model reasons through intermediate states whose representations are then attended to when producing the final token. This is the link to inference-time scaling work — see [Inference-Time Compute](/glossary/inference-time-compute/) and the discussion of OpenAI's o1 and Anthropic's extended-thinking modes below.
+Mechanistically, CoT works by allocating *more inference-time compute* to a problem: the model reasons through intermediate states whose representations are then attended to when producing the final token. This is the link to inference-time scaling work, see [Inference-Time Compute](/glossary/inference-time-compute/) and the discussion of OpenAI's o1 and Anthropic's extended-thinking modes below.
 
 ## Variants and Extensions
 
-- **Self-Consistency** (Wang et al., 2023) — sample multiple CoT traces and take the majority-vote final answer. Substantially improves accuracy on math and commonsense benchmarks at the cost of N× inference compute.
-- **Tree of Thoughts** (Yao et al., 2023) — generalises CoT from a linear trace to a search tree, enabling backtracking. Outperforms CoT on tasks requiring exploration (Game of 24, creative writing, mini-crosswords).
-- **Graph of Thoughts** (Besta et al., 2024) — generalises further to a DAG, allowing the model to merge and refine intermediate thoughts.
-- **Least-to-Most Prompting** (Zhou et al., 2023) — decompose the problem into sub-problems, solve each in turn. Empirically stronger on problems where the natural decomposition is non-obvious from the input.
-- **Faithful CoT** (Lyu et al., 2023) — emit the reasoning as executable code or formal logic, then execute. Removes the gap between stated reasoning and final answer.
-- **Program-of-Thoughts** (Chen et al., 2023) — write Python that computes the answer rather than reasoning in natural language. Outperforms CoT on numeric reasoning.
+- **Self-Consistency** (Wang et al., 2023): sample multiple CoT traces and take the majority-vote final answer. Substantially improves accuracy on math and commonsense benchmarks at the cost of N× inference compute.
+- **Tree of Thoughts** (Yao et al., 2023): generalises CoT from a linear trace to a search tree, enabling backtracking. Outperforms CoT on tasks requiring exploration (Game of 24, creative writing, mini-crosswords).
+- **Graph of Thoughts** (Besta et al., 2024): generalises further to a DAG, allowing the model to merge and refine intermediate thoughts.
+- **Least-to-Most Prompting** (Zhou et al., 2023): decompose the problem into sub-problems, solve each in turn. Empirically stronger on problems where the natural decomposition is non-obvious from the input.
+- **Faithful CoT** (Lyu et al., 2023): emit the reasoning as executable code or formal logic, then execute. Removes the gap between stated reasoning and final answer.
+- **Program-of-Thoughts** (Chen et al., 2023): write Python that computes the answer rather than reasoning in natural language. Outperforms CoT on numeric reasoning.
 
 ## When to Use Chain-of-Thought
 
 CoT is the right tool when:
 
 - The problem genuinely requires multi-step reasoning (arithmetic, logic, planning, structured analysis)
-- The model is large enough that emergent CoT abilities apply (small models often perform *worse* with CoT — Wei et al., 2022)
+- The model is large enough that emergent CoT abilities apply (small models often perform *worse* with CoT, Wei et al., 2022)
 - Latency budget tolerates the extra tokens (CoT outputs are typically 3–10× longer than direct answers)
 - The reasoning trace is itself useful (auditability, evaluation, post-hoc verification)
 
 CoT is *not* the right tool when:
 
-- The problem is single-step (lookup, classification of clear-cut inputs) — CoT wastes tokens and can hurt accuracy by introducing reasoning errors
-- The model has been post-trained to reason internally (o1, Claude with extended thinking, DeepSeek-R1) — these models reason in a hidden chain and benefit less from explicit CoT prompting
-- The task is creative or stylistic — CoT can over-rationalise outputs that should be direct
+- The problem is single-step (lookup, classification of clear-cut inputs), CoT wastes tokens and can hurt accuracy by introducing reasoning errors
+- The model has been post-trained to reason internally (o1, Claude with extended thinking, DeepSeek-R1), these models reason in a hidden chain and benefit less from explicit CoT prompting
+- The task is creative or stylistic, CoT can over-rationalise outputs that should be direct
 
 ## Limitations and Failure Modes
 
 CoT is not a guaranteed accuracy boost and has well-documented failure modes:
 
-- **Unfaithful reasoning** (Turpin et al., 2023; Lanham et al., 2023) — the stated reasoning trace does not always reflect the actual computation; models can reach correct answers via wrong reasoning, or correct reasoning followed by an unrelated final answer. Audit traces critically.
+- **Unfaithful reasoning** (Turpin et al., 2023; Lanham et al., 2023): the stated reasoning trace does not always reflect the actual computation; models can reach correct answers via wrong reasoning, or correct reasoning followed by an unrelated final answer. Audit traces critically.
 - **Reasoning errors compound.** A single arithmetic mistake in step 3 propagates through steps 4–10. Self-Consistency partially mitigates by majority-voting over many traces.
 - **Format brittleness.** Small changes to the demonstration format (commas vs newlines, "answer:" vs "Therefore,") can shift accuracy by several points (Sclar et al., 2024).
 - **Bias and shortcut amplification.** CoT can rationalise biased outputs more confidently than direct prompting, making bias harder to detect (Turpin et al., 2023).
@@ -60,17 +60,17 @@ CoT is not a guaranteed accuracy boost and has well-documented failure modes:
 
 ## Relation to Reasoning Models
 
-The 2024–2025 generation of reasoning models — OpenAI o1, o3, Anthropic Claude with extended thinking, DeepSeek-R1, Google Gemini 2.0 Flash Thinking — internalises CoT through post-training (typically RLHF or RL with verifiable rewards). These models emit a long, often hidden, chain of thought before the visible answer, and scale accuracy with thinking-token budget rather than parameter count. See [Inference-Time Compute](/glossary/inference-time-compute/) for the underlying scaling phenomenon (Snell et al., 2024) and DeepSeek-AI (2025) for an open-source training recipe.
+The 2024–2025 generation of reasoning models, OpenAI o1, o3, Anthropic Claude with extended thinking, DeepSeek-R1, Google Gemini 2.0 Flash Thinking, internalises CoT through post-training (typically RLHF or RL with verifiable rewards). These models emit a long, often hidden, chain of thought before the visible answer, and scale accuracy with thinking-token budget rather than parameter count. See [Inference-Time Compute](/glossary/inference-time-compute/) for the underlying scaling phenomenon (Snell et al., 2024) and DeepSeek-AI (2025) for an open-source training recipe.
 
-For these models, prompting *with* explicit CoT instructions is often unnecessary or counter-productive — the model already reasons internally, and "Let's think step by step" can interfere with the trained behaviour. Provider documentation should be consulted for each model.
+For these models, prompting *with* explicit CoT instructions is often unnecessary or counter-productive, the model already reasons internally, and "Let's think step by step" can interfere with the trained behaviour. Provider documentation should be consulted for each model.
 
 ## Related Concepts
 
-- [Inference-Time Compute](/glossary/inference-time-compute/) — the underlying scaling phenomenon CoT exploits
-- [Prompt Engineering](/glossary/prompt-engineering/) — CoT is one of the highest-leverage prompting techniques
-- [Few-Shot Learning](/glossary/few-shot-learning/) — CoT is most effective in few-shot settings
-- [LLM-as-a-Judge](/glossary/llm-as-a-judge/) — judges often use CoT to produce calibrated scores
-- [Hallucination](/glossary/hallucination/) — unfaithful CoT is a hallucination of reasoning, not just facts
+- [Inference-Time Compute](/glossary/inference-time-compute/): the underlying scaling phenomenon CoT exploits
+- [Prompt Engineering](/glossary/prompt-engineering/): CoT is one of the highest-leverage prompting techniques
+- [Few-Shot Learning](/glossary/few-shot-learning/): CoT is most effective in few-shot settings
+- [LLM-as-a-Judge](/glossary/llm-as-a-judge/): judges often use CoT to produce calibrated scores
+- [Hallucination](/glossary/hallucination/): unfaithful CoT is a hallucination of reasoning, not just facts
 
 ## Sources and Further Reading
 

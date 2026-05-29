@@ -23,6 +23,11 @@ faqs:
 GitHub is a website where developers store their Git repositories online, collaborate with others, track bugs and feature requests, and manage the full lifecycle of a software project. It is where virtually all open-source software in the world is published, and where your project should live if you are building anything serious.
 {{< /quickanswer >}}
 
+<figure class="bz-figure">
+  <img src="/img/dark-cherry/gears-mechanism.png" alt="Dark industrial gears and mechanical components illuminated by deep red light: interlocking systems working in coordinated sequence." loading="lazy">
+  <figcaption>GitHub is the mechanism that makes team software development work. Every contributor, branch, pull request, and review is a gear in the same machine.</figcaption>
+</figure>
+
 ## Git vs GitHub, the difference
 
 This confuses almost everyone at first.
