@@ -8,6 +8,7 @@ related:
   - tools/apache-spark
   - tools/amazon-emr
   - comparisons/databricks-vs-emr
+last_updated: 2026-05-30
 ---
 
 Databricks is a unified analytics platform founded by the creators of Apache Spark, Delta Lake, and MLflow. It provides a collaborative environment for data engineering, data science, and machine learning built on a lakehouse architecture that combines the reliability and governance of data warehouses with the flexibility and cost-effectiveness of data lakes. Databricks runs on all three major clouds (AWS, Azure, and GCP) and manages the underlying Spark infrastructure, allowing teams to focus on data work rather than cluster operations.

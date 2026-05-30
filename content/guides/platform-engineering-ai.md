@@ -9,6 +9,7 @@ related:
   - guides/ci-cd-for-ai
   - guides/capacity-planning-ai
   - patterns/microservices-for-ai
+last_updated: 2026-05-30
 ---
 
 AI/ML teams face infrastructure complexity that most backend teams do not encounter: GPU scheduling, CUDA version management, model artifact storage, experiment tracking, feature stores, and evaluation pipelines. Without a platform, each ML engineer becomes a part-time infrastructure engineer. An internal developer platform (IDP) for AI/ML solves this by providing self-service capabilities that abstract operational complexity while preserving the flexibility ML teams need.

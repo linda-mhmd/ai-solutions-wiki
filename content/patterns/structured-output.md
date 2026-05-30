@@ -8,6 +8,7 @@ related:
   - patterns/guardrails-pattern
   - patterns/direct-model-interface
   - patterns/tool-use-pattern
+last_updated: 2026-05-30
 ---
 
 When LLMs feed downstream systems rather than human readers, the output must be structured and parseable. A pipeline that expects a JSON object with specific fields cannot handle a conversational response that wraps the data in markdown and adds explanatory text. Structured output patterns ensure the model produces exactly the format your system needs, every time.

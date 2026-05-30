@@ -4,6 +4,7 @@ description: "AI analyzes query patterns and execution plans to recommend optima
 date: 2026-03-28
 categories: [Ideas]
 tags: [database, indexing, performance, optimization, daily-ai-spark]
+last_updated: 2026-05-30
 ---
 
 Slow queries are a perennial problem. DBAs analyze query plans to determine which indexes would help, but most teams do not have a dedicated DBA. Developers add indexes reactively when something is slow, often without considering the impact on write performance or existing indexes that could be modified instead.

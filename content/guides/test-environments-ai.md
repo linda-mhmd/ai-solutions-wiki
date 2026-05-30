@@ -9,6 +9,7 @@ related:
   - guides/integration-testing-ai-pipelines
   - guides/mocking-ai-services
   - guides/ci-cd-testing-ai
+last_updated: 2026-05-30
 ---
 
 AI systems require multiple test environments, each balancing cost, speed, and realism. A developer running tests locally cannot wait for real model API calls or pay for them on every save. A staging environment needs real model behavior to validate quality. Production must be monitored but never used for testing. Getting this layering right is critical for both developer velocity and test confidence.

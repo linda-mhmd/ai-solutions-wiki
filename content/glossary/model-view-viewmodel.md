@@ -4,6 +4,7 @@ description: "An architectural pattern that uses data binding to connect the Vie
 date: 2026-03-28
 categories: [Glossary]
 tags: [MVVM, architecture-patterns, software-design, UI, data-binding]
+last_updated: 2026-05-30
 ---
 
 Model-View-ViewModel (MVVM) is an architectural pattern that separates the graphical user interface from business logic by introducing a ViewModel layer that exposes data and commands the View can bind to declaratively. The View has no direct knowledge of the Model, and the ViewModel has no direct knowledge of the View.

@@ -4,6 +4,7 @@ description: "What speech-to-text technology is, how AWS Transcribe, Azure Speec
 date: 2026-03-24
 categories: [Glossary]
 tags: ["ai-ml", "beginner", "speech-to-text", "asr", "transcription", "audio", "nlp"]
+last_updated: 2026-05-30
 ---
 
 Speech-to-text (STT) converts spoken audio into written text. Modern STT systems use end-to-end deep learning models trained on thousands of hours of labeled audio to achieve accuracy near human transcription levels for clear speech. Applications include meeting transcription, voice search, closed captioning, call center analytics, and voice interface backends.

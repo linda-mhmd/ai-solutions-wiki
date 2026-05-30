@@ -9,6 +9,7 @@ related:
   - glossary/f1-score
   - glossary/roc-curve
   - glossary/supervised-learning
+last_updated: 2026-05-30
 ---
 
 A confusion matrix is a table that summarizes the performance of a classification model by comparing predicted labels to actual labels. For a binary classifier, it is a 2x2 matrix showing four outcomes: true positives, false positives, true negatives, and false negatives. It provides a complete picture of where the model succeeds and where it fails.

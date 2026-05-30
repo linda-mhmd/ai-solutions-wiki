@@ -4,6 +4,7 @@ description: "Use AI to evaluate and score risks from project documents, inciden
 date: 2026-03-28
 categories: [Ideas]
 tags: [risk-management, assessment, scoring, automation, compliance]
+last_updated: 2026-05-30
 ---
 
 Risk assessment is critical but subjective. Two analysts evaluating the same risk often assign different severity scores because their mental models differ. This inconsistency makes it hard to prioritize risks across teams or compare risk profiles over time.

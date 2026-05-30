@@ -4,6 +4,7 @@ description: "The three fundamental objectives of information security that guid
 date: 2026-03-28
 categories: [Glossary]
 tags: [CIA-triad, security, confidentiality, integrity, availability]
+last_updated: 2026-05-30
 ---
 
 The CIA Triad is a foundational model in information security that identifies three core objectives: Confidentiality, Integrity, and Availability. Every security control, policy, and architecture decision can be evaluated in terms of how it supports or balances these three properties.

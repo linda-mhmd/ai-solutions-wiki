@@ -9,6 +9,7 @@ related:
   - glossary/knowledge-distillation
   - glossary/inference
   - glossary/ai-hardware
+last_updated: 2026-05-30
 ---
 
 Quantization reduces the numerical precision of a neural network's weights and activations, typically from 32-bit floating point (FP32) to lower bit-widths like INT8, INT4, or even binary. This compression shrinks model size, reduces memory bandwidth requirements, and enables faster inference on hardware with integer arithmetic support, often with minimal impact on accuracy.

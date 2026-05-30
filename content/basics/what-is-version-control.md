@@ -17,6 +17,7 @@ faqs:
     answer: "A merge conflict happens when two people changed the same part of the same file in ways that cannot be automatically combined. Git marks the conflicting section in the file showing both versions. You edit the file to keep what you want (and remove the conflict markers), then commit the result. Most modern code editors show a visual diff and let you choose with a click. Conflicts sound scary but resolving a simple one takes under a minute."
   - question: "Is version control only for code?"
     answer: "No. The principle, track changes, enable collaboration, allow rollback, applies anywhere. Figma has version history for design files. Google Docs tracks edits and lets you restore previous versions. Data teams use DVC (Data Version Control) for datasets. Writers use Git for manuscripts. Governments use it for legislation. The software world just formalised the practice because the consequences of errors are severe."
+last_updated: 2026-05-30
 ---
 
 {{< quickanswer >}}

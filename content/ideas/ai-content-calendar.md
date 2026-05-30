@@ -4,6 +4,7 @@ description: "Use AI to analyze past content performance and suggest optimal top
 date: 2026-03-28
 categories: [Ideas]
 tags: [content-planning, marketing, analytics, automation]
+last_updated: 2026-05-30
 ---
 
 Content teams spend significant time deciding what to publish and when. This planning process often relies on gut instinct rather than data, leading to content that misses audience interest peaks or duplicates recently covered topics.

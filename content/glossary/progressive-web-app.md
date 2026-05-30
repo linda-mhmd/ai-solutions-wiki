@@ -7,6 +7,7 @@ tags: [pwa, progressive-web-app, service-worker, offline-first, web-manifest, mo
 related:
   - glossary/web-components
   - glossary/cdn
+last_updated: 2026-05-30
 ---
 
 A Progressive Web App (PWA) is a web application that uses modern browser capabilities, including service workers, web app manifests, and HTTPS, to deliver an experience that is reliable (works offline or on poor networks), fast (responds quickly to user interactions), and engaging (can be installed on the home screen and send push notifications). The term was coined by Alex Russell and Frances Berriman in June 2015.

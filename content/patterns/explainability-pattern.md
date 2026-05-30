@@ -9,6 +9,7 @@ related:
   - frameworks/responsible-ai-framework
   - frameworks/eu-ai-act-risk-framework
   - frameworks/ai-ethics-framework
+last_updated: 2026-05-30
 ---
 
 Explainability patterns make AI decision-making transparent to the people affected by those decisions. When an AI system denies a loan, flags content for removal, or recommends a medical treatment, the people involved need to understand why. Regulators increasingly require it. Explainability is not a feature you bolt on after deployment - it is an architectural pattern that must be designed in from the start.

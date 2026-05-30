@@ -9,6 +9,7 @@ related:
   - patterns/ml-feature-platform
   - patterns/data-pipeline-patterns
   - patterns/continuous-training-pattern
+last_updated: 2026-05-30
 ---
 
 Most ML teams compute features in ad-hoc scripts that differ between training notebooks and production serving code. The same feature gets reimplemented in Python for training and Java for serving, with subtle differences that cause training-serving skew. A feature platform centralizes feature definitions, computation, and serving so that the same feature logic is used everywhere.

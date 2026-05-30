@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: ["ai-ml", "advanced", "fraud-detection", "finance", "anomaly-detection", "real-time", "ml"]
 industries: [finance]
 tools: [amazon-sagemaker, amazon-bedrock]
+last_updated: 2026-05-30
 ---
 
 Financial fraud losses across Europe exceeded 4.3 billion EUR in 2023, with card fraud, authorized push payment (APP) fraud, and account takeover as the primary categories. Traditional rule-based fraud detection has fundamental limitations: rules are static (fraud patterns evolve faster), rules are transparent to fraudsters who probe them, and rules generate false positives that damage customer experience. AI-based fraud detection addresses all three limitations.

@@ -10,6 +10,7 @@ related:
   - patterns/data-versioning
   - patterns/data-pipeline-patterns
   - patterns/ai-audit-trail
+last_updated: 2026-05-30
 ---
 
 Data lineage is the practice of tracking data from its point of origin through every transformation, movement, and aggregation it undergoes until it reaches its final use. In AI systems, data lineage answers the question: where did the data used to train or serve this model come from, and what happened to it along the way?

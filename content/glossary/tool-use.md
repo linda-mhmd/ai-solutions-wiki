@@ -11,6 +11,7 @@ related:
   - glossary/ai-agent
   - glossary/agentic-rag
   - glossary/llm
+last_updated: 2026-05-30
 ---
 
 Tool use is the umbrella capability of a language model to invoke external systems, APIs, code execution sandboxes, retrieval indices, calculators, browsers, databases, and condition its subsequent generation on the returned results. It is the broadest level of abstraction; specific mechanisms include [function calling](/glossary/function-calling/), the [Model Context Protocol](/glossary/model-context-protocol/), code interpreters, and bespoke prompted tool grammars. Tool use is what turns a language model from a static text generator into an actor in a software environment, and is the foundational primitive of [AI agents](/glossary/ai-agent/).

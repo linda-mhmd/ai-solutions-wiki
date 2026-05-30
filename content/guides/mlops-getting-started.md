@@ -13,6 +13,7 @@ related:
   - guides/drift-detection-guide
   - guides/monitoring-ai-production
   - foundations/ci-cd
+last_updated: 2026-05-30
 ---
 
 Most machine learning work starts in notebooks. A data scientist trains a model, evaluates it, and declares success. Then comes the hard part: getting that model into production and keeping it running. MLOps is the set of practices that bridges this gap, applying DevOps principles to the unique challenges of machine learning systems.

@@ -9,6 +9,7 @@ related:
   - patterns/prompt-engineering-patterns
   - glossary/prompt-engineering
   - guides/testing-ai-systems
+last_updated: 2026-05-30
 ---
 
 Prompt engineering is the practice of constructing inputs to language models that reliably produce the outputs your application needs. In a prototype, a prompt is often a string written in an afternoon. In production, a prompt is a versioned artifact with a test suite, a deployment process, and a change history. This guide covers the techniques and operational practices that make the difference.

@@ -11,6 +11,7 @@ related:
   - frameworks/gdpr-ai-framework
   - guides/gdpr-for-ai-teams
   - patterns/gdpr-compliant-ml-pipeline
+last_updated: 2026-05-30
 ---
 
 A DPIA is mandatory under GDPR Article 35 for AI systems that process personal data where the processing is likely to result in high risk to individuals. This guide provides a practical process for conducting DPIAs for AI systems.

@@ -4,6 +4,7 @@ description: "Use AI to analyze usage trends and predict when infrastructure cap
 date: 2026-03-28
 categories: [Ideas]
 tags: [capacity-planning, infrastructure, cloud, optimization, automation]
+last_updated: 2026-05-30
 ---
 
 Capacity planning is a guessing game in most organizations. Teams either over-provision (wasting money on idle resources) or under-provision (risking outages when demand spikes). The data to plan accurately exists in monitoring systems, but translating usage trends into procurement decisions requires analysis that rarely happens proactively.

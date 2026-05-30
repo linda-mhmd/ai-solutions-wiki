@@ -10,6 +10,7 @@ related:
   - guides/cross-border-data-transfers-ai
   - glossary/gdpr
   - patterns/gdpr-compliant-ml-pipeline
+last_updated: 2026-05-30
 ---
 
 Organizations operating AI systems across multiple jurisdictions must ensure that data stays within its required legal boundaries while still enabling effective model training and inference. This pattern describes the architecture for multi-region data sovereignty.

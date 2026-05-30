@@ -9,6 +9,7 @@ related:
   - guides/ai-incident-response
   - guides/llm-cost-optimization
   - guides/rag-evaluation-guide
+last_updated: 2026-05-30
 ---
 
 Traditional application monitoring tracks uptime, latency, and error rates. AI systems need all of that plus observability into prediction quality, model behavior, and data characteristics. An AI system can be up, fast, and returning 200 status codes while producing completely wrong answers. Full-stack AI observability closes this gap.

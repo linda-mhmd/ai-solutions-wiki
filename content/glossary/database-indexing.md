@@ -4,6 +4,7 @@ description: "Data structures that improve query performance by providing fast l
 date: 2026-03-28
 categories: [Glossary]
 tags: [databases, indexing, b-tree, query-performance, database-optimization]
+last_updated: 2026-05-30
 ---
 
 A database index is a data structure that provides a fast lookup path to rows in a table, much like the index in a book points you to the page containing a topic. Without an index, the database must scan every row in a table (a full table scan) to find matching records. With a well-chosen index, the database locates the relevant rows directly.

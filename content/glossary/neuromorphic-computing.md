@@ -9,6 +9,7 @@ related:
   - glossary/tinyml
   - glossary/edge-computing
   - glossary/neural-network
+last_updated: 2026-05-30
 ---
 
 Neuromorphic computing is an approach to processor design and neural network architecture inspired by the structure and function of biological brains. Unlike conventional GPUs that process data in synchronized batches of floating-point operations, neuromorphic chips use spiking neural networks (SNNs) that communicate through discrete electrical pulses (spikes), processing information asynchronously and consuming power only when neurons fire.

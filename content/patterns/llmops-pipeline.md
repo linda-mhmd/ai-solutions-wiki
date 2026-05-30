@@ -9,6 +9,7 @@ related:
   - patterns/observability-ai
   - patterns/model-versioning
   - patterns/prompt-template-management
+last_updated: 2026-05-30
 ---
 
 MLOps pipelines built for traditional ML models do not address the unique operational requirements of large language models. LLMs are not retrained on every release. Their behavior is controlled primarily through prompts, retrieval configurations, and orchestration logic rather than model weights. An LLMOps pipeline manages the full lifecycle of these LLM-specific artifacts.

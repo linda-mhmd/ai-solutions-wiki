@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [digital-twin, simulation, process-optimization, iot, manufacturing-ai]
 industries: [manufacturing]
 tools: [amazon-sagemaker, aws-iot-twinmaker, amazon-kinesis]
+last_updated: 2026-05-30
 ---
 
 A digital twin is a virtual representation of a physical manufacturing system - a machine, production line, or entire factory - that mirrors the real system's state in real time using sensor data. AI enhances digital twins by enabling predictive simulation: rather than just reflecting current state, the twin predicts future behavior, tests optimizations virtually, and recommends changes before they are implemented on the physical system.

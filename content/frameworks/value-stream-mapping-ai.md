@@ -8,6 +8,7 @@ related:
   - frameworks/capability-mapping
   - frameworks/design-thinking-ai
   - frameworks/wardley-mapping-ai
+last_updated: 2026-05-30
 ---
 
 Value Stream Mapping (VSM) is a lean manufacturing technique that visualizes the entire flow of materials and information from request to delivery. Each step is documented with its processing time, wait time, and quality rate. The map reveals where value is created and where waste accumulates. For AI projects, VSM serves two purposes: mapping the AI delivery process itself (how models move from concept to production) and mapping business processes to identify where AI intervention would eliminate the most waste.

@@ -10,6 +10,7 @@ related:
   - glossary/ai-agents
   - glossary/agentic-ai
   - glossary/aws-agentcore
+last_updated: 2026-05-30
 ---
 
 Multi-agent orchestration is the pattern of coordinating multiple specialized AI agents to collaborate on a task that no single agent could complete as effectively alone. An orchestration layer manages the flow of work between agents, handles context passing, resolves dependencies, and assembles the final output. The pattern draws on decades of research in distributed artificial intelligence and has become a dominant architecture for complex agentic AI systems.

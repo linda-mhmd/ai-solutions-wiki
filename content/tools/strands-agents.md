@@ -11,6 +11,7 @@ related:
   - comparisons/crewai-vs-strands
   - patterns/agentic-workflows
   - guides/multi-agent-systems-101
+last_updated: 2026-05-30
 ---
 
 Strands Agents is an open-source Python framework for building AI agents, developed by AWS to integrate natively with Bedrock and the broader AWS service ecosystem. Unlike frameworks designed for multi-cloud use, Strands is opinionated about running on AWS and integrates directly with Bedrock AgentCore for deployment.

@@ -8,6 +8,7 @@ related:
   - tools/amazon-bedrock
   - tools/amazon-opensearch
   - tools/aws-s3
+last_updated: 2026-05-30
 ---
 
 Amazon Kendra is a managed enterprise search service from AWS that uses machine learning to return relevant answers from unstructured data. Unlike keyword-based search engines, Kendra understands natural language queries and returns precise answers extracted from documents rather than just a list of matching files. For AI projects, Kendra serves as a high-quality retrieval layer that can feed into generative AI workflows or stand alone as an intelligent search solution.

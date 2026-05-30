@@ -4,6 +4,7 @@ description: "Use AI to optimize corporate travel bookings against policy, prefe
 date: 2026-03-28
 categories: [Ideas]
 tags: [travel, expense-management, policy-compliance, automation]
+last_updated: 2026-05-30
 ---
 
 Corporate travel booking is a multi-constraint optimization problem that people solve poorly. Travelers pick the most convenient option regardless of cost; travel managers enforce policy after the fact; and the company overspends because optimization happens too late in the process.

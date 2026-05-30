@@ -4,6 +4,7 @@ description: "How to estimate and manage costs for AI workloads on AWS, covering
 date: 2026-03-28
 categories: [Guides]
 tags: [AWS, cost-optimization, budgeting, cloud, AI-infrastructure]
+last_updated: 2026-05-30
 ---
 
 AWS AI service costs are notoriously hard to predict. Pricing models vary by service (per-token, per-hour, per-request), costs scale non-linearly with usage, and hidden charges (data transfer, storage, logging) add up quickly. This guide covers how to estimate costs accurately and avoid budget surprises.

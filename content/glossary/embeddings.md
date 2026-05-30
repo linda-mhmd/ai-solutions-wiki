@@ -10,6 +10,7 @@ related:
   - guides/building-rag-systems
   - tools/amazon-bedrock
   - patterns/rag-implementation
+last_updated: 2026-05-30
 ---
 
 An embedding is a numerical representation of a piece of text (or image, audio, or other data) as a vector of floating-point numbers. The key property of embeddings is that similar content produces similar vectors - measured by cosine similarity or dot product distance.

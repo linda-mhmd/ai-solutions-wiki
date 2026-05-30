@@ -10,6 +10,7 @@ related:
   - guides/model-evaluation-guide
   - guides/multimodal-rag-guide
   - glossary/hallucination
+last_updated: 2026-05-30
 ---
 
 RAG system quality depends on two things working well together: retrieving the right documents and generating accurate answers from them. A brilliant generator cannot compensate for bad retrieval, and perfect retrieval is wasted if the generator ignores or misinterprets the context. Evaluating RAG requires measuring both components independently and together.

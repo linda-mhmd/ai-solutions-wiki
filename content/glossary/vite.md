@@ -9,6 +9,7 @@ related:
   - glossary/nextjs
   - glossary/typescript
   - glossary/nodejs
+last_updated: 2026-05-30
 ---
 
 Vite (French for "fast," pronounced /vit/) is a frontend build tool that provides a dramatically faster development experience by serving source code over native ES modules during development and using Rollup for optimized production builds. Created by Evan You, the creator of Vue.js, Vite replaced Webpack as the preferred dev server for a growing number of frameworks.

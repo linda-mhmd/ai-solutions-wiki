@@ -4,6 +4,7 @@ description: "Use AI to convert plain English descriptions of patterns into work
 date: 2026-03-28
 categories: [Ideas]
 tags: [regex, developer-tools, natural-language, productivity, daily-ai-spark]
+last_updated: 2026-05-30
 ---
 
 Regular expressions are powerful and notoriously hard to write correctly. Developers spend time on regex debugging sites, testing edge cases, and deciphering expressions written by others. Most regex tasks start with a plain English description of the desired pattern: "match email addresses" or "extract the version number from this string format."

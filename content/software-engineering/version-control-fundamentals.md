@@ -7,6 +7,7 @@ categories: ["Software Engineering"]
 related:
   - software-engineering/gitignore-patterns
   - software-engineering/agile-manifesto
+last_updated: 2026-05-30
 ---
 
 Version control is the practice of tracking and managing changes to files over time. In software development, it means that every modification to source code is recorded with a timestamp, an author, and a description of intent. This record forms a complete, queryable history of a project: what changed, when, who changed it, and why. Version control is so foundational to modern software practice that the question is no longer whether to use it but which system to use and how to use it well.

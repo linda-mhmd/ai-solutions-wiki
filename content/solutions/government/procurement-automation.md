@@ -5,6 +5,7 @@ date: 2026-03-24
 categories: [Solutions]
 tags: [procurement, compliance, vendor-management]
 industries: [Government, Public Sector]
+last_updated: 2026-05-30
 ---
 
 Government procurement is constrained by policy frameworks that exist for good reasons - preventing conflicts of interest, ensuring fair competition, achieving policy goals like small business participation. The challenge is that these constraints add significant processing overhead to every procurement action. AI can apply compliance checks consistently and at scale without removing the human judgment required for vendor selection.

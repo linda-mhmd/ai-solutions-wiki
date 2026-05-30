@@ -8,6 +8,7 @@ related:
   - glossary/devsecops
   - patterns/zero-trust-ai
   - guides/devsecops-ai
+last_updated: 2026-05-30
 ---
 
 AI systems operate under increasing regulatory scrutiny. The EU AI Act, GDPR, CCPA, industry-specific regulations (HIPAA, SOX, PCI-DSS), and emerging AI-specific legislation impose requirements on data handling, model transparency, bias monitoring, and audit trails. Manual compliance processes - spreadsheet checklists, periodic audits, documented reviews - do not scale with the pace of AI development. Compliance as code encodes regulatory requirements as automated checks that run continuously in CI/CD pipelines and production environments.

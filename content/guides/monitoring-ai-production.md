@@ -13,6 +13,7 @@ related:
   - tools/amazon-cloudwatch
   - tools/grafana
   - tools/prometheus
+last_updated: 2026-05-30
 ---
 
 Monitoring AI systems in production is fundamentally different from monitoring traditional software. Traditional monitoring focuses on "is the system up and responding?" AI monitoring must also answer "is the system still producing good results?" A model can return HTTP 200 with low latency while producing increasingly wrong predictions due to data drift. Without AI-specific monitoring, these failures are invisible until stakeholders complain.

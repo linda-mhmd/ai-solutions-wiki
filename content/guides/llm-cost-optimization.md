@@ -9,6 +9,7 @@ related:
   - guides/prompt-management-guide
   - guides/building-ai-platform
   - guides/rag-evaluation-guide
+last_updated: 2026-05-30
 ---
 
 LLM inference costs add up fast. A customer-facing application processing thousands of requests per hour can easily generate six-figure monthly bills. The good news is that most LLM deployments have significant optimization opportunities. The key is reducing cost without degrading the quality your users experience.

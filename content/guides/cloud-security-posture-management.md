@@ -10,6 +10,7 @@ related:
   - guides/ai-security-best-practices
   - comparisons/aws-vs-azure-governance
   - guides/infrastructure-as-code-ai
+last_updated: 2026-05-30
 ---
 
 Cloud Security Posture Management (CSPM) continuously monitors cloud environments for misconfigurations, compliance violations, and security risks. AI workloads introduce unique security challenges that standard CSPM configurations miss. This guide covers how to extend CSPM for AI-specific concerns.

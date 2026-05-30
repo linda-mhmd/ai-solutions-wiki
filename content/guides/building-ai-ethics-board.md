@@ -10,6 +10,7 @@ related:
   - frameworks/responsible-ai-framework
   - frameworks/ai-ethics-framework
   - patterns/ai-governance
+last_updated: 2026-05-30
 ---
 
 An AI ethics board is an organizational body responsible for reviewing AI use cases, evaluating ethical risks, setting policy, and providing guidance on responsible AI development and deployment. This guide covers how to establish an effective ethics board that makes real decisions rather than serving as a rubber stamp.

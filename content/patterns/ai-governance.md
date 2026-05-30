@@ -5,6 +5,7 @@ date: 2026-03-24
 categories: [Patterns]
 tags: ["architecture", "advanced", "ai-governance", "compliance", "responsible-ai", "policy", "risk"]
 tools: [amazon-bedrock, amazon-sagemaker]
+last_updated: 2026-05-30
 ---
 
 AI governance is the set of processes, documentation, and controls that ensure AI systems in an organization are accountable, auditable, and compliant. As the EU AI Act enters into force, governance is shifting from a good practice to a legal requirement for many AI applications. Building governance patterns from the start is significantly less expensive than retrofitting them.

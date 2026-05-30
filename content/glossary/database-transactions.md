@@ -4,6 +4,7 @@ description: "Units of work in a database that group multiple operations into a 
 date: 2026-03-28
 categories: [Glossary]
 tags: [databases, transactions, concurrency, isolation-levels, data-integrity]
+last_updated: 2026-05-30
 ---
 
 A database transaction is a logical unit of work that groups one or more database operations into a sequence that either completes entirely or has no effect at all. Transactions provide the mechanism through which databases maintain data integrity in the presence of concurrent access and system failures.

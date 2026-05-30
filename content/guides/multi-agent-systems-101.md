@@ -11,6 +11,7 @@ related:
   - tools/crewai
   - patterns/agentic-workflows
   - comparisons/crewai-vs-strands
+last_updated: 2026-05-30
 ---
 
 Most AI use cases can be handled by a single model call with a well-constructed prompt. But as workflows grow in complexity - involving multiple tools, conditional logic, long chains of reasoning, or specialized domain tasks - single-model architectures start to show limits. Multi-agent systems address this by coordinating multiple AI models, each focused on a specific part of the problem.

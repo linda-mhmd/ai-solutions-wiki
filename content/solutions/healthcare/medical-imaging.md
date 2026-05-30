@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: ["ai-ml", "advanced", "medical-imaging", "computer-vision", "healthcare", "radiology", "diagnostics"]
 industries: [healthcare]
 tools: [amazon-sagemaker, amazon-bedrock, amazon-rekognition]
+last_updated: 2026-05-30
 ---
 
 Medical imaging generates more data than radiologists and pathologists can review at current staffing levels. In many European healthcare systems, radiology reporting backlogs have reached 4-8 weeks for non-urgent studies. AI is being deployed as a clinical decision support tool - not to replace radiologists, but to help them work through higher volumes with consistent quality, and to prioritize critical findings for urgent review.

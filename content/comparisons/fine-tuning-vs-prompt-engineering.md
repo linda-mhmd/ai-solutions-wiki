@@ -2,8 +2,10 @@
 title: "Fine-Tuning vs Prompt Engineering Tradeoffs"
 description: "Comparing fine-tuning and prompt engineering for customizing LLM behavior, covering cost, quality, maintenance, and decision criteria."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [fine-tuning, prompt-engineering, LLM, customization, comparison]
+last_updated: 2026-05-30
 ---
 
 When an LLM does not produce the output you need, you have two primary levers: change what you send to the model (prompt engineering) or change the model itself (fine-tuning). Both approaches customize LLM behavior, but they differ in cost, effort, maintainability, and the types of improvements they enable.

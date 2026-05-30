@@ -8,6 +8,7 @@ related:
   - patterns/react-pattern-ai
   - patterns/agentic-workflows
   - patterns/retrieval-routing
+last_updated: 2026-05-30
 ---
 
 LLMs are stateless by default. Each API call starts fresh with no memory of previous interactions. Conversational applications need memory to maintain context within a session and across sessions. Memory patterns range from simple conversation history management to sophisticated long-term knowledge stores that make the AI feel like it knows the user.

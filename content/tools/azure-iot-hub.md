@@ -7,6 +7,7 @@ tags: [azure, iot, device-management, edge-computing, telemetry]
 related:
   - tools/aws-iot-core
   - tools/azure-event-hubs
+last_updated: 2026-05-30
 ---
 
 Azure IoT Hub is Microsoft Azure's fully managed service for connecting, monitoring, and managing IoT devices at scale. It provides secure, bidirectional communication between millions of IoT devices and cloud-based solutions using protocols including MQTT, AMQP, and HTTPS. For AI workloads, IoT Hub serves as the ingestion point for device telemetry that feeds machine learning models for predictive maintenance, anomaly detection, quality inspection, and operational optimization across manufacturing, energy, agriculture, and other industries.

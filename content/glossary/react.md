@@ -10,6 +10,7 @@ related:
   - glossary/react-router
   - glossary/typescript
   - glossary/single-page-application
+last_updated: 2026-05-30
 ---
 
 React is a declarative, component-based JavaScript library for building user interfaces. Originally developed at Facebook by Jordan Walke, React introduced the concept of a virtual DOM and a component-driven architecture that shifted frontend development away from imperative DOM manipulation toward declarative UI descriptions.

@@ -2,8 +2,10 @@
 title: "Amazon Lex vs Amazon Connect for Conversational AI"
 description: "Comparing Amazon Lex and Amazon Connect for building conversational AI experiences, covering use cases, NLU capabilities, and integration patterns."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [Amazon-Lex, Amazon-Connect, conversational-AI, chatbot, AWS, comparison]
+last_updated: 2026-05-30
 ---
 
 Amazon Lex and Amazon Connect are complementary services that often confuse teams evaluating conversational AI on AWS. Lex is a conversational AI engine for building chatbots and voice bots. Connect is a cloud contact center platform that can use Lex as its NLU layer. Understanding where each service fits is essential for the right architecture.

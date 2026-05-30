@@ -13,6 +13,7 @@ alternatives:
   aws: tools/amazon-cloudwatch
   azure: tools/azure-monitor
   gcp: tools/google-cloud-monitoring
+last_updated: 2026-05-30
 ---
 
 Prometheus is an open-source systems monitoring and alerting toolkit that has become the de facto standard for metrics collection in cloud-native environments. It features a multi-dimensional data model where time series are identified by metric name and key-value label pairs, a powerful query language called PromQL for slicing and aggregating time series data, and an autonomous architecture where each Prometheus server operates independently without relying on distributed storage or network-dependent components.

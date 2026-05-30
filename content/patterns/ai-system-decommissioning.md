@@ -8,6 +8,7 @@ related:
   - guides/ai-governance-implementation
   - patterns/model-versioning
   - frameworks/eu-ai-act-risk-framework
+last_updated: 2026-05-30
 ---
 
 Every AI system has a finite useful life. Models degrade as data distributions shift. Regulations change. Better alternatives emerge. Yet most organizations invest heavily in deploying AI systems and give almost no thought to retiring them. The decommissioning pattern provides a structured approach to sunsetting AI systems safely, preserving compliance artifacts, and avoiding disruption to dependent services.

@@ -10,6 +10,7 @@ related:
   - comparisons/aws-vs-azure-governance
   - frameworks/cloud-governance-framework
   - glossary/data-sovereignty
+last_updated: 2026-05-30
 ---
 
 Cloud governance is the set of policies, processes, organizational structures, and technical controls that an organization implements to manage its use of cloud computing services. It ensures that cloud resources are used securely, cost-effectively, and in compliance with regulatory requirements while supporting business objectives.

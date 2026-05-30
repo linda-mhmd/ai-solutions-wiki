@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: ["ai-ml", "advanced", "gis", "geospatial", "ai-architecture", "mapping", "spatial-data"]
 industries: [geospatial]
 tools: [amazon-bedrock, amazon-opensearch, amazon-lambda, amazon-s3]
+last_updated: 2026-05-30
 ---
 
 Geospatial AI combines spatial data processing with large language models to enable natural language queries over geographic information systems. Rather than requiring users to write spatial SQL or GIS software expertise, an AI layer translates natural language into spatial operations and returns answers in plain language.

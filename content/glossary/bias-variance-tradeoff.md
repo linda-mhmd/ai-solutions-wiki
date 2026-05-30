@@ -9,6 +9,7 @@ related:
   - glossary/underfitting
   - glossary/cross-validation
   - glossary/ensemble-methods
+last_updated: 2026-05-30
 ---
 
 The bias-variance tradeoff is a fundamental concept in machine learning that describes the tension between two sources of prediction error. Bias is error from oversimplified assumptions (the model misses real patterns). Variance is error from excessive sensitivity to training data fluctuations (the model learns noise). The total error is the sum of bias, variance, and irreducible noise.

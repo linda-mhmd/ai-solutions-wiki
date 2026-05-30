@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [ediscovery, litigation, data-collection, legal-tech, document-processing]
 industries: [legal]
 tools: [amazon-bedrock, amazon-textract, amazon-s3, amazon-opensearch]
+last_updated: 2026-05-30
 ---
 
 Electronic discovery (e-discovery) is the process of identifying, collecting, processing, reviewing, and producing electronically stored information (ESI) in legal proceedings. The exponential growth of digital data - email, chat messages, cloud documents, collaboration platforms - has made e-discovery one of the most expensive and complex aspects of modern litigation. AI transforms each stage of the e-discovery lifecycle, reducing costs and timelines while improving accuracy.

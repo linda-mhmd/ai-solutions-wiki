@@ -2,8 +2,10 @@
 title: "Scrum vs Kanban for Machine Learning Teams"
 description: "Comparing Scrum and Kanban frameworks for ML teams, covering ceremonies, metrics, work management, and guidance on which fits different ML work types."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [scrum, kanban, agile, machine-learning, project-management]
+last_updated: 2026-05-30
 ---
 
 Scrum and Kanban are both agile frameworks, but they manage work differently. Scrum uses time-boxed sprints with defined commitments. Kanban uses continuous flow with work-in-progress limits. For ML teams, the choice depends on the type of work and how predictable it is.

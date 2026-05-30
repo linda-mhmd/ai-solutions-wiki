@@ -4,6 +4,7 @@ description: "Practical guidance for building customer-facing AI chatbots that d
 date: 2026-03-24
 categories: [Solutions]
 tags: ["ai-agents", "intermediate", "chatbot", "customer-support", "conversational-ai", "nlp", "automation"]
+last_updated: 2026-05-30
 ---
 
 Enterprise AI chatbots have a poor reputation, mostly earned by first-generation rule-based systems that handled a narrow set of FAQ responses and responded to anything else with "I don't understand." Modern LLM-powered chatbots are a different category - they understand natural language, handle variation, and can draw on a knowledge base to answer a wide range of questions. But they still fail badly when deployed carelessly.

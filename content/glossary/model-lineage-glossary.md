@@ -10,6 +10,7 @@ related:
   - patterns/data-versioning
   - guides/ai-model-governance
   - glossary/llmops
+last_updated: 2026-05-30
 ---
 
 Model lineage (also called model provenance) is the complete record of an AI model's origins and transformations throughout its lifecycle. It tracks which data was used for training, what code and hyperparameters produced the model, which base model it was fine-tuned from, what evaluation results it achieved, and who approved it for deployment. Model lineage answers the question: "How exactly was this model created, and can we reproduce it?"

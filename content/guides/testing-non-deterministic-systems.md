@@ -9,6 +9,7 @@ related:
   - patterns/statistical-assertion
   - glossary/flaky-test
   - guides/testing-llm-applications
+last_updated: 2026-05-30
 ---
 
 The core challenge of testing AI systems is non-determinism. The same prompt sent to the same model with the same parameters can produce different outputs on different runs. Temperature, sampling, and internal model state all contribute to output variation. This does not make testing impossible. It means replacing exact-match assertions with statistical assertions that validate distributions and properties.

@@ -10,6 +10,7 @@ related:
   - tools/amazon-opensearch
   - patterns/rag-implementation
   - guides/building-rag-systems
+last_updated: 2026-05-30
 ---
 
 A vector database stores and retrieves high-dimensional vectors - numerical representations of data - using similarity search rather than exact matching. In AI applications, vectors represent the semantic meaning of text (or images, or audio) as computed by embedding models. A vector database answers the question: "what content is most similar in meaning to this query?"

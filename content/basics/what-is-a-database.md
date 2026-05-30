@@ -17,6 +17,7 @@ faqs:
     answer: "A schema is the structure of your database, what tables exist, what columns each table has, and what data types those columns hold. In a relational database, the schema is defined before you add data and enforced by the database: you cannot add a string where an integer is expected, or leave out a required field. Schema changes (migrations) require careful planning in production systems because they modify the structure of existing data."
   - question: "What is an ORM?"
     answer: "An ORM (Object-Relational Mapper) is a library that lets you interact with a database using your programming language's objects instead of writing SQL directly. Instead of `SELECT * FROM users WHERE id = 42`, you write `User.find(42)` or similar. ORMs generate the SQL for you and map rows to objects. Popular ORMs: Prisma (JavaScript/TypeScript), SQLAlchemy (Python), ActiveRecord (Ruby), Hibernate (Java). ORMs speed up development but can generate inefficient SQL for complex queries, knowing SQL remains valuable."
+last_updated: 2026-05-30
 ---
 
 {{< quickanswer >}}

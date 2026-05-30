@@ -4,6 +4,7 @@ description: "Strategies for reducing token usage without sacrificing output qua
 date: 2026-03-28
 categories: [Patterns]
 tags: [token-optimization, cost-management, prompt-engineering, performance]
+last_updated: 2026-05-30
 ---
 
 Token usage drives LLM costs directly. Every unnecessary token in your prompt or response is money spent on content that does not improve the output. Token optimization is not about being cheap - it is about being precise with what you send to the model and what you ask it to produce.

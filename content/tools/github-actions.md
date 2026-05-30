@@ -10,6 +10,7 @@ related:
   - glossary/ci-cd
   - patterns/blue-green-deployment
   - patterns/canary-deployment
+last_updated: 2026-05-30
 ---
 
 GitHub Actions is GitHub's built-in CI/CD platform. Workflows are defined as YAML files in `.github/workflows/` and triggered by repository events (push, pull request, tag, schedule). Each workflow consists of jobs, each job consists of steps, and steps run shell commands or call reusable actions from the GitHub Actions marketplace.

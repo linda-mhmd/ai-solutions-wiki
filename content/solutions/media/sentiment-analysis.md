@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [sentiment-analysis, nlp, brand-monitoring, social-media, audience-analytics]
 industries: [media, customer-support]
 tools: [amazon-comprehend, amazon-bedrock, amazon-kinesis]
+last_updated: 2026-05-30
 ---
 
 Understanding audience sentiment is critical for media organizations, brands, and public relations teams. Traditional approaches - surveys, focus groups, manual media monitoring - are slow, expensive, and sample-limited. AI sentiment analysis processes millions of text sources in real time, providing continuous visibility into how audiences, customers, and the public respond to content, products, brands, and events.

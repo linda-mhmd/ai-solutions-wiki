@@ -9,6 +9,7 @@ related:
   - glossary/multi-agent-orchestration
   - glossary/llm
   - glossary/ensemble-methods
+last_updated: 2026-05-30
 ---
 
 Mixture of Agents (MoA) is an approach where multiple large language models collaborate to produce higher-quality responses than any single model achieves alone. Rather than relying on one LLM, MoA routes a query through several models and synthesizes their outputs, leveraging the observation that LLMs can improve their responses when given other models' outputs as reference.

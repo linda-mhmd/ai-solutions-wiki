@@ -4,6 +4,7 @@ description: "Transform long-form content into multiple formats - blog posts int
 date: 2026-03-28
 categories: [Ideas]
 tags: [content-repurposing, marketing, content-strategy, automation]
+last_updated: 2026-05-30
 ---
 
 Most organizations create content once and use it once. A webinar recording sits on YouTube. A research report lives in a PDF. A conference talk exists only as slides. The same insights could reach different audiences in different formats, but repurposing takes effort nobody has time for.

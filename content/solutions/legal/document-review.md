@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [document-review, tar, ediscovery, litigation, privilege-review]
 industries: [legal]
 tools: [amazon-sagemaker, amazon-bedrock, amazon-opensearch]
+last_updated: 2026-05-30
 ---
 
 Large-scale litigation and regulatory investigations routinely involve reviewing millions of documents to identify those that are relevant, privileged, or responsive to discovery requests. Manual review at this scale costs millions and takes months. Technology-assisted review (TAR) using AI reduces review populations by 80-95% while maintaining quality that meets or exceeds manual review standards.

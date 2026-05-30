@@ -4,6 +4,7 @@ description: "Use AI to validate, correct, and complete data entry in real-time,
 date: 2026-03-28
 categories: [Ideas]
 tags: [data-quality, validation, data-entry, automation]
+last_updated: 2026-05-30
 ---
 
 Data entry errors cost organizations an estimated 15-25% of revenue through downstream effects: incorrect invoices, wrong shipments, compliance violations, and flawed analytics. Traditional validation rules catch format errors but miss semantic ones.

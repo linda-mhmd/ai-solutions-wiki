@@ -10,6 +10,7 @@ related:
   - guides/llm-evaluation-methods
   - patterns/feature-flags-ai
   - patterns/observability-ai
+last_updated: 2026-05-30
 ---
 
 A/B testing AI systems is more complex than A/B testing traditional software changes. Model improvements that look significant in offline evaluation may show no impact in production. Conversely, changes that seem marginal offline can produce meaningful business improvements. A/B testing is the only reliable way to validate AI changes in production.

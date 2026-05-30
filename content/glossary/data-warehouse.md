@@ -9,6 +9,7 @@ related:
   - glossary/lakehouse
   - glossary/etl
   - glossary/elt
+last_updated: 2026-05-30
 ---
 
 A data warehouse is a centralized repository of structured, processed data optimized for fast analytical queries. Data is transformed and loaded into a predefined schema (schema-on-write), enabling consistent, repeatable queries for business intelligence, reporting, and dashboards.

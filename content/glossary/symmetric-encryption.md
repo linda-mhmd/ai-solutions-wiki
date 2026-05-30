@@ -4,6 +4,7 @@ description: "Encryption algorithms that use the same key for both encryption an
 date: 2026-03-28
 categories: [Glossary]
 tags: [encryption, symmetric, AES, DES, cryptography, security]
+last_updated: 2026-05-30
 ---
 
 Symmetric encryption uses a single shared key for both encrypting plaintext into ciphertext and decrypting ciphertext back into plaintext. It is the fastest form of encryption and is used to protect data at rest and data in transit in virtually all modern systems.

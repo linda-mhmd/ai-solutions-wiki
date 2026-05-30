@@ -4,6 +4,7 @@ description: "A practical guide to implementing computer vision in enterprise se
 date: 2026-03-28
 categories: [Guides]
 tags: [computer-vision, image-processing, deep-learning, models, AI-development]
+last_updated: 2026-05-30
 ---
 
 Computer vision enables machines to extract meaningful information from images and video. Enterprise applications range from document processing and quality inspection to security monitoring and inventory management. This guide covers practical implementation of computer vision systems.

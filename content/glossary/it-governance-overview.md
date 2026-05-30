@@ -4,6 +4,7 @@ description: "An overview of IT governance principles and frameworks for ensurin
 date: 2026-03-28
 categories: [Glossary]
 tags: [IT-governance, COBIT, strategy, alignment, enterprise]
+last_updated: 2026-05-30
 ---
 
 IT Governance is the set of processes, structures, and mechanisms that ensure an organization's IT investments support its business objectives, manage IT-related risks, and use IT resources responsibly. It establishes accountability and decision-making authority for IT strategy, architecture, investment, and operations.

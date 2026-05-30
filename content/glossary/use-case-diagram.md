@@ -4,6 +4,7 @@ description: "A UML behavioral diagram that captures system functionality from t
 date: 2026-03-28
 categories: [Glossary]
 tags: [uml, use-case, requirements, actors, behavioral-diagrams]
+last_updated: 2026-05-30
 ---
 
 A use case diagram is a UML behavioral diagram that shows the functionality a system provides from the perspective of its users. It identifies the actors who interact with the system, the use cases (goals) they can accomplish, and the boundary of the system. Use case diagrams are primarily used during requirements analysis to capture what the system should do without specifying how it does it.

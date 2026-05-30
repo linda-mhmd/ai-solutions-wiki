@@ -4,6 +4,7 @@ description: "Definition, why it matters in AI systems, implementation patterns,
 date: 2026-03-24
 categories: [Glossary]
 tags: [glossary, governance, AI-safety]
+last_updated: 2026-05-30
 ---
 
 Human-in-the-loop (HITL) refers to system designs where a human must review and approve AI-generated outputs before consequential actions are taken. The human is in the loop - part of the decision process - rather than outside it receiving only the final outcome.

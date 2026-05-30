@@ -4,6 +4,7 @@ description: "Different scoring approaches for AI-driven prioritization - WSJF, 
 date: 2026-03-24
 categories: [Patterns]
 tags: [patterns, scoring, WSJF, prioritization]
+last_updated: 2026-05-30
 ---
 
 Prioritization is one of the highest-value applications of AI in operational contexts. When a queue contains more items than can be processed immediately, the order of processing matters. AI scoring allows that order to be determined by a consistent, auditable formula rather than whoever arrived first or whoever called the loudest.

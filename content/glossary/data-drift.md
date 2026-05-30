@@ -10,6 +10,7 @@ related:
   - glossary/training-serving-skew
   - patterns/observability-ai
   - guides/drift-detection-guide
+last_updated: 2026-05-30
 ---
 
 Data drift occurs when the statistical distribution of input data in production diverges from the distribution the model was trained on. The model's learned decision boundaries were optimized for the training distribution. When the input distribution shifts, the model may be operating in regions of the feature space where it has little training signal, leading to degraded predictions even though the underlying relationship between features and target has not changed.

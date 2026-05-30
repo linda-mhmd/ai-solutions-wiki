@@ -17,6 +17,7 @@ faqs:
     answer: "No. Developers don't memorise commands. They remember the 10-15 they use daily, and look up the rest. Tools like tldr.sh give simplified examples. explainshell.com breaks down any command you paste. AI tools like Claude can explain or generate any command. The goal is to understand what a command does when you see it, not to recall it from memory."
   - question: "Is PowerShell the same as a Linux terminal?"
     answer: "No. PowerShell uses different commands and syntax. Linux and macOS terminals use Unix-style commands (ls, cd, grep, cat). Windows PowerShell uses its own command verbs (Get-ChildItem, Set-Location). If you are on Windows and want Unix-style commands, install WSL (Windows Subsystem for Linux), it gives you a real Linux terminal inside Windows and is the standard setup for developers."
+last_updated: 2026-05-30
 ---
 
 {{< quickanswer >}}

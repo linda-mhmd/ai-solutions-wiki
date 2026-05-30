@@ -3,9 +3,16 @@ title: "For Students and Career Switchers"
 description: "Build the mental model that makes everything click. Five levels from computers to AI. No assumptions about what you already know."
 date: 2026-05-29
 tags: ["beginner", "career-change", "fundamentals", "learning"]
+last_updated: 2026-05-30
 ---
 
 ## The mental model that makes everything click.
+
+---
+
+**Related paths:** This page focuses on building a mental model of how tech concepts connect, with career-switching context and practical outcomes. If you prefer a structured, level-by-level curriculum covering the full technical stack from hardware to production AI, see [Start at Zero](/levels/) instead. Both paths are designed for beginners—choose this one if career context matters, or Start at Zero if you want a pure technical progression.
+
+---
 
 <figure class="bz-figure">
   <img src="/img/wardrobe/fitting-room-local-dev.png" alt="Man standing at an ornate mirror in a dark, well-lit fitting room, examining how pieces fit together." loading="lazy">

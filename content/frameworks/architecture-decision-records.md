@@ -8,6 +8,7 @@ related:
   - guides/software-architecture-ai
   - frameworks/software-quality-assurance
   - frameworks/agile-ai-delivery
+last_updated: 2026-05-30
 ---
 
 Architecture decisions in AI systems are harder to reverse than in traditional software. Choosing a batch inference pipeline over real-time serving, selecting a feature store, or deciding between fine-tuning and RAG all have long-lasting consequences. Architecture Decision Records (ADRs) provide a lightweight method to document these decisions so future teams understand not just what was decided, but why.

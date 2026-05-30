@@ -2,6 +2,7 @@
 title: "Datenschutzerklärung / Privacy Policy"
 description: "Privacy policy and data protection information for AI Solutions Wiki"
 layout: "single"
+last_updated: 2026-05-30
 ---
 
 ## Datenschutzerklärung

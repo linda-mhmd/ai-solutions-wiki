@@ -8,6 +8,7 @@ related:
   - glossary/repository-pattern
   - glossary/aggregate-root
   - glossary/domain-driven-design
+last_updated: 2026-05-30
 ---
 
 The unit of work pattern tracks changes to domain objects during a business operation and coordinates writing those changes to the database as a single atomic transaction. It maintains a list of objects affected by the operation (new, modified, deleted) and commits all changes together, ensuring data consistency.

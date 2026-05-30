@@ -9,6 +9,7 @@ related:
   - guides/testing-ai-systems
   - glossary/unit-testing
   - patterns/statistical-assertion
+last_updated: 2026-05-30
 ---
 
 A flaky test is a test that sometimes passes and sometimes fails without any change to the code being tested. The test result is non-deterministic: run it ten times and it might pass eight times and fail twice. Flaky tests erode trust in the test suite because developers start ignoring test failures, assuming they are flakes rather than real bugs.

@@ -8,6 +8,7 @@ sources:
     year: 2022
     publisher: "MIT Press"
     abbreviation: "CLRS"
+last_updated: 2026-05-30
 ---
 
 # Time Complexity and Big-O Notation

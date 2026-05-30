@@ -10,6 +10,7 @@ related:
   - tools/amazon-msk
   - tools/azure-managed-grafana
   - tools/grafana
+last_updated: 2026-05-30
 ---
 
 Amazon Managed Grafana is a fully managed service for the open-source Grafana visualization platform. It provides enterprise-ready Grafana workspaces with built-in authentication (AWS IAM Identity Center, SAML), automatic scaling, and native integration with AWS data sources. For AI projects, Managed Grafana serves as the operational dashboard layer for monitoring model performance, data pipeline health, and infrastructure metrics.

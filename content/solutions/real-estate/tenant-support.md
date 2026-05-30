@@ -5,6 +5,7 @@ date: 2026-03-24
 categories: [Solutions]
 tags: [real-estate, property-management, automation]
 industries: [Real Estate]
+last_updated: 2026-05-30
 ---
 
 Property managers handling dozens or hundreds of units spend a disproportionate share of their time on the operational mechanics of tenant support: receiving repair requests, triaging urgency, contacting vendors, scheduling, and communicating status back to tenants. AI automation handles this operational layer consistently without requiring the property manager's direct involvement for routine issues.

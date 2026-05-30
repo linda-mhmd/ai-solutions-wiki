@@ -4,6 +4,7 @@ description: "A UML behavioral diagram that models the states of an object and t
 date: 2026-03-28
 categories: [Glossary]
 tags: [uml, state-machine, statecharts, behavioral-diagrams, software-modeling]
+last_updated: 2026-05-30
 ---
 
 A state machine diagram is a UML behavioral diagram that models the discrete states an object can be in during its lifetime and the transitions between those states triggered by events. It captures state-dependent behavior: the same event may produce different responses depending on the object's current state. State machine diagrams are essential for modeling objects with complex lifecycle behavior.

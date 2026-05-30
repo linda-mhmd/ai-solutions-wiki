@@ -4,6 +4,7 @@ description: "Transport Layer Security and its predecessor Secure Sockets Layer,
 date: 2026-03-28
 categories: [Glossary]
 tags: [networking, tls, ssl, encryption, security, certificates]
+last_updated: 2026-05-30
 ---
 
 Transport Layer Security (TLS) is a cryptographic protocol that provides privacy, data integrity, and authentication for communication over computer networks. It is the protocol behind the padlock icon in web browsers and the "S" in HTTPS. SSL (Secure Sockets Layer) is the predecessor protocol that TLS replaced; the term "SSL" is still commonly used colloquially, but all modern implementations use TLS.

@@ -8,6 +8,7 @@ related:
   - frameworks/safe-for-ai
   - frameworks/build-measure-learn
   - frameworks/lean-startup-ai
+last_updated: 2026-05-30
 ---
 
 Agile methodologies were designed for software development where requirements can be broken into user stories and progress is measured by working software delivered each sprint. AI projects break this model in specific ways: model performance is not predictable from the backlog, data quality issues surface mid-sprint, and "done" is a probability rather than a binary state. Agile AI Delivery adapts standard Agile practices to accommodate these differences while preserving the iterative, feedback-driven philosophy that makes Agile effective.

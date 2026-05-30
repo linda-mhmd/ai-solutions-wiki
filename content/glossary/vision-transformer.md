@@ -9,6 +9,7 @@ related:
   - glossary/convolutional-neural-network
   - glossary/attention-mechanism
   - glossary/computer-vision
+last_updated: 2026-05-30
 ---
 
 A Vision Transformer (ViT) applies the transformer architecture, originally designed for text, to image recognition tasks. Instead of processing pixels through convolutional filters, ViT divides an image into fixed-size patches, linearly embeds each patch, and processes the resulting sequence with a standard transformer encoder. This approach demonstrated that pure transformer architectures can match or exceed CNN performance on image classification when trained with sufficient data.

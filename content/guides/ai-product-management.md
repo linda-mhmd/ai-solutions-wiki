@@ -4,6 +4,7 @@ description: "How product management changes for AI-powered products, covering r
 date: 2026-03-28
 categories: [Guides]
 tags: [product-management, AI-development, strategy, requirements, user-experience]
+last_updated: 2026-05-30
 ---
 
 Product management for AI products requires different skills and approaches than traditional software product management. The core challenge: you cannot guarantee what the product will do. Traditional PMs can promise specific features by specific dates. AI PMs work with probabilistic systems where "the model is correct 92% of the time" is a feature specification, and whether you can reach 95% is genuinely unknown.

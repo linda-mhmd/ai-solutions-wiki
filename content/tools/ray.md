@@ -8,6 +8,7 @@ related:
   - tools/amazon-sagemaker
   - tools/amazon-emr
   - tools/mlflow
+last_updated: 2026-05-30
 ---
 
 Ray is an open-source framework for scaling Python applications across clusters of machines. It provides a simple API for distributing any Python function across multiple CPUs and GPUs, plus specialized libraries for ML training (Ray Train), hyperparameter tuning (Ray Tune), model serving (Ray Serve), reinforcement learning (RLlib), and data processing (Ray Data). For AI projects, Ray solves the scaling problem: when a training job does not fit on one GPU, when inference needs to scale beyond one server, or when data processing exceeds single-machine capacity.

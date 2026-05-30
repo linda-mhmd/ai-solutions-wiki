@@ -9,6 +9,7 @@ related:
   - glossary/f1-score
   - glossary/roc-curve
   - glossary/supervised-learning
+last_updated: 2026-05-30
 ---
 
 Precision and recall are complementary metrics for evaluating classification models. Precision measures accuracy among positive predictions: of everything the model flagged, how much was correct? Recall measures completeness among actual positives: of everything that should have been flagged, how much did the model find?

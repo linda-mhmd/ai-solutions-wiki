@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [student-analytics, early-warning, predictive-analytics, retention, learning-analytics]
 industries: [education]
 tools: [amazon-sagemaker, amazon-quicksight, amazon-redshift]
+last_updated: 2026-05-30
 ---
 
 Student attrition is expensive for institutions and damaging for students. In European higher education, dropout rates range from 15% to 40% depending on the country and institution type. Many students who drop out show warning signs weeks or months before they disengage - declining attendance, falling grades, reduced LMS activity. AI analytics systems can detect these patterns early enough for effective intervention.

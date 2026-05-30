@@ -4,6 +4,7 @@ description: "End-to-end patterns for audio transcription at scale. Pre-processi
 date: 2026-03-28
 categories: [Patterns]
 tags: [transcription, audio, speech-to-text, pipeline, media-processing]
+last_updated: 2026-05-30
 ---
 
 Audio transcription converts speech to text, but a production transcription pipeline needs much more than a single API call. Pre-processing handles audio quality issues, diarization identifies speakers, and post-processing adds punctuation, formatting, and domain-specific corrections.

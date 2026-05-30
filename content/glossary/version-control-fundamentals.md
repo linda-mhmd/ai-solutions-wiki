@@ -9,9 +9,15 @@ related:
   - software-engineering/gitignore-patterns
   - glossary/ci-cd
   - foundations/ci-cd
+last_updated: 2026-05-30
 ---
 
 Version control (also called source control or revision control) is the practice of tracking and managing changes to files, particularly source code, over time. A version control system (VCS) records every modification, who made it, and when, enabling teams to collaborate on code, review changes, and recover previous states.
+
+<figure class="bz-figure">
+  <img src="/img/basics/diagram-version-control.png" alt="A diagram showing version control concepts: branches diverging and merging, commits as snapshots in time, and history as a navigable timeline." loading="lazy">
+  <figcaption>Version control records every change as a snapshot. Branches let teams work in parallel. Merging brings the work back together. The complete history is always available.</figcaption>
+</figure>
 
 ## Origins and History
 

@@ -8,6 +8,7 @@ related:
   - tools/pinecone
   - tools/weaviate
   - tools/langchain
+last_updated: 2026-05-30
 ---
 
 Chroma is an open-source embedding database designed for simplicity and developer experience. It runs in-process (embedded in your Python application), as a standalone server, or as a managed cloud service. Chroma's primary value is speed of development: you can have a working vector search system in under 10 lines of Python. For AI projects, Chroma is the go-to choice for prototyping RAG systems, local development, and production deployments where the dataset is moderate in size (up to low millions of documents).

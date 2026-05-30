@@ -4,6 +4,7 @@ description: "The process of creating visual representations of data structures 
 date: 2026-03-28
 categories: [Glossary]
 tags: [databases, data-modeling, schema-design, data-architecture, relational-databases]
+last_updated: 2026-05-30
 ---
 
 Data modeling is the process of defining the structure, relationships, and constraints of data within a system. It translates business requirements into a formal representation that database designers and developers use to build and maintain data stores. The process typically progresses through three levels of abstraction: conceptual, logical, and physical.

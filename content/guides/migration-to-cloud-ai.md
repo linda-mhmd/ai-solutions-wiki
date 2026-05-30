@@ -4,6 +4,7 @@ description: "A practical guide for migrating on-premise AI and ML workloads to 
 date: 2026-03-28
 categories: [Guides]
 tags: [cloud-migration, AWS, infrastructure, AI-infrastructure, MLOps]
+last_updated: 2026-05-30
 ---
 
 Migrating AI workloads to the cloud is not simply lifting VMs into EC2. AI workloads have specific requirements around GPU availability, data locality, training pipeline orchestration, and model serving that make migration planning different from typical application migrations. This guide covers the practical steps for migrating AI and ML workloads to cloud platforms.

@@ -4,6 +4,7 @@ description: "The fundamental units of execution in operating systems, covering 
 date: 2026-03-28
 categories: [Glossary]
 tags: [operating-systems, processes, threads, concurrency, context-switching, ipc]
+last_updated: 2026-05-30
 ---
 
 A process is an instance of a running program with its own address space, file descriptors, and system resources. A thread is a lightweight unit of execution within a process that shares the process's address space and resources. Understanding processes and threads is essential for building concurrent, efficient software.

@@ -9,6 +9,7 @@ related:
   - glossary/template-method-pattern
   - glossary/command-pattern
   - glossary/bridge-pattern
+last_updated: 2026-05-30
 ---
 
 The Strategy pattern is a behavioral design pattern that defines a family of algorithms, encapsulates each one in a separate class, and makes them interchangeable. It lets the algorithm vary independently from the clients that use it.

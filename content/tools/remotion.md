@@ -4,6 +4,7 @@ description: "Using Remotion to generate videos programmatically from React comp
 date: 2026-03-24
 categories: [Tools]
 tags: ["media-processing", "intermediate", "remotion", "video-generation", "react", "programmatic-video", "javascript"]
+last_updated: 2026-05-30
 ---
 
 Remotion lets you create videos using React components. Instead of editing in a timeline, you write TypeScript/JavaScript that describes what appears on screen at each frame. This approach makes video creation programmable: AI-generated content, dynamic data, and template-driven production all become straightforward.

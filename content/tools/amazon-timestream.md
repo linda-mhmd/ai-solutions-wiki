@@ -11,6 +11,7 @@ related:
   - tools/azure-data-explorer
   - tools/timescaledb
   - tools/influxdb
+last_updated: 2026-05-30
 ---
 
 Amazon Timestream is a serverless time series database designed for storing and analyzing trillions of time series events per day. It automatically manages data lifecycle, moving recent data from a high-performance memory store to a cost-optimized magnetic store based on retention policies you define. For AI projects involving IoT telemetry, operational metrics, or any time-stamped measurement data, Timestream provides fast ingestion and purpose-built query functions at a fraction of the cost of running a general-purpose database.

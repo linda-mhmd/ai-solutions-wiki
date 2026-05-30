@@ -9,6 +9,7 @@ related:
   - frameworks/maturity-model-ai
   - guides/ai-poc-to-production
   - frameworks/prosci-adkar-ai
+last_updated: 2026-05-30
 ---
 
 Boston Consulting Group's research on scaling AI across large enterprises identified a persistent pattern: organizations that succeed with AI invest fundamentally differently from those that stall after initial pilots. BCG codified this finding as the 10-20-70 rule, which states that only 10% of the effort in successful AI transformation involves algorithms and models, 20% involves data and technology infrastructure, and 70% involves business process transformation and people change management.

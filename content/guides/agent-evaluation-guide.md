@@ -9,6 +9,7 @@ related:
   - guides/model-evaluation-guide
   - guides/red-teaming-ai
   - guides/ai-observability-guide
+last_updated: 2026-05-30
 ---
 
 AI agents are harder to evaluate than simple prompt-response systems because their behavior involves multi-step planning, tool use, and state-dependent decisions. An agent might solve a problem correctly through five different tool-call sequences, or fail catastrophically by taking an irreversible action on step three of eight. Traditional evaluation metrics do not capture this complexity.

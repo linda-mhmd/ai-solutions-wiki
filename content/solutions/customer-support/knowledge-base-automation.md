@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [knowledge-base, content-management, self-service, documentation, support-automation]
 industries: [customer-support]
 tools: [amazon-bedrock, amazon-opensearch, amazon-sagemaker]
+last_updated: 2026-05-30
 ---
 
 A well-maintained knowledge base is the foundation of efficient customer support: it enables customer self-service, provides agents with consistent answers, and reduces the volume of tickets that require human intervention. But knowledge bases degrade quickly without active maintenance. AI automation addresses the full lifecycle: content creation, gap identification, search optimization, and freshness management.

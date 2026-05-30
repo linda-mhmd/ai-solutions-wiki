@@ -9,6 +9,7 @@ related:
   - glossary/llm
   - glossary/foundation-models
   - glossary/neural-network
+last_updated: 2026-05-30
 ---
 
 The transformer is a neural network architecture introduced in the 2017 paper "Attention Is All You Need" by Vaswani et al. It processes input sequences entirely through attention mechanisms, without recurrence or convolution. Virtually all modern large language models (GPT, Claude, Llama, Gemini) are built on transformer variants.

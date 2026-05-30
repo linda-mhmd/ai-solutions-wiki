@@ -9,6 +9,7 @@ related:
   - glossary/knowledge-distillation
   - glossary/inference
   - glossary/neural-network
+last_updated: 2026-05-30
 ---
 
 Pruning is a model compression technique that removes unnecessary parameters from a neural network to reduce its size and computational cost. The core insight is that trained neural networks are often over-parameterized: many weights contribute minimally to the output and can be removed (set to zero) with little impact on accuracy. Pruning can reduce model size by 50-90% while maintaining most of the original performance.

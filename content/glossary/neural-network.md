@@ -9,6 +9,7 @@ related:
   - glossary/activation-function
   - glossary/backpropagation
   - glossary/loss-function
+last_updated: 2026-05-30
 ---
 
 A neural network is a computational model inspired by biological neurons, consisting of layers of interconnected nodes (neurons) that learn to map inputs to outputs by adjusting connection weights during training. Neural networks are the foundation of modern AI, powering everything from image recognition to language models.

@@ -10,6 +10,7 @@ related:
   - glossary/llm
   - glossary/token-budget
   - patterns/model-tier-routing
+last_updated: 2026-05-30
 ---
 
 Inference-time compute refers to the strategy of using additional computational resources during model inference (prediction time) to improve the quality of outputs, rather than relying solely on capabilities learned during training. This approach has emerged as a powerful complement to training-time scaling, demonstrating that spending more compute at inference can sometimes substitute for training larger models.

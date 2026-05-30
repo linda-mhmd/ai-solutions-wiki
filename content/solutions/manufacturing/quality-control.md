@@ -4,6 +4,7 @@ description: "How computer vision AI enables automated visual inspection in manu
 date: 2026-03-24
 categories: [Solutions]
 tags: ["ai-ml", "advanced", "quality-control", "computer-vision", "manufacturing", "defect-detection", "automation"]
+last_updated: 2026-05-30
 ---
 
 Visual inspection is one of the highest-volume, most repetitive tasks in manufacturing quality control. Human inspectors examining parts, assemblies, or finished products for defects are the norm across industries from electronics to food production. AI-powered computer vision automates this inspection with higher consistency and the ability to operate at line speed.

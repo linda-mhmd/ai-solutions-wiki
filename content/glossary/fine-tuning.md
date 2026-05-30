@@ -10,9 +10,15 @@ related:
   - comparisons/rag-vs-fine-tuning
   - tools/amazon-sagemaker
   - tools/amazon-bedrock
+last_updated: 2026-05-30
 ---
 
 When an LLM does not perform well enough out of the box for your specific use case, you have three main options: change how you ask (prompt engineering), give it relevant information at query time (RAG), or change the model itself (fine-tuning). Understanding when each approach is appropriate is one of the most important decisions in AI system design.
+
+<figure class="bz-figure">
+  <img src="/img/craft/polaroid-experiments-three-approaches-text.png" alt="Three polaroid photographs showing different experimental approaches: prompt engineering, RAG, and fine-tuning as distinct paths to model customization." loading="lazy">
+  <figcaption>Three approaches, three trade-offs. Prompt engineering is fast and cheap. RAG adds knowledge without retraining. Fine-tuning changes the model itself. Most projects should try them in that order.</figcaption>
+</figure>
 
 ## Prompt Engineering
 

@@ -11,6 +11,7 @@ related:
   - frameworks/responsible-ai-framework
   - patterns/ai-governance
   - guides/responsible-ai-guide
+last_updated: 2026-05-30
 ---
 
 Responsible AI is the practice of designing, developing, deploying, and operating AI systems in ways that are fair, transparent, accountable, safe, and aligned with human values. It encompasses technical practices, organizational processes, and governance frameworks that ensure AI systems benefit their intended users while minimizing harm to individuals and society.

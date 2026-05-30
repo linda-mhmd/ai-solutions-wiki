@@ -4,6 +4,7 @@ description: "A survey of essential network protocols beyond TCP, UDP, and HTTP,
 date: 2026-03-28
 categories: [Glossary]
 tags: [networking, protocols, arp, icmp, dhcp, ftp, smtp, ssh]
+last_updated: 2026-05-30
 ---
 
 Network protocols are standardized sets of rules that govern how devices communicate over a network. Beyond the major protocols like TCP, UDP, and HTTP, a collection of supporting protocols handles address resolution, network diagnostics, automatic configuration, file transfer, email delivery, and secure remote access.

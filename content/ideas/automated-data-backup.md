@@ -4,6 +4,7 @@ description: "Use AI to analyze data access patterns and business criticality to
 date: 2026-03-28
 categories: [Ideas]
 tags: [data-management, backup, infrastructure, optimization, automation]
+last_updated: 2026-05-30
 ---
 
 Most backup strategies treat all data equally: everything gets backed up on the same schedule with the same retention period. This wastes storage on rarely accessed data while potentially under-protecting critical, frequently changing datasets.

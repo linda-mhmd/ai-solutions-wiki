@@ -9,6 +9,7 @@ related:
   - glossary/serverless
   - glossary/service-mesh
   - glossary/api
+last_updated: 2026-05-30
 ---
 
 An API gateway is a service that sits between clients and backend services, acting as a single entry point for all API requests. It handles cross-cutting concerns - authentication, rate limiting, request routing, response transformation, and monitoring - so individual services do not have to implement these independently.

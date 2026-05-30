@@ -4,6 +4,7 @@ description: "The four-layer Internet protocol suite that defines how data is tr
 date: 2026-03-28
 categories: [Glossary]
 tags: [networking, tcp-ip, protocols, internet, network-architecture]
+last_updated: 2026-05-30
 ---
 
 The TCP/IP model (also called the Internet protocol suite) is a four-layer framework that defines how data is packaged, addressed, transmitted, and received across interconnected networks. Unlike the OSI model, which is a theoretical reference framework, TCP/IP is the actual protocol architecture that powers the Internet.

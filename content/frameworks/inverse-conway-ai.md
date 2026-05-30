@@ -8,6 +8,7 @@ related:
   - frameworks/team-topologies-ai
   - frameworks/safe-for-ai
   - frameworks/wardley-mapping-ai
+last_updated: 2026-05-30
 ---
 
 Conway's Law states that organizations design systems that mirror their communication structures. If three teams build a compiler, you get a three-pass compiler. The Inverse Conway Maneuver deliberately designs the team structure to produce the desired system architecture. For AI organizations, this means structuring teams so that the AI systems they build have the right boundaries, interfaces, and ownership patterns rather than reflecting organizational accidents.

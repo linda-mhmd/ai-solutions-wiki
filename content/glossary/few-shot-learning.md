@@ -9,6 +9,7 @@ related:
   - glossary/transfer-learning
   - glossary/prompt-engineering
   - glossary/llm
+last_updated: 2026-05-30
 ---
 
 Few-shot learning is the ability of a model to perform a new task after seeing only a small number of examples (typically 2-10). In the context of large language models, few-shot learning usually means including a few input-output examples in the prompt to demonstrate the desired behavior.

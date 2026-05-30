@@ -9,6 +9,7 @@ related:
   - glossary/synthetic-data
   - guides/model-evaluation-guide
   - guides/ai-data-strategy
+last_updated: 2026-05-30
 ---
 
 The quality of your ML model is bounded by the quality of your training labels. Noisy, inconsistent, or biased labels produce models that learn the wrong patterns. Data labeling is not a task to outsource and forget. It requires careful design, ongoing quality management, and tight feedback loops between annotators and model developers.

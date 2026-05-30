@@ -4,6 +4,7 @@ description: "AI analyzes sprint metrics, commit history, and team feedback to g
 date: 2026-03-28
 categories: [Ideas]
 tags: [agile, retrospective, team-productivity, automation, daily-ai-spark]
+last_updated: 2026-05-30
 ---
 
 Sprint retrospectives often recycle the same themes because teams lack visibility into patterns across multiple sprints. "We over-committed again" is hard to act on when nobody tracks how much over-commitment happened or which types of stories are consistently underestimated.

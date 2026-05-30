@@ -8,6 +8,7 @@ related:
   - frameworks/shift-left-testing
   - frameworks/software-requirements-engineering
   - guides/code-review-ai-projects
+last_updated: 2026-05-30
 ---
 
 Quality assurance for AI/ML projects requires a broader definition of quality than traditional software QA. Software QA asks "does it do what we specified?" AI QA asks that question plus "does the model perform well enough, on the right data, without bias, and does it continue to perform well over time?" This framework covers quality planning, metrics selection, and quality gates for AI/ML projects.

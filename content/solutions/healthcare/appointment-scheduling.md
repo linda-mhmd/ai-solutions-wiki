@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [appointment-scheduling, healthcare-operations, no-show-prediction, resource-optimization, patient-access]
 industries: [healthcare]
 tools: [amazon-sagemaker, amazon-bedrock, amazon-dynamodb]
+last_updated: 2026-05-30
 ---
 
 Healthcare scheduling is a complex optimization problem: matching patient demand to provider capacity while accounting for appointment types, provider specialties, equipment requirements, patient preferences, and urgency levels. Poor scheduling leads to provider idle time (unfilled slots), patient access delays (long wait times for appointments), and no-shows (wasted capacity). AI scheduling optimizes all three dimensions simultaneously.

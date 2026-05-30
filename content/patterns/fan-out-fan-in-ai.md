@@ -10,6 +10,7 @@ related:
   - patterns/model-ensemble
   - patterns/summarization-chain
   - patterns/cost-optimization
+last_updated: 2026-05-30
 ---
 
 Sequential LLM calls are slow. When a task can be decomposed into independent subtasks, running them in parallel dramatically reduces end-to-end latency. The fan-out/fan-in pattern splits a workload into parallel branches (fan-out), processes each branch concurrently, and combines the results (fan-in).

@@ -8,6 +8,7 @@ related:
   - guides/ai-product-management
   - guides/ai-monetization-strategies
   - guides/ai-user-research
+last_updated: 2026-05-30
 ---
 
 Launching an AI product differs from launching traditional software because user expectations must be carefully managed. Users expect software to work correctly every time. AI products make mistakes, and the launch strategy must position this reality as acceptable while still demonstrating clear value. This guide covers the go-to-market playbook for AI products.

@@ -5,6 +5,7 @@ date: 2026-03-24
 categories: [Patterns]
 tags: ["ai-ml", "intermediate", "context-window", "prompt-management", "llm", "chunking", "memory"]
 tools: [amazon-bedrock]
+last_updated: 2026-05-30
 ---
 
 Every language model has a context window - the maximum amount of text it can process in a single call. Claude 3.5 Sonnet supports 200,000 tokens; GPT-4o supports 128,000. These are large, but real-world applications regularly exceed them: long documents, extended conversations, large codebases, multi-document research. Context window management is the set of patterns for handling content that does not fit.

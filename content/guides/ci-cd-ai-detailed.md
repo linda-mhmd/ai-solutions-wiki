@@ -11,6 +11,7 @@ related:
   - patterns/canary-deployment
   - tools/github-actions
   - patterns/model-versioning
+last_updated: 2026-05-30
 ---
 
 Continuous integration and continuous deployment (CI/CD) for AI projects extends the standard software pipeline with model-specific stages: model evaluation, artifact versioning, and drift detection. A team that skips these stages ships model updates without knowing whether the new version is better than the old one. This article describes a complete CI/CD pipeline for an AI project, covering each stage with concrete examples.

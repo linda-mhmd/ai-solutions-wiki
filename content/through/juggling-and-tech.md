@@ -4,6 +4,7 @@ description: "The cascade as a distributed system. Props as AI agent types. Drop
 date: 2026-05-30
 categories: [Through]
 tags: ["beginner", "metaphor", "distributed-systems", "cloud", "ai-agents", "incident-response"]
+last_updated: 2026-05-30
 ---
 
 <figure class="bz-figure">

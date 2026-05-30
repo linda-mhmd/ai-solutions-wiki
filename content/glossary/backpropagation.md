@@ -9,6 +9,7 @@ related:
   - glossary/loss-function
   - glossary/neural-network
   - glossary/deep-learning
+last_updated: 2026-05-30
 ---
 
 Backpropagation (short for "backward propagation of errors") is the algorithm that computes how much each weight in a neural network contributed to the prediction error. It calculates the gradient of the loss function with respect to every weight by applying the chain rule of calculus, layer by layer, from the output back to the input.

@@ -17,6 +17,7 @@ faqs:
     answer: "HTTPS uses TLS (Transport Layer Security) to encrypt the connection between your browser and the server. Without it, anyone on the same network, a coffee shop Wi-Fi, your ISP, could read the data in transit. HTTPS means: the site is who it claims to be (certificate verification) and the data cannot be read by anyone intercepting the connection. All sites handling passwords, payments, or personal data must use HTTPS."
   - question: "What happens when I type a URL into my browser?"
     answer: "1. Your browser asks a DNS resolver to look up the IP address for the domain. 2. The resolver checks caches and queries root/authoritative DNS servers if needed. 3. Your browser connects to that IP address using TCP, then sends an HTTP request. 4. The server processes the request and sends back an HTTP response containing the HTML. 5. Your browser parses the HTML, fetches linked CSS and JavaScript, and renders the page."
+last_updated: 2026-05-30
 ---
 
 {{< quickanswer >}}

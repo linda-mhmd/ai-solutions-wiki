@@ -4,6 +4,7 @@ description: "The mathematical foundation of digital logic, from George Boole's 
 date: 2026-03-28
 categories: [Glossary]
 tags: [boolean-algebra, logic-gates, digital-logic, hardware, computer-science]
+last_updated: 2026-05-30
 ---
 
 Boolean algebra is a branch of algebra that operates on binary values (true/false, 1/0) using logical operations (AND, OR, NOT). Logic gates are physical or electronic implementations of Boolean functions that form the building blocks of all digital circuits and computer hardware.

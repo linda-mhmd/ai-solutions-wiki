@@ -10,6 +10,7 @@ related:
   - guides/ai-security-best-practices
   - patterns/prompt-injection-defense
   - patterns/guardrails-pattern
+last_updated: 2026-05-30
 ---
 
 The OWASP Top 10 for LLM Applications identifies the most critical security risks in applications built on large language models. This guide summarizes each vulnerability and provides practical mitigation strategies.

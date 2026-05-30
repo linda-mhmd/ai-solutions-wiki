@@ -8,6 +8,7 @@ related:
   - guides/programming-languages-for-ai
   - tools/crewai
   - glossary/data-structures
+last_updated: 2026-05-30
 ---
 
 Object-oriented programming organizes code around objects - self-contained units that bundle data (attributes) and behavior (methods). It is the dominant paradigm in Python, Java, TypeScript, and most languages used for AI development today.

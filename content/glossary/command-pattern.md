@@ -9,6 +9,7 @@ related:
   - glossary/chain-of-responsibility-pattern
   - glossary/strategy-pattern
   - glossary/observer-pattern
+last_updated: 2026-05-30
 ---
 
 The Command pattern is a behavioral design pattern that encapsulates a request as an object, thereby allowing you to parameterize clients with different requests, queue or log requests, and support undoable operations.

@@ -8,6 +8,7 @@ related:
   - tools/azure-openai
   - tools/amazon-bedrock
   - tools/langchain
+last_updated: 2026-05-30
 ---
 
 The OpenAI API provides programmatic access to GPT-4, GPT-4o, GPT-3.5-turbo, DALL-E, Whisper, and embedding models. It is the most widely used LLM API and has become the de facto standard that other providers emulate. For enterprise AI projects, the OpenAI API is often the first integration point for proof-of-concept work, though production deployments may migrate to Azure OpenAI or Amazon Bedrock for compliance and enterprise support reasons.
@@ -57,3 +58,10 @@ OpenAI's standard API processes data on OpenAI infrastructure, which may not mee
 ## Pricing
 
 OpenAI charges per token (input and output separately). GPT-4o is significantly more expensive than GPT-4o-mini, which in turn is more expensive than GPT-3.5-turbo. Embedding models charge per token. Estimate costs by measuring average token counts for your use case and multiplying by the per-token rate. For cost optimization, use the cheapest model that meets quality requirements and leverage caching for repeated queries.
+
+## Sources and Further Reading
+
+- [OpenAI API Documentation](https://platform.openai.com/docs) - Official API reference, guides, and best practices
+- [OpenAI Models Overview](https://platform.openai.com/docs/models) - Current model specifications, capabilities, and pricing
+- [OpenAI Cookbook](https://cookbook.openai.com/) - Practical examples and code patterns for common use cases
+- [OpenAI API Pricing](https://openai.com/pricing) - Current pricing for all models and services

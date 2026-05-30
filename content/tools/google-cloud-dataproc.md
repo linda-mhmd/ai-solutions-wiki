@@ -9,6 +9,7 @@ related:
   - tools/google-bigquery
   - tools/google-cloud-dataflow
   - tools/google-vertex-ai
+last_updated: 2026-05-30
 ---
 
 Google Cloud Dataproc is a fully managed service for running Apache Spark, Hadoop, Flink, Hive, Pig, and Presto workloads. It provisions clusters in 90 seconds or less, integrates natively with other GCP services, and supports per-second billing, making it cost-effective for ephemeral workloads that spin up, process data, and shut down. Dataproc handles cluster lifecycle management, patching, and configuration while providing full access to the underlying open-source ecosystem.

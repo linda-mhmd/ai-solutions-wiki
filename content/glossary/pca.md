@@ -8,6 +8,7 @@ related:
   - glossary/dimensionality-reduction
   - glossary/unsupervised-learning
   - glossary/clustering
+last_updated: 2026-05-30
 ---
 
 Principal Component Analysis (PCA) is a linear dimensionality reduction technique that transforms data into a new coordinate system where the axes (principal components) are ordered by the amount of variance they capture. The first principal component captures the most variance, the second captures the next most (orthogonal to the first), and so on. By keeping only the top-K components, you reduce dimensionality while retaining most of the data's information.

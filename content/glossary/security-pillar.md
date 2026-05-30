@@ -8,6 +8,7 @@ related:
   - frameworks/well-architected-framework
   - frameworks/well-architected-ai-ml-lens
   - glossary/reliability-pillar
+last_updated: 2026-05-30
 ---
 
 Security is one of the six pillars of the AWS Well-Architected Framework. It covers the ability to protect data, systems, and assets while delivering business value. The security pillar recognizes that security must be designed into a workload from the beginning, not added after the fact. Retroactive security is consistently more expensive and less effective than security by design.

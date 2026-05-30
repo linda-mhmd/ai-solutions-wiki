@@ -18,6 +18,7 @@ solutions:
   - solutions/finance/document-processing
   - solutions/finance/customer-onboarding
   - solutions/finance/regulatory-reporting
+last_updated: 2026-05-30
 ---
 
 Amazon Textract is AWS's managed OCR and document analysis service. Unlike basic OCR tools that return raw text, Textract understands document structure: it identifies tables, forms, key-value pairs, and reading order. This structural understanding is what makes it useful for downstream processing, where you need extracted text that makes sense, not just a stream of characters.

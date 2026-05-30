@@ -11,9 +11,15 @@ related:
   - tools/strands-agents
   - tools/crewai
   - guides/multi-agent-systems-101
+last_updated: 2026-05-30
 ---
 
 Agentic AI refers to AI systems that can pursue goals autonomously - taking sequences of actions, using tools, and adapting based on intermediate results - rather than responding to individual queries. The distinction between "agentic" and "assistive" AI is not binary; it is a spectrum based on the degree of autonomy and the length of the action sequence the system can execute independently.
+
+<figure class="bz-figure">
+<img src="/img/craft/architect-machine-human-intent-text.png" alt="An architect working alongside a machine, illustrating the collaboration between human intent and AI execution in agentic systems where humans define goals and AI determines the steps to achieve them." loading="lazy">
+<figcaption>Agentic AI shifts the human role from directing every step to defining goals and constraints. The AI determines how to achieve the objective, using tools and adapting based on results.</figcaption>
+</figure>
 
 ## What Makes AI Agentic
 

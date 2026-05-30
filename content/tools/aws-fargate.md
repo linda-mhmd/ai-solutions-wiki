@@ -7,6 +7,7 @@ tags: [aws-fargate, AWS, containers, serverless, ecs, eks]
 related:
   - tools/google-cloud-run
   - comparisons/lambda-vs-fargate-ai
+last_updated: 2026-05-30
 ---
 
 AWS Fargate is a serverless compute engine for containers that works with both Amazon ECS (Elastic Container Service) and Amazon EKS (Elastic Kubernetes Service). With Fargate, you define your container image, CPU, memory, and networking requirements, and AWS handles provisioning, scaling, and managing the underlying server infrastructure. There are no EC2 instances to patch, scale, or secure. For AI workloads, Fargate is well-suited to running inference endpoints, data processing containers, and API services where you want container flexibility without cluster management overhead.

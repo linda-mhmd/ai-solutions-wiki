@@ -4,6 +4,7 @@ description: "An algorithmic paradigm that recursively breaks a problem into sma
 date: 2026-03-28
 categories: [Glossary]
 tags: [divide-and-conquer, algorithms, recursion, sorting, merge-sort]
+last_updated: 2026-05-30
 ---
 
 Divide and conquer is an algorithmic paradigm that solves a problem by recursively dividing it into two or more smaller subproblems of the same type, solving each subproblem independently, and combining the results to produce the final solution. It is one of the most fundamental algorithm design strategies.

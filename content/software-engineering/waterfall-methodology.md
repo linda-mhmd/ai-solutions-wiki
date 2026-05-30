@@ -7,9 +7,15 @@ categories: ["Software Engineering"]
 related:
   - software-engineering/agile-manifesto
   - software-engineering/scrum-framework
+last_updated: 2026-05-30
 ---
 
 Waterfall is the oldest formal software development lifecycle (SDLC) model still in active use. It organises a project into a fixed sequence of phases - each one completed before the next begins - producing a fully specified, fully documented system before any integration or delivery occurs. The model is frequently cited as the antithesis of Agile, but the historical record is more nuanced than that framing suggests.
+
+<figure class="bz-figure">
+<img src="/img/craft/waterfall-fountain-vs-agile-pottery-text.png" alt="Split image comparing waterfall methodology (represented by a formal fountain with water flowing in one direction) to agile methodology (represented by hands shaping clay on a pottery wheel), illustrating the contrast between rigid sequential processes and iterative development." loading="lazy">
+<figcaption>Waterfall's sequential phase model contrasts sharply with iterative approaches. Each phase must complete before the next begins, creating clear documentation but limiting flexibility to respond to change.</figcaption>
+</figure>
 
 ## The Royce Paper and What It Actually Said
 

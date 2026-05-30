@@ -8,6 +8,7 @@ related:
   - tools/amazon-quicksight
   - tools/apache-superset
   - tools/grafana
+last_updated: 2026-05-30
 ---
 
 Metabase is an open-source business intelligence and analytics tool designed to make data accessible to everyone in an organization, regardless of technical skill. Its hallmark feature is a visual query builder that allows users to explore data, create charts, and build dashboards without writing any SQL. For more advanced users, Metabase also supports native SQL queries with variable parameters and the ability to embed results in dashboards.

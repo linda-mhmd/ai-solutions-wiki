@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [credit-scoring, lending, risk-modeling, explainability, financial-services]
 industries: [finance]
 tools: [amazon-sagemaker, amazon-bedrock, amazon-redshift]
+last_updated: 2026-05-30
 ---
 
 Credit scoring determines who receives credit and at what price. Traditional scorecards use logistic regression on a limited set of features (payment history, outstanding debt, credit history length, credit utilization). While interpretable, these models leave predictive power on the table. AI credit scoring models capture non-linear relationships and interactions that improve default prediction by 15-25% while maintaining the explainability required by financial regulators.

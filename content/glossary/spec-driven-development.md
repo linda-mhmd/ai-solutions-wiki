@@ -7,6 +7,7 @@ tags: [spec-driven-development, kiro, specifications, requirements, formal-metho
 related:
   - glossary/ai-agents
   - glossary/agentic-ai
+last_updated: 2026-05-30
 ---
 
 Spec-driven development is a software development pattern in which structured specifications are written and validated before any implementation code is produced. The specifications define what needs to be built (requirements), how it will be built (design), and the ordered steps to build it (tasks). This pattern has historical roots in formal methods and has been given a modern, AI-native formalization by Kiro, an agentic AI IDE from AWS that generates and enforces a three-document specification workflow.

@@ -10,6 +10,7 @@ related:
   - guides/ci-cd-ai-detailed
   - tools/amazon-lambda
   - patterns/model-versioning
+last_updated: 2026-05-30
 ---
 
 Blue-green deployment is a release technique that reduces downtime and deployment risk by running two identical production environments - one live (blue), one idle (green) - and switching traffic between them when a new version is ready. For AI services, blue-green deployment solves a specific problem: model updates that change output behaviour in ways that unit tests cannot fully predict.

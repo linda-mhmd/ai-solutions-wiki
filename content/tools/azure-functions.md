@@ -7,6 +7,7 @@ tags: [azure, serverless, compute, event-driven]
 related:
   - tools/aws-lambda
   - tools/azure-openai
+last_updated: 2026-05-30
 ---
 
 Azure Functions is Microsoft Azure's serverless compute service that lets developers run event-triggered code without provisioning or managing servers. In AI solution architectures, Functions serves as the glue layer that connects data ingestion, model invocation, and result delivery. When a new document lands in Blob Storage, a message arrives in a Service Bus queue, or an HTTP request hits an endpoint, Azure Functions executes the processing logic, calls Azure AI services, and routes the results downstream.

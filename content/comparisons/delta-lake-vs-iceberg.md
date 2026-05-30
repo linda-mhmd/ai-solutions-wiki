@@ -2,8 +2,10 @@
 title: "Delta Lake vs Apache Iceberg for Lakehouse Architecture"
 description: "Comparing Delta Lake and Apache Iceberg as open table formats for lakehouse architectures supporting AI/ML workloads."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [Delta-Lake, Iceberg, lakehouse, data-engineering, storage]
+last_updated: 2026-05-30
 ---
 
 Open table formats bring database-like capabilities (ACID transactions, schema evolution, time travel) to data lake storage. Delta Lake and Apache Iceberg are the two leading formats, and the choice affects ML data pipelines, feature engineering, and training data management. This comparison covers the differences relevant to AI/ML teams building lakehouse architectures.

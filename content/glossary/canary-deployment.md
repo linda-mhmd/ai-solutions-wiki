@@ -10,6 +10,7 @@ related:
   - guides/ci-cd-ai-detailed
   - tools/amazon-lambda
   - glossary/observability
+last_updated: 2026-05-30
 ---
 
 Canary deployment is a release technique that gradually shifts production traffic from an existing version to a new version, monitoring for regressions at each stage before proceeding to the next. The name refers to the historical practice of using canaries in coal mines as early warning systems: a small percentage of users (the "canary") encounters the new version first, and problems surface before the full user base is affected.

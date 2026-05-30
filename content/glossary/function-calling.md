@@ -12,6 +12,7 @@ related:
   - glossary/structured-output
   - glossary/llm
   - glossary/prompt-engineering
+last_updated: 2026-05-30
 ---
 
 Function calling is the mechanism by which a large language model emits a structured request to invoke a named function with typed arguments, rather than emitting free-form text. The model is supplied with a schema describing each available function (name, description, JSON Schema for arguments). At inference time the model decides whether to answer in natural language or to emit a function-call object that the runtime parses, executes, and returns to the model for a second pass. Function calling underpins most production agent and tool-use systems built on top of foundation models.

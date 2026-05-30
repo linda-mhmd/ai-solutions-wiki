@@ -8,6 +8,7 @@ related:
   - guides/grpc-ai-services
   - glossary/openapi
   - patterns/microservices-for-ai
+last_updated: 2026-05-30
 ---
 
 gRPC is a high-performance, open-source remote procedure call (RPC) framework originally developed by Google. It uses HTTP/2 for transport, Protocol Buffers (protobuf) for serialisation, and provides features like bidirectional streaming, flow control, and deadline propagation out of the box.

@@ -8,6 +8,7 @@ related:
   - tools/pinecone
   - tools/amazon-bedrock
   - tools/amazon-redshift
+last_updated: 2026-05-30
 ---
 
 pgvector is an open-source PostgreSQL extension that adds vector data types and similarity search operators to PostgreSQL. Instead of running a separate vector database alongside your relational database, pgvector lets you store embeddings in the same database as your application data. For AI projects, pgvector is the pragmatic choice when your team already runs PostgreSQL, your vector search needs are moderate in scale, and you want to avoid the operational complexity of maintaining a separate vector database.
@@ -71,3 +72,10 @@ Bedrock Knowledge Bases supports Aurora PostgreSQL with pgvector as a vector sto
 ## Pricing
 
 pgvector is free and open-source (PostgreSQL license). Costs are limited to the underlying PostgreSQL infrastructure. On RDS or Aurora, this is the standard instance and storage pricing with no premium for the pgvector extension.
+
+## Sources and Further Reading
+
+- [pgvector GitHub Repository](https://github.com/pgvector/pgvector) - Official documentation, installation instructions, and usage examples
+- [PostgreSQL Documentation](https://www.postgresql.org/docs/) - Core PostgreSQL documentation for understanding the underlying database
+- [AWS RDS for PostgreSQL with pgvector](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.Concepts.html) - AWS documentation on using pgvector with managed PostgreSQL
+- [Supabase Vector Documentation](https://supabase.com/docs/guides/ai/vector-columns) - Practical guide to using pgvector in Supabase environments

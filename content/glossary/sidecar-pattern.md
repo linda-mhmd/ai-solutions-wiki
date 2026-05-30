@@ -8,6 +8,7 @@ related:
   - glossary/service-mesh
   - glossary/kubernetes
   - glossary/docker
+last_updated: 2026-05-30
 ---
 
 The sidecar pattern deploys a helper container alongside your primary application container within the same pod, task, or host. The sidecar shares the same lifecycle, network, and storage as the primary container, extending its functionality without modifying its code. The name comes from the sidecar attached to a motorcycle - it travels with the main vehicle and extends its capacity.

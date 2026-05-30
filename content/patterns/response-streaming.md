@@ -4,6 +4,7 @@ description: "Implementing streaming responses from LLMs for improved perceived 
 date: 2026-03-28
 categories: [Patterns]
 tags: [streaming, latency, user-experience, architecture, real-time]
+last_updated: 2026-05-30
 ---
 
 LLM responses take seconds to generate fully, but they are produced token by token. Streaming sends tokens to the user as they are generated rather than waiting for the complete response. This dramatically improves perceived latency - the user sees content appear within milliseconds instead of waiting seconds for a complete response.

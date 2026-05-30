@@ -4,6 +4,7 @@ description: "Core concepts of software testing including testing levels, techni
 date: 2026-03-28
 categories: [Glossary]
 tags: [testing, software-quality, unit-testing, integration-testing, QA]
+last_updated: 2026-05-30
 ---
 
 Software testing is the process of evaluating a software system to detect differences between expected and actual behavior. It encompasses techniques for verifying that software meets its requirements (verification) and validates that it satisfies user needs (validation).

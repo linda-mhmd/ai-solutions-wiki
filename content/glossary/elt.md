@@ -9,6 +9,7 @@ related:
   - glossary/data-warehouse
   - glossary/data-lake
   - glossary/lakehouse
+last_updated: 2026-05-30
 ---
 
 ELT (Extract, Load, Transform) is a data integration pattern that reverses the traditional ETL order: raw data is extracted from sources and loaded directly into the target system, then transformed within the target using its native compute capabilities. The transformation happens inside the data warehouse or lake rather than in a separate processing layer.

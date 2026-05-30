@@ -2,9 +2,11 @@
 title: "Custom ML Models vs Foundation Models - When to Build vs Buy"
 description: "SageMaker custom training vs Bedrock foundation models. Data requirements, cost, accuracy trade-offs, and maintenance burden."
 date: 2026-03-24
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: ["ai-ml", "intermediate", "custom-ml", "foundation-models", "comparison", "build-vs-buy", "llm"]
 tools: [amazon-sagemaker, amazon-bedrock]
+last_updated: 2026-05-30
 ---
 
 The most common strategic question in AI projects is whether to build a custom model or use a foundation model. The framing has evolved: it used to be "build vs. buy a pre-trained model"; it is now "fine-tune a custom model vs. use a large foundation model with prompting." The right answer depends on your data situation, volume, accuracy requirements, and team capability.

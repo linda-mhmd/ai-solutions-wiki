@@ -4,6 +4,7 @@ description: "Binary, hexadecimal, and character encoding systems (ASCII, Unicod
 date: 2026-03-28
 categories: [Glossary]
 tags: [number-systems, binary, hexadecimal, ASCII, Unicode, encoding]
+last_updated: 2026-05-30
 ---
 
 Number systems and encoding schemes define how computers represent numeric values and text characters internally. Understanding these representations is fundamental to computing, from low-level hardware design to high-level application development.

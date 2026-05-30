@@ -4,6 +4,7 @@ description: "How to build voice-enabled AI applications, covering speech-to-tex
 date: 2026-03-28
 categories: [Guides]
 tags: [voice-AI, speech, NLP, conversational-AI, AI-development]
+last_updated: 2026-05-30
 ---
 
 Voice AI adds a natural language interface to applications through speech recognition (speech-to-text), speech synthesis (text-to-speech), and conversational understanding. Building voice AI involves coordinating multiple components with strict latency requirements - users expect voice interactions to feel conversational, which means end-to-end latency under two seconds.

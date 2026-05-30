@@ -5,6 +5,7 @@ date: 2026-03-28
 categories: [Guides]
 tags: [cost-management, finops, governance, budgeting]
 related: [guides/llm-cost-optimization, guides/cost-estimation-aws-ai, patterns/cost-optimization]
+last_updated: 2026-05-30
 ---
 
 AI workloads create cost attribution challenges that traditional IT chargeback models were never designed to handle. A single GPU instance may serve multiple teams. Token consumption varies wildly by prompt design. Training jobs consume massive burst compute that distorts monthly budgets. Without deliberate cost accounting, AI spend becomes an opaque line item that no one owns and everyone resents.

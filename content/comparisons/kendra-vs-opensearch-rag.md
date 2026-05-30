@@ -2,8 +2,10 @@
 title: "Amazon Kendra vs OpenSearch for RAG Retrieval"
 description: "Comparing Amazon Kendra and OpenSearch as the retrieval layer for RAG architectures, covering relevance, connectors, and cost."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [Kendra, OpenSearch, RAG, retrieval, AWS, comparison]
+last_updated: 2026-05-30
 ---
 
 RAG architectures need a retrieval layer that finds relevant documents to ground LLM responses. On AWS, the two primary options are Amazon Kendra (an intelligent search service) and OpenSearch (a search and analytics engine with vector capabilities). They approach retrieval differently and suit different use cases.

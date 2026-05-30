@@ -9,6 +9,7 @@ related:
   - glossary/embeddings
   - patterns/rag-implementation
   - patterns/embedding-pipeline
+last_updated: 2026-05-30
 ---
 
 Vector search systems underpin RAG applications, semantic search, and recommendation engines. The vector index that powers these systems is not a static artifact. Documents are added, updated, and deleted. Embedding models are upgraded. Index parameters need tuning as the corpus grows. Vector index management treats the index as a production artifact with its own lifecycle, versioning, and operational practices.

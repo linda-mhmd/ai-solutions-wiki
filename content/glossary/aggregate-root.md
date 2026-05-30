@@ -8,6 +8,7 @@ related:
   - glossary/domain-driven-design
   - glossary/bounded-context
   - glossary/repository-pattern
+last_updated: 2026-05-30
 ---
 
 An aggregate is a cluster of domain objects treated as a single unit for data changes, and the aggregate root is the single entity through which all external access to the aggregate occurs. Outside objects can only reference the root, and all modifications to the aggregate's internal objects must go through the root, which enforces business invariants and consistency rules.

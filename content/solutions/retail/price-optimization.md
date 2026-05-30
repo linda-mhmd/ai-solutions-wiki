@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [pricing, dynamic-pricing, optimization, demand-elasticity, markdown]
 industries: [retail]
 tools: [amazon-sagemaker, amazon-redshift, aws-lambda]
+last_updated: 2026-05-30
 ---
 
 Pricing is the most powerful lever for retail profitability. A 1% improvement in price realization typically has 3-4x the profit impact of a 1% improvement in volume. Yet most retailers set prices using simple rules - cost-plus margins, competitive matching, or manual judgment. AI price optimization models demand elasticity at the product level and set prices that maximize margin, revenue, or a blended objective.

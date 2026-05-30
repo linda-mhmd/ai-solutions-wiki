@@ -4,6 +4,7 @@ description: "How to generate and use synthetic data for AI training, covering t
 date: 2026-03-28
 categories: [Guides]
 tags: [synthetic-data, data-generation, training-data, privacy, machine-learning]
+last_updated: 2026-05-30
 ---
 
 Synthetic data is artificially generated data that mimics the statistical properties of real data without containing actual records. It addresses several critical AI challenges: insufficient training data, privacy constraints that prevent using real data, and the need for balanced datasets with rare event representation. When done well, models trained on synthetic data perform comparably to those trained on real data.

@@ -8,6 +8,7 @@ related:
   - frameworks/okr-framework-ai
   - frameworks/cost-benefit-analysis-ai
   - frameworks/maturity-model-ai
+last_updated: 2026-05-30
 ---
 
 A KPI (Key Performance Indicator) framework for AI defines what to measure, how to measure it, and what the measurements mean for decision-making. Unlike OKRs, which set aspirational targets, KPIs provide ongoing operational visibility. For AI projects, a well-designed KPI framework answers three questions: Is the AI working technically? Is it delivering business value? Is it operationally healthy?

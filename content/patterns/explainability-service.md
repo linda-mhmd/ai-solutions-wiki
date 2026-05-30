@@ -9,6 +9,7 @@ related:
   - patterns/ai-governance
   - glossary/nist-ai-rmf-glossary
   - glossary/iso-42001-glossary
+last_updated: 2026-05-30
 ---
 
 Regulators ask why a model made a specific decision. Customers ask why their loan was denied. Internal reviewers ask which features drove a risk score. An explainability service provides on-demand explanations for individual predictions, decoupled from the model serving infrastructure so that explanation generation does not impact inference latency.

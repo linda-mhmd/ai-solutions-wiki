@@ -4,6 +4,7 @@ description: "Designing and running A/B tests for ML model changes. Traffic spli
 date: 2026-03-28
 categories: [Patterns]
 tags: [ab-testing, experimentation, deployment, model-evaluation, statistics]
+last_updated: 2026-05-30
 ---
 
 A/B testing ML models is fundamentally different from A/B testing UI changes. Model outputs are probabilistic, effects can be subtle, and the interaction between model behavior and user behavior creates feedback loops that confuse naive analysis. Getting A/B testing right for ML requires careful experimental design.

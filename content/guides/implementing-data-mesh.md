@@ -10,6 +10,7 @@ related:
   - glossary/data-lineage
   - glossary/feature-store
   - frameworks/data-fabric-framework
+last_updated: 2026-05-30
 ---
 
 Data mesh is an organizational and architectural approach to data management that decentralizes data ownership to domain teams while providing a federated governance layer and self-serve data infrastructure. For organizations scaling AI across multiple business domains, data mesh addresses the bottleneck where a centralized data team cannot keep up with the data demands of dozens of AI initiatives.

@@ -8,6 +8,7 @@ related:
   - glossary/vpc
   - glossary/nat-gateway
   - glossary/security-pillar
+last_updated: 2026-05-30
 ---
 
 A subnet is a subdivision of a VPC's IP address range, placed in a specific availability zone. Subnets segment your network into logical sections with different access controls and routing rules. Each resource launched in a VPC (EC2 instance, RDS instance, ECS task, Lambda function) is placed in a specific subnet.

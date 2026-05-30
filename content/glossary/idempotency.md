@@ -8,6 +8,7 @@ related:
   - glossary/grpc
   - glossary/openapi
   - guides/api-rate-limiting-ai
+last_updated: 2026-05-30
 ---
 
 An operation is idempotent if performing it multiple times produces the same result as performing it once. In API design, idempotency means that retrying a request - due to network timeouts, client errors, or load balancer retries - does not cause unintended side effects like duplicate charges, duplicate document processing, or repeated model invocations.

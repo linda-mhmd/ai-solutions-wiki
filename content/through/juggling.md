@@ -7,6 +7,7 @@ categories: [Through]
 tags: ["beginner", "metaphor", "distributed-systems", "ai-agents", "incident-response", "observability"]
 image: /img/juggling/juggler-silhouette-three-props-notext.png
 image_alt: "A dark silhouette juggling three neon props: a red ball, a green club, and a blue ring, each glowing against a black background."
+last_updated: 2026-05-30
 ---
 
 <div class="through-intro">
@@ -111,7 +112,6 @@ image_alt: "A dark silhouette juggling three neon props: a red ball, a green clu
     <p class="bz-section-label">Go deeper in this lens</p>
     <h2 class="build-section-h2">Three research threads</h2>
     <div class="through-deeper-grid">
-
       <a href="/through/juggling-and-tech/" class="through-deeper-card">
         <img class="through-deeper-card-img" src="/img/juggling/cascade-cloud-nodes-notext.png" alt="A green infinity loop between glowing cloud nodes representing distributed system cascade patterns." loading="lazy">
         <div class="through-deeper-card-body">
@@ -120,7 +120,6 @@ image_alt: "A dark silhouette juggling three neon props: a red ball, a green clu
           <span class="through-deeper-card-cta">Read →</span>
         </div>
       </a>
-
       <a href="/through/juggling-and-brain/" class="through-deeper-card">
         <img class="through-deeper-card-img" src="/img/juggling/brain-juggling-infinity-notext.png" alt="A glowing red brain at the centre of a double infinity with orbital nodes representing the cognitive loop that juggling activates." loading="lazy">
         <div class="through-deeper-card-body">
@@ -129,7 +128,6 @@ image_alt: "A dark silhouette juggling three neon props: a red ball, a green clu
           <span class="through-deeper-card-cta">Read →</span>
         </div>
       </a>
-
       <a href="/through/juggling-and-change/" class="through-deeper-card">
         <img class="through-deeper-card-img" src="/img/juggling/infinity-loop-breaking-notext.png" alt="A blue neon infinity loop with one arc shattering, representing designed-for-failure and the breaking point in resilience patterns." loading="lazy">
         <div class="through-deeper-card-body">
@@ -138,7 +136,6 @@ image_alt: "A dark silhouette juggling three neon props: a red ball, a green clu
           <span class="through-deeper-card-cta">Read →</span>
         </div>
       </a>
-
     </div>
   </div>
 </section>

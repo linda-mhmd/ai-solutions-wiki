@@ -20,6 +20,7 @@ alternatives:
 solutions:
   - solutions/retail/recommendation-engine
   - solutions/finance/fraud-detection
+last_updated: 2026-05-30
 ---
 
 Weaviate is an open-source vector database that combines vector search with structured filtering and a modular architecture for embedding generation and generative AI integration. Unlike managed-only solutions, Weaviate can be self-hosted (Docker, Kubernetes) or used as a managed cloud service. For enterprise AI projects, Weaviate is a strong choice when you need full control over the infrastructure, want to avoid vendor lock-in, or require features like multi-tenancy and built-in embedding generation.

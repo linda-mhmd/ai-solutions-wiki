@@ -10,6 +10,7 @@ related:
   - patterns/microservices-for-ai
   - tools/amazon-bedrock
   - guides/multi-agent-systems-101
+last_updated: 2026-05-30
 ---
 
 AI systems follow a recognizable architectural evolution as they mature, scale, and take on more complex tasks. Understanding this progression helps teams make deliberate architecture decisions rather than inheriting complexity they did not choose. This article traces the three main stages: monolithic, microservices, and multi-agent, with the signals that indicate when to move between them.

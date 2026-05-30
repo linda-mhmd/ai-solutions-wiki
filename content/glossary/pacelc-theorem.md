@@ -4,6 +4,7 @@ description: "An extension of the CAP theorem that addresses the trade-off betwe
 date: 2026-03-28
 categories: [Glossary]
 tags: [distributed-systems, pacelc, cap-theorem, consistency, latency]
+last_updated: 2026-05-30
 ---
 
 The PACELC theorem extends the CAP theorem by stating that in a distributed system, if there is a Partition (P), the system must choose between Availability (A) and Consistency (C); Else (E), when the system is running normally without partitions, it must choose between Latency (L) and Consistency (C). This captures a trade-off that CAP ignores: the tension between consistency and latency during normal operation.

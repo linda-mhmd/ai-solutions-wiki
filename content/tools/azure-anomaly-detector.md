@@ -8,6 +8,7 @@ related:
   - tools/amazon-lookout-metrics
   - tools/azure-cognitive-services
   - tools/azure-monitor
+last_updated: 2026-05-30
 ---
 
 Azure Anomaly Detector is an Azure AI service that detects anomalies in time series data without requiring machine learning expertise or labeled training data. The service uses unsupervised learning models, primarily based on Microsoft Research's Spectral Residual (SR) and Convolutional Neural Network (CNN) algorithms, that automatically learn the normal patterns in time series data and flag data points that deviate significantly. It is used in scenarios such as monitoring business KPIs for unexpected changes, detecting equipment malfunctions from sensor telemetry, identifying fraud patterns in transaction data, and spotting anomalies in application performance metrics.

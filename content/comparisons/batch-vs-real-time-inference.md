@@ -2,8 +2,10 @@
 title: "Batch vs Real-Time Inference Patterns"
 description: "Comparing batch and real-time inference patterns for ML models, covering architecture, cost, latency, and when to use each approach."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [inference, batch-processing, real-time, ML, architecture, comparison]
+last_updated: 2026-05-30
 ---
 
 ML models can serve predictions in two modes: batch (process a dataset at once) and real-time (respond to individual requests on demand). The choice affects infrastructure, cost, latency, and system architecture. Many production systems use both modes for different parts of their prediction pipeline.

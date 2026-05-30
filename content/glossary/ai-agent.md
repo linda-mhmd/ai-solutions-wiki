@@ -10,9 +10,15 @@ related:
   - patterns/agentic-workflows
   - patterns/tool-use-pattern
   - patterns/plan-and-execute
+last_updated: 2026-05-30
 ---
 
 An AI agent is a software system that uses a large language model as its reasoning engine to autonomously plan, execute, and adapt a sequence of actions in pursuit of a goal. Unlike a chatbot that responds to a single prompt, an agent receives an objective, breaks it into steps, selects and invokes tools, observes the results, and iterates until the objective is achieved or it determines it cannot proceed.
+
+<figure class="bz-figure">
+  <img src="/img/craft/workshop-tools-ai-assistants-text.png" alt="A workshop with various tools arranged for use: AI agents select and use tools autonomously to accomplish their goals." loading="lazy">
+  <figcaption>An AI agent is like a craftsperson with a workshop full of tools. Given a goal, it selects the right tool, uses it, observes the result, and decides what to do next. The loop continues until the work is done.</figcaption>
+</figure>
 
 ## How Agents Work
 

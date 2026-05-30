@@ -4,6 +4,7 @@ description: "Robert C. Martin's architectural pattern for organizing software s
 layout: single
 tags: ["architecture", "clean-architecture", "dependency-rule", "hexagonal"]
 categories: ["Foundations"]
+last_updated: 2026-05-30
 ---
 
 Clean Architecture was formalized by Robert C. Martin in his 2017 book of the same name, though the underlying ideas appear in his earlier work and draw on two related architectural patterns that preceded it: Alistair Cockburn's Hexagonal Architecture (2005, also called Ports and Adapters) and Jeffrey Palermo's Onion Architecture (2008). The three patterns share a central insight: the most important code in an application - the business rules - should be the most isolated from change. Infrastructure, frameworks, and delivery mechanisms are details. Details should depend on policies, not the other way around.
@@ -113,3 +114,10 @@ The dependency rule resolves one of the most common structural problems in AI sy
 - [SOLID Principles](/foundations/solid-principles/) - the Dependency Inversion Principle is the mechanism that enforces the dependency rule
 - [Domain-Driven Design](/foundations/domain-driven-design/) - DDD provides the vocabulary for designing the entity and domain service layers
 - [Design Patterns](/foundations/design-patterns/) - Adapter and Factory patterns appear throughout Clean Architecture implementations
+
+## Sources and Further Reading
+
+- [Martin, Robert C. *Clean Architecture: A Craftsman's Guide to Software Structure and Design.* Pearson, 2017](https://www.pearson.com/en-us/subject-catalog/p/clean-architecture-a-craftsmans-guide-to-software-structure-and-design/P200000009528) - The definitive reference for Clean Architecture
+- [Cockburn, Alistair. "Hexagonal Architecture." (2005)](https://alistair.cockburn.us/hexagonal-architecture/) - Original description of Ports and Adapters architecture
+- [Palermo, Jeffrey. "The Onion Architecture." (2008)](https://jeffreypalermo.com/2008/07/the-onion-architecture-part-1/) - Introduction to Onion Architecture
+- [Martin, Robert C. "The Clean Architecture." The Clean Code Blog, 2012](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) - Blog post summarizing Clean Architecture principles

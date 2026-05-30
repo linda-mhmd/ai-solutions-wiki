@@ -4,6 +4,7 @@ description: "Authentication, authorization, encryption, the OWASP Top 10, and t
 layout: single
 tags: ["security", "authentication", "authorization", "owasp", "zero-trust", "encryption"]
 categories: ["Foundations"]
+last_updated: 2026-05-30
 ---
 
 Security in software is not a feature to add at the end of development. It is a property of the system's design - present or absent from the first architectural decisions. The Open Web Application Security Project (OWASP) has maintained the OWASP Top 10 since 2003, updated periodically, documenting the most critical and widespread security risks to web applications. It is the most widely referenced security baseline in software development.

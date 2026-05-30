@@ -4,6 +4,7 @@ description: "An IT governance and management framework developed by ISACA for a
 date: 2026-03-28
 categories: [Glossary]
 tags: [COBIT, IT-governance, ISACA, compliance, framework]
+last_updated: 2026-05-30
 ---
 
 COBIT (Control Objectives for Information and Related Technologies) is a framework for the governance and management of enterprise information and technology. It provides a comprehensive set of controls, metrics, and process models that help organizations ensure IT delivers value, manage IT-related risk, and meet regulatory compliance requirements.

@@ -8,6 +8,7 @@ related:
   - patterns/zero-trust-ai
   - glossary/devsecops
   - guides/devsecops-ai
+last_updated: 2026-05-30
 ---
 
 Zero trust is a security model based on the principle "never trust, always verify." Instead of assuming that entities inside a network perimeter are trustworthy, zero trust requires every request to be authenticated, authorised, and encrypted regardless of where it originates.

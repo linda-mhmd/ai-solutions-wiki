@@ -4,6 +4,7 @@ description: "Generate contextual email response drafts using AI that adapts tem
 date: 2026-03-28
 categories: [Ideas]
 tags: [email, templates, customer-service, automation, productivity]
+last_updated: 2026-05-30
 ---
 
 Email templates save time but feel robotic. Fully custom responses are personal but slow. The sweet spot is a system that drafts a contextual response using the right template as a starting point, adapted to the specific situation described in the incoming email.

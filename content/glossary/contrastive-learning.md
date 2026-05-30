@@ -9,6 +9,7 @@ related:
   - glossary/few-shot-learning
   - glossary/vision-transformer
   - glossary/transfer-learning
+last_updated: 2026-05-30
 ---
 
 Contrastive learning is a self-supervised training approach where a model learns representations by pulling similar (positive) pairs closer together in embedding space and pushing dissimilar (negative) pairs apart. This enables learning powerful feature extractors from unlabeled data, significantly reducing the need for expensive manual annotation.

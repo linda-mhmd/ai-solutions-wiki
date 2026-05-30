@@ -6,6 +6,7 @@ tags: ["software-engineering", "beginner", "git", "version-control", "devops", "
 categories: ["Software Engineering"]
 related:
   - software-engineering/version-control-fundamentals
+last_updated: 2026-05-30
 ---
 
 A `.gitignore` file tells Git which files and directories to exclude from version control. Without it, running `git status` in a typical project would show hundreds of generated, cached, and temporary files alongside your source code, and an undiscriminating `git add .` would commit files that have no place in a repository. Understanding how `.gitignore` works and what to exclude is one of the first practical skills for working with Git effectively.

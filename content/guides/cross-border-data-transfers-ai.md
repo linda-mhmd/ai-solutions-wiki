@@ -10,6 +10,7 @@ related:
   - frameworks/data-sovereignty-framework
   - patterns/data-residency-pattern
   - guides/gdpr-for-ai-teams
+last_updated: 2026-05-30
 ---
 
 AI systems frequently require data to cross borders: training data collected in one jurisdiction processed in another, cloud infrastructure spanning multiple regions, and model inference serving global users. GDPR Chapter V governs transfers of personal data outside the EU/EEA and imposes specific requirements that AI teams must address.

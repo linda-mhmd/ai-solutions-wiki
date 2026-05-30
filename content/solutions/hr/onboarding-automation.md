@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [onboarding, employee-experience, automation, knowledge-management, hr-operations]
 industries: [hr]
 tools: [amazon-bedrock, amazon-personalize, aws-step-functions]
+last_updated: 2026-05-30
 ---
 
 The first 90 days of employment significantly influence long-term retention and productivity. Employees who experience effective onboarding reach full productivity 34% faster and are 69% more likely to stay for three years. Yet onboarding remains one of the most neglected HR processes - a disjointed sequence of form-filling, compliance training, and scattered information delivery. AI transforms onboarding from an administrative burden into a personalized employee experience.

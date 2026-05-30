@@ -12,6 +12,7 @@ related:
   - tools/amazon-polly
   - tools/amazon-transcribe
   - tools/azure-openai
+last_updated: 2026-05-30
 ---
 
 Azure AI Services, formerly known as Azure Cognitive Services, is Microsoft's collection of pre-built AI models exposed as REST APIs and client SDKs. The suite covers vision, language, speech, and decision domains, enabling developers to add intelligent capabilities to applications without building or training custom models. In September 2023, Microsoft rebranded Cognitive Services to Azure AI Services and consolidated the individual APIs under a unified multi-service resource, though the underlying capabilities remained the same.

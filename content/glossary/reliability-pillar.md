@@ -9,6 +9,7 @@ related:
   - frameworks/well-architected-ai-ml-lens
   - glossary/operational-excellence
   - glossary/performance-efficiency
+last_updated: 2026-05-30
 ---
 
 Reliability is one of the six pillars of the AWS Well-Architected Framework. It covers the ability of a workload to perform its intended function correctly and consistently over its expected lifetime. A reliable workload recovers from failures automatically, scales to meet demand, and is designed so that the failure of one component does not cascade into a failure of the entire system.

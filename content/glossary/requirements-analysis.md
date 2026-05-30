@@ -4,6 +4,7 @@ description: "The process of eliciting, analyzing, documenting, and validating t
 date: 2026-03-28
 categories: [Glossary]
 tags: [requirements-analysis, requirements-engineering, software-engineering, elicitation, specification]
+last_updated: 2026-05-30
 ---
 
 Requirements analysis (or requirements engineering) is the process of discovering, analyzing, documenting, and validating the conditions and capabilities that a software system must satisfy. It bridges the gap between stakeholder needs and technical system specifications, and is widely recognized as one of the most critical and error-prone phases of software development.

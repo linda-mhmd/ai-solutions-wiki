@@ -4,6 +4,7 @@ description: "Hierarchical data structures including BSTs, AVL trees, red-black 
 date: 2026-03-28
 categories: [Glossary]
 tags: [trees, BST, AVL, red-black-tree, B-tree, data-structures, algorithms]
+last_updated: 2026-05-30
 ---
 
 Trees are hierarchical data structures consisting of nodes connected by edges, with a single root node and no cycles. Binary search trees (BSTs) impose an ordering property that enables efficient searching, insertion, and deletion. Self-balancing variants guarantee logarithmic performance.

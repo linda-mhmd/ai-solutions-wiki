@@ -4,6 +4,7 @@ description: "Processing large volumes of AI inference requests efficiently. Que
 date: 2026-03-28
 categories: [Patterns]
 tags: [batch-processing, inference, throughput, cost-optimization, architecture]
+last_updated: 2026-05-30
 ---
 
 Not all AI workloads need real-time responses. Processing a backlog of documents, analyzing historical data, or generating reports for all customers are batch workloads where throughput and cost matter more than latency. Batch inference patterns optimize for these priorities.

@@ -12,6 +12,7 @@ related:
   - glossary/function-calling
   - glossary/rag-evaluation
   - patterns/rag-implementation
+last_updated: 2026-05-30
 ---
 
 Agentic RAG is a class of retrieval-augmented generation architecture in which the language model is given retrieval as one tool among several and decides at each turn whether and how to query, rather than executing a fixed retrieve-then-read pipeline. The shift from *pipeline RAG* (a single retrieval call followed by a single generation call) to *agentic RAG* (an iterative agent loop over retrieval, search, sub-query decomposition, and self-critique) is one of the dominant architectural patterns in production AI systems built since 2024.

@@ -8,6 +8,7 @@ related:
   - glossary/message-queue
   - glossary/event-driven-architecture
   - glossary/kafka
+last_updated: 2026-05-30
 ---
 
 Publish-subscribe (pub/sub) is a messaging pattern where publishers emit events to a topic without knowledge of which subscribers will receive them. Subscribers register interest in specific topics and receive all messages published to those topics. This decouples publishers from subscribers completely - neither needs to know about the other.

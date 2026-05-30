@@ -9,6 +9,7 @@ related:
   - glossary/react-router
   - glossary/nextjs
   - glossary/server-side-rendering
+last_updated: 2026-05-30
 ---
 
 Remix is a full-stack web framework for React that emphasizes web standards, progressive enhancement, and server-centric data loading. Created by Ryan Florence and Michael Jackson --- the same developers behind React Router --- Remix introduced the loader/action pattern and nested routing to simplify how React applications fetch data and handle form submissions.

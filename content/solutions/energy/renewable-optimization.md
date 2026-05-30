@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [renewable-energy, solar, wind, battery-storage, grid-integration]
 industries: [energy]
 tools: [amazon-sagemaker, amazon-forecast, amazon-kinesis]
+last_updated: 2026-05-30
 ---
 
 Renewable energy generation is inherently variable: solar output depends on cloud cover, and wind generation depends on wind speed and direction. This variability creates challenges for grid integration, energy trading, and investment economics. AI optimization maximizes the value of renewable assets by improving generation forecasts, optimizing storage dispatch, and reducing curtailment.

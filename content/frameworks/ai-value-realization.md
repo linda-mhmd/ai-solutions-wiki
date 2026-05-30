@@ -9,6 +9,7 @@ related:
   - frameworks/cost-benefit-analysis-ai
   - guides/ai-project-budgeting
   - frameworks/bcg-ai-at-scale
+last_updated: 2026-05-30
 ---
 
 Most organizations struggle to demonstrate concrete returns from their AI investments. McKinsey's research consistently shows that while AI adoption is increasing, fewer than 25% of organizations report significant financial impact from AI. The gap between AI investment and AI value realization is not primarily a technology problem; it is a measurement and management problem. This framework provides a structured approach to defining, tracking, and communicating the value AI delivers.

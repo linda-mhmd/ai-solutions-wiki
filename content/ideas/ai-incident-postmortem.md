@@ -4,6 +4,7 @@ description: "AI analyzes incident timelines, logs, and chat transcripts to draf
 date: 2026-03-28
 categories: [Ideas]
 tags: [incident-management, postmortem, devops, automation, daily-ai-spark]
+last_updated: 2026-05-30
 ---
 
 After a production incident, the team is tired and wants to move on. Writing a thorough postmortem requires reconstructing a timeline from scattered logs, Slack messages, and monitoring dashboards. This often gets delayed or done poorly.

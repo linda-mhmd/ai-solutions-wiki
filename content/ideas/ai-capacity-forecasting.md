@@ -4,6 +4,7 @@ description: "AI predicts infrastructure capacity needs based on growth trends, 
 date: 2026-03-28
 categories: [Ideas]
 tags: [capacity-planning, infrastructure, forecasting, devops, daily-ai-spark]
+last_updated: 2026-05-30
 ---
 
 Teams either over-provision (wasting money) or under-provision (causing outages) because capacity planning relies on gut feeling rather than data-driven forecasting. Historical usage data exists in monitoring systems, but extracting actionable forecasts from it requires time-series analysis that most operations teams do not have bandwidth for.

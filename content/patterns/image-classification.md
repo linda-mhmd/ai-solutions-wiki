@@ -4,6 +4,7 @@ description: "Patterns for building image classification systems. Multi-modal ap
 date: 2026-03-28
 categories: [Patterns]
 tags: [image-classification, computer-vision, multi-modal, visual-AI]
+last_updated: 2026-05-30
 ---
 
 Image classification assigns labels to images. Modern approaches range from dedicated computer vision models (Amazon Rekognition) to multi-modal LLMs that can reason about image content. The choice depends on the classification task's specificity, volume, and accuracy requirements.

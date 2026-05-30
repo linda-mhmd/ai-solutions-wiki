@@ -9,6 +9,7 @@ related:
   - glossary/react
   - glossary/nextjs
   - glossary/typescript
+last_updated: 2026-05-30
 ---
 
 Node.js is a server-side JavaScript runtime built on Google's V8 JavaScript engine. Created by Ryan Dahl in 2009, Node.js introduced an event-driven, non-blocking I/O model that made JavaScript viable for high-performance server applications. It unified the language used on client and server, enabling a single language across the entire web stack.

@@ -9,6 +9,7 @@ related:
   - glossary/message-queue
   - glossary/pub-sub
   - glossary/event-driven-architecture
+last_updated: 2026-05-30
 ---
 
 Apache Kafka is a distributed event streaming platform for building real-time data pipelines and streaming applications. It provides durable, ordered, replayable event logs that decouple producers from consumers and support multiple independent consumer groups reading the same data at different speeds.

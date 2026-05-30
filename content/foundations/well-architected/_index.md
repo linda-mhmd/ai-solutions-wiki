@@ -4,6 +4,7 @@ description: "The cloud architecture review methodology used by AWS, Azure, and 
 layout: single
 tags: ["architecture", "intermediate", "cloud-computing", "aws", "azure", "gcp", "well-architected", "reliability", "security"]
 categories: ["Foundations"]
+last_updated: 2026-05-30
 ---
 
 Cloud infrastructure is not inherently well-designed. A workload that runs does not necessarily run reliably, securely, efficiently, or economically. The gap between "it works" and "it is well-architected" is where most production incidents, unexpected costs, and security breaches originate. The Well-Architected Framework is a structured methodology for closing that gap - a systematic way to evaluate a cloud workload against accumulated best practices and identify where it deviates.

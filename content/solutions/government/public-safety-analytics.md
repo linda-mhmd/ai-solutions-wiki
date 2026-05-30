@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [public-safety, predictive-analytics, crime-analysis, resource-allocation, emergency-response]
 industries: [government]
 tools: [amazon-sagemaker, amazon-redshift, amazon-quicksight]
+last_updated: 2026-05-30
 ---
 
 Public safety agencies operate with constrained resources and increasing demand. AI analytics help these agencies make better decisions about where to deploy resources, how to respond to emerging threats, and how to allocate limited budgets for maximum community safety impact. The goal is smarter resource allocation, not surveillance - using data to ensure patrols, emergency services, and prevention programs are directed where they can do the most good.

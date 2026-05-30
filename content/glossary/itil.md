@@ -4,6 +4,7 @@ description: "A framework of best practices for IT service management, originall
 date: 2026-03-28
 categories: [Glossary]
 tags: [ITIL, ITSM, IT-governance, service-management, best-practices]
+last_updated: 2026-05-30
 ---
 
 The Information Technology Infrastructure Library (ITIL) is a set of detailed practices for IT service management (ITSM) that focuses on aligning IT services with business needs. It provides a comprehensive framework for planning, delivering, and supporting IT services throughout their lifecycle.

@@ -9,6 +9,7 @@ related:
   - glossary/gan
   - glossary/diffusion-models
   - glossary/deep-learning
+last_updated: 2026-05-30
 ---
 
 A variational autoencoder (VAE) is a generative model that learns a compressed, continuous latent representation of data. Unlike standard autoencoders that map inputs to fixed points in latent space, VAEs map inputs to probability distributions, enabling smooth interpolation and meaningful generation of new samples.

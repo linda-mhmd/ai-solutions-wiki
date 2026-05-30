@@ -4,6 +4,7 @@ description: "Use AI to predict which project deadlines are at risk based on cur
 date: 2026-03-28
 categories: [Ideas]
 tags: [project-management, deadlines, risk-prediction, automation]
+last_updated: 2026-05-30
 ---
 
 Missed deadlines are rarely surprises to the people doing the work. They are only surprises to managers who relied on green status indicators until it was too late. The signals that a deadline is at risk are usually visible weeks in advance.

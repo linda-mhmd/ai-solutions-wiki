@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [compliance, regulatory-monitoring, legal-tech, risk-management, regulatory-change]
 industries: [legal, finance]
 tools: [amazon-bedrock, amazon-opensearch, aws-lambda]
+last_updated: 2026-05-30
 ---
 
 Regulatory environments are increasingly complex and dynamic. A multinational financial services firm may be subject to regulations from dozens of authorities across multiple jurisdictions. Tracking regulatory changes, assessing their impact on existing policies and procedures, and ensuring timely compliance is a significant operational burden. AI compliance monitoring automates the detection, analysis, and triaging of regulatory changes.

@@ -8,6 +8,7 @@ related:
   - tools/amazon-personalize
   - tools/google-vertex-ai
   - tools/google-bigquery
+last_updated: 2026-05-30
 ---
 
 Google Recommendations AI is a managed service that generates personalized product and content recommendations using deep learning models. It is part of Google Cloud's Vertex AI Search and Commerce suite (formerly Retail AI) and is designed primarily for retail and e-commerce use cases, though it can serve any content recommendation scenario. The service uses the same recommendation technology that powers personalization on YouTube and Google Shopping, adapted for external organizations to integrate into their own applications.

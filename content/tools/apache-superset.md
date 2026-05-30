@@ -9,6 +9,7 @@ related:
   - tools/metabase
   - tools/grafana
   - tools/clickhouse
+last_updated: 2026-05-30
 ---
 
 Apache Superset is a modern, enterprise-ready business intelligence web application that enables data exploration and visualization. It provides an intuitive, no-code interface for creating charts and dashboards, as well as a powerful SQL IDE (SQL Lab) for ad hoc querying. Superset supports over 40 database backends through SQLAlchemy, including PostgreSQL, MySQL, ClickHouse, Snowflake, BigQuery, Redshift, Trino, and Apache Druid, making it a versatile front-end for virtually any analytical data store.

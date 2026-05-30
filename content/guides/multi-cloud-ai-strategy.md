@@ -5,6 +5,7 @@ date: 2026-03-28
 categories: [Guides]
 tags: [multi-cloud, strategy, portability, vendor-lock-in]
 related: [comparisons/aws-vs-azure-ai, comparisons/aws-vs-gcp-ai, tools/kubeflow, tools/mlflow]
+last_updated: 2026-05-30
 ---
 
 Multi-cloud AI strategies address a real tension: cloud providers offer powerful managed AI services that accelerate development, but deep adoption of any single provider creates lock-in that limits negotiating leverage, increases switching costs, and concentrates risk. A deliberate multi-cloud strategy balances these tradeoffs rather than letting them happen by accident.

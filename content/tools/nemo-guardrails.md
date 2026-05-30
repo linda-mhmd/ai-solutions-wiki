@@ -8,6 +8,7 @@ related:
   - tools/guardrails-ai
   - tools/langchain
   - tools/amazon-bedrock
+last_updated: 2026-05-30
 ---
 
 NeMo Guardrails is an open-source toolkit from NVIDIA for adding programmable safety and control rails to LLM-powered conversational applications. While Guardrails AI focuses on output validation, NeMo Guardrails operates at the conversation level: it controls what topics the bot will discuss, screens user inputs for jailbreak attempts, enforces conversation flows, and ensures responses align with defined policies. For enterprise AI projects, NeMo Guardrails is the tool for building chatbots and assistants that stay within organizational boundaries.

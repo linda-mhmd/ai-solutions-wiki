@@ -9,6 +9,7 @@ related:
   - frameworks/iso-42001
   - frameworks/ieee-7000-ethical-ai
   - guides/responsible-ai-guide
+last_updated: 2026-05-30
 ---
 
 The OECD Principles on Artificial Intelligence, adopted in May 2019, were the first intergovernmental standard for responsible AI. Originally endorsed by 36 OECD member countries and subsequently adopted by the G20, the principles now have adherence from over 40 countries. They have become the foundational reference point for national AI strategies, regulatory frameworks, and corporate AI ethics policies worldwide.

@@ -3,8 +3,10 @@ title: "AWS AgentCore vs Bedrock Agents - When to Use Which AWS Agent Runtime"
 description: "Architectural and operational differences between Amazon Bedrock AgentCore and Amazon Bedrock Agents, covering runtime model, framework neutrality, identity, memory, and observability."
 date: 2026-05-08
 lastmod: 2026-05-08
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [comparisons, agents, AWS, bedrock, agentcore, multi-agent, AI architecture]
+last_updated: 2026-05-30
 ---
 
 Both Amazon Bedrock AgentCore and Amazon Bedrock Agents let teams operate AI agents on AWS, but they sit at different layers of the stack and target different operating models. Bedrock Agents is a managed, opinionated agent service tightly bound to the Bedrock control plane. AgentCore is a runtime and a set of services for operating agents you build with any framework. The choice depends on whether you want a turnkey agent definition or a runtime substrate for agents you already own.

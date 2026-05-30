@@ -8,6 +8,7 @@ related:
   - glossary/progressive-delivery
   - patterns/feature-flags-ai
   - guides/ci-cd-for-ai
+last_updated: 2026-05-30
 ---
 
 Deploying a new AI model is riskier than deploying a new application version. A model that passes evaluation tests can still fail on production traffic: edge cases the test set does not cover, latency differences under real load, or subtle quality degradation that metrics catch only at scale. Progressive delivery addresses this by gradually exposing new models to production traffic while monitoring AI-specific metrics and automatically rolling back when quality degrades.

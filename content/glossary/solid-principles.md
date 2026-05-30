@@ -11,6 +11,7 @@ related:
   - glossary/interface-segregation-principle
   - glossary/dependency-inversion-principle
   - glossary/clean-architecture
+last_updated: 2026-05-30
 ---
 
 SOLID is an acronym for five object-oriented design principles that guide developers toward software that is easier to maintain, extend, and understand. Together, they form a foundation for building robust systems that accommodate change without cascading breakage.

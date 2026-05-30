@@ -4,6 +4,7 @@ description: "Use AI to identify outdated content, suggest updates, and flag gap
 date: 2026-03-28
 categories: [Ideas]
 tags: [knowledge-management, documentation, content-maintenance, automation]
+last_updated: 2026-05-30
 ---
 
 Knowledge bases decay. Articles written six months ago reference deprecated tools, outdated processes, or people who have left the organization. Nobody is responsible for keeping everything current, so entropy wins. Employees learn to distrust the knowledge base and start asking questions in Slack instead.

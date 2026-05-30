@@ -4,6 +4,7 @@ description: "Use AI to track regulatory deadlines, filing requirements, and com
 date: 2026-03-28
 categories: [Ideas]
 tags: [compliance, regulatory, calendar, deadline-management, automation]
+last_updated: 2026-05-30
 ---
 
 Missing a regulatory deadline can result in fines, penalties, or loss of operating licenses. Yet many organizations track compliance deadlines in spreadsheets maintained by individuals who may be on vacation when a critical date approaches.

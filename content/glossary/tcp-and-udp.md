@@ -4,6 +4,7 @@ description: "The two primary transport-layer protocols of the Internet: TCP pro
 date: 2026-03-28
 categories: [Glossary]
 tags: [networking, tcp, udp, transport-protocols, internet]
+last_updated: 2026-05-30
 ---
 
 TCP (Transmission Control Protocol) and UDP (User Datagram Protocol) are the two primary transport-layer protocols in the Internet protocol suite. They sit between the application layer and the network layer (IP), providing the mechanisms by which application data is delivered between hosts. TCP guarantees reliable, ordered delivery; UDP provides minimal overhead without reliability guarantees.

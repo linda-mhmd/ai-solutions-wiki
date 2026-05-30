@@ -10,6 +10,7 @@ related:
   - glossary/abstraction
   - glossary/composition-over-inheritance
   - glossary/liskov-substitution-principle
+last_updated: 2026-05-30
 ---
 
 Inheritance and polymorphism are two fundamental mechanisms of object-oriented programming. Inheritance establishes a hierarchical relationship between classes where a subclass inherits structure and behavior from a parent class. Polymorphism allows objects of different types to respond to the same message or method call in type-specific ways.

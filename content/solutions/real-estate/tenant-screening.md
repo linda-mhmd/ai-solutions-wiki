@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [tenant-screening, risk-assessment, property-management, credit-analysis, rental]
 industries: [real-estate]
 tools: [amazon-sagemaker, amazon-textract, amazon-bedrock]
+last_updated: 2026-05-30
 ---
 
 Tenant screening determines whether a rental applicant is likely to pay rent reliably, maintain the property, and comply with lease terms. Poor screening leads to rental arrears, property damage, and costly eviction proceedings. Traditional screening relies on credit scores and reference checks, which are slow and provide limited predictive power. AI screening integrates multiple data sources for faster, more accurate risk assessment.

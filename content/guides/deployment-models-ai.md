@@ -10,6 +10,7 @@ related:
   - tools/amazon-bedrock
   - patterns/blue-green-deployment
   - glossary/shared-responsibility
+last_updated: 2026-05-30
 ---
 
 Cloud deployment models - SaaS, PaaS, IaaS, and Serverless - are typically introduced in the context of business applications. They apply equally to AI systems, but the trade-offs look different when the workload is model inference rather than a web application. This article maps each deployment model to concrete AI use cases, explains when each is appropriate, and covers cost implications.

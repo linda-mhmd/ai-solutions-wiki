@@ -9,6 +9,7 @@ related:
   - patterns/ai-audit-trail
   - patterns/llmops-pipeline
   - glossary/nist-ai-rmf-glossary
+last_updated: 2026-05-30
 ---
 
 Governance policies for AI systems are often documented in spreadsheets, wiki pages, and slide decks that nobody enforces consistently. Policy as code converts these human-readable rules into executable checks that run automatically in the ML CI/CD pipeline. A model that violates a policy cannot be deployed because the pipeline blocks it, not because someone remembered to check.

@@ -8,6 +8,7 @@ related:
   - patterns/progressive-delivery-ai
   - patterns/feature-flags-ai
   - guides/ci-cd-for-ai
+last_updated: 2026-05-30
 ---
 
 Progressive delivery is a deployment strategy that gradually exposes new code or model versions to increasing percentages of traffic while monitoring key metrics. If metrics degrade, the system automatically rolls back. If metrics hold, traffic shifts continue until the new version serves 100% of requests.

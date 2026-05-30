@@ -9,6 +9,7 @@ related:
   - guides/data-lakehouse-ai
   - guides/data-preparation-for-ai
   - patterns/data-pipeline-patterns
+last_updated: 2026-05-30
 ---
 
 The medallion architecture is a data design pattern that organizes a data lakehouse into three progressive quality layers: bronze, silver, and gold. Each layer represents a different stage of data refinement, from raw ingestion to curated, business-ready datasets. The pattern was popularized by Databricks but is now used broadly across the data engineering community regardless of platform. It is particularly relevant for AI workloads because model quality depends directly on data quality, and the medallion architecture provides a systematic approach to ensuring that AI systems consume clean, validated, well-documented data.
@@ -48,3 +49,10 @@ The medallion architecture addresses several data challenges that are particular
 ## Implementation Considerations
 
 The medallion architecture works well with modern lakehouse platforms (Databricks, Apache Iceberg, Delta Lake, Apache Hudi) that provide ACID transactions on object storage. Organizations adopting this pattern should invest in data lineage tracking, automated quality monitoring at each layer transition, and clear naming conventions that make it immediately obvious which layer a table belongs to and what quality guarantees it provides.
+
+## Sources and Further Reading
+
+- [Databricks Medallion Architecture](https://www.databricks.com/glossary/medallion-architecture) - Original documentation from Databricks on the medallion pattern
+- [Delta Lake Documentation](https://docs.delta.io/) - Open-source storage layer that enables medallion architecture on data lakes
+- [Apache Iceberg Documentation](https://iceberg.apache.org/docs/latest/) - Table format supporting lakehouse architectures
+- [Microsoft Fabric Medallion Architecture](https://learn.microsoft.com/en-us/fabric/onelake/onelake-medallion-lakehouse-architecture) - Microsoft's implementation guidance for medallion architecture

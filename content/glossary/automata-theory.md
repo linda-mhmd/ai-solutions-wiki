@@ -8,6 +8,7 @@ related:
   - glossary/compiler-and-interpreter
   - glossary/complexity-classes
   - glossary/boolean-algebra-and-logic-gates
+last_updated: 2026-05-30
 ---
 
 Automata theory is the branch of theoretical computer science that studies abstract machines (automata) and the classes of problems they can solve. Together with formal language theory, it provides the mathematical framework that underpins parsing, regular expressions, compiler design, and aspects of natural language processing.

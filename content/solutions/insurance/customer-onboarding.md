@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [customer-onboarding, insurance-tech, kyc, digital-experience, conversion]
 industries: [insurance]
 tools: [amazon-bedrock, amazon-rekognition, amazon-textract]
+last_updated: 2026-05-30
 ---
 
 Insurance customer onboarding is often a friction-heavy experience: lengthy application forms, document requirements, manual verification steps, and multi-week processing times. AI streamlines onboarding by automating identity verification, pre-filling applications from available data, recommending appropriate products, and processing applications in minutes rather than weeks.

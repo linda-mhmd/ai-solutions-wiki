@@ -8,6 +8,7 @@ related:
   - frameworks/lean-startup-ai
   - frameworks/agile-ai-delivery
   - frameworks/design-thinking-ai
+last_updated: 2026-05-30
 ---
 
 Build-Measure-Learn (BML) is the core feedback loop from the Lean Startup methodology, and it maps naturally to AI development. Every AI project is fundamentally an experiment: you hypothesize that a model can solve a problem, build a version, measure its performance, and learn whether to continue, adjust, or pivot. The framework's value is in making this cycle explicit, fast, and disciplined rather than allowing open-ended experimentation that consumes time without producing decisions.

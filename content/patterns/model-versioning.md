@@ -10,6 +10,7 @@ related:
   - patterns/canary-deployment
   - guides/ci-cd-ai-detailed
   - tools/amazon-bedrock
+last_updated: 2026-05-30
 ---
 
 A model version is a specific combination of: model weights, prompt template, configuration parameters, and evaluation metrics - captured at a point in time. Without versioning, you cannot reproduce a previous model's behaviour, cannot attribute a quality change to a specific deployment, and cannot roll back to a known-good state. For production AI systems, model versioning is the mechanism that makes deployments auditable and reversible.

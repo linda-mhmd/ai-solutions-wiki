@@ -2,8 +2,10 @@
 title: "Remotion vs FFmpeg - Video Processing Approaches"
 description: "When to use Remotion (React-based programmatic video) vs FFmpeg (command-line video processing) for AI video pipelines."
 date: 2026-03-24
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: ["media-processing", "intermediate", "remotion", "ffmpeg", "video-generation", "comparison", "programmatic-video"]
+last_updated: 2026-05-30
 ---
 
 Remotion and FFmpeg are frequently mentioned together in AI video pipeline discussions, but they solve fundamentally different problems. Understanding where each fits prevents misuse of both.

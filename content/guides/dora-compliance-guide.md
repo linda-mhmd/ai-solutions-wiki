@@ -10,6 +10,7 @@ related:
   - glossary/supply-chain-security
   - guides/ai-security-best-practices
   - guides/ai-incident-response
+last_updated: 2026-05-30
 ---
 
 DORA applies to financial entities from January 2025 and covers all ICT systems, including AI. This guide focuses on the specific compliance requirements for AI systems in financial services.

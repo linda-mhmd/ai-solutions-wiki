@@ -4,6 +4,7 @@ description: "Use AI to generate training materials, quizzes, and learning paths
 date: 2026-03-28
 categories: [Ideas]
 tags: [training, learning-development, content-generation, automation, hr]
+last_updated: 2026-05-30
 ---
 
 Creating training content is a bottleneck for L&D teams. Subject matter experts have the knowledge but not the time to create courses. Training designers have the skills but depend on experts who are too busy to contribute. The result is training content that is always behind current practices.

@@ -11,6 +11,7 @@ related:
   - glossary/ai-literacy
   - patterns/ai-governance
   - guides/building-ai-ethics-board
+last_updated: 2026-05-30
 ---
 
 The AI Ethics Framework provides a structured approach to evaluating the ethical implications of AI systems throughout their lifecycle. It moves ethical considerations from abstract principles to concrete, actionable review processes that integrate into the AI development and deployment workflow.

@@ -8,6 +8,7 @@ related:
   - frameworks/design-thinking-ai
   - frameworks/jobs-to-be-done-ai
   - frameworks/lean-startup-ai
+last_updated: 2026-05-30
 ---
 
 The Double Diamond is a design process model from the UK Design Council that structures work into four phases: Discover, Define, Develop, and Deliver. The process diverges (exploring broadly) and converges (focusing narrowly) twice, forming two diamond shapes. The first diamond finds the right problem. The second diamond finds the right solution. For AI projects, the Double Diamond prevents the common failure of solving the wrong problem with the right technology.

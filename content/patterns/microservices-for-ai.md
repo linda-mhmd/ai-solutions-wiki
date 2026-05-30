@@ -10,6 +10,7 @@ related:
   - patterns/feature-flags-ai
   - guides/ci-cd-for-ai
   - glossary/event-sourcing
+last_updated: 2026-05-30
 ---
 
 An AI system built as a monolith ships fast initially but becomes brittle under load, expensive to scale selectively, and risky to update. Decomposing AI systems into independent services applies the same reasoning that drove microservices adoption in backend engineering: isolate failure domains, scale hot components independently, and deploy without coordinating every team.
@@ -105,3 +106,10 @@ Microservices add operational complexity. For small AI applications with a singl
 - You need to deploy components on different cadences
 
 Do not decompose prematurely. A clear modular monolith with explicit interfaces is easier to extract into services later than a tangled codebase that was decomposed too early.
+
+## Sources and Further Reading
+
+- [Newman, Sam. *Building Microservices.* O'Reilly, 2021](https://www.oreilly.com/library/view/building-microservices-2nd/9781492034018/) - Comprehensive guide to microservices architecture and patterns
+- [Fowler, Martin. "Microservices." martinfowler.com](https://martinfowler.com/articles/microservices.html) - Foundational article defining microservices characteristics
+- [AWS Microservices Architecture Guide](https://docs.aws.amazon.com/whitepapers/latest/microservices-on-aws/microservices-on-aws.html) - AWS best practices for microservices deployment
+- [Richardson, Chris. "Microservices Patterns." Manning, 2018](https://microservices.io/patterns/index.html) - Pattern catalog for microservices design and implementation

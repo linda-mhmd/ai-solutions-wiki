@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [demand-forecasting, retail-analytics, inventory, time-series, supply-chain]
 industries: [retail, logistics]
 tools: [amazon-forecast, amazon-sagemaker, amazon-redshift]
+last_updated: 2026-05-30
 ---
 
 Demand forecasting underpins nearly every retail operational decision: how much to order, where to allocate inventory, when to mark down, and how many staff to schedule. Traditional forecasting methods (moving averages, exponential smoothing) work adequately for stable, high-volume products but fail on the long tail of products that represent 60-80% of a typical retailer's catalog. AI-based forecasting captures complex patterns that statistical methods miss.

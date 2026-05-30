@@ -9,6 +9,7 @@ related:
   - guides/model-registry-guide
   - guides/mlops-getting-started
   - guides/model-evaluation-guide
+last_updated: 2026-05-30
 ---
 
 Experiment tracking is the practice of systematically logging every ML training run: its parameters, metrics, artifacts, and environment. Without it, teams cannot answer basic questions. Which hyperparameters produced the best model? What data was used? Why did last week's model perform better? Experiment tracking transforms ML development from guesswork into a disciplined engineering process.

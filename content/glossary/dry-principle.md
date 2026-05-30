@@ -9,6 +9,7 @@ related:
   - glossary/kiss-principle
   - glossary/single-responsibility-principle
   - glossary/clean-architecture
+last_updated: 2026-05-30
 ---
 
 The DRY principle (Don't Repeat Yourself) states that every piece of knowledge must have a single, unambiguous, authoritative representation within a system. It targets the elimination of duplication not just in code, but in all forms of knowledge representation including documentation, data schemas, build processes, and configuration.

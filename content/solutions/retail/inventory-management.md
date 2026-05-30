@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [inventory, replenishment, allocation, supply-chain, stock-optimization]
 industries: [retail, logistics]
 tools: [amazon-sagemaker, amazon-forecast, amazon-redshift]
+last_updated: 2026-05-30
 ---
 
 Inventory is the largest asset on most retailers' balance sheets and the largest source of working capital consumption. Carrying too much inventory ties up capital and leads to markdowns; carrying too little causes stockouts and lost sales. AI inventory management optimizes the balance across thousands of SKU-location combinations, achieving service level targets at minimum inventory investment.

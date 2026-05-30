@@ -4,6 +4,7 @@ description: "Use AI to synthesize market research from multiple sources into st
 date: 2026-03-28
 categories: [Ideas]
 tags: [market-research, analysis, synthesis, automation, strategy]
+last_updated: 2026-05-30
 ---
 
 Market research projects produce mountains of data - survey results, industry reports, competitor analyses, customer interviews - that need to be synthesized into actionable insights. The synthesis step is where most projects stall.

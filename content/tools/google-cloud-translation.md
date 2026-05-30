@@ -8,6 +8,7 @@ related:
   - tools/amazon-translate
   - tools/google-cloud-natural-language
   - tools/google-vertex-ai
+last_updated: 2026-05-30
 ---
 
 Google Cloud Translation API is a neural machine translation service that translates text between over 130 languages. It offers two editions: the Basic edition (v2) provides simple text translation with automatic language detection, while the Advanced edition (v3) adds batch translation, custom glossaries, adaptive translation with custom models, and AutoML Translation for domain-specific training. The service powers translation at Google scale -- the same underlying technology drives Google Translate, which processes over 100 billion words per day.

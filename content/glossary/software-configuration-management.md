@@ -8,6 +8,7 @@ related:
   - glossary/version-control-fundamentals
   - glossary/continuous-integration-fundamentals
   - glossary/technical-debt
+last_updated: 2026-05-30
 ---
 
 Software Configuration Management (SCM) is the discipline of identifying, organizing, and controlling changes to the software artifacts that make up a system. It ensures that teams can reproduce any version of the software, trace every change to its origin, and maintain consistency across development, testing, and production environments.

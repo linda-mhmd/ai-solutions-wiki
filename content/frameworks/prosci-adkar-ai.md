@@ -9,6 +9,7 @@ related:
   - guides/change-management-ai
   - guides/stakeholder-management-ai
   - frameworks/ai-readiness-assessment
+last_updated: 2026-05-30
 ---
 
 The Prosci ADKAR model is a goal-oriented change management framework that describes five sequential outcomes an individual must achieve for change to be successful: Awareness, Desire, Knowledge, Ability, and Reinforcement. Originally developed for general organizational change, ADKAR is particularly relevant to AI adoption because AI transformation is fundamentally a people challenge. The technology works; the difficulty is getting people to trust it, use it, and change their workflows around it.

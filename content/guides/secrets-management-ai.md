@@ -5,6 +5,7 @@ date: 2026-03-28
 categories: [Guides]
 tags: [security, secrets, api-keys, vault, devops]
 related: [guides/ai-security-best-practices, patterns/zero-trust-ai, guides/ci-cd-for-ai]
+last_updated: 2026-05-30
 ---
 
 AI pipelines handle a concentration of high-value secrets: LLM API keys with per-token billing, cloud credentials with GPU provisioning permissions, database connection strings to training data, and model registry tokens. A leaked API key can generate thousands of dollars in charges within hours. A compromised cloud credential can expose proprietary training data or model weights. Secrets management for AI pipelines requires the same rigor as production web services, with additional considerations for the unique characteristics of ML workflows.

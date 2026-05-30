@@ -10,6 +10,7 @@ related:
   - glossary/gdpr
   - frameworks/eu-ai-act-risk-framework
   - frameworks/nist-ai-rmf
+last_updated: 2026-05-30
 ---
 
 AI regulation is evolving rapidly across jurisdictions. Organizations developing or deploying AI globally must navigate an increasingly complex patchwork of laws, frameworks, and standards. This overview maps the current landscape as of early 2026.

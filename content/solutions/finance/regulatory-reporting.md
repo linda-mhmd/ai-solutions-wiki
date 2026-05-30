@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [regulatory-reporting, compliance, data-quality, automation, financial-regulation]
 industries: [finance]
 tools: [amazon-bedrock, amazon-redshift, aws-lambda]
+last_updated: 2026-05-30
 ---
 
 Financial institutions submit hundreds of regulatory reports annually to supervisory authorities: capital adequacy, liquidity, transaction reporting, statistical returns, and anti-money-laundering filings. The reporting process is labor-intensive, error-prone, and high-stakes - reporting errors can trigger regulatory sanctions, restatements, and reputational damage. AI automates the most time-consuming aspects: data extraction, reconciliation, quality validation, and narrative generation.

@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [quality-monitoring, qa, agent-performance, compliance, support-operations]
 industries: [customer-support]
 tools: [amazon-bedrock, amazon-transcribe, amazon-sagemaker]
+last_updated: 2026-05-30
 ---
 
 Quality monitoring ensures that customer support interactions meet service standards, compliance requirements, and customer expectations. Traditional QA processes sample 2-5% of interactions for manual review - a statistically inadequate sample that misses the vast majority of quality issues. AI quality monitoring evaluates 100% of interactions against defined criteria, providing comprehensive quality visibility and targeted coaching opportunities.

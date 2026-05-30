@@ -4,6 +4,7 @@ description: "Automatically produce user-facing release notes from technical cha
 date: 2026-03-28
 categories: [Ideas]
 tags: [release-notes, communication, product-management, automation, daily-ai-spark]
+last_updated: 2026-05-30
 ---
 
 Release notes sit at the intersection of engineering and product communication. Engineers know what changed but write in technical jargon. Product managers know how to communicate to users but may not fully understand every change. The result is release notes that are either too technical, too vague, or simply missing.

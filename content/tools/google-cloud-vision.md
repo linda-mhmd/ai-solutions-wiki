@@ -9,6 +9,7 @@ related:
   - tools/google-vertex-ai
   - tools/google-document-ai
   - tools/google-automl
+last_updated: 2026-05-30
 ---
 
 Google Cloud Vision AI is a pre-trained image analysis service that enables developers to understand the content of images through a REST API. It can label images with thousands of predefined categories, detect individual objects and faces, read printed and handwritten text (OCR), identify logos and landmarks, detect explicit content, and extract image metadata. The service processes images stored in Cloud Storage or sent as base64-encoded data, returning structured JSON annotations.

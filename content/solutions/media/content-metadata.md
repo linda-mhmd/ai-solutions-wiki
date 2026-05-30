@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: ["media-processing", "intermediate", "content-metadata", "media", "tagging", "computer-vision", "automation"]
 industries: [media]
 tools: [amazon-rekognition, amazon-bedrock, amazon-transcribe]
+last_updated: 2026-05-30
 ---
 
 Media libraries accumulate faster than they can be cataloged. A broadcaster with 40 years of archive and continuous live production generates more metadata work than any manual cataloging team can handle. Searchable, structured metadata is the foundation of content discovery, licensing, rights management, and SEO - and AI can generate it automatically at the point of ingest.

@@ -6,6 +6,7 @@ categories: [Glossary]
 tags: [design-systems, atomic-design, component-library, style-guide, pattern-library, UI]
 related:
   - glossary/design-tokens
+last_updated: 2026-05-30
 ---
 
 A design system is a collection of reusable components, standards, and documentation that enables teams to build consistent user interfaces at scale. It combines a component library (implemented in code), design assets (in tools like Figma), usage guidelines, and governing principles into a single source of truth for product design and development.

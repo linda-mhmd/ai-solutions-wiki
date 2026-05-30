@@ -12,6 +12,7 @@ related:
   - tools/azure-data-factory
   - tools/google-cloud-dataflow
   - tools/dbt
+last_updated: 2026-05-30
 ---
 
 Amazon Glue is a serverless data integration service that provides ETL (Extract, Transform, Load) capabilities and a centralized data catalog. For AI projects, Glue handles the data engineering that precedes model training: crawling data sources to discover schemas, transforming raw data into clean features, and maintaining a metadata catalog that makes data discoverable across the organization.

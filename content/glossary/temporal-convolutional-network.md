@@ -9,6 +9,7 @@ related:
   - glossary/recurrent-neural-network
   - glossary/state-space-model
   - glossary/deep-learning
+last_updated: 2026-05-30
 ---
 
 A temporal convolutional network (TCN) applies 1D convolutions to sequence data using causal padding, ensuring that predictions at time t depend only on inputs from time t and earlier. By stacking dilated convolutions with exponentially increasing dilation factors, TCNs achieve large receptive fields while maintaining computational efficiency. TCNs offer a parallelizable alternative to RNNs for many sequence modeling tasks.

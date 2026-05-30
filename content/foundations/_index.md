@@ -1,6 +1,13 @@
 ---
-title: "Software Foundations for AI Systems"
+title: "Foundations"
 description: "The engineering principles that make AI systems reliable, maintainable, and production-ready. Timeless patterns that existed before the current AI wave and will endure after the tools change."
+last_updated: 2026-05-30
+---
+
+---
+
+**Related paths:** This page covers timeless software engineering principles (SOLID, Clean Architecture, DDD, testing, deployment) that apply to AI systems. If you want a conceptual overview of how the wiki organizes AI system components into layers (Applications, Orchestration, Models, Data, Infrastructure), see [The Five Layers of AI Systems](/layers/) instead. Choose Foundations if you want to learn engineering principles; choose Layers if you want a map of the AI stack.
+
 ---
 
 Every era of software produces new tools, new frameworks, and new paradigms. The tools change on a cycle of years. The underlying principles change on a cycle of decades, if they change at all.

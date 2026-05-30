@@ -7,6 +7,7 @@ tags: [broadcast, media, content-automation, video-processing, metadata]
 image: /img/enterprise-dark/compressor-circuit-red-notext.png
 image_alt: "A mechanical drum with red circuit trail highlights, representing the automated pipeline that ingests, processes, and routes broadcast content."
 image_caption: "Hours of footage. Transcripts, highlights, and metadata generated before the next broadcast cycle begins."
+last_updated: 2026-05-30
 ---
 
 A broadcast media company producing 18 hours of live content daily across three channels needed to generate metadata, detect highlights, check compliance, and prepare content for digital distribution. The manual process involved a team of 25 working in shifts to tag, log, and review content. Turnaround time from broadcast to digital availability averaged 6 hours.

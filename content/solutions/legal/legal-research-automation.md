@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [legal-research, case-law, semantic-search, precedent, legal-tech]
 industries: [legal]
 tools: [amazon-bedrock, amazon-opensearch, amazon-sagemaker]
+last_updated: 2026-05-30
 ---
 
 Legal research is foundational to legal practice but extraordinarily time-consuming. A lawyer researching a novel legal question may spend 10-20 hours searching case law databases, reading judgments, and synthesizing relevant precedent. AI legal research tools accelerate this process by combining semantic search with analytical summarization, reducing research time while expanding the scope of sources considered.

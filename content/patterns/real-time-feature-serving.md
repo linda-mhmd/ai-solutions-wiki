@@ -9,6 +9,7 @@ related:
   - patterns/caching-for-ai
   - patterns/batch-inference
   - patterns/real-time-vs-batch
+last_updated: 2026-05-30
 ---
 
 Online ML models that serve predictions in real time need feature values with single-digit millisecond latency. A fraud detection model evaluating a transaction cannot wait for a SQL query to compute the customer's 30-day spending average. Real-time feature serving precomputes and caches feature values so they are available instantly at inference time.

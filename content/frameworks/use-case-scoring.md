@@ -4,6 +4,7 @@ description: "A structured WSJF-inspired scoring methodology to cut through work
 date: 2026-03-24
 categories: [Frameworks]
 tags: ["project-management", "intermediate", "use-case-scoring", "prioritization", "ai-adoption", "evaluation", "roi"]
+last_updated: 2026-05-30
 ---
 
 This framework was developed by Linda Mohamed based on WSJF (Weighted Shortest Job First) principles adapted for AI use case prioritization across dozens of enterprise workshops.

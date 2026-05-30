@@ -9,6 +9,7 @@ related:
   - patterns/tool-use-pattern
   - patterns/plan-and-execute
   - patterns/agentic-workflows
+last_updated: 2026-05-30
 ---
 
 ReAct (Reasoning + Acting) is a prompting and agent architecture pattern where the model alternates between generating a reasoning trace and taking an action. Instead of producing a final answer in one shot, the agent thinks step by step, calls a tool, observes the result, reasons about the observation, and decides the next action. This loop continues until the agent has enough information to produce a final answer.

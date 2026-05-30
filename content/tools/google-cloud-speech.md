@@ -9,6 +9,7 @@ related:
   - tools/amazon-polly
   - tools/google-vertex-ai
   - tools/google-cloud-translation
+last_updated: 2026-05-30
 ---
 
 Google Cloud offers two complementary speech services: Speech-to-Text (STT) for converting audio to text, and Text-to-Speech (TTS) for synthesizing spoken audio from text. Together they cover the full spectrum of voice AI use cases, from transcription and captioning to voice assistants and audio content generation.

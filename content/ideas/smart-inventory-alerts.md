@@ -4,6 +4,7 @@ description: "Use AI to predict inventory shortfalls and generate intelligent re
 date: 2026-03-28
 categories: [Ideas]
 tags: [inventory-management, forecasting, alerts, supply-chain, automation]
+last_updated: 2026-05-30
 ---
 
 Static reorder points cause two problems: you either run out of stock because demand spiked unexpectedly, or you over-order because the threshold was set too conservatively. Both cost money.

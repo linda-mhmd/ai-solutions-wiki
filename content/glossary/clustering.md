@@ -8,6 +8,7 @@ related:
   - glossary/unsupervised-learning
   - glossary/k-means
   - glossary/dimensionality-reduction
+last_updated: 2026-05-30
 ---
 
 Clustering is an unsupervised learning technique that groups data points into clusters based on similarity, without predefined labels. Points within a cluster are more similar to each other than to points in other clusters. Clustering discovers natural structure in data, enabling segmentation, anomaly detection, and exploratory analysis.

@@ -4,6 +4,7 @@ description: "Five principles of object-oriented class design formulated by Robe
 layout: single
 tags: ["software-design", "oop", "architecture", "clean-code"]
 categories: ["Foundations"]
+last_updated: 2026-05-30
 ---
 
 The SOLID principles were introduced by Robert C. Martin in his 2000 paper "Design Principles and Design Patterns" and later consolidated in his 2002 book *Agile Software Development: Principles, Patterns, and Practices*. The acronym itself was coined by Michael Feathers. The five principles address a specific class of failure: software that starts manageable but becomes progressively harder to change as requirements evolve. Martin called these failure modes "rotting" - rigidity, fragility, immobility, viscosity, and needless complexity.
@@ -192,3 +193,10 @@ SOLID principles apply directly to the structural decisions in AI system design.
 - [Clean Architecture](/foundations/clean-architecture/) - how DIP scales to full system layers
 - [Design Patterns](/foundations/design-patterns/) - the Strategy and Adapter patterns implement DIP in practice
 - [Testing Strategy](/foundations/testing-strategy/) - DIP makes unit testing AI components feasible
+
+## Sources and Further Reading
+
+- [Martin, Robert C. "Design Principles and Design Patterns." (2000)](https://web.archive.org/web/20150906155800/http://www.objectmentor.com/resources/articles/Principles_and_Patterns.pdf) - Original paper introducing the SOLID principles
+- [Martin, Robert C. *Agile Software Development: Principles, Patterns, and Practices.* Pearson, 2002](https://www.pearson.com/en-us/subject-catalog/p/agile-software-development-principles-patterns-and-practices/P200000009481) - Comprehensive treatment of SOLID and related design principles
+- [Martin, Robert C. *Clean Code: A Handbook of Agile Software Craftsmanship.* Pearson, 2008](https://www.pearson.com/en-us/subject-catalog/p/clean-code-a-handbook-of-agile-software-craftsmanship/P100000411388) - Practical application of SOLID principles in code
+- [Liskov, Barbara. "Data Abstraction and Hierarchy." OOPSLA 1987](https://dl.acm.org/doi/10.1145/62139.62141) - Original formulation of the Liskov Substitution Principle

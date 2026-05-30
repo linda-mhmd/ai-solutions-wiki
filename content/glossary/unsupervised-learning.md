@@ -10,6 +10,7 @@ related:
   - glossary/k-means
   - glossary/pca
   - glossary/dimensionality-reduction
+last_updated: 2026-05-30
 ---
 
 Unsupervised learning is a machine learning paradigm where the model discovers patterns and structure in data without labeled examples. Instead of learning to predict known outputs, the model identifies groupings, relationships, and anomalies in the input data on its own.

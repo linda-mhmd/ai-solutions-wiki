@@ -11,6 +11,7 @@ related:
   - frameworks/nis2-compliance-framework
   - frameworks/gdpr-ai-framework
   - guides/ai-regulatory-compliance-checklist
+last_updated: 2026-05-30
 ---
 
 The Digital Operational Resilience Act (Regulation 2022/2554) is an EU regulation that strengthens the digital resilience of financial entities. DORA entered into application on 17 January 2025 and applies to 20 types of financial entities and their ICT third-party service providers. It harmonizes ICT risk management rules across the financial sector, replacing fragmented national approaches with a single EU-wide framework.

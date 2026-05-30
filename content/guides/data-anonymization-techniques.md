@@ -5,6 +5,7 @@ date: 2026-03-28
 categories: [Guides]
 tags: [privacy, anonymization, gdpr, data-protection]
 related: [patterns/pii-redaction-pipeline, patterns/privacy-preserving-ai, patterns/differential-privacy-ml, guides/gdpr-for-ai-teams]
+last_updated: 2026-05-30
 ---
 
 AI systems are hungry for data, and much of the most valuable data contains personal information. Training a healthcare model requires patient records. Building a fraud detection system requires transaction histories. Improving a recommendation engine requires user behavior data. Anonymization techniques allow organizations to extract value from sensitive data while protecting individual privacy. Done poorly, anonymization provides a false sense of security. Done well, it enables AI development that respects both privacy regulations and ethical obligations.

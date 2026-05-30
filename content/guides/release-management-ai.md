@@ -8,6 +8,7 @@ related:
   - frameworks/release-management
   - guides/software-architecture-ai
   - frameworks/software-quality-assurance
+last_updated: 2026-05-30
 ---
 
 Releasing AI models to production carries risks that application code releases do not. A code bug usually produces an error; a model bug produces a wrong answer that looks correct. Users may not notice degraded performance until the business impact is significant. This guide covers release strategies that manage these risks.

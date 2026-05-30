@@ -4,6 +4,7 @@ description: "A broad category of non-relational database systems designed for s
 date: 2026-03-28
 categories: [Glossary]
 tags: [databases, nosql, document-database, key-value, graph-database, distributed-systems]
+last_updated: 2026-05-30
 ---
 
 NoSQL databases are non-relational data stores designed to handle data models and access patterns that relational databases serve poorly or inefficiently. Rather than storing data in fixed-schema tables with SQL as the query language, NoSQL systems use flexible schemas and purpose-built data models optimized for specific workloads.

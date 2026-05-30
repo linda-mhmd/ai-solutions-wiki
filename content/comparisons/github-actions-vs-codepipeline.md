@@ -2,8 +2,10 @@
 title: "GitHub Actions vs AWS CodePipeline for AI/ML CI/CD"
 description: "Comparing GitHub Actions and AWS CodePipeline for AI and ML continuous integration and deployment, covering features, ecosystem, and cost."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [GitHub-Actions, CodePipeline, CI-CD, DevOps, MLOps]
+last_updated: 2026-05-30
 ---
 
 CI/CD for AI workloads includes standard software CI/CD (code testing, building, deploying) plus ML-specific steps (model training, evaluation, model registry updates). GitHub Actions and AWS CodePipeline approach this differently.

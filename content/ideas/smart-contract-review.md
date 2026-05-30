@@ -4,6 +4,7 @@ description: "Use AI to review contracts against standard terms, flagging non-st
 date: 2026-03-28
 categories: [Ideas]
 tags: [contracts, legal, document-review, risk-management, automation]
+last_updated: 2026-05-30
 ---
 
 Legal teams are bottlenecks in every organization. Contract review queues stretch to weeks because every agreement needs a lawyer's eyes, even when 80% of the contract is standard boilerplate that has been reviewed hundreds of times before.

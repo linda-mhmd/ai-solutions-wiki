@@ -4,6 +4,7 @@ description: "How to scale AI infrastructure for growing workloads, covering com
 date: 2026-03-28
 categories: [Guides]
 tags: [scaling, infrastructure, cloud, AI-infrastructure, MLOps]
+last_updated: 2026-05-30
 ---
 
 AI infrastructure that works for a prototype or pilot often breaks down as usage grows. A single model serving endpoint handles the pilot's 100 requests per day but fails at 10,000 requests per day. A training pipeline that runs on a single GPU takes a week when the dataset grows 10x. Scaling AI infrastructure requires deliberate planning across compute, data, and operational dimensions.

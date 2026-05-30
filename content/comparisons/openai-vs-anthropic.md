@@ -2,8 +2,10 @@
 title: "OpenAI vs Anthropic - Platform and Model Comparison"
 description: "A comprehensive comparison of OpenAI and Anthropic as AI providers, covering models, APIs, safety approaches, enterprise features, and pricing."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [OpenAI, Anthropic, LLM, comparison, AI-providers]
+last_updated: 2026-05-30
 ---
 
 OpenAI and Anthropic are the two leading foundation model providers. Both offer frontier AI models through APIs, but they differ in model philosophy, safety approach, enterprise features, and ecosystem. This comparison helps teams evaluate which provider fits their needs.
@@ -22,11 +24,11 @@ OpenAI and Anthropic are the two leading foundation model providers. Both offer 
 
 ### Anthropic
 
-**Claude Opus.** Highest capability model. Best for complex analysis, nuanced writing, and tasks requiring deep understanding.
+**Claude 3.5 Opus.** Highest capability model. Best for complex analysis, nuanced writing, and tasks requiring deep understanding.
 
-**Claude Sonnet.** Balanced model for most enterprise tasks. Good performance at moderate cost. Fast enough for real-time applications.
+**Claude 3.5 Sonnet.** Balanced model for most enterprise tasks. Good performance at moderate cost. Fast enough for real-time applications.
 
-**Claude Haiku.** Fastest and cheapest model. Suitable for classification, extraction, and high-volume processing.
+**Claude 3.5 Haiku.** Fastest and cheapest model. Suitable for classification, extraction, and high-volume processing.
 
 ## API and Platform
 
@@ -34,7 +36,7 @@ OpenAI and Anthropic are the two leading foundation model providers. Both offer 
 |---|---|---|
 | API style | REST with streaming | REST with streaming |
 | Context window | Up to 128K tokens | Up to 200K tokens |
-| Vision support | Yes (GPT-4o, GPT-4 Turbo) | Yes (Claude Sonnet, Opus) |
+| Vision support | Yes (GPT-4o, GPT-4 Turbo) | Yes (Claude 3.5 Sonnet, Claude 3.5 Opus) |
 | Tool/function calling | Yes | Yes |
 | Structured output (JSON mode) | Yes | Yes |
 | Batch API | Yes | Yes |

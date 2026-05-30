@@ -9,6 +9,7 @@ related:
   - guides/e2e-testing-ai-products
   - comparisons/playwright-vs-cypress
   - glossary/end-to-end-testing
+last_updated: 2026-05-30
 ---
 
 Playwright is an open-source browser automation framework developed by Microsoft. It supports Chromium, Firefox, and WebKit browsers through a single API, enabling cross-browser testing with a single test suite. Playwright is available for Python, JavaScript/TypeScript, Java, and .NET.

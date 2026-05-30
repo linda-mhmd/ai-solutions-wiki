@@ -7,6 +7,7 @@ tags: [azure, database, nosql, globally-distributed, multi-model]
 related:
   - tools/amazon-dynamodb
   - tools/amazon-neptune
+last_updated: 2026-05-30
 ---
 
 Azure Cosmos DB is Microsoft Azure's globally distributed, multi-model database service that provides single-digit millisecond response times and guaranteed availability backed by comprehensive SLAs. Unlike most managed database services that support a single data model, Cosmos DB supports multiple APIs: NoSQL (document), MongoDB, Apache Cassandra, Apache Gremlin (graph), Table, and PostgreSQL. This multi-model approach means teams can use their preferred data model and query language while benefiting from the same underlying globally distributed infrastructure.

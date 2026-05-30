@@ -9,6 +9,7 @@ related:
   - glossary/single-responsibility-principle
   - glossary/strategy-pattern
   - glossary/decorator-pattern
+last_updated: 2026-05-30
 ---
 
 The Open-Closed Principle (OCP) states that software entities (classes, modules, functions) should be open for extension but closed for modification. You should be able to add new behavior to a system without altering existing, tested code.

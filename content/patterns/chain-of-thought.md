@@ -8,6 +8,7 @@ related:
   - patterns/react-pattern-ai
   - patterns/reflection-pattern
   - patterns/direct-model-interface
+last_updated: 2026-05-30
 ---
 
 Chain-of-thought (CoT) prompting instructs the model to show its reasoning step by step before producing a final answer. Instead of jumping directly to a conclusion, the model works through the problem explicitly. This simple technique significantly improves accuracy on math, logic, multi-step reasoning, and complex analysis tasks.
@@ -53,3 +54,10 @@ When using extended thinking, you typically do not need to add "think step by st
 **Faithfulness** - The reasoning steps the model shows are not necessarily the actual computation that produced the answer. The model may generate plausible-looking reasoning that leads to a predetermined (and possibly wrong) conclusion. Do not treat CoT traces as reliable explanations of the model's decision process.
 
 **Overthinking** - On simple tasks, CoT can actually reduce accuracy. The model may overcomplicate a straightforward question by reasoning itself into an incorrect answer. Match the technique to the difficulty of the task.
+
+## Sources and Further Reading
+
+- [Chain-of-Thought Prompting Elicits Reasoning in Large Language Models](https://arxiv.org/abs/2201.11903) - Original research paper by Wei et al. introducing chain-of-thought prompting
+- [Anthropic Prompt Engineering Guide](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/chain-of-thought) - Official guidance on using CoT with Claude models
+- [OpenAI Prompt Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering) - Best practices for prompting including reasoning strategies
+- [Large Language Models are Zero-Shot Reasoners](https://arxiv.org/abs/2205.11916) - Research on zero-shot chain-of-thought prompting

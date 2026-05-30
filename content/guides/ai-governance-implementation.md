@@ -10,6 +10,7 @@ related:
   - guides/ai-risk-assessment-guide
   - guides/ai-documentation-guide
   - glossary/model-card
+last_updated: 2026-05-30
 ---
 
 AI governance is the framework of policies, processes, and organizational structures that ensure AI systems are developed and operated responsibly. Without governance, organizations face regulatory penalties, reputational damage from biased or harmful outputs, and inconsistent practices across teams. With too much governance, innovation stalls. The goal is a proportionate framework that manages risk without creating bureaucratic overhead.

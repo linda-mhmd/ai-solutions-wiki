@@ -4,6 +4,7 @@ description: "Use AI to standardize vendor evaluation by scoring proposals again
 date: 2026-03-28
 categories: [Ideas]
 tags: [procurement, vendor-management, evaluation, automation]
+last_updated: 2026-05-30
 ---
 
 Vendor evaluations are supposed to be objective, but they rarely are. Different evaluators weight criteria differently, proposals vary in format and emphasis, and the final decision often comes down to whoever presented best rather than who best meets the requirements.

@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: ["media-processing", "intermediate", "ai-transcription", "speech-to-text", "media", "captions", "aws"]
 industries: [media]
 tools: [amazon-transcribe, amazon-bedrock]
+last_updated: 2026-05-30
 ---
 
 Automatic transcription is one of the most mature AI capabilities available today - raw word accuracy for clear audio in major languages exceeds 95% with current models. But "transcription" for production use almost always means something harder: knowing not just what was said, but who said it, in a format that is usable downstream. That harder problem is where most implementations run into difficulty.

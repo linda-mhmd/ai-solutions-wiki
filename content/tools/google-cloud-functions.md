@@ -9,6 +9,7 @@ related:
   - tools/google-cloud-run
   - tools/google-cloud-pub-sub
   - tools/google-vertex-ai
+last_updated: 2026-05-30
 ---
 
 Google Cloud Functions is Google Cloud's serverless, event-driven compute platform. It allows developers to write single-purpose functions that automatically execute in response to cloud events -- such as a file upload to Cloud Storage, a message on Pub/Sub, or an HTTP request -- without provisioning or managing servers. In AI pipelines, Cloud Functions serves the same role as AWS Lambda: it is the glue code that connects data sources to AI services and routes results downstream.

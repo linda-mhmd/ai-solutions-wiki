@@ -10,6 +10,7 @@ related:
   - glossary/dimensionality-reduction
   - glossary/embeddings
   - glossary/clustering
+last_updated: 2026-05-30
 ---
 
 t-SNE (t-distributed Stochastic Neighbor Embedding) is a non-linear dimensionality reduction technique designed specifically for visualizing high-dimensional data in two or three dimensions. It preserves local structure - points that are close in the original high-dimensional space remain close in the visualization - making it excellent at revealing clusters and patterns that linear methods like PCA cannot capture.

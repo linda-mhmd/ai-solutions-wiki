@@ -10,6 +10,7 @@ related:
   - glossary/gradient-boosting
   - glossary/random-forest
   - glossary/ensemble-methods
+last_updated: 2026-05-30
 ---
 
 Bayesian optimization is a sequential model-based approach for optimizing expensive black-box functions. In machine learning, it is primarily used for hyperparameter tuning - finding the best combination of learning rate, regularization strength, tree depth, and other parameters without exhaustively searching the entire space. It is significantly more sample-efficient than grid search or random search.

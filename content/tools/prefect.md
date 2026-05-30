@@ -8,6 +8,7 @@ related:
   - tools/aws-step-functions
   - tools/apache-airflow
   - tools/temporal
+last_updated: 2026-05-30
 ---
 
 Prefect is a modern workflow orchestration framework designed to make building and monitoring data pipelines as simple as writing Python code. Positioned as a next-generation alternative to Apache Airflow, Prefect eliminates the need for DAG files, cron-based scheduling configurations, and rigid task dependency declarations. Instead, developers add decorators (@flow and @task) to existing Python functions, and Prefect automatically tracks execution, manages retries, handles concurrency, and provides observability -- transforming ordinary scripts into observable, resilient workflows.

@@ -11,6 +11,7 @@ related:
   - glossary/llm
   - glossary/foundation-models
   - glossary/llm-as-a-judge
+last_updated: 2026-05-30
 ---
 
 Direct Preference Optimization (DPO) is a method for aligning language models with human preferences by fine-tuning directly on pairs of preferred and dispreferred completions, without training an explicit reward model and without on-policy reinforcement learning. Introduced by Rafailov et al. (NeurIPS 2023), DPO derives a closed-form objective that achieves the same fixed point as RLHF with a KL constraint, replacing the unstable PPO loop with a single supervised-style training pass. It has become the default open-source alignment recipe (LLaMA-3, Qwen2, Tülu 3, DeepSeek post-training, Zephyr, etc.) and is the practical baseline against which subsequent alignment methods are compared.

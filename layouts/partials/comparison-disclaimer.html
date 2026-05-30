@@ -1,0 +1,10 @@
+{{/* Disclaimer for comparison pages with pricing/capability information */}}
+{{ if eq .Section "comparisons" }}
+<aside class="comparison-disclaimer" role="note" aria-label="Pricing and capability disclaimer">
+  <p><strong>Note:</strong> Pricing and capability information is subject to change and may not reflect current provider offerings. Please verify current information at the official provider documentation:</p>
+  <ul>
+    <li><a href="https://platform.openai.com/docs/models" target="_blank" rel="noopener noreferrer">OpenAI Models Documentation</a></li>
+    <li><a href="https://docs.anthropic.com/en/docs/about-claude/models/all-models" target="_blank" rel="noopener noreferrer">Anthropic Claude Models Documentation</a></li>
+  </ul>
+</aside>
+{{ end }}

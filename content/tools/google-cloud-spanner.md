@@ -9,6 +9,7 @@ related:
   - tools/google-firestore
   - tools/google-cloud-bigtable
   - tools/google-vertex-ai
+last_updated: 2026-05-30
 ---
 
 Google Cloud Spanner is a fully managed, horizontally scalable, globally distributed relational database service. It is unique among cloud databases in providing the combination of relational semantics (SQL, schemas, ACID transactions, strong consistency) with the horizontal scalability and global distribution typically associated with NoSQL databases. Spanner offers up to 99.999% availability (five nines) with its multi-region configurations, making it one of the most resilient database services available on any cloud platform.

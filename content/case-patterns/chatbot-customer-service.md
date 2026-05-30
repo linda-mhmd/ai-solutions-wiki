@@ -7,6 +7,7 @@ tags: [chatbot, customer-service, conversational-AI, telecom, RAG]
 image: /img/shaping-ai/operator-circular-screens-notext.png
 image_alt: "An operator at a circular station with floating screens and red data streams, representing multi-channel customer service monitoring."
 image_caption: "Sixty percent of contacts resolved without human intervention. The remaining forty need a human who is not stuck answering routine questions."
+last_updated: 2026-05-30
 ---
 
 A regional telecom provider with 2 million subscribers handled 180,000 customer service contacts per month across phone, chat, and email. Wait times averaged 14 minutes during peak hours, and agent turnover was 45% annually. The company deployed an AI chatbot to handle routine inquiries, with the goal of resolving 50% of contacts without human intervention.

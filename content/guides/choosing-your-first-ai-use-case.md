@@ -4,9 +4,15 @@ description: "A practical framework for selecting the right first AI use case - 
 date: 2026-03-24
 categories: [Guides]
 tags: ["project-management", "beginner", "use-case-selection", "ai-adoption", "getting-started", "strategy", "roi"]
+last_updated: 2026-05-30
 ---
 
 The most common mistake in enterprise AI adoption is choosing the wrong first use case. Teams either pick something too ambitious (which stalls before delivering value), too trivial (which delivers value but builds no capability), or too politically complex (which gets mired in stakeholder disagreements before any code is written).
+
+<figure class="bz-figure">
+  <img src="/img/basics/compass-cover.png" alt="A compass pointing toward a clear direction: choosing the right first AI use case requires orientation before action." loading="lazy">
+  <figcaption>The first AI use case sets the direction for everything that follows. Choose well and you build momentum. Choose poorly and you build skepticism. The framework in this guide helps you navigate.</figcaption>
+</figure>
 
 This guide provides a framework for choosing a first AI use case that builds real capability, ships in a reasonable timeframe, and creates momentum for subsequent projects.
 

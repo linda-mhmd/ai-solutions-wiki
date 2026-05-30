@@ -8,6 +8,7 @@ related:
   - glossary/neural-network
   - glossary/deep-learning
   - glossary/gradient-descent
+last_updated: 2026-05-30
 ---
 
 An activation function is a mathematical function applied to the output of each neuron in a neural network. It introduces non-linearity, which enables the network to learn complex patterns. Without activation functions, a multi-layer neural network would be equivalent to a single linear transformation, regardless of depth.

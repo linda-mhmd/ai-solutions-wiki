@@ -4,6 +4,7 @@ description: "A comprehensive standard published by PMI that defines project man
 date: 2026-03-28
 categories: [Glossary]
 tags: [PMBOK, project-management, PMI, standards, best-practices]
+last_updated: 2026-05-30
 ---
 
 The Project Management Body of Knowledge (PMBOK) is a standard published by the Project Management Institute (PMI) that provides foundational guidance for managing projects. It defines the processes, knowledge areas, and terminology that constitute the generally accepted practices of project management.

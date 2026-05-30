@@ -11,6 +11,7 @@ related:
   - guides/gdpr-for-ai-teams
   - guides/federated-learning-guide
   - patterns/data-residency-pattern
+last_updated: 2026-05-30
 ---
 
 Privacy-preserving AI encompasses a family of techniques that enable machine learning while minimizing exposure of sensitive data. These techniques are not mutually exclusive and are often combined to provide layered privacy protection.

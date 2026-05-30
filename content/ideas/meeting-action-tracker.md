@@ -4,6 +4,7 @@ description: "Extract action items from meeting transcripts and track them to co
 date: 2026-03-28
 categories: [Ideas]
 tags: [meetings, action-items, productivity, transcription, automation]
+last_updated: 2026-05-30
 ---
 
 Action items agreed in meetings are forgotten at an alarming rate. Studies suggest that 50% or more of meeting action items are never completed, often because they were never properly recorded or tracked. The gap between "we agreed to do X" and "X is in a tracking system" is where accountability dies.

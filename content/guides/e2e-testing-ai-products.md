@@ -9,6 +9,7 @@ related:
   - guides/testing-non-deterministic-systems
   - comparisons/playwright-vs-cypress
   - glossary/end-to-end-testing
+last_updated: 2026-05-30
 ---
 
 End-to-end tests verify that the entire application works from the user's perspective. For AI-powered products, this means testing the full flow: user submits input, the system processes it through retrieval, inference, and post-processing, and the user sees a meaningful response in the UI. E2E tests are the most expensive and slowest tests in the pyramid, but they catch integration failures that no other layer can.

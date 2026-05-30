@@ -7,9 +7,15 @@ categories: ["Software Engineering"]
 related:
   - software-engineering/waterfall-methodology
   - software-engineering/scrum-framework
+last_updated: 2026-05-30
 ---
 
 In February 2001, seventeen software practitioners gathered at The Lodge at Snowbird ski resort in Utah to discuss lightweight alternatives to documentation-heavy software development processes. The result was the Agile Manifesto - a 68-word statement of values and an accompanying set of twelve principles that has since reshaped how the majority of commercial software teams organise their work.
+
+<figure class="bz-figure">
+<img src="/img/craft/waterfall-fountain-vs-agile-pottery-text.png" alt="Split image comparing waterfall methodology (represented by a formal fountain with water flowing in one direction) to agile methodology (represented by hands shaping clay on a pottery wheel), illustrating the shift from rigid sequential processes to iterative, hands-on development." loading="lazy">
+<figcaption>The Agile Manifesto marked a fundamental shift from sequential, documentation-heavy processes to iterative, collaborative development where working software emerges through continuous refinement.</figcaption>
+</figure>
 
 ## Historical Context: The Heavyweight Process Problem
 

@@ -8,6 +8,7 @@ related:
   - glossary/random-forest
   - glossary/xgboost
   - glossary/ensemble-methods
+last_updated: 2026-05-30
 ---
 
 A decision tree is a model that makes predictions by learning a hierarchy of if-then rules from training data. Starting from the root, each internal node tests a feature condition (e.g., "age > 30"), each branch represents the outcome of that test, and each leaf node contains a prediction. Decision trees are valued for their interpretability and serve as the foundation for random forests and gradient-boosted tree ensembles.

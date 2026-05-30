@@ -9,6 +9,7 @@ related:
   - glossary/data-sovereignty
   - glossary/gdpr
   - glossary/ai-safety
+last_updated: 2026-05-30
 ---
 
 Homomorphic encryption (HE) is a cryptographic technique that allows computations to be performed directly on encrypted data without decrypting it first. The encrypted result, when decrypted, matches what would have been produced by running the same computation on the plaintext. This enables privacy-preserving machine learning where a cloud provider can run inference on sensitive data without ever seeing the data in the clear.

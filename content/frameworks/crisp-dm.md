@@ -10,6 +10,7 @@ related:
   - frameworks/build-measure-learn
   - frameworks/design-thinking-ai
   - frameworks/maturity-model-ai
+last_updated: 2026-05-30
 ---
 
 CRISP-DM (Cross-Industry Standard Process for Data Mining) has been the dominant methodology for data science projects since its introduction in 1996. Despite its age, it remains the most commonly used framework because its six phases map naturally to how data science work actually happens - including the messy, iterative reality that linear project management frameworks miss.

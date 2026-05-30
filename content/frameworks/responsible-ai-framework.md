@@ -11,6 +11,7 @@ related:
   - glossary/model-card
   - patterns/ai-governance
   - guides/responsible-ai-guide
+last_updated: 2026-05-30
 ---
 
 The Responsible AI Framework provides a structured approach to building, deploying, and operating AI systems that are fair, transparent, accountable, safe, and privacy-preserving. It translates high-level responsible AI principles into concrete organizational practices, technical requirements, and governance processes.

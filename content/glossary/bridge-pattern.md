@@ -9,6 +9,7 @@ related:
   - glossary/strategy-pattern
   - glossary/abstract-factory-pattern
   - glossary/object-oriented-programming
+last_updated: 2026-05-30
 ---
 
 The Bridge pattern is a structural design pattern that separates an abstraction from its implementation, allowing both to evolve independently without affecting each other. It replaces inheritance-based binding between abstraction and implementation with composition-based binding.

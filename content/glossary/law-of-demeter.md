@@ -9,6 +9,7 @@ related:
   - glossary/solid-principles
   - glossary/facade-pattern
   - glossary/mediator-pattern
+last_updated: 2026-05-30
 ---
 
 The Law of Demeter (LoD), also known as the Principle of Least Knowledge, is a design guideline stating that a method should only talk to its immediate friends and not to strangers. It restricts the set of objects that a method can send messages to, reducing coupling between components.

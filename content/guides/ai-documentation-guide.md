@@ -9,6 +9,7 @@ related:
   - guides/ai-governance-implementation
   - guides/eu-ai-act-compliance
   - guides/model-registry-guide
+last_updated: 2026-05-30
 ---
 
 AI systems are notoriously under-documented. A model deployed without documentation becomes a black box that only its original developer understands, and even they forget the details after a few months. Good documentation is not bureaucratic overhead; it is the difference between a system that can be maintained, audited, and improved versus one that must be replaced when its creator leaves.

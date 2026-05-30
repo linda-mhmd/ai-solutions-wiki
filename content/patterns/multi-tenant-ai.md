@@ -4,6 +4,7 @@ description: "Serving multiple customers from shared AI infrastructure while mai
 date: 2026-03-28
 categories: [Patterns]
 tags: [multi-tenant, architecture, isolation, SaaS, infrastructure]
+last_updated: 2026-05-30
 ---
 
 Multi-tenant AI systems serve multiple customers from shared infrastructure. This creates unique challenges: data must be isolated, resources must be fairly allocated, and the system must support per-tenant customization without per-tenant infrastructure.

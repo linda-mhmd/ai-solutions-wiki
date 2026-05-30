@@ -10,6 +10,7 @@ related:
   - glossary/gdpr
   - glossary/data-controller
   - glossary/automated-decision-making
+last_updated: 2026-05-30
 ---
 
 A Data Protection Impact Assessment (DPIA) is a process mandated by Article 35 of GDPR that requires organizations to assess the impact of data processing activities on the privacy of individuals before the processing begins. DPIAs are mandatory when processing is likely to result in a high risk to the rights and freedoms of natural persons.

@@ -4,6 +4,7 @@ description: "Using large model outputs to train smaller, cheaper, faster models
 date: 2026-03-28
 categories: [Patterns]
 tags: [model-distillation, fine-tuning, cost-optimization, performance, training]
+last_updated: 2026-05-30
 ---
 
 Model distillation uses a large, capable model (the teacher) to generate training data for a smaller, cheaper model (the student). The student learns to replicate the teacher's behavior on a specific task at a fraction of the inference cost. This is the most effective cost optimization pattern for AI applications that have identified a stable, well-defined task.

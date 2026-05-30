@@ -2,8 +2,10 @@
 title: "React vs Next.js for AI-Powered Applications"
 description: "Comparing React and Next.js for building AI-powered web applications, covering streaming, server components, API routes, and AI SDK integration."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [React, Next.js, frontend, web-development, AI-apps]
+last_updated: 2026-05-30
 ---
 
 React and Next.js are both used to build web frontends for AI applications. Since Next.js is built on React, this comparison is really about whether your AI application benefits from Next.js's additional features: server components, API routes, streaming, and full-stack capabilities.

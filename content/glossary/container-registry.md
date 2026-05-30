@@ -4,6 +4,7 @@ description: "What container registries are, how ECR, Docker Hub, Azure ACR, and
 date: 2026-03-24
 categories: [Glossary]
 tags: ["devops", "beginner", "container-registry", "docker", "images", "ecr", "kubernetes"]
+last_updated: 2026-05-30
 ---
 
 A container registry is a storage and distribution system for container images. Container images (Docker images) are versioned, layered archives containing an application and all its dependencies. Registries store these images and serve them to container runtimes (Lambda, ECS, Fargate, Kubernetes) at deployment time.

@@ -9,6 +9,7 @@ related:
   - guides/test-data-management-ai
   - guides/integration-testing-ai-pipelines
   - glossary/golden-dataset
+last_updated: 2026-05-30
 ---
 
 RAG systems have two distinct components that need separate testing strategies: the retrieval pipeline (deterministic, testable with standard methods) and the generation pipeline (non-deterministic, requiring evaluation-based testing). Testing them independently and then together provides the clearest signal about where quality issues originate.

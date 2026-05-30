@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [document-automation, real-estate-tech, lease-management, nlp, contract-generation]
 industries: [real-estate, legal]
 tools: [amazon-bedrock, amazon-textract, amazon-s3]
+last_updated: 2026-05-30
 ---
 
 Real estate transactions generate substantial paperwork: purchase agreements, leases, title documents, property disclosures, inspection reports, and closing documents. Much of this documentation follows standard templates with transaction-specific variations. AI document automation reduces preparation time, ensures completeness, and extracts structured data from legacy documents for portfolio management.

@@ -4,6 +4,7 @@ description: "A comprehensive framework for enterprise architecture development,
 date: 2026-03-28
 categories: [Glossary]
 tags: [TOGAF, enterprise-architecture, framework, The-Open-Group, IT-governance]
+last_updated: 2026-05-30
 ---
 
 The Open Group Architecture Framework (TOGAF) is a widely adopted framework for developing and governing enterprise architecture. It provides a structured approach for designing, planning, implementing, and managing an organization's information technology architecture aligned with business objectives.

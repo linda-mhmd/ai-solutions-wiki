@@ -4,6 +4,7 @@ description: "How to navigate the journey from AI proof of concept to production
 date: 2026-03-28
 categories: [Guides]
 tags: [production, POC, deployment, MLOps, AI-development]
+last_updated: 2026-05-30
 ---
 
 Most AI proofs of concept never reach production. Industry estimates suggest 80-90% of AI POCs fail to deploy. The gap between "it works in a notebook" and "it runs reliably in production" is wider than most teams expect. This guide covers the specific challenges of the POC-to-production journey and how to navigate them.

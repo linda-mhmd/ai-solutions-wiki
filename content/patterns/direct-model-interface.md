@@ -9,6 +9,7 @@ related:
   - patterns/guardrails-pattern
   - patterns/structured-output
   - patterns/ai-gateway-pattern
+last_updated: 2026-05-30
 ---
 
 The direct model interface is the most basic AI integration pattern. User input is sent to a model API. The model generates a response. The response is returned to the user. No chains, no agents, no tools, no orchestration. One input, one output, one model call.

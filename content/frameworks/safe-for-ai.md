@@ -8,6 +8,7 @@ related:
   - frameworks/agile-ai-delivery
   - frameworks/okr-framework-ai
   - frameworks/team-topologies-ai
+last_updated: 2026-05-30
 ---
 
 The Scaled Agile Framework (SAFe) provides structure for coordinating multiple Agile teams working toward shared objectives. When an organization runs not one but five or fifteen AI initiatives simultaneously, SAFe's portfolio, program, and team layers help align investment decisions, manage dependencies, and coordinate delivery across teams. This article covers how to adapt SAFe's practices for the specific characteristics of AI and ML programs.

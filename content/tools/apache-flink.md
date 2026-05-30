@@ -9,6 +9,7 @@ related:
   - tools/apache-spark
   - tools/amazon-emr
   - tools/apache-airflow
+last_updated: 2026-05-30
 ---
 
 Apache Flink is a framework and distributed processing engine for stateful computations over unbounded (streaming) and bounded (batch) data streams. Unlike systems that treat streaming as an extension of batch processing, Flink was designed from the start as a streaming-first engine, treating batch as a special case of streaming. This architectural choice gives Flink true low-latency event-at-a-time processing with exactly-once state consistency guarantees, making it the leading open-source choice for mission-critical stream processing.

@@ -9,6 +9,7 @@ related:
   - glossary/abstract-factory-pattern
   - glossary/prototype-pattern
   - glossary/object-oriented-programming
+last_updated: 2026-05-30
 ---
 
 The Builder pattern is a creational design pattern that separates the construction of a complex object from its representation, so that the same construction process can create different representations. It is particularly useful when an object requires numerous steps or configurations to be created properly.

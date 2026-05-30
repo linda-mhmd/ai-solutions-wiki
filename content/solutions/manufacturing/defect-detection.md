@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [defect-detection, computer-vision, quality-inspection, manufacturing-ai, visual-inspection]
 industries: [manufacturing]
 tools: [amazon-sagemaker, amazon-lookout-for-vision, aws-panorama]
+last_updated: 2026-05-30
 ---
 
 Visual quality inspection is a critical manufacturing process that ensures products meet specifications before reaching customers. Human inspectors performing visual checks miss 20-30% of defects due to fatigue, distraction, and the limitations of sustained visual attention. AI visual inspection achieves consistent detection rates of 95-99% at production line speeds, reducing escaped defects and the costs associated with returns, rework, and warranty claims.

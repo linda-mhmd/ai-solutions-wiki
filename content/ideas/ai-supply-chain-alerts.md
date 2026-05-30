@@ -4,6 +4,7 @@ description: "Use AI to monitor news, weather, and logistics data for early warn
 date: 2026-03-28
 categories: [Ideas]
 tags: [supply-chain, risk-monitoring, disruption, automation, logistics]
+last_updated: 2026-05-30
 ---
 
 Supply chain disruptions cost companies an average of 45% of one year's profits over the course of a decade. Most disruptions are foreseeable - weather events, port congestion, supplier financial distress - but the warning signs are scattered across sources that nobody monitors systematically.

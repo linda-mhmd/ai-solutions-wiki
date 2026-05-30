@@ -8,6 +8,7 @@ related:
   - glossary/precision-recall
   - glossary/confusion-matrix
   - glossary/roc-curve
+last_updated: 2026-05-30
 ---
 
 The F1 score is the harmonic mean of precision and recall, providing a single metric that balances both. It ranges from 0 (worst) to 1 (perfect). The harmonic mean penalizes extreme imbalances: an F1 score is high only when both precision and recall are high.

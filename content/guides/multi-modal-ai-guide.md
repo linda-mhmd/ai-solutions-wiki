@@ -4,6 +4,7 @@ description: "A practical guide to building multi-modal AI applications that pro
 date: 2026-03-28
 categories: [Guides]
 tags: [multi-modal, computer-vision, NLP, LLM, AI-development]
+last_updated: 2026-05-30
 ---
 
 Multi-modal AI systems process and reason across multiple data types: text, images, audio, video, and structured data. Modern foundation models like GPT-4, Claude, and Gemini natively support text and image inputs, making multi-modal applications more accessible than ever. This guide covers practical implementation of multi-modal AI systems.

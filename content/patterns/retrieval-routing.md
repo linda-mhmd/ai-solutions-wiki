@@ -10,6 +10,7 @@ related:
   - patterns/model-tier-routing
   - patterns/embedding-pipeline
   - patterns/vector-search-optimization
+last_updated: 2026-05-30
 ---
 
 Not every question should hit the same knowledge source. A question about company policy should query the policy document store. A question about a customer's order status should query the transactional database. A question about recent industry news should query a web search API. The retrieval routing pattern classifies incoming queries and directs each to the most appropriate knowledge source.

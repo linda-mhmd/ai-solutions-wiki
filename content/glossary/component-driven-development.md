@@ -7,6 +7,7 @@ tags: [component-driven-development, atomic-design, storybook, ui-components, de
 related:
   - glossary/virtual-dom
   - glossary/web-components
+last_updated: 2026-05-30
 ---
 
 Component-driven development (CDD) is the practice of building user interfaces from small, isolated, reusable components. Each component encapsulates its own markup, styling, and behavior, and can be developed, tested, and documented independently of the application that consumes it. Components are composed together to form increasingly complex UI elements, and ultimately complete pages. The methodology was formalized by Brad Frost's Atomic Design (2013) and tooled by Storybook (2016).

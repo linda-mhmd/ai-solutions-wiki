@@ -10,6 +10,7 @@ related:
   - guides/cross-border-data-transfers-ai
   - glossary/gdpr
   - glossary/cloud-governance
+last_updated: 2026-05-30
 ---
 
 Data sovereignty is the concept that data is subject to the laws and regulations of the country or region where it is collected, processed, or stored. It extends beyond simple data residency (where data is physically located) to encompass legal jurisdiction, access controls, and governance frameworks that apply to that data.

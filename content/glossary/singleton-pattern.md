@@ -8,6 +8,7 @@ related:
   - glossary/factory-method-pattern
   - glossary/abstract-factory-pattern
   - glossary/object-oriented-programming
+last_updated: 2026-05-30
 ---
 
 The Singleton pattern is a creational design pattern that restricts the instantiation of a class to a single object and provides a global access point to that instance. It is one of the simplest yet most debated patterns in the Gang of Four catalog.

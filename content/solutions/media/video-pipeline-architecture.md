@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: ["media-processing", "advanced", "video-pipeline", "media", "architecture", "transcoding", "aws"]
 industries: [media]
 tools: [amazon-rekognition, amazon-bedrock, aws-step-functions, aws-s3, amazon-lambda, amazon-transcribe]
+last_updated: 2026-05-30
 ---
 
 An AI video pipeline automates the process of ingesting raw video, extracting intelligence from it, and producing edited or enriched output. This article describes a production-ready architecture built on AWS that handles media ingest through final output delivery.

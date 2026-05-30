@@ -4,6 +4,7 @@ description: "Data structures that map keys to values using hash functions for n
 date: 2026-03-28
 categories: [Glossary]
 tags: [hash-tables, data-structures, hashing, dictionaries, algorithms]
+last_updated: 2026-05-30
 ---
 
 A hash table (hash map) is a data structure that implements an associative array, mapping keys to values using a hash function. The hash function computes an index into an array of buckets from which the desired value can be found, providing average-case O(1) time for lookups, insertions, and deletions.

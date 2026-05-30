@@ -4,6 +4,7 @@ description: "A conceptual data modeling technique that represents data as entit
 date: 2026-03-28
 categories: [Glossary]
 tags: [databases, data-modeling, er-diagram, schema-design, relational-databases]
+last_updated: 2026-05-30
 ---
 
 The Entity-Relationship (ER) model is a conceptual framework for describing the structure of data in a database. It represents the real-world objects (entities) relevant to a system, their properties (attributes), and the associations between them (relationships). ER diagrams are the visual notation used to communicate these models.

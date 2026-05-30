@@ -9,6 +9,7 @@ related:
   - tools/apache-spark
   - tools/amazon-redshift
   - tools/apache-superset
+last_updated: 2026-05-30
 ---
 
 DuckDB is an in-process SQL OLAP (Online Analytical Processing) database management system, often described as "SQLite for analytics." It runs entirely within the host process, requiring no separate server installation or configuration, making it ideal for data science workflows, local analytics, and embedded analytics applications. Despite its lightweight footprint, DuckDB delivers high performance on analytical queries through columnar storage, vectorized execution, and automatic parallelism across available CPU cores.

@@ -8,6 +8,7 @@ related:
   - glossary/site-reliability-engineering
   - glossary/error-budget
   - glossary/observability
+last_updated: 2026-05-30
 ---
 
 SLA, SLO, and SLI form a hierarchy of reliability concepts. SLIs measure service behavior, SLOs set internal reliability targets, and SLAs define contractual commitments to customers. Together, they provide a structured approach to defining, measuring, and committing to service reliability.

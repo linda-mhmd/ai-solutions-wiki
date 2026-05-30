@@ -4,6 +4,7 @@ description: "Caching AI model responses based on semantic similarity rather tha
 date: 2026-03-28
 categories: [Patterns]
 tags: [caching, cost-optimization, latency, embeddings, performance]
+last_updated: 2026-05-30
 ---
 
 Traditional caching matches requests by exact key. For AI applications, this is almost useless because the same question phrased differently produces a cache miss every time. Semantic caching uses embedding similarity to match requests by meaning, dramatically improving cache hit rates.

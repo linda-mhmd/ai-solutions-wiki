@@ -9,6 +9,7 @@ related:
   - guides/testing-llm-applications
   - glossary/unit-testing
   - patterns/semantic-assertion
+last_updated: 2026-05-30
 ---
 
 Snapshot testing is a regression testing technique where you capture the output of a function or component, save it to a file (the snapshot), and compare future outputs against this saved snapshot. If the output changes, the test fails, alerting the developer to review the change and either fix the regression or update the snapshot.

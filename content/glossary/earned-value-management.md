@@ -4,6 +4,7 @@ description: "A project performance measurement technique that integrates scope,
 date: 2026-03-28
 categories: [Glossary]
 tags: [EVM, project-management, cost-management, performance-measurement, scheduling]
+last_updated: 2026-05-30
 ---
 
 Earned Value Management (EVM) is a project management technique that integrates scope, schedule, and cost data to provide objective measures of project performance and progress. It answers three fundamental questions: how much work was planned, how much work was completed, and how much did the completed work cost.

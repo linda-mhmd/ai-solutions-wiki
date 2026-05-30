@@ -2,6 +2,7 @@
 title: "CrewAI vs Strands Agents - Multi-Agent Framework Comparison"
 description: "Architecture differences, AWS integration, and decision criteria for choosing between CrewAI and Strands Agents for multi-agent AI systems."
 date: 2026-03-24
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: ["ai-agents", "intermediate", "crewai", "strands", "multi-agent", "comparison", "framework"]
 related:
@@ -11,6 +12,7 @@ related:
   - glossary/multi-agent-systems
   - patterns/agentic-workflows
   - guides/multi-agent-systems-101
+last_updated: 2026-05-30
 ---
 
 CrewAI and Strands Agents are both Python frameworks for building AI agent systems, but they have meaningfully different architectures and AWS integration stories. This comparison helps teams choose the right framework for their use case.

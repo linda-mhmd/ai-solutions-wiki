@@ -8,6 +8,7 @@ related:
   - tools/amazon-comprehend
   - tools/google-vertex-ai
   - tools/google-cloud-translation
+last_updated: 2026-05-30
 ---
 
 Google Cloud Natural Language API is a pre-trained NLP service that extracts insights from unstructured text. It performs sentiment analysis, entity recognition, entity sentiment analysis, syntax analysis, and content classification without requiring any machine learning expertise. The API accepts text in over 10 languages and returns structured annotations that can be integrated into applications, analytics pipelines, and content management systems.

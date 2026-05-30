@@ -21,6 +21,7 @@ alternatives:
 solutions:
   - solutions/finance/fraud-detection
   - solutions/retail/recommendation-engine
+last_updated: 2026-05-30
 ---
 
 Pinecone is a fully managed vector database designed for similarity search at scale. You store vector embeddings (numerical representations of text, images, or any data), and Pinecone indexes them for fast nearest-neighbor retrieval. For AI projects, Pinecone is primarily used as the retrieval layer in RAG (Retrieval-Augmented Generation) systems: embed your documents, store them in Pinecone, and retrieve relevant context to ground LLM responses.
@@ -66,3 +67,10 @@ For high-throughput ingestion, use batch upserts (up to 100 vectors per request)
 ## Pricing
 
 Serverless pricing is based on read units (queries), write units (upserts and updates), and storage (GB of vectors and metadata). This usage-based model is cost-effective for variable workloads. Pod-based pricing is per pod-hour, which provides predictable costs for steady-state workloads. Evaluate based on your expected query volume and index size: serverless is typically cheaper for development and moderate production loads, while pods may be cheaper for sustained high-throughput workloads.
+
+## Sources and Further Reading
+
+- [Pinecone Documentation](https://docs.pinecone.io/) - Official documentation covering indexes, namespaces, and query operations
+- [Pinecone Learning Center](https://www.pinecone.io/learn/) - Tutorials and guides on vector search and RAG implementation
+- [Pinecone Blog](https://www.pinecone.io/blog/) - Technical articles on vector database best practices and use cases
+- [Pinecone Pricing](https://www.pinecone.io/pricing/) - Current pricing for serverless and pod-based deployments

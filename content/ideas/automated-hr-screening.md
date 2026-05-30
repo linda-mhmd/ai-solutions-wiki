@@ -4,6 +4,7 @@ description: "Use AI to screen resumes against job requirements, producing a ran
 date: 2026-03-28
 categories: [Ideas]
 tags: [recruitment, hr, screening, automation, talent-acquisition]
+last_updated: 2026-05-30
 ---
 
 Recruiters spend 6-8 seconds per resume during initial screening, which means important qualifications get missed and unconscious biases influence decisions. For high-volume roles receiving hundreds of applications, this problem compounds.

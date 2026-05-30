@@ -4,6 +4,7 @@ description: "AI determines the best time and channel to deliver each notificati
 date: 2026-03-28
 categories: [Ideas]
 tags: [notifications, user-experience, personalization, engagement, daily-ai-spark]
+last_updated: 2026-05-30
 ---
 
 Users ignore most notifications. Push notifications sent at the wrong time get dismissed. Emails about urgent matters sit unread. Slack messages during deep work break concentration. The one-size-fits-all approach to notifications - send everything immediately via the default channel - fails both the user and the sender.

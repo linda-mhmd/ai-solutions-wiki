@@ -9,6 +9,7 @@ related:
   - glossary/ports-and-adapters
   - glossary/domain-driven-design
   - glossary/repository-pattern
+last_updated: 2026-05-30
 ---
 
 Hexagonal architecture (also called ports and adapters) organizes applications so that business logic is at the center, completely isolated from external systems. The application defines ports (interfaces for how it interacts with the outside world) and adapters (implementations that connect those ports to specific technologies). The hexagonal shape in diagrams emphasizes that the application has many external connections, none of which are more fundamental than others.

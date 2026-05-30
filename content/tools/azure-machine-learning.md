@@ -8,6 +8,7 @@ related:
   - tools/amazon-sagemaker
   - tools/google-vertex-ai
   - tools/azure-openai
+last_updated: 2026-05-30
 ---
 
 Azure Machine Learning (Azure ML) is Microsoft's cloud-based platform for the complete machine learning lifecycle, from data preparation and experimentation through model training, deployment, and monitoring. It provides a managed environment where data scientists and ML engineers can work with notebooks, automated ML, drag-and-drop designers, and code-first SDKs to build production-grade models. Azure ML sits alongside Azure OpenAI in the Azure AI portfolio: Azure OpenAI provides access to pre-built foundation models, while Azure ML provides the infrastructure to train custom models or fine-tune existing ones on proprietary data.

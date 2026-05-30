@@ -9,6 +9,7 @@ related:
   - guides/testing-llm-applications
   - patterns/semantic-assertion
   - glossary/snapshot-testing
+last_updated: 2026-05-30
 ---
 
 Snapshot testing captures a known-good output and compares future outputs against it. When the output changes, the test fails, forcing a developer to review the change and either fix a regression or intentionally update the snapshot. For AI systems, traditional exact-match snapshots are too brittle because model outputs vary. This guide covers snapshot strategies adapted for non-deterministic AI outputs.

@@ -12,6 +12,7 @@ related:
   - glossary/cost-optimization-pillar
   - glossary/performance-efficiency
   - glossary/sustainability-pillar
+last_updated: 2026-05-30
 ---
 
 Every major cloud provider now publishes a Well-Architected Framework. AWS, Azure, and Google Cloud have each built their own version, and while the names and pillar counts differ slightly, the underlying logic is identical: cloud workloads fail in predictable ways, and a structured set of best practices can prevent most of those failures. This document explains what the framework is, where it came from, and why it matters especially for AI workloads.

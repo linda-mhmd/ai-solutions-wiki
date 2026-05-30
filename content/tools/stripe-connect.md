@@ -10,6 +10,7 @@ related:
   - guides/from-zero-to-production
 solutions:
   - guides/from-zero-to-production
+last_updated: 2026-05-30
 ---
 
 Stripe Connect is the payments infrastructure layer designed specifically for marketplaces and platforms, any product where money moves between more than two parties. In a standard Stripe integration, a business accepts payment from a customer. Connect adds a third party: the seller, contractor, creator, or service provider who receives a portion of that payment. Stripe handles the routing, compliance, and regulatory obligations automatically.

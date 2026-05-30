@@ -4,6 +4,7 @@ description: "The four guarantees that database transactions provide to ensure d
 date: 2026-03-28
 categories: [Glossary]
 tags: [databases, transactions, acid, data-integrity, relational-databases]
+last_updated: 2026-05-30
 ---
 
 ACID is an acronym for Atomicity, Consistency, Isolation, and Durability - four properties that guarantee database transactions are processed reliably even in the presence of errors, power failures, or concurrent access. These properties are the foundation of transactional integrity in relational database systems.

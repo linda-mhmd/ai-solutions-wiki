@@ -9,6 +9,7 @@ related:
   - glossary/vision-transformer
   - glossary/foundation-models
   - glossary/contrastive-learning
+last_updated: 2026-05-30
 ---
 
 A multimodal model is a neural network that can process and reason across multiple data types -- text, images, audio, video, or other modalities -- within a single architecture. Unlike specialized models that handle one input type, multimodal models accept mixed inputs and can generate outputs in one or more modalities. GPT-4o, Gemini, and Claude are prominent examples that understand both text and images, with some supporting audio and video as well.

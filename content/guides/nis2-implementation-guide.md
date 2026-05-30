@@ -11,6 +11,7 @@ related:
   - comparisons/nis2-vs-dora
   - comparisons/iso-27001-vs-nis2
   - guides/ai-security-best-practices
+last_updated: 2026-05-30
 ---
 
 NIS2 requires essential and important entities to implement cybersecurity risk management measures. This guide walks through the implementation steps, with particular attention to AI systems within scope.

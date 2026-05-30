@@ -10,6 +10,7 @@ related:
   - glossary/static-site-generation
   - glossary/typescript
   - glossary/jamstack
+last_updated: 2026-05-30
 ---
 
 Next.js is a React framework for building full-stack web applications. Created by Guillermo Rauch and the team at Zeit (now Vercel), Next.js provides server-side rendering, static site generation, file-based routing, and API routes out of the box, solving the configuration complexity that plagued production React deployments.

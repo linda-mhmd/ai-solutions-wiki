@@ -9,6 +9,7 @@ related:
   - frameworks/well-architected-ai-ml-lens
   - glossary/cost-optimization-pillar
   - glossary/reliability-pillar
+last_updated: 2026-05-30
 ---
 
 Performance Efficiency is one of the six pillars of the AWS Well-Architected Framework. It covers the ability to use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technology evolves. The pillar recognizes that the right resource choice varies by workload: what is efficient for a transactional database is different from what is efficient for a batch analytics job or a machine learning inference endpoint.

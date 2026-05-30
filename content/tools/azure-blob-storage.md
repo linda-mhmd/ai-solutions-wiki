@@ -7,6 +7,7 @@ tags: [azure, storage, object-storage, data-pipeline]
 related:
   - tools/aws-s3
   - tools/azure-openai
+last_updated: 2026-05-30
 ---
 
 Azure Blob Storage is Microsoft Azure's object storage service designed for storing massive amounts of unstructured data including text, binary data, images, video, audio, and documents. In AI and machine learning workflows, Blob Storage serves as the foundational data layer where raw training data is ingested, intermediate processing artifacts are staged, and model outputs are persisted. Nearly every Azure AI service accepts Blob Storage URIs as input, making it the gravitational center of any Azure-based data pipeline.

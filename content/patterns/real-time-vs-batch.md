@@ -4,6 +4,7 @@ description: "Decision framework for choosing between real-time and batch AI pro
 date: 2026-03-28
 categories: [Patterns]
 tags: [architecture, real-time, batch-processing, decision-framework, latency]
+last_updated: 2026-05-30
 ---
 
 The choice between real-time and batch processing is not binary. Most AI systems need both, applied to different parts of the workload. The right split depends on latency requirements, cost sensitivity, and how the output is consumed.

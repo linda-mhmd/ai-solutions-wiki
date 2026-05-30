@@ -11,6 +11,7 @@ related:
   - glossary/llm
   - glossary/ai-gateway
   - glossary/token-budget
+last_updated: 2026-05-30
 ---
 
 LLMOps (Large Language Model Operations) is the set of practices, tools, and infrastructure patterns for developing, deploying, monitoring, and maintaining applications built on large language models. It extends MLOps concepts to address the unique operational challenges of LLM-based systems, including prompt management, context window optimization, cost control, and evaluation of non-deterministic outputs.

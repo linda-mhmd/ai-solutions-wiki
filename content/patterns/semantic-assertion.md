@@ -9,6 +9,7 @@ related:
   - guides/snapshot-testing-ai
   - patterns/statistical-assertion
   - glossary/snapshot-testing
+last_updated: 2026-05-30
 ---
 
 The semantic assertion pattern replaces exact string comparison in test assertions with semantic similarity checks. Instead of asserting that the AI output equals a specific string, you assert that it means the same thing as the expected output, even if the wording differs.

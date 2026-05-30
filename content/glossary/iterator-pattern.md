@@ -9,6 +9,7 @@ related:
   - glossary/visitor-pattern
   - glossary/factory-method-pattern
   - glossary/object-oriented-programming
+last_updated: 2026-05-30
 ---
 
 The Iterator pattern is a behavioral design pattern that provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation. It decouples traversal logic from the collection, allowing different traversal strategies over the same data structure.

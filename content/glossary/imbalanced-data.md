@@ -10,6 +10,7 @@ related:
   - glossary/confusion-matrix
   - glossary/roc-curve
   - guides/handling-imbalanced-data
+last_updated: 2026-05-30
 ---
 
 Imbalanced data occurs when one class significantly outnumbers others in a classification problem. Fraud detection (0.1% fraud), disease diagnosis (1-5% positive), manufacturing defect detection (< 1% defective), and churn prediction (5-10% churners) all exhibit class imbalance. Standard classifiers trained on imbalanced data tend to predict the majority class for everything, achieving high accuracy while completely failing on the minority class that matters most.

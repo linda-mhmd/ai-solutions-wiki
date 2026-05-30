@@ -4,6 +4,7 @@ description: "A UML structural diagram that shows the organization of system com
 date: 2026-03-28
 categories: [Glossary]
 tags: [uml, component-diagram, software-architecture, structural-diagrams, dependencies]
+last_updated: 2026-05-30
 ---
 
 A component diagram is a UML structural diagram that shows how a system is decomposed into components, what interfaces those components expose and consume, and how they depend on each other. It models the system at a higher level of abstraction than class diagrams, focusing on the organization of deployable software units rather than individual classes.

@@ -4,6 +4,7 @@ description: "How to implement model governance for production AI systems, cover
 date: 2026-03-28
 categories: [Guides]
 tags: [governance, MLOps, compliance, model-management, enterprise]
+last_updated: 2026-05-30
 ---
 
 Model governance is the set of policies, processes, and tools that ensure AI models in production are reliable, compliant, and accountable. Without governance, organizations accumulate "shadow models" - models running in production that no one understands, no one owns, and no one monitors. Model governance prevents this by establishing clear rules for how models are developed, approved, deployed, monitored, and retired.

@@ -9,6 +9,7 @@ related:
   - glossary/neural-network
   - glossary/ai-hardware
   - glossary/dimensionality-reduction
+last_updated: 2026-05-30
 ---
 
 Quantum machine learning (QML) explores the intersection of quantum computing and machine learning, investigating whether quantum processors can accelerate ML tasks or enable new algorithmic capabilities. QML encompasses running ML algorithms on quantum hardware, using quantum-inspired algorithms on classical hardware, and applying ML to improve quantum systems.

@@ -9,6 +9,7 @@ related:
   - glossary/guardrails
   - patterns/ai-governance
   - patterns/pii-redaction-pipeline
+last_updated: 2026-05-30
 ---
 
 Prompt injection is the most pervasive security risk in LLM-powered applications. An attacker crafts input that overrides the system prompt, causing the model to ignore its instructions and perform unintended actions. No single technique eliminates the risk entirely. Effective defense requires multiple independent layers, each reducing the attack surface so that a bypass at one layer is caught by another.

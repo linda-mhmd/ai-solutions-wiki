@@ -10,6 +10,7 @@ related:
   - glossary/dimensionality-reduction
   - glossary/support-vector-machine
   - glossary/cross-validation
+last_updated: 2026-05-30
 ---
 
 K-Nearest Neighbors (KNN) is a non-parametric supervised learning algorithm that makes predictions based on the K closest training examples in the feature space. For classification, it assigns the majority class among the K neighbors. For regression, it averages their values. KNN is called a lazy learner because it stores the entire training set and defers computation until prediction time.

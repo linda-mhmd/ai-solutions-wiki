@@ -4,6 +4,7 @@ description: "What event-driven architecture is, how S3 triggers, EventBridge, a
 date: 2026-03-24
 categories: [Glossary]
 tags: ["software-engineering", "intermediate", "event-driven", "messaging", "pub-sub", "kafka", "decoupling"]
+last_updated: 2026-05-30
 ---
 
 Event-driven architecture (EDA) is a software design pattern where components communicate by producing and consuming events - records of something that happened. Components are decoupled: the producer does not know who will consume the event, and consumers do not know who produced it. This decoupling makes systems more scalable, maintainable, and extensible.

@@ -4,6 +4,7 @@ description: "A discipline for designing, executing, monitoring, and optimizing 
 date: 2026-03-28
 categories: [Glossary]
 tags: [BPM, process-management, workflow, process-improvement, enterprise]
+last_updated: 2026-05-30
 ---
 
 Business Process Management (BPM) is a systematic discipline focused on designing, modeling, executing, monitoring, and continuously optimizing business processes to achieve organizational goals. BPM treats processes as strategic assets that can be managed, measured, and improved over time.

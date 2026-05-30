@@ -11,6 +11,7 @@ related:
   - glossary/llm
   - glossary/foundation-models
   - glossary/inference-time-compute
+last_updated: 2026-05-30
 ---
 
 Mixture of Experts (MoE) is a neural network architecture pattern in which a layer is replaced by a set of *expert* sub-networks plus a *router* (or *gating function*) that selects which experts to activate for each input token. Only the selected experts contribute to the forward pass, so the number of parameters touched per token is far smaller than the total parameter count. This decouples model *capacity* (total parameters) from *compute* (parameters per token), allowing models with hundreds of billions of total parameters to run at the inference cost of much smaller dense models. MoE is the architecture behind several major 2024–2026 LLMs, including Mixtral 8x7B / 8x22B (Jiang et al., 2024), DeepSeek-V2 / V3 / R1 (DeepSeek-AI, 2024 / 2025), Qwen2-MoE, and reportedly GPT-4 and Gemini 1.5.

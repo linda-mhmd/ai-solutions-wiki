@@ -9,6 +9,7 @@ related:
   - glossary/event-driven-architecture
   - glossary/pub-sub
   - glossary/state-pattern
+last_updated: 2026-05-30
 ---
 
 The Observer pattern is a behavioral design pattern that defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically. It is also known as the Publish-Subscribe pattern.

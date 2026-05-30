@@ -10,6 +10,7 @@ related:
   - frameworks/ai-regulatory-landscape
   - glossary/ce-marking-ai
   - glossary/conformity-assessment
+last_updated: 2026-05-30
 ---
 
 The Cyber Resilience Act (CRA), Regulation (EU) 2024/2847, establishes mandatory cybersecurity requirements for products with digital elements sold in the EU market. It entered into force in December 2024 with most obligations applying from December 2027. The CRA is the first EU-wide horizontal legislation imposing cybersecurity requirements on hardware and software products, including AI systems distributed as products.

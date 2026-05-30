@@ -9,6 +9,7 @@ related:
   - glossary/helm-chart
   - glossary/service-mesh
   - glossary/auto-scaling
+last_updated: 2026-05-30
 ---
 
 Kubernetes (K8s) is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications. It manages where containers run, restarts failed containers, scales capacity based on demand, handles service discovery, and manages configuration and secrets.

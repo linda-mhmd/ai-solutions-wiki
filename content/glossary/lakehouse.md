@@ -8,6 +8,7 @@ related:
   - glossary/data-lake
   - glossary/data-warehouse
   - glossary/etl
+last_updated: 2026-05-30
 ---
 
 A lakehouse is a data architecture that combines the flexibility and low-cost storage of a data lake with the performance, ACID transactions, and schema enforcement of a data warehouse. It stores data in open file formats on object storage (S3) but adds a metadata and transaction layer that enables warehouse-like query performance and data management.

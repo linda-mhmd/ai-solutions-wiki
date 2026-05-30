@@ -10,6 +10,7 @@ related:
   - glossary/tool-use
   - glossary/llm
   - glossary/prompt-engineering
+last_updated: 2026-05-30
 ---
 
 Structured output is the practice of constraining a language model's generation so that the output conforms to a specified schema, typically a JSON Schema, regular expression, context-free grammar, or Pydantic / dataclass type. It is the engineering technique that makes [function calling](/glossary/function-calling/) and machine-readable LLM responses reliable in production: prompting alone produces schema-violating output at non-trivial rates, while constrained decoding can reduce this rate to zero.

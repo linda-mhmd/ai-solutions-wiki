@@ -4,6 +4,7 @@ description: "Techniques for estimating AI project timelines, budgets, and resou
 date: 2026-03-28
 categories: [Guides]
 tags: [estimation, project-management, budgeting, planning, AI-development]
+last_updated: 2026-05-30
 ---
 
 Estimating AI projects is notoriously difficult. Traditional software estimation techniques assume that the problem is well-defined and the implementation path is largely known. AI projects have fundamental uncertainties: Will the data be sufficient? Will the model achieve acceptable accuracy? How long will experimentation take? These unknowns make standard estimation approaches unreliable. This guide presents techniques that account for AI-specific uncertainty.

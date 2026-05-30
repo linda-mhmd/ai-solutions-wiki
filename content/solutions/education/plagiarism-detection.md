@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [plagiarism, academic-integrity, content-detection, nlp, stylometry]
 industries: [education]
 tools: [amazon-bedrock, amazon-sagemaker, amazon-opensearch]
+last_updated: 2026-05-30
 ---
 
 The rise of large language models has fundamentally changed the academic integrity landscape. Traditional plagiarism detection - matching text against a corpus of known sources - cannot detect AI-generated original text. Institutions need detection systems that go beyond text matching to include stylometric analysis, semantic similarity detection, and AI-generated content identification.

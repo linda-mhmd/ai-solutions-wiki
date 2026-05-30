@@ -3,6 +3,7 @@ title: "For Founders and Entrepreneurs"
 description: "Know what you are building before the first sprint. Understand the technical architecture well enough to scope, hire, and make the right calls early."
 date: 2026-05-29
 tags: ["founder", "entrepreneur", "strategy", "product"]
+last_updated: 2026-05-30
 ---
 
 ## Know what you are building before the first sprint.

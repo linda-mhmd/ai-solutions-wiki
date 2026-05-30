@@ -8,6 +8,7 @@ related:
   - tools/pydantic-ai
   - tools/langchain
   - tools/openai-api
+last_updated: 2026-05-30
 ---
 
 Instructor is a Python library that patches LLM client libraries (OpenAI, Anthropic, Google, Mistral, and others) to return structured, validated Pydantic models instead of raw text. You define a Pydantic model describing the output structure, and Instructor handles the function calling, response parsing, validation, and retry logic. For AI projects, Instructor solves the reliability problem of extracting structured data from LLMs: it guarantees that model output conforms to a defined schema or raises an explicit error.

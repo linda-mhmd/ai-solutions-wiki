@@ -4,6 +4,7 @@ description: "A fundamental theorem in distributed systems stating that a distri
 date: 2026-03-28
 categories: [Glossary]
 tags: [distributed-systems, cap-theorem, databases, consistency, availability]
+last_updated: 2026-05-30
 ---
 
 The CAP theorem states that a distributed data store cannot simultaneously provide all three of the following guarantees: Consistency, Availability, and Partition Tolerance. When a network partition occurs, the system must choose between consistency and availability.

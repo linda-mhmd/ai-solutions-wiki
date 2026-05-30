@@ -4,6 +4,7 @@ description: "Self-referential functions and systematic trial-and-error with pru
 date: 2026-03-28
 categories: [Glossary]
 tags: [recursion, backtracking, algorithms, constraint-satisfaction, problem-solving]
+last_updated: 2026-05-30
 ---
 
 Recursion is a technique where a function calls itself to solve smaller instances of the same problem. Backtracking extends recursion by systematically exploring candidate solutions and abandoning (pruning) paths that cannot lead to a valid solution, making it an efficient strategy for constraint satisfaction and combinatorial search problems.

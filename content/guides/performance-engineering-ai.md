@@ -5,6 +5,7 @@ date: 2026-03-28
 categories: [Guides]
 tags: [performance, latency, gpu, optimization, inference]
 related: [tools/vllm, glossary/inference, patterns/batch-inference, guides/scaling-ai-infrastructure]
+last_updated: 2026-05-30
 ---
 
 Performance engineering for AI systems differs fundamentally from traditional software optimization. In conventional systems, bottlenecks are typically CPU or I/O bound. In AI systems, the interplay between model size, GPU memory, batch size, and numerical precision creates a multidimensional optimization space that demands specialized techniques.

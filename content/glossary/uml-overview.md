@@ -4,6 +4,7 @@ description: "The Unified Modeling Language, a standardized visual notation for 
 date: 2026-03-28
 categories: [Glossary]
 tags: [uml, software-modeling, diagrams, software-engineering, object-oriented]
+last_updated: 2026-05-30
 ---
 
 The Unified Modeling Language (UML) is a standardized visual modeling language for specifying, constructing, and documenting the artifacts of software systems. It provides a common notation that developers, architects, and business analysts use to communicate system structure and behavior, independent of any specific programming language or development methodology.

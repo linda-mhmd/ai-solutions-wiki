@@ -8,6 +8,7 @@ related:
   - tools/amazon-neptune
   - tools/pgvector
   - tools/elasticsearch
+last_updated: 2026-05-30
 ---
 
 Neo4j is the world's most widely deployed graph database, designed to store, manage, and query highly connected data using a native graph storage and processing engine. Unlike relational databases that use joins to traverse relationships (with performance degrading as data grows), Neo4j stores relationships as first-class citizens alongside nodes, enabling constant-time relationship traversal regardless of dataset size. This makes Neo4j exceptionally performant for queries that involve multiple hops across relationships, such as recommendation engines, fraud detection, network analysis, and knowledge graphs.

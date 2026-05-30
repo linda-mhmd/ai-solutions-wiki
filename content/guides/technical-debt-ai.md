@@ -4,6 +4,7 @@ description: "Understanding and managing technical debt specific to AI and ML sy
 date: 2026-03-28
 categories: [Guides]
 tags: [technical-debt, MLOps, code-quality, AI-development, maintenance]
+last_updated: 2026-05-30
 ---
 
 Google's influential paper "Hidden Technical Debt in Machine Learning Systems" identified that ML systems have all the technical debt of traditional software plus a set of ML-specific debt that is harder to detect and more expensive to pay down. AI systems accumulate debt faster because they depend on data (which changes), models (which degrade), and pipelines (which are complex). Understanding the categories of AI technical debt is the first step to managing it.

@@ -7,6 +7,7 @@ tags: [azure, translation, nlp, language, ai-services]
 related:
   - tools/amazon-translate
   - tools/azure-cognitive-services
+last_updated: 2026-05-30
 ---
 
 Azure Translator is a neural machine translation service within Azure AI Services that provides real-time text translation, document translation, and custom model training across more than 100 languages and dialects. The service uses deep neural network models trained on Microsoft's extensive multilingual datasets, delivering translation quality that approaches human fluency for many language pairs. In AI solution architectures, Translator enables multilingual content processing pipelines, cross-language search and retrieval, real-time communication translation, and localization workflows that make AI-powered applications accessible to global audiences.

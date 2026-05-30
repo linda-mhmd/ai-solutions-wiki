@@ -8,6 +8,7 @@ related:
   - tools/crewai
   - tools/langchain
   - tools/semantic-kernel
+last_updated: 2026-05-30
 ---
 
 AutoGen is an open-source framework from Microsoft Research for building multi-agent systems where multiple AI agents converse with each other to solve tasks. Each agent has a defined role, system prompt, and capabilities (LLM reasoning, code execution, tool use, or human input). Agents exchange messages in a conversation loop, collaborating to complete complex tasks that would be difficult for a single agent. For enterprise AI projects, AutoGen is relevant for workflows that benefit from decomposition into specialized roles: coding tasks with review, research with fact-checking, or planning with validation.

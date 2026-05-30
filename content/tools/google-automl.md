@@ -9,6 +9,7 @@ related:
   - tools/google-vertex-ai
   - tools/google-cloud-vision
   - tools/google-cloud-natural-language
+last_updated: 2026-05-30
 ---
 
 Google AutoML is a suite of machine learning products that enables developers and data scientists to train custom, high-quality models with minimal ML expertise. AutoML uses neural architecture search (NAS) and transfer learning to automatically find the best model architecture and hyperparameters for a given dataset and task. Users provide labeled training data, select a task type, and AutoML handles feature engineering, architecture selection, hyperparameter tuning, and model evaluation -- producing a deployable model without writing training code.

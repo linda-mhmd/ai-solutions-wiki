@@ -10,6 +10,7 @@ related:
   - frameworks/medallion-architecture
   - glossary/feature-store
   - glossary/data-lineage
+last_updated: 2026-05-30
 ---
 
 A data lakehouse combines the flexibility and cost-efficiency of a data lake with the data management features of a data warehouse: ACID transactions, schema enforcement, time travel, and fine-grained access control. For AI/ML workloads, the lakehouse provides a unified platform where data engineering, analytics, and model training operate on the same data without copying it between systems.

@@ -9,6 +9,7 @@ related:
   - glossary/builder-pattern
   - glossary/singleton-pattern
   - glossary/object-oriented-programming
+last_updated: 2026-05-30
 ---
 
 The Abstract Factory pattern is a creational design pattern that provides an interface for creating families of related or dependent objects without specifying their concrete classes. It is sometimes referred to as a "factory of factories."

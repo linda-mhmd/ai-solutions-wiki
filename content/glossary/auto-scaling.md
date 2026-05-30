@@ -8,6 +8,7 @@ related:
   - glossary/load-balancer
   - glossary/serverless
   - glossary/kubernetes
+last_updated: 2026-05-30
 ---
 
 Auto-scaling automatically adjusts the number of compute resources (EC2 instances, ECS tasks, DynamoDB capacity, SageMaker endpoints) based on demand. When load increases, auto-scaling adds capacity. When load decreases, it removes excess capacity. This matches resources to actual demand, avoiding both over-provisioning (wasting money) and under-provisioning (degrading performance).

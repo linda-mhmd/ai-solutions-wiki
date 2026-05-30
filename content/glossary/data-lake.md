@@ -9,6 +9,7 @@ related:
   - glossary/lakehouse
   - glossary/etl
   - glossary/data-mesh
+last_updated: 2026-05-30
 ---
 
 A data lake is a centralized repository that stores raw data in its native format at any scale - structured (CSV, Parquet), semi-structured (JSON, logs), and unstructured (images, documents, audio). Unlike a data warehouse, data is stored without pre-defining a schema, enabling flexibility in how the data is later queried and analyzed.

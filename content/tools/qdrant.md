@@ -8,6 +8,7 @@ related:
   - tools/pinecone
   - tools/weaviate
   - tools/chroma-db
+last_updated: 2026-05-30
 ---
 
 Qdrant (pronounced "quadrant") is an open-source vector similarity search engine written in Rust. It combines high performance (Rust's memory safety and speed), rich filtering capabilities, and a production-ready feature set (replication, sharding, snapshots). For AI projects, Qdrant occupies the space between lightweight databases like Chroma and fully managed services like Pinecone: it offers enterprise features while remaining open-source and self-hostable.

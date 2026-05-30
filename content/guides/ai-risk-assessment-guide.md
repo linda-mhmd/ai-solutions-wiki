@@ -10,6 +10,7 @@ related:
   - glossary/ai-safety
   - glossary/responsible-ai
   - guides/ai-incident-response
+last_updated: 2026-05-30
 ---
 
 AI risk assessment is the process of systematically identifying what can go wrong with an AI system and determining whether the risks are acceptable. Unlike traditional software risk assessment, AI systems introduce probabilistic behavior, data-dependent failure modes, and emergent capabilities that require specialized evaluation approaches.

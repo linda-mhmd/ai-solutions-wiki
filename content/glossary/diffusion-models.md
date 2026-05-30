@@ -8,6 +8,7 @@ related:
   - glossary/gan
   - glossary/deep-learning
   - glossary/foundation-models
+last_updated: 2026-05-30
 ---
 
 Diffusion models are a class of generative AI models that create data (typically images) by learning to reverse a gradual noising process. They start with pure noise and iteratively refine it into coherent output, guided by the patterns learned during training. Stable Diffusion, DALL-E, and Amazon Titan Image Generator are all diffusion-based models.

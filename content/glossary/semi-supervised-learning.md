@@ -10,6 +10,7 @@ related:
   - glossary/active-learning
   - glossary/transfer-learning
   - glossary/few-shot-learning
+last_updated: 2026-05-30
 ---
 
 Semi-supervised learning uses a small amount of labeled data combined with a large amount of unlabeled data to train models. This approach addresses one of the most common practical constraints in machine learning: collecting data is easy, but labeling it is expensive and time-consuming. Medical imaging, natural language processing, and industrial inspection all face this imbalance.

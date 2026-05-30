@@ -9,6 +9,7 @@ related:
   - guides/event-storming
   - guides/lean-canvas
   - guides/build-measure-learn
+last_updated: 2026-05-30
 ---
 
 A flat backlog is a list of stories sorted by priority. The problem with a flat backlog is that it destroys context. When a story sits in a list, you cannot tell which part of the user's day it belongs to, which other stories it depends on, or what a coherent slice of value looks like across several stories. User Story Mapping, developed by Jeff Patton, solves this by arranging stories on a two-dimensional canvas: the user journey runs left to right, and story priority runs top to bottom.

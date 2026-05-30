@@ -11,6 +11,7 @@ related:
   - tools/amazon-comprehend
   - tools/vllm
   - tools/ollama
+last_updated: 2026-05-30
 ---
 
 Hugging Face Transformers is an open-source library that provides a unified API for downloading, using, and fine-tuning state-of-the-art pretrained models across natural language processing, computer vision, audio processing, and multimodal tasks. The library supports models built on PyTorch, TensorFlow, and JAX, and provides a consistent interface regardless of the underlying framework. With access to over 400,000 models on the Hugging Face Hub, Transformers has become the central distribution mechanism for the machine learning research community.

@@ -8,6 +8,7 @@ related:
   - tools/aws-iot-core
   - tools/google-cloud-pub-sub
   - tools/google-vertex-ai
+last_updated: 2026-05-30
 ---
 
 Google Cloud IoT Core was a fully managed service for securely connecting, managing, and ingesting telemetry data from millions of globally dispersed IoT devices. It provided device registration, authentication via public/private key pairs or JSON Web Tokens, and bidirectional communication over MQTT and HTTP protocols. Device telemetry data flowed into Cloud Pub/Sub for downstream processing by Dataflow, Cloud Functions, or BigQuery. IoT Core was Google Cloud's answer to AWS IoT Core, serving as the entry point for IoT data into the GCP analytics and AI ecosystem.

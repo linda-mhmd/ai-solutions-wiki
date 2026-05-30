@@ -17,6 +17,7 @@ faqs:
     answer: "It depends on the licence. MIT and Apache 2.0 licences allow commercial use, you can build a paid product using MIT-licensed code, as long as you keep the copyright notice. GPL (GNU General Public Licence) requires that if you distribute software using GPL code, your software must also be GPL (open source). This is called 'copyleft'. Check the licence of every dependency you use. choosealicense.com explains the common ones clearly."
   - question: "How do I find open source projects to contribute to?"
     answer: "GitHub's 'good first issue' label marks tasks maintainers have identified as appropriate for new contributors. Search GitHub for topics you care about plus 'good first issue'. The First Contributions repository (github.com/firstcontributions/first-contributions) walks you through making your first pull request step by step. Hacktoberfest (October each year) is a global event where you can contribute to projects and earn rewards."
+last_updated: 2026-05-30
 ---
 
 {{< quickanswer >}}

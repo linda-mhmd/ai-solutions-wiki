@@ -9,6 +9,7 @@ related:
   - glossary/data-sovereignty
   - glossary/gdpr
   - glossary/ai-safety
+last_updated: 2026-05-30
 ---
 
 Secure multi-party computation (SMPC) is a cryptographic protocol that allows multiple parties to jointly compute a function over their combined data while keeping each party's input private. No party learns anything about the others' data beyond what can be inferred from the output. Applied to machine learning, SMPC enables collaborative model training and inference across organizations that cannot share raw data due to regulatory, competitive, or privacy constraints.

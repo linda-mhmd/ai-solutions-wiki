@@ -4,6 +4,7 @@ description: "Use AI to detect unusual patterns in operational metrics and gener
 date: 2026-03-28
 categories: [Ideas]
 tags: [monitoring, anomaly-detection, operations, alerting, automation]
+last_updated: 2026-05-30
 ---
 
 Traditional monitoring alerts trigger on fixed thresholds: CPU above 90%, error rate above 1%, latency above 500ms. These thresholds generate alert fatigue during busy periods and miss slow degradation that stays just under the threshold.

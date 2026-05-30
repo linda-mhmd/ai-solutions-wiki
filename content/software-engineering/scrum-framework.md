@@ -7,9 +7,15 @@ categories: ["Software Engineering"]
 related:
   - software-engineering/agile-manifesto
   - software-engineering/waterfall-methodology
+last_updated: 2026-05-30
 ---
 
 Scrum is a lightweight framework for developing and sustaining complex products. It was first formally described by Ken Schwaber and Jeff Sutherland in a 1995 paper presented at OOPSLA, and has been maintained since 2010 in the periodically updated Scrum Guide - the authoritative definition of the framework. The current version is the 2020 Scrum Guide, which removed prescriptive detail and reinforced Scrum's identity as a framework rather than a full methodology.
+
+<figure class="bz-figure">
+<img src="/img/craft/blueprint-recipe-sdlc-text.png" alt="A blueprint document alongside a recipe card, illustrating how the Scrum framework provides a structured yet flexible approach to software development, combining planning with iterative execution." loading="lazy">
+<figcaption>Scrum provides a lightweight framework that balances structure with flexibility, enabling teams to deliver complex products through iterative cycles of planning, execution, and adaptation.</figcaption>
+</figure>
 
 Scrum's theoretical foundation is **empirical process control**: the idea that knowledge comes from experience and that decisions should be based on what is known. It operates through three pillars - transparency, inspection, and adaptation - applied through a defined set of roles, events, and artifacts.
 

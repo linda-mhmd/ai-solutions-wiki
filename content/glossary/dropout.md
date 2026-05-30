@@ -9,6 +9,7 @@ related:
   - glossary/neural-network
   - glossary/batch-normalization
   - glossary/deep-learning
+last_updated: 2026-05-30
 ---
 
 Dropout is a regularization technique for neural networks that randomly sets a fraction of neuron activations to zero during each training step. This prevents the network from relying too heavily on any single neuron or co-adapted feature, reducing overfitting and improving generalization to unseen data.

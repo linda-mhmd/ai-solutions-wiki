@@ -9,6 +9,7 @@ related:
   - glossary/sla-slo-sli
   - glossary/toil
   - glossary/observability
+last_updated: 2026-05-30
 ---
 
 Site Reliability Engineering (SRE) is a discipline that applies software engineering practices to infrastructure and operations. Originated at Google, SRE treats operations as a software problem: automating manual work, defining reliability targets with error budgets, and balancing feature velocity against system stability through principled engineering practices.

@@ -8,6 +8,7 @@ related:
   - glossary/grpc
   - guides/api-rate-limiting-ai
   - patterns/microservices-for-ai
+last_updated: 2026-05-30
 ---
 
 WebSocket is a communication protocol that provides full-duplex, bidirectional communication between a client and server over a single, long-lived TCP connection. Unlike HTTP's request-response model where the client initiates every exchange, WebSocket allows either side to send messages at any time after the connection is established.

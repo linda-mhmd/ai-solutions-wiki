@@ -4,6 +4,7 @@ description: "What model cards document, why they matter for AI governance, and 
 date: 2026-03-24
 categories: [Glossary]
 tags: ["ai-ml", "beginner", "model-cards", "documentation", "responsible-ai", "transparency", "evaluation"]
+last_updated: 2026-05-30
 ---
 
 A model card is a short document that describes an AI model: what it does, how it was built, how well it works, and where it should and should not be used. Originally proposed by Google researchers in 2018, model cards have become a standard artifact in responsible AI development and are increasingly required by enterprise procurement, regulatory bodies, and AI governance frameworks.

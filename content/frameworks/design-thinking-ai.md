@@ -8,6 +8,7 @@ related:
   - frameworks/double-diamond-ai
   - frameworks/jobs-to-be-done-ai
   - frameworks/lean-startup-ai
+last_updated: 2026-05-30
 ---
 
 Design Thinking is a problem-solving methodology that starts with understanding the user's needs rather than the available technology. It follows five phases: Empathize, Define, Ideate, Prototype, and Test. For AI projects, Design Thinking prevents the most common failure mode: building an impressive AI capability that solves a problem nobody has. The methodology ensures that AI solutions are grounded in real user needs and designed for how people actually work.

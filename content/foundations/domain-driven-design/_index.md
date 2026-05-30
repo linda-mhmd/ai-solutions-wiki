@@ -4,6 +4,7 @@ description: "Eric Evans's approach to software design that aligns the structure
 layout: single
 tags: ["ddd", "domain-driven-design", "architecture", "bounded-context"]
 categories: ["Foundations"]
+last_updated: 2026-05-30
 ---
 
 Eric Evans published *Domain-Driven Design: Tackling Complexity in the Heart of Software* in 2003, drawing on a decade of work on large-scale enterprise systems. The book addressed a problem that was specific to complex domains: as systems grew, the code became increasingly decoupled from the business concepts it was meant to represent. Database schemas drove object design. Implementation details leaked into domain language. Different teams used the same words to mean different things, and the system reflected this confusion.
@@ -160,3 +161,10 @@ DDD's strategic patterns map naturally to multi-agent architectures, and its tac
 - [Clean Architecture](/foundations/clean-architecture/) - how DDD's layers map to Clean Architecture's layer model
 - [SOLID Principles](/foundations/solid-principles/) - the single responsibility and dependency inversion principles align with DDD's aggregate and repository patterns
 - [Design Patterns](/foundations/design-patterns/) - the Adapter pattern implements the Anticorruption Layer
+
+## Sources and Further Reading
+
+- [Evans, Eric. *Domain-Driven Design: Tackling Complexity in the Heart of Software.* Addison-Wesley, 2003](https://www.domainlanguage.com/ddd/) - The foundational text on Domain-Driven Design
+- [Vernon, Vaughn. *Implementing Domain-Driven Design.* Addison-Wesley, 2013](https://www.informit.com/store/implementing-domain-driven-design-9780321834577) - Practical implementation guidance for DDD patterns
+- [Evans, Eric. "Domain-Driven Design Reference." Domain Language, 2015](https://www.domainlanguage.com/ddd/reference/) - Concise reference summary of DDD patterns
+- [Fowler, Martin. "BoundedContext." martinfowler.com](https://martinfowler.com/bliki/BoundedContext.html) - Clear explanation of bounded contexts and their role in DDD

@@ -4,6 +4,7 @@ description: "Design patterns for incorporating human review, approval, and corr
 date: 2026-03-28
 categories: [Patterns]
 tags: [human-in-the-loop, review, quality-control, workflow-patterns, trust]
+last_updated: 2026-05-30
 ---
 
 Human-in-the-loop (HITL) is not a single pattern but a spectrum of human involvement in AI-driven workflows. The right level of human involvement depends on the cost of errors, the maturity of the model, and the regulatory environment. Getting this balance wrong in either direction - too much human involvement (negating automation value) or too little (allowing unchecked errors) - is the most common failure mode in production AI systems.

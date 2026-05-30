@@ -9,6 +9,7 @@ related:
   - glossary/remix
   - glossary/single-page-application
   - glossary/nextjs
+last_updated: 2026-05-30
 ---
 
 React Router is the standard routing library for React applications, providing declarative, component-based navigation for single-page applications. Created by Ryan Florence and Michael Jackson in 2014, it has been through several major architectural shifts that mirror the React community's evolving understanding of how routing should work in component-driven applications.

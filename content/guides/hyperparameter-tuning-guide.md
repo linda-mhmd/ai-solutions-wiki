@@ -10,6 +10,7 @@ related:
   - glossary/cross-validation
   - glossary/gradient-boosting
   - glossary/overfitting
+last_updated: 2026-05-30
 ---
 
 Hyperparameter tuning finds the model configuration that produces the best performance on unseen data. Unlike model parameters (learned during training), hyperparameters are set before training begins - learning rate, regularization strength, tree depth, number of layers. Choosing them well can mean the difference between a mediocre model and a strong one. This guide covers practical strategies from simple to sophisticated.

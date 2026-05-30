@@ -10,6 +10,7 @@ related:
   - patterns/feature-flags-ai
   - tools/amazon-step-functions
   - guides/testing-ai-systems
+last_updated: 2026-05-30
 ---
 
 Model APIs fail. They time out under high load, return rate limit errors when traffic spikes, and occasionally return malformed responses that cannot be parsed. A production AI service that propagates these failures directly to users provides a worse experience than gracefully degrading to a simpler alternative. The circuit breaker pattern protects your system from cascade failure when upstream AI services are unhealthy.

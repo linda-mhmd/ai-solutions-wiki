@@ -4,6 +4,7 @@ description: "The Gang of Four catalog of reusable solutions to recurring object
 layout: single
 tags: ["design-patterns", "oop", "architecture", "gang-of-four"]
 categories: ["Foundations"]
+last_updated: 2026-05-30
 ---
 
 In 1994, Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides - the "Gang of Four" - published *Design Patterns: Elements of Reusable Object-Oriented Software*. The book documented 23 patterns observed across large object-oriented codebases. It did not invent these patterns. It named them.

@@ -8,6 +8,7 @@ related:
   - guides/change-management-ai
   - frameworks/prosci-adkar-ai
   - guides/ai-product-management
+last_updated: 2026-05-30
 ---
 
 Deploying an AI system is a technical milestone. Getting people to actually use it and trust its outputs is an organizational one. Most AI projects that fail to deliver value do so not because the model was inaccurate but because users never changed their workflows to incorporate it. Structured change management and deliberate training programs bridge this gap.

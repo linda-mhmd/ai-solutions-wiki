@@ -11,6 +11,7 @@ related:
   - tools/amazon-bedrock
   - glossary/embeddings
   - glossary/vector-database
+last_updated: 2026-05-30
 ---
 
 Retrieval Augmented Generation (RAG) is the most commonly deployed AI pattern in enterprise settings. It solves a fundamental limitation of LLMs: they do not know about your private data, your recent documents, or your organization's specific knowledge. RAG provides that knowledge at query time by retrieving relevant documents and passing them to the model along with the question.
@@ -58,3 +59,10 @@ Store chunk source metadata (document name, section, page number, date) alongsid
 **Context window overflow** - Retrieved chunks plus query plus system prompt exceeds the model's context window. Fix: limit retrieved chunks to the top-5 re-ranked results and enforce a maximum chunk size.
 
 **Answer grounded in wrong source** - The model answers correctly from the retrieved context, but the retrieved context is outdated or incorrect. Fix: add document freshness metadata and filter the retrieval results to documents updated within a relevance window.
+
+## Sources and Further Reading
+
+- [Anthropic RAG Documentation](https://docs.anthropic.com/en/docs/build-with-claude/retrieve-information-with-rag) - Official guide on building RAG systems with Claude
+- [LangChain RAG Tutorial](https://python.langchain.com/docs/tutorials/rag/) - Comprehensive tutorial on RAG implementation patterns
+- [Pinecone RAG Guide](https://www.pinecone.io/learn/retrieval-augmented-generation/) - Practical guide to RAG with vector databases
+- [OpenAI Embeddings Documentation](https://platform.openai.com/docs/guides/embeddings) - Guide to creating and using embeddings for retrieval

@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [outage-prediction, grid-resilience, utilities, predictive-analytics, reliability]
 industries: [energy]
 tools: [amazon-sagemaker, amazon-forecast, amazon-kinesis]
+last_updated: 2026-05-30
 ---
 
 Power outages cause significant economic and social disruption. Weather-related outages, equipment failures, and vegetation contact are the primary causes. AI outage prediction enables utilities to anticipate where and when outages are most likely, deploy resources proactively, and communicate with customers before events occur rather than after.

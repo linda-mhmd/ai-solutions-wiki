@@ -8,6 +8,7 @@ related:
   - tools/amazon-kendra
   - tools/amazon-opensearch
   - tools/azure-openai
+last_updated: 2026-05-30
 ---
 
 Azure AI Search (formerly Azure Cognitive Search) is Microsoft's fully managed cloud search service that provides AI-enriched indexing, full-text search, vector search, and hybrid retrieval over enterprise content. It is the primary retrieval component in Azure-based retrieval-augmented generation (RAG) architectures, where it indexes enterprise documents and serves relevant passages to Azure OpenAI for grounded answer generation. The service combines traditional information retrieval techniques (BM25 text ranking) with modern vector similarity search and AI-powered enrichment in a single managed platform.

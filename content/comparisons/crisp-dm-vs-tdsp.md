@@ -2,8 +2,10 @@
 title: "CRISP-DM vs Microsoft TDSP - Data Science Project Methodologies Compared"
 description: "Comparing CRISP-DM and Microsoft Team Data Science Process (TDSP) for structuring data science projects, covering phases, team roles, and practical guidance."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [data-science, methodology, CRISP-DM, TDSP, project-management, comparison]
+last_updated: 2026-05-30
 ---
 
 Choosing a methodology for data science projects matters more than most teams realize. Without structure, data science work drifts into exploratory dead ends. CRISP-DM and Microsoft TDSP are the two most widely adopted frameworks. They share DNA but differ in important ways.

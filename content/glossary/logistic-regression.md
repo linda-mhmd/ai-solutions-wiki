@@ -10,6 +10,7 @@ related:
   - glossary/precision-recall
   - glossary/roc-curve
   - glossary/confusion-matrix
+last_updated: 2026-05-30
 ---
 
 Logistic regression is a supervised learning algorithm for classification tasks. Despite its name, it is not a regression algorithm - it predicts the probability that an input belongs to a particular class. It is one of the most commonly used classifiers in production systems due to its speed, interpretability, and reliable probability estimates.

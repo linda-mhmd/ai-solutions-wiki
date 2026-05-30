@@ -9,6 +9,7 @@ related:
   - tools/amazon-eventbridge
   - tools/google-cloud-dataflow
   - tools/google-cloud-functions
+last_updated: 2026-05-30
 ---
 
 Google Cloud Pub/Sub is a fully managed, serverless messaging service that enables asynchronous communication between services through a publish-subscribe pattern. Publishers send messages to topics, and subscribers receive messages from subscriptions attached to those topics. Pub/Sub decouples producers from consumers, handles message delivery guarantees, and scales automatically to handle millions of messages per second with no provisioning required.

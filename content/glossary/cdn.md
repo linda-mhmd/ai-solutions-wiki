@@ -7,6 +7,7 @@ tags: [CDN, CloudFront, caching, performance, edge-computing]
 related:
   - glossary/edge-computing
   - glossary/api-gateway
+last_updated: 2026-05-30
 ---
 
 A Content Delivery Network (CDN) is a globally distributed network of servers (edge locations) that caches and delivers content from locations physically close to end users. By reducing the distance between the user and the server, CDNs decrease latency, improve load times, and reduce load on origin servers.

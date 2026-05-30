@@ -14,6 +14,7 @@ related:
   - frameworks/ai-regulatory-landscape
   - comparisons/gdpr-vs-eu-ai-act
   - comparisons/eu-vs-us-ai-regulation
+last_updated: 2026-05-30
 ---
 
 The EU AI Act (Regulation 2024/1689) is the first comprehensive AI regulation worldwide. It classifies AI systems into four risk tiers and scales compliance requirements accordingly. The Act applies to any organization that develops, deploys, or distributes AI systems in the EU market, regardless of where the organization is headquartered. This framework document details the risk classification system, requirements per tier, and implementation timeline.

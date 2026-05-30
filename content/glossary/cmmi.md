@@ -4,6 +4,7 @@ description: "A process improvement framework that helps organizations improve p
 date: 2026-03-28
 categories: [Glossary]
 tags: [CMMI, process-improvement, maturity-model, SEI, quality]
+last_updated: 2026-05-30
 ---
 
 Capability Maturity Model Integration (CMMI) is a process improvement framework that provides organizations with a structured approach to improving their processes and performance. It defines maturity levels that characterize how well an organization's processes are defined, managed, measured, and optimized.

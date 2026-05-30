@@ -4,6 +4,7 @@ description: "A flowchart-based modeling notation for business processes, origin
 date: 2026-03-28
 categories: [Glossary]
 tags: [EPC, BPM, process-modeling, ARIS, workflow]
+last_updated: 2026-05-30
 ---
 
 An Event-driven Process Chain (EPC) is a type of flowchart used for business process modeling that represents workflows as a chain of events and functions connected by logical operators. EPCs emphasize the control flow of a process, showing what triggers each step and what outcome each step produces.

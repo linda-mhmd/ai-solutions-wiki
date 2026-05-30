@@ -10,6 +10,7 @@ related:
   - patterns/differential-privacy-ml
   - patterns/data-versioning
   - guides/synthetic-data-generation
+last_updated: 2026-05-30
 ---
 
 Synthetic data is artificially generated data that mimics the statistical properties and structure of real-world data without containing actual records from real individuals, transactions, or events. It is created by algorithms -- statistical models, generative AI, simulation engines, or rule-based systems -- and used as a substitute for or supplement to real data in ML training, testing, and development.

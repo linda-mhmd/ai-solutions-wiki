@@ -8,6 +8,7 @@ related:
   - tools/langchain
   - tools/instructor
   - tools/amazon-bedrock
+last_updated: 2026-05-30
 ---
 
 DSPy (Declarative Self-improving Python) is a framework from Stanford NLP that replaces hand-written prompts with declarative modules that are compiled (optimized) automatically. Instead of crafting prompt text manually, you define the input-output behavior you want, provide a few examples, and DSPy's optimizers find the prompt instructions, few-shot examples, and even fine-tuning configurations that maximize a metric you define. For AI projects, DSPy addresses the fragility of prompt engineering by making LLM pipelines systematic, reproducible, and automatically optimizable.

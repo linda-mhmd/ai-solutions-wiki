@@ -8,6 +8,7 @@ related:
   - glossary/floating-point
   - glossary/hardware-constraints
   - glossary/time-complexity
+last_updated: 2026-05-30
 ---
 
 Every computer, from a microcontroller to a GPU cluster, operates on a single primitive: a switch that is either on or off. This physical reality - the transistor - is why all computing is built on binary, the base-2 number system.

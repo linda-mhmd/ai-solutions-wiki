@@ -9,6 +9,7 @@ related:
   - tools/apache-spark
   - tools/duckdb
   - tools/timescaledb
+last_updated: 2026-05-30
 ---
 
 ClickHouse is an open-source column-oriented database management system that enables real-time analytical query processing on billions of rows with sub-second latency. It uses a column-oriented storage format with aggressive data compression, vectorized query execution exploiting SIMD instructions, and a massively parallel processing architecture to achieve query performance that frequently surpasses commercial data warehouses on equivalent hardware.

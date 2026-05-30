@@ -9,6 +9,7 @@ related:
   - glossary/pruning
   - glossary/fine-tuning
   - glossary/transfer-learning
+last_updated: 2026-05-30
 ---
 
 Knowledge distillation is a model compression technique where a large, high-performing model (the teacher) transfers its learned behavior to a smaller, more efficient model (the student). The student is trained not only on ground-truth labels but also on the teacher's soft probability outputs, which encode richer information about inter-class relationships than hard labels alone.

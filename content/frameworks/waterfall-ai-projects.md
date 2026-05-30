@@ -8,6 +8,7 @@ related:
   - frameworks/agile-ai-delivery
   - frameworks/safe-for-ai
   - frameworks/cost-benefit-analysis-ai
+last_updated: 2026-05-30
 ---
 
 Waterfall methodology moves through sequential phases: requirements, design, implementation, testing, and deployment. Each phase must be completed and approved before the next begins. In the AI community, waterfall is often dismissed as incompatible with the iterative nature of ML development. This is partially true but ignores the reality that many enterprise AI projects operate in environments where waterfall is not a choice but a constraint: regulated industries, government contracts, and organizations with phase-gated governance.

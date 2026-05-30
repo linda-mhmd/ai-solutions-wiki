@@ -9,6 +9,7 @@ related:
   - glossary/single-responsibility-principle
   - glossary/dependency-inversion-principle
   - glossary/adapter-pattern
+last_updated: 2026-05-30
 ---
 
 The Interface Segregation Principle (ISP) states that no client should be forced to depend on methods it does not use. It promotes the design of small, focused interfaces tailored to specific client needs rather than large, general-purpose interfaces that bundle unrelated capabilities.

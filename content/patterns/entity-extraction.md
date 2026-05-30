@@ -4,6 +4,7 @@ description: "Extracting structured entities from unstructured text using AI. Na
 date: 2026-03-28
 categories: [Patterns]
 tags: [entity-extraction, NER, information-extraction, NLP, structured-data]
+last_updated: 2026-05-30
 ---
 
 Entity extraction pulls structured information from unstructured text: names, dates, amounts, organizations, locations, and domain-specific entities. It is the bridge between document AI and downstream business systems that need structured data.

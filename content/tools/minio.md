@@ -9,6 +9,7 @@ related:
   - tools/azure-blob-storage
   - tools/apache-spark
   - tools/apache-hadoop
+last_updated: 2026-05-30
 ---
 
 MinIO is a high-performance, S3-compatible object storage system built for cloud-native and on-premises environments. It provides a complete implementation of the Amazon S3 API, making it a drop-in replacement for S3 in private cloud, edge computing, and hybrid architectures. MinIO is designed from the ground up for performance, achieving read/write speeds that rival or exceed many commercial object storage solutions, with benchmarks regularly exceeding 300 GB/s on commodity hardware.

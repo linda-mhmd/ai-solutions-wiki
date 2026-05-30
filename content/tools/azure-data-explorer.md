@@ -8,6 +8,7 @@ related:
   - tools/amazon-timestream
   - tools/azure-monitor
   - tools/azure-synapse-analytics
+last_updated: 2026-05-30
 ---
 
 Azure Data Explorer (ADX), also known as Kusto, is a fully managed big data analytics platform optimized for near-real-time analysis of large volumes of streaming data, time series data, and log data. The service ingests data at high throughput from event sources (Event Hubs, IoT Hub, Blob Storage, Kafka), indexes it automatically, and makes it queryable within seconds using Kusto Query Language (KQL). For AI workloads, ADX serves as the analytics engine for real-time feature computation, IoT telemetry analysis, model monitoring metric aggregation, and exploratory data analysis on high-velocity datasets where traditional databases or data warehouses cannot deliver sub-second query performance.

@@ -9,6 +9,7 @@ related:
   - glossary/transfer-learning
   - glossary/prompt-engineering
   - glossary/llm
+last_updated: 2026-05-30
 ---
 
 Zero-shot learning is the ability of a model to perform a task it was not explicitly trained on, without any task-specific examples. The model generalizes from its pre-training knowledge to handle novel tasks based solely on a natural language description of what is needed.

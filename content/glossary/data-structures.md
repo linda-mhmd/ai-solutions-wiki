@@ -8,6 +8,7 @@ related:
   - glossary/time-complexity
   - guides/sorting-algorithms-for-ai
   - patterns/tiered-analysis
+last_updated: 2026-05-30
 ---
 
 A data structure is a way of organizing data in memory that enables specific operations efficiently. The choice of data structure determines whether an operation takes microseconds or minutes. In AI pipelines that process thousands of frames, documents, or records, this difference is the difference between a usable system and one that cannot run in production.

@@ -4,6 +4,7 @@ description: "How to design AI systems that collect, organize, and present evide
 date: 2026-03-24
 categories: [Patterns]
 tags: [patterns, compliance, audit, evidence]
+last_updated: 2026-05-30
 ---
 
 Any AI system that produces recommendations affecting people's access to services, money, or rights needs to be able to show its work. Evidence bundling is the design pattern that makes this possible: instead of producing a recommendation with an opaque score, the system collects, organizes, and presents the source material that supports the recommendation.

@@ -8,6 +8,7 @@ related:
   - tools/apache-airflow
   - tools/google-cloud-composer
   - tools/prefect
+last_updated: 2026-05-30
 ---
 
 Amazon Managed Workflows for Apache Airflow (MWAA) is a fully managed service that runs open-source Apache Airflow on AWS. It handles the provisioning, patching, scaling, and maintenance of Airflow's scheduler, workers, and web server, allowing teams to focus on writing DAGs rather than managing infrastructure. MWAA integrates natively with AWS services including S3, Glue, EMR, SageMaker, and Lambda, making it the standard choice for orchestrating data and ML pipelines within the AWS ecosystem.

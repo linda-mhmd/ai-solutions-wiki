@@ -11,6 +11,7 @@ related:
   - glossary/llm
   - glossary/foundation-models
   - glossary/direct-preference-optimization
+last_updated: 2026-05-30
 ---
 
 Reasoning models are large language models post-trained to allocate substantial inference-time compute to internal reasoning before producing a final answer. Where a conventional LLM emits its answer immediately after the prompt, a reasoning model first generates a long, often hidden, chain of thought that explores, plans, backtracks, and verifies, sometimes for thousands or tens of thousands of tokens, and only then produces the visible response. The class was established by OpenAI's o1 (September 2024), generalised by DeepSeek's R1 (January 2025), and is now represented in every major model family (o3, Claude with extended thinking, Gemini 2.0 Flash Thinking, Qwen3, GLM-Z1). Reasoning models trade latency and cost for substantially higher accuracy on math, coding, scientific reasoning, and planning tasks, a different scaling axis from parameter count.

@@ -10,6 +10,7 @@ related:
   - tools/apache-airflow
   - tools/great-expectations
   - tools/prefect
+last_updated: 2026-05-30
 ---
 
 dbt (data build tool) is an open-source command-line tool that enables analytics engineers to transform data inside their data warehouses by writing SQL SELECT statements. dbt handles the boilerplate of materializing those SELECT statements as tables and views, managing dependencies between models, running tests, generating documentation, and building a dependency-aware execution graph. By applying software engineering practices -- version control, testing, documentation, modularity, and CI/CD -- to the analytics workflow, dbt has defined the discipline of "analytics engineering."

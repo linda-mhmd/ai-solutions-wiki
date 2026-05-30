@@ -6,7 +6,7 @@
     <nav class="sl-breadcrumb" aria-label="breadcrumb">
       <a href="{{ "/" | relURL }}" class="sl-breadcrumb-home">AI Solutions Wiki</a>
       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-      <span>For You</span>
+      <span aria-current="page">{{ .Title }}</span>
     </nav>
     <h1 class="hub-h1">Find your path.</h1>
     <p class="hub-desc">The wiki is organised around the problems you actually face. Pick the role that fits and get a reading path built for your situation, not for a generic reader.</p>
@@ -101,15 +101,81 @@
   </div>
 </section>
 
-<!-- LEARN THROUGH YOUR WORLD -->
+<!-- LEARN THROUGH YOUR WORLD GALLERY -->
 <section class="hub-section">
   <div class="bz-container">
-    <p class="bz-section-label">A different approach</p>
-    <h2 class="hub-fallback-h2">Learn through a world you already know</h2>
-    <p class="hub-fallback-desc">Technical paths not clicking? Try the same concepts explained through fashion, juggling, or analogue craft. Find the metaphor that makes it land.</p>
-    <p><a href="{{ "/through/" | relURL }}" class="bz-btn-ghost">Explore the lens paths →</a></p>
+    <p class="bz-section-label">Or try a different angle</p>
+    <h2 class="hub-fallback-h2">Learn through a world you already know.</h2>
+    <p class="hub-fallback-desc">Technical role paths not landing? Choose a metaphor lens instead. The same concepts, explained through fashion, juggling, or analogue craft.</p>
   </div>
 </section>
+
+<div class="through-hub-gallery">
+
+  <a href="{{ "/through/juggling/" | relURL }}" class="through-hub-card">
+    <img class="through-hub-card-img" src="/img/juggling/juggler-silhouette-three-props-notext.png" alt="A dark silhouette juggling three neon props: a red ball, green club, and blue ring against a black background." loading="lazy">
+    <div class="through-hub-card-overlay" aria-hidden="true"></div>
+    <div class="through-hub-card-body">
+      <span class="through-hub-card-kicker">Learn through</span>
+      <span class="through-hub-card-name">The Juggler</span>
+      <span class="through-hub-card-tagline">Async systems, fault tolerance, distributed architecture, and AI agents explained through juggling patterns and physics.</span>
+      <span class="through-hub-card-cta">Enter this lens →</span>
+    </div>
+  </a>
+
+  <a href="{{ "/through/wardrobe/" | relURL }}" class="through-hub-card">
+    <img class="through-hub-card-img" src="/img/shaping-ai/silhouette-red-city-night-notext.png" alt="A lone silhouette at a city-view window at night, red light below, representing the creative director who directs the whole system from above." loading="lazy">
+    <div class="through-hub-card-overlay" aria-hidden="true"></div>
+    <div class="through-hub-card-body">
+      <span class="through-hub-card-kicker">Learn through</span>
+      <span class="through-hub-card-name">The Fashionista</span>
+      <span class="through-hub-card-tagline">Git branches, deployment, technical debt, and AI workflows explained through fashion, wardrobe, and the atelier.</span>
+      <span class="through-hub-card-cta">Enter this lens →</span>
+    </div>
+  </a>
+
+  <a href="{{ "/through/craft/" | relURL }}" class="through-hub-card">
+    <img class="through-hub-card-img" src="/img/obsidian-lab/pipeline-components-sequence-notext.png" alt="Industrial components arranged in sequence: gear, light source, camera, radio, panel, representing pipeline stages and connected tools." loading="lazy">
+    <div class="through-hub-card-overlay" aria-hidden="true"></div>
+    <div class="through-hub-card-body">
+      <span class="through-hub-card-kicker">Learn through</span>
+      <span class="through-hub-card-name">The Craftsperson</span>
+      <span class="through-hub-card-tagline">Software craft explained through analogue tools: sheet music, filing cabinets, pottery, bento boxes, and the workshop bench.</span>
+      <span class="through-hub-card-cta">Enter this lens →</span>
+    </div>
+  </a>
+
+  <div class="through-hub-card through-hub-card--soon">
+    <img class="through-hub-card-img" src="/img/shaping-ai/books-radial-red-sphere-notext.png" alt="" aria-hidden="true" loading="lazy">
+    <div class="through-hub-card-overlay" aria-hidden="true"></div>
+    <div class="through-hub-card-body">
+      <span class="through-hub-soon-badge">Coming soon</span>
+      <span class="through-hub-card-name">The Reader</span>
+      <span class="through-hub-card-tagline">Foundations, mental models, and AI theory for people who think in books, arguments, and structured reasoning.</span>
+    </div>
+  </div>
+
+  <div class="through-hub-card through-hub-card--soon">
+    <img class="through-hub-card-img" src="/img/enterprise-dark/furnace-molten-red-notext.png" alt="" aria-hidden="true" loading="lazy">
+    <div class="through-hub-card-overlay" aria-hidden="true"></div>
+    <div class="through-hub-card-body">
+      <span class="through-hub-soon-badge">Coming soon</span>
+      <span class="through-hub-card-name">The Chef</span>
+      <span class="through-hub-card-tagline">Data prep as mise en place. Fine-tuning as seasoning. Orchestration as expediting. AI systems for kitchen thinkers.</span>
+    </div>
+  </div>
+
+  <div class="through-hub-card through-hub-card--soon">
+    <img class="through-hub-card-img" src="/img/enterprise-dark/boardroom-ai-diagram-notext.png" alt="" aria-hidden="true" loading="lazy">
+    <div class="through-hub-card-overlay" aria-hidden="true"></div>
+    <div class="through-hub-card-body">
+      <span class="through-hub-soon-badge">Coming soon</span>
+      <span class="through-hub-card-name">The Filmmaker</span>
+      <span class="through-hub-card-tagline">Scripts as prompts. Casting as model selection. The edit room as RAG. AI for people who think in scenes and story structure.</span>
+    </div>
+  </div>
+
+</div>
 
 <div class="bz-container">
   {{ partial "cta.html" . }}

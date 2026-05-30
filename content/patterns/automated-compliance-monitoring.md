@@ -10,6 +10,7 @@ related:
   - patterns/observability-ai
   - glossary/cloud-governance
   - guides/cloud-security-posture-management
+last_updated: 2026-05-30
 ---
 
 Manual compliance checks do not scale with the pace of AI development. This pattern describes an automated compliance monitoring architecture that continuously evaluates AI systems against regulatory requirements and organizational policies.

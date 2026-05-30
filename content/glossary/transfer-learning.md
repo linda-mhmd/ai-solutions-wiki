@@ -9,6 +9,7 @@ related:
   - glossary/foundation-models
   - glossary/few-shot-learning
   - glossary/deep-learning
+last_updated: 2026-05-30
 ---
 
 Transfer learning is a technique where a model trained on one task is reused as the starting point for a different but related task. Instead of training from scratch on your specific data, you start with a model that has already learned general features from a large dataset and adapt it to your domain.

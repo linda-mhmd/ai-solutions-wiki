@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [contract-analysis, legal-tech, nlp, document-review, risk-assessment]
 industries: [legal]
 tools: [amazon-bedrock, amazon-textract, amazon-s3]
+last_updated: 2026-05-30
 ---
 
 Contract review is one of the most time-intensive tasks in legal practice. A typical M&A transaction involves reviewing thousands of contracts to identify risks, obligations, and non-standard terms. Junior lawyers spend 60-80% of their time on document review tasks that are repetitive but require careful attention. AI contract analysis reduces review time by 60-80% while improving consistency and reducing missed clauses.

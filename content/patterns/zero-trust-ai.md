@@ -9,6 +9,7 @@ related:
   - glossary/devsecops
   - guides/devsecops-ai
   - patterns/compliance-as-code
+last_updated: 2026-05-30
 ---
 
 Traditional perimeter-based security assumes that internal services are trustworthy. In AI systems, this assumption is dangerous. A compromised inference service can exfiltrate model weights (valuable intellectual property). A compromised data pipeline can poison training data. A prompt injection can manipulate model behaviour from outside the perimeter. Zero trust for AI applies "never trust, always verify" to every layer of the ML stack.

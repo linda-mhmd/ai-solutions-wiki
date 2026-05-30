@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [content-moderation, trust-safety, user-generated-content, policy-enforcement, platform-safety]
 industries: [media]
 tools: [amazon-rekognition, amazon-comprehend, amazon-bedrock]
+last_updated: 2026-05-30
 ---
 
 Platforms hosting user-generated content face an enormous moderation challenge. Social media, comment sections, forums, and review platforms receive millions of submissions daily. Content that violates policies - hate speech, harassment, explicit imagery, misinformation, spam, copyright infringement - must be identified and actioned quickly to maintain user safety and regulatory compliance. AI moderation handles the volume that human moderation cannot.

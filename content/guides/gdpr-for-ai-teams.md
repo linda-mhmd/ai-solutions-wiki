@@ -14,6 +14,7 @@ related:
   - glossary/automated-decision-making
   - guides/data-protection-impact-assessment
   - patterns/gdpr-compliant-ml-pipeline
+last_updated: 2026-05-30
 ---
 
 GDPR compliance is not optional for AI teams processing personal data of EU residents. This guide covers the practical steps ML engineers and data scientists need to take at each stage of the ML lifecycle.

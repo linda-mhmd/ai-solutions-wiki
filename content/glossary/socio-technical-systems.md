@@ -4,6 +4,7 @@ description: "An approach recognizing that organizational performance depends on
 date: 2026-03-28
 categories: [Glossary]
 tags: [socio-technical-systems, organizational-design, systems-thinking, human-factors]
+last_updated: 2026-05-30
 ---
 
 Socio-technical systems theory posits that organizational performance emerges from the interaction between social subsystems (people, relationships, culture, skills) and technical subsystems (tools, processes, technology). Optimizing one at the expense of the other produces suboptimal outcomes; both must be jointly designed and managed.

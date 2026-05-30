@@ -10,6 +10,7 @@ related:
   - frameworks/impact-mapping-ai
   - frameworks/three-workshop-method
   - guides/ai-workshop-facilitation
+last_updated: 2026-05-30
 ---
 
 The Open Practice Library (openpracticelibrary.com) is a community-maintained collection of practices for product discovery and software delivery. It was created within Red Hat's consulting practice and open-sourced in 2017. It covers the full delivery lifecycle, from understanding a business problem through to running a product in production.

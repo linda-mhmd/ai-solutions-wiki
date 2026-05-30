@@ -8,6 +8,7 @@ related:
   - glossary/react
   - glossary/material-ui
   - glossary/single-page-application
+last_updated: 2026-05-30
 ---
 
 CSS-in-JS is a styling paradigm that writes CSS directly in JavaScript, co-locating styles with components and leveraging JavaScript's scoping and composition capabilities to solve long-standing CSS scalability problems. The concept was introduced by Christopher Chedeau (Vjeux) in 2014, and Emotion, created by Kye Hohenberger in 2017, became one of the highest-performance implementations of the pattern.

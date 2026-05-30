@@ -4,6 +4,7 @@ description: "How to design and implement prompt chains for complex AI tasks, co
 date: 2026-03-28
 categories: [Guides]
 tags: [prompt-engineering, LLM, architecture, patterns, AI-development]
+last_updated: 2026-05-30
 ---
 
 Prompt chaining is the technique of breaking a complex AI task into a sequence of simpler prompts, where each prompt's output feeds into the next prompt's input. Instead of asking a model to do everything in one shot, you guide it through a structured workflow. This produces more reliable results for complex tasks and makes the system easier to debug, test, and improve.

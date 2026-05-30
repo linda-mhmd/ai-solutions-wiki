@@ -10,6 +10,7 @@ related:
   - tools/apache-flink
   - tools/apache-kafka
   - tools/databricks
+last_updated: 2026-05-30
 ---
 
 Apache Spark is a unified analytics engine for large-scale data processing that provides high-level APIs in Java, Scala, Python, and R. It supports a rich set of higher-level tools including Spark SQL for structured data processing, MLlib for machine learning, GraphX for graph computation, and Structured Streaming for stream processing. Spark's in-memory computing capabilities make it up to 100 times faster than Hadoop MapReduce for certain workloads, fundamentally changing the economics and practicality of iterative algorithms and interactive data analysis.

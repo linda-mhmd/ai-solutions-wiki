@@ -2,8 +2,10 @@
 title: "Amazon Timestream vs DynamoDB for Time-Series Data"
 description: "Comparing Amazon Timestream and DynamoDB for time-series data storage, covering query capabilities, data lifecycle, and AI/ML integration."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [Timestream, DynamoDB, time-series, database, AWS, comparison]
+last_updated: 2026-05-30
 ---
 
 Time-series data - metrics, IoT readings, log events, financial ticks - requires storage optimized for temporal queries. Amazon Timestream is purpose-built for time-series. DynamoDB is a general-purpose NoSQL database that can handle time-series workloads with the right schema design. The choice depends on query patterns, scale, and how much time-series optimization you need.

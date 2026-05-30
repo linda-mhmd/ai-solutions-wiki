@@ -8,6 +8,7 @@ related:
   - frameworks/use-case-scoring
   - frameworks/moscow-prioritization
   - frameworks/cost-benefit-analysis-ai
+last_updated: 2026-05-30
 ---
 
 RICE is a scoring framework developed by Intercom for prioritizing product features. It scores each initiative on four dimensions: Reach, Impact, Confidence, and Effort. The RICE score is calculated as (Reach x Impact x Confidence) / Effort, producing a single number that enables direct comparison across candidates. For AI use case prioritization, RICE provides a more structured alternative to gut-feel ranking while remaining simple enough to use in a workshop setting.

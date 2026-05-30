@@ -9,6 +9,7 @@ related:
   - guides/feature-store-implementation
   - guides/model-registry-guide
   - guides/ai-observability-guide
+last_updated: 2026-05-30
 ---
 
 When each ML team builds its own training infrastructure, deployment pipeline, and monitoring stack, the organization wastes engineering effort on solved problems while each team's infrastructure remains fragile. An internal AI platform provides shared, reliable infrastructure that lets data scientists and ML engineers focus on models rather than plumbing.

@@ -8,6 +8,7 @@ related:
   - glossary/pub-sub
   - glossary/event-driven-architecture
   - glossary/kafka
+last_updated: 2026-05-30
 ---
 
 A message queue is a communication mechanism where messages are sent to a queue by producers and consumed by consumers asynchronously. The queue acts as a buffer between services, decoupling the producer from the consumer so they can operate independently, at different speeds, and without direct knowledge of each other.

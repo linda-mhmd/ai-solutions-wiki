@@ -7,6 +7,7 @@ tags: [azure, workflow, orchestration, low-code, integration]
 related:
   - tools/aws-step-functions
   - tools/azure-functions
+last_updated: 2026-05-30
 ---
 
 Azure Logic Apps is Microsoft Azure's cloud-based workflow orchestration platform that enables the creation of automated, multi-step workflows connecting hundreds of services and systems. It provides a visual designer for building integration workflows that span Azure services, Microsoft 365, Dynamics 365, on-premises systems, and third-party SaaS applications. In AI solution architectures, Logic Apps orchestrates complex processing chains that involve multiple AI service calls, human approval steps, conditional branching, and data routing -- all without writing extensive code.

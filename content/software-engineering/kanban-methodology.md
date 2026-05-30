@@ -4,6 +4,7 @@ date: 2026-03-26
 draft: false
 tags: ["software-engineering", "project-management", "kanban", "agile", "lean", "methodology"]
 categories: ["Software Engineering"]
+last_updated: 2026-05-30
 ---
 
 Kanban is a method for managing and improving knowledge work that David J. Anderson developed by adapting principles from the Toyota Production System (TPS) for software development teams. Anderson formalized this approach between 2004 and 2007 while working at Microsoft and Corbis, and published his synthesis in *Kanban: Successful Evolutionary Change for Your Technology Business* in 2010.

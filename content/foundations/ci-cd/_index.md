@@ -4,6 +4,7 @@ description: "The discipline of keeping software in a releasable state at all ti
 layout: single
 tags: ["ci-cd", "continuous-integration", "continuous-delivery", "deployment", "pipelines"]
 categories: ["Foundations"]
+last_updated: 2026-05-30
 ---
 
 Jez Humble and David Farley published *Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation* in 2010. The book codified practices that leading software teams had been developing for nearly a decade, formalizing them into a coherent discipline. The central premise is straightforward: if releasing software is painful, the solution is to do it more often, not less, until the pain is reduced through automation, feedback, and practice.

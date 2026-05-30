@@ -8,9 +8,15 @@ related:
   - glossary/sidecar-pattern
   - glossary/kubernetes
   - glossary/istio
+last_updated: 2026-05-30
 ---
 
 A service mesh is an infrastructure layer that manages service-to-service communication in a microservices architecture. It handles traffic routing, load balancing, encryption, authentication, observability, and retry logic between services without requiring changes to application code. The mesh operates transparently through sidecar proxies deployed alongside each service instance.
+
+<figure class="bz-figure">
+  <img src="/img/juggling/hands-cats-cradle-neon-notext.png" alt="Hands holding a complex cat's cradle of neon threads: the intricate web of service-to-service connections that a mesh manages." loading="lazy">
+  <figcaption>A service mesh manages the complex web of connections between microservices. Each thread is a communication path. The mesh handles encryption, routing, and observability for every connection without changing application code.</figcaption>
+</figure>
 
 ## How It Works
 

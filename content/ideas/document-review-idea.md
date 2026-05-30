@@ -4,6 +4,7 @@ description: "How AI can reduce contract review time by surfacing non-standard c
 date: 2026-03-24
 categories: [Ideas]
 tags: ["ai-ml", "beginner", "document-review", "nlp", "automation", "extraction", "legal"]
+last_updated: 2026-05-30
 ---
 
 Contract review is one of the highest-value AI automation targets in legal and compliance teams. A junior lawyer or paralegal spends 2-4 hours reviewing a standard vendor contract. Most of that time is scanning for deviations from standard positions - an inherently pattern-matching task that LLMs handle well.

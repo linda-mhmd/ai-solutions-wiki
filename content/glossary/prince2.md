@@ -4,6 +4,7 @@ description: "A structured, process-based project management methodology origina
 date: 2026-03-28
 categories: [Glossary]
 tags: [PRINCE2, project-management, methodology, governance, UK-government]
+last_updated: 2026-05-30
 ---
 
 PRINCE2 (Projects IN Controlled Environments) is a structured project management methodology that provides a process-driven framework for managing projects through defined stages with clear roles, responsibilities, and decision points. It is one of the most widely used project management methods globally, particularly in the UK, Europe, and Australia.

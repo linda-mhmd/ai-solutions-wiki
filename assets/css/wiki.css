@@ -329,7 +329,7 @@ img { max-width: 100%; height: auto; display: block; }
   transition: opacity 0.15s ease, transform 0.15s ease;
   z-index: 200;
   /* Reset white-space: nav-links sets nowrap to keep nav items on one line,
-     but that property is inherited — reset here so card descriptions wrap */
+     but that property is inherited: reset here so card descriptions wrap */
   white-space: normal;
 }
 .nav-group:hover .nav-mega,
@@ -3432,6 +3432,25 @@ a.bz-arch-layer-label--link:hover { opacity: 0.7; }
   border-top: 1px solid var(--border);
 }
 
+/* Page position indicator */
+.bz-page-position {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.bz-page-position-text {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 6px 14px;
+}
+
 .bz-article-nav-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -3731,7 +3750,7 @@ a.bz-arch-layer-label--link:hover { opacity: 0.7; }
    ========================================================================== */
 
 /* Stats strip below hero */
-/* Stats strip removed — numbers appeared twice and were vanity metrics.
+/* Stats strip removed: numbers appeared twice and were vanity metrics.
    Section cards below the hero serve the same navigation purpose. */
 .idx-stats-strip { display: none; }
 
@@ -3786,7 +3805,7 @@ a.idx-stat-block:hover .idx-stat-label {
 }
 
 /* Hero article count strip */
-/* Entry-point path links — replaces the old number counts in the hero */
+/* Entry-point path links: replaces the old number counts in the hero */
 .idx-hero-paths {
   display: flex;
   align-items: center;
@@ -6608,10 +6627,11 @@ details[open] > .faq-question::after {
 .through-persona-hero .bz-container {
   position: relative;
   z-index: 2;
+  width: 100%;
   padding-top: 60px;
   padding-bottom: 56px;
 }
-.through-persona-head { max-width: 600px; }
+.through-persona-head { max-width: 680px; }
 .through-persona-kicker {
   display: block;
   font-family: var(--font-mono);
@@ -6830,7 +6850,7 @@ details[open] > .faq-question::after {
 }
 .through-hub-card {
   position: relative;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
   text-decoration: none;
   display: block;
@@ -6848,16 +6868,16 @@ details[open] > .faq-question::after {
 .through-hub-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(13,13,13,0.96) 0%, rgba(13,13,13,0.55) 50%, rgba(13,13,13,0.18) 100%);
+  background: linear-gradient(to top, rgba(13,13,13,0.98) 0%, rgba(13,13,13,0.90) 32%, rgba(13,13,13,0.52) 60%, rgba(13,13,13,0.08) 100%);
   transition: opacity 0.3s;
 }
-.through-hub-card:hover .through-hub-card-overlay { opacity: 0.85; }
+.through-hub-card:hover .through-hub-card-overlay { opacity: 1; }
 .through-hub-card-body {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 28px 24px;
+  padding: 24px 24px 26px;
 }
 .through-hub-card-kicker {
   display: block;
@@ -6877,13 +6897,20 @@ details[open] > .faq-question::after {
   line-height: 1.1;
   letter-spacing: -0.02em;
   margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .through-hub-card-tagline {
-  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   font-size: 0.8rem;
   color: rgba(240,237,232,0.70);
   line-height: 1.45;
   margin-bottom: 16px;
+  min-height: calc(0.8rem * 1.45 * 2);
 }
 .through-hub-card-cta {
   display: inline-flex;
@@ -6899,7 +6926,7 @@ details[open] > .faq-question::after {
 .through-hub-card--soon { pointer-events: none; }
 .through-hub-card--soon .through-hub-card-img { filter: grayscale(0.5); opacity: 0.45; }
 .through-hub-card--soon .through-hub-card-overlay {
-  background: linear-gradient(to top, rgba(13,13,13,0.98) 0%, rgba(13,13,13,0.80) 50%, rgba(13,13,13,0.55) 100%);
+  background: linear-gradient(to top, rgba(13,13,13,0.98) 0%, rgba(13,13,13,0.90) 32%, rgba(13,13,13,0.72) 60%, rgba(13,13,13,0.40) 100%);
 }
 .through-hub-soon-badge {
   display: inline-block;
@@ -6928,4 +6955,108 @@ details[open] > .faq-question::after {
 @media (max-width: 640px) {
   .through-persona-hero { min-height: 320px; }
   .through-persona-h1 { font-size: 1.875rem; }
+}
+
+
+/* ---- Page Metadata Display ---- */
+.page-metadata {
+  margin-bottom: 16px;
+}
+
+.page-metadata-updated {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.page-metadata-updated svg {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.page-metadata-verification {
+  margin-bottom: 20px;
+}
+
+.verification-notice {
+  background: rgb(245 158 11 / 0.06);
+  border-left: 3px solid #f59e0b;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 14px 18px;
+}
+
+[data-theme="dark"] .verification-notice {
+  background: rgb(245 158 11 / 0.08);
+}
+
+.verification-date {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.verification-date svg {
+  color: #f59e0b;
+  flex-shrink: 0;
+}
+
+.verification-disclaimer {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+
+/* ---- Comparison Page Disclaimer ---- */
+.comparison-disclaimer {
+  background: rgb(59 130 246 / 0.06);
+  border-left: 3px solid #3b82f6;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 16px 20px;
+  margin-bottom: 28px;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+[data-theme="dark"] .comparison-disclaimer {
+  background: rgb(59 130 246 / 0.1);
+}
+
+.comparison-disclaimer p {
+  margin: 0 0 12px 0;
+  color: var(--text-secondary);
+}
+
+.comparison-disclaimer p strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.comparison-disclaimer ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.comparison-disclaimer li {
+  margin-bottom: 4px;
+  color: var(--text-secondary);
+}
+
+.comparison-disclaimer a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+
+.comparison-disclaimer a:hover {
+  color: var(--primary-hover);
 }

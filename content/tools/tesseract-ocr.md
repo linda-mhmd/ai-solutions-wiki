@@ -7,6 +7,7 @@ tags: [open-source, ocr, document-processing, text-extraction, computer-vision, 
 related:
   - tools/amazon-textract
   - tools/amazon-rekognition
+last_updated: 2026-05-30
 ---
 
 Tesseract is an open-source optical character recognition (OCR) engine that converts images of text into machine-readable text strings. It supports over 100 languages out of the box and can be trained to recognize additional languages and fonts. Tesseract is one of the most accurate open-source OCR engines available and has been continuously developed for over three decades, making it one of the longest-lived and most mature open-source projects in the document processing space.

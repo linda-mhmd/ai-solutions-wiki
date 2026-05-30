@@ -8,6 +8,7 @@ related:
   - glossary/kubernetes
   - glossary/container-registry
   - glossary/helm-chart
+last_updated: 2026-05-30
 ---
 
 Docker is a platform for building, shipping, and running applications in containers. A container packages an application with all its dependencies (runtime, libraries, system tools) into a standardized unit that runs consistently across any environment - developer laptop, CI server, or production cloud.

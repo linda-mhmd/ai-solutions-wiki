@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [lead-scoring, real-estate-crm, predictive-analytics, sales-automation, conversion]
 industries: [real-estate]
 tools: [amazon-sagemaker, amazon-personalize, amazon-dynamodb]
+last_updated: 2026-05-30
 ---
 
 Real estate agents receive leads from multiple sources - web inquiries, portal listings, referrals, open houses, social media - but only 2-5% of leads convert to transactions. Agents who spend equal time on all leads burn effort on low-intent prospects while high-intent buyers go unattended. AI lead scoring prioritizes leads by predicted conversion probability, enabling agents to focus on the prospects most likely to transact.

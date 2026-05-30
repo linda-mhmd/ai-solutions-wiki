@@ -4,6 +4,7 @@ description: "A UML behavioral diagram for modeling workflows, business processe
 date: 2026-03-28
 categories: [Glossary]
 tags: [uml, activity-diagram, workflow, business-process, behavioral-diagrams]
+last_updated: 2026-05-30
 ---
 
 An activity diagram is a UML behavioral diagram that models the flow of activities in a process, workflow, or algorithm. It shows the sequence of actions, decision points, parallel execution paths, and the flow of control from start to finish. Activity diagrams are well-suited for modeling business processes, use case flows, and complex algorithms.

@@ -8,6 +8,7 @@ related:
   - glossary/domain-driven-design
   - glossary/aggregate-root
   - glossary/data-mesh
+last_updated: 2026-05-30
 ---
 
 A bounded context is a boundary within which a specific domain model is defined and consistent. Inside that boundary, every term has a precise, unambiguous meaning, and the model faithfully represents one perspective of the business domain. Different bounded contexts may use the same terms with different meanings - and that is by design.

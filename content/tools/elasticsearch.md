@@ -8,6 +8,7 @@ related:
   - tools/amazon-opensearch
   - tools/pinecone
   - tools/weaviate
+last_updated: 2026-05-30
 ---
 
 Elasticsearch is a distributed search and analytics engine built on Apache Lucene. It has long been the standard for full-text search, log analytics, and application search. With the addition of dense vector fields and approximate nearest neighbor (ANN) search, Elasticsearch now serves as a hybrid search engine that combines traditional keyword search with vector similarity search. For AI projects, Elasticsearch is valuable when you need both structured search and semantic search in a single system, particularly when the organization already operates Elasticsearch infrastructure.

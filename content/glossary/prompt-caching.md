@@ -11,6 +11,7 @@ related:
   - glossary/inference-time-compute
   - glossary/transformer-architecture
   - glossary/long-context-model
+last_updated: 2026-05-30
 ---
 
 Prompt caching is an LLM serving optimisation in which the attention key/value (KV) tensors computed for a shared prompt prefix are stored and reused across subsequent requests, instead of being recomputed each time. For applications that send many requests with the same long prefix, system prompts, document context, agent histories, few-shot examples, RAG-augmented prompts, prompt caching reduces both time-to-first-token latency and per-call cost by an amount proportional to the cached prefix length. Cache discounts of 50–90% are typical at provider APIs (Anthropic, OpenAI, Google, AWS Bedrock).

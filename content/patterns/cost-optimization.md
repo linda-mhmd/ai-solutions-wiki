@@ -5,6 +5,7 @@ date: 2026-03-24
 categories: [Patterns]
 tags: ["architecture", "intermediate", "cost-optimization", "ai-costs", "efficiency", "budgeting", "llm"]
 tools: [amazon-bedrock, claude-anthropic]
+last_updated: 2026-05-30
 ---
 
 AI inference costs in production are real and can be significant if not managed. A production system processing thousands of calls per day at premium model rates can easily accumulate 10,000-50,000 EUR per month in API costs. Cost optimization does not mean accepting lower quality - it means applying the right capability to each task at the right price.

@@ -2,8 +2,10 @@
 title: "Splunk vs Elastic for AI Operations"
 description: "Comparing Splunk and Elastic for AI operations monitoring, log analysis, and observability in ML systems."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [Splunk, Elastic, monitoring, observability, AI-ops]
+last_updated: 2026-05-30
 ---
 
 Splunk and Elastic (Elasticsearch, Kibana, Beats) are both used for log analysis and observability. For AI operations, they serve as platforms for ingesting model logs, analyzing prediction patterns, detecting anomalies, and building operational dashboards.

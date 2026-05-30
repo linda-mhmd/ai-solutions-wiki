@@ -7,6 +7,7 @@ tags: [redis, caching, in-memory, ElastiCache, performance]
 related:
   - glossary/dynamodb
   - glossary/message-queue
+last_updated: 2026-05-30
 ---
 
 Redis is an open-source, in-memory data store used as a cache, message broker, and real-time data structure server. It stores data in memory for sub-millisecond read and write latency, supporting data structures like strings, hashes, lists, sets, sorted sets, and streams.

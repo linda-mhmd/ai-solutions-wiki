@@ -4,6 +4,7 @@ description: "The technology of creating virtual instances of computing resource
 date: 2026-03-28
 categories: [Glossary]
 tags: [operating-systems, virtualization, hypervisors, virtual-machines, containers]
+last_updated: 2026-05-30
 ---
 
 Virtualization is the technology that creates virtual versions of physical computing resources - processors, memory, storage, and networks - allowing multiple isolated environments to share the same physical hardware. It is the foundation of cloud computing, modern data centers, and container-based application deployment.

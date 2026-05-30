@@ -9,6 +9,7 @@ related:
   - glossary/dry-principle
   - glossary/solid-principles
   - glossary/clean-architecture
+last_updated: 2026-05-30
 ---
 
 The KISS principle (Keep It Simple, Stupid) states that most systems work best if they are kept simple rather than made complex. It advocates for straightforward, understandable solutions and warns against unnecessary complexity in design, code, and architecture.

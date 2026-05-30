@@ -10,6 +10,7 @@ related:
   - tools/google-cloud-dataflow
   - tools/google-cloud-dataproc
   - tools/google-vertex-ai
+last_updated: 2026-05-30
 ---
 
 Google BigQuery is a fully managed, serverless data warehouse designed for large-scale analytics. It can process petabytes of data using ANSI SQL with no infrastructure to manage -- there are no clusters to size, no indexes to tune, and no vacuum operations to schedule. BigQuery separates storage and compute, allowing each to scale independently. This architecture means you pay for data stored (at competitive per-GB rates) and for queries executed (based on bytes scanned), making it economical for both interactive analysis and large batch workloads.

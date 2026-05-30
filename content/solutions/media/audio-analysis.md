@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: ["media-processing", "advanced", "audio-analysis", "speech-to-text", "media", "nlp", "transcription"]
 industries: [media]
 tools: [amazon-bedrock, amazon-transcribe]
+last_updated: 2026-05-30
 ---
 
 Professional film and broadcast productions typically capture audio on multiple simultaneous tracks - a boom microphone, one or two lavalier mics per speaker, and sometimes a room mic for ambience. In a typical interview setup, that is 3-5 tracks for two speakers. Editors traditionally select the best source for each moment manually. AI-driven audio analysis automates that selection process and adds quality enhancement on top.

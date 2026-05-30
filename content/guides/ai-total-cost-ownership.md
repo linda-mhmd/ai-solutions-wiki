@@ -8,6 +8,7 @@ related:
   - guides/ai-monetization-strategies
   - guides/ai-product-management
   - comparisons/gpu-vs-tpu
+last_updated: 2026-05-30
 ---
 
 AI projects consistently exceed their budgets because teams underestimate costs beyond model training. Training compute is visible and dramatic, but data preparation, ongoing inference, monitoring, retraining, and personnel costs often dwarf the initial training investment. This guide provides a framework for estimating the full lifecycle cost of an AI platform.

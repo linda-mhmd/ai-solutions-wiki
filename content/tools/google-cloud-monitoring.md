@@ -9,6 +9,7 @@ related:
   - tools/amazon-managed-grafana
   - tools/google-cloud-run
   - tools/google-vertex-ai
+last_updated: 2026-05-30
 ---
 
 Google Cloud Monitoring (formerly Stackdriver Monitoring) is a fully managed observability service that collects metrics, creates dashboards, and triggers alerts for GCP resources, hybrid cloud environments, and custom applications. It is part of Google Cloud's Operations suite (formerly Stackdriver), alongside Cloud Logging, Cloud Trace, Cloud Profiler, and Error Reporting. Together, these services provide comprehensive observability for production workloads.

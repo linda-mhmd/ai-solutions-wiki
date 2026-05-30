@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [insurance, claims, automation, fraud-detection]
 industries: [Insurance, Finance]
 tools: [amazon-bedrock, amazon-textract, aws-step-functions]
+last_updated: 2026-05-30
 ---
 
 An AI claims assistant handles the high-volume, document-heavy phases of claims processing so adjusters can focus on judgment-intensive decisions. The system does not replace adjusters - it does the intake, evidence gathering, and pre-screening work that currently consumes most of their time before a real decision is even made.

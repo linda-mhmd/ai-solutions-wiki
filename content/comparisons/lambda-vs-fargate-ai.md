@@ -2,8 +2,10 @@
 title: "AWS Lambda vs Fargate for AI Workloads"
 description: "Comparing Lambda and Fargate for AI inference and processing workloads, covering latency, cost, scaling, container support, and GPU availability."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [Lambda, Fargate, serverless, AWS, AI-infrastructure]
+last_updated: 2026-05-30
 ---
 
 Lambda and Fargate are both serverless compute options on AWS, but they differ significantly in how they handle AI workloads. Lambda offers event-driven, short-lived functions. Fargate runs containers without managing servers. For AI workloads, the differences in cold start behavior, resource limits, runtime duration, and GPU support drive the choice.

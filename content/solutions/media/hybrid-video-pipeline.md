@@ -10,6 +10,7 @@ related:
   - solutions/media/video-pipeline-architecture
   - glossary/hybrid-cloud
   - patterns/cost-optimization
+last_updated: 2026-05-30
 ---
 
 Media companies face a persistent tension: their valuable video archives live on-premises on enterprise NAS systems, but the most powerful AI analysis tools live in the cloud. Migrating hundreds of terabytes of content to S3 is expensive, disruptive to existing workflows, and often blocked by compliance requirements. Amazon FSx for NetApp ONTAP (FSxN) resolves this tension by acting as a hybrid bridge - native NFS and SMB access for on-premises editing tools on one side, tight AWS integration and automatic S3 tiering on the other.

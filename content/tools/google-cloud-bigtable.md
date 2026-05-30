@@ -9,6 +9,7 @@ related:
   - tools/google-bigquery
   - tools/google-firestore
   - tools/google-vertex-ai
+last_updated: 2026-05-30
 ---
 
 Google Cloud Bigtable is a fully managed, wide-column NoSQL database service designed for large analytical and operational workloads requiring consistent low-latency and high throughput. It handles massive scale -- petabytes of data and millions of reads/writes per second -- while maintaining single-digit millisecond latency. Bigtable is the same database technology that powers many of Google's core services, including Search, Maps, Gmail, and YouTube.

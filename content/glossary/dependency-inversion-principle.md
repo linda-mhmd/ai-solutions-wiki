@@ -10,6 +10,7 @@ related:
   - glossary/interface-segregation-principle
   - glossary/hexagonal-architecture
   - glossary/clean-architecture
+last_updated: 2026-05-30
 ---
 
 The Dependency Inversion Principle (DIP) states two things: high-level modules should not depend on low-level modules, and both should depend on abstractions. Additionally, abstractions should not depend on details; details should depend on abstractions.

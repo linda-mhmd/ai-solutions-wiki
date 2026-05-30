@@ -7,6 +7,7 @@ tags: [azure, web-hosting, static-sites, serverless, frontend]
 related:
   - tools/aws-amplify
   - tools/azure-functions
+last_updated: 2026-05-30
 ---
 
 Azure Static Web Apps is a managed hosting service that automatically builds and deploys full-stack web applications from GitHub or Azure DevOps repositories. It serves static frontend assets (HTML, CSS, JavaScript, images) from a globally distributed content delivery network for fast load times, and provides integrated Azure Functions-based API backends for dynamic server-side logic. For AI-powered web applications, Static Web Apps provides the hosting infrastructure for frontends that call Azure OpenAI, Azure AI Services, or custom ML model endpoints through their serverless API layer, enabling rapid deployment of AI demo applications, internal tools, and customer-facing products.

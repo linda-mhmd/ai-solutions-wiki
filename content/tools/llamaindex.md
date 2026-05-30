@@ -4,6 +4,7 @@ description: "Using LlamaIndex for retrieval-augmented generation, data connecto
 date: 2026-03-24
 categories: [Tools]
 tags: ["ai-agents", "intermediate", "llamaindex", "rag", "data-connectors", "indexing", "retrieval"]
+last_updated: 2026-05-30
 ---
 
 LlamaIndex is a Python data framework for building LLM applications over your own data. Its focus is connecting models to external data sources through retrieval-augmented generation (RAG), with a comprehensive set of data connectors, index types, and query pipelines. It also supports agent workflows, though its primary strength is data-heavy applications.

@@ -17,6 +17,7 @@ faqs:
     answer: "Serverless means you run code without managing server infrastructure. You write a function, deploy it to a provider (AWS Lambda, Cloudflare Workers, Vercel Functions), and the provider handles everything: starting, stopping, scaling, and billing per execution. You do not pay for idle time. Serverless is not literally without servers, there are still servers, but you never think about them. It is excellent for event-driven tasks and APIs with variable traffic."
   - question: "What is a container, and how is it different from a virtual machine?"
     answer: "A virtual machine (VM) emulates a complete computer with its own OS, heavy, slow to start, isolated. A container shares the host OS kernel but packages an application with its dependencies in an isolated process, lightweight, starts in seconds, portable. Docker is the most common container tool. Running a containerised app on any server with Docker installed behaves identically, regardless of what else is on that server. This solved 'it works on my machine' problems."
+last_updated: 2026-05-30
 ---
 
 {{< quickanswer >}}

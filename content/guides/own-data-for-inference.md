@@ -5,6 +5,7 @@ date: 2026-03-24
 categories: [Guides]
 tags: ["ai-ml", "intermediate", "data-ownership", "inference", "privacy", "rag", "fine-tuning"]
 tools: [amazon-bedrock]
+last_updated: 2026-05-30
 ---
 
 If you have tried an AI assistant and found the output "technically correct but somehow not quite right," you are experiencing the gap between a model with general knowledge and one grounded in your specific context. The fix is not a better prompt. The fix is your own data.

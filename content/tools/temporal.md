@@ -8,6 +8,7 @@ related:
   - tools/aws-step-functions
   - tools/prefect
   - tools/apache-airflow
+last_updated: 2026-05-30
 ---
 
 Temporal is an open-source durable execution platform that enables developers to build reliable distributed applications and long-running workflows using familiar programming languages. Unlike traditional workflow engines that use DSLs or visual editors, Temporal allows developers to write workflow logic as ordinary code in Go, Java, TypeScript, Python, or .NET. The platform guarantees that workflow code will run to completion despite infrastructure failures, process crashes, or network outages through its durable execution model, which transparently persists the state of every function call.

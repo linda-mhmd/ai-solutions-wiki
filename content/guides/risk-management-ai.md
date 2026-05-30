@@ -4,6 +4,7 @@ description: "Identifying, assessing, and mitigating risks specific to AI and ML
 date: 2026-03-28
 categories: [Guides]
 tags: [risk-management, project-management, governance, AI-development, enterprise]
+last_updated: 2026-05-30
 ---
 
 AI projects carry risks that traditional software projects do not. Model accuracy can degrade silently. Training data can contain biases that produce discriminatory outputs. A model that works in testing can fail unpredictably in production. Effective risk management for AI requires identifying these AI-specific risks alongside standard project risks and implementing mitigations before problems materialize.

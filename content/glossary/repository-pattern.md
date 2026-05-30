@@ -9,6 +9,7 @@ related:
   - glossary/aggregate-root
   - glossary/unit-of-work
   - glossary/clean-architecture
+last_updated: 2026-05-30
 ---
 
 The repository pattern provides a collection-like interface for accessing domain objects, abstracting the details of data storage and retrieval. The domain layer works with repositories as if they were in-memory collections (add, get, find, remove), while the repository implementation handles the specifics of database queries, ORM mapping, or API calls.

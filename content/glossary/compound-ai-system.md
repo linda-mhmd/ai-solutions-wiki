@@ -11,6 +11,7 @@ related:
   - glossary/multi-agent-systems
   - patterns/multi-model-routing
   - patterns/tool-use-pattern
+last_updated: 2026-05-30
 ---
 
 A compound AI system is an architecture that tackles complex tasks by combining multiple AI models, retrieval systems, external tools, and programmatic logic into a coordinated pipeline, rather than relying on a single monolithic model. The term was popularized by researchers at UC Berkeley's AI research lab (BAIR) to describe the shift from improving individual models to engineering systems of interacting components.

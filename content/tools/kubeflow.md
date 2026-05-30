@@ -9,6 +9,7 @@ related:
   - tools/google-vertex-ai
   - tools/mlflow
   - tools/ray
+last_updated: 2026-05-30
 ---
 
 Kubeflow is an open-source machine learning platform built on Kubernetes that provides a complete toolkit for developing, training, and deploying ML models at scale. Its mission is to make ML workflows on Kubernetes simple, portable, and scalable by providing a standardized set of components that cover the full ML lifecycle: experimentation in notebooks, distributed training, hyperparameter tuning, pipeline orchestration, model serving, and feature management.

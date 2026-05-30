@@ -17,6 +17,7 @@ faqs:
     answer: ".gitignore is a file in your project that tells Git which files and folders to ignore, never track, never commit. You add things like node_modules/ (hundreds of megabytes of packages), .env (your secret API keys), and system files like .DS_Store. Without .gitignore, Git would try to track everything including secrets and gigantic auto-generated files. GitHub provides standard .gitignore templates for every language and framework."
   - question: "What is the difference between git clone and git init?"
     answer: "git init creates a new Git repository in an existing folder. You use it when starting a project from scratch. git clone copies an existing repository from a URL (usually GitHub) to your local machine. It downloads the complete history. You use clone when joining an existing project or when you created a repo on GitHub first and now want to work on it locally."
+last_updated: 2026-05-30
 ---
 
 {{< quickanswer >}}

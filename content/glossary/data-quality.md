@@ -8,9 +8,15 @@ related:
   - guides/data-quality-ai
   - glossary/data-contract
   - glossary/data-catalog
+last_updated: 2026-05-30
 ---
 
 Data quality refers to the degree to which data is accurate, complete, consistent, timely, and fit for its intended use. For AI systems, data quality is not a nice-to-have - it directly determines model performance. A model trained on dirty data produces dirty predictions.
+
+<figure class="bz-figure">
+  <img src="/img/craft/paper-certificate-production-quality-text.png" alt="A quality certificate with a seal: data quality is a certification that your data meets the standards required for production AI." loading="lazy">
+  <figcaption>Data quality is not a one-time cleanup. It is a continuous certification that your data meets the standards required for reliable AI. Without it, garbage in produces confident-sounding garbage out.</figcaption>
+</figure>
 
 The phrase "garbage in, garbage out" understates the problem. With AI, garbage in often produces confident-sounding garbage out, which is worse than an obvious failure.
 

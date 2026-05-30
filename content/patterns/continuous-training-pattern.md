@@ -9,6 +9,7 @@ related:
   - patterns/model-versioning
   - patterns/policy-as-code-ml
   - patterns/ml-feature-platform
+last_updated: 2026-05-30
 ---
 
 Models trained once on a static dataset become stale as the world changes. Customer behavior shifts, product catalogs update, and seasonal patterns emerge. Continuous training automates the retraining cycle so that models stay current without requiring an engineer to manually trigger each training run, evaluate results, and promote the new version.

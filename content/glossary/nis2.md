@@ -10,6 +10,7 @@ related:
   - comparisons/iso-27001-vs-nis2
   - glossary/supply-chain-security
   - frameworks/nis2-compliance-framework
+last_updated: 2026-05-30
 ---
 
 The NIS2 Directive (Directive (EU) 2022/2555) is the European Union's updated cybersecurity legislation, replacing the original NIS Directive from 2016. It entered into force in January 2023 with member states required to transpose it into national law by October 2024. NIS2 significantly expands the scope of entities covered, strengthens security requirements, and introduces stricter enforcement with personal liability for management.

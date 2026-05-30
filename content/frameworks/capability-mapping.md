@@ -8,6 +8,7 @@ related:
   - frameworks/value-stream-mapping-ai
   - frameworks/maturity-model-ai
   - frameworks/wardley-mapping-ai
+last_updated: 2026-05-30
 ---
 
 Capability mapping creates a structured inventory of what an organization does (its capabilities), independent of how it does them (its processes and systems). A capability like "Customer Identity Verification" exists whether it is done manually by a human, by a rules engine, or by an AI model. For AI strategy, capability mapping provides a systematic way to identify where AI can enhance existing capabilities, which capabilities are ripe for automation, and where AI could enable entirely new capabilities.

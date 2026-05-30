@@ -8,6 +8,7 @@ related:
   - glossary/transformer-architecture
   - glossary/neural-network
   - glossary/llm
+last_updated: 2026-05-30
 ---
 
 An attention mechanism is a component in neural networks that allows the model to focus on the most relevant parts of the input when producing each element of the output. Rather than compressing an entire input sequence into a single fixed-size vector, attention lets the model dynamically weight different input positions based on their relevance to the current computation.

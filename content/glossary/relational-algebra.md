@@ -4,6 +4,7 @@ description: "The formal mathematical foundation for querying relational databas
 date: 2026-03-28
 categories: [Glossary]
 tags: [databases, relational-algebra, query-optimization, sql, relational-model]
+last_updated: 2026-05-30
 ---
 
 Relational algebra is a procedural query language that operates on relations (tables) and produces relations as output. It provides the theoretical foundation for SQL and serves as the internal representation that database query optimizers use to evaluate and transform queries before execution.

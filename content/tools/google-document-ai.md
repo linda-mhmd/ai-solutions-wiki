@@ -8,6 +8,7 @@ related:
   - tools/amazon-textract
   - tools/google-cloud-vision
   - tools/google-vertex-ai
+last_updated: 2026-05-30
 ---
 
 Google Document AI is a document understanding platform that uses machine learning to automatically classify documents and extract structured data from unstructured and semi-structured content. It goes beyond basic OCR by understanding document layout, tables, forms, and the semantic relationships between fields. Document AI processes PDFs, scanned images, and digital documents, returning structured data that can be fed directly into business workflows, databases, or downstream AI pipelines.

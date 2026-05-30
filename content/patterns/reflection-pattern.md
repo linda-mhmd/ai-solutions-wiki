@@ -8,6 +8,7 @@ related:
   - patterns/evaluator-optimizer
   - patterns/chain-of-thought
   - patterns/react-pattern-ai
+last_updated: 2026-05-30
 ---
 
 The reflection pattern has an LLM generate an initial response, then evaluate that response for errors, gaps, or quality issues, and produce an improved version. This self-critique loop can run once or multiple times, with each iteration refining the output. The pattern exploits the observation that LLMs are often better at identifying problems in existing text than avoiding those problems during initial generation.

@@ -4,6 +4,7 @@ description: "Use AI to generate test cases from requirements documents, coverin
 date: 2026-03-28
 categories: [Ideas]
 tags: [quality-assurance, testing, automation, software-development]
+last_updated: 2026-05-30
 ---
 
 QA teams write test cases by reading requirements and imagining what could go wrong. This process depends heavily on the tester's experience, and even experienced testers miss edge cases because human imagination is bounded by familiarity.

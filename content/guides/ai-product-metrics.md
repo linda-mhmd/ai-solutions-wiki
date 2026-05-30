@@ -8,6 +8,7 @@ related:
   - guides/ai-product-management
   - guides/ai-monetization-strategies
   - frameworks/software-quality-assurance
+last_updated: 2026-05-30
 ---
 
 AI products require dual metrics tracking: model metrics that measure technical performance and product metrics that measure business outcomes. A model with 95% accuracy is useless if users do not trust or adopt the product. A product with high engagement may be succeeding despite a mediocre model. Tracking both independently reveals where to invest improvement effort.

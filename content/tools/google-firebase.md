@@ -9,6 +9,7 @@ related:
   - tools/amazon-cognito
   - tools/google-firestore
   - tools/google-vertex-ai
+last_updated: 2026-05-30
 ---
 
 Firebase is Google's application development platform for building and scaling mobile and web applications. It provides a suite of integrated services including authentication, real-time databases (Firestore and Realtime Database), cloud storage, hosting, serverless functions, analytics, crash reporting, remote configuration, A/B testing, and machine learning. Firebase abstracts backend infrastructure, allowing developers to build full-featured applications using client-side SDKs without managing servers.

@@ -9,6 +9,7 @@ related:
   - glossary/ai-red-team
   - glossary/prompt-injection
   - glossary/guardrails
+last_updated: 2026-05-30
 ---
 
 Adversarial machine learning studies how attackers can manipulate ML systems and how to defend against such attacks. Unlike traditional software security, which focuses on code vulnerabilities, adversarial ML exploits the statistical nature of learned models. Small, carefully crafted perturbations to inputs can cause misclassification, training data manipulation can corrupt model behavior, and external queries can steal model functionality.

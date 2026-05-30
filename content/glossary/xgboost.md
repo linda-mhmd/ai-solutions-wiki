@@ -9,6 +9,7 @@ related:
   - glossary/random-forest
   - glossary/decision-tree
   - glossary/hyperparameter-tuning
+last_updated: 2026-05-30
 ---
 
 XGBoost (Extreme Gradient Boosting) is a gradient-boosted decision tree framework that is the most widely used model for structured/tabular data tasks. It builds an ensemble of decision trees sequentially, where each new tree corrects the errors of the previous ensemble. XGBoost adds regularization, efficient computation, and handling of missing values to the standard gradient boosting algorithm.

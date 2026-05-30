@@ -9,6 +9,7 @@ related:
   - glossary/clustering
   - glossary/anomaly-detection
   - glossary/naive-bayes
+last_updated: 2026-05-30
 ---
 
 Association rule mining discovers interesting relationships and patterns in large transactional datasets. The classic application is market basket analysis - finding which products are frequently purchased together - but it applies broadly to any domain where co-occurrence patterns are valuable: web clickstream analysis, medical diagnosis patterns, and network intrusion detection.

@@ -4,6 +4,7 @@ description: "Authorized simulated attacks on systems to identify security vulne
 date: 2026-03-28
 categories: [Glossary]
 tags: [penetration-testing, security, ethical-hacking, vulnerability, red-team]
+last_updated: 2026-05-30
 ---
 
 Penetration testing (pen testing) is an authorized, simulated cyberattack against a system, network, or application performed to identify exploitable security vulnerabilities. Unlike automated vulnerability scanning, penetration testing involves skilled testers who chain vulnerabilities together and exploit them as a real attacker would.

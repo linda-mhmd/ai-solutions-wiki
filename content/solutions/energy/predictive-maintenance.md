@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: ["ai-ml", "advanced", "predictive-maintenance", "anomaly-detection", "iot", "energy", "timeseries"]
 industries: [energy]
 tools: [amazon-sagemaker, amazon-bedrock]
+last_updated: 2026-05-30
 ---
 
 Unplanned downtime in energy infrastructure is expensive and, for grid-connected assets, can affect large numbers of consumers. A single transformer failure can cost 500,000-2,000,000 EUR in replacement and lost production. Predictive maintenance uses AI to move from reactive repair - fix it when it breaks - to condition-based intervention - fix it before it fails, at the lowest-cost moment.

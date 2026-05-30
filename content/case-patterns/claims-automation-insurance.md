@@ -7,6 +7,7 @@ tags: [claims-processing, insurance, document-extraction, automation, workflow]
 image: /img/enterprise-dark/drum-electric-arc-notext.png
 image_alt: "An industrial drum with red electric arc bolts, representing automated triggers that fire when a claim condition is met."
 image_caption: "The claim arrives. The arc fires. Triage, classification, and routing happen before a human opens the file."
+last_updated: 2026-05-30
 ---
 
 A property and casualty insurance company processed 8,000 claims per month with an average handling time of 5.2 days from first notice to initial assessment. The claims team was understaffed, and seasonal events (storms, floods) created backlogs that pushed handling times to weeks. The company deployed AI to automate intake, initial assessment, and routing.

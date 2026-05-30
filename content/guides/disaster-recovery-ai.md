@@ -8,6 +8,7 @@ related:
   - guides/incident-management-ai
   - guides/capacity-planning-ai
   - glossary/error-budget
+last_updated: 2026-05-30
 ---
 
 Disaster recovery (DR) for AI systems extends standard DR planning with concerns unique to ML workloads: model artifacts that take hours to retrain, vector indexes that require rebuilding, feature stores with complex state, and GPU capacity that may not be available in the failover region. A DR plan that covers only the application tier but ignores the model and data tiers will fail when tested.

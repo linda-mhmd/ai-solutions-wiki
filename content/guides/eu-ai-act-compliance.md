@@ -10,6 +10,7 @@ related:
   - guides/ai-documentation-guide
   - glossary/responsible-ai
   - glossary/ai-literacy
+last_updated: 2026-05-30
 ---
 
 The EU AI Act is the first comprehensive AI regulation. It applies to organizations that develop or deploy AI systems within the EU, regardless of where the organization is based. Compliance is not optional, and penalties for non-compliance reach up to 35 million euros or 7% of global annual turnover. This guide covers what you need to do, organized by practical steps rather than legal articles.

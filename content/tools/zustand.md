@@ -11,6 +11,7 @@ related:
   - guides/from-zero-to-production
 solutions:
   - guides/from-zero-to-production
+last_updated: 2026-05-30
 ---
 
 Zustand (German for "state") is a state management library for React and React Native built by the team at [Pmndrs](https://pmnd.rs/) (Poimandres). It was created as a direct response to the complexity of Redux and the performance limitations of React's built-in Context API. The pitch is deliberately minimal: create a store, define actions in the same place as state, subscribe to exactly the slice of state you need. No reducers, no action creators, no boilerplate.

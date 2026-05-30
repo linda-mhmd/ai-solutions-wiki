@@ -2,6 +2,7 @@
 title: "DeepEval vs Promptfoo for LLM Evaluation in CI"
 description: "Comparing DeepEval and Promptfoo for automated LLM evaluation: metrics, CI integration, configuration, pricing, and when to choose each."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [deepeval, promptfoo, evaluation, testing, llm, ai-engineering]
 related:
@@ -9,6 +10,7 @@ related:
   - guides/ci-cd-testing-ai
   - guides/testing-ai-systems
   - patterns/statistical-assertion
+last_updated: 2026-05-30
 ---
 
 DeepEval and Promptfoo are the two most widely adopted open-source frameworks for evaluating LLM outputs in CI pipelines. Both enable automated quality checks on model outputs, but they take different approaches: DeepEval integrates as pytest test cases with built-in LLM-powered metrics, while Promptfoo uses YAML configuration with a CLI-first approach and supports multi-provider comparison. This comparison helps you choose the right tool for your evaluation workflow.

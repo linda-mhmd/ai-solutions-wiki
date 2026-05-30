@@ -8,6 +8,7 @@ related:
   - tools/amazon-lex
   - tools/amazon-bedrock
   - tools/amazon-transcribe
+last_updated: 2026-05-30
 ---
 
 Amazon Connect is a cloud-based contact center service that provides voice and chat capabilities with integrated AI. It handles the full contact center stack: telephony, IVR (Interactive Voice Response), queue management, agent routing, real-time and historical analytics, and workforce management. A single Connect instance can handle up to 10,000 concurrent active voice contacts by default (adjustable via quota increase). For AI projects, Connect is the deployment platform for conversational AI in voice and chat channels.

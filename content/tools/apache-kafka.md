@@ -16,6 +16,7 @@ alternatives:
 solutions:
   - solutions/finance/fraud-detection
   - solutions/finance/anti-money-laundering
+last_updated: 2026-05-30
 ---
 
 Apache Kafka is a distributed event streaming platform capable of handling trillions of events per day. Originally conceived as a messaging queue, Kafka has evolved into a full event streaming platform used for building real-time data pipelines and streaming applications. It combines messaging, storage, and stream processing to allow organizations to publish, subscribe to, store, and process streams of records in real time and at scale.

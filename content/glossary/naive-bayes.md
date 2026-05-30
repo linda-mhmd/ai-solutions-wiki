@@ -10,6 +10,7 @@ related:
   - glossary/precision-recall
   - glossary/f1-score
   - glossary/confusion-matrix
+last_updated: 2026-05-30
 ---
 
 Naive Bayes is a family of probabilistic classifiers based on Bayes' theorem that assume all features are conditionally independent given the class label. Despite this strong (and usually violated) assumption, Naive Bayes classifiers perform surprisingly well in practice, especially for text classification tasks.

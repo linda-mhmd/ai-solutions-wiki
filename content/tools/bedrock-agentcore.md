@@ -4,6 +4,7 @@ description: "How Amazon Bedrock AgentCore provides managed infrastructure for r
 date: 2026-03-25
 categories: [Tools]
 tags: ["ai-agents", "advanced", "bedrock-agentcore", "aws", "agent-runtime", "tool-use", "memory"]
+last_updated: 2026-05-30
 ---
 
 AWS Bedrock AgentCore is the managed runtime layer for deploying AI agents in production. Rather than building your own agent execution infrastructure (managing compute, scaling, state persistence, and tool invocation), AgentCore provides these capabilities as a managed service. Agents run serverlessly - you pay per invocation, not for idle capacity.

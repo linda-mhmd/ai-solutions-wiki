@@ -4,6 +4,7 @@ description: "A distributed architecture where clients send requests to centrali
 date: 2026-03-28
 categories: [Glossary]
 tags: [client-server, architecture-patterns, distributed-systems, networking]
+last_updated: 2026-05-30
 ---
 
 Client-server architecture is a distributed computing model in which client devices send requests to a centralized server that processes the requests and returns responses. The server provides services, resources, or data; the client consumes them. This separation of roles is the foundational paradigm for networked computing.

@@ -10,6 +10,7 @@ related:
   - glossary/data-lake
   - glossary/data-warehouse
   - guides/ai-data-strategy
+last_updated: 2026-05-30
 ---
 
 A data product is a self-contained unit of data that is treated as a product rather than a byproduct of operational systems. It has a clear owner, a defined interface for consumers, documented quality standards, and is discoverable through a catalog. The concept is central to the data mesh architecture paradigm introduced by Zhamak Dehghani, but applies broadly to any organization that wants to make data reliably available for AI and analytics.

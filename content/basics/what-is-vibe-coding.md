@@ -17,6 +17,7 @@ faqs:
     answer: "You cannot fully evaluate code you do not understand. For production software, always have a developer review AI-generated code before it handles real users or real money. For prototypes and internal tools, the risk tolerance is different. Concretely: ask the AI to explain what the code does and why. Ask if there are security considerations. Always use version control so you can revert. Never commit API keys or passwords. Be especially careful with authentication, payment handling, and anything that accesses user data."
   - question: "What is the best vibe coding tool for a complete beginner?"
     answer: "For a complete beginner with no local setup: start with Claude.ai (claude.ai) for planning and explaining, and v0.dev (v0.dev) for generating UI from descriptions without any code editor required. Once you have a project and want to work in files: Cursor (cursor.com) is the most powerful tool for vibe coding with an existing codebase, it reads your entire project context. Claude Code (the CLI) is for developers comfortable in the terminal. Bolt.new generates full working apps from a single prompt with no setup."
+last_updated: 2026-05-30
 ---
 
 {{< quickanswer >}}

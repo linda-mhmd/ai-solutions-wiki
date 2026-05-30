@@ -2,8 +2,10 @@
 title: "gRPC vs REST for AI/ML Microservices"
 description: "Comparing gRPC and REST for serving AI models in microservice architectures, covering performance, developer experience, and ecosystem support."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [gRPC, REST, API, microservices, model-serving]
+last_updated: 2026-05-30
 ---
 
 AI serving systems must handle high-throughput, low-latency prediction requests. The choice between gRPC and REST for inter-service communication affects latency, throughput, developer experience, and ecosystem compatibility. This comparison covers the trade-offs for AI/ML microservice architectures.

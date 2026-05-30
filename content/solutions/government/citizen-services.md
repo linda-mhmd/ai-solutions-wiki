@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: ["ai-ml", "intermediate", "citizen-services", "government", "nlp", "chatbot", "automation"]
 industries: [government]
 tools: [amazon-bedrock, amazon-lex, amazon-translate]
+last_updated: 2026-05-30
 ---
 
 Government agencies handle millions of citizen inquiries annually across phone, email, in-person, and digital channels. Many of these inquiries are repetitive: benefit eligibility questions, application status requests, document requirements, appointment scheduling. AI can handle the majority of these interactions automatically, freeing staff for complex cases that genuinely require human judgment.

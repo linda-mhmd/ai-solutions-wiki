@@ -10,6 +10,7 @@ related:
   - glossary/data-drift
   - patterns/ml-feature-platform
   - patterns/real-time-feature-serving
+last_updated: 2026-05-30
 ---
 
 Training-serving skew is the mismatch between the data, features, or environment used during model training and what the model encounters during production inference. A model trained on features computed one way but served features computed a slightly different way will produce degraded predictions, even if the underlying model is sound. Training-serving skew is one of the most common and insidious causes of ML production failures because it produces no error messages -- the model runs and returns predictions, they are just wrong.

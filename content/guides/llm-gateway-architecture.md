@@ -9,6 +9,7 @@ related:
   - patterns/multi-provider-llm-failover
   - patterns/rate-limiting-ai
   - patterns/semantic-caching
+last_updated: 2026-05-30
 ---
 
 As organizations scale their use of large language models, direct point-to-point integrations between application services and model providers become unmanageable. An LLM gateway is a centralized access layer that sits between all consuming applications and all LLM providers, consolidating cross-cutting concerns into a single infrastructure component.

@@ -9,6 +9,7 @@ related:
   - glossary/react
   - glossary/nextjs
   - glossary/vite
+last_updated: 2026-05-30
 ---
 
 TypeScript is a statically typed superset of JavaScript that compiles to plain JavaScript. Created by Anders Hejlsberg at Microsoft, TypeScript adds optional type annotations, interfaces, generics, and compile-time type checking to JavaScript while maintaining full compatibility with existing JavaScript code and the broader ecosystem.

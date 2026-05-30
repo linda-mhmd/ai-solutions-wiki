@@ -8,6 +8,7 @@ related:
   - tools/amazon-bedrock
   - tools/amazon-sagemaker
   - tools/amazon-opensearch
+last_updated: 2026-05-30
 ---
 
 Amazon Neptune is a fully managed graph database service that supports both property graph (using Apache TinkerPop Gremlin) and RDF graph (using SPARQL) models. For AI projects, Neptune excels at representing and querying complex relationships: knowledge graphs for RAG systems, fraud detection networks, recommendation engines based on social connections, and identity resolution across disparate data sources.

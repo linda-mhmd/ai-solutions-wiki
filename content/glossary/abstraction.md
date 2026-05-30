@@ -10,6 +10,7 @@ related:
   - glossary/inheritance-and-polymorphism
   - glossary/dependency-inversion-principle
   - glossary/facade-pattern
+last_updated: 2026-05-30
 ---
 
 Abstraction is a fundamental principle in software engineering that involves hiding complex implementation details behind simplified interfaces. It allows developers to work with concepts at a higher level of understanding without needing to know the underlying mechanics, reducing cognitive load and managing system complexity.

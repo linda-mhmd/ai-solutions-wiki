@@ -8,6 +8,7 @@ related:
   - glossary/site-reliability-engineering
   - glossary/sla-slo-sli
   - glossary/toil
+last_updated: 2026-05-30
 ---
 
 An error budget is the maximum amount of unreliability a service can exhibit before violating its Service Level Objective (SLO). It quantifies acceptable downtime or errors as a concrete number, giving teams a budget they can "spend" on feature releases, experiments, and planned maintenance. When the budget is depleted, the team prioritizes reliability over new features.

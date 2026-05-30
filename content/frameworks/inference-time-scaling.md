@@ -9,6 +9,7 @@ related:
   - frameworks/compound-ai-systems
   - patterns/multi-model-routing
   - guides/scaling-ai-infrastructure
+last_updated: 2026-05-30
 ---
 
 Inference-time scaling refers to techniques that improve AI model performance by allocating more computation during inference (when the model processes a query) rather than during training. The core insight, demonstrated by research from OpenAI, Google DeepMind, and others in 2024-2025, is that for many tasks, spending more compute at inference time -- allowing the model to "think longer" -- can produce better results than training a larger model. This represents a fundamental shift in how AI capabilities are scaled.

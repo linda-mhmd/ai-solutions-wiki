@@ -4,6 +4,7 @@ description: "The core concepts of operating systems including the kernel, syste
 date: 2026-03-28
 categories: [Glossary]
 tags: [operating-systems, kernel, system-calls, resource-management, computer-science]
+last_updated: 2026-05-30
 ---
 
 An operating system (OS) is the software layer between hardware and application programs. It manages hardware resources (CPU, memory, storage, I/O devices), provides abstractions that simplify application development, and enforces security and isolation between programs. Every general-purpose computer runs an operating system: Linux, Windows, macOS, and others.

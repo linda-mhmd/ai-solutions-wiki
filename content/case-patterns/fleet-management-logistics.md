@@ -7,6 +7,7 @@ tags: [fleet-management, logistics, optimization, vehicle-tracking, delivery]
 image: /img/enterprise-dark/server-room-corridor-notext.png
 image_alt: "A dark server room corridor with red-lit rack rows extending into the distance, representing a fleet of vehicles tracked in real time."
 image_caption: "Each rack is a vehicle. Each row is a route. The system tracks all of them without losing any."
+last_updated: 2026-05-30
 ---
 
 A delivery logistics company operating a fleet of 500 vehicles across three metropolitan areas was experiencing rising operational costs: fuel expenses up 20% year-over-year, vehicle downtime averaging 8% of fleet capacity, and driver overtime consistently exceeding budget. The company deployed AI to optimize vehicle assignment, route efficiency, and maintenance scheduling.

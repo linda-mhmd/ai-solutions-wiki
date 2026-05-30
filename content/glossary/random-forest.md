@@ -9,6 +9,7 @@ related:
   - glossary/decision-tree
   - glossary/xgboost
   - glossary/bias-variance-tradeoff
+last_updated: 2026-05-30
 ---
 
 A random forest is an ensemble method that combines many decision trees, each trained on a random subset of the data and features, and aggregates their predictions through majority voting (classification) or averaging (regression). The randomness in data sampling and feature selection makes individual trees diverse, and their combination produces robust, accurate predictions.

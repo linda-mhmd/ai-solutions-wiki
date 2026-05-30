@@ -4,6 +4,7 @@ description: "Programs that translate human-readable source code into machine-ex
 date: 2026-03-28
 categories: [Glossary]
 tags: [compiler, interpreter, programming-languages, translation, computer-science]
+last_updated: 2026-05-30
 ---
 
 A compiler translates an entire source code program into machine code (or an intermediate representation) before execution. An interpreter executes source code directly, translating and running it line by line or statement by statement. Both are essential tools that bridge the gap between human-readable programming languages and machine-executable instructions.

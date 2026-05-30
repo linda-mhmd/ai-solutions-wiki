@@ -4,6 +4,7 @@ description: "Use AI to analyze process data and identify workflow bottlenecks, 
 date: 2026-03-28
 categories: [Ideas]
 tags: [workflow-optimization, process-mining, automation, operations]
+last_updated: 2026-05-30
 ---
 
 Every workflow has a bottleneck, but finding it often requires expensive process mining tools or weeks of manual observation. The data to identify bottlenecks usually already exists in your systems - it just needs to be analyzed.

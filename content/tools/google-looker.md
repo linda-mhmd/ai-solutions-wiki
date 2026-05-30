@@ -8,6 +8,7 @@ related:
   - tools/amazon-quicksight
   - tools/google-bigquery
   - tools/google-vertex-ai
+last_updated: 2026-05-30
 ---
 
 Looker is Google Cloud's enterprise business intelligence (BI) platform. Unlike traditional BI tools that extract data into a separate analytics layer, Looker uses an in-database architecture that pushes SQL queries to the underlying data warehouse (most commonly BigQuery, but also Snowflake, Redshift, and 60+ other databases). This means all users query the same live data with consistent business logic, eliminating the "multiple versions of truth" problem that plagues organizations with extract-based BI tools.

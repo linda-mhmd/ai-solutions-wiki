@@ -10,6 +10,7 @@ related:
   - glossary/support-vector-machine
   - glossary/unsupervised-learning
   - glossary/deep-learning
+last_updated: 2026-05-30
 ---
 
 Anomaly detection identifies data points, patterns, or observations that deviate significantly from expected behavior. It is critical in fraud detection, network intrusion detection, manufacturing quality control, system health monitoring, and medical diagnosis. The core challenge is that anomalies are rare and diverse - you often cannot enumerate all the ways something can go wrong.

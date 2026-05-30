@@ -10,6 +10,7 @@ related:
   - guides/choosing-your-first-ai-use-case
   - guides/ai-poc-to-production
   - guides/agile-for-ai-projects
+last_updated: 2026-05-30
 ---
 
 An AI workshop is typically a half-day or full-day session with a mixed group: operational staff who know what problems exist, technical staff who know what AI can do, and leadership who need to make investment decisions. Making that combination productive is a facilitation challenge as much as a technical one.

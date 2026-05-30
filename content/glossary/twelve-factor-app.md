@@ -8,6 +8,7 @@ related:
   - glossary/immutable-infrastructure
   - glossary/docker
   - glossary/ci-cd
+last_updated: 2026-05-30
 ---
 
 The twelve-factor app is a methodology for building software-as-a-service applications, published by Heroku co-founder Adam Wiggins in 2011. It defines twelve principles that enable applications to be deployed on cloud platforms with maximum portability, scalability, and operational simplicity. While not all twelve factors apply equally to every application, the methodology remains the foundational reference for cloud-native application design.

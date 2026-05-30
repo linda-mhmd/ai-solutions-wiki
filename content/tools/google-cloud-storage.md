@@ -8,6 +8,7 @@ related:
   - tools/aws-s3
   - tools/google-vertex-ai
   - tools/google-bigquery
+last_updated: 2026-05-30
 ---
 
 Google Cloud Storage (GCS) is Google Cloud's fully managed object storage service for storing unstructured data at any scale. It serves as the foundational storage layer for AI/ML pipelines, analytics workloads, data lakes, and application backends on GCP. Like Amazon S3, GCS organizes data into buckets and objects, providing high durability (eleven nines), low latency access, and native integration with virtually every Google Cloud service.

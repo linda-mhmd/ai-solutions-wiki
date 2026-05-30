@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [portfolio-optimization, asset-management, risk-management, factor-models, quantitative-finance]
 industries: [finance]
 tools: [amazon-sagemaker, amazon-redshift, aws-lambda]
+last_updated: 2026-05-30
 ---
 
 Portfolio optimization determines how to allocate capital across assets to maximize risk-adjusted returns. Classical mean-variance optimization (Markowitz) relies on expected returns and covariance matrices that are notoriously difficult to estimate accurately. AI enhances portfolio management by improving return forecasts, capturing non-linear risk relationships, incorporating alternative data, and enabling more sophisticated rebalancing strategies.

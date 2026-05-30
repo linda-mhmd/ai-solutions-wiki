@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [document-processing, policy-management, nlp, textract, insurance-automation]
 industries: [insurance]
 tools: [amazon-textract, amazon-bedrock, amazon-s3]
+last_updated: 2026-05-30
 ---
 
 Insurance operations revolve around documents: policy forms, endorsements, certificates of insurance, claims correspondence, regulatory filings, and reinsurance contracts. These documents are often semi-structured or unstructured, arriving in various formats (PDF, scanned images, emails, faxes). Manual processing of these documents consumes significant operational resources and introduces errors that propagate through downstream systems.

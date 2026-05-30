@@ -17,6 +17,7 @@ faqs:
     answer: "An API key is a secret string (like a password) that identifies your application to an external service. It lets the provider track your usage, apply rate limits, and charge you. Keep API keys in a .env file that is listed in .gitignore, never commit them to a repository. In production, store them in your hosting platform's environment variable settings (Vercel, Railway, AWS all have this). If you accidentally expose a key, rotate it immediately from the provider's dashboard."
   - question: "What is the difference between an API and a webhook?"
     answer: "With an API, your code asks for data when it needs it (your code initiates the request). With a webhook, the external service sends data to your code when something happens (the service initiates the request). You call an API to check if a payment succeeded. Stripe calls your webhook URL when a payment succeeds. Webhooks are 'push' (event-driven); APIs are 'pull' (request-driven). Most services offer both."
+last_updated: 2026-05-30
 ---
 
 {{< quickanswer >}}

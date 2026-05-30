@@ -4,6 +4,7 @@ description: "A standardized graphical notation for specifying business processe
 date: 2026-03-28
 categories: [Glossary]
 tags: [BPMN, BPM, process-modeling, OMG, workflow]
+last_updated: 2026-05-30
 ---
 
 Business Process Model and Notation (BPMN) is a standardized graphical notation used to model business processes in a format that is understandable by both business analysts and technical implementers. It provides a common visual language for documenting, analyzing, and automating workflows across organizations.

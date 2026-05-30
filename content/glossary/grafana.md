@@ -8,6 +8,7 @@ related:
   - glossary/prometheus
   - glossary/observability
   - glossary/elastic-stack
+last_updated: 2026-05-30
 ---
 
 Grafana is an open-source observability platform for visualizing metrics, logs, and traces through customizable dashboards. It connects to multiple data sources (Prometheus, CloudWatch, Elasticsearch, Loki, PostgreSQL) and provides a unified interface for monitoring system health, performance, and business metrics.

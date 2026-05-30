@@ -10,6 +10,7 @@ related:
   - glossary/nist-ai-rmf-glossary
   - glossary/model-card
   - guides/ai-regulatory-compliance-checklist
+last_updated: 2026-05-30
 ---
 
 AI audits evaluate whether your AI systems are developed, deployed, and operated in compliance with regulatory requirements, industry standards, and internal policies. Audit readiness means having the documentation, processes, evidence, and organizational structure in place before the auditors arrive, not scrambling to assemble them after an audit is announced.

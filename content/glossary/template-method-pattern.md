@@ -9,6 +9,7 @@ related:
   - glossary/factory-method-pattern
   - glossary/observer-pattern
   - glossary/object-oriented-programming
+last_updated: 2026-05-30
 ---
 
 The Template Method pattern is a behavioral design pattern that defines the skeleton of an algorithm in a method of a base class, deferring some steps to subclasses. It lets subclasses redefine certain steps of an algorithm without changing the algorithm's overall structure.

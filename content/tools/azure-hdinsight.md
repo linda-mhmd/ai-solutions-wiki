@@ -7,6 +7,7 @@ tags: [azure, big-data, spark, hadoop, open-source, analytics]
 related:
   - tools/amazon-emr
   - tools/azure-synapse-analytics
+last_updated: 2026-05-30
 ---
 
 Azure HDInsight is Microsoft Azure's fully managed cloud service for provisioning and running open-source big data analytics frameworks. It supports Apache Spark, Apache Hadoop, Apache Hive, Apache HBase, Apache Kafka, and Apache Interactive Query (Hive LLAP) as managed cluster types. For AI and machine learning workloads, HDInsight provides the distributed computing infrastructure needed to process massive datasets for feature engineering, run large-scale Spark MLlib training jobs, and perform exploratory data analysis on petabyte-scale data stored in Azure Data Lake Storage or Blob Storage.

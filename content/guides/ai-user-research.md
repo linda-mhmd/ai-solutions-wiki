@@ -8,6 +8,7 @@ related:
   - guides/ai-product-management
   - guides/user-acceptance-testing-ai
   - guides/ai-go-to-market
+last_updated: 2026-05-30
 ---
 
 User research for AI products faces a unique challenge: the system's behavior is non-deterministic, and user trust is fragile. One bad experience can undo weeks of good predictions. Standard usability testing methods need adaptation to account for probabilistic outputs, evolving model behavior, and the asymmetric impact of errors on trust. This guide covers research methods tailored for AI products.

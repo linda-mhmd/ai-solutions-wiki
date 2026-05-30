@@ -9,6 +9,7 @@ related:
   - glossary/state-space-model
   - glossary/temporal-convolutional-network
   - glossary/neural-network
+last_updated: 2026-05-30
 ---
 
 A recurrent neural network (RNN) is a neural architecture that processes sequential data by maintaining a hidden state that carries information from previous time steps. At each step, the network takes the current input and the prior hidden state to produce an output and an updated state. This makes RNNs naturally suited to time series, speech, and language tasks where order matters.

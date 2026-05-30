@@ -5,6 +5,7 @@ date: 2026-03-28
 categories: [Guides]
 tags: [production, deployment, checklist, mlops]
 related: [guides/deployment-models-ai, patterns/blue-green-deployment, guides/monitoring-ai-production]
+last_updated: 2026-05-30
 ---
 
 Deploying an AI model to production is not the same as deploying a web application. Models degrade silently. Input data distributions shift without warning. A model that passed all offline evaluations can fail catastrophically in production because the evaluation dataset did not represent real-world conditions. A production readiness checklist forces teams to verify critical requirements before deployment rather than discovering gaps through incidents.

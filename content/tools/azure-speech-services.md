@@ -8,6 +8,7 @@ related:
   - tools/amazon-polly
   - tools/amazon-transcribe
   - tools/azure-cognitive-services
+last_updated: 2026-05-30
 ---
 
 Azure Speech Services is a collection of speech AI capabilities within Azure AI Services that provides speech-to-text (recognition), text-to-speech (synthesis), speech translation, speaker recognition, and pronunciation assessment through cloud APIs and on-device SDKs. The service processes audio in real-time and batch modes, supporting over 100 languages and regional variants. In AI solution architectures, Speech Services handles the audio interface layer -- transcribing user speech for downstream NLP processing, generating natural-sounding audio responses, translating spoken conversations across languages, and identifying or verifying speakers by their voice characteristics.

@@ -10,6 +10,7 @@ related:
   - glossary/server-side-rendering
   - glossary/jamstack
   - glossary/nextjs
+last_updated: 2026-05-30
 ---
 
 A single-page application (SPA) is a web application that loads a single HTML document and dynamically updates its content in the browser using JavaScript, rather than loading entirely new pages from the server for each navigation. SPAs intercept link clicks and form submissions, fetch data asynchronously, and re-render the page client-side, producing a fluid experience resembling a native desktop or mobile application.

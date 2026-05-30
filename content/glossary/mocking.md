@@ -9,6 +9,7 @@ related:
   - guides/testing-ai-systems
   - glossary/unit-testing
   - glossary/test-fixture
+last_updated: 2026-05-30
 ---
 
 Mocking is a testing technique where real dependencies are replaced with controlled substitutes called test doubles. In AI systems, mocking is essential because real dependencies (LLM APIs, embedding services, vector databases) are slow, expensive, and non-deterministic. Test doubles provide fast, free, and predictable behavior for testing.

@@ -4,6 +4,7 @@ description: "Use AI to transform raw data and metrics into narrative reports wi
 date: 2026-03-28
 categories: [Ideas]
 tags: [reporting, data-analysis, automation, business-intelligence]
+last_updated: 2026-05-30
 ---
 
 Every week, someone on your team manually pulls data from a dashboard, copies it into a slide deck or document, writes narrative commentary around the numbers, and sends it to leadership. This process takes 2-4 hours and produces a report that is stale by the time it is read.

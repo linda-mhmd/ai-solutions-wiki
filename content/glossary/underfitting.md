@@ -8,6 +8,7 @@ related:
   - glossary/overfitting
   - glossary/bias-variance-tradeoff
   - glossary/hyperparameter-tuning
+last_updated: 2026-05-30
 ---
 
 Underfitting occurs when a machine learning model is too simple to capture the underlying patterns in the data. An underfit model performs poorly on both training data and unseen data because it has not learned enough about the relationships between inputs and outputs.

@@ -9,6 +9,7 @@ related:
   - guides/integration-testing-ai-pipelines
   - patterns/vcr-pattern-ai
   - glossary/mocking
+last_updated: 2026-05-30
 ---
 
 Mocking AI services is essential for fast, deterministic, and cost-free tests. Every call to an LLM API costs money, takes seconds, and returns non-deterministic results. Tests that depend on live model APIs are slow, expensive, and flaky. This guide covers mock strategies for LLMs, embedding services, and vector databases, with concrete Python examples.

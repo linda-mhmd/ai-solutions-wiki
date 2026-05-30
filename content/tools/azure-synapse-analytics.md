@@ -7,6 +7,7 @@ tags: [azure, analytics, data-warehouse, big-data, sql]
 related:
   - tools/amazon-redshift
   - tools/amazon-athena
+last_updated: 2026-05-30
 ---
 
 Azure Synapse Analytics is Microsoft's unified analytics platform that brings together enterprise data warehousing, big data analytics, data integration, and visualization capabilities under a single service. It combines the functionality of the former Azure SQL Data Warehouse with Apache Spark-based big data processing, serverless SQL query capabilities, and integrated data pipelines. For AI and machine learning teams, Synapse provides the analytics backbone where large datasets are prepared, explored, and transformed before model training, and where model outputs are aggregated for business intelligence reporting.

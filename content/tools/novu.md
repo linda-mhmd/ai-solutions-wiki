@@ -7,6 +7,7 @@ tags: [open-source, notifications, messaging, email, sms, push-notifications, de
 related:
   - tools/amazon-pinpoint
   - tools/supabase
+last_updated: 2026-05-30
 ---
 
 Novu is an open-source notification infrastructure platform that provides a unified API for managing transactional notifications across multiple communication channels. It enables developers to send notifications via email, SMS, push notifications, in-app messages, and chat platforms (Slack, Discord, Microsoft Teams) through a single API, abstracting away the complexity of integrating with multiple delivery providers and managing notification preferences, templates, and delivery logic.

@@ -9,6 +9,7 @@ related:
   - guides/unit-testing-ai-applications
   - glossary/unit-testing
   - glossary/golden-dataset
+last_updated: 2026-05-30
 ---
 
 A test fixture is a fixed state or set of data used as a baseline for running tests. Fixtures ensure that tests start from a known, reproducible state, making test results consistent and debuggable. The term covers both the data used in tests (sample documents, model responses, embeddings) and the setup/teardown logic that prepares the test environment.

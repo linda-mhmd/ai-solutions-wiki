@@ -9,6 +9,7 @@ related:
   - comparisons/playwright-vs-cypress
   - glossary/playwright
   - glossary/end-to-end-testing
+last_updated: 2026-05-30
 ---
 
 Playwright is a browser automation framework from Microsoft that supports Chromium, Firefox, and WebKit. For AI applications, Playwright's network interception, streaming response handling, and async-first design make it the strongest choice for end-to-end testing. This guide covers setup through CI integration with patterns specific to AI-powered UIs.

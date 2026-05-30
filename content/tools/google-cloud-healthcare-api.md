@@ -8,6 +8,7 @@ related:
   - tools/amazon-healthlake
   - tools/google-vertex-ai
   - tools/google-bigquery
+last_updated: 2026-05-30
 ---
 
 Google Cloud Healthcare API is a managed service for storing, processing, and analyzing healthcare data in industry-standard formats. It supports FHIR (Fast Healthcare Interoperability Resources) for clinical data, DICOM (Digital Imaging and Communications in Medicine) for medical imaging, and HL7v2 for healthcare messaging. The API provides a standards-compliant interface that allows healthcare organizations to ingest data from electronic health record (EHR) systems, medical devices, and imaging equipment, then make that data available for analytics, machine learning, and application development.

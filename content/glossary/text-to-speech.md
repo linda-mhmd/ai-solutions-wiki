@@ -4,6 +4,7 @@ description: "What text-to-speech technology is, how AWS Polly, Azure Speech, an
 date: 2026-03-24
 categories: [Glossary]
 tags: ["ai-ml", "beginner", "text-to-speech", "tts", "audio", "speech-synthesis", "nlp"]
+last_updated: 2026-05-30
 ---
 
 Text-to-speech (TTS) converts written text into spoken audio. Modern neural TTS systems produce speech that is nearly indistinguishable from human recording for short to medium-length passages. Applications include accessibility features for visually impaired users, voice assistants, IVR systems, audio content generation, and programmatic narration for video.

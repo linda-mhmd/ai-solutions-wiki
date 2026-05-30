@@ -2,8 +2,10 @@
 title: "Apache Airflow vs Dagster for ML Pipeline Orchestration"
 description: "Comparing Airflow and Dagster for orchestrating data and ML pipelines, covering architecture, developer experience, testing, and ML-specific features."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [Airflow, Dagster, orchestration, pipelines, MLOps]
+last_updated: 2026-05-30
 ---
 
 Both Airflow and Dagster orchestrate data and ML pipelines, but they represent different generations of pipeline orchestration philosophy. Airflow is task-centric: define tasks and their dependencies. Dagster is asset-centric: define the data assets your pipeline produces and let Dagster manage the execution. This comparison covers the differences that matter for ML pipeline teams.

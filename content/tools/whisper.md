@@ -8,6 +8,7 @@ related:
   - tools/amazon-transcribe
   - tools/openai-api
   - tools/huggingface-transformers
+last_updated: 2026-05-30
 ---
 
 Whisper is an automatic speech recognition (ASR) system developed by OpenAI that approaches human-level robustness and accuracy across a wide range of audio conditions. Trained on 680,000 hours of multilingual and multitask supervised data collected from the web, Whisper demonstrates strong generalization to diverse accents, background noise, technical language, and multiple languages without the need for fine-tuning. The model performs transcription in 99 languages and can translate from any of these languages into English.

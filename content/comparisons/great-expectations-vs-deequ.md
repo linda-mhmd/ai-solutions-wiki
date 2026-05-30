@@ -2,8 +2,10 @@
 title: "Great Expectations vs Deequ for Data Quality"
 description: "Comparing Great Expectations and AWS Deequ for data quality validation in ML pipelines."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [Great-Expectations, Deequ, data-quality, validation, testing]
+last_updated: 2026-05-30
 ---
 
 Data quality validation prevents bad data from producing bad models. Great Expectations and Deequ are the two most widely used open-source data quality tools for ML pipelines. They take different approaches: Great Expectations is a Python-native framework for defining and running data expectations; Deequ is a Scala/Spark library for data quality profiling and constraint verification. This comparison covers the differences that matter for ML data pipeline teams.

@@ -6,6 +6,7 @@ categories: [Glossary]
 tags: [sessionize, conferences, events, CFP, speaker-management, API]
 related:
   - glossary/api
+last_updated: 2026-05-30
 ---
 
 Sessionize is a software-as-a-service platform for managing the content lifecycle of conferences and events. It handles call-for-papers (CFP) submissions, speaker profile management, session review and selection, and schedule generation, providing both organizer tools and a public API for embedding session and speaker data into event websites.

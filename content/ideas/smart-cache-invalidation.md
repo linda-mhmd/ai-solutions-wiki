@@ -4,6 +4,7 @@ description: "AI predicts optimal cache TTLs and invalidation timing based on ac
 date: 2026-03-28
 categories: [Ideas]
 tags: [caching, performance, optimization, architecture, daily-ai-spark]
+last_updated: 2026-05-30
 ---
 
 Cache invalidation is famously one of the two hard problems in computer science. Set TTLs too short and you lose the performance benefit of caching. Set them too long and users see stale data. Static TTLs are a compromise that is wrong for most individual cache entries.

@@ -9,6 +9,7 @@ related:
   - guides/nis2-implementation-guide
   - frameworks/dora-framework
   - glossary/ai-safety
+last_updated: 2026-05-30
 ---
 
 An essential entity under the NIS2 Directive (Directive (EU) 2022/2555) is an organization operating in a sector classified as highly critical to the functioning of society and the economy. Essential entities are subject to the most stringent cybersecurity obligations and the most rigorous supervisory regime under NIS2, including proactive regulatory oversight and significant financial penalties for non-compliance.

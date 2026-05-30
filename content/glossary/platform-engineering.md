@@ -8,6 +8,7 @@ related:
   - guides/platform-engineering-ai
   - glossary/serverless
   - guides/ci-cd-for-ai
+last_updated: 2026-05-30
 ---
 
 Platform engineering is the discipline of building and maintaining internal developer platforms (IDPs) that provide self-service capabilities for software and AI/ML teams. Instead of each team configuring infrastructure, CI/CD pipelines, and observability from scratch, a platform team builds golden paths that abstract away operational complexity while preserving flexibility.

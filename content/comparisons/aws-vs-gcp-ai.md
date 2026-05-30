@@ -2,8 +2,10 @@
 title: "AWS AI Services vs Google Cloud AI - Complete Comparison"
 description: "A service-by-service map of AWS AI and ML services to their Google Cloud equivalents, covering language models, speech, vision, and MLOps."
 date: 2026-03-24
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: ["cloud-computing", "intermediate", "aws", "gcp", "ai-services", "comparison", "cloud"]
+last_updated: 2026-05-30
 ---
 
 AWS and Google Cloud have the two most comprehensive AI service portfolios in the industry. Google's advantage is deep AI research (the transformer paper, BERT, AlphaFold originated from Google), while AWS leads on enterprise integration and service breadth. This article maps services between the two platforms.

@@ -9,6 +9,7 @@ related:
   - guides/testing-ai-systems
   - glossary/mocking
   - glossary/test-fixture
+last_updated: 2026-05-30
 ---
 
 Unit testing is the practice of testing individual functions, methods, or classes in isolation from the rest of the system. Each unit test verifies that a single piece of logic produces the correct output for a given input. Unit tests are fast (milliseconds per test), cheap (no external services), and deterministic (same result every time).

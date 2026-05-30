@@ -9,6 +9,7 @@ related:
   - guides/playwright-testing-guide
   - glossary/playwright
   - glossary/unit-testing
+last_updated: 2026-05-30
 ---
 
 End-to-end (E2E) testing validates an application from the user's perspective by simulating real user interactions through the full technology stack. The test starts in a browser (or API client), sends requests through the frontend, backend, database, and any external services, and verifies that the user sees the correct result.

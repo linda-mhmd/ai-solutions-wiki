@@ -4,6 +4,7 @@ description: "Version control, testing, and deployment patterns for managing pro
 date: 2026-03-28
 categories: [Patterns]
 tags: [prompt-engineering, template-management, version-control, deployment]
+last_updated: 2026-05-30
 ---
 
 Prompts are code. They define the behavior of your AI system as directly as any function or API endpoint. Yet most teams manage prompts in ad-hoc ways - hard-coded strings in application code, Google Docs shared among team members, or configuration files with no version history. This works for one prompt. It does not work for fifty.

@@ -8,6 +8,7 @@ related:
   - frameworks/build-measure-learn
   - frameworks/design-thinking-ai
   - frameworks/agile-ai-delivery
+last_updated: 2026-05-30
 ---
 
 The Lean Startup methodology, developed by Eric Ries, focuses on validated learning through rapid experimentation. Build a minimum viable product (MVP), measure how customers respond, and learn whether your hypothesis is correct. For AI projects, Lean Startup addresses a critical risk: investing months in model development only to discover that the problem does not matter to users, the data does not exist at scale, or the business model does not work. Lean Startup de-risks AI investment by testing assumptions before committing to full development.

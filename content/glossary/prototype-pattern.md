@@ -9,6 +9,7 @@ related:
   - glossary/abstract-factory-pattern
   - glossary/builder-pattern
   - glossary/object-oriented-programming
+last_updated: 2026-05-30
 ---
 
 The Prototype pattern is a creational design pattern that specifies the kind of object to create using a prototypical instance and creates new objects by copying that prototype. Instead of building objects from scratch through constructors, the pattern produces new instances by cloning an existing object.

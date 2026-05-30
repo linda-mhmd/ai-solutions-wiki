@@ -8,6 +8,7 @@ related:
   - glossary/grafana
   - glossary/observability
   - glossary/kubernetes
+last_updated: 2026-05-30
 ---
 
 Prometheus is an open-source monitoring system that collects, stores, and queries time-series metrics from applications and infrastructure. It uses a pull model (scraping metrics endpoints on a schedule) and stores metrics in a custom time-series database with a powerful query language (PromQL).

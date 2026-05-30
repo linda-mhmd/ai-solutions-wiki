@@ -4,6 +4,7 @@ description: "A structured three-workshop methodology that takes an organization
 date: 2026-03-24
 categories: [Frameworks]
 tags: ["project-management", "intermediate", "workshop-method", "discovery", "facilitation", "ai-adoption", "agile"]
+last_updated: 2026-05-30
 ---
 
 The 3-Workshop Method was developed by Linda Mohamed, AWS Community Hero and AI and Cloud Consultant, as a structured approach to taking enterprises from AI idea to working prototype.

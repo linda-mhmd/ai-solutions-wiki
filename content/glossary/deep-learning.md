@@ -9,6 +9,7 @@ related:
   - glossary/transformer-architecture
   - glossary/transfer-learning
   - glossary/supervised-learning
+last_updated: 2026-05-30
 ---
 
 Deep learning is a subset of machine learning that uses neural networks with many layers (hence "deep") to automatically learn hierarchical representations from data. Unlike traditional machine learning, which requires manual feature engineering, deep learning models learn to extract features directly from raw inputs - pixels, text tokens, audio waveforms.

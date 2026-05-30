@@ -2,8 +2,10 @@
 title: "Agile vs Waterfall for AI Projects - A Structured Comparison"
 description: "A side-by-side comparison of Agile and Waterfall methodologies for AI projects, with decision criteria and hybrid approach recommendations."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [agile, waterfall, project-management, methodology, comparison]
+last_updated: 2026-05-30
 ---
 
 The methodology debate for AI projects is more nuanced than in traditional software. AI work combines well-understood engineering tasks (data pipelines, APIs, monitoring) with genuinely uncertain research (model accuracy, data sufficiency, algorithm selection). This comparison maps both methodologies against the specific phases and challenges of AI projects.

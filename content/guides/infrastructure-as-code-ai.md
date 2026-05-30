@@ -9,6 +9,7 @@ related:
   - guides/deployment-models-ai
   - patterns/blue-green-deployment
   - tools/github-actions
+last_updated: 2026-05-30
 ---
 
 Infrastructure as Code (IaC) is the practice of defining cloud resources in version-controlled configuration files rather than through the console or ad-hoc API calls. For AI projects, IaC is not optional overhead - it is the mechanism that makes your environments reproducible, your costs auditable, and your deployments consistent across dev, staging, and production.

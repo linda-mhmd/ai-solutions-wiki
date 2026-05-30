@@ -9,6 +9,7 @@ related:
   - glossary/facade-pattern
   - glossary/command-pattern
   - glossary/object-oriented-programming
+last_updated: 2026-05-30
 ---
 
 The Mediator pattern is a behavioral design pattern that defines an object that encapsulates how a set of objects interact. It promotes loose coupling by keeping objects from referring to each other explicitly and lets you vary their interaction independently.

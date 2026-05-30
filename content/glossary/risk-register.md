@@ -4,6 +4,7 @@ description: "A structured document for recording identified project risks, thei
 date: 2026-03-28
 categories: [Glossary]
 tags: [risk-register, project-management, risk-management, planning, governance]
+last_updated: 2026-05-30
 ---
 
 A risk register (also called a risk log) is a structured document that records all identified project risks along with their analysis, response plans, owners, and current status. It serves as the central repository for risk information throughout a project's lifecycle and is a primary input to project decision-making.

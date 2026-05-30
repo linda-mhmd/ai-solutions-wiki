@@ -10,6 +10,7 @@ related:
   - frameworks/three-workshop-method
   - guides/open-practice-library
   - guides/ai-workshop-facilitation
+last_updated: 2026-05-30
 ---
 
 Event Storming is a collaborative modelling technique invented by Alberto Brandolini. It uses coloured sticky notes on a long paper roll to map a business domain in a single room with a cross-functional group. For AI projects, Event Storming is a powerful discovery tool because it makes visible exactly where human judgment is currently applied in a process - and judgment is what AI can potentially automate.

@@ -10,6 +10,7 @@ related:
   - glossary/ai-safety
   - patterns/guardrails-pattern
   - patterns/rag-implementation
+last_updated: 2026-05-30
 ---
 
 Hallucination in AI refers to the phenomenon where a model generates output that is fluent, confident, and plausible-sounding but factually incorrect, fabricated, or unsupported by any source. The term is most commonly applied to large language models that produce false statements, invented citations, non-existent URLs, or fictional events with the same confident tone as accurate information.

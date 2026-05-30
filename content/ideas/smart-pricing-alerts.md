@@ -4,6 +4,7 @@ description: "Monitor competitor pricing changes and use AI to assess impact and
 date: 2026-03-28
 categories: [Ideas]
 tags: [pricing, competitive-intelligence, monitoring, automation, strategy]
+last_updated: 2026-05-30
 ---
 
 Pricing changes by competitors can significantly impact your business, but most teams discover them days or weeks after they happen - often from a customer asking for a price match. By then, you have already lost deals.

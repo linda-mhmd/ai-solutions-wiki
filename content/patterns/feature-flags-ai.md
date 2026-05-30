@@ -10,6 +10,7 @@ related:
   - patterns/microservices-for-ai
   - guides/ci-cd-for-ai
   - guides/testing-ai-systems
+last_updated: 2026-05-30
 ---
 
 Model deployments are not like code deployments. A code change is either correct or incorrect - tests can verify it. A model change produces outputs that are statistically better or worse, and that difference often only becomes visible under real production traffic with real user queries. Feature flags give you control over which model handles which traffic, enabling safe rollout, A/B comparison, and instant rollback without redeployment.

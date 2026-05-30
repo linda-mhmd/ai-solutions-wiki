@@ -4,6 +4,7 @@ description: "How to design and build NLP pipelines for enterprise applications,
 date: 2026-03-28
 categories: [Guides]
 tags: [NLP, text-processing, pipeline, machine-learning, AI-development]
+last_updated: 2026-05-30
 ---
 
 Natural Language Processing (NLP) pipelines transform raw text into structured, actionable information. Despite the rise of large language models that can handle many NLP tasks in a single prompt, well-designed pipelines remain essential for production systems that need reliability, efficiency, and maintainability. This guide covers pipeline design for common enterprise NLP tasks.

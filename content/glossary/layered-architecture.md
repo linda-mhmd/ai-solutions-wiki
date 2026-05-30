@@ -4,6 +4,7 @@ description: "A software architecture pattern that organizes components into hor
 date: 2026-03-28
 categories: [Glossary]
 tags: [layered-architecture, architecture-patterns, software-design, separation-of-concerns]
+last_updated: 2026-05-30
 ---
 
 Layered architecture (also called n-tier architecture) organizes a software system into horizontal layers, where each layer provides services to the layer above it and consumes services from the layer below. Dependencies flow in one direction: upper layers depend on lower layers, never the reverse.

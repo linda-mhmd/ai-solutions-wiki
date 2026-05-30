@@ -7,6 +7,7 @@ tags: [energy, grid-monitoring, predictive-maintenance, utility, IoT]
 image: /img/enterprise-dark/furnace-molten-red-notext.png
 image_alt: "Red molten metal pouring from a dark industrial furnace, representing the raw energy output that AI grid monitoring systems must track and balance."
 image_caption: "Generation, transmission, and demand in continuous flux. The model detects anomalies before the grid fails."
+last_updated: 2026-05-30
 ---
 
 A regional utility company serving 1.5 million customers operated a grid with 40,000 miles of distribution lines, 200 substations, and 15,000 transformers. Unplanned outages averaged 180 per month, with mean restoration time of 3.2 hours. Vegetation-related outages alone cost $8 million annually in emergency crew dispatch and customer impact.

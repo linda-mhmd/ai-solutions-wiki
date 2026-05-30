@@ -9,6 +9,7 @@ related:
   - tools/prefect
   - tools/temporal
   - tools/apache-spark
+last_updated: 2026-05-30
 ---
 
 Apache Airflow is a platform for programmatically authoring, scheduling, and monitoring workflows. Workflows are defined as Directed Acyclic Graphs (DAGs) of tasks using Python code, which gives developers the full power of a programming language for dynamic pipeline generation, branching logic, and parameterization. Airflow's web-based UI provides rich visualization of pipelines, monitoring of running tasks, and management of workflow execution history.

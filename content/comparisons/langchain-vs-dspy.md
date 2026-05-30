@@ -2,8 +2,10 @@
 title: "LangChain vs DSPy - LLM Application Development Compared"
 description: "Comparing LangChain and DSPy for building LLM applications, covering programming models, prompt management, and optimization approaches."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [LangChain, DSPy, LLM, framework, comparison]
+last_updated: 2026-05-30
 ---
 
 LangChain and DSPy represent fundamentally different philosophies for building LLM applications. LangChain provides composable abstractions for chaining LLM calls with tools and data. DSPy treats LLM interactions as optimizable programs where prompts are compiled rather than hand-written. Understanding this philosophical difference is key to choosing between them.

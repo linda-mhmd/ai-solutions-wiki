@@ -8,6 +8,7 @@ related:
   - frameworks/software-requirements-engineering
   - frameworks/software-quality-assurance
   - frameworks/architecture-decision-records
+last_updated: 2026-05-30
 ---
 
 The Software Engineering Body of Knowledge (SWEBOK) is an IEEE standard that defines the knowledge areas a software engineer should possess. Version 4, released in 2024, updates the body of knowledge to reflect modern practices including cloud-native development, DevOps, and machine learning engineering. Understanding SWEBOK V4 helps AI/ML teams ensure they are not neglecting foundational software engineering practices while focusing on model development.

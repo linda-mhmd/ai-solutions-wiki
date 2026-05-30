@@ -9,6 +9,7 @@ related:
   - tools/timescaledb
   - tools/prometheus
   - tools/grafana
+last_updated: 2026-05-30
 ---
 
 InfluxDB is a purpose-built time series database optimized for the storage and retrieval of timestamped data. It is designed to handle high write volumes and real-time queries on data from sources such as infrastructure monitoring, IoT sensors, application metrics, and financial market feeds. InfluxDB's storage engine uses a time-structured merge tree (TSM) that provides high compression ratios and fast writes, while its inverted index enables efficient filtering by tags (metadata dimensions).

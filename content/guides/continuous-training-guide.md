@@ -10,6 +10,7 @@ related:
   - glossary/data-drift
   - guides/drift-detection-guide
   - guides/mlops-getting-started
+last_updated: 2026-05-30
 ---
 
 Models trained on historical data degrade as the world changes. Customer preferences shift, new products launch, fraud patterns evolve, and language use changes. Continuous training (CT) is the practice of automatically retraining models on fresh data to maintain performance. It is the ML equivalent of continuous deployment in software engineering.

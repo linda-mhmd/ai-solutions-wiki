@@ -9,6 +9,7 @@ related:
   - glossary/deep-learning
   - glossary/neural-network
   - glossary/convolutional-neural-network
+last_updated: 2026-05-30
 ---
 
 A Neural Radiance Field (NeRF) is a method for synthesizing novel views of a 3D scene from a sparse set of 2D photographs. A neural network learns to represent the scene as a continuous volumetric function that maps any 3D point and viewing direction to a color and density value. Once trained, the model can render photorealistic images from arbitrary camera positions.

@@ -10,6 +10,7 @@ related:
   - glossary/continuous-training
   - patterns/observability-ai
   - guides/drift-detection-guide
+last_updated: 2026-05-30
 ---
 
 Model drift is the degradation of a machine learning model's predictive performance over time after deployment to production. A model that achieved strong evaluation metrics at training time produces increasingly inaccurate predictions as the gap widens between the data it was trained on and the data it encounters in production.

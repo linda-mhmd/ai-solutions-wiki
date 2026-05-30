@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: ["ai-ml", "advanced", "grid-optimization", "energy", "forecasting", "optimization", "timeseries"]
 industries: [energy]
 tools: [amazon-sagemaker, amazon-bedrock]
+last_updated: 2026-05-30
 ---
 
 Power grids were designed for a world of predictable, dispatchable generation and relatively stable demand. The rapid growth of variable renewable generation (wind, solar) and demand-side flexibility (EVs, heat pumps, industrial loads) has made grid management significantly more complex. AI is increasingly embedded in the control systems and planning tools that keep grids in balance.

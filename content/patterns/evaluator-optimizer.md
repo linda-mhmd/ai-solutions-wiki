@@ -10,6 +10,7 @@ related:
   - patterns/guardrails-pattern
   - patterns/observability-ai
   - frameworks/compound-ai-systems
+last_updated: 2026-05-30
 ---
 
 LLM outputs vary in quality. A single generation may miss requirements, contain errors, or fail to match the desired format. The evaluator-optimizer pattern addresses this by introducing an automated quality loop: a generator produces output, an evaluator scores it against criteria, and if the score falls below a threshold, the generator tries again with feedback from the evaluator.

@@ -8,6 +8,7 @@ related:
   - guides/requirements-engineering-ai
   - frameworks/agile-ai-delivery
   - guides/ai-product-management
+last_updated: 2026-05-30
 ---
 
 Requirements engineering for AI systems diverges from traditional software requirements in a fundamental way: you cannot specify exact behavior. A classification model's accuracy is a target, not a guarantee. A recommendation engine's relevance is measured statistically, not deterministically. This framework covers how to adapt elicitation, analysis, and specification practices for systems where uncertainty is inherent.

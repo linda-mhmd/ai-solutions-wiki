@@ -4,6 +4,7 @@ description: "Strategies for routing requests to different AI models based on ta
 date: 2026-03-28
 categories: [Patterns]
 tags: [multi-model, routing, cost-optimization, architecture, orchestration]
+last_updated: 2026-05-30
 ---
 
 Not every request needs the most capable model. A simple classification task does not need the same model as a complex reasoning task, and paying for the most expensive model on every request is wasteful. Multi-model routing directs each request to the most appropriate model based on task characteristics.

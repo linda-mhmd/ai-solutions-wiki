@@ -2,8 +2,10 @@
 title: "AWS AI Services vs Azure AI - Complete Comparison"
 description: "A service-by-service map of AWS AI and ML services to their Azure AI equivalents, covering language models, speech, vision, and MLOps."
 date: 2026-03-24
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: ["cloud-computing", "intermediate", "aws", "azure", "ai-services", "comparison", "cloud"]
+last_updated: 2026-05-30
 ---
 
 AWS and Azure both offer comprehensive AI service portfolios. Teams evaluating or migrating between clouds need a clear service mapping. This article maps AWS AI services to their Azure equivalents across every major category.
@@ -12,7 +14,7 @@ AWS and Azure both offer comprehensive AI service portfolios. Teams evaluating o
 
 | AWS | Azure | Notes |
 |---|---|---|
-| [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html) | [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/ai-services/openai/overview) | Bedrock offers multi-vendor models (Claude, Llama, Mistral, Cohere, Titan). Azure OpenAI is primarily GPT-4/GPT-3.5 from OpenAI, with access to DALL-E and Whisper. |
+| [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html) | [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/ai-services/openai/overview) | Bedrock offers multi-vendor models (Claude 3.5 Sonnet/Opus/Haiku, Llama, Mistral, Cohere, Titan). Azure OpenAI provides GPT-4o, GPT-4 Turbo, o1, and o1-mini from OpenAI, with access to DALL-E and Whisper. |
 | [Bedrock Agents](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html) | [Azure AI Agent Service](https://learn.microsoft.com/en-us/azure/ai-services/agents/overview) | Both provide managed agent runtimes with tool use. Azure AI Agent Service integrates with the Azure AI Foundry ecosystem. |
 | [Bedrock Knowledge Bases](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) | [Azure AI Search](https://learn.microsoft.com/en-us/azure/search/search-what-is-azure-search) | Both provide managed RAG infrastructure with vector search. |
 | [Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) | [Azure AI Content Safety](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview) | Content filtering and safety controls for LLM outputs. |

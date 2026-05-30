@@ -4,6 +4,7 @@ description: "A practical guide to federated learning, covering how it works, wh
 date: 2026-03-28
 categories: [Guides]
 tags: [federated-learning, privacy, distributed, machine-learning, AI-development]
+last_updated: 2026-05-30
 ---
 
 Federated learning trains machine learning models across multiple devices or organizations without moving the training data to a central location. Instead of "bring the data to the model," federated learning "brings the model to the data." This is valuable when data cannot be centralized due to privacy regulations, competitive concerns, or practical constraints.

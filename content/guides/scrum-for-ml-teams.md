@@ -4,6 +4,7 @@ description: "How to implement Scrum in ML teams, covering sprint cadence, role 
 date: 2026-03-28
 categories: [Guides]
 tags: [scrum, machine-learning, project-management, agile, teams]
+last_updated: 2026-05-30
 ---
 
 Scrum is the most widely adopted agile framework, but its standard implementation assumes software engineering workflows. Machine learning teams face different challenges: experiments that cannot be time-boxed reliably, dependencies on data availability, and work that produces insights rather than features. This guide covers how to adapt Scrum specifically for ML teams without losing the framework's benefits.

@@ -8,6 +8,7 @@ related:
   - guides/disaster-recovery-ai
   - guides/platform-engineering-ai
   - glossary/serverless
+last_updated: 2026-05-30
 ---
 
 AI inference workloads have different capacity planning requirements than traditional web services. GPU memory is the primary constraint, not CPU or network bandwidth. Latency varies with input size (longer prompts take longer). Cold starts are expensive because model loading takes seconds to minutes. Autoscaling must account for these characteristics or it will either waste resources or fail under load.

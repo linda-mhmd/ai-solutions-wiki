@@ -15,6 +15,7 @@ alternatives:
 solutions:
   - solutions/healthcare/medical-imaging
   - solutions/finance/credit-scoring
+last_updated: 2026-05-30
 ---
 
 Hugging Face is the central platform for open-source AI. It hosts over 500,000 models, 100,000 datasets, and provides libraries (Transformers, Diffusers, Tokenizers, Datasets) that have become the standard for working with ML models in Python. For enterprise AI projects, Hugging Face serves multiple roles: a source of pre-trained models, a library ecosystem for model integration, and an infrastructure option for model deployment.

@@ -2,8 +2,10 @@
 title: "S3 vs EFS for AI Workloads"
 description: "Comparing Amazon S3 and Amazon EFS for AI training data, model storage, and inference workloads, covering performance, cost, and access patterns."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [S3, EFS, storage, AWS, AI-infrastructure]
+last_updated: 2026-05-30
 ---
 
 AI workloads have diverse storage needs: training datasets, model artifacts, checkpoint files, feature stores, and inference caches. S3 and EFS both store data on AWS but serve fundamentally different access patterns. Choosing the wrong one causes performance bottlenecks or unnecessary cost.

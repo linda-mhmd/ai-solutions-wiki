@@ -4,6 +4,7 @@ description: "Patterns for classifying documents by type, topic, sensitivity, an
 date: 2026-03-28
 categories: [Patterns]
 tags: [classification, document-processing, taxonomy, NLP, automation]
+last_updated: 2026-05-30
 ---
 
 Document classification assigns one or more labels to a document based on its content. It is among the most common AI tasks in enterprise applications: routing incoming correspondence, categorizing support tickets, tagging content for search, and classifying documents for compliance.

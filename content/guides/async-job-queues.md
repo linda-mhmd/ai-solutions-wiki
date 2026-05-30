@@ -10,6 +10,7 @@ related:
   - tools/railway
   - guides/from-zero-to-production
   - glossary/message-queue
+last_updated: 2026-05-30
 ---
 
 Any AI application that does real work will quickly encounter the same problem: some operations take far too long to complete inside an HTTP request. AI image generation takes 10–60 seconds. Video processing can run for minutes. Large file analysis, batch embeddings, sending thousands of emails, none of these belong in a synchronous request handler. Async job queues are the production pattern that solves this class of problem.

@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [production-scheduling, planning, optimization, resource-allocation, manufacturing-ai]
 industries: [manufacturing]
 tools: [amazon-sagemaker, amazon-redshift, aws-lambda]
+last_updated: 2026-05-30
 ---
 
 Production scheduling determines what to produce, when, on which equipment, and in what sequence. Effective scheduling maximizes throughput, minimizes costs (changeovers, overtime, inventory), and meets delivery commitments. The combinatorial complexity of real-world scheduling problems exceeds what human planners and simple heuristics can optimize, particularly when disruptions require rapid replanning.

@@ -9,6 +9,7 @@ related:
   - glossary/neural-network
   - glossary/llm
   - glossary/ai-safety
+last_updated: 2026-05-30
 ---
 
 Deep reinforcement learning (deep RL) combines reinforcement learning algorithms with deep neural networks to learn policies for complex tasks directly from high-dimensional inputs. An agent interacts with an environment, receives rewards, and learns to maximize cumulative reward over time. Deep RL has achieved superhuman performance in games, enabled robotic control, and become the primary mechanism for aligning large language models with human preferences.

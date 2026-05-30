@@ -9,6 +9,7 @@ related:
   - glossary/singleton-pattern
   - glossary/proxy-pattern
   - glossary/object-oriented-programming
+last_updated: 2026-05-30
 ---
 
 The Flyweight pattern is a structural design pattern that uses sharing to support large numbers of fine-grained objects efficiently. It reduces memory consumption by separating an object's state into intrinsic (shared) and extrinsic (context-dependent) components, storing only the intrinsic state within the flyweight object.

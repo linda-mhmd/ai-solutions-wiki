@@ -8,6 +8,7 @@ related:
   - guides/shared-responsibility-model
   - tools/amazon-bedrock
   - guides/deployment-models-ai
+last_updated: 2026-05-30
 ---
 
 The Shared Responsibility Model is a cloud security framework that defines which security and compliance obligations belong to the cloud provider and which belong to the customer. The division exists because cloud computing separates ownership: the provider owns and operates the physical infrastructure, while the customer controls what they deploy on top of it.

@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [underwriting, insurance-automation, risk-assessment, pricing, insurtech]
 industries: [insurance, finance]
 tools: [amazon-sagemaker, amazon-textract, amazon-bedrock]
+last_updated: 2026-05-30
 ---
 
 Insurance underwriting evaluates risk to determine whether to accept an application, under what terms, and at what price. Traditional underwriting is manual, slow, and inconsistent. A life insurance application may take 4-8 weeks to underwrite, involving medical exams, manual review of medical records, and subjective risk assessment. AI underwriting automation reduces decision time from weeks to minutes for straightforward cases while improving risk selection accuracy.

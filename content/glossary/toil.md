@@ -8,6 +8,7 @@ related:
   - glossary/site-reliability-engineering
   - glossary/error-budget
   - glossary/infrastructure-as-code
+last_updated: 2026-05-30
 ---
 
 Toil is manual, repetitive, automatable operational work that scales linearly with service size. In the SRE framework, toil is work that has no lasting value: it keeps the system running but does not permanently improve it. Google's SRE practice targets keeping toil below 50% of an engineer's time, with the remainder spent on engineering work that reduces future toil.

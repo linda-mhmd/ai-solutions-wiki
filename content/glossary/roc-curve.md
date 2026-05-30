@@ -8,6 +8,7 @@ related:
   - glossary/precision-recall
   - glossary/confusion-matrix
   - glossary/f1-score
+last_updated: 2026-05-30
 ---
 
 A Receiver Operating Characteristic (ROC) curve plots the true positive rate (recall) against the false positive rate at every possible classification threshold. The Area Under the ROC Curve (AUC) summarizes overall model discrimination ability as a single number between 0.5 (random) and 1.0 (perfect).

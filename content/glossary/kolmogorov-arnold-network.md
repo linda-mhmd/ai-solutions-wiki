@@ -9,6 +9,7 @@ related:
   - glossary/activation-function
   - glossary/deep-learning
   - glossary/neural-architecture-search
+last_updated: 2026-05-30
 ---
 
 A Kolmogorov-Arnold Network (KAN) is a neural network architecture based on the Kolmogorov-Arnold representation theorem, which states that any continuous multivariate function can be decomposed into sums and compositions of univariate functions. Unlike standard multi-layer perceptrons (MLPs), which use fixed activation functions on nodes, KANs place learnable activation functions on edges (connections between nodes), with nodes performing only summation.

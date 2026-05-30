@@ -4,6 +4,7 @@ description: "What inference means in AI context, the key operational parameters
 date: 2026-03-24
 categories: [Glossary]
 tags: ["ai-ml", "beginner", "inference", "model-serving", "prediction", "llm", "latency"]
+last_updated: 2026-05-30
 ---
 
 Inference is the process of running a trained AI model to produce an output (a prediction, a generated text response, a classification) given a new input. Training is what happens before deployment; inference is what happens when users and applications actually use the model.

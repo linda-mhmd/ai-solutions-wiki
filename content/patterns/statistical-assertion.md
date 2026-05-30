@@ -9,6 +9,7 @@ related:
   - guides/testing-ai-systems
   - glossary/flaky-test
   - patterns/semantic-assertion
+last_updated: 2026-05-30
 ---
 
 The statistical assertion pattern replaces exact-match test assertions with aggregate success rate checks across multiple runs. Instead of asserting that a single AI output matches an expected value, you run the test N times and assert that the success rate exceeds a threshold with statistical confidence.

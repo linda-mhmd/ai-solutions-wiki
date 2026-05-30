@@ -10,6 +10,7 @@ related:
   - guides/ai-risk-assessment-guide
   - guides/ai-incident-response
   - guides/model-evaluation-guide
+last_updated: 2026-05-30
 ---
 
 Red teaming is the practice of systematically attacking your own AI system to discover vulnerabilities before real adversaries or real users do. Unlike standard evaluation (which tests whether the system works), red teaming tests whether the system fails in dangerous or embarrassing ways. Every AI system deployed to users should undergo red teaming proportional to its risk level.

@@ -4,6 +4,7 @@ description: "Generate draft social media posts from source content using AI, ma
 date: 2026-03-28
 categories: [Ideas]
 tags: [social-media, content-generation, marketing, automation]
+last_updated: 2026-05-30
 ---
 
 Marketing teams often spend hours repurposing a single blog post or announcement into platform-specific social media content. Each platform has different character limits, tone expectations, and formatting conventions. Doing this manually for every piece of content is a bottleneck.

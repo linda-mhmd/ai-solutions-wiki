@@ -32,21 +32,24 @@ Two audiences:
 
 ---
 
-## The Four-Layer Model
+## The Five-Layer Model
 
-Every production AI system operates across four layers. The wiki is organized around them.
+Every production AI system operates across five layers. The wiki is organized around them.
 
-**Layer 1 - AI Capabilities**
+**Layer 1 - Models**
 Models, embeddings, agents, fine-tuning, evaluation, prompt engineering. This is what most tutorials cover. It is necessary but not sufficient.
 
-**Layer 2 - Engineering Patterns**
+**Layer 2 - Orchestration**
 RAG, orchestration, prompt versioning, observability, dataset lifecycle. The translation layer between AI capability and working software.
 
-**Layer 3 - Software Engineering Foundations**
+**Layer 3 - Applications**
 Version control, CI/CD, testing, configuration management, secrets handling, dependency management. Not AI-specific, but frequently omitted from AI content. Omitting them is how prototypes stay prototypes.
 
-**Layer 4 - Infrastructure**
-Compute patterns, storage architecture, data pipelines, event-driven architectures. What makes systems scalable and reliable under real conditions.
+**Layer 4 - Data**
+Data pipelines, dataset management, data quality, feature stores, and data governance. The foundation that feeds AI systems with the information they need.
+
+**Layer 5 - Infrastructure**
+Compute patterns, storage architecture, event-driven architectures. What makes systems scalable and reliable under real conditions.
 
 A full treatment is in the [ai-systems-are-software-systems](https://ai-solutions.wiki/guides/ai-systems-are-software-systems/) article.
 

@@ -11,6 +11,7 @@ related:
   - glossary/model-card
   - guides/ai-regulatory-compliance-checklist
   - guides/ai-audit-readiness
+last_updated: 2026-05-30
 ---
 
 The EU AI Act (Regulation (EU) 2024/1689) is the first comprehensive legal framework for artificial intelligence. It entered into force on August 1, 2024, with obligations phased in between February 2025 and August 2027. This guide provides practical steps for organizations that need to comply.

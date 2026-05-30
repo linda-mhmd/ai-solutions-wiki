@@ -2,8 +2,10 @@
 title: "MLflow vs Weights & Biases - Experiment Tracking Compared"
 description: "Comparing MLflow and Weights & Biases (W&B) for ML experiment tracking, model registry, and collaboration features."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [MLflow, Weights-and-Biases, experiment-tracking, MLOps, comparison]
+last_updated: 2026-05-30
 ---
 
 Experiment tracking is the foundation of reproducible machine learning. MLflow and Weights & Biases (W&B) are the two dominant tools in this space, but they serve different audiences and philosophies. MLflow is open-source infrastructure you host yourself. W&B is a managed platform with a polished UI and collaboration features.

@@ -7,6 +7,7 @@ tags: [azure, etl, data-integration, data-pipeline, orchestration]
 related:
   - tools/amazon-glue
   - tools/azure-synapse-analytics
+last_updated: 2026-05-30
 ---
 
 Azure Data Factory (ADF) is Microsoft Azure's cloud-based data integration service that enables the creation of data-driven workflows for orchestrating and automating data movement and data transformation at scale. It provides a visual authoring environment for building ETL (Extract, Transform, Load) and ELT pipelines that connect to more than 100 built-in data connectors spanning cloud services, on-premises databases, SaaS applications, and file systems. For AI workloads, Data Factory is the primary tool for preparing and delivering training data to Azure Machine Learning, populating feature stores, and moving model outputs to downstream analytics systems.

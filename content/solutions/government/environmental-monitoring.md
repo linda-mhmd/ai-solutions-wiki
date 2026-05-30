@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: ["ai-ml", "advanced", "environmental-monitoring", "satellite-data", "computer-vision", "geospatial", "government"]
 industries: [government]
 tools: [amazon-sagemaker, amazon-bedrock]
+last_updated: 2026-05-30
 ---
 
 Environmental monitoring generates enormous volumes of sensor data, satellite imagery, and reporting obligations. AI makes it practical to analyze this data continuously at scale - moving from periodic spot-checks to real-time monitoring, and from manual compliance reporting to automated documentation.

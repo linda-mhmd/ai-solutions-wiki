@@ -10,6 +10,7 @@ related:
   - glossary/f1-score
   - glossary/confusion-matrix
   - glossary/roc-curve
+last_updated: 2026-05-30
 ---
 
 Class imbalance is one of the most common challenges in applied machine learning. Fraud detection, medical diagnosis, manufacturing defects, and cybersecurity intrusion detection all involve rare positive cases that standard classifiers tend to ignore. This guide walks through practical strategies for handling imbalanced data effectively.

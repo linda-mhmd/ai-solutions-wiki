@@ -9,6 +9,7 @@ related:
   - glossary/backpropagation
   - glossary/neural-network
   - glossary/supervised-learning
+last_updated: 2026-05-30
 ---
 
 A loss function (also called a cost function or objective function) is a mathematical measure of how wrong a model's predictions are compared to the true values. During training, the optimization algorithm minimizes the loss function by adjusting model weights. The choice of loss function defines what "correct" means for your model.

@@ -8,6 +8,7 @@ related:
   - tools/amazon-lookout-vision
   - tools/azure-computer-vision
   - tools/azure-cognitive-services
+last_updated: 2026-05-30
 ---
 
 Azure Custom Vision is an Azure AI service that enables building custom image classification and object detection models using transfer learning, requiring only a small number of labeled training images. The service provides both a web-based portal for no-code model building and REST APIs/SDKs for programmatic access, making it accessible to domain experts without machine learning backgrounds while also supporting developer-driven automation. Custom Vision handles the model architecture selection, training, evaluation, and deployment, allowing teams to focus on labeling domain-specific images rather than managing ML infrastructure.

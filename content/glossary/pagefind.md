@@ -7,6 +7,7 @@ tags: [pagefind, static-search, WebAssembly, static-sites, CloudCannon, search]
 related:
   - glossary/github-pages
   - glossary/cdn
+last_updated: 2026-05-30
 ---
 
 Pagefind is an open-source static search library that adds full-text search to static websites without requiring any server-side infrastructure. Developed by CloudCannon, it runs entirely in the browser using WebAssembly, indexing the site at build time and loading only the minimal index fragments needed to answer each query.

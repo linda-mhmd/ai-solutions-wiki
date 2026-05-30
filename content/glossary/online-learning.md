@@ -10,6 +10,7 @@ related:
   - glossary/continuous-training
   - glossary/gradient-descent
   - glossary/reinforcement-learning
+last_updated: 2026-05-30
 ---
 
 Online learning (also called incremental learning) updates machine learning models one example or mini-batch at a time as new data arrives, rather than retraining on the entire dataset. This approach is essential for streaming data, systems that must adapt to changing patterns in real time, and datasets too large to fit in memory.

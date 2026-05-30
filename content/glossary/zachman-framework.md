@@ -4,6 +4,7 @@ description: "A two-dimensional classification schema for organizing the descrip
 date: 2026-03-28
 categories: [Glossary]
 tags: [Zachman, enterprise-architecture, framework, ontology, EA]
+last_updated: 2026-05-30
 ---
 
 The Zachman Framework is a two-dimensional classification schema that organizes the descriptive representations (models, diagrams, specifications) relevant to an enterprise. It is not a methodology but an ontology -- a structured way of categorizing what needs to be documented to fully describe a complex system.

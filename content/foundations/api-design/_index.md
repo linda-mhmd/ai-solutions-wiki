@@ -4,6 +4,7 @@ description: "REST, GraphQL, and gRPC. The principles of versioning, error handl
 layout: single
 tags: ["api-design", "rest", "graphql", "grpc", "http"]
 categories: ["Foundations"]
+last_updated: 2026-05-30
 ---
 
 An API is a contract between systems. Once published, it is consumed by callers who build against it, often without the ability to update their code when the API changes. This constraint - that breaking changes break callers - is the defining characteristic of API design. Most of the principles in this domain exist to preserve the contract while allowing the implementation to evolve.

@@ -5,6 +5,7 @@ date: 2026-03-24
 categories: [Solutions]
 tags: [government, social-services, case-management]
 industries: [Government, Public Sector]
+last_updated: 2026-05-30
 ---
 
 Social services caseworkers manage high caseloads with complex, often handwritten intake forms, inconsistent documentation quality, and significant consequences for missed risk signals. An AI caseworker assistant does not make decisions - it does the data extraction and pattern recognition work that currently prevents caseworkers from spending time on the parts of their job that require human judgment.

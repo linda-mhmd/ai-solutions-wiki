@@ -6,6 +6,7 @@ categories: [Glossary]
 tags: [design-tokens, design-systems, Salesforce, W3C, CSS, theming]
 related:
   - glossary/design-system
+last_updated: 2026-05-30
 ---
 
 Design tokens are named entities that store visual design attributes -- colors, typography, spacing, border radii, shadows, motion timing -- as platform-agnostic data rather than hard-coded values. They serve as the single source of truth for design decisions, allowing those decisions to be translated into variables, classes, or constants for any platform: CSS custom properties for web, XML resources for Android, Swift constants for iOS, or JSON for design tools.

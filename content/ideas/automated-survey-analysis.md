@@ -4,6 +4,7 @@ description: "Use AI to analyze open-ended survey responses at scale, extracting
 date: 2026-03-28
 categories: [Ideas]
 tags: [surveys, analysis, sentiment, customer-research, automation]
+last_updated: 2026-05-30
 ---
 
 Open-ended survey questions produce the richest insights but are the hardest to analyze. Most organizations either skip open-ended questions entirely or collect responses that nobody reads because manual analysis does not scale.

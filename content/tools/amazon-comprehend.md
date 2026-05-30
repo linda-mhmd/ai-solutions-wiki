@@ -9,6 +9,7 @@ related:
   - tools/azure-cognitive-services
   - tools/google-cloud-natural-language
   - tools/spacy
+last_updated: 2026-05-30
 ---
 
 Amazon Comprehend is a managed NLP service that provides trained models for common text analysis tasks without requiring ML expertise or model training. It handles the high-volume, structured NLP tasks that would otherwise require either custom model development or expensive LLM calls.

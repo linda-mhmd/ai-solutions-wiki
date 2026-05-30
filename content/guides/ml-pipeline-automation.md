@@ -4,6 +4,7 @@ description: "How to automate machine learning pipelines for training, evaluatio
 date: 2026-03-28
 categories: [Guides]
 tags: [MLOps, automation, pipelines, CI-CD, machine-learning]
+last_updated: 2026-05-30
 ---
 
 Most ML teams start with manual workflows: run a notebook, check the results, manually deploy if things look good. This works for the first model but breaks down immediately when you need to retrain regularly, manage multiple models, or ensure consistency. Automating ML pipelines is the path from "data scientist runs a notebook" to "models train, evaluate, and deploy automatically with human oversight at decision points."

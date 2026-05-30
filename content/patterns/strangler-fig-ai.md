@@ -10,6 +10,7 @@ related:
   - patterns/circuit-breaker-ai
   - glossary/agentic-ai
   - guides/choosing-your-first-ai-use-case
+last_updated: 2026-05-30
 ---
 
 The Strangler Fig pattern was named and described by Martin Fowler in 2004, drawing on the metaphor of a strangler fig plant that grows around a host tree, gradually replacing it. The pattern describes a migration strategy: rather than replacing a legacy system all at once (a "big bang" migration), you incrementally route functionality through a new system while keeping the legacy system running. Over time, the new system handles more and more traffic until the legacy system can be retired.

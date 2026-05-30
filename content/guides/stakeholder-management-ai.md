@@ -4,6 +4,7 @@ description: "How to manage stakeholder expectations, communicate uncertainty, a
 date: 2026-03-28
 categories: [Guides]
 tags: [stakeholder-management, communication, project-management, AI-development, leadership]
+last_updated: 2026-05-30
 ---
 
 AI projects have a stakeholder management problem that traditional software projects do not. Stakeholders arrive with expectations shaped by vendor marketing, media coverage, and ChatGPT demos. They expect AI to be fast, cheap, and magical. The reality - messy data, iterative experimentation, and months of work for incremental accuracy gains - can feel like a betrayal. Managing this gap is one of the most important skills in AI project delivery.

@@ -7,6 +7,7 @@ tags: ["ai-ml", "advanced", "insurance", "modernization", "document-processing",
 image: /img/rapid-ai/legacy-vs-modern-split-notext.png
 image_alt: "A split image: dark cables and a purple server rack on the left, bright green modular cubes on the right, representing the architectural shift from legacy insurance systems to modern AI-enabled platforms."
 image_caption: "The legacy system holds the history. The modern layer runs the intelligence. The migration connects them."
+last_updated: 2026-05-30
 ---
 
 A mid-size property and casualty insurer modernized its claims processing workflow to reduce settlement cycle time and improve fraud detection. The previous workflow was heavily manual: adjusters received claim packets by email, manually entered data into the claims management system, and escalated fraud concerns based on individual judgment. Average cycle time from first notice of loss to settlement was 18 days.

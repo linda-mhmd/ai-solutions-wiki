@@ -7,6 +7,7 @@ tags: [real-estate, valuation, AVM, property-technology, machine-learning]
 image: /img/enterprise-dark/executives-city-view-notext.png
 image_alt: "Three executive silhouettes against a city night view, representing the scale of a property market and the decisions that depend on accurate valuation."
 image_caption: "Every building in the frame has a value. The model estimates it from data the appraiser cannot see all at once."
+last_updated: 2026-05-30
 ---
 
 A property technology company needed an automated valuation model (AVM) that could estimate residential property values for 50 million properties across 200 metropolitan areas. The AVM needed to produce valuations within 5% of actual sale price for 70% of properties to meet lender requirements for use in mortgage origination.

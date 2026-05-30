@@ -7,6 +7,7 @@ tags: [azure, document-processing, ocr, extraction, ai-services]
 related:
   - tools/amazon-textract
   - tools/azure-cognitive-services
+last_updated: 2026-05-30
 ---
 
 Azure AI Document Intelligence, formerly known as Azure Form Recognizer, is a cloud-based AI service that extracts text, key-value pairs, tables, and structured data from documents using machine learning models. It processes PDFs, images, Office documents, and HTML files, returning structured JSON output that downstream applications can consume directly. For AI pipelines that ingest unstructured documents -- invoices, receipts, contracts, medical records, insurance forms, or identification documents -- Document Intelligence automates the data extraction step that traditionally required manual data entry or brittle rule-based parsing.

@@ -7,6 +7,7 @@ tags: [web-components, shadow-dom, custom-elements, html-templates, standards, b
 related:
   - glossary/component-driven-development
   - glossary/virtual-dom
+last_updated: 2026-05-30
 ---
 
 Web Components are a set of web platform standards that allow developers to create custom, reusable, encapsulated HTML elements. Unlike framework-specific components (React components, Vue components), Web Components are built on browser-native APIs and work in any framework or with no framework at all. The three core specifications are Custom Elements, Shadow DOM, and HTML Templates.

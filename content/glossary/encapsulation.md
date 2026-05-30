@@ -10,6 +10,7 @@ related:
   - glossary/inheritance-and-polymorphism
   - glossary/law-of-demeter
   - glossary/solid-principles
+last_updated: 2026-05-30
 ---
 
 Encapsulation is a fundamental object-oriented programming principle that bundles data (fields, attributes) and the methods (functions, procedures) that operate on that data within a single unit (a class or object), and restricts direct access to the object's internal state. External code interacts with the object only through its public interface.

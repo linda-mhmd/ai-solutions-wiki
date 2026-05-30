@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: ["media-processing", "advanced", "ai-video-editing", "media", "automation", "computer-vision", "post-production"]
 industries: [media]
 tools: [amazon-rekognition, amazon-bedrock, aws-step-functions]
+last_updated: 2026-05-30
 ---
 
 Broadcast and media organizations generate enormous volumes of raw footage - sports events, news feeds, live broadcasts. The traditional editing workflow requires skilled editors to watch footage in real time or close to it, identify usable segments, and assemble cuts manually. For high-volume operations, this creates a production bottleneck that limits how much content can be processed and published.

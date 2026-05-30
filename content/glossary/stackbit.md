@@ -8,6 +8,7 @@ related:
   - glossary/jamstack
   - glossary/static-site-generation
   - glossary/nextjs
+last_updated: 2026-05-30
 ---
 
 Stackbit is a visual editing platform that enables real-time, inline content editing for websites built on the Jamstack architecture. Founded by Ohad Eder-Pressman, Dan Barak, and Simon Hanukaev, Stackbit addressed the fundamental usability gap in Jamstack development: the disconnect between developer-optimized build workflows and content editor expectations for visual, WYSIWYG editing.

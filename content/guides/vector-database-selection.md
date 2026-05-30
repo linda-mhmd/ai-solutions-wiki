@@ -11,6 +11,7 @@ related:
   - glossary/embeddings
   - glossary/approximate-nearest-neighbor
   - comparisons/vector-databases
+last_updated: 2026-05-30
 ---
 
 Vector databases store and search high-dimensional embeddings, enabling similarity search for RAG systems, recommendation engines, and semantic search. The vector database market has exploded with options, making selection confusing. This guide provides a structured approach to choosing the right one for your use case.

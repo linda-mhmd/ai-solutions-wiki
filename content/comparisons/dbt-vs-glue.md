@@ -2,8 +2,10 @@
 title: "dbt vs AWS Glue for AI Data Transformation"
 description: "Comparing dbt and AWS Glue for data transformation in AI pipelines, covering capabilities, developer experience, cost, and use case fit."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [dbt, AWS-Glue, data-transformation, ETL, data-engineering]
+last_updated: 2026-05-30
 ---
 
 Data transformation is a critical step in AI pipelines: raw data must be cleaned, joined, aggregated, and shaped into features before models can use it. dbt and AWS Glue are popular tools for this work, but they approach the problem differently.

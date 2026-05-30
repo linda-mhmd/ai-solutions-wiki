@@ -4,6 +4,7 @@ description: "Use AI to negotiate meeting times, resolve conflicts, and optimize
 date: 2026-03-28
 categories: [Ideas]
 tags: [scheduling, calendar, productivity, automation]
+last_updated: 2026-05-30
 ---
 
 Scheduling a meeting with five people across two time zones should not take six emails. Yet most organizations still rely on manual back-and-forth or simple free-busy lookups that ignore context like focus time preferences, meeting fatigue, and priority.

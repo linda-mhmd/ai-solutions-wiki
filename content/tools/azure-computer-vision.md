@@ -8,6 +8,7 @@ related:
   - tools/amazon-rekognition
   - tools/azure-cognitive-services
   - tools/azure-custom-vision
+last_updated: 2026-05-30
 ---
 
 Azure Computer Vision is a cloud-based AI service within Azure AI Services that provides pre-trained deep learning models for analyzing images and videos. The service extracts rich visual information including object detection, image classification, text recognition (OCR), image captioning and dense captioning, face detection, spatial analysis, and background removal. Powered by Microsoft's Florence large vision model, the latest version (v4.0) provides significantly improved accuracy and capabilities compared to earlier versions. For AI pipelines, Computer Vision provides the visual understanding layer that processes images from cameras, documents, product photos, satellite imagery, and video streams.

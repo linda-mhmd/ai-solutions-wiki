@@ -9,6 +9,7 @@ related:
   - guides/ai-risk-assessment-guide
   - guides/ai-governance-implementation
   - guides/drift-detection-guide
+last_updated: 2026-05-30
 ---
 
 AI systems fail differently from traditional software. A web server crashes visibly; a model that starts producing subtly wrong predictions can run for weeks before anyone notices. AI incident response must account for these silent failures, the probabilistic nature of model outputs, and the difficulty of determining root cause when the system is a learned function rather than explicit logic.

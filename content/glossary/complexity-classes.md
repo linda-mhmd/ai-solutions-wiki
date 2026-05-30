@@ -4,6 +4,7 @@ description: "Classifications of computational problems by resource requirements
 date: 2026-03-28
 categories: [Glossary]
 tags: [complexity-classes, P, NP, NP-complete, computational-complexity, algorithms]
+last_updated: 2026-05-30
 ---
 
 Complexity classes categorize computational problems based on the resources (time, space) required to solve them. The relationships between these classes, particularly whether P equals NP, constitute one of the most important open questions in computer science and mathematics.

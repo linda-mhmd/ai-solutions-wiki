@@ -9,6 +9,7 @@ related:
   - glossary/flash-attention
   - glossary/positional-encoding
   - glossary/state-space-model
+last_updated: 2026-05-30
 ---
 
 A long-context model is a language model designed to process input sequences far exceeding traditional context limits, typically handling 100K to over 1M tokens in a single pass. This capability enables processing entire codebases, lengthy legal documents, multi-hour audio transcripts, or extensive conversation histories without chunking or summarization.

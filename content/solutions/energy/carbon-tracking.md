@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [carbon-tracking, emissions, sustainability, esg, climate]
 industries: [energy, manufacturing]
 tools: [amazon-sagemaker, amazon-bedrock, amazon-redshift]
+last_updated: 2026-05-30
 ---
 
 Carbon emissions reporting is transitioning from voluntary to mandatory across Europe. The EU Corporate Sustainability Reporting Directive (CSRD) requires detailed emissions disclosure, and the EU Carbon Border Adjustment Mechanism (CBAM) imposes carbon costs on imports. Organizations need accurate, auditable emissions data across their operations and supply chains. AI automates the complex data collection, calculation, and reporting required for comprehensive emissions management.

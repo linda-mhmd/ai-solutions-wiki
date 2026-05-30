@@ -4,6 +4,7 @@ description: "Structured approaches for identifying and prioritizing security th
 date: 2026-03-28
 categories: [Glossary]
 tags: [threat-modeling, STRIDE, DREAD, attack-trees, security, risk]
+last_updated: 2026-05-30
 ---
 
 Threat modeling is a structured approach to identifying, analyzing, and prioritizing potential security threats to a system. It is performed during the design phase to find vulnerabilities before they are built into the system, making it one of the most cost-effective security activities.

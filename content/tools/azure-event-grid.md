@@ -8,6 +8,7 @@ related:
   - tools/amazon-eventbridge
   - tools/azure-functions
   - tools/azure-event-hubs
+last_updated: 2026-05-30
 ---
 
 Azure Event Grid is Microsoft Azure's fully managed event routing service designed to build reactive, event-driven applications. It uses a publish-subscribe model where event sources (Azure services, custom applications, or SaaS partners) publish events, and subscribers (Azure Functions, Logic Apps, webhooks, or other services) receive and react to those events. In AI pipeline architectures, Event Grid serves as the nervous system that connects data arrival, processing steps, and notification delivery without polling or custom integration code.

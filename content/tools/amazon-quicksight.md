@@ -12,6 +12,7 @@ related:
   - tools/google-looker
   - tools/apache-superset
   - tools/metabase
+last_updated: 2026-05-30
 ---
 
 Amazon QuickSight is a serverless business intelligence service that provides interactive dashboards, ML-powered insights, and natural language querying. Unlike traditional BI tools that require dedicated server infrastructure, QuickSight is fully managed and scales to thousands of users without capacity planning. For AI projects, QuickSight serves as the presentation layer that makes model outputs, pipeline metrics, and business KPIs accessible to stakeholders who do not interact with technical tools.

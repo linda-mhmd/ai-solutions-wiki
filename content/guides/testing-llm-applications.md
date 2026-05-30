@@ -9,6 +9,7 @@ related:
   - guides/testing-non-deterministic-systems
   - guides/snapshot-testing-ai
   - comparisons/deepeval-vs-promptfoo
+last_updated: 2026-05-30
 ---
 
 LLM applications have testing concerns that go beyond general AI testing. Prompt templates are code that deserves version control and testing. Structured outputs must parse reliably. Guardrails must fire when they should and stay silent when they should not. Token limits create hard boundaries that fail silently when exceeded. This guide covers LLM-specific testing patterns.

@@ -11,6 +11,7 @@ related:
   - tools/knative
   - tools/openfaas
   - comparisons/lambda-vs-fargate-ai
+last_updated: 2026-05-30
 ---
 
 AWS Lambda is the glue that connects AI services in event-driven pipelines. It is not an AI service itself - it is a serverless compute environment where you run the orchestration logic, pre-processing, and post-processing code that sits between your data and your AI services. For many AI architectures, Lambda is the cheapest and simplest way to build event-driven processing.

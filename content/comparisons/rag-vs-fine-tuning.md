@@ -2,6 +2,7 @@
 title: "RAG vs Fine-Tuning - When to Use Each"
 description: "A practical framework for deciding between retrieval augmented generation and fine-tuning to customize LLM behavior for enterprise applications."
 date: 2026-03-24
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: ["ai-ml", "intermediate", "rag", "fine-tuning", "comparison", "retrieval", "training"]
 related:
@@ -11,6 +12,7 @@ related:
   - guides/building-rag-systems
   - tools/amazon-bedrock
   - tools/amazon-sagemaker
+last_updated: 2026-05-30
 ---
 
 RAG and fine-tuning are both approaches to improving LLM performance on specific tasks beyond what prompting alone achieves. They solve different problems, have very different cost and complexity profiles, and are often used together in mature systems. Understanding which to use - and when - is a fundamental skill for enterprise AI architects.

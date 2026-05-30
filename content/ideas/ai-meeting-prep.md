@@ -4,6 +4,7 @@ description: "Use AI to research meeting attendees and generate pre-meeting brie
 date: 2026-03-28
 categories: [Ideas]
 tags: [meetings, productivity, research, automation, daily-ai-spark]
+last_updated: 2026-05-30
 ---
 
 You have a meeting in an hour with someone you have not spoken to in six months. You spend ten minutes scanning their LinkedIn, checking your CRM for recent interactions, and skimming the last email thread. Multiply this by five meetings a day and you lose nearly an hour to context-gathering.

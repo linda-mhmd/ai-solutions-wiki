@@ -10,6 +10,7 @@ related:
   - guides/cross-border-data-transfers-ai
   - glossary/gdpr
   - frameworks/cloud-governance-framework
+last_updated: 2026-05-30
 ---
 
 Data sovereignty for AI systems in the EU requires a systematic approach that addresses legal requirements, technical architecture, and operational governance. This framework provides a structured method for organizations to establish and maintain data sovereignty across their AI operations.

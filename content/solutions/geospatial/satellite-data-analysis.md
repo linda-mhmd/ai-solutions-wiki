@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: ["ai-ml", "advanced", "satellite-data", "geospatial", "computer-vision", "remote-sensing", "analysis"]
 industries: [geospatial, defense, logistics]
 tools: [amazon-sagemaker, amazon-bedrock, amazon-s3]
+last_updated: 2026-05-30
 ---
 
 Geospatial intelligence has historically required specialized analysts with GIS expertise to extract insight from satellite and earth observation data. AI is changing that by enabling natural language interfaces to complex spatial queries - and by making visual analysis of satellite imagery accessible without deep technical expertise in remote sensing.

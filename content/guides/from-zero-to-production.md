@@ -10,6 +10,7 @@ related:
   - tools/stripe-connect
   - guides/async-job-queues
   - guides/lean-canvas
+last_updated: 2026-05-30
 ---
 
 Most tutorials end at "it works on my machine." This guide starts there, and takes you to a real, deployed, user-facing product. It covers the full progression: demo, MVP, and production-grade system. Every infrastructure decision is explained. Every cost is visible.

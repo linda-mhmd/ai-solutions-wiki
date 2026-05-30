@@ -10,6 +10,7 @@ related:
   - glossary/decorator-pattern
   - glossary/bridge-pattern
   - glossary/solid-principles
+last_updated: 2026-05-30
 ---
 
 Composition over inheritance is a design principle that advises favoring object composition (has-a relationships) over class inheritance (is-a relationships) as the primary mechanism for code reuse and behavioral variation. It leads to more flexible, loosely coupled designs.

@@ -4,6 +4,7 @@ description: "An architecture pattern placing the domain model at the core with 
 date: 2026-03-28
 categories: [Glossary]
 tags: [onion-architecture, architecture-patterns, domain-driven-design, clean-architecture, dependency-inversion]
+last_updated: 2026-05-30
 ---
 
 Onion Architecture is a software architecture pattern that places the domain model at the center of the application, with all dependencies pointing inward. Infrastructure concerns (databases, frameworks, external services) reside in the outermost layers and depend on the domain, never the reverse.

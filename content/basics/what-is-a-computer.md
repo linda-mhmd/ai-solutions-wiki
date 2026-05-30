@@ -17,6 +17,7 @@ faqs:
     answer: "RAM is short-term working memory, it holds whatever is currently open and running. It is fast but clears when you restart. Storage (SSD or hard drive) is long-term memory, it holds your files and apps permanently. Think of RAM as your desk and storage as your filing cabinet."
   - question: "What is an operating system?"
     answer: "An operating system (Windows, macOS, Linux, iOS, Android) is the software layer between you and the hardware. It manages the CPU, memory, files, and devices, and lets other software run on top of it. Without an OS, every app would need to control the hardware directly, which would be chaos."
+last_updated: 2026-05-30
 ---
 
 {{< quickanswer >}}

@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [remote-monitoring, wearables, iot, chronic-disease, patient-safety]
 industries: [healthcare]
 tools: [amazon-sagemaker, amazon-kinesis, amazon-dynamodb]
+last_updated: 2026-05-30
 ---
 
 Remote patient monitoring enables continuous health surveillance outside clinical settings. Wearable devices and home sensors collect physiological data - heart rate, blood pressure, oxygen saturation, glucose levels, activity patterns, sleep quality - and transmit it for analysis. AI transforms this data stream from passive recording into active monitoring that detects clinical deterioration before it becomes an emergency.

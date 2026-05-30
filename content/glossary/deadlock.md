@@ -4,6 +4,7 @@ description: "A condition where two or more processes are permanently blocked, e
 date: 2026-03-28
 categories: [Glossary]
 tags: [operating-systems, deadlock, concurrency, resource-management, synchronization]
+last_updated: 2026-05-30
 ---
 
 A deadlock occurs when two or more processes or threads are permanently blocked because each is waiting to acquire a resource held by another member of the set. No process can proceed, and without intervention, the deadlock persists indefinitely. Deadlocks are a fundamental problem in concurrent systems, from operating system kernels to database transaction managers to distributed applications.

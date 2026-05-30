@@ -8,6 +8,7 @@ related:
   - guides/impact-mapping
   - guides/user-story-mapping
   - guides/lean-canvas
+last_updated: 2026-05-30
 ---
 
 Most technical problems are actually communication problems in disguise. Engineers model the domain one way; business experts understand it another; the system gets built to satisfy a third mental model that belongs to neither. Event Storming, developed by Alberto Brandolini, is a structured workshop format that puts engineers and domain experts in the same room with a roll of paper and a lot of sticky notes, and does not let them leave until they have built one shared model.

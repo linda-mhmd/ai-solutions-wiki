@@ -10,6 +10,7 @@ related:
   - patterns/data-pipeline-patterns
   - patterns/human-in-the-loop
   - patterns/ab-testing-ml
+last_updated: 2026-05-30
 ---
 
 The data flywheel is the most powerful long-term advantage in applied AI. The cycle works like this: a model serves users, users generate interaction data, that data improves the model, the improved model attracts more users, and those users generate more data. Each revolution of the flywheel makes the next one faster.

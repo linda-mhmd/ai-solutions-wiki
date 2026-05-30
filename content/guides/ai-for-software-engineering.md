@@ -12,6 +12,7 @@ related:
   - guides/devsecops-ai
   - frameworks/shift-left-testing
   - guides/ai-product-management
+last_updated: 2026-05-30
 ---
 
 AI is transforming software engineering from the inside. Code generation, bug detection, test generation, and automated code review are no longer research topics; they are daily tools for professional developers. This guide covers how to use AI effectively across the software development lifecycle, including the limitations and risks that practitioners must manage.

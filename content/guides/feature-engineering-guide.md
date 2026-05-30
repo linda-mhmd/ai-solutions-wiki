@@ -10,6 +10,7 @@ related:
   - glossary/dimensionality-reduction
   - glossary/pca
   - guides/data-preparation-for-ai
+last_updated: 2026-05-30
 ---
 
 Feature engineering is the process of creating, transforming, and selecting input variables that help machine learning models learn effectively. It is often the single most impactful step in the ML pipeline - good features can make a simple model outperform a complex one trained on raw data. This guide covers systematic approaches to feature creation, transformation, and selection.

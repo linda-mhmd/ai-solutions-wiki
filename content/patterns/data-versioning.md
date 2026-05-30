@@ -9,6 +9,7 @@ related:
   - patterns/continuous-training-pattern
   - patterns/lakehouse-ai-pattern
   - patterns/data-product-pattern
+last_updated: 2026-05-30
 ---
 
 ML experiments are only reproducible when both code and data are versioned. Git tracks code changes, but datasets are too large for Git and change in ways that code versioning does not capture: rows are added, labels are corrected, features are recomputed, and filtering criteria change. Data versioning applies version control concepts to datasets so that any experiment can be reproduced by checking out the exact data version used.

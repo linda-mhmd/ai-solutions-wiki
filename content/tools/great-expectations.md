@@ -9,6 +9,7 @@ related:
   - tools/apache-airflow
   - tools/apache-spark
   - tools/prefect
+last_updated: 2026-05-30
 ---
 
 Great Expectations (GX) is an open-source Python library for data validation, documentation, and profiling. It enables data teams to define "expectations" -- declarative assertions about what data should look like -- and automatically validate data against these expectations at any point in a pipeline. This approach treats data quality as a first-class engineering concern, catching data issues before they propagate to downstream models, dashboards, or business decisions.

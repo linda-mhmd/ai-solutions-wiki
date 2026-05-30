@@ -4,6 +4,7 @@ description: "Production AI, vibe coding, and language models. How AI systems ac
 date: 2026-05-29
 level_num: 4
 tags: ["intermediate", "ai-ml", "vibe-coding", "production-ai", "llm"]
+last_updated: 2026-05-30
 ---
 
 <figure class="bz-figure">

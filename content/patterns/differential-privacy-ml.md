@@ -9,6 +9,7 @@ related:
   - patterns/ai-governance
   - patterns/differential-privacy-ml
   - glossary/nist-ai-rmf-glossary
+last_updated: 2026-05-30
 ---
 
 ML models memorize training data. Large language models can reproduce verbatim passages from their training corpus. Classification models leak information about whether a specific individual was in the training set. Differential privacy provides a mathematical framework for training models that learn statistical patterns from a dataset without memorizing information about any individual record.

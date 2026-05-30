@@ -2,6 +2,7 @@
 title: "Single Agent vs Multi-Agent Architectures"
 description: "When to use a single AI agent versus a multi-agent system, covering complexity, reliability, cost, and practical decision criteria."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [agents, multi-agent, architecture, LLM, comparison]
 related:
@@ -10,6 +11,7 @@ related:
   - tools/autogen
   - tools/crewai
   - patterns/microservices-for-ai
+last_updated: 2026-05-30
 ---
 
 The multi-agent pattern - multiple LLM-powered agents collaborating on a task - has captured significant attention. But more agents does not mean better results. Understanding when a single agent suffices and when multi-agent architectures provide genuine value is critical for avoiding unnecessary complexity.

@@ -7,6 +7,7 @@ tags: [azure, healthcare, fhir, dicom, health-data, compliance]
 related:
   - tools/amazon-healthlake
   - tools/azure-machine-learning
+last_updated: 2026-05-30
 ---
 
 Azure Health Data Services is a managed platform within Microsoft Azure designed for healthcare and life sciences organizations to ingest, store, transform, and exchange health data using industry-standard formats and protocols. The service provides three core data services: FHIR (Fast Healthcare Interoperability Resources) for clinical and administrative health records, DICOM (Digital Imaging and Communications in Medicine) for medical imaging data, and MedTech for IoT medical device data ingestion. Together, these services enable organizations to build a unified health data layer that supports AI and analytics workloads while maintaining compliance with healthcare regulations including HIPAA, HITRUST, and GDPR.

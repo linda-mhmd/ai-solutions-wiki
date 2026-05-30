@@ -4,6 +4,7 @@ description: "Server-side database programs that encapsulate reusable logic and 
 date: 2026-03-28
 categories: [Glossary]
 tags: [databases, stored-procedures, triggers, sql, server-side-logic]
+last_updated: 2026-05-30
 ---
 
 Stored procedures and triggers are programs that execute inside the database engine rather than in application code. Stored procedures are explicitly called by applications to perform defined operations. Triggers fire automatically in response to specific data events. Both move logic closer to the data, reducing network round trips and centralizing business rules.

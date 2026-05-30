@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [aml, anti-money-laundering, financial-crime, transaction-monitoring, compliance]
 industries: [finance]
 tools: [amazon-sagemaker, amazon-neptune, amazon-bedrock]
+last_updated: 2026-05-30
 ---
 
 Anti-money laundering (AML) compliance is one of the most expensive regulatory obligations for financial institutions. European banks collectively spend an estimated 20 billion EUR annually on AML compliance. Despite this investment, current systems generate false positive rates exceeding 95% - meaning investigators spend the vast majority of their time clearing alerts that are not suspicious. AI dramatically improves the signal-to-noise ratio while detecting complex laundering schemes that rule-based systems miss.

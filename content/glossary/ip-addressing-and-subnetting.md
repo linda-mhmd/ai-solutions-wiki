@@ -4,6 +4,7 @@ description: "The system of numerical addresses used to identify devices on IP n
 date: 2026-03-28
 categories: [Glossary]
 tags: [networking, ip-addressing, subnetting, ipv4, ipv6, cidr]
+last_updated: 2026-05-30
 ---
 
 IP addressing assigns a unique numerical identifier to every device on an IP network. Subnetting divides a large network into smaller, more manageable segments. Together, they form the addressing foundation that enables routing across the Internet and within private networks.

@@ -8,6 +8,7 @@ related:
   - guides/incident-management-ai
   - glossary/platform-engineering
   - patterns/circuit-breaker-ai
+last_updated: 2026-05-30
 ---
 
 AIOps (Artificial Intelligence for IT Operations) applies machine learning and analytics to operational data - logs, metrics, traces, and events - to improve monitoring, reduce alert fatigue, accelerate root cause analysis, and automate remediation. The term was coined by Gartner in 2017 but the practices have matured significantly since.

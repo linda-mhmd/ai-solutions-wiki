@@ -10,6 +10,7 @@ related:
   - glossary/concept-drift
   - guides/continuous-training-guide
   - guides/ai-observability-guide
+last_updated: 2026-05-30
 ---
 
 A model that performed well at deployment will eventually degrade. The world changes, user behavior shifts, and the data your model sees in production drifts away from what it was trained on. Drift detection is the practice of monitoring for these changes and responding before they cause business impact.

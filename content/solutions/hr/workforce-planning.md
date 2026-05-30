@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [workforce-planning, headcount-forecasting, talent-supply, scenario-modeling, hr-analytics]
 industries: [hr]
 tools: [amazon-sagemaker, amazon-forecast, amazon-redshift]
+last_updated: 2026-05-30
 ---
 
 Workforce planning aligns an organization's talent supply with its business demand. Hiring too few people constrains growth and overworks existing staff. Hiring too many creates unnecessary costs and eventual layoffs. AI workforce planning replaces spreadsheet-based headcount projections with models that integrate business demand signals, attrition predictions, internal mobility, and labor market dynamics.

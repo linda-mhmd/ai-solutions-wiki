@@ -4,6 +4,7 @@ description: "AI augments traditional security scanners by understanding code co
 date: 2026-03-28
 categories: [Ideas]
 tags: [security, vulnerability-scanning, code-review, devsecops, daily-ai-spark]
+last_updated: 2026-05-30
 ---
 
 Traditional SAST tools produce volumes of findings, many of which are false positives. A hardcoded string that looks like an API key but is actually a test fixture. An SQL injection warning on a parameterized query. Security teams spend hours triaging findings that are not actually vulnerabilities.

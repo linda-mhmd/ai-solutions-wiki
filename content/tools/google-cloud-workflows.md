@@ -9,6 +9,7 @@ related:
   - tools/google-cloud-functions
   - tools/google-cloud-run
   - tools/google-cloud-composer
+last_updated: 2026-05-30
 ---
 
 Google Cloud Workflows is a fully managed orchestration service that executes workflows defined as a sequence of steps. Each step can call an HTTP endpoint, invoke a Cloud Function or Cloud Run service, access GCP APIs, perform conditional logic, or iterate over data. Workflows manages execution state, handles retries and error handling, and ensures that multi-step processes complete reliably even when individual steps fail temporarily. It is serverless -- there is no infrastructure to manage, and you pay only per step executed.

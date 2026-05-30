@@ -8,6 +8,7 @@ related:
   - glossary/grpc
   - patterns/microservices-for-ai
   - guides/api-versioning-ai
+last_updated: 2026-05-30
 ---
 
 gRPC offers significant performance advantages over REST/JSON for internal ML inference services: binary serialisation reduces payload size for large feature vectors, HTTP/2 multiplexing handles high concurrency, and native streaming support maps naturally to token-by-token LLM generation. This guide covers building production gRPC services for ML inference.

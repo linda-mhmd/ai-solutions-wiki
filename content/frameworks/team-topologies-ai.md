@@ -8,6 +8,7 @@ related:
   - frameworks/inverse-conway-ai
   - frameworks/safe-for-ai
   - frameworks/capability-mapping
+last_updated: 2026-05-30
 ---
 
 Team Topologies, developed by Matthew Skelton and Manuel Pais, defines four fundamental team types and three interaction modes for organizing technology teams. The framework optimizes for fast flow of change by reducing cognitive load, clarifying team boundaries, and designing deliberate interaction patterns. For AI organizations, Team Topologies addresses the structural question that every scaling AI program faces: how to organize data scientists, ML engineers, data engineers, and platform engineers into teams that deliver effectively without creating bottlenecks.

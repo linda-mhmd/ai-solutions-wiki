@@ -9,6 +9,7 @@ related:
   - patterns/prompt-injection-defense
   - patterns/ai-audit-trail
   - patterns/ai-governance
+last_updated: 2026-05-30
 ---
 
 LLMs process free-text input that frequently contains personally identifiable information. Users paste emails, support tickets, medical notes, and financial documents into prompts without considering what sensitive data they include. A PII redaction pipeline intercepts this data before it reaches the model and scrubs sensitive information from responses before they reach the user.

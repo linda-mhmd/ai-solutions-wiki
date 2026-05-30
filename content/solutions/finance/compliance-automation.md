@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: ["ai-ml", "advanced", "compliance", "finance", "document-processing", "regulatory", "automation"]
 industries: [finance]
 tools: [amazon-bedrock, amazon-comprehend]
+last_updated: 2026-05-30
 ---
 
 Compliance in financial services is operationally intensive. A mid-size bank might process thousands of customer due diligence reviews per month, generate hundreds of regulatory reports per year, and review millions of transactions for suspicious activity. The manual labor cost is substantial - and regulatory penalties for getting it wrong are severe. AI automation addresses the volume problem without reducing the quality of compliance judgment.

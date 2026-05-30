@@ -8,6 +8,7 @@ related:
   - guides/release-management-ai
   - frameworks/agile-ai-delivery
   - frameworks/software-quality-assurance
+last_updated: 2026-05-30
 ---
 
 Release management determines how software moves from development to production. For AI systems, this includes both application code and trained models, which have different lifecycles, different validation requirements, and different rollback characteristics. This framework covers release cadences, release trains, and semantic versioning automation.

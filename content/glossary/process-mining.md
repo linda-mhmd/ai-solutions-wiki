@@ -4,6 +4,7 @@ description: "A data-driven technique for discovering, monitoring, and improving
 date: 2026-03-28
 categories: [Glossary]
 tags: [process-mining, BPM, data-analysis, event-logs, workflow]
+last_updated: 2026-05-30
 ---
 
 Process mining is an analytical discipline that uses event log data from information systems to discover, monitor, and improve real-world business processes. Rather than relying on interviews or workshops to model how a process works, process mining reveals how processes actually execute based on recorded system data.

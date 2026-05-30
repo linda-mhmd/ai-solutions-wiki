@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [patient-triage, clinical-decision-support, emergency-care, symptom-assessment, healthcare-AI]
 industries: [healthcare]
 tools: [amazon-bedrock, amazon-sagemaker, amazon-dynamodb]
+last_updated: 2026-05-30
 ---
 
 Emergency departments and primary care services face chronic demand that exceeds capacity. In many European healthcare systems, emergency department wait times exceed 4 hours for non-urgent cases, while genuinely urgent patients may not be identified quickly enough. AI triage systems provide consistent, evidence-based initial assessments that help clinicians prioritize patients and allocate resources effectively.

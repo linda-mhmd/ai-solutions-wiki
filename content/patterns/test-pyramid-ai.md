@@ -9,6 +9,7 @@ related:
   - guides/unit-testing-ai-applications
   - guides/integration-testing-ai-pipelines
   - guides/ci-cd-testing-ai
+last_updated: 2026-05-30
 ---
 
 The traditional test pyramid (many unit tests, fewer integration tests, fewest E2E tests) applies to AI systems but needs an additional layer: evaluation tests that validate model output quality. The AI test pyramid has four layers, each with distinct characteristics.

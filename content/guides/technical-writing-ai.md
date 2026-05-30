@@ -8,6 +8,7 @@ related:
   - frameworks/architecture-decision-records
   - guides/software-architecture-ai
   - guides/code-review-ai-projects
+last_updated: 2026-05-30
 ---
 
 AI systems require documentation that traditional software does not: model cards, experiment reports, data dictionaries, and fairness assessments. At the same time, the standard documentation (API docs, design docs, runbooks) needs adaptation for probabilistic systems. This guide covers how to write effective documentation for AI/ML systems.

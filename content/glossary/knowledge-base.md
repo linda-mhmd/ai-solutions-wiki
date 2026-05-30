@@ -4,6 +4,7 @@ description: "What an AI knowledge base is, how it differs from a traditional kn
 date: 2026-03-24
 categories: [Glossary]
 tags: ["ai-agents", "beginner", "knowledge-base", "rag", "retrieval", "documents", "embeddings"]
+last_updated: 2026-05-30
 ---
 
 An AI knowledge base is a structured or semi-structured collection of documents, data, and information that an AI system can retrieve and use to generate grounded responses. The term overlaps with "traditional" knowledge bases but differs in how content is stored, indexed, and retrieved.

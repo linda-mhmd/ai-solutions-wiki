@@ -8,6 +8,7 @@ related:
   - glossary/kafka
   - glossary/message-queue
   - glossary/event-driven-architecture
+last_updated: 2026-05-30
 ---
 
 Amazon Kinesis is a managed platform for collecting, processing, and analyzing streaming data in real time. It enables continuous ingestion of data from thousands of sources (application logs, IoT sensors, clickstreams, video feeds) and processing within seconds of arrival.

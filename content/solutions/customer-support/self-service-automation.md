@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [self-service, chatbot, conversational-ai, automation, customer-experience]
 industries: [customer-support]
 tools: [amazon-bedrock, amazon-lex, amazon-connect]
+last_updated: 2026-05-30
 ---
 
 Self-service is the most cost-effective support channel: a self-service resolution costs 1-5% of an agent-assisted resolution. Customers also prefer self-service for straightforward issues - 67% of customers prefer self-service over speaking to an agent when the self-service option works well. AI-powered self-service goes beyond simple FAQ search to provide conversational problem-solving, guided resolution, and automated actions that resolve issues end-to-end.

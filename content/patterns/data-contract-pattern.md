@@ -9,6 +9,7 @@ related:
   - glossary/data-quality
   - guides/data-quality-ai
   - patterns/microservices-for-ai
+last_updated: 2026-05-30
 ---
 
 In a microservices architecture, data flows between teams. The user activity team produces clickstream data. The ML team consumes it for recommendation model training. The analytics team uses it for reporting. When the user activity team renames a field, both downstream teams break. The data contract pattern makes these dependencies explicit and prevents breaking changes from reaching consumers.

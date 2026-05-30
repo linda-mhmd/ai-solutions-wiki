@@ -10,6 +10,7 @@ related:
   - frameworks/gdpr-ai-framework
   - guides/ai-transparency-obligations
   - patterns/explainability-pattern
+last_updated: 2026-05-30
 ---
 
 The right to explanation refers to the provisions in GDPR that require organizations to provide meaningful information about the logic, significance, and envisaged consequences of automated decision-making. While GDPR does not use the exact phrase "right to explanation," Articles 13(2)(f), 14(2)(g), 15(1)(h), and 22 collectively establish that individuals must be informed about automated processing and can challenge decisions made without human involvement.

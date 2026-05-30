@@ -9,6 +9,7 @@ related:
   - glossary/adapter-pattern
   - glossary/facade-pattern
   - glossary/object-oriented-programming
+last_updated: 2026-05-30
 ---
 
 The Proxy pattern is a structural design pattern that provides a surrogate or placeholder for another object to control access to it. The proxy has the same interface as the real object, so clients interact with it transparently.

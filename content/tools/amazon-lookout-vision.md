@@ -8,6 +8,7 @@ related:
   - tools/amazon-rekognition
   - tools/amazon-sagemaker
   - tools/aws-s3
+last_updated: 2026-05-30
 ---
 
 Amazon Lookout for Vision is a managed computer vision service designed for visual quality inspection. It detects defects, anomalies, and irregularities in images of manufactured products, materials, or any visual subject where you need to distinguish "normal" from "abnormal." The service requires as few as 30 normal images and 20 anomalous images to train a usable model, making it accessible for industrial use cases where labeled defect data is scarce.

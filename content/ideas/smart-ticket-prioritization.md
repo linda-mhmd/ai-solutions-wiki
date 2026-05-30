@@ -4,6 +4,7 @@ description: "Use AI to assess support ticket urgency from content analysis, cus
 date: 2026-03-28
 categories: [Ideas]
 tags: [support, ticket-management, prioritization, customer-service, automation]
+last_updated: 2026-05-30
 ---
 
 Support ticket prioritization is typically set by the customer (who always selects "urgent") or by simple rules (enterprise customers get priority). Neither approach reflects the actual urgency of the issue described in the ticket.

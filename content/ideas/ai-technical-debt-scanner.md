@@ -4,6 +4,7 @@ description: "AI scans codebases to identify and quantify technical debt: code s
 date: 2026-03-28
 categories: [Ideas]
 tags: [technical-debt, code-quality, static-analysis, developer-tools, daily-ai-spark]
+last_updated: 2026-05-30
 ---
 
 Every codebase accumulates technical debt. Static analysis tools catch some of it - unused imports, overly complex methods, code style violations. But they miss the debt that requires understanding intent: a function that does three unrelated things, a workaround that was meant to be temporary two years ago, or an abstraction that no longer matches the domain.

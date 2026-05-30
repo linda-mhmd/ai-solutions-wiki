@@ -12,6 +12,7 @@ related:
   - glossary/dpia
   - patterns/privacy-preserving-ai
   - patterns/pii-redaction-pipeline
+last_updated: 2026-05-30
 ---
 
 Building an ML pipeline that satisfies GDPR requires embedding data protection controls at every stage, from data ingestion through model serving. This pattern describes the architectural components needed.

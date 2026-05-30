@@ -4,6 +4,7 @@ description: "An architectural style that structures applications as a collectio
 date: 2026-03-28
 categories: [Glossary]
 tags: [SOA, architecture-patterns, services, enterprise, integration]
+last_updated: 2026-05-30
 ---
 
 Service-Oriented Architecture (SOA) is an architectural style in which application components provide services to other components over a network using standardized communication protocols. Services are self-contained, loosely coupled, and expose well-defined interfaces, enabling reuse and interoperability across organizational boundaries.

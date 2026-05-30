@@ -4,6 +4,7 @@ description: "Maintaining service quality when AI components fail or degrade. Fa
 date: 2026-03-28
 categories: [Patterns]
 tags: [graceful-degradation, reliability, fallback, resilience, architecture]
+last_updated: 2026-05-30
 ---
 
 AI components fail. Model APIs go down, rate limits are exceeded, latency spikes occur, and output quality degrades. A well-designed system maintains useful functionality even when its AI components are impaired. Graceful degradation is not optional for production AI systems.

@@ -8,6 +8,7 @@ related:
   - glossary/contract-testing
   - glossary/ci-cd
   - glossary/api
+last_updated: 2026-05-30
 ---
 
 Semantic versioning (semver) is a versioning scheme that uses a three-part number - MAJOR.MINOR.PATCH - to communicate the nature and impact of changes. Each component has a specific meaning: incrementing MAJOR signals breaking changes, MINOR signals backward-compatible new features, and PATCH signals backward-compatible bug fixes.

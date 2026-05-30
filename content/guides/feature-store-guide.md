@@ -4,6 +4,7 @@ description: "What feature stores are, why they matter, how to choose one, and p
 date: 2026-03-28
 categories: [Guides]
 tags: [feature-store, MLOps, data-engineering, machine-learning, infrastructure]
+last_updated: 2026-05-30
 ---
 
 A feature store is a centralized system for managing, serving, and sharing machine learning features. It solves one of the most persistent problems in ML engineering: the gap between how features are computed in training and how they are computed in inference. Without a feature store, teams duplicate feature computation logic, introduce training-serving skew, and spend enormous effort on data engineering that adds no model value.

@@ -9,6 +9,7 @@ related:
   - tools/amazon-connect
   - tools/google-vertex-ai
   - tools/google-cloud-speech
+last_updated: 2026-05-30
 ---
 
 Dialogflow is Google Cloud's conversational AI platform for building chatbots, voice bots, IVR systems, and multi-modal conversational interfaces. It provides natural language understanding (NLU) to interpret user intent from text or speech input, manage conversation context across multiple turns, and generate appropriate responses. Dialogflow powers conversational experiences across channels including web chat, mobile apps, telephony, Google Assistant, Facebook Messenger, Slack, and custom integrations.

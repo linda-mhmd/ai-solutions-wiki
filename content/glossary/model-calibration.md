@@ -10,6 +10,7 @@ related:
   - glossary/roc-curve
   - glossary/precision-recall
   - glossary/gradient-boosting
+last_updated: 2026-05-30
 ---
 
 Model calibration measures how well a classifier's predicted probabilities reflect actual outcomes. A well-calibrated model that predicts 80% probability for a class should be correct roughly 80% of the time across all such predictions. Many models produce accurate class rankings but poorly calibrated probabilities - they may be systematically overconfident or underconfident.

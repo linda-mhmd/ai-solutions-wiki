@@ -4,6 +4,7 @@ description: "The distinction between verifying identity (authentication) and gr
 date: 2026-03-28
 categories: [Glossary]
 tags: [authentication, authorization, AAA, identity, access-control, security]
+last_updated: 2026-05-30
 ---
 
 Authentication (AuthN) and Authorization (AuthZ) are two distinct but closely related security functions. Authentication verifies who a user or system is. Authorization determines what that authenticated identity is allowed to do. Conflating the two is a common source of security vulnerabilities.

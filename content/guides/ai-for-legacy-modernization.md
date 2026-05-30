@@ -4,6 +4,7 @@ description: "How to use AI to accelerate legacy system modernization, covering 
 date: 2026-03-28
 categories: [Guides]
 tags: [legacy-modernization, migration, code-analysis, enterprise, AI-development]
+last_updated: 2026-05-30
 ---
 
 Legacy system modernization is one of the most expensive and risky undertakings in enterprise IT. AI can accelerate specific phases of modernization, but it is not a magic wand that converts COBOL to microservices overnight. This guide covers where AI genuinely helps, where it does not, and how to integrate AI tools into a modernization program effectively.

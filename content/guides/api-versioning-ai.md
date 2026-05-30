@@ -8,6 +8,7 @@ related:
   - glossary/openapi
   - guides/grpc-ai-services
   - guides/ci-cd-for-ai
+last_updated: 2026-05-30
 ---
 
 AI APIs change more frequently than traditional APIs. Model updates alter output quality, new features add response fields, prompt templates evolve, and response formats are refined. Without a versioning strategy, these changes break consumers. With a poor versioning strategy, you accumulate maintenance debt supporting too many versions. This guide covers practical versioning approaches for AI services.

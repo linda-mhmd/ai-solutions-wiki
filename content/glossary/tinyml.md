@@ -9,6 +9,7 @@ related:
   - glossary/neuromorphic-computing
   - glossary/quantization
   - glossary/ai-hardware
+last_updated: 2026-05-30
 ---
 
 TinyML refers to the practice of running machine learning inference on microcontrollers and ultra-low-power devices with as little as 256 KB of RAM and 1 MB of flash storage. These devices operate on milliwatts of power, enabling always-on ML capabilities in battery-powered sensors, wearables, and industrial equipment without cloud connectivity.

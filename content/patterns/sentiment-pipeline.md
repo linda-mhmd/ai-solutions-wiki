@@ -4,6 +4,7 @@ description: "Building production sentiment analysis pipelines. Multi-dimensiona
 date: 2026-03-28
 categories: [Patterns]
 tags: [sentiment-analysis, NLP, pipeline, customer-experience, monitoring]
+last_updated: 2026-05-30
 ---
 
 Sentiment analysis goes beyond positive/negative/neutral classification. Production systems need aspect-based sentiment (positive about the product, negative about shipping), intensity scoring (mildly annoyed vs. furious), and temporal tracking to detect shifts.

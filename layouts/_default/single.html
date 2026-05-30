@@ -63,6 +63,9 @@
       </figure>
       {{ end }}
 
+      {{/* Comparison page disclaimer for pricing/capability information */}}
+      {{ partial "comparison-disclaimer.html" . }}
+
       <div class="article-body" data-pagefind-body>
         {{ .Content }}
       </div>
@@ -100,16 +103,63 @@
         </div>
       </footer>
 
-      {{ if or .PrevInSection .NextInSection }}
+      {{/* Sequential Navigation with Page Position Indicator */}}
+      {{/* Get sibling pages that have a level field defined */}}
+      {{ $leveledPages := where .CurrentSection.Pages "Params.level" "!=" nil }}
+      {{ $hasLeveledPages := gt (len $leveledPages) 0 }}
+      
+      {{/* Sort by level first, then alphabetically by title */}}
+      {{ $sortedPages := slice }}
+      {{ if $hasLeveledPages }}
+        {{ $sortedPages = sort $leveledPages "Params.level" }}
+      {{ end }}
+      
+      {{/* Find current page position in the sorted sequence */}}
+      {{ $currentIndex := -1 }}
+      {{ $total := len $sortedPages }}
+      {{ range $i, $p := $sortedPages }}
+        {{ if eq $p.Permalink $.Permalink }}
+          {{ $currentIndex = $i }}
+        {{ end }}
+      {{ end }}
+      
+      {{/* Determine prev/next based on level-sorted sequence if page has level, otherwise use Hugo's default */}}
+      {{ $prevPage := false }}
+      {{ $nextPage := false }}
+      {{ $showPositionIndicator := false }}
+      
+      {{ if and $hasLeveledPages (ge $currentIndex 0) }}
+        {{/* Page is in the leveled sequence */}}
+        {{ if gt $currentIndex 0 }}
+          {{ $prevPage = index $sortedPages (sub $currentIndex 1) }}
+        {{ end }}
+        {{ if lt $currentIndex (sub $total 1) }}
+          {{ $nextPage = index $sortedPages (add $currentIndex 1) }}
+        {{ end }}
+        {{/* Only show position indicator for sections with 2+ leveled pages */}}
+        {{ $showPositionIndicator = gt $total 1 }}
+      {{ else }}
+        {{/* Fall back to Hugo's default prev/next for non-leveled pages */}}
+        {{ $prevPage = .PrevInSection }}
+        {{ $nextPage = .NextInSection }}
+      {{ end }}
+      
+      {{ if or $prevPage $nextPage }}
       <nav class="bz-article-nav" aria-label="Article navigation" data-pagefind-ignore>
+        {{/* Page position indicator - only show for multi-page leveled sequences */}}
+        {{ if $showPositionIndicator }}
+        <div class="bz-page-position">
+          <span class="bz-page-position-text">Page {{ add $currentIndex 1 }} of {{ $total }}</span>
+        </div>
+        {{ end }}
         <div class="bz-article-nav-inner">
-          {{ with .PrevInSection }}
+          {{ with $prevPage }}
           <a href="{{ .RelPermalink }}" class="bz-nav-prev">
             <span class="bz-nav-dir">← Previous</span>
             <span class="bz-nav-title">{{ .Title }}</span>
           </a>
           {{ else }}<div></div>{{ end }}
-          {{ with .NextInSection }}
+          {{ with $nextPage }}
           <a href="{{ .RelPermalink }}" class="bz-nav-next">
             <span class="bz-nav-dir">Next →</span>
             <span class="bz-nav-title">{{ .Title }}</span>

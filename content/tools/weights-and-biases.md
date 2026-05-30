@@ -8,6 +8,7 @@ related:
   - tools/mlflow
   - tools/amazon-sagemaker
   - tools/ray
+last_updated: 2026-05-30
 ---
 
 Weights & Biases (W&B) is a platform for ML experiment tracking, dataset versioning, hyperparameter optimization, and model evaluation. It provides a hosted dashboard where teams can log, compare, and collaborate on ML experiments in real time. For AI projects, W&B is the go-to choice when team collaboration, visualization quality, and managed infrastructure matter more than self-hosting flexibility.

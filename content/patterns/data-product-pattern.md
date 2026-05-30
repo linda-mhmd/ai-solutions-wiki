@@ -9,6 +9,7 @@ related:
   - glossary/data-mesh
   - patterns/lakehouse-ai-pattern
   - patterns/ml-feature-platform
+last_updated: 2026-05-30
 ---
 
 Most organizational data is managed as a byproduct of operational systems. Tables are created as implementation details of applications, poorly documented, and governed informally. Downstream consumers (analysts, ML engineers, other teams) reverse-engineer schemas, guess at semantics, and build pipelines on unstable foundations. The data product pattern treats each shared dataset as a product with defined consumers, quality guarantees, and an accountable owner.

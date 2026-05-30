@@ -4,6 +4,7 @@ description: "How to run effective sprint planning sessions for AI and ML teams,
 date: 2026-03-28
 categories: [Guides]
 tags: [sprint-planning, agile, project-management, estimation, AI-development]
+last_updated: 2026-05-30
 ---
 
 Sprint planning for AI projects is where methodology meets reality. Standard sprint planning assumes work can be estimated with reasonable accuracy and completed within the sprint. AI work includes experiments that might take two hours or two weeks, data dependencies that surface mid-sprint, and training jobs that fail at hour eleven. Effective sprint planning for AI teams addresses these challenges directly.

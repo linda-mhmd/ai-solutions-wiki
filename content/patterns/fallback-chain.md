@@ -10,6 +10,7 @@ related:
   - patterns/graceful-degradation-ai
   - patterns/model-tier-routing
   - patterns/retry-and-backoff
+last_updated: 2026-05-30
 ---
 
 Model APIs go down. Rate limits get hit. Responses come back garbled. A production AI system that depends on a single model provider is one outage away from a complete service failure. The fallback chain pattern defines an ordered sequence of alternative models that the system tries when the primary model is unavailable or produces unacceptable results.

@@ -4,6 +4,7 @@ description: "Generate first-draft slide decks from briefs or documents using AI
 date: 2026-03-28
 categories: [Ideas]
 tags: [presentations, content-generation, productivity, automation]
+last_updated: 2026-05-30
 ---
 
 Creating a presentation from scratch typically takes 2-6 hours: outlining the narrative, writing slide content, finding data to support points, and formatting. Most of this work is structural and repetitive, making it a strong candidate for AI acceleration.

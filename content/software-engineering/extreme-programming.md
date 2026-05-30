@@ -4,6 +4,7 @@ date: 2026-03-26
 draft: false
 tags: ["software-engineering", "project-management", "extreme-programming", "agile", "tdd", "methodology"]
 categories: ["Software Engineering"]
+last_updated: 2026-05-30
 ---
 
 Extreme Programming (XP) is a software development methodology created by Kent Beck and first described in his 1999 book *Extreme Programming Explained: Embrace Change*. XP emerged from Beck's work on the Chrysler Comprehensive Compensation System (C3) project in the mid-1990s, where he began applying and refining practices that prioritized rapid feedback, simplicity, and direct collaboration between developers and customers.

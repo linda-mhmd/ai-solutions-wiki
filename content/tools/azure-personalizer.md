@@ -7,6 +7,7 @@ tags: [azure, personalization, reinforcement-learning, recommendations, ai-servi
 related:
   - tools/amazon-personalize
   - tools/azure-cognitive-services
+last_updated: 2026-05-30
 ---
 
 Azure Personalizer is an Azure AI service that uses reinforcement learning to select the best content, product, layout, or action to present to an individual user in real time. Unlike traditional recommendation systems that rely on collaborative filtering or content-based approaches, Personalizer uses contextual bandit algorithms that continuously learn from user interactions to optimize content selection. The service takes in a set of actions (content options), context features (user attributes, device, time, location), and action features (content metadata), then returns a ranked list of actions. When the application reports a reward signal (click, purchase, time spent), Personalizer updates its model to improve future decisions.

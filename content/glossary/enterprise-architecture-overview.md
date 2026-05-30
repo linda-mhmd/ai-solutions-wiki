@@ -4,6 +4,7 @@ description: "An overview of the enterprise architecture discipline, covering it
 date: 2026-03-28
 categories: [Glossary]
 tags: [enterprise-architecture, EA, TOGAF, strategy, IT-alignment]
+last_updated: 2026-05-30
 ---
 
 Enterprise Architecture (EA) is a discipline that defines the structure and operation of an organization with the goal of aligning technology capabilities with business strategy. EA provides a holistic view of an organization's processes, information systems, technology infrastructure, and governance to guide decision-making about IT investments and transformation initiatives.

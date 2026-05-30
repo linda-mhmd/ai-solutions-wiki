@@ -9,6 +9,7 @@ related:
   - patterns/canary-deployment
   - patterns/model-versioning
   - patterns/continuous-training-pattern
+last_updated: 2026-05-30
 ---
 
 Deploying ML models to edge devices introduces constraints that cloud-based MLOps pipelines do not account for. Edge devices have limited compute, memory, and storage. Network connectivity is intermittent or absent. Thousands of heterogeneous devices must be updated safely. Edge MLOps adapts the ML lifecycle to these constraints.

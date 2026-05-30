@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [customer-onboarding, kyc, identity-verification, compliance, digital-banking]
 industries: [finance]
 tools: [amazon-rekognition, amazon-textract, amazon-bedrock]
+last_updated: 2026-05-30
 ---
 
 Financial services customer onboarding must balance regulatory compliance (KYC, AML screening, suitability assessment) with customer experience. Traditional onboarding requires multiple document submissions, manual verification, and multi-day processing. AI automation reduces onboarding from days to minutes while improving compliance accuracy and reducing operational costs.

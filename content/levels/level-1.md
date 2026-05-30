@@ -4,6 +4,7 @@ description: "Terminals and code. How developers interact with machines directly
 date: 2026-05-29
 level_num: 1
 tags: ["beginner", "code", "terminal"]
+last_updated: 2026-05-30
 ---
 
 <figure class="bz-figure">

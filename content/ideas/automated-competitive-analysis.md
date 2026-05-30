@@ -4,6 +4,7 @@ description: "Use AI to monitor competitor activity and generate weekly competit
 date: 2026-03-28
 categories: [Ideas]
 tags: [competitive-analysis, market-intelligence, monitoring, automation]
+last_updated: 2026-05-30
 ---
 
 Keeping up with competitor activity is important but rarely urgent, which means it consistently falls to the bottom of the priority list. By the time someone does a competitive review, the information is weeks old.

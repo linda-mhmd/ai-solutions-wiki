@@ -8,6 +8,7 @@ related:
   - build/build-a-code-based-video
   - software-engineering/version-control-fundamentals
   - software-engineering/gitignore-patterns
+last_updated: 2026-05-30
 ---
 
 Infrastructure as Code (IaC) emerged in the early 2010s as a response to a specific problem: production environments were snowflakes. Every server had been configured by hand, through a mix of SSH sessions and undocumented shell commands, and no two servers in a fleet were exactly identical. Reproducing a failed environment from scratch was an archaeological exercise. Martin Fowler described the pattern in 2016 as "the practice of defining infrastructure through source files that can then be treated like any software system," but the concept had been taking shape in tools like Puppet and Chef since 2005. Terraform, released by HashiCorp in 2014, brought declarative infrastructure definition into mainstream adoption.

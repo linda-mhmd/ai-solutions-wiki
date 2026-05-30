@@ -10,6 +10,7 @@ related:
   - glossary/dbscan
   - glossary/dimensionality-reduction
   - glossary/unsupervised-learning
+last_updated: 2026-05-30
 ---
 
 Hierarchical clustering is an unsupervised learning method that builds a tree-like hierarchy of clusters, either by iteratively merging smaller clusters (agglomerative) or by splitting larger ones (divisive). The result is a dendrogram - a tree diagram that shows the sequence of merges or splits and the distance at which they occur.

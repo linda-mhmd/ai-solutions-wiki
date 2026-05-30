@@ -5,6 +5,7 @@ date: 2026-03-24
 categories: [Guides]
 tags: ["project-management", "beginner", "aws-funding", "poc", "proof-of-concept", "cloud-credits", "startup"]
 tools: [amazon-bedrock, amazon-sagemaker]
+last_updated: 2026-05-30
 ---
 
 AWS provides funding programs that offset the cost of proof-of-concept projects and cloud migrations. These programs are underused, primarily because most companies do not know they exist or find the application process opaque. If you are planning an AI project on AWS, funding should be one of the first things you explore.

@@ -8,6 +8,7 @@ related:
   - glossary/neural-network
   - glossary/dimensionality-reduction
   - glossary/deep-learning
+last_updated: 2026-05-30
 ---
 
 An autoencoder is a neural network trained to reconstruct its input through a bottleneck layer. The network has two halves: an encoder that compresses the input into a lower-dimensional representation (the latent space), and a decoder that reconstructs the original input from that compressed representation. By forcing information through a bottleneck, the autoencoder learns to capture the most important features of the data.

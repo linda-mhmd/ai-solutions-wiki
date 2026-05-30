@@ -11,6 +11,7 @@ related:
   - guides/testing-llm-applications
   - tools/amazon-bedrock
   - patterns/observability-ai
+last_updated: 2026-05-30
 ---
 
 Most AI assistants fail not because the underlying model is bad but because the design around the model is bad. Intake is unclear, context is lost between turns, escalation paths do not exist, and there is no mechanism for the system to improve based on what users actually ask. This guide addresses those design problems.

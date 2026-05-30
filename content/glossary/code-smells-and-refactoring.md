@@ -4,6 +4,7 @@ description: "Indicators of design problems in code and systematic techniques fo
 date: 2026-03-28
 categories: [Glossary]
 tags: [code-smells, refactoring, software-quality, clean-code, design]
+last_updated: 2026-05-30
 ---
 
 Code smells are surface indicators of deeper design problems in source code. Refactoring is the disciplined technique of restructuring existing code to improve its internal structure without changing its external behavior. Together, they form a practice for continuously improving code quality.

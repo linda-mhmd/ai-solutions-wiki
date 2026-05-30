@@ -4,6 +4,7 @@ description: "Public key infrastructure (PKI) mechanisms for verifying authentic
 date: 2026-03-28
 categories: [Glossary]
 tags: [digital-signatures, PKI, X509, certificates, cryptography, security]
+last_updated: 2026-05-30
 ---
 
 Digital signatures provide cryptographic proof of a document's or message's authenticity and integrity. Digital certificates bind a public key to an identity, enabling trust in digital communications. Together, they form the foundation of Public Key Infrastructure (PKI).

@@ -4,9 +4,15 @@ description: "The accumulated cost of shortcuts, compromises, and deferred impro
 date: 2026-03-28
 categories: [Glossary]
 tags: [technical-debt, software-quality, maintenance, refactoring, software-engineering]
+last_updated: 2026-05-30
 ---
 
 Technical debt is a metaphor describing the future cost incurred when development teams take shortcuts or make expedient decisions that make code harder to maintain, extend, or understand. Like financial debt, technical debt accumulates interest: the longer it remains unaddressed, the more effort is required for every subsequent change.
+
+<figure class="bz-figure">
+<img src="/img/craft/wooden-chair-illusion-competence-text.png" alt="A wooden chair that appears sturdy but has hidden structural weaknesses, illustrating how technical debt can create an illusion of competence while accumulating hidden costs that compound over time." loading="lazy">
+<figcaption>Technical debt creates an illusion of progress while accumulating hidden costs. Like a chair with concealed structural weaknesses, shortcuts in code may appear functional but become increasingly costly to maintain.</figcaption>
+</figure>
 
 ## Origins and History
 

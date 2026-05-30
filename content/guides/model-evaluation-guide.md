@@ -10,6 +10,7 @@ related:
   - guides/agent-evaluation-guide
   - guides/experiment-tracking-guide
   - glossary/model-card
+last_updated: 2026-05-30
 ---
 
 Accuracy on a held-out test set is where model evaluation starts, not where it ends. A model with 95% accuracy that fails catastrophically on a critical subgroup, breaks under adversarial inputs, or takes ten times longer than the latency budget is not ready for production. Comprehensive evaluation examines a model from multiple angles to build confidence that it will perform reliably in the real world.

@@ -4,6 +4,7 @@ description: "The Open Systems Interconnection model, a seven-layer conceptual f
 date: 2026-03-28
 categories: [Glossary]
 tags: [networking, osi-model, protocols, network-architecture, standards]
+last_updated: 2026-05-30
 ---
 
 The Open Systems Interconnection (OSI) model is a conceptual framework that divides network communication into seven layers, each responsible for a specific set of functions. It provides a common vocabulary for discussing networking and a standard reference for designing protocols and troubleshooting network issues.

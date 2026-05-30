@@ -8,6 +8,7 @@ related:
   - glossary/trunk-based-development
   - glossary/ci-cd
   - glossary/semantic-versioning
+last_updated: 2026-05-30
 ---
 
 A monorepo (monolithic repository) is a version control strategy where multiple projects, libraries, and services are stored in a single repository. Rather than maintaining separate repositories for each package or service, all code lives together, sharing a unified version history, dependency graph, and build infrastructure.

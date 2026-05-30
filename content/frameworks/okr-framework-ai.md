@@ -8,6 +8,7 @@ related:
   - frameworks/kpi-framework-ai
   - frameworks/okr-framework-ai
   - frameworks/maturity-model-ai
+last_updated: 2026-05-30
 ---
 
 OKRs (Objectives and Key Results) connect aspirational goals to measurable outcomes. An Objective is a qualitative statement of what you want to achieve. Key Results are quantitative measures that indicate whether you have achieved it. For AI programs, OKRs bridge the gap between executive AI ambitions ("become an AI-driven organization") and the concrete, measurable progress that engineering teams can deliver and leadership can track.

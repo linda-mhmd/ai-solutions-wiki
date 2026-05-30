@@ -5,6 +5,7 @@ date: 2026-03-24
 categories: [Glossary]
 tags: [glossary, OCR, NLP, automation]
 tools: [amazon-textract, amazon-comprehend, amazon-bedrock]
+last_updated: 2026-05-30
 ---
 
 Document extraction is the process of identifying and pulling structured information from unstructured or semi-structured documents. The input is a document - a scanned form, a PDF, an image, or raw text. The output is structured data: field names with corresponding values, tables with row and column data, entities and relationships.

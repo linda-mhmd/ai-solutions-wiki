@@ -9,6 +9,7 @@ related:
   - glossary/singleton-pattern
   - glossary/flyweight-pattern
   - glossary/object-oriented-programming
+last_updated: 2026-05-30
 ---
 
 The State pattern is a behavioral design pattern that allows an object to alter its behavior when its internal state changes. The object appears to change its class because its behavior changes completely based on its current state.

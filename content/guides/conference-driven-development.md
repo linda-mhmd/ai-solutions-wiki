@@ -10,6 +10,7 @@ related:
   - guides/ai-poc-to-production
   - glossary/developer-relations
   - guides/agile-for-ai-projects
+last_updated: 2026-05-30
 ---
 
 Conference-driven development is not a formal methodology, it is a practice pattern that technical practitioners discover when they notice that conference deadlines produce different work than internal ones. A talk with a live audience creates three forcing functions simultaneously: a fixed non-negotiable deadline, a simplicity constraint (a 30-minute demo cannot be a complex system), and accountability through public questioning. These constraints reliably turn 80%-done prototypes into finished, explicable systems.

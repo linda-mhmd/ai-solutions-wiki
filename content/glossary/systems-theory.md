@@ -4,6 +4,7 @@ description: "An interdisciplinary framework for studying complex systems as who
 date: 2026-03-28
 categories: [Glossary]
 tags: [systems-theory, systems-thinking, complexity, interdisciplinary, feedback]
+last_updated: 2026-05-30
 ---
 
 Systems theory is an interdisciplinary framework for analyzing and describing complex phenomena as systems -- organized collections of interacting components that produce behavior or properties not reducible to the individual parts. It emphasizes relationships, feedback loops, and emergent properties over reductionist analysis of isolated components.

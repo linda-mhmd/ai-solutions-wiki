@@ -9,6 +9,7 @@ related:
   - guides/testing-ai-systems
   - glossary/unit-testing
   - glossary/end-to-end-testing
+last_updated: 2026-05-30
 ---
 
 Integration testing verifies that multiple components work correctly together. While unit tests validate individual functions in isolation, integration tests validate the connections between them: data flows correctly from one component to the next, interfaces match, and the combined behavior produces the expected result.

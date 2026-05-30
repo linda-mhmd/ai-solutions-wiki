@@ -8,6 +8,7 @@ related:
   - glossary/ci-cd
   - glossary/cdn
   - glossary/pagefind
+last_updated: 2026-05-30
 ---
 
 GitHub Pages is a static site hosting service that serves websites directly from a GitHub repository. It supports custom domains, HTTPS, and automated builds from Markdown and HTML source files, making it one of the most widely used free hosting platforms for documentation, blogs, and project sites.

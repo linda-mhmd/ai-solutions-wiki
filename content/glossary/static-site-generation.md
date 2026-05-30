@@ -9,6 +9,7 @@ related:
   - glossary/server-side-rendering
   - glossary/nextjs
   - glossary/single-page-application
+last_updated: 2026-05-30
 ---
 
 Static site generation (SSG) is the practice of rendering web pages to static HTML files at build time rather than at request time. A static site generator takes source content (Markdown, data files, API responses), applies templates, and produces a directory of HTML, CSS, and JavaScript files that can be deployed to any web server or CDN without a runtime application server.

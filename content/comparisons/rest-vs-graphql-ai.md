@@ -2,8 +2,10 @@
 title: "REST vs GraphQL for AI Application APIs"
 description: "Comparing REST and GraphQL API designs for AI applications, covering streaming support, query patterns, caching, and practical recommendations."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [REST, GraphQL, API-design, architecture, AI-apps]
+last_updated: 2026-05-30
 ---
 
 AI applications expose APIs for model inference, data retrieval, and system management. REST and GraphQL represent different approaches to API design. For AI workloads, the choice is influenced by streaming requirements, query complexity, and client diversity.

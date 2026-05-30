@@ -4,6 +4,7 @@ description: "Drop recovery as incident response. Adding load as organisational 
 date: 2026-05-30
 categories: [Through]
 tags: ["beginner", "metaphor", "change-management", "incident-response", "adaptability", "teams"]
+last_updated: 2026-05-30
 ---
 
 <figure class="bz-figure">

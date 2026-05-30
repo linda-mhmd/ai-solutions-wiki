@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [property-valuation, avm, real-estate-analytics, geospatial, appraisal]
 industries: [real-estate, finance]
 tools: [amazon-sagemaker, amazon-redshift, amazon-location-service]
+last_updated: 2026-05-30
 ---
 
 Property valuation is central to real estate transactions, mortgage lending, taxation, and portfolio management. Traditional appraisals are manual, expensive (300-500 EUR per residential property), and slow (5-10 business days). Automated Valuation Models (AVMs) using AI provide instant property value estimates at a fraction of the cost, enabling real-time decisioning for lenders, investors, and property platforms.

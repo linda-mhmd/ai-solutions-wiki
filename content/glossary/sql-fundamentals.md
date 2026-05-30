@@ -4,6 +4,7 @@ description: "Structured Query Language, the standard language for defining, man
 date: 2026-03-28
 categories: [Glossary]
 tags: [databases, sql, relational-databases, queries, data-manipulation]
+last_updated: 2026-05-30
 ---
 
 Structured Query Language (SQL) is the standard language for interacting with relational database management systems. It provides a declarative syntax for defining database structures, inserting and modifying data, querying information, and controlling access. SQL is used by virtually every relational database, including PostgreSQL, MySQL, Oracle, SQL Server, and SQLite.

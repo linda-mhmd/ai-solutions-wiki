@@ -8,6 +8,7 @@ related:
   - guides/api-versioning-ai
   - glossary/grpc
   - patterns/microservices-for-ai
+last_updated: 2026-05-30
 ---
 
 The OpenAPI Specification (formerly Swagger) is a standard, language-agnostic format for describing REST APIs. An OpenAPI document defines endpoints, request and response schemas, authentication methods, and error formats in a machine-readable YAML or JSON file.

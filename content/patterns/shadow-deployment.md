@@ -4,6 +4,7 @@ description: "Running new AI models in parallel with production models to compar
 date: 2026-03-28
 categories: [Patterns]
 tags: [deployment, testing, shadow-mode, model-evaluation, production]
+last_updated: 2026-05-30
 ---
 
 Shadow deployment runs a new model alongside the production model, processing the same inputs, but only serving the production model's outputs to users. The shadow model's outputs are logged for comparison. This lets you evaluate a new model on real production traffic without any risk to users.

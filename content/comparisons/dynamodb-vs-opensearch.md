@@ -2,8 +2,10 @@
 title: "DynamoDB vs OpenSearch for AI Applications"
 description: "Comparing DynamoDB and OpenSearch for AI application backends, covering data patterns, vector search, performance, cost, and use case fit."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [DynamoDB, OpenSearch, database, vector-search, AWS]
+last_updated: 2026-05-30
 ---
 
 DynamoDB and OpenSearch serve different roles in AI applications, but their capabilities overlap in areas like vector search and metadata storage. Understanding where each excels prevents architectural mistakes.

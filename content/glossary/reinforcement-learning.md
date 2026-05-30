@@ -8,6 +8,7 @@ related:
   - glossary/supervised-learning
   - glossary/unsupervised-learning
   - glossary/ai-agents
+last_updated: 2026-05-30
 ---
 
 Reinforcement learning (RL) is a machine learning paradigm where an agent learns to make decisions by interacting with an environment and receiving feedback in the form of rewards or penalties. Unlike supervised learning, the agent is not given correct answers - it discovers optimal behavior through trial and error.

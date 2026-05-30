@@ -9,6 +9,7 @@ related:
   - guides/contract-testing-ai-services
   - guides/test-environments-ai
   - patterns/circuit-breaker-ai
+last_updated: 2026-05-30
 ---
 
 Chaos testing deliberately injects failures into a system to verify it degrades gracefully rather than catastrophically. AI systems have unique failure modes: model APIs go down, embedding services return garbage, vector databases lose indexes, and model responses take 30 seconds instead of 3. Testing these scenarios before they happen in production is the difference between a degraded experience and a complete outage.

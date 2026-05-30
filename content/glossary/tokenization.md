@@ -4,6 +4,7 @@ description: "What tokens are, how different models tokenize text, why token cou
 date: 2026-03-24
 categories: [Glossary]
 tags: ["ai-ml", "beginner", "tokenization", "tokens", "llm", "nlp", "vocabulary"]
+last_updated: 2026-05-30
 ---
 
 Tokenization is the process of breaking text into units (tokens) that a language model can process. Models do not read text character by character or word by word - they operate on tokens, which are typically word fragments determined by statistical patterns in training data.

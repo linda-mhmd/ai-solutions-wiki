@@ -4,6 +4,7 @@ description: "The process of identifying stakeholders, assessing their interests
 date: 2026-03-28
 categories: [Glossary]
 tags: [stakeholder-analysis, project-management, stakeholders, communication, engagement]
+last_updated: 2026-05-30
 ---
 
 Stakeholder analysis is the process of systematically identifying individuals, groups, or organizations that can affect or be affected by a project, assessing their interests, influence, and expectations, and developing strategies to engage them effectively throughout the project lifecycle.

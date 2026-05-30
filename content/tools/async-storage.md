@@ -10,6 +10,7 @@ related:
   - basics/what-is-react-native
 solutions:
   - guides/from-zero-to-production
+last_updated: 2026-05-30
 ---
 
 AsyncStorage is the standard way to store small amounts of persistent data in a React Native or Expo application. It works like `localStorage` in a browser, a key-value store that survives app restarts, but it is asynchronous, meaning every read and write returns a Promise rather than blocking the thread.

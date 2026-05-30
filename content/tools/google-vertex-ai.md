@@ -8,6 +8,7 @@ related:
   - tools/amazon-bedrock
   - tools/amazon-sagemaker
   - tools/azure-openai
+last_updated: 2026-05-30
 ---
 
 Google Vertex AI is Google Cloud's unified machine learning platform. It provides access to Google's foundation models (Gemini), AutoML for custom model training without code, managed training infrastructure for custom models, and deployment tooling for serving predictions at scale. For enterprise AI projects, Vertex AI is the GCP counterpart to the AWS combination of Bedrock (for foundation models) and SageMaker (for custom ML).

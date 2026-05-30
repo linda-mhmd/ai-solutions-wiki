@@ -4,6 +4,7 @@ description: "Use AI to monitor budget versus actuals, explain variances, and pr
 date: 2026-03-28
 categories: [Ideas]
 tags: [budgeting, finance, forecasting, automation, analytics]
+last_updated: 2026-05-30
 ---
 
 Budget tracking is reactive by default. Finance teams discover variances weeks after they occur, during the monthly close process. By then, corrective action is too late for the current period.

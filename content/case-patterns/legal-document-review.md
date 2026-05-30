@@ -7,6 +7,7 @@ tags: [legal, document-review, e-discovery, classification, litigation]
 image: /img/shaping-ai/documents-cube-vs-neon-orbit-notext.png
 image_alt: "A split image: a dark stack of documents on the left, a glowing red neon orbital ring on the right, representing the shift from static document review to dynamic AI-assisted analysis."
 image_caption: "The documents do not change. The speed at which a lawyer can work through them does."
+last_updated: 2026-05-30
 ---
 
 A mid-size law firm handling commercial litigation faced a recurring challenge: document review. A typical case involved reviewing 50,000-500,000 documents to identify those relevant to the case, privileged documents that must be withheld, and key documents that materially affect the case. At $50-100 per hour for contract reviewers, a large case could cost $500,000 or more in review fees alone.

@@ -10,6 +10,7 @@ related:
   - patterns/continuous-training-pattern
   - guides/drift-detection-guide
   - patterns/observability-ai
+last_updated: 2026-05-30
 ---
 
 Concept drift occurs when the statistical relationship between input features and the target variable changes over time. The model learned a mapping from inputs to outputs during training, but that mapping no longer reflects reality. The inputs may look the same, but what they mean in terms of the correct prediction has shifted.

@@ -8,6 +8,7 @@ related:
   - solutions/media/hybrid-video-pipeline
   - glossary/serverless
   - glossary/infrastructure-as-code
+last_updated: 2026-05-30
 ---
 
 A hybrid cloud is an IT environment that combines on-premises infrastructure with one or more public cloud services, connected in a way that allows data and workloads to move between them. Neither side is fully independent: the value of hybrid cloud comes from the integration between on-premises systems and cloud services, not from running them in parallel in isolation.

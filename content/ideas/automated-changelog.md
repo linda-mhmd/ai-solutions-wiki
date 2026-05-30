@@ -4,6 +4,7 @@ description: "Automatically generate user-facing changelogs by having AI analyze
 date: 2026-03-28
 categories: [Ideas]
 tags: [changelog, git, developer-tools, automation, daily-ai-spark]
+last_updated: 2026-05-30
 ---
 
 Writing changelogs is one of those tasks that everyone agrees is important and nobody wants to do. The result is changelogs that are either absent, months out of date, or unhelpfully terse. Meanwhile, every change is already documented in git commits and pull requests.

@@ -4,6 +4,7 @@ description: "A UML behavioral diagram that shows how objects interact through m
 date: 2026-03-28
 categories: [Glossary]
 tags: [uml, sequence-diagram, interactions, software-modeling, behavioral-diagrams]
+last_updated: 2026-05-30
 ---
 
 A sequence diagram is a UML behavioral diagram that shows how objects or components interact by exchanging messages in a time-ordered sequence. The vertical axis represents time (flowing downward), and each participant has a vertical lifeline. Horizontal arrows between lifelines represent messages. Sequence diagrams are the most popular UML diagram for modeling dynamic behavior.

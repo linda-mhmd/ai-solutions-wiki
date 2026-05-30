@@ -12,6 +12,7 @@ related:
   - tools/azure-synapse-analytics
   - tools/google-bigquery
   - tools/clickhouse
+last_updated: 2026-05-30
 ---
 
 Amazon Redshift is a fully managed, petabyte-scale data warehouse service. It uses columnar storage, massively parallel processing (MPP), and result caching to deliver fast SQL analytics over large datasets. For AI projects, Redshift serves as the structured data foundation: the place where cleaned, modeled business data lives and where feature engineering, reporting, and model monitoring queries run at scale.

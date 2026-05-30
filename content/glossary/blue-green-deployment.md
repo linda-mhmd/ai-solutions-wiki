@@ -9,6 +9,7 @@ related:
   - patterns/canary-deployment
   - guides/ci-cd-ai-detailed
   - tools/amazon-lambda
+last_updated: 2026-05-30
 ---
 
 Blue-green deployment is a release technique that maintains two identical production environments - one active (serving traffic), one idle (available for deployment) - and switches traffic between them when releasing a new version. The two environments are conventionally named "blue" and "green," with the active environment alternating between the two colours on each deployment.

@@ -2,8 +2,10 @@
 title: "Amazon Neptune vs OpenSearch for Graph Queries"
 description: "Comparing Amazon Neptune and OpenSearch for graph data and relationship queries, covering data models, query languages, and AI use cases."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [Neptune, OpenSearch, graph-database, knowledge-graph, AWS, comparison]
+last_updated: 2026-05-30
 ---
 
 Graph queries - traversing relationships between entities - can be handled by both Neptune (a purpose-built graph database) and OpenSearch (which has graph-adjacent capabilities through nested documents and aggregations). The right choice depends on how central graph traversal is to your workload.

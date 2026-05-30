@@ -4,6 +4,7 @@ description: "Operating system algorithms that determine which process or thread
 date: 2026-03-28
 categories: [Glossary]
 tags: [operating-systems, cpu-scheduling, algorithms, processes, performance]
+last_updated: 2026-05-30
 ---
 
 CPU scheduling is the operating system function that determines which ready process or thread gets to execute on the CPU and for how long. Since a typical system has more runnable processes than CPU cores, the scheduler must allocate CPU time fairly and efficiently. The choice of scheduling algorithm directly affects system responsiveness, throughput, and fairness.

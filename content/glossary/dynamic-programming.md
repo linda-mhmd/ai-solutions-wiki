@@ -4,6 +4,7 @@ description: "An algorithmic technique that solves complex problems by breaking 
 date: 2026-03-28
 categories: [Glossary]
 tags: [dynamic-programming, algorithms, optimization, memoization, tabulation]
+last_updated: 2026-05-30
 ---
 
 Dynamic programming (DP) is an algorithmic technique for solving optimization and counting problems by decomposing them into simpler overlapping subproblems, solving each subproblem only once, and storing the results for reuse. It transforms exponential-time recursive solutions into polynomial-time algorithms.

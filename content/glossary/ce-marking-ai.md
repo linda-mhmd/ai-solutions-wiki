@@ -9,6 +9,7 @@ related:
   - frameworks/eu-ai-act-risk-framework
   - guides/eu-ai-act-compliance
   - guides/ai-regulatory-compliance-checklist
+last_updated: 2026-05-30
 ---
 
 CE marking (Conformite Europeenne) for AI systems is the visible indicator that a high-risk AI system complies with the requirements of the EU AI Act and can be legally placed on the European market. The CE marking requirement for AI follows the same principle used for decades in EU product safety regulation, extending it to software-based systems for the first time at this scale.

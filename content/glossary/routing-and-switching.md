@@ -4,6 +4,7 @@ description: "The fundamental network operations of forwarding data at Layer 2 (
 date: 2026-03-28
 categories: [Glossary]
 tags: [networking, routing, switching, routers, network-infrastructure]
+last_updated: 2026-05-30
 ---
 
 Routing and switching are the two core operations that move data through networks. Switching operates at Layer 2 (Data Link), forwarding frames based on MAC addresses within a local network segment. Routing operates at Layer 3 (Network), forwarding packets based on IP addresses across different networks. Together, they form the packet delivery infrastructure of all modern networks.

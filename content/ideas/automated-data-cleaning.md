@@ -4,6 +4,7 @@ description: "AI detects and fixes data quality issues - inconsistent formats, d
 date: 2026-03-28
 categories: [Ideas]
 tags: [data-quality, data-cleaning, normalization, data-engineering, daily-ai-spark]
+last_updated: 2026-05-30
 ---
 
 Data cleaning consumes up to 80% of a data team's time. Address formats in five different formats. Phone numbers with and without country codes. Company names spelled three different ways. Null values that should be zeros. Outliers that are either errors or genuine edge cases.

@@ -10,6 +10,7 @@ related:
   - glossary/bias-variance-tradeoff
   - glossary/cross-validation
   - glossary/loss-function
+last_updated: 2026-05-30
 ---
 
 Linear regression is a supervised learning algorithm that models the relationship between one or more input features and a continuous target variable by fitting a linear equation to the observed data. It remains one of the most widely used algorithms in machine learning and statistics due to its simplicity, interpretability, and effectiveness as a baseline model.

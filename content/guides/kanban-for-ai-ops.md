@@ -4,6 +4,7 @@ description: "Implementing Kanban for AI operations teams managing model deploym
 date: 2026-03-28
 categories: [Guides]
 tags: [kanban, AI-ops, MLOps, project-management, operations]
+last_updated: 2026-05-30
 ---
 
 Kanban is a flow-based work management method that visualizes work, limits work in progress, and optimizes throughput. For AI operations teams - the people who keep models running in production - Kanban is often a better fit than Scrum. Operations work is interrupt-driven, unpredictable in volume, and does not fit neatly into sprint commitments. Kanban accommodates this reality.

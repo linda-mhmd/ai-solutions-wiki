@@ -10,9 +10,15 @@ related:
   - glossary/fine-tuning
   - tools/claude-anthropic
   - tools/amazon-bedrock
+last_updated: 2026-05-30
 ---
 
 Prompt engineering is the discipline of designing and refining the text inputs sent to a language model to produce useful, accurate, and consistent outputs. As AI systems move from demos to production, prompt quality becomes a primary determinant of system quality - more than model choice for most applications.
+
+<figure class="bz-figure">
+  <img src="/img/craft/sheet-music-piano-instructions-text.png" alt="Sheet music on a piano with handwritten annotations: precise instructions that guide performance, just as prompts guide model behavior." loading="lazy">
+  <figcaption>A prompt is like sheet music. The notes define what to play, the tempo markings define how to play it, and the annotations add nuance. A well-written prompt gives the model everything it needs to perform correctly.</figcaption>
+</figure>
 
 ## Why Prompts Matter
 

@@ -5,9 +5,15 @@ date: 2026-03-31
 weight: 1
 categories: [Guides]
 tags: ["software-engineering", "intermediate", "ai-ml", "architecture", "methodology", "devops"]
+last_updated: 2026-05-30
 ---
 
 There is a persistent misconception in the AI industry: that building AI is a different discipline from building software. This misconception is reinforced by how AI is taught, marketed, and discussed. Tutorials end at "call the API." Notebooks are presented as deliverables. The gap between prototype and production is treated as someone else's problem.
+
+<figure class="bz-figure">
+  <img src="/img/craft/comparison-code-vs-ai.png" alt="A split comparison showing traditional code on one side and AI systems on the other: both require the same engineering discipline, but AI adds layers of complexity." loading="lazy">
+  <figcaption>AI systems are software systems with additional complexity. The model is a small box surrounded by much larger boxes: data pipelines, orchestration, deployment, monitoring, and governance. The engineering discipline is the same.</figcaption>
+</figure>
 
 It is not. AI systems are distributed software systems with additional complexity. They have the same operational requirements as any production system - reliability, observability, deployment automation, configuration management, security - plus a layer of complexity unique to non-deterministic behavior, data dependencies, and model lifecycle management. This wiki is built on that premise.
 
@@ -19,11 +25,11 @@ The pattern is consistent: a developer completes a tutorial, builds a prototype,
 
 The cost of this misconception is measured in failed deployments, production incidents, and AI projects that never escape the prototype stage. Industry estimates suggest 80-90% of AI proofs of concept fail to reach production. The technical capability is rarely the limiting factor. The surrounding engineering is.
 
-## The Four-Layer Model
+## The Five-Layer Model
 
-Every production AI system operates across four distinct layers. Understanding these layers - and the work required at each - is the foundation for building systems that actually work.
+Every production AI system operates across five distinct layers. Understanding these layers - and the work required at each - is the foundation for building systems that actually work.
 
-### Layer 1 - AI Capabilities
+### Layer 1 - Models
 
 This is the domain covered by most AI tutorials: large language models, embedding models, agents, multimodal models, fine-tuning, evaluation, and prompt engineering. The capabilities themselves are genuinely remarkable and relatively accessible. Hosted model APIs have dramatically reduced the barrier to experimentation.
 
@@ -31,9 +37,9 @@ This is also where most tutorials stop.
 
 AI capability is necessary but not sufficient for a production system. A model that generates correct output in a notebook and a model that generates correct output reliably under production load, across diverse inputs, with versioned prompts, measurable quality, and controllable cost, are separated by an engineering problem.
 
-### Layer 2 - Engineering Patterns
+### Layer 2 - Orchestration
 
-Engineering patterns are the translation layer between AI capabilities and software systems. This is where prototypes become systems. The key patterns include:
+Orchestration patterns are the translation layer between model capabilities and software systems. This is where prototypes become systems. The key patterns include:
 
 **Retrieval-Augmented Generation (RAG)** - Architecture for grounding model output in private knowledge without fine-tuning. RAG introduces its own engineering concerns: document ingestion pipelines, chunking strategies, embedding model selection, vector store management, retrieval quality evaluation, and context window management.
 
@@ -45,7 +51,7 @@ Engineering patterns are the translation layer between AI capabilities and softw
 
 **Dataset lifecycle** - Training and evaluation data requires the same rigor as production code: versioning, lineage tracking, quality validation, and access control.
 
-### Layer 3 - Software Engineering Foundations
+### Layer 3 - Applications
 
 This layer is the most frequently overlooked in AI-specific content, because it is not AI-specific. It is the software engineering discipline that makes any system maintainable and reproducible over time.
 
@@ -63,17 +69,27 @@ This layer is the most frequently overlooked in AI-specific content, because it 
 
 **Dependency management** - Reproducible environments across the team and across deployment targets. Python package management for AI projects has specific challenges around GPU dependencies and model artifact compatibility.
 
-### Layer 4 - Infrastructure
+### Layer 4 - Data
+
+Data is the foundation that AI systems depend on for training, evaluation, and runtime operation.
+
+**Data pipelines** - Ingestion, transformation, and quality validation for the data that feeds AI systems. Batch and streaming patterns for different latency requirements.
+
+**Storage architecture** - Object storage for model artifacts and training data, structured storage for evaluation results and metadata, and caching layers for repeated inference requests.
+
+**Data quality** - Validation, monitoring, and governance of the data that flows through AI systems. Data drift detection, schema enforcement, and lineage tracking.
+
+**Vector stores** - Specialized databases for embedding storage and similarity search. Selection criteria, indexing strategies, and operational concerns for RAG and semantic search applications.
+
+### Layer 5 - Infrastructure
 
 Infrastructure is what makes systems scalable and reliable under real operating conditions.
 
 **Compute patterns** - Serverless functions for low-throughput inference, GPU workloads for high-throughput or latency-sensitive applications, and the tradeoffs between managed and self-managed compute.
 
-**Storage architecture** - Object storage for model artifacts and training data, structured storage for evaluation results and metadata, and caching layers for repeated inference requests.
-
-**Data pipelines** - Ingestion, transformation, and quality validation for the data that feeds AI systems. Batch and streaming patterns for different latency requirements.
-
 **Event-driven architectures** - Asynchronous processing for inference workloads that do not require synchronous responses. Queue-based decoupling for resilience and cost management.
+
+**Networking and security** - API gateways, load balancing, and network policies for AI workloads. Security boundaries and access control for model endpoints.
 
 ## Why the Hard Part Is Not the Model
 
@@ -87,7 +103,7 @@ Martin Kleppmann's "Designing Data-Intensive Applications" (2017) characterizes 
 
 ## What This Wiki Covers, and Why
 
-This wiki covers all four layers because that is what building real AI solutions requires.
+This wiki covers all five layers because that is what building real AI solutions requires.
 
 When you see an article about version control workflows or .gitignore configuration, it is not generic developer content placed here by accident. It is part of the AI delivery lifecycle. Reproducibility starts with disciplined version control. Teams that skip this step rediscover it when they cannot reproduce a result, cannot trace which prompt version caused a regression, or cannot deploy a rollback.
 
@@ -109,9 +125,9 @@ The recommended path through this wiki follows the natural dependency order:
 
 Start with your AI capability need. If you are building an agent, start with the agent guides. If you are building a RAG system, start there. These articles cover the AI-specific concerns first.
 
-Follow the links to engineering patterns. Each capability article links to the patterns required to operationalize it. RAG links to vector store management, prompt versioning, and evaluation. Agents link to orchestration, tool design, and observability.
+Follow the links to orchestration patterns. Each capability article links to the patterns required to operationalize it. RAG links to vector store management, prompt versioning, and evaluation. Agents link to orchestration, tool design, and observability.
 
-Then follow the links to foundations. The engineering pattern articles link to the software engineering foundations they depend on. Prompt versioning links to version control workflows. Deployment links to CI/CD configuration.
+Then follow the links to applications. The orchestration pattern articles link to the software engineering foundations they depend on. Prompt versioning links to version control workflows. Deployment links to CI/CD configuration.
 
 The wiki is structured so each article connects upward to the business problem it solves and downward to the implementation detail it depends on. A team starting with a specific problem can follow links to discover the full set of concerns that problem entails. A team building a systematic capability can read layer by layer.
 

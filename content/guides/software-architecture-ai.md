@@ -8,6 +8,7 @@ related:
   - frameworks/architecture-decision-records
   - guides/requirements-engineering-ai
   - comparisons/grpc-vs-rest-ai
+last_updated: 2026-05-30
 ---
 
 Architecture for AI systems must accommodate two fundamentally different workloads: training (batch, compute-intensive, experimental) and serving (real-time, latency-sensitive, production-grade). Most AI architecture failures come from treating these as one system or from building serving infrastructure before the model is validated. This guide covers the key architecture decisions, how to document them, and the trade-offs involved.

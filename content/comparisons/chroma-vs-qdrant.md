@@ -2,6 +2,7 @@
 title: "Chroma vs Qdrant - Vector Database Comparison"
 description: "Comparing Chroma and Qdrant for vector search applications, covering architecture, performance, ease of use, and production readiness."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [Chroma, Qdrant, vector-search, RAG, database]
 related:
@@ -10,6 +11,7 @@ related:
   - comparisons/milvus-vs-opensearch
   - guides/building-rag-systems
   - guides/vector-database-selection
+last_updated: 2026-05-30
 ---
 
 Chroma and Qdrant are both open-source vector databases, but they target different points on the simplicity-to-performance spectrum. Chroma prioritizes developer experience and ease of getting started. Qdrant prioritizes performance and production features. This comparison helps you choose based on your stage and requirements.

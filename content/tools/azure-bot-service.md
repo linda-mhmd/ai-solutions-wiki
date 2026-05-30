@@ -8,6 +8,7 @@ related:
   - tools/amazon-lex
   - tools/azure-openai
   - tools/azure-cognitive-services
+last_updated: 2026-05-30
 ---
 
 Azure Bot Service is Microsoft's managed platform for building, testing, deploying, and managing conversational bots that interact with users across multiple channels including Microsoft Teams, web chat, Slack, Facebook Messenger, Twilio SMS, email, and more. Combined with the Bot Framework SDK (available for C#, JavaScript, Python, and Java), it provides the development tools and cloud hosting infrastructure needed to create intelligent bots ranging from simple FAQ responders to complex AI-powered virtual assistants that leverage Azure OpenAI and Azure AI Services.

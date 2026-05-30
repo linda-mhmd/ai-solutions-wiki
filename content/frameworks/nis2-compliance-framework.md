@@ -13,6 +13,7 @@ related:
   - comparisons/iso-27001-vs-nis2
   - frameworks/dora-framework
   - frameworks/cyber-resilience-act
+last_updated: 2026-05-30
 ---
 
 The NIS2 Directive (Directive 2022/2555) is the EU's updated cybersecurity legislation that replaced the original NIS Directive. It establishes a unified legal framework for cybersecurity across 18 critical sectors and applies to essential and important entities operating in the EU. Member states were required to transpose NIS2 into national law by 17 October 2024, and enforcement is now active across the EU.

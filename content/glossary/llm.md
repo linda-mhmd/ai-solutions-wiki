@@ -11,9 +11,15 @@ related:
   - tools/claude-anthropic
   - tools/amazon-bedrock
   - guides/getting-started-with-bedrock
+last_updated: 2026-05-30
 ---
 
 A Large Language Model (LLM) is a type of AI model trained on large volumes of text to understand and generate language. LLMs are the technology behind products like Claude, ChatGPT, and Gemini, and they power most practical AI applications in enterprise settings today.
+
+<figure class="bz-figure">
+  <img src="/img/rapid-ai/brain-glass-shell-green-notext.png" alt="A glowing brain encased in a protective glass shell: the model's intelligence contained within infrastructure that makes it accessible and safe." loading="lazy">
+  <figcaption>An LLM is intelligence in a container. The model's capabilities are accessed through APIs, wrapped in guardrails, and deployed within infrastructure that manages cost, latency, and safety.</figcaption>
+</figure>
 
 ## How They Work (Simplified)
 

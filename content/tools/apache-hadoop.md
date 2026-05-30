@@ -9,6 +9,7 @@ related:
   - tools/apache-spark
   - tools/apache-kafka
   - tools/apache-hive
+last_updated: 2026-05-30
 ---
 
 Apache Hadoop is a foundational open-source framework that enables the distributed processing of massive data sets across clusters of computers using simple programming models. The framework is designed to scale from single servers to thousands of machines, each offering local computation and storage. Hadoop's architecture assumes hardware failures are common and handles them automatically at the application layer, providing a highly available service on top of unreliable infrastructure.

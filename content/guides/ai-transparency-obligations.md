@@ -11,6 +11,7 @@ related:
   - frameworks/eu-ai-act-risk-framework
   - frameworks/gdpr-ai-framework
   - guides/eu-ai-act-compliance
+last_updated: 2026-05-30
 ---
 
 Transparency is a cross-cutting requirement across multiple EU regulations affecting AI. This guide consolidates transparency obligations from the EU AI Act, GDPR, and related frameworks to help organizations build comprehensive transparency practices.

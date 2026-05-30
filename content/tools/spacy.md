@@ -8,6 +8,7 @@ related:
   - tools/amazon-comprehend
   - tools/huggingface-transformers
   - tools/huggingface
+last_updated: 2026-05-30
 ---
 
 spaCy is an open-source library for advanced Natural Language Processing (NLP) in Python, designed specifically for production use. Unlike research-oriented NLP frameworks, spaCy focuses on providing the best trade-off between speed and accuracy for real-world applications. It ships with pretrained statistical models and word vectors for over 75 languages, and provides a streamlined API for common NLP tasks including tokenization, part-of-speech tagging, dependency parsing, named entity recognition (NER), lemmatization, sentence segmentation, text classification, and entity linking.

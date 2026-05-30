@@ -9,6 +9,7 @@ related:
   - patterns/ai-audit-trail
   - patterns/model-versioning
   - patterns/data-versioning
+last_updated: 2026-05-30
 ---
 
 When a production model produces unexpected results, the first question is: what changed? Model lineage tracking provides the answer by maintaining a connected graph of every artifact, decision, and transformation in the model's history, from raw data through training to deployment.

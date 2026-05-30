@@ -3,6 +3,7 @@ title: "For Consultants and Advisors"
 description: "Speak AI fluently with every client. Understand the governance frameworks, technical vocabulary, and strategic tools that shape AI decisions at the board level."
 date: 2026-05-29
 tags: ["consulting", "advisory", "governance", "frameworks", "strategy"]
+last_updated: 2026-05-30
 ---
 
 ## Speak AI fluently with every client.

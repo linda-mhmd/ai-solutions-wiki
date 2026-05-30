@@ -4,6 +4,7 @@ description: "Use AI to match invoices against purchase orders and receiving rep
 date: 2026-03-28
 categories: [Ideas]
 tags: [accounts-payable, invoice-matching, finance, automation]
+last_updated: 2026-05-30
 ---
 
 Three-way matching - comparing an invoice against its purchase order and goods receipt - is the cornerstone of accounts payable controls. It is also mind-numbingly repetitive. An AP clerk compares line items, quantities, and prices across three documents dozens of times per day.

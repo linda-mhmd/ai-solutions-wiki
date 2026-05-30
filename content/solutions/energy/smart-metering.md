@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [smart-metering, utilities, load-profiling, demand-response, energy-analytics]
 industries: [energy]
 tools: [amazon-sagemaker, amazon-kinesis, amazon-redshift]
+last_updated: 2026-05-30
 ---
 
 Smart meters generate granular consumption data - typically at 15-minute or 30-minute intervals - for millions of customers. This data is orders of magnitude richer than monthly meter reads but is vastly underutilized by most utilities. AI analytics transforms smart meter data into actionable intelligence for grid operations, customer engagement, revenue protection, and demand-side management.

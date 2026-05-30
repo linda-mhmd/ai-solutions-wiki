@@ -10,6 +10,7 @@ related:
   - guides/mocking-ai-services
   - guides/contract-testing-ai-services
   - glossary/integration-testing
+last_updated: 2026-05-30
 ---
 
 Integration tests verify that components work together correctly. In AI systems, this means testing that the retrieval service feeds the right chunks to the prompt builder, that the prompt builder produces a well-formed request for the model API, and that the response parser correctly handles what the model returns. Individual components may pass unit tests but fail when connected due to mismatched interfaces, incorrect data flow, or timing issues.

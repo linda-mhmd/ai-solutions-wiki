@@ -9,6 +9,7 @@ related:
   - glossary/reinforcement-learning
   - glossary/overfitting
   - glossary/cross-validation
+last_updated: 2026-05-30
 ---
 
 Supervised learning is a machine learning paradigm where the model learns from labeled examples - input-output pairs where the correct answer is provided. The model learns to map inputs to outputs by minimizing the difference between its predictions and the known correct labels.

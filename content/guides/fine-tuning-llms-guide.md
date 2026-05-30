@@ -12,6 +12,7 @@ related:
   - guides/model-registry-guide
   - glossary/transfer-learning
   - glossary/catastrophic-forgetting
+last_updated: 2026-05-30
 ---
 
 Fine-tuning adapts a pre-trained language model to a specific task or domain by training it on additional data. It is one of the most misunderstood techniques in applied AI. Teams often fine-tune when prompting would suffice, or skip fine-tuning when it would provide significant improvements. This guide covers when fine-tuning is appropriate, how to do it effectively, and how to avoid common pitfalls.

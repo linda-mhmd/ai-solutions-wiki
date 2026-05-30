@@ -4,6 +4,7 @@ description: "An overview of the information systems discipline, covering types 
 date: 2026-03-28
 categories: [Glossary]
 tags: [information-systems, IS, MIS, enterprise, organization]
+last_updated: 2026-05-30
 ---
 
 An information system (IS) is an organized combination of people, hardware, software, data, communication networks, and processes that collects, transforms, stores, and distributes information to support decision-making, coordination, control, analysis, and visualization within an organization.

@@ -9,6 +9,7 @@ related:
   - comparisons/nis2-vs-dora
   - glossary/nis2
   - glossary/supply-chain-security
+last_updated: 2026-05-30
 ---
 
 The Digital Operational Resilience Act (DORA), formally Regulation (EU) 2022/2554, is an EU regulation that establishes uniform requirements for the security of network and information systems in the financial sector. It applies from January 2025 and covers banks, insurance companies, investment firms, payment providers, crypto-asset service providers, and critically, their ICT third-party service providers.

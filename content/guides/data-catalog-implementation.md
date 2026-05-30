@@ -8,6 +8,7 @@ related:
   - glossary/data-catalog
   - glossary/data-contract
   - guides/data-quality-ai
+last_updated: 2026-05-30
 ---
 
 AI teams spend a disproportionate amount of time finding and understanding data. A data catalog reduces discovery time from days to minutes by providing searchable metadata, lineage tracking, and ownership information for every dataset in the organisation. This guide covers implementing a data catalog using DataHub or OpenMetadata, with a focus on serving AI/ML use cases.

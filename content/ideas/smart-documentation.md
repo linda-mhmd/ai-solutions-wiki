@@ -4,6 +4,7 @@ description: "AI monitors code changes and automatically updates or flags outdat
 date: 2026-03-28
 categories: [Ideas]
 tags: [documentation, code-sync, developer-tools, automation, daily-ai-spark]
+last_updated: 2026-05-30
 ---
 
 Documentation goes stale the moment code changes. An API endpoint gets a new parameter, but the docs still show the old signature. A configuration option is removed, but the setup guide still references it. Teams know this is a problem but rarely have the discipline to update docs with every code change.

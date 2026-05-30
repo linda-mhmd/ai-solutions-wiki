@@ -10,6 +10,7 @@ related:
   - glossary/hallucination
   - patterns/guardrails-pattern
   - patterns/prompt-injection-defense
+last_updated: 2026-05-30
 ---
 
 AI safety is the field concerned with preventing AI systems from causing harm, whether through misuse, misalignment with intended objectives, unexpected behavior, or failure modes that were not anticipated during development. It spans technical research on alignment and robustness, engineering practices for building reliable systems, and governance frameworks for managing AI risk.

@@ -9,6 +9,7 @@ related:
   - patterns/model-versioning
   - tools/aws-cloudwatch
   - guides/ci-cd-ai-detailed
+last_updated: 2026-05-30
 ---
 
 Drift is the gradual degradation of a model's performance or relevance over time, caused by changes in the real-world data the model encounters compared to the data it was trained on. Drift is a fundamental challenge in production machine learning: a model that performed well at deployment will, without monitoring and retraining, eventually produce worse results as the world changes.

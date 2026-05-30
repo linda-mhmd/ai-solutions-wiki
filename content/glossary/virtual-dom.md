@@ -7,6 +7,7 @@ tags: [virtual-dom, react, reconciliation, dom, ui-rendering, svelte, solidjs]
 related:
   - glossary/remotion
   - glossary/component-driven-development
+last_updated: 2026-05-30
 ---
 
 The Virtual DOM (VDOM) is a programming concept where a lightweight, in-memory representation of the real browser DOM is maintained by a UI framework. When application state changes, the framework renders a new virtual tree, compares it against the previous virtual tree to compute the minimal set of differences, and applies only those differences to the real DOM. This process, called reconciliation, was introduced by React in 2013 and became one of the most influential ideas in modern frontend development.

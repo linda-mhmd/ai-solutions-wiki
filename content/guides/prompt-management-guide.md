@@ -9,6 +9,7 @@ related:
   - guides/ai-observability-guide
   - guides/rag-evaluation-guide
   - guides/experiment-tracking-guide
+last_updated: 2026-05-30
 ---
 
 In production LLM applications, prompts are code. A single-word change in a system prompt can alter the behavior of every response your application generates. Yet many teams manage prompts through ad-hoc edits, Slack messages, and hope. Prompt management is the practice of applying software engineering discipline to prompt development, testing, and deployment.

@@ -4,6 +4,7 @@ description: "Frameworks for controlling who can access resources, including DAC
 date: 2026-03-28
 categories: [Glossary]
 tags: [access-control, RBAC, ABAC, DAC, MAC, security, authorization]
+last_updated: 2026-05-30
 ---
 
 Access control models define the rules and mechanisms by which systems determine whether a subject (user, process, or device) is permitted to perform an action on a resource. The choice of access control model fundamentally shapes a system's security posture and administrative complexity.

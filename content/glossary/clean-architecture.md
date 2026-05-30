@@ -9,6 +9,7 @@ related:
   - glossary/ports-and-adapters
   - glossary/domain-driven-design
   - glossary/repository-pattern
+last_updated: 2026-05-30
 ---
 
 Clean architecture is a software design approach that organizes code into concentric layers with dependencies pointing inward. The innermost layer contains business logic (domain entities and use cases) with no dependencies on external frameworks, databases, or UI. Outer layers (adapters, infrastructure) implement the interfaces defined by inner layers. This structure, popularized by Robert C. Martin, ensures business logic is isolated, testable, and independent of implementation details.

@@ -8,6 +8,7 @@ related:
   - frameworks/software-quality-assurance
   - frameworks/shift-left-testing
   - guides/software-architecture-ai
+last_updated: 2026-05-30
 ---
 
 Code review for ML projects requires reviewers to look beyond standard software concerns. In addition to logic errors, style issues, and security vulnerabilities, ML code reviews must catch data leakage, training-serving skew, silent numerical errors, and experiment reproducibility issues. This guide covers what to look for when reviewing different types of ML code.

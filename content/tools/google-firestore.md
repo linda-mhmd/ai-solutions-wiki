@@ -9,6 +9,7 @@ related:
   - tools/google-firebase
   - tools/google-cloud-bigtable
   - tools/google-vertex-ai
+last_updated: 2026-05-30
 ---
 
 Google Cloud Firestore is a serverless NoSQL document database that stores data as collections of documents, where each document contains a set of key-value pairs. It provides real-time listeners that push data changes to connected clients instantly, offline data access with automatic synchronization when connectivity returns, and ACID transactions across multiple documents. Firestore is designed for application backends that need flexible data models, real-time updates, and seamless scaling without capacity planning.

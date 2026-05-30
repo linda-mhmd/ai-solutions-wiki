@@ -2,8 +2,10 @@
 title: "Amazon Textract vs Comprehend for Document Processing"
 description: "Comparing Amazon Textract and Amazon Comprehend for document processing workflows, covering text extraction, entity recognition, and when to use each."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [Textract, Comprehend, document-processing, NLP, AWS, comparison]
+last_updated: 2026-05-30
 ---
 
 Textract and Comprehend are both AWS AI services used in document processing, but they solve different problems. Textract extracts text and structure from documents. Comprehend analyzes text to extract meaning. Most document processing pipelines need both, used sequentially.

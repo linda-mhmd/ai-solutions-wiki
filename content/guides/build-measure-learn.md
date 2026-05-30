@@ -9,6 +9,7 @@ related:
   - guides/from-zero-to-production
   - guides/impact-mapping
   - guides/user-story-mapping
+last_updated: 2026-05-30
 ---
 
 Most teams build and ship. Fewer teams measure. Fewer still learn. The Build-Measure-Learn loop, the core engine of Eric Ries' Lean Startup methodology, treats this as a scientific process: every feature is a hypothesis, every release is an experiment, and the only thing that matters is whether you generated validated learning.

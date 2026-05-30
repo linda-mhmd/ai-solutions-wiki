@@ -9,6 +9,7 @@ related:
   - patterns/observability-ai
   - guides/testing-ai-systems
   - glossary/inference
+last_updated: 2026-05-30
 ---
 
 Every distributed system needs retry logic. AI services need it more than most, and they need it differently. A conventional API rate limit is measured in requests per second. An AI service rate limit is measured in tokens per minute, which means a burst of short requests and a burst of long requests hit the limit at completely different rates. Model inference also takes longer than a database query, which changes the math on timeout and retry budget design.

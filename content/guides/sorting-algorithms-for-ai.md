@@ -12,6 +12,7 @@ related:
   - glossary/big-o-notation
   - guides/building-rag-systems
   - glossary/vector-database
+last_updated: 2026-05-30
 ---
 
 Every AI pipeline that produces more than one result needs to rank them. Ranking is sorting. Understanding the algorithms behind sorting and search - their complexity, tradeoffs, and practical behavior - is foundational to building AI systems that perform well at scale.

@@ -8,6 +8,7 @@ related:
   - tools/aws-amplify
   - tools/amazon-cognito
   - tools/keycloak
+last_updated: 2026-05-30
 ---
 
 Supabase is an open-source backend-as-a-service (BaaS) platform that provides developers with a suite of tools for building modern applications without managing backend infrastructure. Often described as an open-source alternative to Firebase, Supabase differentiates itself by building on PostgreSQL rather than a proprietary NoSQL database, giving developers the full power of relational SQL, ACID transactions, and the PostgreSQL extension ecosystem (including PostGIS for geospatial, pgvector for AI embeddings, and pg_cron for scheduling).

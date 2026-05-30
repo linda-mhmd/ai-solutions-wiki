@@ -4,6 +4,7 @@ description: "How to structure AI teams within an organization, covering central
 date: 2026-03-28
 categories: [Guides]
 tags: [team-structure, organization, hiring, AI-development, leadership]
+last_updated: 2026-05-30
 ---
 
 The way you structure your AI team determines what you can build, how fast you can build it, and whether it survives first contact with the rest of the organization. There is no single correct structure - it depends on your organization's size, AI maturity, and how central AI is to your business strategy.

@@ -9,6 +9,7 @@ related:
   - glossary/deep-learning
   - glossary/dropout
   - glossary/gradient-descent
+last_updated: 2026-05-30
 ---
 
 Batch normalization is a technique that normalizes the inputs to each layer of a neural network by adjusting and scaling the activations using statistics computed across the current mini-batch. Introduced by Ioffe and Szegedy in 2015, it addresses the internal covariate shift problem - the phenomenon where the distribution of layer inputs changes during training as preceding layers update their weights.

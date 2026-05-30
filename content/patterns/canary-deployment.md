@@ -10,6 +10,7 @@ related:
   - guides/ci-cd-ai-detailed
   - tools/amazon-lambda
   - patterns/observability-ai
+last_updated: 2026-05-30
 ---
 
 A canary deployment releases a new version to a small subset of traffic before expanding to the full user base. The name comes from the historical practice of taking a canary into coal mines: the bird would alert miners to dangerous gases before concentrations reached levels harmful to humans. In software, the "canary" is a small fraction of production traffic exposed to the new version first, alerting the team to problems before all users are affected.

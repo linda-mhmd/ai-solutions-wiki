@@ -10,6 +10,7 @@ related:
   - glossary/mlops
   - patterns/ai-governance
   - patterns/ai-audit-trail
+last_updated: 2026-05-30
 ---
 
 A model card is a standardized document that accompanies a machine learning model, describing its intended use, performance characteristics, limitations, ethical considerations, and evaluation results. Introduced by Mitchell et al. at Google in 2019, model cards provide a consistent format for communicating essential information about a model to developers, users, auditors, and regulators.

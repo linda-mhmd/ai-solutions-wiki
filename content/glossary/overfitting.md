@@ -9,6 +9,7 @@ related:
   - glossary/bias-variance-tradeoff
   - glossary/cross-validation
   - glossary/dropout
+last_updated: 2026-05-30
 ---
 
 Overfitting occurs when a machine learning model learns the training data too well - memorizing noise, outliers, and idiosyncrasies rather than learning the underlying patterns that generalize to new data. An overfit model performs excellently on training data but poorly on unseen data, which is the data that actually matters.

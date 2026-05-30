@@ -9,6 +9,7 @@ related:
   - guides/testing-ai-systems
   - patterns/sandbox-testing-agents
   - glossary/mocking
+last_updated: 2026-05-30
 ---
 
 AI agents that use tools introduce testing challenges beyond simple prompt-response systems. An agent might call a database, invoke an API, execute code, or modify files. Each tool call is a potential point of failure, and the agent's tool selection logic is non-deterministic. Testing must cover tool execution, tool selection, error handling, multi-step workflows, and authorization boundaries.

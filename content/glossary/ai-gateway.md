@@ -11,6 +11,7 @@ related:
   - patterns/multi-model-routing
   - patterns/multi-provider-llm-failover
   - patterns/rate-limiting-ai
+last_updated: 2026-05-30
 ---
 
 An AI gateway is a centralized infrastructure component that sits between applications and LLM providers, providing routing, governance, monitoring, cost management, and security controls for all AI model interactions. It functions similarly to a traditional API gateway but is purpose-built for the unique requirements of LLM traffic.

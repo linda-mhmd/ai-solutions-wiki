@@ -4,6 +4,7 @@ description: "Public-key cryptography using mathematically related key pairs, in
 date: 2026-03-28
 categories: [Glossary]
 tags: [encryption, asymmetric, RSA, ECC, public-key, cryptography, security]
+last_updated: 2026-05-30
 ---
 
 Asymmetric encryption (public-key cryptography) uses a mathematically related pair of keys: a public key that can be freely distributed and a private key that must be kept secret. Data encrypted with the public key can only be decrypted with the corresponding private key, and vice versa.

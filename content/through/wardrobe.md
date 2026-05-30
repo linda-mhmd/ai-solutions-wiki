@@ -4,9 +4,10 @@ description: "You already understand version control, deployment pipelines, and 
 date: 2026-05-30
 categories: [Through]
 layout: persona
-image: /img/wardrobe/racks-git-branches.png
-image_alt: "Long clothing racks in a dark atelier, representing parallel code branches and version control strategies."
+image: /img/shaping-ai/silhouette-red-city-night-notext.png
+image_alt: "A lone silhouette standing at a floor-to-ceiling window, looking out over a vast red-lit city at night, representing the creative director who sees the whole system from above."
 tags: ["beginner", "metaphor", "software-development", "git", "deployment"]
+last_updated: 2026-05-30
 ---
 
 <div class="through-intro">
@@ -111,7 +112,6 @@ tags: ["beginner", "metaphor", "software-development", "git", "deployment"]
     <p class="bz-section-label">Go deeper in this lens</p>
     <h2 class="build-section-h2">Three research threads</h2>
     <div class="through-deeper-grid">
-
       <a href="/through/wardrobe-and-code/" class="through-deeper-card">
         <img class="through-deeper-card-img" src="/img/wardrobe/wardrobe-ecosystem-cicd.png" alt="A full wardrobe with clearly defined zones for preparation, production, quality, and delivery representing a CI/CD pipeline." loading="lazy">
         <div class="through-deeper-card-body">
@@ -120,7 +120,6 @@ tags: ["beginner", "metaphor", "software-development", "git", "deployment"]
           <span class="through-deeper-card-cta">Read →</span>
         </div>
       </a>
-
       <a href="/through/wardrobe-and-teams/" class="through-deeper-card">
         <img class="through-deeper-card-img" src="/img/wardrobe/junior-partner-collaboration.png" alt="Two people working together in an atelier, representing team collaboration, pairing, and shared craft in software development." loading="lazy">
         <div class="through-deeper-card-body">
@@ -129,7 +128,6 @@ tags: ["beginner", "metaphor", "software-development", "git", "deployment"]
           <span class="through-deeper-card-cta">Read →</span>
         </div>
       </a>
-
       <a href="/through/wardrobe-and-ai/" class="through-deeper-card">
         <img class="through-deeper-card-img" src="/img/wardrobe/ai-stylist-vibe-coding.png" alt="A person seated in an atelier chair while an AI system generates design options, representing AI-directed creative work." loading="lazy">
         <div class="through-deeper-card-body">
@@ -138,7 +136,6 @@ tags: ["beginner", "metaphor", "software-development", "git", "deployment"]
           <span class="through-deeper-card-cta">Read →</span>
         </div>
       </a>
-
     </div>
   </div>
 </section>

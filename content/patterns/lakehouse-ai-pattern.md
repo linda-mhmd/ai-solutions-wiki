@@ -10,6 +10,7 @@ related:
   - glossary/data-warehouse
   - patterns/ml-feature-platform
   - patterns/data-product-pattern
+last_updated: 2026-05-30
 ---
 
 Traditional data architectures force a choice: store data in a warehouse for reliable analytics or in a data lake for flexible ML workloads. The lakehouse pattern eliminates this choice by adding warehouse-like reliability features (ACID transactions, schema enforcement, time travel) directly to data lake storage. Both analytics queries and ML training jobs read from the same data, in the same format, with the same governance controls.

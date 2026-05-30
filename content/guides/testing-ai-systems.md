@@ -10,6 +10,7 @@ related:
   - patterns/circuit-breaker-ai
   - patterns/feature-flags-ai
   - tools/langfuse
+last_updated: 2026-05-30
 ---
 
 Testing AI systems is harder than testing deterministic software because the outputs are probabilistic. The same input can produce different outputs on different runs. But "harder" does not mean "impossible" - it means applying a different testing strategy that validates properties and distributions rather than exact outputs.

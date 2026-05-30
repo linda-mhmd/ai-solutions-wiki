@@ -10,6 +10,7 @@ related:
   - guides/ai-security-best-practices
   - patterns/prompt-injection-defense
   - patterns/guardrails-pattern
+last_updated: 2026-05-30
 ---
 
 Prompt injection is a class of attacks against large language model (LLM) applications where an attacker crafts input that causes the model to override its system instructions, bypass safety guardrails, or perform unintended actions. It is consistently ranked as the top vulnerability in the OWASP Top 10 for LLM Applications.

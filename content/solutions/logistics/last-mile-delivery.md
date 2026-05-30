@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [last-mile, delivery-optimization, address-validation, customer-experience, logistics-ai]
 industries: [logistics, retail]
 tools: [amazon-sagemaker, amazon-location-service, amazon-bedrock]
+last_updated: 2026-05-30
 ---
 
 Last-mile delivery - the final leg from distribution hub to the customer's door - accounts for 40-53% of total shipping cost. It is also the most visible part of the supply chain to the end customer and the primary driver of delivery satisfaction. AI optimization addresses the unique challenges of last-mile delivery: high stop density, narrow time windows, access constraints, and the high cost of failed delivery attempts.

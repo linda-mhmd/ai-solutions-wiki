@@ -10,6 +10,7 @@ related:
   - patterns/prompt-injection-defense
   - patterns/guardrails-pattern
   - guides/red-teaming-ai
+last_updated: 2026-05-30
 ---
 
 Red teaming in AI is the practice of systematically probing an AI system to discover vulnerabilities, failure modes, harmful outputs, and policy violations before the system is deployed to users. A red team plays the role of an adversary, using creative and structured techniques to elicit behavior that the system's designers intended to prevent.

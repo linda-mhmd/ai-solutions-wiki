@@ -3,6 +3,7 @@ title: "For Vibe Coders"
 description: "Build real products without writing every line. Understand enough to direct the AI, debug what breaks, and ship something that works."
 date: 2026-05-29
 tags: ["vibe-coding", "beginner", "no-code", "ai-tools"]
+last_updated: 2026-05-30
 ---
 
 ## You direct. The AI writes. But you need to speak the language.

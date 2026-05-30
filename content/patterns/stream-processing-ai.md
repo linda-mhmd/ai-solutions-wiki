@@ -12,6 +12,7 @@ related:
   - glossary/kafka
   - patterns/event-driven-ai
   - guides/mlops-getting-started
+last_updated: 2026-05-30
 ---
 
 **This page describes the pattern.** For a full implementation guide covering pipeline architecture, late data handling, schema evolution, and event-driven inference, see [Real-Time Data Pipelines for AI Workloads](/guides/stream-processing-ai/).

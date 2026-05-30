@@ -14,6 +14,7 @@ alternatives:
   aws: tools/amazon-cloudwatch
   azure: tools/azure-monitor
   gcp: tools/google-cloud-monitoring
+last_updated: 2026-05-30
 ---
 
 Grafana is an open-source platform for monitoring and observability that provides rich, interactive dashboards for visualizing time series data from virtually any data source. It has become the standard visualization layer in modern observability stacks, connecting to Prometheus, Elasticsearch, InfluxDB, PostgreSQL, MySQL, Loki (logs), Tempo (traces), CloudWatch, BigQuery, and over 150 other data sources through its plugin system. Grafana enables teams to build unified dashboards that correlate metrics, logs, and traces from disparate systems.

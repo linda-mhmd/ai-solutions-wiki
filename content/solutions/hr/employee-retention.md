@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [employee-retention, attrition-prediction, hr-analytics, workforce-management, talent]
 industries: [hr]
 tools: [amazon-sagemaker, amazon-redshift, amazon-quicksight]
+last_updated: 2026-05-30
 ---
 
 Employee turnover is one of the most expensive workforce challenges. Replacing an employee costs 50-200% of their annual salary when accounting for recruitment, onboarding, training, productivity ramp-up, and lost institutional knowledge. AI attrition prediction identifies employees at risk of leaving before they resign, enabling proactive retention interventions that are far more effective than reactive counteroffers.

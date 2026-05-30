@@ -5,6 +5,7 @@ date: 2026-03-24
 categories: [Solutions]
 tags: [government, housing, prioritization]
 industries: [Government, Public Sector]
+last_updated: 2026-05-30
 ---
 
 Housing assistance programs face a structural mismatch: demand consistently exceeds supply, intake volumes are high, and the criteria for prioritization are complex enough that manual scoring is inconsistent. AI can standardize intake processing and apply prioritization criteria uniformly - producing fairer outcomes and dramatically faster decisions.

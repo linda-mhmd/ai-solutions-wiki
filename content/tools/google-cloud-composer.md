@@ -9,6 +9,7 @@ related:
   - tools/google-cloud-workflows
   - tools/google-cloud-dataflow
   - tools/google-vertex-ai
+last_updated: 2026-05-30
 ---
 
 Google Cloud Composer is a fully managed Apache Airflow service for authoring, scheduling, and monitoring workflows. Airflow is the industry-standard open-source platform for programmatically defining data pipelines as directed acyclic graphs (DAGs) in Python. Cloud Composer handles the infrastructure -- web server, scheduler, workers, metadata database, and Redis queue -- while users focus on writing DAG definitions that describe their pipeline logic.

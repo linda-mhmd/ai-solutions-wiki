@@ -2,8 +2,10 @@
 title: "GPU vs TPU for AI Training and Inference"
 description: "Comparing GPUs and TPUs for AI model training and inference, covering performance, cost, ecosystem, and workload suitability."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [GPU, TPU, training, inference, hardware, compute]
+last_updated: 2026-05-30
 ---
 
 The choice between GPUs and TPUs affects training speed, inference latency, cost, and which frameworks and model architectures are practical to use. GPUs are the default for most AI workloads, but TPUs offer advantages for specific use cases, particularly large-scale training of transformer models on Google Cloud. This comparison covers the trade-offs for AI training and inference workloads.

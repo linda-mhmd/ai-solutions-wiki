@@ -8,6 +8,7 @@ related:
   - glossary/data-lake
   - glossary/data-warehouse
   - glossary/domain-driven-design
+last_updated: 2026-05-30
 ---
 
 Data mesh is an organizational and architectural approach to data management that decentralizes data ownership to domain teams. Instead of a central data team owning all data pipelines and a monolithic data lake, each business domain (orders, customers, inventory, logistics) owns, produces, and serves its own data as a product.

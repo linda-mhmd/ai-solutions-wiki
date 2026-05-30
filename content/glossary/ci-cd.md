@@ -10,9 +10,15 @@ related:
   - glossary/feature-flags
   - glossary/property-based-testing
   - patterns/feature-flags-ai
+last_updated: 2026-05-30
 ---
 
 CI/CD stands for Continuous Integration and Continuous Delivery (or Continuous Deployment). It is a software engineering practice that automates the building, testing, and deployment of code changes.
+
+<figure class="bz-figure">
+  <img src="/img/obsidian-lab/pipeline-components-sequence-notext.png" alt="A sequence of connected pipeline components: code flows through build, test, and deploy stages in an automated sequence." loading="lazy">
+  <figcaption>CI/CD is a pipeline. Code enters at one end, passes through automated build and test stages, and emerges as a deployed release. Every stage is automated, repeatable, and auditable.</figcaption>
+</figure>
 
 **Continuous Integration (CI)** means every code change is automatically built and tested when it is pushed to version control. The goal is to detect integration errors and quality regressions quickly - within minutes of a change being made - rather than discovering them days or weeks later when they are harder to diagnose.
 

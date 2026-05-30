@@ -4,6 +4,7 @@ description: "Architecture patterns for AI-powered video analysis. Frame extract
 date: 2026-03-28
 categories: [Patterns]
 tags: [video-analysis, computer-vision, pipeline, media-processing, multi-modal]
+last_updated: 2026-05-30
 ---
 
 Video analysis combines multiple AI capabilities - visual recognition, audio transcription, text detection, and temporal reasoning - into a pipeline that must process hours of content efficiently. The challenge is not any single analysis step but orchestrating them together with aligned timestamps and manageable costs.

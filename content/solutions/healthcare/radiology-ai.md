@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [radiology, medical-imaging, computer-vision, clinical-decision-support, diagnostic-AI]
 industries: [healthcare]
 tools: [amazon-sagemaker, amazon-bedrock, amazon-s3]
+last_updated: 2026-05-30
 ---
 
 Radiology workloads have grown dramatically as imaging becomes more accessible and clinical indications expand. Radiologists in many European healthcare systems read 50-100 studies per day, with increasing study complexity (more slices per CT, more sequences per MRI). AI radiology tools assist radiologists by automating detection of specific findings, performing quantitative measurements, and generating structured preliminary reports.

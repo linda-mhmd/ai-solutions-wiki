@@ -10,6 +10,7 @@ related:
   - glossary/responsible-ai
   - glossary/model-card
   - guides/ai-audit-readiness
+last_updated: 2026-05-30
 ---
 
 ISO/IEC 42001:2023 is the international standard for AI management systems (AIMS). It provides a framework for organizations to establish, implement, maintain, and continually improve a management system for the responsible development, provision, and use of AI. This guide covers the practical steps to implement the standard and prepare for certification.

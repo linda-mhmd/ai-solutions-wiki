@@ -9,6 +9,7 @@ related:
   - glossary/agentic-ai
   - glossary/multi-agent-systems
   - glossary/multi-agent-orchestration
+last_updated: 2026-05-30
 ---
 
 Amazon Bedrock AgentCore is an AWS service that provides enterprise-grade infrastructure for deploying, operating, and governing AI agents at scale. Rather than requiring teams to build their own agent hosting, observability, and policy enforcement systems, AgentCore provides a managed runtime, gateway, memory, identity, and evaluation layer that works with any agent framework and any model. AgentCore represents a strategic shift in AWS's AI offering from model APIs to agent infrastructure.

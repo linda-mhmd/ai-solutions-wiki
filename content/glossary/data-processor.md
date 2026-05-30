@@ -9,6 +9,7 @@ related:
   - glossary/gdpr
   - frameworks/gdpr-ai-framework
   - guides/gdpr-for-ai-teams
+last_updated: 2026-05-30
 ---
 
 A data processor, as defined in Article 4(8) of GDPR, is a natural or legal person, public authority, agency, or other body that processes personal data on behalf of the data controller. The processor acts on the controller's instructions and does not determine the purposes or means of processing independently.

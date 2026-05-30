@@ -8,6 +8,7 @@ related:
   - glossary/service-mesh
   - glossary/sidecar-pattern
   - glossary/kubernetes
+last_updated: 2026-05-30
 ---
 
 Istio is an open-source service mesh that provides traffic management, security, and observability for microservices running on Kubernetes. It uses Envoy sidecar proxies injected into each pod to intercept and manage all network traffic between services, controlled by a central control plane.

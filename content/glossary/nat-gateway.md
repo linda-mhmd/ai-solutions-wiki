@@ -7,6 +7,7 @@ tags: [NAT-gateway, VPC, networking, security, AWS]
 related:
   - glossary/vpc
   - glossary/subnet
+last_updated: 2026-05-30
 ---
 
 A NAT (Network Address Translation) gateway enables resources in private subnets to initiate outbound connections to the internet while preventing unsolicited inbound connections from the internet. It translates private IP addresses to a public IP address for outbound traffic and routes responses back to the originating resource.

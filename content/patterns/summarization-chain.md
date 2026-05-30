@@ -4,6 +4,7 @@ description: "Multi-step summarization strategies for long documents. Map-reduce
 date: 2026-03-28
 categories: [Patterns]
 tags: [summarization, chain, long-documents, NLP, content-processing]
+last_updated: 2026-05-30
 ---
 
 Summarizing a document that fits within a model's context window is straightforward. Summarizing a 200-page report, a day's worth of Slack messages, or a multi-hour meeting transcript requires a chain of summarization steps because the source material exceeds what a single model call can process.

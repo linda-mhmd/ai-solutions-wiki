@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [drug-discovery, pharmaceutical, molecular-design, clinical-trials, biotech]
 industries: [healthcare]
 tools: [amazon-sagemaker, amazon-bedrock, aws-batch]
+last_updated: 2026-05-30
 ---
 
 Drug development is one of the most expensive and failure-prone processes in any industry. The average cost to bring a new drug to market exceeds 2 billion EUR, with a timeline of 10-15 years and a success rate below 10% from Phase I clinical trials to approval. AI is being applied at every stage of the pipeline to reduce costs, accelerate timelines, and improve success rates by identifying promising candidates earlier and eliminating failures faster.

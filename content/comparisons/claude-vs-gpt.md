@@ -2,8 +2,10 @@
 title: "Claude vs GPT - Choosing an Enterprise LLM"
 description: "A practical comparison of Anthropic Claude and OpenAI GPT for enterprise applications - capability differences, access options, compliance characteristics, and decision criteria."
 date: 2026-03-24
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: ["ai-ml", "beginner", "claude", "gpt", "comparison", "llm", "foundation-models"]
+last_updated: 2026-05-30
 ---
 
 Claude (Anthropic) and GPT (OpenAI) are the two most widely deployed foundation models in enterprise AI applications. Both are capable general-purpose LLMs; the differences that matter for enterprise decisions are in access options, compliance characteristics, specific capability strengths, and cost structure rather than a clear overall winner.
@@ -45,7 +47,7 @@ These differences are task-dependent and close over time as both providers updat
 
 ## Cost Comparison
 
-Both models use per-token pricing. Comparable capability tiers (Claude Haiku vs GPT-4o-mini; Claude Sonnet vs GPT-4o) are within 20-50% of each other in cost, with the relative advantage switching between providers as each releases updates.
+Both models use per-token pricing. Comparable capability tiers (Claude 3.5 Haiku vs GPT-4o-mini; Claude 3.5 Sonnet vs GPT-4o) are within 20-50% of each other in cost, with the relative advantage switching between providers as each releases updates.
 
 For large-scale deployments, run cost projections against your estimated token volumes using current pricing from each provider's documentation. Small per-token differences compound significantly at scale.
 

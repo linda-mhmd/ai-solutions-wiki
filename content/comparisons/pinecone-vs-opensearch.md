@@ -2,8 +2,10 @@
 title: "Pinecone vs OpenSearch for Vector Search"
 description: "Comparing Pinecone and Amazon OpenSearch for vector search in AI applications, covering performance, operations, cost, and feature differences."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [Pinecone, OpenSearch, vector-search, RAG, database]
+last_updated: 2026-05-30
 ---
 
 Pinecone is a purpose-built vector database. OpenSearch is a search and analytics engine with vector search capabilities added via the k-NN plugin. Both can power RAG systems and semantic search, but they differ in focus, operational complexity, and feature depth.

@@ -10,6 +10,7 @@ related:
   - patterns/continuous-training-pattern
   - patterns/observability-ai
   - patterns/ab-testing-ml
+last_updated: 2026-05-30
 ---
 
 AI systems that ship without feedback mechanisms stagnate. The feedback loop pattern creates structured channels for capturing user reactions to AI outputs, then uses that signal to improve the system over time. Without this, you are guessing about quality. With it, you have a continuous stream of labeled data showing where the system succeeds and where it fails.

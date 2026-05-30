@@ -4,6 +4,7 @@ description: "The most widely used UML diagram type, showing classes with their 
 date: 2026-03-28
 categories: [Glossary]
 tags: [uml, class-diagram, object-oriented, software-modeling, relationships]
+last_updated: 2026-05-30
 ---
 
 A class diagram is a UML structural diagram that shows the classes in a system, their attributes and methods, and the relationships between them. It is the most frequently used UML diagram type and serves as the primary tool for modeling the static structure of object-oriented systems.

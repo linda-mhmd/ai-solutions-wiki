@@ -9,6 +9,7 @@ related:
   - glossary/loss-function
   - glossary/neural-network
   - glossary/hyperparameter-tuning
+last_updated: 2026-05-30
 ---
 
 Gradient descent is the optimization algorithm used to train neural networks. It iteratively adjusts model parameters (weights) in the direction that reduces the loss function, moving toward a set of weights that produces accurate predictions. Virtually all neural network training uses some variant of gradient descent.

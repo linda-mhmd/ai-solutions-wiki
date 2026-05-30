@@ -8,6 +8,7 @@ related:
   - glossary/cdn
   - glossary/serverless
   - glossary/inference
+last_updated: 2026-05-30
 ---
 
 Edge computing processes data near its source - at the network edge, on devices, or in local facilities - rather than sending all data to a centralized cloud data center. This reduces latency, conserves bandwidth, and enables operation when network connectivity is unreliable or unavailable.

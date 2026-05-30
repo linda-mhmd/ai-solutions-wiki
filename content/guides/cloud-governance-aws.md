@@ -10,6 +10,7 @@ related:
   - comparisons/aws-vs-azure-governance
   - guides/cloud-security-posture-management
   - guides/infrastructure-as-code-ai
+last_updated: 2026-05-30
 ---
 
 AWS provides a rich set of governance tools, but they require deliberate configuration for AI workloads. This guide covers the practical setup for governing AI systems on AWS.

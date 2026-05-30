@@ -4,6 +4,7 @@ description: "Use AI to generate personalized onboarding checklists based on rol
 date: 2026-03-28
 categories: [Ideas]
 tags: [onboarding, hr, employee-experience, automation]
+last_updated: 2026-05-30
 ---
 
 New hire onboarding involves dozens of tasks spread across IT, HR, facilities, and the hiring manager. Dropped tasks mean a new employee shows up without a laptop, without system access, or without knowing who their buddy is. The experience sets the tone for their entire tenure.

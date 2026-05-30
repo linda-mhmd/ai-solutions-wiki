@@ -8,6 +8,7 @@ related:
   - guides/integration-testing-ai-pipelines
   - guides/testing-ai-systems
   - glossary/integration-testing
+last_updated: 2026-05-30
 ---
 
 When an AI system is composed of microservices, each service boundary is a potential failure point. The embedding service changes its output dimension. The retrieval service adds a new field to its response. The inference service updates its model and the output format shifts. Contract testing catches these breaks before they reach production by defining and verifying the agreements between services.

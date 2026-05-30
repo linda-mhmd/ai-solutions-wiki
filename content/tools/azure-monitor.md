@@ -7,6 +7,7 @@ tags: [azure, monitoring, observability, logging, metrics, alerting]
 related:
   - tools/amazon-cloudwatch
   - tools/azure-managed-grafana
+last_updated: 2026-05-30
 ---
 
 Azure Monitor is Microsoft Azure's unified observability platform that provides comprehensive monitoring for applications, infrastructure, and networks across cloud and on-premises environments. It collects metrics, logs, traces, and changes from virtually every Azure resource and correlates them in a single platform for analysis, visualization, and alerting. For AI workloads, Azure Monitor tracks the health and performance of inference endpoints, monitors pipeline execution, measures AI service latency and error rates, and provides the operational visibility needed to maintain production AI systems.

@@ -4,6 +4,7 @@ description: "How to deploy AI models on edge devices, covering hardware selecti
 date: 2026-03-28
 categories: [Guides]
 tags: [edge-AI, deployment, IoT, model-optimization, AI-infrastructure]
+last_updated: 2026-05-30
 ---
 
 Edge AI runs machine learning models on devices close to the data source - factory floors, retail stores, vehicles, cameras, and mobile devices - rather than in the cloud. This eliminates network latency, reduces bandwidth costs, and enables AI in environments with limited or no connectivity. The tradeoff: edge devices have constrained compute, memory, and storage compared to cloud infrastructure.

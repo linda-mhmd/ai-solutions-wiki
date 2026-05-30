@@ -2,6 +2,7 @@
 title: "Amazon SageMaker vs Bedrock - Build vs Buy"
 description: "When to use SageMaker for custom ML versus Bedrock for managed foundation models - a practical comparison for enterprise AI teams."
 date: 2026-03-24
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: ["ai-ml", "intermediate", "amazon-sagemaker", "amazon-bedrock", "comparison", "aws", "model-deployment"]
 related:
@@ -10,6 +11,7 @@ related:
   - comparisons/bedrock-vs-azure-openai
   - guides/getting-started-with-bedrock
   - glossary/foundation-models
+last_updated: 2026-05-30
 ---
 
 SageMaker and Bedrock are both AWS AI services but they serve fundamentally different purposes. Choosing between them - or deciding to use both - is one of the first architecture decisions in any enterprise AI project on AWS.
@@ -44,7 +46,7 @@ SageMaker is appropriate when:
 
 ## The Cost Comparison
 
-**Bedrock:** No fixed costs; pay per token consumed. Claude Haiku (the cheapest tier) processes roughly 2 million tokens for $1. For moderate workloads under 1 million tokens per day, Bedrock is almost always cheaper than self-hosting.
+**Bedrock:** No fixed costs; pay per token consumed. Claude 3.5 Haiku (the cheapest tier) processes roughly 2 million tokens for $1. For moderate workloads under 1 million tokens per day, Bedrock is almost always cheaper than self-hosting.
 
 **SageMaker:** Fixed costs for running inference endpoints (hourly per instance, whether serving requests or idle) plus per-request variable costs. Cost-effective only when utilization is consistently high. An ml.g4dn.xlarge endpoint runs approximately $0.50/hour at full utilization; idle instances represent wasted spend.
 

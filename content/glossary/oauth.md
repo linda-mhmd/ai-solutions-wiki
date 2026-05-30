@@ -8,6 +8,7 @@ related:
   - glossary/api
   - glossary/api-gateway
   - glossary/webhooks
+last_updated: 2026-05-30
 ---
 
 OAuth is an open standard for delegated authorization that allows users to grant third-party applications limited access to their resources on a service without sharing their passwords. Instead of handing credentials to a third-party app, the user authenticates directly with the resource provider, which issues a scoped, time-limited access token to the third party. OAuth is the authorization protocol behind "Sign in with Google," "Sign in with GitHub," and virtually every third-party API integration on the modern web.

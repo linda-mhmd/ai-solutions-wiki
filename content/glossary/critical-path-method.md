@@ -4,6 +4,7 @@ description: "A schedule analysis technique that identifies the longest sequence
 date: 2026-03-28
 categories: [Glossary]
 tags: [critical-path, project-management, scheduling, CPM, planning]
+last_updated: 2026-05-30
 ---
 
 The Critical Path Method (CPM) is a project scheduling technique that identifies the longest sequence of dependent activities (the critical path) through a project network. The critical path determines the shortest possible project duration; any delay to a critical-path activity directly delays the project completion date.

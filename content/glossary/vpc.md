@@ -8,6 +8,7 @@ related:
   - glossary/subnet
   - glossary/nat-gateway
   - glossary/security-pillar
+last_updated: 2026-05-30
 ---
 
 A Virtual Private Cloud (VPC) is a logically isolated virtual network within AWS where you launch resources. It gives you full control over IP address ranges, subnets, route tables, and network gateways. Every EC2 instance, RDS database, Lambda function (when VPC-attached), and ECS task runs within a VPC.

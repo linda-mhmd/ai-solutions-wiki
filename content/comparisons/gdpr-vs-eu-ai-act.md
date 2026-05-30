@@ -2,6 +2,7 @@
 title: "GDPR vs EU AI Act"
 description: "Comparison of GDPR and the EU AI Act: how they overlap, where they differ, and how organizations must comply with both when deploying AI systems in the EU."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [gdpr, eu-ai-act, regulation, compliance, data-protection, ai-governance]
 related:
@@ -10,6 +11,7 @@ related:
   - frameworks/gdpr-ai-framework
   - frameworks/eu-ai-act-risk-framework
   - guides/ai-regulatory-compliance-checklist
+last_updated: 2026-05-30
 ---
 
 GDPR and the EU AI Act are complementary regulations, not alternatives. Organizations deploying AI systems that process personal data must comply with both simultaneously. Understanding where they overlap and diverge is essential for building compliant AI systems.

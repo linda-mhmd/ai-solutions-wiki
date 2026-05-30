@@ -11,9 +11,15 @@ related:
   - tools/amazon-opensearch
   - glossary/embeddings
   - glossary/vector-database
+last_updated: 2026-05-30
 ---
 
 Retrieval Augmented Generation (RAG) is an architecture pattern that improves the accuracy and relevance of AI-generated responses by providing the model with relevant source documents at query time, rather than relying solely on knowledge learned during training.
+
+<figure class="bz-figure">
+<img src="/img/craft/filing-cabinet-drawer-files-text.png" alt="A filing cabinet with an open drawer revealing organized files, representing how RAG systems retrieve relevant documents from a knowledge base to augment AI responses with accurate, up-to-date information." loading="lazy">
+<figcaption>RAG systems retrieve relevant documents from a knowledge base at query time, grounding AI responses in authoritative sources rather than relying solely on training data.</figcaption>
+</figure>
 
 ## How It Works
 

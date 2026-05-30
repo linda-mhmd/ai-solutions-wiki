@@ -4,6 +4,7 @@ description: "One-way functions that produce fixed-size digests from arbitrary i
 date: 2026-03-28
 categories: [Glossary]
 tags: [hashing, SHA-256, MD5, bcrypt, cryptography, security]
+last_updated: 2026-05-30
 ---
 
 A cryptographic hash function is a one-way function that takes an arbitrary-length input and produces a fixed-size output (digest or hash). Good hash functions are deterministic, fast to compute, infeasible to reverse, and produce vastly different outputs for slightly different inputs (avalanche effect).

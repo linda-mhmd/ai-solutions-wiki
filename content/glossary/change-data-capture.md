@@ -8,6 +8,7 @@ related:
   - glossary/stream-processing
   - guides/stream-processing-ai
   - patterns/event-sourcing-ai
+last_updated: 2026-05-30
 ---
 
 Change data capture (CDC) is a pattern that identifies and captures changes made to data in a source system (inserts, updates, deletes) and delivers those changes to downstream consumers in real time or near real time. Instead of periodically querying the full dataset, CDC streams only what changed.

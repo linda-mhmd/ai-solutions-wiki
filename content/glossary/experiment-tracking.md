@@ -11,6 +11,7 @@ related:
   - tools/mlflow
   - tools/weights-and-biases
   - guides/experiment-tracking-guide
+last_updated: 2026-05-30
 ---
 
 Experiment tracking is the systematic logging of every parameter, metric, artifact, and configuration associated with each ML training run. It provides a searchable, comparable record of what was tried, what worked, and what did not, enabling teams to make informed decisions about model development rather than relying on memory or scattered notes.

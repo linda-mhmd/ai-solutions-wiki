@@ -4,6 +4,7 @@ description: "Effective patterns for using AI as a pair programming partner: whe
 date: 2026-03-28
 categories: [Ideas]
 tags: [pair-programming, developer-tools, productivity, coding, daily-ai-spark]
+last_updated: 2026-05-30
 ---
 
 AI pair programming works best when you treat the AI as a collaborator with specific strengths and weaknesses, not as a code generator you paste prompts into. The most effective developers using AI assistants have developed patterns for when the AI leads and when the human leads.

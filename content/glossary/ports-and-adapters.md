@@ -8,6 +8,7 @@ related:
   - glossary/hexagonal-architecture
   - glossary/clean-architecture
   - glossary/repository-pattern
+last_updated: 2026-05-30
 ---
 
 Ports and adapters is the architectural pattern behind hexagonal architecture, coined by Alistair Cockburn. A port is an interface that defines how the application communicates with the outside world. An adapter is a concrete implementation that connects a port to a specific technology. The pattern ensures that the application core depends only on abstractions (ports), never on specific external systems.

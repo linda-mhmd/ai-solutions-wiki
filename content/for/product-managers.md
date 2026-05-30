@@ -3,6 +3,7 @@ title: "For Product Managers"
 description: "The AI vocabulary your team assumes you already have. Understand what engineers are building, evaluate proposals, and ask the right questions in every AI project room."
 date: 2026-05-29
 tags: ["product-management", "beginner", "ai-ml", "strategy"]
+last_updated: 2026-05-30
 ---
 
 ## The AI vocabulary your team assumes you already have.

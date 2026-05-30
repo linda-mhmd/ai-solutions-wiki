@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [learning-paths, optimization, reinforcement-learning, spaced-repetition, adaptive-learning]
 industries: [education]
 tools: [amazon-sagemaker, amazon-bedrock, amazon-dynamodb]
+last_updated: 2026-05-30
 ---
 
 The order in which concepts are presented significantly affects learning outcomes. Cognitive science research on spacing effects, interleaving, and prerequisite dependencies provides principles for sequencing, but applying these principles to individual learners across complex curricula requires optimization at a scale that manual curriculum design cannot achieve.

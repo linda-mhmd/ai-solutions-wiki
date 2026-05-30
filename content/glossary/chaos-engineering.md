@@ -8,6 +8,7 @@ related:
   - glossary/site-reliability-engineering
   - glossary/circuit-breaker
   - glossary/error-budget
+last_updated: 2026-05-30
 ---
 
 Chaos engineering is the practice of deliberately introducing controlled failures into a system to discover weaknesses before they cause unplanned outages. By proactively testing how the system responds to disrupted networks, failed services, increased latency, and resource exhaustion, teams build confidence that the system handles real-world failures gracefully.

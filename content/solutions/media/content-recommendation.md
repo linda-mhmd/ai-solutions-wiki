@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [content-recommendation, personalization, media-ai, engagement, discovery]
 industries: [media, retail]
 tools: [amazon-personalize, amazon-sagemaker, amazon-dynamodb]
+last_updated: 2026-05-30
 ---
 
 Content discovery is the central challenge for media platforms. A streaming service with 50,000 titles, a news publisher with 500 articles per day, or a music platform with 100 million tracks cannot rely on users browsing to find what they want. Recommendation systems surface relevant content to each user, driving engagement, retention, and content monetization. The quality of recommendations directly impacts key business metrics: session duration, content consumption, subscriber retention, and advertising revenue.

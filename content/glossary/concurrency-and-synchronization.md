@@ -4,6 +4,7 @@ description: "Techniques for managing concurrent execution in operating systems 
 date: 2026-03-28
 categories: [Glossary]
 tags: [operating-systems, concurrency, synchronization, mutexes, semaphores, deadlocks]
+last_updated: 2026-05-30
 ---
 
 Concurrency occurs when multiple processes or threads make progress within overlapping time periods. Synchronization provides mechanisms to coordinate concurrent execution and protect shared resources from race conditions, where the outcome depends on the unpredictable order in which operations execute.

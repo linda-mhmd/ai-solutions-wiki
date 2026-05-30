@@ -2,8 +2,10 @@
 title: "Python vs TypeScript for AI Development"
 description: "Comparing Python and TypeScript for AI application development, covering ML libraries, LLM frameworks, deployment, and when to use each."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [Python, TypeScript, programming-languages, AI-development, comparison]
+last_updated: 2026-05-30
 ---
 
 Python dominates AI and machine learning. TypeScript dominates web application development. AI applications increasingly live at the intersection, creating a genuine choice between languages. This comparison covers where each excels for AI work.

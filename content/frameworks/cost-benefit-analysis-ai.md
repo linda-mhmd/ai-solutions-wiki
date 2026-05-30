@@ -8,6 +8,7 @@ related:
   - frameworks/rice-scoring
   - frameworks/kpi-framework-ai
   - frameworks/use-case-scoring
+last_updated: 2026-05-30
 ---
 
 Cost-benefit analysis (CBA) for AI projects quantifies the financial investment required and the value returned, producing ROI projections that inform go/no-go decisions. AI projects have cost structures that differ from traditional software: model training compute costs, ongoing inference costs, data labeling expenses, and the probabilistic nature of outcomes. A rigorous CBA accounts for these differences and presents a realistic case to decision-makers.

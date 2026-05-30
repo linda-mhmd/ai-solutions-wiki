@@ -9,6 +9,7 @@ related:
   - glossary/gradient-descent
   - glossary/overfitting
   - glossary/bias-variance-tradeoff
+last_updated: 2026-05-30
 ---
 
 Hyperparameter tuning is the process of selecting the optimal configuration settings for a machine learning model. Unlike model parameters (weights learned during training), hyperparameters are set before training begins and control the training process itself: learning rate, batch size, number of layers, dropout rate, regularization strength.

@@ -2,9 +2,11 @@
 title: "AWS Step Functions vs Lambda Chains for AI Orchestration"
 description: "When to use state machines vs direct invocation for AI workflows. Error handling, retry patterns, cost comparison, and visibility trade-offs."
 date: 2026-03-24
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: ["cloud-computing", "intermediate", "aws-step-functions", "aws-lambda", "comparison", "orchestration", "serverless"]
 tools: [amazon-step-functions, amazon-lambda, amazon-bedrock]
+last_updated: 2026-05-30
 ---
 
 When building multi-step AI pipelines on AWS, you have two main approaches: Lambda functions that call each other directly (Lambda chains), or Step Functions state machines that orchestrate Lambda invocations. Both work; the right choice depends on workflow complexity, error handling requirements, and operational visibility needs.

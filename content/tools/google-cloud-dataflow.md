@@ -10,6 +10,7 @@ related:
   - tools/google-bigquery
   - tools/google-cloud-pub-sub
   - tools/google-cloud-dataproc
+last_updated: 2026-05-30
 ---
 
 Google Cloud Dataflow is a fully managed service for executing data processing pipelines written using the Apache Beam SDK. It supports both batch and streaming workloads with a unified programming model, meaning the same pipeline code can process bounded (batch) and unbounded (streaming) data sources. Dataflow automatically manages resource provisioning, worker scaling, and optimization of the execution plan, freeing developers to focus on pipeline logic rather than infrastructure.

@@ -8,6 +8,7 @@ related:
   - frameworks/software-quality-assurance
   - guides/requirements-engineering-ai
   - guides/ai-user-research
+last_updated: 2026-05-30
 ---
 
 User acceptance testing for AI systems is fundamentally different from traditional UAT. In traditional software, a test either passes or fails. In AI systems, some failures are expected and acceptable. UAT must verify that the system's error rate is within acceptable bounds and that the user experience handles errors gracefully. This guide covers how to design and execute UAT for AI systems.

@@ -9,6 +9,7 @@ related:
   - glossary/api
   - guides/infrastructure-as-code-ai
   - guides/multi-agent-systems-101
+last_updated: 2026-05-30
 ---
 
 Modern AI systems rarely live in a single language. A production pipeline might use Python to call a model API, TypeScript to render the output as video, and HCL to provision the infrastructure that runs it all. Each language has a defined role. Understanding that division prevents the wrong-tool-for-the-job failures that make AI systems fragile.

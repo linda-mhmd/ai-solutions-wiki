@@ -10,6 +10,7 @@ related:
   - glossary/dimensionality-reduction
   - glossary/overfitting
   - glossary/cross-validation
+last_updated: 2026-05-30
 ---
 
 A Support Vector Machine (SVM) is a supervised learning algorithm that finds the optimal hyperplane separating classes by maximizing the margin between the closest data points of each class. These closest points are the support vectors - the algorithm's predictions depend only on them, not on the entire dataset.

@@ -7,6 +7,7 @@ layout: persona
 image: /img/obsidian-lab/pipeline-components-sequence-notext.png
 image_alt: "Industrial components in sequence: gear, light source, camera, radio, panel, representing pipeline stages and connected tools."
 tags: ["beginner", "metaphor", "software-development", "ai-tools"]
+last_updated: 2026-05-30
 ---
 
 <div class="through-intro">
@@ -111,7 +112,6 @@ tags: ["beginner", "metaphor", "software-development", "ai-tools"]
     <p class="bz-section-label">Go deeper in this lens</p>
     <h2 class="build-section-h2">Three research threads</h2>
     <div class="through-deeper-grid">
-
       <a href="/through/craft-and-architecture/" class="through-deeper-card">
         <img class="through-deeper-card-img" src="/img/obsidian-lab/mechanical-system-composite-notext.png" alt="A composite of industrial components including a loom, cables, filing cabinet, and scaffolding representing a complete production system." loading="lazy">
         <div class="through-deeper-card-body">
@@ -120,7 +120,6 @@ tags: ["beginner", "metaphor", "software-development", "ai-tools"]
           <span class="through-deeper-card-cta">Read →</span>
         </div>
       </a>
-
       <a href="/through/craft-and-quality/" class="through-deeper-card">
         <img class="through-deeper-card-img" src="/img/obsidian-lab/bolt-mold-joint-triptych-notext.png" alt="A copper bolt, a precision mold, and interlocking blocks side by side representing design patterns, modularity, and code quality." loading="lazy">
         <div class="through-deeper-card-body">
@@ -129,7 +128,6 @@ tags: ["beginner", "metaphor", "software-development", "ai-tools"]
           <span class="through-deeper-card-cta">Read →</span>
         </div>
       </a>
-
       <a href="/through/craft-and-ai/" class="through-deeper-card">
         <img class="through-deeper-card-img" src="/img/obsidian-lab/hub-spokes-orchestration-notext.png" alt="A mechanical spider hub with six copper arms extending outward, representing orchestration, direction, and the human-AI collaboration pattern." loading="lazy">
         <div class="through-deeper-card-body">
@@ -138,7 +136,6 @@ tags: ["beginner", "metaphor", "software-development", "ai-tools"]
           <span class="through-deeper-card-cta">Read →</span>
         </div>
       </a>
-
     </div>
   </div>
 </section>

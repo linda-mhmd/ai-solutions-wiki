@@ -7,6 +7,7 @@ tags: [Aurora, RDS, relational-database, PostgreSQL, MySQL]
 related:
   - glossary/dynamodb
   - glossary/data-warehouse
+last_updated: 2026-05-30
 ---
 
 Amazon Aurora is a managed relational database service compatible with MySQL and PostgreSQL. It provides up to five times the throughput of standard MySQL and three times the throughput of standard PostgreSQL, with automatic storage scaling, built-in high availability (six-way replication across three availability zones), and automated backups.

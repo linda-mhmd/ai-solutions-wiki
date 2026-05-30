@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: ["media-processing", "intermediate", "accessibility", "captions", "transcription", "media", "automation"]
 industries: [media]
 tools: [amazon-transcribe, amazon-bedrock]
+last_updated: 2026-05-30
 ---
 
 Accessibility mandates for broadcasters are expanding across Europe and North America. In the EU, the European Accessibility Act and the Audiovisual Media Services Directive require broadcasters to meet progressively higher thresholds for subtitled, audio-described, and sign-language content. Compliance is no longer optional - and manual production of accessibility assets at scale is not economically viable. AI automation has become the practical path forward.

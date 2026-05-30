@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [risk-assessment, actuarial, telematics, iot, loss-prediction]
 industries: [insurance]
 tools: [amazon-sagemaker, amazon-kinesis, amazon-redshift]
+last_updated: 2026-05-30
 ---
 
 Insurance risk assessment determines the expected cost of insuring a risk. Traditional actuarial methods use broad rating factors (age, location, property type) that group dissimilar risks together. AI risk assessment incorporates granular data - telematics, IoT sensors, satellite imagery, behavioral signals - to differentiate risk at the individual level, enabling more accurate pricing and better portfolio management.

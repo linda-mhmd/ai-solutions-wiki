@@ -9,6 +9,7 @@ related:
   - glossary/quantization
   - glossary/flash-attention
   - glossary/edge-computing
+last_updated: 2026-05-30
 ---
 
 AI hardware refers to specialized processors designed to accelerate the matrix multiplications and tensor operations that dominate machine learning workloads. The choice of hardware directly impacts training time, inference latency, throughput, and cost per query. The market spans general-purpose GPUs, Google's TPUs, and purpose-built ASICs from companies like Groq and Cerebras.

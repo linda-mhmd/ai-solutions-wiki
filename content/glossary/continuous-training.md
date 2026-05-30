@@ -10,6 +10,7 @@ related:
   - glossary/mlops
   - patterns/continuous-training-pattern
   - guides/continuous-training-guide
+last_updated: 2026-05-30
 ---
 
 Continuous training is the practice of automatically retraining machine learning models on fresh data to maintain performance as data distributions and real-world conditions change. Rather than training a model once and deploying it indefinitely, continuous training establishes an automated pipeline that detects when retraining is needed, executes the training process, validates the new model, and promotes it to production.

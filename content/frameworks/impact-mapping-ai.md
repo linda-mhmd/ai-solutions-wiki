@@ -10,6 +10,7 @@ related:
   - frameworks/use-case-scoring
   - guides/open-practice-library
   - guides/choosing-your-first-ai-use-case
+last_updated: 2026-05-30
 ---
 
 Impact Mapping was created by Gojko Adzic as a strategic planning technique to ensure that software delivery is linked to business outcomes. It structures the reasoning behind a product decision as a mind map with four levels: Why (business goal), Who (actors who can influence the goal), How (impacts on actors), and What (deliverables). For AI projects, Impact Mapping is a powerful antidote to technology-first thinking - the tendency to start with "we should use AI" rather than "we have a business problem."

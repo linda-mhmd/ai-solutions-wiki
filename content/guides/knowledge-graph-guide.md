@@ -9,6 +9,7 @@ related:
   - guides/multimodal-rag-guide
   - guides/ai-data-strategy
   - glossary/rag
+last_updated: 2026-05-30
 ---
 
 Knowledge graphs represent information as entities and relationships, capturing the structured knowledge that unstructured text and vector embeddings often lose. When integrated with AI systems, knowledge graphs improve reasoning about relationships, enable multi-hop queries, and provide explainable retrieval paths. They complement rather than replace vector-based retrieval.

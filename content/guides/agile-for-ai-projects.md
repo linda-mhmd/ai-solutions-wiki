@@ -4,6 +4,7 @@ description: "How to apply Agile principles to AI and ML projects, addressing th
 date: 2026-03-28
 categories: [Guides]
 tags: [agile, project-management, AI-development, methodology, teams]
+last_updated: 2026-05-30
 ---
 
 Agile methodologies were designed for software development where requirements can be broken into discrete user stories with predictable implementation paths. AI projects break this assumption. Model training is experimental, data quality issues surface unpredictably, and "done" is a moving target defined by accuracy thresholds rather than feature completeness. Applying Agile to AI requires deliberate adaptation, not blind adoption.

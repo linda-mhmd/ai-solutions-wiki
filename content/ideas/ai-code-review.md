@@ -4,6 +4,7 @@ description: "Use AI to provide first-pass code review feedback, catching common
 date: 2026-03-28
 categories: [Ideas]
 tags: [code-review, developer-productivity, automation, engineering]
+last_updated: 2026-05-30
 ---
 
 Code review is essential but creates bottlenecks. Senior engineers spend hours reviewing pull requests, and much of that time goes to catching style violations, missing error handling, and obvious bugs that a machine could flag. The high-judgment review work gets less attention because the mechanical review work takes so long.

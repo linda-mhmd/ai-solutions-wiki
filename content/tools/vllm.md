@@ -16,6 +16,7 @@ alternatives:
   aws: tools/amazon-bedrock
   azure: tools/azure-openai
   gcp: tools/google-vertex-ai
+last_updated: 2026-05-30
 ---
 
 vLLM is a high-throughput, memory-efficient inference and serving engine for large language models. Its core innovation is PagedAttention, a novel attention algorithm inspired by virtual memory paging in operating systems, which manages the KV (key-value) cache in non-contiguous memory blocks. This approach eliminates the memory waste caused by fragmentation and reservation in traditional LLM serving systems, achieving near-zero waste of KV cache memory and enabling 2-4x higher throughput compared to naive serving implementations.

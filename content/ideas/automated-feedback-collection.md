@@ -4,6 +4,7 @@ description: "Use AI to aggregate and normalize feedback from diverse channels i
 date: 2026-03-28
 categories: [Ideas]
 tags: [feedback, customer-voice, aggregation, automation]
+last_updated: 2026-05-30
 ---
 
 Customer feedback arrives in fragments across a dozen channels. A complaint on social media, a feature request in a support ticket, praise in an app review, and a suggestion in a survey response might all be about the same issue but are never connected.

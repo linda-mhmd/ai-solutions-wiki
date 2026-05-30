@@ -5,6 +5,7 @@ date: 2026-03-24
 categories: [Solutions]
 tags: [legal, case-management, document-processing]
 industries: [Legal, Government]
+last_updated: 2026-05-30
 ---
 
 Public defender offices operate under structural resource constraints. Caseloads are high, time per case is limited, and the documentation involved - police reports, evidence inventories, prior case records, court filings - is voluminous. An AI case assistant handles the document processing work so attorneys can spend their limited time on legal strategy and client representation.

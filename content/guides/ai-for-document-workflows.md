@@ -5,6 +5,7 @@ date: 2026-03-24
 categories: [Guides]
 tags: [guides, documents, OCR, extraction, automation]
 tools: [amazon-textract, amazon-bedrock, aws-step-functions, amazon-s3]
+last_updated: 2026-05-30
 ---
 
 Document workflows are one of the most tractable automation problems in enterprise operations. The inputs are clearly defined (documents), the desired outputs are structured data and routed files, and the volume justifies automation investment. This guide covers the full pipeline.

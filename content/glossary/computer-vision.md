@@ -4,6 +4,7 @@ description: "What computer vision is, how it works in AI applications, and how 
 date: 2026-03-24
 categories: [Glossary]
 tags: ["ai-ml", "beginner", "computer-vision", "image-recognition", "object-detection", "deep-learning", "cnn"]
+last_updated: 2026-05-30
 ---
 
 Computer vision is a field of artificial intelligence that enables machines to interpret and understand visual information from images and video. Modern computer vision systems use deep learning - specifically convolutional neural networks (CNNs) and transformer architectures - trained on large labeled datasets to classify objects, detect faces, read text, and understand scenes.

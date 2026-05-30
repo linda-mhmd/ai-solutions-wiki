@@ -9,6 +9,7 @@ related:
   - glossary/attention-mechanism
   - glossary/long-context-model
   - glossary/embeddings
+last_updated: 2026-05-30
 ---
 
 Positional encoding is the mechanism that gives transformer models a sense of token order. Since self-attention treats its input as a set (with no inherent notion of position), positional information must be explicitly injected. The choice of positional encoding scheme affects a model's ability to generalize to sequence lengths not seen during training, which directly impacts context window capabilities.

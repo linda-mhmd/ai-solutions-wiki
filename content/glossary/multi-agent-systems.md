@@ -4,6 +4,7 @@ description: "Definition, architecture patterns, and frameworks for multi-agent 
 date: 2026-03-24
 categories: [Glossary]
 tags: ["ai-agents", "intermediate", "multi-agent", "orchestration", "agents", "coordination", "llm"]
+last_updated: 2026-05-30
 ---
 
 A multi-agent system is an AI architecture in which multiple independent AI agents collaborate to complete a task. Each agent has a defined role, access to specific tools or data sources, and the ability to pass results to other agents. The agents are coordinated by an orchestration layer that manages the flow of work between them.

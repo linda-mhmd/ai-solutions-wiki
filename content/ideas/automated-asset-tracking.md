@@ -4,6 +4,7 @@ description: "Use AI to monitor IT asset lifecycles, predict refresh needs, and 
 date: 2026-03-28
 categories: [Ideas]
 tags: [asset-management, it-operations, lifecycle, automation, procurement]
+last_updated: 2026-05-30
 ---
 
 IT asset management is a perpetual headache. Laptops, servers, licenses, and peripherals are tracked in spreadsheets that are out of date the moment they are created. Nobody knows exactly what they have, where it is, or when it needs to be replaced.

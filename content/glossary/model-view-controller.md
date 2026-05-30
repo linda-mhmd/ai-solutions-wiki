@@ -4,6 +4,7 @@ description: "An architectural pattern that separates application concerns into 
 date: 2026-03-28
 categories: [Glossary]
 tags: [MVC, architecture-patterns, software-design, UI, separation-of-concerns]
+last_updated: 2026-05-30
 ---
 
 Model-View-Controller (MVC) is an architectural pattern that divides an application into three interconnected components: the Model (data and business logic), the View (user interface presentation), and the Controller (input handling and coordination). This separation enables independent development, testing, and modification of each concern.

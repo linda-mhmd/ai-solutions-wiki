@@ -9,6 +9,7 @@ related:
   - glossary/hyperparameter-tuning
   - glossary/neural-network
   - glossary/reinforcement-learning
+last_updated: 2026-05-30
 ---
 
 Neural architecture search (NAS) is a family of techniques that automate the design of neural network architectures. Rather than relying on human intuition to choose layer types, depths, and connection patterns, NAS algorithms explore a defined search space to find architectures that maximize performance on a given task.

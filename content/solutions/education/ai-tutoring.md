@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [tutoring, adaptive-learning, personalization, edtech, student-engagement]
 industries: [education]
 tools: [amazon-bedrock, amazon-sagemaker, amazon-dynamodb]
+last_updated: 2026-05-30
 ---
 
 Traditional tutoring is effective but expensive and scarce. One-on-one human tutoring produces a two-sigma improvement in student outcomes (Bloom's 2-sigma problem), but most educational institutions cannot provide it at scale. AI tutoring systems aim to deliver personalized, responsive instruction to every student simultaneously, closing the gap between mass education and individual attention.

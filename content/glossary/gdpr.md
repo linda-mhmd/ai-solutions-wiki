@@ -13,6 +13,7 @@ related:
   - glossary/right-to-explanation
   - glossary/automated-decision-making
   - comparisons/gdpr-vs-eu-ai-act
+last_updated: 2026-05-30
 ---
 
 The General Data Protection Regulation (GDPR) is the European Union's data protection law, in force since May 2018. It governs how organizations collect, process, store, and transfer personal data of individuals located in the EU. GDPR applies to any organization worldwide that processes EU residents' personal data, regardless of where the organization is headquartered.

@@ -10,6 +10,7 @@ related:
   - glossary/random-forest
   - glossary/neural-network
   - guides/model-evaluation-guide
+last_updated: 2026-05-30
 ---
 
 Model interpretability is the ability to understand why a model makes the predictions it does. It is essential for debugging models, building stakeholder trust, meeting regulatory requirements, and catching biases before deployment. This guide covers practical techniques from global model understanding to individual prediction explanations.

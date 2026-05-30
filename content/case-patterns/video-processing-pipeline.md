@@ -7,6 +7,7 @@ tags: ["media-processing", "advanced", "video-processing", "pipeline", "aws", "t
 image: /img/enterprise-dark/corridor-red-columns-notext.png
 image_alt: "A dark industrial corridor with tall red light columns, representing a video processing pipeline where frames pass through sequential stages."
 image_caption: "Frame by frame. Stage by stage. The pipeline ingests raw footage and emits classified, indexed output."
+last_updated: 2026-05-30
 ---
 
 A national broadcaster needed to make decades of archived news footage searchable - not just by file metadata, but by spoken content, on-screen text, and visual subject matter. The archive contained over 400,000 hours of content across formats ranging from modern digital files to digitized VHS. Manual indexing was not viable at this scale.

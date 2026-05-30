@@ -10,6 +10,7 @@ related:
   - guides/ai-governance-implementation
   - guides/ai-regulatory-compliance-checklist
   - comparisons/iso-27001-vs-nis2
+last_updated: 2026-05-30
 ---
 
 ISO/IEC 42001:2023 is the first international standard for AI management systems (AIMS). Published in December 2023, it specifies requirements for organizations that develop, provide, or use AI systems to establish, implement, maintain, and continually improve an AI management system. It follows the Harmonized Structure used by other ISO management system standards (ISO 9001, ISO 27001), making it integrable with existing management systems.

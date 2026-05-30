@@ -4,6 +4,7 @@ description: "An open and independent modeling language for enterprise architect
 date: 2026-03-28
 categories: [Glossary]
 tags: [ArchiMate, enterprise-architecture, modeling, The-Open-Group, EA]
+last_updated: 2026-05-30
 ---
 
 ArchiMate is an open and independent enterprise architecture modeling language that provides a uniform representation for describing, analyzing, and visualizing architecture across business, application, and technology domains. It offers a common language for architects, stakeholders, and implementers to communicate about enterprise architecture.

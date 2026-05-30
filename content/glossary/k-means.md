@@ -8,6 +8,7 @@ related:
   - glossary/clustering
   - glossary/unsupervised-learning
   - glossary/dimensionality-reduction
+last_updated: 2026-05-30
 ---
 
 K-means is the most widely used clustering algorithm. It partitions data into K clusters by iteratively assigning each data point to the nearest cluster center (centroid) and then updating each centroid to be the mean of its assigned points. The algorithm converges when assignments stabilize.

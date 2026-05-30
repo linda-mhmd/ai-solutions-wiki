@@ -7,6 +7,7 @@ tags: [azure, identity, authentication, b2c, ciam]
 related:
   - tools/amazon-cognito
   - tools/azure-openai
+last_updated: 2026-05-30
 ---
 
 Azure Active Directory B2C (Azure AD B2C), part of the Microsoft Entra product family, is a customer identity and access management (CIAM) service that enables businesses to customize and control how users sign up, sign in, and manage their profiles when using consumer-facing applications. Unlike Azure AD (now Microsoft Entra ID), which manages employee identities, Azure AD B2C is designed for external customer identities at massive scale, supporting hundreds of millions of users and billions of authentications per day. In AI solution architectures, Azure AD B2C provides the identity layer that gates access to AI-powered APIs, personalizes AI experiences per user, and maintains the user context needed for recommendation engines and personalization models.

@@ -9,6 +9,7 @@ related:
   - glossary/dry-principle
   - glossary/solid-principles
   - glossary/open-closed-principle
+last_updated: 2026-05-30
 ---
 
 YAGNI (You Aren't Gonna Need It) is a software development principle stating that a programmer should not add functionality until it is actually needed. It opposes speculative generalization, where developers build features, abstractions, or infrastructure based on anticipated future requirements rather than current ones.

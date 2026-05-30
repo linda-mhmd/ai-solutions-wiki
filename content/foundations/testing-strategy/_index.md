@@ -4,6 +4,7 @@ description: "The testing pyramid, test-driven development, and the discipline o
 layout: single
 tags: ["testing", "tdd", "unit-testing", "integration-testing", "testing-pyramid"]
 categories: ["Foundations"]
+last_updated: 2026-05-30
 ---
 
 Automated testing is not about finding bugs. It is about preventing them from surviving. A test suite is a specification written in code - an executable description of what the software is supposed to do, verified continuously. When a change breaks something, the suite says so immediately rather than waiting for a user to discover it in production.

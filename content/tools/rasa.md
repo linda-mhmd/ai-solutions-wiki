@@ -9,6 +9,7 @@ related:
   - tools/amazon-connect
   - tools/langchain
   - tools/langgraph
+last_updated: 2026-05-30
 ---
 
 Rasa is an open-source machine learning framework for building contextual AI assistants and chatbots that go beyond simple FAQ retrieval to handle complex, multi-turn conversations. The framework provides two core capabilities: natural language understanding (NLU) for intent classification and entity extraction, and dialogue management for determining the next action in a conversation based on context, history, and business logic. This combination allows developers to build assistants that maintain context across conversation turns and handle unexpected user inputs gracefully.

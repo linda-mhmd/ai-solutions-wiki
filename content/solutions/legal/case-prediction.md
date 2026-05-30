@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [case-prediction, litigation-analytics, legal-tech, predictive-analytics, legal-strategy]
 industries: [legal]
 tools: [amazon-sagemaker, amazon-bedrock, amazon-redshift]
+last_updated: 2026-05-30
 ---
 
 Litigation involves significant uncertainty. Lawyers advise clients on the likely outcome of disputes based on experience and judgment, but this assessment is inherently subjective and difficult to calibrate across a broad portfolio of cases. AI case prediction models provide data-driven probability estimates for case outcomes, helping law firms and legal departments make more informed decisions about litigation strategy, settlement, and resource allocation.

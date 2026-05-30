@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [ad-targeting, advertising, programmatic, audience-segmentation, media-monetization]
 industries: [media]
 tools: [amazon-sagemaker, amazon-personalize, amazon-kinesis]
+last_updated: 2026-05-30
 ---
 
 Advertising is the primary revenue model for many media organizations. The shift from contextual advertising (ads placed based on page content) to audience-based advertising (ads targeted to specific users) dramatically increased ad effectiveness and CPMs. AI further improves targeting precision, optimizes bid strategies in programmatic auctions, and selects creative variants most likely to resonate with each audience segment.

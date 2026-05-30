@@ -17,6 +17,7 @@ faqs:
     answer: "Language models process text as tokens, pieces of words, not always whole words. 'unbelievable' might be split into 'un', 'believ', 'able'. The exact split depends on the tokeniser. Models have a context window measured in tokens: how much text they can consider at once. GPT-4o handles 128,000 tokens (~100,000 words). Claude models support up to 200,000 tokens. The limit matters because everything outside the context window is not 'visible' to the model when it generates a response."
   - question: "Why does AI make things up (hallucinate)?"
     answer: "Language models generate text by predicting what token comes next, based on patterns in their training data. They have no mechanism for distinguishing 'I know this' from 'I am extrapolating this'. When asked about something outside their training data or at the edges of their knowledge, they continue generating plausible-sounding text, which may be factually wrong. This is hallucination: fluent, confident, incorrect output. Mitigation strategies: retrieval-augmented generation (RAG), grounding responses with source documents, and always verifying factual claims from AI independently."
+last_updated: 2026-05-30
 ---
 
 {{< quickanswer >}}

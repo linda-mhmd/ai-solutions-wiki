@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [route-optimization, logistics-ai, vehicle-routing, delivery, transportation]
 industries: [logistics]
 tools: [amazon-sagemaker, amazon-location-service, aws-lambda]
+last_updated: 2026-05-30
 ---
 
 The Vehicle Routing Problem (VRP) is one of the most studied optimization challenges in operations research, and one of the most impactful in practice. For logistics companies, fuel and driver costs represent 50-60% of total operating expenses. A 10% improvement in route efficiency translates directly to the bottom line. AI route optimization goes beyond classical algorithms by incorporating real-time traffic, dynamic demand, driver constraints, and predictive models for delivery time estimation.

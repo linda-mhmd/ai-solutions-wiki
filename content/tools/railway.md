@@ -11,6 +11,7 @@ related:
   - guides/async-job-queues
 solutions:
   - guides/from-zero-to-production
+last_updated: 2026-05-30
 ---
 
 Railway is a platform-as-a-service (PaaS) designed to remove infrastructure configuration from the developer's path. The core workflow is: connect a GitHub repository, Railway detects the runtime and framework, and the application is deployed. No Dockerfiles required unless you want them. No load balancers to configure, no VPCs to design, no IAM roles to untangle. For developers who want to ship an API or background worker without spending a week on cloud configuration, Railway is the practical alternative.

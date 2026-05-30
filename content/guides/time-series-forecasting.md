@@ -4,6 +4,7 @@ description: "A practical guide to time series forecasting for business applicat
 date: 2026-03-28
 categories: [Guides]
 tags: [time-series, forecasting, machine-learning, data-science, AI-development]
+last_updated: 2026-05-30
 ---
 
 Time series forecasting predicts future values based on historical patterns. Businesses use it for demand forecasting, financial planning, capacity planning, and anomaly detection. Despite the AI hype cycle, classical statistical methods remain competitive with deep learning for many forecasting tasks. Choosing the right approach depends on data characteristics, forecast horizon, and accuracy requirements.

@@ -4,6 +4,7 @@ description: "The study of control, communication, and feedback in systems, whet
 date: 2026-03-28
 categories: [Glossary]
 tags: [cybernetics, systems-theory, feedback, control-systems, communication]
+last_updated: 2026-05-30
 ---
 
 Cybernetics is the interdisciplinary study of regulatory and control systems, focusing on how systems use information, feedback, and communication to govern their behavior and adapt to their environment. It applies equally to machines, living organisms, and social organizations.

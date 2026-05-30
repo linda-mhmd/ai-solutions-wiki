@@ -8,6 +8,7 @@ related:
   - glossary/trunk-based-development
   - glossary/ci-cd
   - glossary/feature-flags
+last_updated: 2026-05-30
 ---
 
 Feature branching is a version control strategy where each new feature, bug fix, or task is developed on a separate branch created from the main branch. The feature branch is merged back into main via a pull request after development is complete, reviewed, and tested. This isolates in-progress work from the stable main branch.

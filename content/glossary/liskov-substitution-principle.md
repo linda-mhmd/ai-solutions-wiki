@@ -9,6 +9,7 @@ related:
   - glossary/open-closed-principle
   - glossary/inheritance-and-polymorphism
   - glossary/object-oriented-programming
+last_updated: 2026-05-30
 ---
 
 The Liskov Substitution Principle (LSP) states that if S is a subtype of T, then objects of type T may be replaced with objects of type S without altering any of the desirable properties of the program. Subtypes must be behaviorally compatible with their base types.

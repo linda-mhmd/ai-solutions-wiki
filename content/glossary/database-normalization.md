@@ -4,6 +4,7 @@ description: "A systematic approach to organizing relational database tables to 
 date: 2026-03-28
 categories: [Glossary]
 tags: [databases, normalization, relational-databases, data-modeling, schema-design]
+last_updated: 2026-05-30
 ---
 
 Database normalization is a systematic process for organizing columns and tables in a relational database to minimize data redundancy and eliminate undesirable insertion, update, and deletion anomalies. The process works by decomposing tables into smaller, well-structured relations according to a series of rules called normal forms.

@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [curriculum, personalization, adaptive-learning, learning-paths, edtech]
 industries: [education]
 tools: [amazon-bedrock, amazon-personalize, amazon-sagemaker]
+last_updated: 2026-05-30
 ---
 
 Standard curricula assume a uniform student population that does not exist. Students enter courses with different background knowledge, learn at different rates, and respond to different instructional modalities. Curriculum personalization uses AI to adapt what is taught, how it is taught, and at what pace - creating individualized learning experiences within a common framework.

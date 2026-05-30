@@ -4,6 +4,7 @@ description: "AI analyzes application logs to identify unusual patterns, correla
 date: 2026-03-28
 categories: [Ideas]
 tags: [logging, anomaly-detection, observability, devops, daily-ai-spark]
+last_updated: 2026-05-30
 ---
 
 Teams drown in logs. Millions of log lines per hour, most of them routine. The important signals - a new error type appearing, an unusual spike in a specific log pattern, a correlation between errors in two different services - are buried in noise. Traditional log analysis requires writing specific queries for known patterns, but it cannot surface unknown unknowns.

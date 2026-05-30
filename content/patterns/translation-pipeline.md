@@ -4,6 +4,7 @@ description: "Building production translation pipelines with AI. Terminology man
 date: 2026-03-28
 categories: [Patterns]
 tags: [translation, localization, multilingual, pipeline, NLP]
+last_updated: 2026-05-30
 ---
 
 AI translation has reached the point where it produces usable first drafts for most language pairs and content types. But a production translation pipeline requires more than a single model call - it needs terminology consistency, format preservation, quality assurance, and efficient orchestration across multiple target languages.

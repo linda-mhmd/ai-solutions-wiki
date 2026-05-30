@@ -4,6 +4,7 @@ description: "Build a live dashboard that tracks customer and employee sentiment
 date: 2026-03-28
 categories: [Ideas]
 tags: [sentiment-analysis, dashboard, monitoring, customer-experience, automation]
+last_updated: 2026-05-30
 ---
 
 Sentiment surveys capture a snapshot every quarter. By the time results are analyzed and acted upon, the situation has changed. Real-time sentiment monitoring catches shifts as they happen, enabling rapid response to emerging problems.

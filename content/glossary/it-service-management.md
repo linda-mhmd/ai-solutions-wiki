@@ -4,6 +4,7 @@ description: "The discipline of designing, delivering, managing, and improving I
 date: 2026-03-28
 categories: [Glossary]
 tags: [ITSM, ITIL, service-management, IT-operations, service-desk]
+last_updated: 2026-05-30
 ---
 
 IT Service Management (ITSM) is a discipline that focuses on designing, delivering, managing, and continually improving the way IT services are provided to an organization's users and customers. ITSM shifts the perspective from managing technology components to managing services that deliver business value.

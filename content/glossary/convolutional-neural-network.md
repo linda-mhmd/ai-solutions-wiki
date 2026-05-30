@@ -9,6 +9,7 @@ related:
   - glossary/neural-network
   - glossary/vision-transformer
   - glossary/computer-vision
+last_updated: 2026-05-30
 ---
 
 A convolutional neural network (CNN) is a deep learning architecture designed to process grid-structured data, most commonly images. CNNs use learnable filters (kernels) that slide across the input to detect spatial patterns such as edges, textures, and shapes. This weight-sharing mechanism dramatically reduces parameter counts compared to fully connected networks, making CNNs practical for high-resolution inputs.

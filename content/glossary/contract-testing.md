@@ -8,6 +8,7 @@ related:
   - glossary/semantic-versioning
   - glossary/ci-cd
   - glossary/api
+last_updated: 2026-05-30
 ---
 
 Contract testing verifies that two services (a consumer and a provider) agree on the format and behavior of their API interactions. Instead of testing the full integrated system end-to-end, contract tests verify each side independently against a shared contract, catching integration issues early without requiring both services to be running simultaneously.

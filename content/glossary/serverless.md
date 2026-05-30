@@ -4,6 +4,7 @@ description: "What serverless computing means, how Lambda, Fargate, and Step Fun
 date: 2026-03-24
 categories: [Glossary]
 tags: ["cloud-computing", "beginner", "serverless", "functions", "event-driven", "aws-lambda", "cloud"]
+last_updated: 2026-05-30
 ---
 
 Serverless computing is a cloud execution model where the cloud provider manages server provisioning, scaling, and availability. You deploy code or containers without managing the underlying infrastructure. Billing is based on actual usage (invocations, duration) rather than reserved capacity.

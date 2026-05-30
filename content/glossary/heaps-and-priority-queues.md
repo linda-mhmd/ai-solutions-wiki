@@ -4,6 +4,7 @@ description: "Tree-based data structures that efficiently support finding and ex
 date: 2026-03-28
 categories: [Glossary]
 tags: [heaps, priority-queues, heap-sort, data-structures, algorithms]
+last_updated: 2026-05-30
 ---
 
 A heap is a specialized tree-based data structure that satisfies the heap property: in a max-heap, each parent node is greater than or equal to its children; in a min-heap, each parent is less than or equal to its children. A priority queue is an abstract data type typically implemented using a heap, supporting efficient insertion and extraction of the highest-priority element.

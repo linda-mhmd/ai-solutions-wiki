@@ -8,6 +8,7 @@ related:
   - glossary/aiops
   - glossary/error-budget
   - guides/disaster-recovery-ai
+last_updated: 2026-05-30
 ---
 
 AI systems fail in ways that traditional software does not. A model can produce confidently wrong answers without raising errors. Inference latency can degrade gradually as GPU memory fragments. Retrieval quality can drop silently when embedding drift goes undetected. Incident management for AI systems must handle both infrastructure failures and model quality degradation.

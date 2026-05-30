@@ -4,6 +4,7 @@ description: "Software robots that automate repetitive, rule-based tasks by mimi
 date: 2026-03-28
 categories: [Glossary]
 tags: [RPA, automation, software-robots, BPM, process-automation]
+last_updated: 2026-05-30
 ---
 
 Robotic Process Automation (RPA) is a technology that uses software robots (bots) to automate repetitive, rule-based tasks that humans typically perform through graphical user interfaces. RPA bots interact with applications the same way a human would: clicking buttons, entering data, reading screen content, and moving information between systems.

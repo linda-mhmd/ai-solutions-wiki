@@ -4,6 +4,7 @@ description: "The structured process of planning, creating, testing, and deployi
 date: 2026-03-28
 categories: [Glossary]
 tags: [SDLC, software-engineering, waterfall, development-process, lifecycle]
+last_updated: 2026-05-30
 ---
 
 The Software Development Lifecycle (SDLC) is a structured framework that defines the phases involved in developing software systems, from initial concept through deployment and maintenance. It provides a systematic approach to producing high-quality software that meets requirements within time and budget constraints.

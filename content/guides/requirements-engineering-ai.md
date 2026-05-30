@@ -8,6 +8,7 @@ related:
   - frameworks/software-requirements-engineering
   - guides/ai-product-management
   - guides/software-architecture-ai
+last_updated: 2026-05-30
 ---
 
 Gathering requirements for AI projects fails when teams apply traditional requirements practices without adaptation. The statement "the system shall detect fraud" is not a requirement; it is a wish. AI requirements must specify what counts as fraud, what accuracy is acceptable, what data is available, and what happens when the system is wrong. This guide covers the practical steps for eliciting, documenting, and managing requirements for AI projects.

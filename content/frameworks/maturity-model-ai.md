@@ -8,6 +8,7 @@ related:
   - frameworks/ai-readiness-assessment
   - frameworks/capability-mapping
   - frameworks/okr-framework-ai
+last_updated: 2026-05-30
 ---
 
 An AI maturity model provides a structured assessment of where an organization stands in its AI journey and what capabilities it needs to develop next. The model defines progressive levels of maturity across multiple dimensions, giving leadership a shared vocabulary for current state and a roadmap for improvement. This framework defines five levels across five dimensions, producing a practical assessment that informs AI strategy and investment priorities.

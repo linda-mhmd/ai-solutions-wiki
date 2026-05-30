@@ -9,6 +9,7 @@ related:
   - glossary/deep-learning
   - glossary/embeddings
   - glossary/knowledge-base
+last_updated: 2026-05-30
 ---
 
 A graph neural network (GNN) is a deep learning architecture designed to operate on graph-structured data, where entities (nodes) are connected by relationships (edges). Unlike CNNs and RNNs that assume grid or sequential structure, GNNs learn representations by aggregating information from a node's neighbors, making them suitable for social networks, molecular structures, recommendation systems, and knowledge graphs.

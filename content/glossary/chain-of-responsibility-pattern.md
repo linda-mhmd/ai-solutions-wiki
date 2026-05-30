@@ -9,6 +9,7 @@ related:
   - glossary/mediator-pattern
   - glossary/decorator-pattern
   - glossary/object-oriented-programming
+last_updated: 2026-05-30
 ---
 
 The Chain of Responsibility pattern is a behavioral design pattern that avoids coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. It chains the receiving objects and passes the request along the chain until an object handles it.

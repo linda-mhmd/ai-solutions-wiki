@@ -4,6 +4,7 @@ description: "A reusable pattern for converting unstructured inputs - forms, ema
 date: 2026-03-24
 categories: [Patterns]
 tags: [patterns, intake, document-processing, automation]
+last_updated: 2026-05-30
 ---
 
 The intake-to-action pattern appears wherever an organization receives unstructured information from external parties and needs to act on it. Claims arrive as document packets. Benefit applications arrive as scanned forms. Legal referrals arrive as narrative descriptions. In every case, the same fundamental transformation is needed: convert the unstructured input into a structured record, identify what is missing or flagged, and determine what should happen next.

@@ -8,6 +8,7 @@ related:
   - glossary/event-driven-architecture
   - glossary/api
   - glossary/pub-sub
+last_updated: 2026-05-30
 ---
 
 A webhook is a user-defined HTTP callback. When a specific event occurs in a source application, it sends an HTTP POST request to a URL configured by the user, delivering event data to a receiving application in real time. Webhooks invert the typical API polling pattern: instead of the consumer repeatedly asking "has anything changed?", the producer pushes notifications when something changes. The term was coined by Jeff Lindsay in 2007.

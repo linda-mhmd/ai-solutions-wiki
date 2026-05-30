@@ -10,6 +10,7 @@ related:
   - glossary/transfer-learning
   - glossary/few-shot-learning
   - guides/data-labeling-guide
+last_updated: 2026-05-30
 ---
 
 Active learning is a machine learning framework where the model selects which data points should be labeled next, rather than labeling data randomly. By focusing annotation effort on the most informative examples, active learning achieves better model performance with fewer labels. This directly reduces the cost and time of data labeling - often the most expensive part of building ML systems.

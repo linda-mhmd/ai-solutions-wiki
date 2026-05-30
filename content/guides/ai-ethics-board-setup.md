@@ -5,6 +5,7 @@ date: 2026-03-28
 categories: [Guides]
 tags: [ethics, governance, responsible-ai, compliance]
 related: [frameworks/ai-ethics-framework, frameworks/responsible-ai-framework, guides/responsible-ai-guide]
+last_updated: 2026-05-30
 ---
 
 An AI ethics board provides structured oversight for AI systems that affect people. Without one, ethical decisions default to individual engineers or product managers who lack the context, authority, or diverse perspectives needed to evaluate societal impact. An ethics board does not slow down development; it catches problems before they reach production, where they are far more expensive to fix.

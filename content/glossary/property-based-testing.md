@@ -9,6 +9,7 @@ related:
   - guides/ci-cd-for-ai
   - glossary/ci-cd
   - patterns/circuit-breaker-ai
+last_updated: 2026-05-30
 ---
 
 Property-based testing is a testing technique where you describe properties that should hold for all valid inputs, and the testing framework automatically generates hundreds or thousands of inputs to find counterexamples. If a generated input violates the property, the framework reports it as a test failure and often "shrinks" the input to the simplest case that still fails.

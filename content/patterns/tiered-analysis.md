@@ -9,6 +9,7 @@ related:
   - glossary/time-complexity
   - glossary/hardware-constraints
   - glossary/api
+last_updated: 2026-05-30
 ---
 
 The tiered analysis pattern addresses a fundamental cost problem in AI pipelines: expensive AI operations (large language model calls, detailed vision analysis) are orders of magnitude more costly than cheap operations (basic classification, label detection). Applying maximum-depth analysis to every input is almost never necessary - and often prohibitively expensive.

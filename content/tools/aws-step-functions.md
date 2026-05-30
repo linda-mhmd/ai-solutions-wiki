@@ -14,6 +14,7 @@ related:
   - tools/google-cloud-workflows
   - tools/temporal
   - tools/prefect
+last_updated: 2026-05-30
 ---
 
 AWS Step Functions is a serverless workflow orchestration service that coordinates sequences of AWS service calls, Lambda functions, and external APIs. For AI pipelines - which typically involve multiple stages (ingest, process, model call, store results) - Step Functions provides the glue layer that handles sequencing, error handling, retries, and parallel execution.

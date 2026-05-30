@@ -10,6 +10,7 @@ related:
   - guides/ai-security-best-practices
   - guides/owasp-top-10-llm
   - patterns/guardrails-pattern
+last_updated: 2026-05-30
 ---
 
 An AI red team is a group of specialists who systematically test AI systems by simulating adversarial attacks, misuse scenarios, and edge cases to identify vulnerabilities before they can be exploited in production. The concept is borrowed from military and cybersecurity practices where a "red team" plays the role of an adversary against the "blue team" defenders.

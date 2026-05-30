@@ -4,6 +4,7 @@ description: "Algorithms that make the locally optimal choice at each step, aimi
 date: 2026-03-28
 categories: [Glossary]
 tags: [greedy-algorithms, algorithms, optimization, heuristics]
+last_updated: 2026-05-30
 ---
 
 A greedy algorithm builds a solution incrementally by making the locally optimal choice at each step, without reconsidering previous decisions. When a problem has the right structural properties, greedy algorithms produce globally optimal solutions efficiently. When it does not, they serve as fast heuristics.

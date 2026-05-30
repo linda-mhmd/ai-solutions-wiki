@@ -9,6 +9,7 @@ related:
   - guides/build-measure-learn
   - guides/from-zero-to-production
   - guides/event-storming
+last_updated: 2026-05-30
 ---
 
 Before you write a user story, before you open a code editor, before you provision a single resource, you need a one-page answer to the question: does this business model hold together? The Lean Canvas, developed by Ash Maurya as an adaptation of Osterwalder's Business Model Canvas, is that answer. It is designed for speed: you should be able to fill one in during a 60-90 minute session, and update it in 15 minutes when your assumptions prove wrong.

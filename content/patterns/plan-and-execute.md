@@ -9,6 +9,7 @@ related:
   - patterns/model-tier-routing
   - patterns/react-pattern-ai
   - patterns/agentic-workflows
+last_updated: 2026-05-30
 ---
 
 The plan-and-execute pattern splits agent work into two distinct phases. A capable planner model analyzes the task, breaks it into concrete steps, and produces a structured plan. Then a cheaper executor model carries out each step independently. The planner may re-plan if execution results reveal the original plan was flawed. This separation reduces cost because the expensive model only runs once for planning, while the bulk of token-heavy execution work runs on a cheaper tier.

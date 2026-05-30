@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [demand-planning, forecasting, capacity-planning, logistics-ai, resource-planning]
 industries: [logistics]
 tools: [amazon-forecast, amazon-sagemaker, amazon-redshift]
+last_updated: 2026-05-30
 ---
 
 Logistics demand planning forecasts the volume of goods that will flow through the distribution network, driving decisions about capacity, staffing, equipment, and carrier procurement. Unlike retail demand forecasting (which predicts end-consumer demand), logistics demand planning focuses on shipment volumes, handling requirements, and network capacity at each node and lane.

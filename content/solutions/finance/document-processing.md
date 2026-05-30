@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: ["ai-ml", "intermediate", "document-processing", "finance", "extraction", "automation", "ocr"]
 industries: [finance, insurance, legal]
 tools: [amazon-textract, amazon-bedrock]
+last_updated: 2026-05-30
 ---
 
 Finance and operations teams receive enormous volumes of documents that contain structured information locked in unstructured formats. Invoices, purchase orders, contracts, tax forms, bank statements - all contain data that needs to enter systems of record, but arrives as PDFs, scanned images, or email attachments. Intelligent Document Processing (IDP) is the set of techniques that automates that extraction.

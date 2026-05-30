@@ -10,6 +10,7 @@ related:
   - glossary/data-lineage
   - glossary/synthetic-data
   - guides/ai-governance-implementation
+last_updated: 2026-05-30
 ---
 
 AI projects fail more often because of data problems than model problems. Organizations invest in sophisticated models while ignoring that their data is siloed, poorly documented, inconsistently formatted, and lacking the labels needed for supervised learning. A data strategy for AI addresses these foundations before model development begins.

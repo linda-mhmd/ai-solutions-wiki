@@ -9,6 +9,7 @@ related:
   - glossary/state-pattern
   - glossary/iterator-pattern
   - glossary/encapsulation
+last_updated: 2026-05-30
 ---
 
 The Memento pattern is a behavioral design pattern that captures and externalizes an object's internal state without violating encapsulation, so that the object can be restored to this state later. It enables undo mechanisms and state snapshots.

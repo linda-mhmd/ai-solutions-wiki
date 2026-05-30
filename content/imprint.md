@@ -2,6 +2,7 @@
 title: "Impressum"
 description: "Legal information and imprint for AI Solutions Wiki"
 layout: "single"
+last_updated: 2026-05-30
 ---
 
 ## Impressum
@@ -44,6 +45,16 @@ Die Inhalte dieser Webseite unterliegen, soweit dies rechtlich möglich ist, div
 
 ### Haftungsausschluss
 
-Trotz sorgfältiger inhaltlicher Kontrolle übernimmt der Webseitenbetreiber dieser Webseite keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich. Sollten Sie dennoch auf ausgehende Links aufmerksam werden, welche auf eine Webseite mit rechtswidriger Tätigkeit/Information verweisen, ersuchen wir um dementsprechenden Hinweis, um diese nach § 17 Abs. 2 ECG umgehend zu entfernen.
+Der Webseitenbetreiber übernimmt keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich. Sollten Sie auf ausgehende Links aufmerksam werden, welche auf eine Webseite mit rechtswidriger Tätigkeit oder Information verweisen, ersuchen wir um einen entsprechenden Hinweis, um diese nach § 17 Abs. 2 ECG umgehend zu entfernen.
 
-Die Urheberrechte Dritter werden vom Betreiber dieser Webseite mit größter Sorgfalt beachtet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden derartiger Rechtsverletzungen werden wir den betroffenen Inhalt umgehend entfernen.
+---
+
+## AI Tools and Editorial Process
+
+This wiki is curated with the assistance of AI tools. Content is researched, drafted, and reviewed using **Claude** (Anthropic), **Kiro** (AWS), and **ChatGPT** (OpenAI). All content is reviewed by Linda Mohamed before publication.
+
+Images on this site are generated with **NotebookLM** (Google). Animations and visual assets are produced with **Canva**.
+
+The use of AI tools does not reduce editorial responsibility. Every article reflects decisions made by a human editor. Errors, omissions, and updates are the responsibility of the site maintainer.
+
+Pricing, model capabilities, and tool availability change frequently. Always verify current details at the provider's official documentation before making decisions based on figures or specifications quoted here.

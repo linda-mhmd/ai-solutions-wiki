@@ -4,6 +4,7 @@ description: "Automatically generate project status reports by aggregating data 
 date: 2026-03-28
 categories: [Ideas]
 tags: [project-management, status-reports, automation, productivity]
+last_updated: 2026-05-30
 ---
 
 Project managers spend 2-3 hours per week compiling status reports by pulling data from Jira, reading Slack channels, checking Git commit logs, and synthesizing it all into a coherent update. The information exists - it just needs to be assembled.

@@ -9,6 +9,7 @@ related:
   - guides/testing-ai-systems
   - guides/testing-rag-systems
   - glossary/test-fixture
+last_updated: 2026-05-30
 ---
 
 A golden dataset is a curated, human-reviewed collection of test cases used as the ground truth for evaluating AI system quality. Each entry contains an input, the correct or expected output, and often additional metadata like difficulty level, category, and evaluation criteria. The golden dataset serves as a stable benchmark: when the system is changed, running it against the golden dataset reveals whether quality improved, regressed, or stayed the same.

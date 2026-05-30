@@ -9,6 +9,7 @@ related:
   - glossary/singleton-pattern
   - glossary/builder-pattern
   - glossary/object-oriented-programming
+last_updated: 2026-05-30
 ---
 
 The Factory Method pattern is a creational design pattern that defines an interface for creating an object but defers the decision of which concrete class to instantiate to subclasses. It lets a class delegate instantiation to its subclasses, promoting loose coupling between the creator and the product.

@@ -10,6 +10,7 @@ related:
   - glossary/responsible-ai
   - glossary/ai-safety
   - guides/ai-risk-assessment-guide
+last_updated: 2026-05-30
 ---
 
 The NIST AI Risk Management Framework (AI RMF 1.0), published in January 2023, provides a voluntary framework for managing risks associated with AI systems throughout their lifecycle. Unlike prescriptive regulations, the AI RMF offers flexible guidance that organizations can adapt to their specific context, risk tolerance, and AI maturity level. This guide covers practical implementation of the framework's four core functions.

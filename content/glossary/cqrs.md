@@ -8,6 +8,7 @@ related:
   - glossary/event-sourcing
   - glossary/domain-driven-design
   - glossary/saga-pattern
+last_updated: 2026-05-30
 ---
 
 CQRS (Command Query Responsibility Segregation) is an architectural pattern that uses separate models for reading and writing data. Commands (writes) modify state through a write model optimized for validation and business rules. Queries (reads) retrieve data through a read model optimized for the specific query patterns of consumers.

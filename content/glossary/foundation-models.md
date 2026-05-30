@@ -4,6 +4,7 @@ description: "What foundation models are, how they differ from task-specific mod
 date: 2026-03-24
 categories: [Glossary]
 tags: ["ai-ml", "beginner", "foundation-models", "llm", "pre-training", "transfer-learning", "ai"]
+last_updated: 2026-05-30
 ---
 
 A foundation model is a large AI model trained on broad data at scale, designed to be adapted to a wide range of downstream tasks. The term distinguishes these general-purpose models from earlier AI systems that were trained specifically for a single narrow task (e.g., a model trained only to classify spam email).

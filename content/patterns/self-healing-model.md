@@ -9,6 +9,7 @@ related:
   - patterns/continuous-training-pattern
   - patterns/observability-ai
   - patterns/model-versioning
+last_updated: 2026-05-30
 ---
 
 ML models degrade in production. The data distribution shifts, user behavior changes, and the relationship between features and targets evolves. A model that performed well at deployment time may be making poor predictions weeks later without anyone noticing. The self-healing model pattern automates the detection of degradation and triggers corrective action without waiting for a human to investigate.

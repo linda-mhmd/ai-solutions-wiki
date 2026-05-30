@@ -10,6 +10,7 @@ related:
   - glossary/dpia
   - frameworks/gdpr-ai-framework
   - guides/gdpr-for-ai-teams
+last_updated: 2026-05-30
 ---
 
 A data controller, as defined in Article 4(7) of GDPR, is the natural or legal person, public authority, agency, or other body that determines the purposes and means of the processing of personal data. The controller decides why personal data is processed and how it will be processed. This role carries primary accountability for GDPR compliance.

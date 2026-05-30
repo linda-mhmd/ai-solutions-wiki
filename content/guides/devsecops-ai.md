@@ -8,6 +8,7 @@ related:
   - glossary/devsecops
   - guides/ci-cd-for-ai
   - patterns/compliance-as-code
+last_updated: 2026-05-30
 ---
 
 AI/ML projects carry security risks that standard application security scanning does not cover: pickle deserialization attacks in model files, excessive permissions for training jobs, sensitive data in training datasets, and prompt injection vulnerabilities. A DevSecOps pipeline for AI extends standard security scanning with ML-specific checks.

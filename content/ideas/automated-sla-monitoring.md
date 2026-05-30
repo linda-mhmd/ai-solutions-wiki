@@ -4,6 +4,7 @@ description: "AI monitors service level agreements in real time, predicts potent
 date: 2026-03-28
 categories: [Ideas]
 tags: [sla, monitoring, compliance, reliability, daily-ai-spark]
+last_updated: 2026-05-30
 ---
 
 SLA breaches are usually discovered after the fact. The monthly report shows 99.2% uptime against a 99.9% SLA, and by then it is too late. Reactive SLA monitoring tells you what already went wrong. Predictive monitoring tells you what is about to go wrong in time to prevent it.

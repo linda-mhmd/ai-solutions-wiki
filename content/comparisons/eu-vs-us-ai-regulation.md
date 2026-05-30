@@ -2,6 +2,7 @@
 title: "EU AI Act vs US AI Regulation"
 description: "Comparison of the EU's binding AI Act approach with the US voluntary framework approach, covering scope, enforcement, and implications for organizations operating in both markets."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [eu-ai-act, us-regulation, nist, ai-governance, global-regulation, compliance]
 related:
@@ -10,6 +11,7 @@ related:
   - glossary/conformity-assessment
   - frameworks/eu-ai-act-risk-framework
   - frameworks/nist-ai-rmf
+last_updated: 2026-05-30
 ---
 
 The EU and US have taken fundamentally different approaches to AI regulation. The EU has enacted comprehensive, binding legislation. The US relies primarily on voluntary frameworks, sector-specific regulation, and executive action. Organizations operating in both markets must understand both approaches.

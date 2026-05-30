@@ -9,6 +9,7 @@ related:
   - patterns/ai-governance
   - patterns/policy-as-code-ml
   - patterns/llmops-pipeline
+last_updated: 2026-05-30
 ---
 
 AI systems depend on artifacts that traditional software supply chain security does not cover: pretrained model weights, tokenizer files, embedding models, dataset snapshots, and specialized inference runtimes. A compromised model weight file can introduce backdoors that are invisible to standard code review. AI supply chain security extends software supply chain practices to cover these AI-specific artifacts.

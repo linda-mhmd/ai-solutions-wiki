@@ -8,6 +8,7 @@ related:
   - glossary/diffusion-models
   - glossary/deep-learning
   - glossary/neural-network
+last_updated: 2026-05-30
 ---
 
 A Generative Adversarial Network (GAN) is a generative model architecture consisting of two neural networks trained in opposition: a generator that creates synthetic data and a discriminator that tries to distinguish synthetic data from real data. Through this adversarial process, the generator learns to produce increasingly realistic outputs.

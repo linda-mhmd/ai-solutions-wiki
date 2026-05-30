@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [permit-processing, government-automation, compliance, document-processing, citizen-services]
 industries: [government]
 tools: [amazon-bedrock, amazon-textract, aws-step-functions]
+last_updated: 2026-05-30
 ---
 
 Government permit processing - building permits, business licenses, environmental permits, event permits - is one of the most common citizen-government interactions and one of the most frustrating. Processing times of weeks to months, inconsistent decisions, and opaque status updates erode public trust. AI automation can reduce processing times by 60-80% for straightforward applications while improving consistency and freeing staff for complex cases.

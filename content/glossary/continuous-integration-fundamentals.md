@@ -4,6 +4,7 @@ description: "The practice of frequently merging code changes into a shared repo
 date: 2026-03-28
 categories: [Glossary]
 tags: [continuous-integration, CI, DevOps, automation, build, testing]
+last_updated: 2026-05-30
 ---
 
 Continuous Integration (CI) is a software development practice where team members integrate their work frequently -- ideally multiple times per day -- with each integration verified by an automated build and automated tests. The goal is to detect integration problems early, when they are small and easy to fix.

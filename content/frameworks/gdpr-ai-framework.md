@@ -16,6 +16,7 @@ related:
   - patterns/gdpr-compliant-ml-pipeline
   - patterns/privacy-preserving-ai
   - comparisons/gdpr-vs-eu-ai-act
+last_updated: 2026-05-30
 ---
 
 The General Data Protection Regulation applies to any AI system that processes personal data of individuals in the EU, regardless of where the organization is based. GDPR was not written specifically for AI, but its principles create binding constraints on how machine learning models are trained, deployed, and maintained. Organizations building AI systems must understand where GDPR intersects with their ML workflows and what compliance requires in practice.

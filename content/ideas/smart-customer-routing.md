@@ -4,6 +4,7 @@ description: "Use AI to analyze customer inquiries and route them to the best-qu
 date: 2026-03-28
 categories: [Ideas]
 tags: [customer-service, routing, classification, automation]
+last_updated: 2026-05-30
 ---
 
 Traditional customer routing uses menus and categories chosen by the customer. Customers frequently choose the wrong category, resulting in transfers, repeated explanations, and longer resolution times. The content of the message tells you more about where it should go than the category the customer selected.

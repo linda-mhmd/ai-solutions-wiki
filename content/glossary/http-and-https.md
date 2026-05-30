@@ -4,6 +4,7 @@ description: "The foundational web protocols for transferring hypertext document
 date: 2026-03-28
 categories: [Glossary]
 tags: [networking, http, https, web-protocols, tls, security]
+last_updated: 2026-05-30
 ---
 
 HTTP (Hypertext Transfer Protocol) is the application-layer protocol used to transfer web pages, APIs, and other resources between clients and servers. HTTPS (HTTP Secure) is HTTP with encryption provided by TLS (Transport Layer Security), protecting data in transit from eavesdropping and tampering.

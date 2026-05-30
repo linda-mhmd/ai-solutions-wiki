@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [skills-assessment, talent-management, skills-gap, learning-development, workforce-capability]
 industries: [hr, education]
 tools: [amazon-bedrock, amazon-sagemaker, amazon-neptune]
+last_updated: 2026-05-30
 ---
 
 Organizations need to understand the skills their workforce has and the skills they will need. Traditional skills assessment relies on self-reported surveys and manager evaluations, which are subjective, infrequent, and often inaccurate. AI skills assessment infers skills from observable data, maps organizational skill inventories, identifies gaps, and recommends targeted development programs.

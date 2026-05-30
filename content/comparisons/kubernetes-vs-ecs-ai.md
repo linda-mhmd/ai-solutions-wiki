@@ -2,8 +2,10 @@
 title: "Kubernetes vs ECS for AI Workloads"
 description: "Comparing Kubernetes (EKS) and Amazon ECS for running AI training and inference workloads, covering GPU support, scaling, operations, and ecosystem."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [Kubernetes, ECS, container-orchestration, AWS, AI-infrastructure]
+last_updated: 2026-05-30
 ---
 
 Kubernetes (via EKS) and Amazon ECS are both container orchestration platforms on AWS. For AI workloads, the choice affects GPU management, scaling behavior, ecosystem compatibility, and operational burden. This comparison focuses on AI-specific considerations.

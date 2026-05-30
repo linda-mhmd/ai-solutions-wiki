@@ -4,6 +4,7 @@ description: "Combining multiple models for improved accuracy, reliability, and 
 date: 2026-03-28
 categories: [Patterns]
 tags: [model-ensemble, reliability, accuracy, architecture, multi-model]
+last_updated: 2026-05-30
 ---
 
 A single model has a single failure mode. An ensemble of models can compensate for individual weaknesses, improve accuracy, and provide built-in redundancy. But ensembles add complexity, cost, and latency that must be justified by measurable improvement.

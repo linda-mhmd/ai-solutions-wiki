@@ -8,6 +8,7 @@ related:
   - glossary/nodejs
   - glossary/semantic-versioning
   - glossary/react
+last_updated: 2026-05-30
 ---
 
 npm is the default package manager for Node.js and the world's largest software registry. Created by Isaac Z. Schlueter in 2010, npm established the conventions for publishing, discovering, installing, and versioning JavaScript packages that the entire ecosystem now depends on. As of 2026, the npm registry hosts over two million packages.

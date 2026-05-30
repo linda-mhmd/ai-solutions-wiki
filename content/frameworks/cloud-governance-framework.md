@@ -10,6 +10,7 @@ related:
   - guides/cloud-security-posture-management
   - comparisons/aws-vs-azure-governance
   - guides/infrastructure-as-code-ai
+last_updated: 2026-05-30
 ---
 
 Enterprise cloud governance for AI workloads requires a structured framework that balances enablement (letting AI teams move fast) with control (maintaining security, compliance, and cost discipline). This framework defines the organizational model, policy layers, and operational practices needed.

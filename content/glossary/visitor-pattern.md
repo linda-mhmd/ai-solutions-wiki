@@ -9,6 +9,7 @@ related:
   - glossary/iterator-pattern
   - glossary/interpreter-pattern
   - glossary/object-oriented-programming
+last_updated: 2026-05-30
 ---
 
 The Visitor pattern is a behavioral design pattern that lets you define new operations on elements of an object structure without changing the classes of the elements it operates on. It achieves this by separating algorithms from the objects on which they operate.

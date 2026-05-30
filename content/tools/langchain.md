@@ -19,6 +19,7 @@ alternatives:
 solutions:
   - solutions/finance/document-processing
   - solutions/retail/recommendation-engine
+last_updated: 2026-05-30
 ---
 
 LangChain is the most widely adopted framework for building applications powered by large language models. It provides abstractions for common LLM patterns (retrieval-augmented generation, agents, chains) and integrations with hundreds of models, vector stores, document loaders, and tools. For enterprise AI projects, LangChain accelerates development by providing tested patterns for common workflows and a consistent interface across different LLM providers.
@@ -78,3 +79,10 @@ LangGraph is a separate library from the LangChain ecosystem for building statef
 ## Pricing
 
 LangChain is open-source (MIT license) and free. LangSmith has a free tier and paid tiers for higher trace volumes and team features. The cost of using LangChain is determined by the underlying services it calls (LLM API costs, vector database costs, infrastructure).
+
+## Sources and Further Reading
+
+- [LangChain Documentation](https://python.langchain.com/docs/) - Official documentation covering all components, integrations, and usage patterns
+- [LangChain GitHub Repository](https://github.com/langchain-ai/langchain) - Source code, examples, and community contributions
+- [LangSmith Documentation](https://docs.smith.langchain.com/) - Observability platform documentation for tracing and evaluation
+- [LangChain Blog](https://blog.langchain.dev/) - Technical articles on new features, best practices, and use cases

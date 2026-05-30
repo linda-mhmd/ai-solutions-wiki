@@ -8,6 +8,7 @@ related:
   - patterns/fallback-chain
   - patterns/feedback-loop-pattern
   - patterns/guardrails-pattern
+last_updated: 2026-05-30
 ---
 
 Self-healing architecture uses AI to close the loop between failure detection and remediation. Traditional monitoring detects problems and alerts humans. Self-healing systems detect problems, diagnose root causes, select appropriate remediation actions, execute them, and verify recovery - all without human intervention. The AI component replaces the on-call engineer's decision-making for known failure classes.

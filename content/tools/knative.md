@@ -8,6 +8,7 @@ related:
   - tools/aws-lambda
   - tools/openfaas
   - tools/knative
+last_updated: 2026-05-30
 ---
 
 Knative is an open-source platform built on Kubernetes that provides components for deploying, running, and managing serverless and event-driven workloads. It abstracts away Kubernetes complexity for application developers, enabling them to focus on writing code while the platform handles container building, scaling (including scale-to-zero), routing, and event delivery. Knative brings the serverless developer experience to any Kubernetes cluster, whether on-premises or in the cloud.

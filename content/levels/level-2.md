@@ -4,6 +4,7 @@ description: "Version control, Git, and open source. How teams collaborate on co
 date: 2026-05-29
 level_num: 2
 tags: ["beginner", "git", "version-control", "collaboration"]
+last_updated: 2026-05-30
 ---
 
 <figure class="bz-figure">

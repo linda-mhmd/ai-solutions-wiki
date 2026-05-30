@@ -4,6 +4,7 @@ description: "How to manage organizational change when introducing AI systems, a
 date: 2026-03-28
 categories: [Guides]
 tags: [change-management, adoption, organizational, AI-development, leadership]
+last_updated: 2026-05-30
 ---
 
 Building an AI system is a technical challenge. Getting an organization to actually use it is a human challenge, and usually the harder one. Change management for AI adoption requires addressing fears about job displacement, building trust in probabilistic systems, redesigning workflows around new capabilities, and maintaining momentum through the inevitable frustrations of early adoption.

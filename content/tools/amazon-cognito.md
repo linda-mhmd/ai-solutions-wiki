@@ -12,6 +12,7 @@ related:
   - glossary/jwt
   - glossary/oauth2
   - glossary/saml
+last_updated: 2026-05-30
 ---
 
 Amazon Cognito provides user authentication, authorization, and user management for web and mobile applications. It handles sign-up flows, password policies, MFA, social identity providers (Google, Apple, Facebook), and enterprise federation (SAML 2.0, OIDC). For AI applications, it secures the API layer and generates the credentials that authorize calls to AWS services.

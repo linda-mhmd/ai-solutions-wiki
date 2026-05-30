@@ -8,6 +8,7 @@ related:
   - glossary/feature-branching
   - glossary/ci-cd
   - glossary/feature-flags
+last_updated: 2026-05-30
 ---
 
 Trunk-based development is a source control strategy where developers integrate their changes into a single shared branch (trunk or main) frequently - at least once per day. Long-lived feature branches are avoided. Instead, developers work in small increments, committing directly to trunk or through very short-lived branches (hours, not days or weeks).

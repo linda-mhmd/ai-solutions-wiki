@@ -9,6 +9,7 @@ related:
   - glossary/visitor-pattern
   - glossary/strategy-pattern
   - glossary/object-oriented-programming
+last_updated: 2026-05-30
 ---
 
 The Interpreter pattern is a behavioral design pattern that, given a language, defines a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language.

@@ -2,8 +2,10 @@
 title: "Weaviate vs pgvector - Vector Database Comparison"
 description: "Comparing Weaviate and pgvector for vector search, covering architecture, performance, operational complexity, and when to choose each."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [Weaviate, pgvector, PostgreSQL, vector-search, database]
+last_updated: 2026-05-30
 ---
 
 Weaviate is a purpose-built vector database. pgvector is a PostgreSQL extension that adds vector operations to an existing relational database. This comparison helps teams decide between adding vector search to their existing PostgreSQL setup or introducing a dedicated vector database.

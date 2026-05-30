@@ -8,6 +8,7 @@ related:
   - tools/aws-mediaconvert
   - tools/google-cloud-storage
   - tools/google-cloud-armor
+last_updated: 2026-05-30
 ---
 
 Google Media CDN is a content delivery network purpose-built for media and large-scale content delivery. It runs on the same global edge infrastructure that delivers YouTube, serving content from over 1,300 edge locations in more than 200 countries and territories. Media CDN is designed for streaming video (live and on-demand), large file downloads, game updates, and other media-heavy workloads that require high throughput, low latency, and massive scale. It is distinct from Cloud CDN, Google's general-purpose CDN -- Media CDN is optimized specifically for media delivery with higher throughput guarantees and advanced media-specific features.

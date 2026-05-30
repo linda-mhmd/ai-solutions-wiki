@@ -12,6 +12,7 @@ related:
   - glossary/cost-optimization-pillar
   - glossary/performance-efficiency
   - glossary/sustainability-pillar
+last_updated: 2026-05-30
 ---
 
 The AWS Well-Architected Framework covers principles that apply to any cloud workload. Machine learning introduces a distinct set of challenges - training pipelines, model drift, prompt injection, inference cost volatility - that the base framework does not fully address. The AWS Well-Architected ML Lens is a published extension that maps each of the six pillars to the ML lifecycle and provides ML-specific best practices.

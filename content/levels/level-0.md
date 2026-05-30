@@ -4,6 +4,7 @@ description: "Computers and the internet. How hardware works, how networks trans
 date: 2026-05-29
 level_num: 0
 tags: ["beginner", "foundation", "computer-science"]
+last_updated: 2026-05-30
 ---
 
 <figure class="bz-figure">

@@ -8,6 +8,7 @@ related:
   - guides/ai-governance-implementation
   - frameworks/nist-ai-rmf
   - guides/ai-regulatory-compliance-checklist
+last_updated: 2026-05-30
 ---
 
 Model risk management is the discipline of identifying, measuring, and controlling the risk that arises from using quantitative models to make business decisions. In regulated industries, particularly financial services, model risk management is not optional. It is a supervisory requirement with specific expectations for how organizations develop, validate, and govern their models.

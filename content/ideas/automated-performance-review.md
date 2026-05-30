@@ -4,6 +4,7 @@ description: "Use AI to draft performance review summaries from project data, pe
 date: 2026-03-28
 categories: [Ideas]
 tags: [performance-management, hr, reviews, automation, productivity]
+last_updated: 2026-05-30
 ---
 
 Performance review season is universally dreaded. Managers spend 3-5 hours per direct report assembling evidence, writing assessments, and calibrating ratings. Much of this time goes to recalling and documenting what happened over the past six months rather than thoughtful evaluation.

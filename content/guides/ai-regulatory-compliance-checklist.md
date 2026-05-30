@@ -13,6 +13,7 @@ related:
   - frameworks/gdpr-ai-framework
   - guides/gdpr-for-ai-teams
   - guides/eu-ai-act-compliance
+last_updated: 2026-05-30
 ---
 
 Organizations deploying AI in the EU face overlapping regulatory requirements. This checklist maps common obligations across GDPR, the EU AI Act, NIS2, and DORA to help compliance teams identify gaps.

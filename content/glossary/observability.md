@@ -9,9 +9,15 @@ related:
   - tools/aws-cloudwatch
   - glossary/drift-detection
   - guides/ci-cd-ai-detailed
+last_updated: 2026-05-30
 ---
 
 Observability is the property of a system that allows its internal state to be inferred from its external outputs. An observable system provides enough data through its logs, metrics, and traces that engineers can understand what it is doing and why - without needing to add new instrumentation for each new question they want to answer.
+
+<figure class="bz-figure">
+  <img src="/img/enterprise-dark/gear-lens-dark-red-notext.png" alt="A precision lens focused on intricate gears: observability gives you the optics to see inside complex systems and understand their behavior." loading="lazy">
+  <figcaption>Observability is the lens that lets you see inside the machine. Without it, you are guessing. With it, you can trace a request through every gear and understand exactly where time is spent and errors occur.</figcaption>
+</figure>
 
 The term originates in control theory (a system is "observable" if its internal state can be determined from its outputs over time) and was adapted for software systems by Charity Majors and others at Parse and Honeycomb in the 2010s.
 

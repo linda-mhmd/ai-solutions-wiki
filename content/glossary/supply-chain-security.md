@@ -10,6 +10,7 @@ related:
   - patterns/ai-supply-chain-security
   - guides/nis2-implementation-guide
   - frameworks/cyber-resilience-act
+last_updated: 2026-05-30
 ---
 
 Supply chain security in the context of AI and cybersecurity refers to the practices, controls, and governance mechanisms used to manage risks introduced by third-party components, services, and providers that an AI system depends on. Modern AI systems have extensive supply chains that include pre-trained foundation models, open-source libraries, cloud infrastructure, data providers, labeling services, and MLOps tooling.

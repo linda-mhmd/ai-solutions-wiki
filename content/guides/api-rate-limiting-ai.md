@@ -8,6 +8,7 @@ related:
   - glossary/idempotency
   - guides/api-versioning-ai
   - guides/capacity-planning-ai
+last_updated: 2026-05-30
 ---
 
 AI inference endpoints are expensive to serve. A single LLM request can consume GPU seconds and cost cents to dollars. Without rate limiting, a single misbehaving client can exhaust GPU capacity, degrade service for all users, and generate unexpected costs. Rate limiting for AI endpoints must account for the variable cost per request - a 4,000-token response consumes 40x the resources of a 100-token response.

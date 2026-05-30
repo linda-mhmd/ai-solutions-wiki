@@ -9,6 +9,7 @@ related:
   - guides/integration-testing-ai-pipelines
   - glossary/unit-testing
   - glossary/test-fixture
+last_updated: 2026-05-30
 ---
 
 Unit testing AI applications follows the same principle as unit testing any software: isolate small pieces of logic and verify they work correctly. The key insight for AI codebases is knowing where the boundary lies between deterministic code (which you unit test thoroughly) and model inference (which you do not unit test, because the outputs are non-deterministic).

@@ -8,6 +8,7 @@ related:
   - glossary/observability
   - glossary/grafana
   - glossary/prometheus
+last_updated: 2026-05-30
 ---
 
 The Elastic Stack (formerly ELK Stack) is a set of tools for collecting, storing, searching, and visualizing log data: Elasticsearch (search and analytics engine), Logstash (data processing pipeline), Kibana (visualization), and Beats (lightweight data shippers). Together, they provide centralized log management and full-text search across distributed systems.

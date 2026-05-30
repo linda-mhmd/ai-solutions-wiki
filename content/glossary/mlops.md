@@ -12,9 +12,15 @@ related:
   - glossary/feature-store
   - patterns/llmops-pipeline
   - guides/mlops-getting-started
+last_updated: 2026-05-30
 ---
 
 MLOps (Machine Learning Operations) is the set of practices, tools, and organizational patterns for deploying and maintaining machine learning models in production reliably and efficiently. It applies the principles of DevOps -- automation, continuous integration, continuous delivery, monitoring, and collaboration -- to the unique challenges of machine learning systems.
+
+<figure class="bz-figure">
+  <img src="/img/obsidian-lab/cycle-five-nodes-notext.png" alt="A continuous cycle connecting five nodes: the MLOps lifecycle of data, training, evaluation, deployment, and monitoring in perpetual motion." loading="lazy">
+  <figcaption>MLOps is a continuous cycle. Data flows to training, training produces models, models are evaluated and deployed, production monitoring detects drift, and the cycle begins again. Automation keeps it turning.</figcaption>
+</figure>
 
 ## Why MLOps Exists
 

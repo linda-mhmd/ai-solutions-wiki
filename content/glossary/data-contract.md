@@ -8,6 +8,7 @@ related:
   - patterns/data-contract-pattern
   - glossary/data-quality
   - glossary/openapi
+last_updated: 2026-05-30
 ---
 
 A data contract is a formal agreement between a data producer and its consumers that defines the structure, semantics, quality guarantees, and service level objectives for a dataset or data stream. It is the data equivalent of an API contract.

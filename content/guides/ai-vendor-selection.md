@@ -9,6 +9,7 @@ related:
   - guides/ai-governance-implementation
   - guides/ai-risk-assessment-guide
   - guides/llm-cost-optimization
+last_updated: 2026-05-30
 ---
 
 The AI vendor landscape is crowded, fast-moving, and full of exaggerated claims. Choosing the wrong vendor means wasted integration effort, vendor lock-in, compliance gaps, or capabilities that do not meet actual needs. A structured evaluation framework reduces these risks and produces defensible procurement decisions.

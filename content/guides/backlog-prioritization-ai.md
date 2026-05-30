@@ -4,6 +4,7 @@ description: "Frameworks and techniques for prioritizing AI project backlogs, ba
 date: 2026-03-28
 categories: [Guides]
 tags: [backlog, prioritization, project-management, agile, AI-development]
+last_updated: 2026-05-30
 ---
 
 Prioritizing an AI project backlog is harder than prioritizing a software backlog. Software features have relatively predictable implementation costs and clear user value. AI work items span a spectrum from certain (build a data pipeline) to deeply uncertain (determine if this prediction task is even feasible). Standard prioritization frameworks need adaptation to handle this range.

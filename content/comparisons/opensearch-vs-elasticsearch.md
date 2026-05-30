@@ -2,8 +2,10 @@
 title: "OpenSearch vs Elasticsearch for AI Workloads"
 description: "Comparing OpenSearch and Elasticsearch for AI and ML workloads, covering vector search, neural search, and integration with AI pipelines."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [OpenSearch, Elasticsearch, vector-search, AI, search, comparison]
+last_updated: 2026-05-30
 ---
 
 OpenSearch and Elasticsearch share the same codebase ancestry but have diverged since the 2021 fork. For AI workloads - particularly vector search, RAG retrieval, and neural search - the differences matter. Both support vector operations, but their implementations, ML integrations, and managed service options differ.

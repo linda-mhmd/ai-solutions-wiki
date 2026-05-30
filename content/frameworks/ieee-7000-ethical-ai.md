@@ -9,6 +9,7 @@ related:
   - frameworks/iso-42001
   - guides/building-ai-ethics-board
   - guides/responsible-ai-guide
+last_updated: 2026-05-30
 ---
 
 IEEE 7000-2021, officially titled "Standard Model Process for Addressing Ethical Concerns during System Design," provides a systematic engineering process for identifying and addressing ethical concerns in autonomous and intelligent systems. Unlike high-level principles documents, IEEE 7000 specifies concrete process steps that engineering teams can follow to translate abstract ethical values into verifiable system requirements.

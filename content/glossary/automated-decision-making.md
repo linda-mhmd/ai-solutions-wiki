@@ -11,6 +11,7 @@ related:
   - frameworks/gdpr-ai-framework
   - guides/gdpr-for-ai-teams
   - patterns/human-in-the-loop
+last_updated: 2026-05-30
 ---
 
 Automated decision-making (ADM) refers to decisions made by technological means without human involvement. Under GDPR Article 22, individuals have the right not to be subject to decisions based solely on automated processing, including profiling, that produce legal effects concerning them or similarly significantly affect them. This provision has become one of the most important regulatory constraints on AI deployment in the EU.

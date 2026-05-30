@@ -8,6 +8,7 @@ related:
   - frameworks/okr-framework-ai
   - frameworks/design-thinking-ai
   - frameworks/moscow-prioritization
+last_updated: 2026-05-30
 ---
 
 Stakeholder mapping identifies everyone who influences or is affected by an AI project, assesses their position (supportive, neutral, resistant), and defines engagement strategies to build and maintain alignment. AI projects generate more stakeholder complexity than typical technology projects because they trigger concerns about job displacement, algorithmic fairness, data privacy, and organizational change. A stakeholder map makes these dynamics visible and manageable.

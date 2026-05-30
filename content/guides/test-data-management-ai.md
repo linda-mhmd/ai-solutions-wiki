@@ -9,6 +9,7 @@ related:
   - guides/testing-rag-systems
   - glossary/golden-dataset
   - glossary/test-fixture
+last_updated: 2026-05-30
 ---
 
 AI systems are data-intensive, and their tests need data that is representative, reproducible, and safely managed. Unlike traditional applications where a few rows of test data suffice, AI tests may need hundreds of labeled examples, populated vector databases, and realistic document corpora. Poor test data management leads to brittle tests, false confidence, and data leakage risks.

@@ -4,6 +4,7 @@ description: "Use AI to recommend optimal resource allocation across projects ba
 date: 2026-03-28
 categories: [Ideas]
 tags: [resource-management, project-planning, optimization, automation]
+last_updated: 2026-05-30
 ---
 
 Resource allocation in project-based organizations is a constant negotiation. Project managers compete for the same skilled people, and the allocation decision often comes down to who asks first or who has the most organizational leverage rather than what is optimal for the business.

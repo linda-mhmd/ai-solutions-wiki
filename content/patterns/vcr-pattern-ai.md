@@ -9,6 +9,7 @@ related:
   - guides/testing-ai-systems
   - guides/integration-testing-ai-pipelines
   - glossary/mocking
+last_updated: 2026-05-30
 ---
 
 The VCR (Video Cassette Recorder) pattern records real HTTP interactions with external APIs and replays them in subsequent test runs. For AI API testing, this means calling the real LLM or embedding API once, saving the response to a cassette file, and replaying that exact response in every future test run. Tests become deterministic, fast, and free of API costs.

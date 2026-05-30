@@ -10,6 +10,7 @@ related:
   - glossary/online-learning
   - guides/time-series-forecasting
   - glossary/gradient-boosting
+last_updated: 2026-05-30
 ---
 
 Time series analysis deals with data collected over time where the order matters. Sales figures, stock prices, sensor readings, website traffic, and energy consumption are all time series. Understanding their structure and choosing the right forecasting method is fundamental to many business and engineering problems. This guide covers the core concepts and practical methods.

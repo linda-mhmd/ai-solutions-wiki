@@ -4,6 +4,7 @@ description: "Automatically categorize and prioritize customer feedback from mul
 date: 2026-03-28
 categories: [Ideas]
 tags: [customer-feedback, classification, product-management, automation]
+last_updated: 2026-05-30
 ---
 
 Customer feedback is one of the most valuable inputs for product teams, but it arrives in fragments across support tickets, app reviews, survey responses, social media, and sales call notes. Synthesizing it manually means someone spends hours reading and tagging individual items.

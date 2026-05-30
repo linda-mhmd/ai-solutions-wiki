@@ -2,8 +2,10 @@
 title: "Microservices vs Monolith for AI Applications"
 description: "Comparing microservice and monolithic architectures for AI applications, covering deployment patterns, team structure implications, and performance considerations."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [microservices, monolith, architecture, AI-infrastructure, design-patterns]
+last_updated: 2026-05-30
 ---
 
 The microservices vs monolith debate is well-established in software engineering. AI applications add new dimensions: model serving has different scaling requirements than business logic, data pipelines have different deployment cycles than APIs, and ML experiments benefit from rapid iteration that monoliths enable. This comparison addresses AI-specific architectural considerations.

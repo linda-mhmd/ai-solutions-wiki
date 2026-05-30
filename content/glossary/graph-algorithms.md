@@ -4,6 +4,7 @@ description: "Algorithms for traversing and finding paths in graphs, including B
 date: 2026-03-28
 categories: [Glossary]
 tags: [graph-algorithms, BFS, DFS, Dijkstra, A-star, algorithms, data-structures]
+last_updated: 2026-05-30
 ---
 
 Graph algorithms operate on graph data structures (vertices connected by edges) to solve problems involving connectivity, shortest paths, spanning trees, and network flow. They are among the most widely applicable algorithms in computer science.

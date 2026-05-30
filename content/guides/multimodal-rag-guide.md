@@ -9,6 +9,7 @@ related:
   - guides/rag-evaluation-guide
   - glossary/rag
   - guides/knowledge-graph-guide
+last_updated: 2026-05-30
 ---
 
 Most RAG tutorials assume clean text documents. Real enterprise documents contain tables, charts, diagrams, images with embedded text, multi-column layouts, and mixed content types. A RAG system that ignores these elements misses critical information. Multimodal RAG extends standard text-based RAG to handle the full richness of real documents.

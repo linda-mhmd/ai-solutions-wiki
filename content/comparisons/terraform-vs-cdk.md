@@ -2,8 +2,10 @@
 title: "Terraform vs AWS CDK - Which IaC Tool to Choose"
 description: "When to use Terraform vs AWS CDK for AI project infrastructure: pros, cons, and decision criteria for each tool."
 date: 2026-03-24
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: ["devops", "intermediate", "terraform", "aws-cdk", "infrastructure-as-code", "comparison", "provisioning"]
+last_updated: 2026-05-30
 ---
 
 Terraform and AWS CDK are the two dominant infrastructure-as-code tools for AWS projects. They have different philosophies, strengths, and team fit. This article provides a decision framework for AI projects.

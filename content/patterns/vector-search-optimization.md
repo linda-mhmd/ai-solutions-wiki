@@ -4,6 +4,7 @@ description: "Improving vector search quality and performance. Index tuning, hyb
 date: 2026-03-28
 categories: [Patterns]
 tags: [vector-search, optimization, RAG, embeddings, performance]
+last_updated: 2026-05-30
 ---
 
 Vector search is the retrieval backbone of RAG systems. Getting it right determines whether the AI system finds relevant context or generates responses from irrelevant or missing information. Optimization targets three dimensions: relevance (finding the right content), performance (finding it fast), and cost (finding it efficiently).

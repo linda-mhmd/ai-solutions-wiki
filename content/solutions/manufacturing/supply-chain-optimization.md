@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [supply-chain, optimization, demand-sensing, supplier-risk, logistics]
 industries: [manufacturing, logistics]
 tools: [amazon-sagemaker, amazon-forecast, amazon-redshift]
+last_updated: 2026-05-30
 ---
 
 Manufacturing supply chains are complex networks of suppliers, production facilities, warehouses, and distribution channels. Optimizing these networks requires balancing competing objectives: cost, speed, reliability, and resilience. AI supply chain optimization makes these trade-offs systematically across thousands of decision variables, achieving results that manual planning cannot replicate.

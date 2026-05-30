@@ -9,6 +9,7 @@ related:
   - patterns/agentic-workflows
   - guides/multi-agent-systems-101
   - frameworks/mixture-of-experts
+last_updated: 2026-05-30
 ---
 
 The term "compound AI system" describes an AI system that combines multiple components -- language models, retrievers, code executors, tools, and programmatic control logic -- to accomplish tasks that no single model can handle reliably on its own. The concept was formalized by researchers at Berkeley AI Research (BAIR) in 2024, reflecting a shift in how production AI systems are built: away from monolithic models and toward systems of interacting components.

@@ -8,6 +8,7 @@ related:
   - guides/stream-processing-ai
   - patterns/stream-processing-ai
   - glossary/change-data-capture
+last_updated: 2026-05-30
 ---
 
 Stream processing is the continuous computation of results as data arrives, rather than waiting to collect a batch and process it all at once. Data flows through a processing pipeline record by record or in micro-batches, producing results with low latency.

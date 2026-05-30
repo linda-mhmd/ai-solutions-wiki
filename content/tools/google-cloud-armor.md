@@ -8,6 +8,7 @@ related:
   - tools/aws-waf
   - tools/google-cloud-run
   - tools/google-cloud-functions
+last_updated: 2026-05-30
 ---
 
 Google Cloud Armor is a web application firewall (WAF) and DDoS protection service that defends applications running on Google Cloud from network and application-layer attacks. It operates at the edge of Google's global network, filtering malicious traffic before it reaches your application infrastructure. Cloud Armor protects applications behind external HTTP(S) load balancers, including workloads on Compute Engine, GKE, Cloud Run, and Cloud Functions, providing a consistent security layer regardless of the backend compute platform.

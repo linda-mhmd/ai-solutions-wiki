@@ -9,6 +9,7 @@ related:
   - glossary/iterator-pattern
   - glossary/visitor-pattern
   - glossary/object-oriented-programming
+last_updated: 2026-05-30
 ---
 
 The Composite pattern is a structural design pattern that composes objects into tree structures to represent part-whole hierarchies. It allows clients to treat individual objects and compositions of objects uniformly through a common interface.

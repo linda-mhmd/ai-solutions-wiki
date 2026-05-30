@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [infrastructure, monitoring, predictive-analytics, satellite-imagery, public-works]
 industries: [government, energy]
 tools: [amazon-sagemaker, amazon-rekognition, amazon-kinesis]
+last_updated: 2026-05-30
 ---
 
 Public infrastructure - roads, bridges, water systems, buildings, and utilities - deteriorates over time and requires maintenance to remain safe and functional. Governments manage vast infrastructure portfolios but lack the resources for comprehensive manual inspection. AI monitoring enables continuous assessment of infrastructure condition, early detection of deterioration, and data-driven prioritization of maintenance investments.

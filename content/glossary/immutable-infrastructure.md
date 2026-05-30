@@ -9,6 +9,7 @@ related:
   - glossary/docker
   - glossary/gitops
   - glossary/twelve-factor-app
+last_updated: 2026-05-30
 ---
 
 Immutable infrastructure is the practice of never modifying servers or containers after deployment. Instead of patching, updating, or configuring running systems, you build a new image (AMI, container image) with the desired state and replace the old instances entirely. Infrastructure is treated as disposable and replaceable, not as long-lived pets to be maintained.

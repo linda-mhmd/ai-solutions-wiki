@@ -4,6 +4,7 @@ description: "Build a multi-step translation pipeline that handles document tran
 date: 2026-03-28
 categories: [Ideas]
 tags: [translation, localization, multilingual, automation]
+last_updated: 2026-05-30
 ---
 
 Professional translation is expensive and slow. Machine translation is fast and cheap but produces inconsistent terminology and misses domain-specific nuance. The best approach combines both: AI handles the heavy lifting while humans review and refine.

@@ -7,6 +7,7 @@ tags: [azure, streaming, event-ingestion, kafka, real-time]
 related:
   - tools/amazon-msk
   - tools/azure-event-grid
+last_updated: 2026-05-30
 ---
 
 Azure Event Hubs is Microsoft Azure's fully managed, real-time data ingestion service built for big data streaming scenarios. It can receive and process millions of events per second with low latency, serving as the front door for streaming data pipelines that feed AI and analytics workloads. Events published to Event Hubs are retained for a configurable period (up to 90 days or unlimited with the Premium and Dedicated tiers), allowing multiple consumers to process the same stream independently and at their own pace.

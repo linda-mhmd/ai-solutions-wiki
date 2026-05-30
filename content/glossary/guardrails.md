@@ -4,6 +4,7 @@ description: "What AI guardrails are, the types of controls they enforce, how to
 date: 2026-03-24
 categories: [Glossary]
 tags: ["ai-agents", "intermediate", "guardrails", "safety", "responsible-ai", "content-filtering", "llm"]
+last_updated: 2026-05-30
 ---
 
 AI guardrails are controls that constrain the inputs and outputs of AI systems to enforce safety, compliance, and quality requirements. In enterprise applications, guardrails are not optional - they are the mechanism by which organizations meet regulatory obligations, brand standards, and operational quality requirements for AI-generated content.

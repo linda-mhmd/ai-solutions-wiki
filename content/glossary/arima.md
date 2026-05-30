@@ -9,6 +9,7 @@ related:
   - glossary/online-learning
   - guides/time-series-analysis-foundations
   - guides/time-series-forecasting
+last_updated: 2026-05-30
 ---
 
 ARIMA (Autoregressive Integrated Moving Average) is a classical statistical model for time series forecasting. It combines three components: autoregression (using past values to predict future values), differencing (making the series stationary), and moving average (using past forecast errors). ARIMA remains a strong baseline for time series problems and outperforms complex models on many datasets, particularly when data is limited.

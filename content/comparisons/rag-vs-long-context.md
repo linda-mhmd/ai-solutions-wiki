@@ -2,8 +2,10 @@
 title: "RAG vs Long Context Windows for Knowledge Access"
 description: "Comparing retrieval-augmented generation and long context windows as strategies for giving LLMs access to external knowledge."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [RAG, long-context, LLM, knowledge-management, comparison]
+last_updated: 2026-05-30
 ---
 
 LLMs need access to knowledge beyond their training data. The two primary approaches are RAG (retrieve relevant chunks at query time) and long context (stuff the full knowledge base into the context window). As context windows have grown from 4K to millions of tokens, the tradeoffs between these approaches have shifted.

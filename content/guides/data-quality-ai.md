@@ -8,6 +8,7 @@ related:
   - glossary/data-quality
   - glossary/data-contract
   - guides/stream-processing-ai
+last_updated: 2026-05-30
 ---
 
 AI models are only as good as their training data and input features. A data quality issue that would be a minor inconvenience in a reporting dashboard can cause a model to learn incorrect patterns, make biased predictions, or fail silently in production. Data quality validation must be automated, continuous, and integrated into every data pipeline that feeds an AI system.

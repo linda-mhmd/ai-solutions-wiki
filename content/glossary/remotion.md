@@ -8,6 +8,7 @@ related:
   - tools/ffmpeg
   - glossary/programmatic-video
   - glossary/virtual-dom
+last_updated: 2026-05-30
 ---
 
 Remotion is an open-source framework that enables developers to create videos programmatically using React. Rather than editing video in a timeline-based tool, developers write JSX components that render frame by frame, producing MP4 files from code. Remotion was created by Jonny Burger and publicly announced on February 8, 2021, via Twitter and Product Hunt, with the tagline "Create videos programmatically in React."

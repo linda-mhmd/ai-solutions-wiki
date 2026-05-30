@@ -9,6 +9,7 @@ related:
   - guides/implementing-data-mesh
   - guides/data-lakehouse-ai
   - guides/data-preparation-for-ai
+last_updated: 2026-05-30
 ---
 
 Data fabric is an architectural approach that uses metadata, knowledge graphs, and machine learning to create a unified, intelligent layer over an organization's diverse data sources. Rather than moving all data into a single centralized repository, data fabric connects data where it lives and uses active metadata to automate data discovery, governance, integration, and delivery. Gartner has identified data fabric as a top data and analytics trend, and the approach is increasingly adopted by enterprises that need to make their data AI-ready without undertaking massive data consolidation projects.

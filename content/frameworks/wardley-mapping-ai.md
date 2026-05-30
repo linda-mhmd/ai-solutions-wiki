@@ -8,6 +8,7 @@ related:
   - frameworks/capability-mapping
   - frameworks/maturity-model-ai
   - frameworks/value-stream-mapping-ai
+last_updated: 2026-05-30
 ---
 
 Wardley Mapping, created by Simon Wardley, visualizes the components needed to serve a user need, positioned by their maturity (from novel to commodity). The map reveals strategic opportunities: where to build custom solutions (novel components), where to use managed services (product-stage components), and where to use commodities (utility-stage components). For AI strategy, Wardley Maps answer the critical build-vs-buy questions that determine where an organization invests its AI engineering effort.

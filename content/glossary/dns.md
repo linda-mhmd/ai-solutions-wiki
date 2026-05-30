@@ -4,6 +4,7 @@ description: "The hierarchical, distributed naming system that translates human-
 date: 2026-03-28
 categories: [Glossary]
 tags: [networking, dns, domain-names, internet, name-resolution]
+last_updated: 2026-05-30
 ---
 
 The Domain Name System (DNS) is a hierarchical, distributed database that translates human-readable domain names (like example.com) into numerical IP addresses (like 93.184.216.34) that computers use to route traffic. DNS is often called the phonebook of the Internet. Without it, users would need to memorize IP addresses to visit websites.

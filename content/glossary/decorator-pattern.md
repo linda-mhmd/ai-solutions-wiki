@@ -9,6 +9,7 @@ related:
   - glossary/composite-pattern
   - glossary/proxy-pattern
   - glossary/strategy-pattern
+last_updated: 2026-05-30
 ---
 
 The Decorator pattern is a structural design pattern that attaches additional responsibilities to an object dynamically. It provides a flexible alternative to subclassing for extending functionality by wrapping the original object with one or more decorator objects that add behavior before or after delegating to the wrapped component.

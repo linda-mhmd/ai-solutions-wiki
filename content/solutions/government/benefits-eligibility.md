@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [benefits, eligibility, social-services, document-processing, government-automation]
 industries: [government]
 tools: [amazon-bedrock, amazon-textract, aws-step-functions]
+last_updated: 2026-05-30
 ---
 
 Government benefits programs - social assistance, housing support, disability benefits, unemployment insurance, childcare subsidies - process millions of applications annually. Eligibility determination requires verifying applicant information against complex rule sets that consider income, household composition, employment status, disability status, and other factors. AI automation reduces processing times, improves consistency, and frees caseworkers to focus on complex cases requiring human judgment.

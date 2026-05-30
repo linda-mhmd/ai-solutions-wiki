@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [live-captioning, speech-recognition, translation, accessibility, broadcast]
 industries: [media, government]
 tools: [amazon-transcribe, amazon-translate, amazon-bedrock]
+last_updated: 2026-05-30
 ---
 
 Live captioning makes audio and video content accessible to deaf and hard-of-hearing audiences, viewers in noisy environments, and non-native speakers. Regulatory requirements in many European jurisdictions mandate captioning for broadcast content. Traditional live captioning relies on trained stenographers or re-speakers, which is expensive (100-300 EUR per hour) and limited by human availability. AI live captioning provides immediate, scalable captioning at a fraction of the cost.

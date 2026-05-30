@@ -4,6 +4,7 @@ description: "Use AI to verify documents against regulatory requirements and int
 date: 2026-03-28
 categories: [Ideas]
 tags: [compliance, regulatory, document-review, automation, risk-management]
+last_updated: 2026-05-30
 ---
 
 Compliance checking is tedious, high-stakes, and repetitive - a perfect combination for AI assistance. A compliance analyst reading a 50-page policy document against a 200-item checklist is doing work that a model can accelerate significantly.

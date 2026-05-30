@@ -4,6 +4,7 @@ description: "Fundamental linear data structures for organizing and accessing da
 date: 2026-03-28
 categories: [Glossary]
 tags: [linked-lists, stacks, queues, data-structures, algorithms]
+last_updated: 2026-05-30
 ---
 
 Linked lists, stacks, and queues are fundamental linear data structures that organize elements sequentially. They form the building blocks upon which more complex data structures and algorithms are constructed.

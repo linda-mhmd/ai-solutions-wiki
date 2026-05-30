@@ -9,6 +9,7 @@ related:
   - glossary/xgboost
   - glossary/decision-tree
   - glossary/bias-variance-tradeoff
+last_updated: 2026-05-30
 ---
 
 Ensemble methods combine predictions from multiple models to produce a result that is more accurate and robust than any single model. The core insight is that individual models make different errors, and combining their predictions cancels out individual mistakes. Ensembles are consistently among the top-performing approaches for tabular data.

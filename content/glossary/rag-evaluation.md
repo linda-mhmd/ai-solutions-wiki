@@ -10,6 +10,7 @@ related:
   - patterns/rag-implementation
   - guides/building-rag-systems
   - guides/llm-evaluation-methods
+last_updated: 2026-05-30
 ---
 
 RAG evaluation is the systematic measurement of how well a Retrieval Augmented Generation system performs across its two core functions: retrieving relevant documents and generating accurate, grounded responses. Because RAG systems have multiple components that can fail independently, evaluation must assess each stage and the system as a whole.

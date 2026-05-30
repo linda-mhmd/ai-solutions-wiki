@@ -8,6 +8,7 @@ related:
   - tools/aws-lambda
   - tools/knative
   - tools/temporal
+last_updated: 2026-05-30
 ---
 
 OpenFaaS (Functions as a Service) is an open-source framework that makes it simple to deploy serverless functions and existing microservices to Kubernetes or Docker Swarm. Its design philosophy emphasizes simplicity and developer experience: any process that can be packaged in a Docker container can be deployed as a function on OpenFaaS, supporting any programming language or binary. This container-first approach avoids the language-specific constraints of many FaaS platforms and makes it straightforward to migrate existing services to a serverless model.

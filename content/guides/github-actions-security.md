@@ -4,6 +4,7 @@ description: "A comprehensive guide to GitHub Actions security vulnerabilities, 
 date: 2026-04-02
 categories: [Guides]
 tags: [software-engineering, intermediate, security, devops, ci-cd, github-actions, supply-chain]
+last_updated: 2026-05-30
 ---
 
 CI/CD pipelines are not neutral infrastructure. They run with elevated privileges, hold production secrets, and execute arbitrary code on every push. When those pipelines are compromised, attackers get exactly what they want: write access to your codebase, your artifact registries, and your production environments. Understanding GitHub Actions security is not optional for any team shipping software in 2026.

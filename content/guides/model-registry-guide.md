@@ -10,6 +10,7 @@ related:
   - guides/experiment-tracking-guide
   - guides/ai-governance-implementation
   - glossary/model-card
+last_updated: 2026-05-30
 ---
 
 A model registry is a versioned store for trained ML models and their metadata. It answers questions that every production ML team eventually faces: which model is currently deployed, what data was it trained on, who approved it, and how does it compare to the previous version. Without a registry, this information lives in spreadsheets, Slack messages, and individual memory.

@@ -9,6 +9,7 @@ related:
   - guides/ci-cd-for-ai
   - glossary/ci-cd
   - patterns/circuit-breaker-ai
+last_updated: 2026-05-30
 ---
 
 A feature flag (also called a feature toggle or feature switch) is a configuration value that controls whether a specific feature or behaviour is active, without requiring a code deployment to change it. Features are wrapped in conditional checks that read the flag value at runtime. Changing the flag value changes behaviour immediately, across all running instances, without restarting the service.

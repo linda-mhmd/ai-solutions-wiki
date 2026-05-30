@@ -9,6 +9,7 @@ related:
   - guides/test-environments-ai
   - guides/integration-testing-ai-pipelines
   - glossary/ci-cd
+last_updated: 2026-05-30
 ---
 
 AI systems need a tiered CI/CD testing strategy because different tests have vastly different costs and execution times. Running a full evaluation suite with real model API calls on every pull request is expensive and slow. Running only unit tests on merge to main misses quality regressions. The right approach runs the right tests at the right time.

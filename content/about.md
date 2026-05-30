@@ -3,6 +3,7 @@ title: "About This Wiki"
 description: "What the AI Solutions Wiki is, who it is for, and how the content is organized."
 date: 2026-03-24
 tags: ["project-management", "beginner", "about", "wiki", "ai-solutions"]
+last_updated: 2026-05-30
 ---
 
 ## Who Made This
@@ -35,23 +36,51 @@ The content is also useful for anyone who needs to explain AI decisions to stake
 
 ## How the Content Is Organized
 
-**Guides** - step-by-step implementations, from getting a first Bedrock prototype running to designing a multi-agent architecture.
+The wiki is organized into three areas: learn, build, and reference.
 
-**Solutions** - industry-specific AI applications covering finance, insurance, media, logistics, healthcare, and more. Each solution article describes the problem, the architecture, the tools, and the operational considerations.
+### Learn
 
-**Patterns** - reusable technical patterns that appear across many different AI projects: RAG, agent orchestration, data pipelines, prompt design.
+**[Basics](/basics/)**: 15 "What is X?" articles for people starting from zero. Plain-English explanations of computers, databases, APIs, Git, and the terminal before introducing AI.
 
-**Case Patterns** - real-world deployment patterns drawn from production use cases. Anonymized, with details focused on what makes the architecture work.
+**[Levels](/levels/)**: A five-level structured curriculum from hardware fundamentals (Level 0) to building production AI systems (Level 4). Each level is two to four articles. Designed to be read in sequence, but every article works as a standalone reference.
 
-**Tools** - practical coverage of AI platforms and frameworks: what they do well, what they do not, pricing, and when to use them.
+**[Foundations](/foundations/)**: The engineering principles that apply to every AI system regardless of which tools or models you use. Covers SOLID, Clean Architecture, Domain-Driven Design, testing strategy, CI/CD, and the AWS Well-Architected Framework.
 
-**Comparisons** - side-by-side analysis for common decision points: Bedrock vs Azure OpenAI, RAG vs fine-tuning, Claude vs GPT.
+**[Learn Through Your World](/through/)**: Persona-based learning paths that explain software and AI concepts through metaphors from your existing domain. Currently active: The Juggler (distributed systems), The Fashionista (version control and deployment), The Craftsperson (system design and production quality).
 
-**Frameworks** - structured thinking tools for AI project planning: use-case scoring, readiness assessment, workshop methodology.
+**[For You](/for/)**: Audience-specific reading paths for product managers, founders, consultants, finance professionals, vibe coders, and students. Each path cuts across the wiki to surface what is most relevant for your role.
 
-**Glossary** - plain-English definitions for AI, ML, and cloud terms.
+### Build
 
-**Ideas** - short concept pieces for automation use cases worth exploring.
+**[Guides](/guides/)**: Step-by-step implementations. 174 guides covering RAG systems, async job queues, multi-agent pipelines, sprint planning with AI, and production deployment patterns.
+
+**[Patterns](/patterns/)**: Reusable architectural patterns that appear across AI projects: RAG, agent orchestration, data pipelines, prompt design, evaluation harnesses.
+
+**[Case Patterns](/case-patterns/)**: Deployment patterns drawn from real production use cases. Anonymized, with details focused on what makes the architecture work and where it fails.
+
+**[Architecture](/architecture/)**: Visual reference for the architectural patterns that underpin AI systems.
+
+### Reference
+
+**[Tools](/tools/)**: 175 tools covered. What each tool does well, what it does not, pricing traps, and when to choose it over alternatives.
+
+**[Comparisons](/comparisons/)**: Side-by-side analysis for 74 common decision points: Bedrock vs Azure OpenAI, RAG vs fine-tuning, Claude vs GPT-4, Airflow vs Step Functions.
+
+**[Frameworks](/frameworks/)**: Structured thinking tools for AI governance and planning. EU AI Act, ISO 42001, OECD Principles, Team Topologies, Wardley Mapping.
+
+**[Glossary](/glossary/)**: Plain-English definitions for 442 AI, ML, and cloud terms. Every definition includes context on when and why you would encounter that concept.
+
+**[Solutions](/solutions/)**: Industry-specific AI applications covering finance, insurance, media, logistics, healthcare, and more. Each article describes the problem, the architecture, the tools, and the operational considerations.
+
+**[Ideas](/ideas/)**: 80 short concept pieces for automation use cases worth exploring before committing to a build.
+
+---
+
+## AI Tools and Editorial Process
+
+This wiki is curated with the assistance of AI tools. Content is researched, drafted, and reviewed using **Claude** (Anthropic), **Kiro** (AWS), and **ChatGPT** (OpenAI). Images are generated with **NotebookLM** (Google). Animations and visual assets are produced with **Canva**.
+
+All content is reviewed by Linda Mohamed before publication. The use of AI tools does not reduce editorial responsibility. Every article reflects decisions made by a human editor. Errors, omissions, and updates are the responsibility of the site maintainer.
 
 ## Adjacent Resources
 

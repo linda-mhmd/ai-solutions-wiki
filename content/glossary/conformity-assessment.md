@@ -9,6 +9,7 @@ related:
   - frameworks/eu-ai-act-risk-framework
   - guides/eu-ai-act-compliance
   - guides/ai-regulatory-compliance-checklist
+last_updated: 2026-05-30
 ---
 
 A conformity assessment under the EU AI Act is the process by which a provider of a high-risk AI system demonstrates that the system meets all applicable requirements before it can be placed on the EU market or put into service. This process is modeled on the EU's existing product safety framework (the New Legislative Framework) and results in a declaration of conformity and CE marking.

@@ -2,8 +2,10 @@
 title: "Apache Airflow vs AWS Step Functions for ML Pipelines"
 description: "Comparing Airflow and Step Functions for orchestrating ML training, data processing, and deployment pipelines."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [Airflow, Step-Functions, orchestration, MLOps, pipelines]
+last_updated: 2026-05-30
 ---
 
 ML pipelines need orchestration: run data ingestion, then preprocessing, then training, then evaluation, then conditionally deploy. Apache Airflow and AWS Step Functions are the two most common orchestrators for these workflows on AWS.

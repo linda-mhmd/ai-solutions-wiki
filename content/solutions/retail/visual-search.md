@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [visual-search, computer-vision, product-discovery, image-recognition, ecommerce]
 industries: [retail]
 tools: [amazon-rekognition, amazon-sagemaker, amazon-opensearch]
+last_updated: 2026-05-30
 ---
 
 Customers frequently know what they want a product to look like but cannot describe it in words. "A blue dress like the one in that Instagram post" is a common shopping intent that text search cannot serve. Visual search enables customers to upload a photo, screenshot, or camera capture and find visually similar products in the retailer's catalog. Retailers with visual search report 2-4x higher conversion rates on visual search sessions compared to text search.

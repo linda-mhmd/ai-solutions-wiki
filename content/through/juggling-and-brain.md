@@ -4,6 +4,7 @@ description: "Learning to juggle physically rewires the brain. The same incremen
 date: 2026-05-30
 categories: [Through]
 tags: ["beginner", "metaphor", "learning", "neuroscience", "pattern-recognition", "ai"]
+last_updated: 2026-05-30
 ---
 
 <figure class="bz-figure">

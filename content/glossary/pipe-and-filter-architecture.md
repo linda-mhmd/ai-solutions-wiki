@@ -4,6 +4,7 @@ description: "An architecture pattern where data flows through a sequence of ind
 date: 2026-03-28
 categories: [Glossary]
 tags: [pipe-and-filter, architecture-patterns, data-processing, Unix, streaming]
+last_updated: 2026-05-30
 ---
 
 The pipe and filter architecture pattern structures a system as a chain of processing elements (filters) connected by channels (pipes). Each filter receives input, transforms it, and passes the result to the next filter through a pipe. Filters are independent and unaware of other filters in the chain.

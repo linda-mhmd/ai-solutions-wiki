@@ -4,6 +4,7 @@ description: "Use AI to curate relevant content and draft newsletter editions, r
 date: 2026-03-28
 categories: [Ideas]
 tags: [newsletter, content-curation, marketing, automation]
+last_updated: 2026-05-30
 ---
 
 Internal and external newsletters are valuable communication tools, but they take disproportionate effort to produce. Someone has to find relevant content, write summaries, arrange the layout, and maintain a consistent publishing cadence. Most newsletters die because the effort exceeds the perceived value.

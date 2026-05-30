@@ -9,6 +9,7 @@ related:
   - frameworks/well-architected-ai-ml-lens
   - glossary/performance-efficiency
   - glossary/sustainability-pillar
+last_updated: 2026-05-30
 ---
 
 Cost Optimization is one of the six pillars of the AWS Well-Architected Framework. It covers the ability to run systems at the lowest price point that still meets business requirements. The pillar reframes cost management not as a constraint but as a design consideration: the goal is to understand where money is being spent, eliminate waste, and make deliberate choices about when higher cost is justified by the value delivered.

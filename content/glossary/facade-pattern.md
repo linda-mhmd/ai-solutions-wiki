@@ -9,6 +9,7 @@ related:
   - glossary/mediator-pattern
   - glossary/proxy-pattern
   - glossary/object-oriented-programming
+last_updated: 2026-05-30
 ---
 
 The Facade pattern is a structural design pattern that provides a unified, simplified interface to a set of interfaces in a subsystem. It defines a higher-level interface that makes the subsystem easier to use without hiding the subsystem classes for clients that need direct access.

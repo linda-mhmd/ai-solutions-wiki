@@ -4,6 +4,7 @@ description: "Use AI to personalize lead nurturing email sequences based on pros
 date: 2026-03-28
 categories: [Ideas]
 tags: [lead-nurturing, sales, marketing-automation, personalization]
+last_updated: 2026-05-30
 ---
 
 Generic nurture sequences treat every lead the same. A CEO evaluating a strategic platform and an individual contributor exploring tools get identical emails on identical schedules. This one-size-fits-all approach produces low engagement and wasted marketing spend.

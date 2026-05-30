@@ -11,6 +11,7 @@ related:
   - guides/from-zero-to-production
 solutions:
   - guides/from-zero-to-production
+last_updated: 2026-05-30
 ---
 
 Expo is an open-source framework and platform built on top of React Native that makes mobile app development practical for teams who want to ship to iOS and Android without maintaining separate native codebases. Where raw React Native hands you a collection of loosely coupled tools and asks you to wire them together, Expo provides a curated SDK, a managed build service, an over-the-air update system, and a file-based routing library, all integrated and versioned together.

@@ -8,6 +8,7 @@ related:
   - frameworks/rice-scoring
   - frameworks/use-case-scoring
   - frameworks/agile-ai-delivery
+last_updated: 2026-05-30
 ---
 
 MoSCoW is a prioritization technique that categorizes requirements into four groups: Must have, Should have, Could have, and Won't have (this time). For AI projects, MoSCoW is particularly useful for managing scope in environments where stakeholders have expansive visions of what AI can do but delivery capacity and timelines are constrained. The explicit "Won't have" category forces conversations about trade-offs that are often avoided.

@@ -4,6 +4,7 @@ description: "Automatically classify and file incoming documents into the right 
 date: 2026-03-28
 categories: [Ideas]
 tags: [document-management, classification, automation, productivity]
+last_updated: 2026-05-30
 ---
 
 Every organization has a shared drive or document management system where files go to die. Documents land in the wrong folder, use inconsistent naming, or sit in an inbox folder indefinitely because nobody wants to spend time filing them properly.

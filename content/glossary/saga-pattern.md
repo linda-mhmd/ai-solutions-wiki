@@ -8,6 +8,7 @@ related:
   - glossary/event-driven-architecture
   - glossary/cqrs
   - glossary/domain-driven-design
+last_updated: 2026-05-30
 ---
 
 The saga pattern manages data consistency across multiple microservices without distributed transactions. Instead of a single atomic transaction spanning multiple databases, a saga is a sequence of local transactions where each service performs its own transaction and publishes an event that triggers the next step. If any step fails, compensating transactions undo the previous steps.

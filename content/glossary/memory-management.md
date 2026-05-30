@@ -4,6 +4,7 @@ description: "Operating system techniques for managing physical and virtual memo
 date: 2026-03-28
 categories: [Glossary]
 tags: [operating-systems, memory-management, virtual-memory, paging, segmentation]
+last_updated: 2026-05-30
 ---
 
 Memory management is the operating system function responsible for allocating physical memory to processes, providing each process with its own virtual address space, and handling the movement of data between RAM and disk when physical memory is insufficient. Effective memory management is critical for system stability, security, and performance.

@@ -9,6 +9,7 @@ related:
   - tools/google-cloud-functions
   - tools/google-vertex-ai
   - tools/google-cloud-pub-sub
+last_updated: 2026-05-30
 ---
 
 Google Cloud Run is a fully managed serverless platform for deploying and running containerized applications. You package your application as a container image, deploy it to Cloud Run, and the platform handles provisioning, scaling (including to zero), load balancing, TLS certificates, and HTTPS endpoint creation. Cloud Run supports any programming language, framework, or binary that can run in a container, giving it more flexibility than Cloud Functions while maintaining serverless operational simplicity.

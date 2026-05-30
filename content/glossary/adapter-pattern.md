@@ -9,6 +9,7 @@ related:
   - glossary/facade-pattern
   - glossary/decorator-pattern
   - glossary/proxy-pattern
+last_updated: 2026-05-30
 ---
 
 The Adapter pattern is a structural design pattern that converts the interface of a class into another interface that clients expect. It allows classes with incompatible interfaces to collaborate by wrapping one interface with a translation layer.

@@ -7,6 +7,7 @@ tags: [apache-hive, open-source, hadoop, data-warehouse, sql, big-data]
 related:
   - tools/apache-hadoop
   - tools/apache-spark
+last_updated: 2026-05-30
 ---
 
 Apache Hive is an open-source data warehouse system built on top of Apache Hadoop that enables reading, writing, and managing large datasets stored in distributed storage using SQL-like syntax called HiveQL. Hive translates SQL queries into MapReduce, Tez, or Spark execution plans, allowing analysts and data engineers familiar with SQL to query petabyte-scale datasets without writing low-level MapReduce code. For AI workloads, Hive serves as a data preparation and feature extraction layer, enabling SQL-based transformations over large historical datasets that feed into machine learning training pipelines.

@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [warehouse, automation, slotting, pick-optimization, robotics]
 industries: [logistics, retail]
 tools: [amazon-sagemaker, amazon-forecast, aws-robomaker]
+last_updated: 2026-05-30
 ---
 
 Warehouses are the operational heart of supply chains, and labor is their largest cost - typically 50-65% of total warehouse operating expense. AI optimizes warehouse operations at multiple levels: where to store products (slotting), how to sequence picks (path optimization), how many workers to schedule (labor planning), and how to coordinate human workers with automated systems (robotic orchestration).

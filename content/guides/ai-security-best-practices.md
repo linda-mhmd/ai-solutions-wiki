@@ -12,6 +12,7 @@ related:
   - foundations/security
   - glossary/prompt-injection
   - glossary/ai-red-team
+last_updated: 2026-05-30
 ---
 
 AI systems introduce security risks that traditional application security does not address. Prompt injection, data poisoning, model extraction, and training data leakage are attack vectors specific to AI. Organizations deploying AI need security practices that cover both traditional application security and AI-specific threats.

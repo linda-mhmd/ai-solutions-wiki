@@ -6,6 +6,7 @@ categories: [Tools]
 tags: [aws-waf, AWS, security, firewall, web-security, api-protection]
 related:
   - tools/google-cloud-armor
+last_updated: 2026-05-30
 ---
 
 AWS WAF (Web Application Firewall) is a managed firewall service that protects web applications and APIs against common web exploits, bot traffic, and application-layer attacks. It integrates with Amazon CloudFront, Application Load Balancer, Amazon API Gateway, and AWS AppSync to inspect and filter HTTP/HTTPS requests before they reach your application. For AI workloads, WAF is critical for protecting inference APIs from abuse, rate-limiting expensive model invocations, blocking prompt injection attempts delivered via HTTP, and preventing unauthorized scraping of AI-generated content.

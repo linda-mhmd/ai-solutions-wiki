@@ -2,6 +2,7 @@
 title: "Playwright vs Cypress for Testing AI-Powered Web Apps"
 description: "A detailed comparison of Playwright and Cypress for end-to-end testing of AI applications: architecture, network interception, streaming support, async handling, and CI integration."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [playwright, cypress, e2e-testing, browser-automation, ai-engineering]
 related:
@@ -9,6 +10,7 @@ related:
   - guides/e2e-testing-ai-products
   - glossary/playwright
   - glossary/end-to-end-testing
+last_updated: 2026-05-30
 ---
 
 Playwright and Cypress are the two leading E2E testing frameworks. For AI-powered web applications, the choice matters more than for typical web apps because AI UIs have specific requirements: streaming response rendering, long async operations, network interception for mocking AI APIs, and handling non-deterministic content. This comparison evaluates both frameworks against these AI-specific needs.

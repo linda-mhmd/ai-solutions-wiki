@@ -4,6 +4,7 @@ description: "A practical AI spark for automating invoice data extraction - the 
 date: 2026-03-24
 categories: [Ideas]
 tags: ["ai-ml", "beginner", "invoice-processing", "automation", "document-extraction", "finance", "ocr"]
+last_updated: 2026-05-30
 ---
 
 Invoice processing is one of the highest-ROI AI automation targets in finance operations. A typical accounts payable team spends 3-5 minutes per invoice on manual data entry: vendor name, invoice number, line items, totals, payment terms, due date. For an organization processing 500 invoices per month, that is 25-40 hours of manual work - most of it repetitive and error-prone.

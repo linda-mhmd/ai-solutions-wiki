@@ -9,6 +9,7 @@ related:
   - frameworks/well-architected-ai-ml-lens
   - glossary/cost-optimization-pillar
   - glossary/performance-efficiency
+last_updated: 2026-05-30
 ---
 
 Sustainability is the sixth pillar of the AWS Well-Architected Framework, added in November 2021. It covers minimizing the environmental impact of running cloud workloads - specifically energy consumption and the carbon emissions associated with it. The pillar recognizes that cloud infrastructure, while more energy-efficient than typical on-premises data centers, still consumes significant electricity, and that architectural choices directly affect how much energy a workload consumes.

@@ -4,6 +4,7 @@ description: "End-to-end patterns for generating, storing, and querying embeddin
 date: 2026-03-28
 categories: [Patterns]
 tags: [embeddings, vector-database, RAG, search, pipeline]
+last_updated: 2026-05-30
 ---
 
 Embeddings convert text, images, or other data into dense vector representations that capture semantic meaning. An embedding pipeline handles the full lifecycle: chunking source content, generating embeddings, storing them in a vector database, and querying them for retrieval. Getting each stage right is critical for downstream quality, especially in RAG systems.

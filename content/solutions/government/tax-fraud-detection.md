@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [tax-fraud, revenue-protection, anomaly-detection, compliance, government-ai]
 industries: [government, finance]
 tools: [amazon-sagemaker, amazon-neptune, amazon-redshift]
+last_updated: 2026-05-30
 ---
 
 Tax fraud and evasion cost European governments an estimated 800 billion EUR annually. Tax authorities face the challenge of identifying non-compliance within millions of tax declarations using limited audit resources. AI detection systems improve audit targeting by identifying high-probability fraud cases, reducing the audit burden on compliant taxpayers while increasing revenue recovery from non-compliant ones.

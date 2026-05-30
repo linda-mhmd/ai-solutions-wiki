@@ -4,6 +4,7 @@ description: "Algorithms for finding elements in data structures, including line
 date: 2026-03-28
 categories: [Glossary]
 tags: [search-algorithms, binary-search, algorithms, data-structures]
+last_updated: 2026-05-30
 ---
 
 Search algorithms are procedures for locating a specific element or value within a data structure. The choice of search algorithm depends on the data structure, whether the data is sorted, and the acceptable time-space tradeoffs.

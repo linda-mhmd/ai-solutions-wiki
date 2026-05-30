@@ -10,6 +10,7 @@ related:
   - patterns/feature-flags-ai
   - patterns/microservices-for-ai
   - tools/amazon-sagemaker
+last_updated: 2026-05-30
 ---
 
 CI/CD for AI projects extends standard continuous integration with model-specific concerns: evaluation gates that test output quality, artifact management for models and embeddings, and deployment strategies that allow gradual rollout and fast rollback. The pipeline infrastructure is familiar; the evaluation logic is new.

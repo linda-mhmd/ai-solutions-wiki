@@ -13,6 +13,7 @@ related:
   - tools/amazon-connect
   - patterns/circuit-breaker-ai
   - patterns/observability-ai
+last_updated: 2026-05-30
 ---
 
 AI chatbots are the most common first AI project for many organizations. The gap between a demo chatbot and a production chatbot is enormous. A demo can be built in an afternoon with a system prompt and an API key. A production chatbot requires conversation design, context management, guardrails, error handling, monitoring, and integration with backend systems. This guide covers the journey from prototype to production.

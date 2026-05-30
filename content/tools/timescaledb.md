@@ -9,6 +9,7 @@ related:
   - tools/influxdb
   - tools/prometheus
   - tools/grafana
+last_updated: 2026-05-30
 ---
 
 TimescaleDB is an open-source time-series database implemented as a PostgreSQL extension, combining the reliability and ecosystem of PostgreSQL with optimizations specifically designed for time-series workloads. By building on PostgreSQL rather than creating a new database from scratch, TimescaleDB provides full SQL support, joins with relational data, existing PostgreSQL tooling compatibility, and the ability to handle both time-series and relational data in a single system.

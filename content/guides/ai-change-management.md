@@ -9,6 +9,7 @@ related:
   - guides/ai-vendor-selection
   - guides/ai-documentation-guide
   - glossary/ai-literacy
+last_updated: 2026-05-30
 ---
 
 AI adoption fails more often because of organizational resistance than technical limitations. Teams fear job displacement, managers distrust AI-generated recommendations, and processes designed for human workflows do not accommodate AI augmentation. Successful AI adoption requires deliberate change management that addresses fear, builds capability, and redesigns work rather than just deploying technology.

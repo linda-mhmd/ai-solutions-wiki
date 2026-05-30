@@ -10,6 +10,7 @@ related:
   - patterns/human-in-the-loop
   - patterns/feedback-loop-pattern
   - guides/data-labeling-guide
+last_updated: 2026-05-30
 ---
 
 Ground truth is the verified correct answer for a given input in a machine learning context. It is the label, annotation, or outcome that represents what the model should have predicted. Ground truth serves as the standard against which model predictions are evaluated during training, validation, and production monitoring.

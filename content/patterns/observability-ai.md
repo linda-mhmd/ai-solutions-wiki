@@ -10,6 +10,7 @@ related:
   - glossary/observability
   - glossary/drift-detection
   - guides/ci-cd-ai-detailed
+last_updated: 2026-05-30
 ---
 
 Observability is the ability to understand the internal state of a system from its external outputs. For traditional software, three categories of output provide this understanding: logs (discrete events), metrics (numeric measurements over time), and traces (the path a request takes through a distributed system). AI systems generate all three but require additional instrumentation to capture the information that matters: token usage, response quality, cost per request, and model version attribution.

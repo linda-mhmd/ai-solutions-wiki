@@ -12,6 +12,7 @@ related:
   - tools/amazon-opensearch
   - glossary/embeddings
   - glossary/vector-database
+last_updated: 2026-05-30
 ---
 
 Retrieval-Augmented Generation (RAG) is the standard architecture for giving AI models access to private knowledge without fine-tuning. Instead of baking knowledge into model weights, RAG retrieves relevant documents at query time and includes them in the model's context. The concept is simple; building a production system that works reliably is not.

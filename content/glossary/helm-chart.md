@@ -8,6 +8,7 @@ related:
   - glossary/kubernetes
   - glossary/docker
   - glossary/gitops
+last_updated: 2026-05-30
 ---
 
 Helm is the package manager for Kubernetes. A Helm chart is a collection of templated Kubernetes manifest files that define all the resources needed to deploy an application: deployments, services, config maps, secrets, ingress rules, and more. Charts enable repeatable, parameterized deployments across environments.

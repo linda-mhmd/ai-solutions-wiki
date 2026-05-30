@@ -5,6 +5,7 @@ date: 2026-03-24
 categories: [Tools]
 tags: ["software-engineering", "beginner", "notion", "knowledge-base", "integration", "productivity"]
 tools: [amazon-bedrock]
+last_updated: 2026-05-30
 ---
 
 Notion is not an AI infrastructure tool, but it functions surprisingly well as a lightweight backend for AI agents in early-stage or lower-volume scenarios. If your team already lives in Notion, using it as a structured data store and knowledge base avoids introducing additional infrastructure for use cases where the volume does not justify it.

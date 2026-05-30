@@ -12,6 +12,7 @@ related:
   - guides/ai-product-metrics
   - glossary/hallucination
   - glossary/benchmarks
+last_updated: 2026-05-30
 ---
 
 Evaluating LLMs is one of the hardest problems in AI. Traditional ML has clear metrics: accuracy, precision, recall. LLM outputs are open-ended text where "correct" is subjective, context-dependent, and multidimensional. A response can be factually accurate but poorly written, or fluent but hallucinated. Effective LLM evaluation requires combining multiple approaches, none of which is sufficient alone.

@@ -9,6 +9,7 @@ related:
   - glossary/transformer-architecture
   - glossary/long-context-model
   - glossary/ai-hardware
+last_updated: 2026-05-30
 ---
 
 Flash Attention is an algorithm that computes exact self-attention with significantly reduced memory usage and improved speed by restructuring computation to be aware of the GPU memory hierarchy. Standard attention requires materializing the full n-by-n attention matrix in GPU high-bandwidth memory (HBM), which becomes a bottleneck for long sequences. Flash Attention avoids this by computing attention in tiles, keeping intermediate results in fast on-chip SRAM.

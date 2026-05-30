@@ -10,6 +10,7 @@ related:
   - glossary/serverless
   - tools/amazon-step-functions
   - guides/testing-ai-systems
+last_updated: 2026-05-30
 ---
 
 The Circuit Breaker pattern is a software design pattern that prevents a system from repeatedly attempting an operation that is likely to fail. It monitors calls to an external service and, when the failure rate crosses a threshold, "trips" the circuit: subsequent calls immediately return a fallback response instead of calling the failing service. After a timeout, the circuit allows a probe request through to check if the service has recovered.

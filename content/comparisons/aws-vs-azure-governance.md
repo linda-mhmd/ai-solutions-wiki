@@ -2,6 +2,7 @@
 title: "AWS vs Azure Governance Tools"
 description: "Comparison of AWS and Azure governance capabilities for AI workloads, covering organization management, policy enforcement, cost control, and security monitoring."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [aws, azure, cloud-governance, security, cost-management, comparison]
 related:
@@ -9,6 +10,7 @@ related:
   - guides/cloud-governance-aws
   - guides/cloud-security-posture-management
   - frameworks/cloud-governance-framework
+last_updated: 2026-05-30
 ---
 
 Both AWS and Azure provide comprehensive governance tooling. This comparison covers the key capabilities relevant to AI workloads and helps organizations understand the strengths of each platform's governance approach.

@@ -17,6 +17,7 @@ faqs:
     answer: "Cloning downloads a copy of a repository to your local machine. Forking creates your own copy of someone else's repository on GitHub itself, under your account. Fork is used when you want to contribute to a project you do not own: fork → clone your fork locally → make changes → push to your fork → open a pull request to the original. Clone is used when you have access to push directly."
   - question: "What is GitHub Pages?"
     answer: "GitHub Pages is free static website hosting built into every GitHub repository. You push HTML, CSS, and JavaScript files to a specific branch (usually `gh-pages` or the `docs/` folder on `main`), and GitHub automatically publishes them at `username.github.io/repo-name`. This wiki and many open source project documentation sites are hosted on GitHub Pages. Hugo, Jekyll, and other static site generators work natively with it."
+last_updated: 2026-05-30
 ---
 
 {{< quickanswer >}}

@@ -9,6 +9,7 @@ related:
   - glossary/ai-safety
   - frameworks/eu-ai-act-risk-framework
   - guides/ai-change-management
+last_updated: 2026-05-30
 ---
 
 AI literacy is the ability to understand what AI systems can and cannot do, how they produce their outputs, and what risks and limitations they carry. It encompasses both the conceptual understanding needed to make informed decisions about AI adoption and the practical skills needed to use AI tools effectively and responsibly.

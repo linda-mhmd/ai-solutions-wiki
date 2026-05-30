@@ -10,6 +10,7 @@ related:
   - glossary/neural-network
   - glossary/deep-learning
   - guides/model-interpretability-guide
+last_updated: 2026-05-30
 ---
 
 SHAP (SHapley Additive exPlanations) and LIME (Local Interpretable Model-agnostic Explanations) are the two most widely used methods for explaining individual predictions from black-box machine learning models. Both answer the question: why did the model make this specific prediction for this specific input?

@@ -5,6 +5,7 @@ date: 2026-03-28
 categories: [Guides]
 tags: [technical-debt, mlops, maintainability, engineering]
 related: [glossary/technical-debt, glossary/code-smells-and-refactoring, patterns/ml-feature-platform]
+last_updated: 2026-05-30
 ---
 
 Machine learning systems accumulate technical debt faster and more silently than traditional software. In conventional software, debt manifests as hard-to-read code, duplicated logic, or missing tests. In ML systems, debt hides in data dependencies, configuration complexity, and the feedback loops between models and the systems that feed them. A team can build a model in weeks and spend years paying down the debt created during that sprint.

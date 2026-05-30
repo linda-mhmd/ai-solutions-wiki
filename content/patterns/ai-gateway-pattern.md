@@ -10,6 +10,7 @@ related:
   - patterns/caching-for-ai
   - patterns/semantic-caching
   - patterns/cost-optimization
+last_updated: 2026-05-30
 ---
 
 Every team that integrates more than one AI model provider eventually builds the same thing: a proxy layer that handles authentication, logging, retries, and cost tracking. The AI gateway pattern formalizes this into a dedicated infrastructure component that sits between your application code and all external model APIs.

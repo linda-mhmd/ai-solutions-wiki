@@ -10,6 +10,7 @@ related:
   - glossary/nextjs
   - glossary/stackbit
   - glossary/nodejs
+last_updated: 2026-05-30
 ---
 
 JAMstack (JavaScript, APIs, and Markup) is a web architecture pattern that decouples the frontend presentation layer from backend services. Sites are pre-built as static files served from CDNs, with dynamic functionality handled by client-side JavaScript calling APIs. The term was coined by Mathias Biilmann, CEO of Netlify, to describe an architectural approach that had been emerging across the web development community.

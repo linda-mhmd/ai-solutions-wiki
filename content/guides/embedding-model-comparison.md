@@ -4,6 +4,7 @@ description: "How to choose embedding models for semantic search, RAG, and simil
 date: 2026-03-28
 categories: [Guides]
 tags: [embeddings, models, RAG, semantic-search, evaluation]
+last_updated: 2026-05-30
 ---
 
 Embedding models convert text, images, or other data into numerical vectors that capture semantic meaning. The choice of embedding model directly impacts the quality of semantic search, RAG retrieval, and recommendation systems. With dozens of options available, selecting the right one requires understanding the tradeoffs between quality, speed, cost, and dimensionality.

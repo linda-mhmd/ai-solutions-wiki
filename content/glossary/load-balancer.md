@@ -8,6 +8,7 @@ related:
   - glossary/auto-scaling
   - glossary/api-gateway
   - glossary/vpc
+last_updated: 2026-05-30
 ---
 
 A load balancer distributes incoming network traffic across multiple backend targets (EC2 instances, containers, Lambda functions, IP addresses) to ensure no single target is overwhelmed. Load balancers improve availability (traffic is routed away from unhealthy targets), scalability (new targets can be added transparently), and performance (requests go to the least-loaded target).

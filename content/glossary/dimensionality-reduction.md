@@ -9,6 +9,7 @@ related:
   - glossary/embeddings
   - glossary/clustering
   - glossary/autoencoder
+last_updated: 2026-05-30
 ---
 
 Dimensionality reduction transforms high-dimensional data into a lower-dimensional representation while preserving the most important structure and relationships. It addresses the curse of dimensionality (model performance degrades as feature count grows relative to sample count) and enables visualization of complex datasets.

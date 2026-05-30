@@ -9,6 +9,7 @@ related:
   - patterns/batch-inference
   - patterns/continuous-training-pattern
   - patterns/edge-mlops
+last_updated: 2026-05-30
 ---
 
 GPUs are expensive and frequently underutilized. A team that owns dedicated GPU nodes for training uses them heavily during experiment sprints and leaves them idle between sprints. Meanwhile, another team waits weeks for GPU capacity. GPU pooling creates a shared infrastructure layer where GPU resources are allocated dynamically based on demand rather than statically assigned to teams.

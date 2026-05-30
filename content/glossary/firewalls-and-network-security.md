@@ -4,6 +4,7 @@ description: "Network security devices and techniques that control traffic flow 
 date: 2026-03-28
 categories: [Glossary]
 tags: [networking, firewalls, network-security, packet-filtering, security]
+last_updated: 2026-05-30
 ---
 
 A firewall is a network security device or software that monitors and controls incoming and outgoing network traffic based on a set of security rules. Firewalls establish a barrier between trusted internal networks and untrusted external networks, enforcing access policies that determine which traffic is allowed and which is blocked.

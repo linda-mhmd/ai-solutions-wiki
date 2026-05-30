@@ -17,6 +17,7 @@ faqs:
     answer: "HTML is a markup language, not a programming language. It describes the structure of a document (this is a heading, this is a paragraph, this is a link) but it cannot make decisions, repeat actions, or do calculations. CSS is also a declarative language, it describes how things should look. JavaScript is the programming language of the web: it can respond to user actions, fetch data, and make decisions."
   - question: "What is the difference between a library and a framework?"
     answer: "A library is a collection of pre-written code you call when you need it, you are in control of the flow. React is technically a library. A framework is a structure you build inside, the framework calls your code. Next.js is a framework built on React. The distinction is called Inversion of Control: in a framework, the framework controls when your code runs."
+last_updated: 2026-05-30
 ---
 
 {{< quickanswer >}}

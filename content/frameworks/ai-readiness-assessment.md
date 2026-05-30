@@ -4,6 +4,7 @@ description: "A five-dimension self-assessment to understand where your organiza
 date: 2026-03-24
 categories: [Frameworks]
 tags: ["project-management", "intermediate", "ai-readiness", "assessment", "maturity-model", "strategy", "adoption"]
+last_updated: 2026-05-30
 ---
 
 The most common reason AI projects stall is not the technology - it is organizational unreadiness. A team that starts building before assessing its foundations tends to discover blockers mid-project: data that cannot be accessed, a security review that adds six months, or executives who withdraw support when the first prototype does not match their expectations. This assessment is designed to surface those issues before they become blockers.

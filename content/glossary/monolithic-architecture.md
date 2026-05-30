@@ -4,6 +4,7 @@ description: "A software architecture where all components are built and deploye
 date: 2026-03-28
 categories: [Glossary]
 tags: [monolithic-architecture, architecture-patterns, deployment, software-design]
+last_updated: 2026-05-30
 ---
 
 A monolithic architecture structures an application as a single deployable unit where all components -- user interface, business logic, and data access -- are tightly integrated and run within a single process. It is the traditional and most straightforward approach to building applications.

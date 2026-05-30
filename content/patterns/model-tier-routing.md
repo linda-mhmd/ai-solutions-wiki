@@ -9,6 +9,7 @@ related:
   - patterns/fallback-chain
   - patterns/plan-and-execute
   - patterns/direct-model-interface
+last_updated: 2026-05-30
 ---
 
 Not every request needs your most expensive model. A simple classification task does not require the same compute as a complex multi-step analysis. Model tier routing evaluates incoming requests and directs them to the appropriate model tier - small, medium, or large - based on task complexity, quality requirements, and cost constraints. Organizations that implement tiered routing typically reduce their inference costs by 40-70% while maintaining output quality on the requests that matter most.

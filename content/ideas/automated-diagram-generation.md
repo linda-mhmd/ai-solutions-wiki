@@ -4,6 +4,7 @@ description: "Automatically generate and update architecture diagrams by having 
 date: 2026-03-28
 categories: [Ideas]
 tags: [architecture, diagrams, visualization, developer-tools, daily-ai-spark]
+last_updated: 2026-05-30
 ---
 
 Architecture diagrams are outdated within weeks of being drawn. Nobody updates them because it means opening a diagramming tool, remembering the current state of the system, and manually adjusting boxes and arrows. Meanwhile, the actual architecture is fully described in code - service definitions, infrastructure-as-code, API calls between services, and database schemas.

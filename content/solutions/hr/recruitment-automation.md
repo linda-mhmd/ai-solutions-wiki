@@ -4,6 +4,7 @@ description: "How AI assists recruitment teams with resume screening, candidate 
 date: 2026-03-24
 categories: [Solutions]
 tags: ["ai-ml", "intermediate", "recruitment", "hr", "resume-screening", "automation", "nlp"]
+last_updated: 2026-05-30
 ---
 
 Recruitment is one of the most time-intensive HR functions and one of the most directly amenable to AI assistance. High-volume screening (processing hundreds of applications per role), job description writing, candidate outreach, and interview logistics are all tasks where AI reduces manual work while improving consistency.

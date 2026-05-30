@@ -9,6 +9,7 @@ related:
   - glossary/aggregate-root
   - glossary/hexagonal-architecture
   - glossary/data-mesh
+last_updated: 2026-05-30
 ---
 
 Domain-Driven Design (DDD) is a software design approach that structures code around the business domain rather than technical concerns. It emphasizes close collaboration between domain experts and developers, a shared ubiquitous language, and architectural boundaries that mirror business boundaries. DDD was introduced by Eric Evans in his 2003 book of the same name.

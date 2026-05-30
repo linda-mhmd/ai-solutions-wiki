@@ -4,6 +4,7 @@ description: "A clear comparison of ML Engineer and Data Scientist roles, coveri
 date: 2026-03-28
 categories: [Guides]
 tags: [hiring, career, roles, machine-learning, data-science]
+last_updated: 2026-05-30
 ---
 
 The distinction between ML Engineers and Data Scientists is one of the most confusing in the AI industry. Job postings use the titles interchangeably, candidates apply to both, and organizations often hire one when they need the other. The roles are different in meaningful ways, and understanding the difference improves hiring decisions, team composition, and career planning.

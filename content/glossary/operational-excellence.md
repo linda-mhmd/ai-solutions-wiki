@@ -8,6 +8,7 @@ related:
   - frameworks/well-architected-framework
   - frameworks/well-architected-ai-ml-lens
   - glossary/reliability-pillar
+last_updated: 2026-05-30
 ---
 
 Operational Excellence is one of the six pillars of the AWS Well-Architected Framework. It covers the ability to run and monitor systems effectively to deliver business value, and to continually improve supporting processes and procedures. The pillar recognizes that well-designed infrastructure alone is not sufficient: teams need the processes, tooling, and culture to operate that infrastructure reliably day after day.

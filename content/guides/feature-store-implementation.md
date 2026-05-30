@@ -9,6 +9,7 @@ related:
   - glossary/training-serving-skew
   - guides/mlops-getting-started
   - guides/building-ai-platform
+last_updated: 2026-05-30
 ---
 
 A feature store is a centralized system for defining, storing, and serving ML features. Without one, teams end up recomputing the same features in different pipelines, introducing subtle inconsistencies between training and serving that silently degrade model performance. A feature store solves this by providing a single source of truth for feature definitions and values.

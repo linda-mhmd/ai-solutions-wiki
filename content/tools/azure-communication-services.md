@@ -7,6 +7,7 @@ tags: [azure, communication, voice, video, sms, chat]
 related:
   - tools/amazon-pinpoint
   - tools/amazon-connect
+last_updated: 2026-05-30
 ---
 
 Azure Communication Services (ACS) is a fully managed cloud communication platform that provides APIs and SDKs for embedding voice calling, video calling, SMS messaging, email, and real-time chat into custom applications. It uses the same reliable and secure infrastructure that powers Microsoft Teams, enabling developers to build communication experiences at enterprise scale. In AI solution architectures, ACS provides the communication channels through which AI-powered interactions reach end users -- delivering AI-generated notifications via SMS or email, enabling voice-based AI assistants through calling APIs, and supporting real-time chat interfaces for conversational AI applications.

@@ -10,6 +10,7 @@ related:
   - glossary/function-calling
   - glossary/tool-use
   - glossary/llm
+last_updated: 2026-05-30
 ---
 
 The Model Context Protocol (MCP) is an open specification that defines how language model applications discover, invoke, and exchange data with external tools and data sources. Introduced by Anthropic in November 2024 and subsequently adopted across the agent ecosystem, MCP separates the model-facing client from tool-side servers via a stable JSON-RPC interface, replacing the bespoke, per-application integration code that previously connected each agent to each tool.

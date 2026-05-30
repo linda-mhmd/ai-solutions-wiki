@@ -2,8 +2,10 @@
 title: "Milvus vs OpenSearch for Vector Search"
 description: "Comparing Milvus and OpenSearch for large-scale vector search, covering architecture, scalability, performance, and operational considerations."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [Milvus, OpenSearch, vector-search, database, comparison]
+last_updated: 2026-05-30
 ---
 
 Milvus is a purpose-built vector database designed for billion-scale similarity search. OpenSearch is a search and analytics engine with vector search capabilities. When choosing between them, the decision often comes down to scale requirements and whether you need capabilities beyond vector search.

@@ -71,15 +71,23 @@
       {{ partial "author-byline.html" . }}
     </article>
 
-    <!-- Next / Prev navigation within Basics -->
+    <!-- Next / Prev navigation within Basics with Page Position Indicator -->
     {{ with .Parent }}
     {{ $siblings := .Pages.ByParam "level" }}
     {{ $current := $.Page }}
+    {{ $total := len $siblings }}
     {{ range $i, $p := $siblings }}
       {{ if eq $p.RelPermalink $current.RelPermalink }}
         {{ $prev := index $siblings (sub $i 1) }}
         {{ $next := index $siblings (add $i 1) }}
+        {{ $currentPosition := add $i 1 }}
         <nav class="bz-article-nav" aria-label="Basics navigation" data-pagefind-ignore>
+          {{/* Page position indicator - only show for sections with 2+ pages */}}
+          {{ if gt $total 1 }}
+          <div class="bz-page-position">
+            <span class="bz-page-position-text">Page {{ $currentPosition }} of {{ $total }}</span>
+          </div>
+          {{ end }}
           <div class="bz-article-nav-inner">
             {{ if and $prev (ge $i 1) }}
             <a href="{{ $prev.RelPermalink }}" class="bz-nav-prev">

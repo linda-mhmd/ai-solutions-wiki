@@ -9,6 +9,7 @@ related:
   - guides/agent-evaluation-guide
   - glossary/mocking
   - patterns/test-pyramid-ai
+last_updated: 2026-05-30
 ---
 
 AI agents that use tools (databases, APIs, file systems, code execution) can cause real-world side effects during testing. A test that lets an agent call a production API, delete a database record, or execute arbitrary code is dangerous. The sandbox testing pattern provides isolated environments where agents can exercise their full tool-use capabilities without affecting production systems.

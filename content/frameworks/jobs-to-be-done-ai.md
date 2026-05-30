@@ -8,6 +8,7 @@ related:
   - frameworks/design-thinking-ai
   - frameworks/use-case-scoring
   - frameworks/capability-mapping
+last_updated: 2026-05-30
 ---
 
 The Jobs to Be Done (JTBD) framework focuses on what a user is trying to accomplish (the "job") rather than what they say they want (the "feature request"). Users do not want a chatbot; they want to find answers without waiting for someone to respond. Users do not want a classification model; they want to process incoming documents without reading each one manually. For AI projects, JTBD cuts through the technology hype and identifies use cases where AI delivers genuine value by doing a job better, faster, or cheaper than current alternatives.

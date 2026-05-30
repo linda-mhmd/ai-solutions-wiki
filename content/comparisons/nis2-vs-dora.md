@@ -2,6 +2,7 @@
 title: "NIS2 vs DORA for Financial Services"
 description: "Comparison of NIS2 and DORA requirements for financial services organizations, covering scope, security measures, incident reporting, and how to comply with both."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [nis2, dora, financial-services, compliance, cybersecurity, regulation]
 related:
@@ -10,6 +11,7 @@ related:
   - glossary/supply-chain-security
   - guides/nis2-implementation-guide
   - guides/dora-compliance-guide
+last_updated: 2026-05-30
 ---
 
 Financial services organizations must comply with both NIS2 and DORA. While DORA is the sector-specific regulation (lex specialis) that takes precedence where requirements overlap, NIS2 still applies and may impose additional obligations. Understanding the relationship between these two regulations is critical for efficient compliance.

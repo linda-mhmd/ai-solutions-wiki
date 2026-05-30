@@ -8,6 +8,7 @@ related:
   - frameworks/software-quality-assurance
   - guides/code-review-ai-projects
   - frameworks/software-requirements-engineering
+last_updated: 2026-05-30
 ---
 
 Shift-left testing moves testing activities earlier in the development lifecycle, catching defects when they are cheapest to fix. In ML projects, this principle is especially valuable because late-stage failures are expensive: a bug in feature engineering discovered after a week-long training run wastes compute, time, and data science effort. Shift-left testing for ML applies TDD, contract-first design, static analysis, and early data validation to catch problems before they compound.

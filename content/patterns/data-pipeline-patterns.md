@@ -10,6 +10,7 @@ related:
   - tools/amazon-step-functions
   - tools/aws-s3
   - tools/amazon-sagemaker
+last_updated: 2026-05-30
 ---
 
 AI systems are only as good as the data that feeds them. Most AI project failures trace back to data problems - not model problems. These patterns address the most common data pipeline challenges in production AI workloads.

@@ -5,6 +5,7 @@ date: 2026-03-24
 categories: [Guides]
 tags: [guides, fraud, insurance, finance, risk]
 industries: [Insurance, Finance]
+last_updated: 2026-05-30
 ---
 
 Fraud detection in insurance and finance is a signal detection problem. Fraudulent transactions and claims are rare relative to legitimate ones, and they actively try to look legitimate. This guide covers the detection approaches that work in practice and how to connect them to effective human review workflows.

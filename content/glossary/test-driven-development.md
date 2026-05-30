@@ -9,6 +9,7 @@ related:
   - guides/testing-ai-systems
   - glossary/unit-testing
   - glossary/property-based-testing
+last_updated: 2026-05-30
 ---
 
 Test-driven development (TDD) is a software development practice where you write a failing test before writing the code that makes it pass. The cycle has three steps: red (write a failing test), green (write the minimum code to pass the test), and refactor (improve the code while keeping tests green).

@@ -8,6 +8,7 @@ related:
   - comparisons/grpc-vs-rest-ai
   - comparisons/rest-vs-graphql-ai
   - patterns/response-streaming
+last_updated: 2026-05-30
 ---
 
 AI services introduce API design challenges that traditional request-response APIs do not face. Responses take seconds rather than milliseconds. Outputs are probabilistic rather than deterministic. Payloads can be enormous. Designing APIs that handle these characteristics well requires deliberate choices around streaming, versioning, error handling, and timeout strategies.

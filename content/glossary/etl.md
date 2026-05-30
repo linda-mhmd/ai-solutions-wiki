@@ -8,6 +8,7 @@ related:
   - glossary/elt
   - glossary/data-warehouse
   - glossary/data-lake
+last_updated: 2026-05-30
 ---
 
 ETL (Extract, Transform, Load) is a data integration pattern that moves data from source systems to a destination system. Data is extracted from source systems, transformed (cleaned, enriched, aggregated, reformatted) in a processing layer, and loaded into the target system (data warehouse, data lake, or feature store).

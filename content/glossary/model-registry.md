@@ -11,6 +11,7 @@ related:
   - patterns/model-versioning
   - tools/mlflow
   - guides/model-registry-guide
+last_updated: 2026-05-30
 ---
 
 A model registry is a centralized repository that stores trained ML model artifacts along with their metadata, version history, and lifecycle state. It serves as the single source of truth for which models exist, which version is deployed to each environment, and the lineage and evaluation results associated with every version.

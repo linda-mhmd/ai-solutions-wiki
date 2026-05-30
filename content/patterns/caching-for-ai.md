@@ -9,6 +9,7 @@ related:
   - patterns/rag-implementation
   - glossary/embeddings
   - guides/getting-started-with-bedrock
+last_updated: 2026-05-30
 ---
 
 Model inference is expensive and slow compared to returning a cached result. In AI applications, the decision of what to cache and how to cache it has a larger impact on cost and performance than almost any other architectural choice. This article covers the four main caching patterns for production AI systems.

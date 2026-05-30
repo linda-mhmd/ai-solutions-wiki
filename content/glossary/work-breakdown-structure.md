@@ -4,6 +4,7 @@ description: "A hierarchical decomposition of project scope into manageable deli
 date: 2026-03-28
 categories: [Glossary]
 tags: [WBS, project-management, scope-management, planning, decomposition]
+last_updated: 2026-05-30
 ---
 
 A Work Breakdown Structure (WBS) is a hierarchical decomposition of the total scope of work to be carried out by the project team to accomplish the project objectives and create the required deliverables. It organizes and defines the total scope of the project by breaking it down into progressively smaller, more manageable components.

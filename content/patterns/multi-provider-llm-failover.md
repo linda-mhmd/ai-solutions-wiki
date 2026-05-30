@@ -9,6 +9,7 @@ related:
   - patterns/multi-model-routing
   - patterns/graceful-degradation-ai
   - patterns/rate-limiting-ai
+last_updated: 2026-05-30
 ---
 
 Depending on a single LLM provider creates a single point of failure. Provider outages, rate limit exhaustion, and regional incidents can take down your entire AI-powered application. Multi-provider failover maintains connections to multiple LLM providers and automatically routes traffic to a healthy provider when the primary becomes unavailable.

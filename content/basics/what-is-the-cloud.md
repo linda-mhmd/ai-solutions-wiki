@@ -17,6 +17,7 @@ faqs:
     answer: "These describe how much the cloud provider manages. IaaS (Infrastructure as a Service): you rent raw computing resources, VMs, storage, networking. You manage the OS, runtime, and app. Example: AWS EC2. PaaS (Platform as a Service): you deploy code; the provider manages servers, OS, scaling. Example: Heroku, Railway, Render. SaaS (Software as a Service): you use finished software through a browser. Example: Salesforce, Notion, GitHub. As you move from IaaS to SaaS, you control less but manage less."
   - question: "What is GDPR and why does my server location matter?"
     answer: "GDPR (General Data Protection Regulation) is EU law governing personal data. If you collect or process personal data about people in the EU (names, emails, location, usage data), you have legal obligations around how it is stored and processed. Storing EU user data on servers in the US without appropriate safeguards can be a violation. Most cloud providers offer EU-based regions (AWS eu-west, GCP europe-west). For apps serving EU users, run them in EU regions. This is not optional if you are serious about compliance."
+last_updated: 2026-05-30
 ---
 
 {{< quickanswer >}}

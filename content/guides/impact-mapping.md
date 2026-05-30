@@ -9,6 +9,7 @@ related:
   - guides/event-storming
   - guides/lean-canvas
   - guides/build-measure-learn
+last_updated: 2026-05-30
 ---
 
 Most teams skip straight to the feature list. Impact Mapping is the practice that stops them. It is a strategic planning technique developed by Gojko Adzic that forces a team to connect every deliverable back to a measurable business outcome before a single story is written. If a feature cannot be traced to an impact on an actor who is connected to a goal, it does not belong in the plan.

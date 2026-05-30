@@ -8,6 +8,7 @@ related:
   - tools/langchain
   - tools/azure-openai
   - tools/autogen
+last_updated: 2026-05-30
 ---
 
 Semantic Kernel is Microsoft's open-source SDK for integrating large language models into applications. It supports C#, Python, and Java, making it the primary choice for enterprise teams working in the .NET ecosystem. Unlike LangChain (which is Python/JavaScript-first), Semantic Kernel treats C# as a first-class citizen, with strong typing, dependency injection integration, and patterns that align with enterprise .NET development practices.

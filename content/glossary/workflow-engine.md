@@ -4,6 +4,7 @@ description: "Software that automates the execution of business processes by coo
 date: 2026-03-28
 categories: [Glossary]
 tags: [workflow-engine, BPM, automation, orchestration, process-execution]
+last_updated: 2026-05-30
 ---
 
 A workflow engine is a software system that interprets process definitions and orchestrates the execution of tasks, routing work between human participants and automated systems according to predefined rules and conditions. It serves as the runtime backbone of business process automation.

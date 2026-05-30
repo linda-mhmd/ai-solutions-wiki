@@ -13,6 +13,7 @@ related:
   - glossary/apache-flink
   - guides/mlops-getting-started
   - patterns/event-driven-ai
+last_updated: 2026-05-30
 ---
 
 **This page is a build guide.** For the architectural pattern describing dual-write consistency guarantees and training-serving skew prevention, see [Real-Time Feature Computation Pattern](/patterns/stream-processing-ai/).

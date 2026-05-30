@@ -10,6 +10,7 @@ related:
   - patterns/ml-feature-platform
   - patterns/real-time-feature-serving
   - guides/feature-store-guide
+last_updated: 2026-05-30
 ---
 
 A feature store is a centralized system for defining, computing, storing, and serving ML features consistently across training and inference. It ensures that the same feature computation logic produces the same values whether features are being generated for a training dataset or served in real time for a production prediction request.

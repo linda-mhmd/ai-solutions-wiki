@@ -10,6 +10,7 @@ related:
   - glossary/dimensionality-reduction
   - glossary/embeddings
   - glossary/clustering
+last_updated: 2026-05-30
 ---
 
 UMAP (Uniform Manifold Approximation and Projection) is a non-linear dimensionality reduction technique that produces visualizations similar to t-SNE but with significant practical advantages: faster computation, better preservation of global structure, and the ability to transform new data points. It has become the preferred method for high-dimensional data visualization and is increasingly used for general-purpose dimensionality reduction.

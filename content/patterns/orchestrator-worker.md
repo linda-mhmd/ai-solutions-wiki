@@ -10,6 +10,7 @@ related:
   - patterns/agentic-workflows
   - patterns/model-tier-routing
   - patterns/tool-use-pattern
+last_updated: 2026-05-30
 ---
 
 Complex AI tasks rarely map cleanly to a single model call. The orchestrator-worker pattern uses one LLM as a coordinator that breaks down a complex request, delegates subtasks to specialized workers, and assembles their outputs into a coherent result.

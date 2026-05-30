@@ -9,6 +9,7 @@ related:
   - frameworks/inference-time-scaling
   - patterns/multi-model-routing
   - guides/fine-tuning-llms-guide
+last_updated: 2026-05-30
 ---
 
 Mixture of Experts (MoE) is a neural network architecture in which multiple specialist sub-networks (called "experts") are combined with a routing mechanism (called a "gating network" or "router") that selects which experts to activate for each input. The key insight is that not all parts of a model need to process every input. By activating only a subset of experts per token or input, MoE models can have very large total parameter counts while keeping the computational cost of processing any single input manageable.

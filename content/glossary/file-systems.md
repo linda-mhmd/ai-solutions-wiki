@@ -4,6 +4,7 @@ description: "The methods and data structures operating systems use to organize,
 date: 2026-03-28
 categories: [Glossary]
 tags: [operating-systems, file-systems, storage, ext4, ntfs, journaling]
+last_updated: 2026-05-30
 ---
 
 A file system defines how data is organized, stored, and retrieved on a storage device. It provides the abstractions of files (named sequences of bytes) and directories (hierarchical containers for files), along with metadata such as permissions, timestamps, and ownership. The choice of file system affects performance, reliability, and feature set.

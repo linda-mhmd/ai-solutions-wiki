@@ -7,6 +7,7 @@ tags: [azure, business-intelligence, visualization, analytics, reporting]
 related:
   - tools/amazon-quicksight
   - tools/azure-synapse-analytics
+last_updated: 2026-05-30
 ---
 
 Power BI is Microsoft's business intelligence and data visualization platform that enables users to connect to hundreds of data sources, transform data, build interactive reports and dashboards, and share insights across organizations. While Power BI is a standalone product in the Microsoft ecosystem (not exclusively an Azure service), it integrates deeply with Azure data and AI services, serving as the primary visualization and reporting layer for AI pipeline outputs, model performance monitoring dashboards, and business insights derived from AI-processed data.

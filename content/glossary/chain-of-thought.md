@@ -11,6 +11,7 @@ related:
   - glossary/llm
   - glossary/few-shot-learning
   - glossary/llm-as-a-judge
+last_updated: 2026-05-30
 ---
 
 Chain-of-thought (CoT) prompting is a technique for improving large language model performance on multi-step reasoning problems by eliciting intermediate reasoning traces before the final answer. The original result, Wei et al. (2022), demonstrated that for models above approximately 100B parameters, prompting with worked examples that include intermediate steps substantially improves arithmetic, commonsense, and symbolic reasoning accuracy. CoT has since become a foundational technique for reasoning systems and an active research area, with significant nuance about *when* and *why* it works.

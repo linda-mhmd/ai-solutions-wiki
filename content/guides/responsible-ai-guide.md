@@ -4,6 +4,7 @@ description: "How to implement responsible AI practices including fairness, tran
 date: 2026-03-28
 categories: [Guides]
 tags: [responsible-AI, ethics, fairness, governance, enterprise]
+last_updated: 2026-05-30
 ---
 
 Responsible AI is not an abstract ethical framework - it is a set of concrete engineering practices that reduce risk, build trust, and keep you out of regulatory trouble. Organizations that treat responsible AI as a compliance checkbox miss the point; those that embed it into development practices build better systems. This guide covers practical implementation, not philosophy.

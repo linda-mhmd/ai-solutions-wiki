@@ -9,6 +9,7 @@ related:
   - glossary/open-closed-principle
   - glossary/interface-segregation-principle
   - glossary/clean-architecture
+last_updated: 2026-05-30
 ---
 
 The Single Responsibility Principle (SRP) states that a class should have only one reason to change. In practical terms, each class should encapsulate a single responsibility or concern, so that changes to one aspect of the system's behavior require modification of only one class.

@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [fleet-management, telematics, vehicle-optimization, fuel-efficiency, logistics-ai]
 industries: [logistics]
 tools: [amazon-sagemaker, amazon-kinesis, amazon-quicksight]
+last_updated: 2026-05-30
 ---
 
 Fleet operations represent the largest cost center for most logistics companies. Vehicle acquisition, fuel, maintenance, insurance, and driver costs collectively drive total cost of ownership. AI fleet management optimizes each component by analyzing telematics data, predicting maintenance needs, improving driver behavior, and optimizing fleet size and composition.

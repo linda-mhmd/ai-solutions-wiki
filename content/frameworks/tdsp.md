@@ -10,6 +10,7 @@ related:
   - frameworks/dora-framework
   - frameworks/build-measure-learn
   - frameworks/well-architected-framework
+last_updated: 2026-05-30
 ---
 
 The Team Data Science Process (TDSP) is Microsoft's methodology for executing data science projects in collaborative team settings. While CRISP-DM provides a process framework, TDSP goes further by defining team roles, standardized project structures, infrastructure recommendations, and explicit integration with agile development practices. It was designed to address the common failure mode where individual data scientists build models that never make it to production because the handoff to engineering was never planned.

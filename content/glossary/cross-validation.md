@@ -9,6 +9,7 @@ related:
   - glossary/bias-variance-tradeoff
   - glossary/hyperparameter-tuning
   - glossary/supervised-learning
+last_updated: 2026-05-30
 ---
 
 Cross-validation is a model evaluation technique that tests how well a model generalizes to unseen data by systematically training and evaluating on different subsets of the available data. Instead of a single train/test split (which may be unrepresentative), cross-validation uses multiple splits to produce a more reliable performance estimate.

@@ -9,6 +9,7 @@ related:
   - glossary/recurrent-neural-network
   - glossary/long-context-model
   - glossary/deep-learning
+last_updated: 2026-05-30
 ---
 
 A state space model (SSM) in the context of deep learning is a sequence modeling architecture inspired by classical control theory. SSMs map input sequences to output sequences through a continuous latent state, offering linear-time complexity with respect to sequence length. This makes them a compelling alternative to transformers, whose self-attention mechanism scales quadratically.

@@ -7,6 +7,7 @@ tags: [azure, media, video, encoding, streaming]
 related:
   - tools/aws-mediaconvert
   - tools/azure-blob-storage
+last_updated: 2026-05-30
 ---
 
 Azure Media Services is Microsoft Azure's cloud-based media processing platform that provides encoding, live and on-demand streaming, content protection with DRM, and AI-powered video analytics. The platform enables media organizations, enterprises, and developers to build workflows that ingest raw video and audio, transcode it into multiple formats and bitrates, protect it with digital rights management, and deliver it to viewers worldwide through Azure's content delivery network. For AI applications, Media Services provides the video processing backbone that prepares content for downstream AI analysis including speech transcription, content moderation, face detection, and scene understanding.

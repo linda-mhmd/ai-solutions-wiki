@@ -26,6 +26,7 @@ solutions:
   - solutions/finance/credit-scoring
   - solutions/retail/recommendation-engine
   - solutions/healthcare/medical-imaging
+last_updated: 2026-05-30
 ---
 
 Amazon Bedrock is AWS's managed service for foundation model access. It provides a single API to call multiple large language models from different providers, alongside managed infrastructure for knowledge bases, agents, and output safety controls. For enterprise teams building on AWS, it is the primary integration point for generative AI capabilities.

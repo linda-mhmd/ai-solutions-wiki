@@ -9,6 +9,7 @@ related:
   - patterns/agentic-workflows
   - patterns/guardrails-pattern
   - patterns/orchestrator-worker
+last_updated: 2026-05-30
 ---
 
 Tool use (also called function calling) lets an LLM invoke external functions, APIs, and services during a conversation. Instead of the model guessing at information or admitting it cannot perform an action, it calls a tool: look up a database record, execute code, search the web, send an email, or query an internal system. The model decides which tool to call, what parameters to pass, and how to incorporate the result into its response.

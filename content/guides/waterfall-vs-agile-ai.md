@@ -4,6 +4,7 @@ description: "A practical comparison of waterfall and agile methodologies for AI
 date: 2026-03-28
 categories: [Guides]
 tags: [waterfall, agile, project-management, methodology, AI-development]
+last_updated: 2026-05-30
 ---
 
 The debate between waterfall and agile is decades old in software engineering. In AI projects, the answer is less obvious than you might expect. While agile is the default recommendation for most software work, certain AI project characteristics make waterfall elements genuinely useful. Understanding when each approach fits - and when to combine them - prevents methodology from becoming an obstacle.

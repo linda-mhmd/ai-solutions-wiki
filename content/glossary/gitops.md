@@ -9,6 +9,7 @@ related:
   - glossary/immutable-infrastructure
   - glossary/kubernetes
   - glossary/helm-chart
+last_updated: 2026-05-30
 ---
 
 GitOps is an operational framework where Git repositories are the single source of truth for both application code and infrastructure configuration. Changes to production systems are made exclusively through Git commits and pull requests. Automated agents reconcile the actual system state with the desired state declared in Git, applying changes automatically and continuously.

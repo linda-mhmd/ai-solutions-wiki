@@ -4,6 +4,7 @@ description: "Use document AI to extract receipt data and auto-populate expense 
 date: 2026-03-28
 categories: [Ideas]
 tags: [expense-management, document-extraction, automation, finance]
+last_updated: 2026-05-30
 ---
 
 Expense report processing is a universal pain point. Employees spend 20-30 minutes assembling receipts, typing amounts, and categorizing expenses. Finance teams then spend another 10-15 minutes per report verifying totals and checking policy compliance. For a company with 200 employees submitting monthly reports, that is hundreds of hours per month on a task that adds zero strategic value.

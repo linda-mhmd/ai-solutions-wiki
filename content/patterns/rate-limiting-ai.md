@@ -4,6 +4,7 @@ description: "Implementing effective rate limiting for AI-powered applications. 
 date: 2026-03-28
 categories: [Patterns]
 tags: [rate-limiting, throttling, cost-management, reliability, infrastructure]
+last_updated: 2026-05-30
 ---
 
 AI applications have unique rate limiting requirements. Model APIs impose their own limits (requests per minute, tokens per minute), costs scale with usage, and request processing times are orders of magnitude longer than traditional API calls. Effective rate limiting protects both your budget and your service quality.

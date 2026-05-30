@@ -9,6 +9,7 @@ related:
   - tools/amazon-bedrock
   - guides/deployment-models-ai
   - patterns/observability-ai
+last_updated: 2026-05-30
 ---
 
 Every AWS customer operates under the shared responsibility model. AWS secures the cloud itself - the physical data centres, the hypervisor, the managed service infrastructure. The customer secures what they put in the cloud: their data, their application logic, their access controls, their compliance configuration. For standard web applications this division is well understood. For AI and ML workloads, the boundary requires more careful thought.

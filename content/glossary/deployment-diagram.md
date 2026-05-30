@@ -4,6 +4,7 @@ description: "A UML structural diagram that shows the physical deployment of sof
 date: 2026-03-28
 categories: [Glossary]
 tags: [uml, deployment-diagram, infrastructure, software-architecture, structural-diagrams]
+last_updated: 2026-05-30
 ---
 
 A deployment diagram is a UML structural diagram that models the physical deployment of software artifacts on hardware and execution environment nodes. It shows which software runs on which hardware, how nodes are connected, and how the runtime architecture maps to physical or virtual infrastructure. Deployment diagrams bridge the gap between software design and infrastructure planning.

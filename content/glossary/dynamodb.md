@@ -8,6 +8,7 @@ related:
   - glossary/redis
   - glossary/aurora
   - glossary/serverless
+last_updated: 2026-05-30
 ---
 
 Amazon DynamoDB is a fully managed NoSQL database that provides single-digit millisecond performance at any scale. It is a key-value and document database with automatic scaling, built-in security, backup, and global replication. DynamoDB is serverless - there are no servers to manage, patch, or scale.

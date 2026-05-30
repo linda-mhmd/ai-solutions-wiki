@@ -8,6 +8,7 @@ related:
   - guides/everything-as-code
   - software-engineering/version-control-fundamentals
   - software-engineering/gitignore-patterns
+last_updated: 2026-05-30
 ---
 
 Video is one of the most persuasive media formats for communicating a software system's value. A two-minute demo can convey what a thirty-page technical document cannot. Yet most engineering teams treat video production as a creative task, something handed off to a designer with a subscription to Premiere Pro, disconnected from the codebase and the development workflow. This guide argues for a different approach: video as a software artifact, authored in code, stored in version control, and rendered on demand like any other build output.

@@ -4,6 +4,7 @@ description: "Use AI to summarize changes between document versions in plain lan
 date: 2026-03-28
 categories: [Ideas]
 tags: [document-management, version-control, comparison, automation]
+last_updated: 2026-05-30
 ---
 
 Tracking changes in text documents is easy. Understanding what those changes mean is hard. A redline showing 47 modifications across a 30-page contract does not tell the reviewer which changes are substantive and which are cosmetic. Every change needs to be read and assessed individually.

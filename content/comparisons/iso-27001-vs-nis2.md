@@ -2,6 +2,7 @@
 title: "ISO 27001 vs NIS2"
 description: "Mapping ISO 27001 information security controls to NIS2 requirements, showing how existing ISO certification supports NIS2 compliance and where gaps remain."
 date: 2026-03-28
+last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [iso-27001, nis2, cybersecurity, certification, compliance, mapping]
 related:
@@ -10,6 +11,7 @@ related:
   - guides/nis2-implementation-guide
   - comparisons/nis2-vs-dora
   - frameworks/nis2-compliance-framework
+last_updated: 2026-05-30
 ---
 
 Many organizations pursuing NIS2 compliance already hold ISO 27001 certification. Understanding the mapping between ISO 27001 controls and NIS2 requirements helps these organizations identify what additional work is needed rather than starting from scratch.

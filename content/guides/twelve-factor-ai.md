@@ -9,6 +9,7 @@ related:
   - patterns/microservices-for-ai
   - guides/ci-cd-for-ai
   - tools/amazon-bedrock
+last_updated: 2026-05-30
 ---
 
 The 12-Factor App methodology, published by Adam Wiggins in 2011 (drawing from Heroku's experience with thousands of app deployments), defines twelve principles for building software-as-a-service applications that are portable, scalable, and maintainable. Each principle maps naturally onto AI system design. Teams building LLM-based applications face the same problems the 12 factors solve - configuration drift, environment inconsistency, tight coupling to infrastructure - compounded by the additional complexity of non-deterministic model outputs and large model artifacts.

@@ -10,6 +10,7 @@ related:
   - glossary/static-site-generation
   - glossary/single-page-application
   - glossary/react
+last_updated: 2026-05-30
 ---
 
 Server-side rendering (SSR) is the practice of generating HTML on the server in response to each client request, sending a fully rendered page to the browser. In its modern form, SSR combines server-generated HTML for fast initial display with client-side JavaScript that makes the page interactive --- a process called hydration.

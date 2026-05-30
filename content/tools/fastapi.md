@@ -12,6 +12,7 @@ related:
 solutions:
   - guides/from-zero-to-production
   - guides/async-job-queues
+last_updated: 2026-05-30
 ---
 
 FastAPI is a modern, high-performance Python web framework for building APIs. Released in 2018 by Sebastian Ramirez, it is built on two libraries: [Starlette](https://www.starlette.io/) (the async web toolkit) and [Pydantic](https://docs.pydantic.dev/) (the data validation library). The combination gives you asynchronous request handling with automatic, runtime-enforced type validation, and both of those things matter significantly for AI workloads.

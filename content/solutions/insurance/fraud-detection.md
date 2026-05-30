@@ -6,6 +6,7 @@ categories: [Solutions]
 tags: [fraud-detection, claims-fraud, anomaly-detection, network-analysis, insurance-automation]
 industries: [insurance]
 tools: [amazon-sagemaker, amazon-bedrock, amazon-neptune]
+last_updated: 2026-05-30
 ---
 
 Insurance fraud accounts for an estimated 5-10% of total claims costs across the industry. Organized fraud rings, opportunistic claim inflation, and staged events collectively cost European insurers billions annually. Traditional fraud detection relies on red flag rules and investigator intuition, catching only 10-20% of fraudulent claims. AI detection identifies subtle patterns across claims, claimants, and provider networks that manual methods miss.

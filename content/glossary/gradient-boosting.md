@@ -10,6 +10,7 @@ related:
   - glossary/decision-tree
   - glossary/ensemble-methods
   - glossary/hyperparameter-tuning
+last_updated: 2026-05-30
 ---
 
 Gradient boosting is an ensemble learning technique that combines many weak learners (typically shallow decision trees) sequentially, where each new tree corrects the errors of the combined ensemble so far. It is consistently among the top-performing algorithms for structured/tabular data and dominates machine learning competitions.

@@ -8,6 +8,7 @@ related:
   - guides/data-catalog-implementation
   - glossary/data-contract
   - glossary/data-quality
+last_updated: 2026-05-30
 ---
 
 A data catalog is a centralised inventory of an organisation's data assets with metadata that describes what data exists, where it lives, who owns it, how it was created, and how it should be used. It is a search engine for data.

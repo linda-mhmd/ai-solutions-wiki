@@ -10,6 +10,7 @@ related:
   - guides/llm-cost-optimization
   - patterns/token-optimization
   - patterns/context-window-management
+last_updated: 2026-05-30
 ---
 
 A token budget is the maximum number of tokens allocated to a specific LLM request, conversation turn, agent step, or overall workflow. It serves as a control mechanism to manage costs (since LLM API pricing is per-token), bound latency (more tokens means longer generation time), and prevent context window overflow (exceeding the model's maximum context length).

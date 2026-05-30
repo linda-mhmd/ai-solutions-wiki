@@ -4,6 +4,7 @@ description: "Amazon Transcribe capabilities, accuracy characteristics, pricing,
 date: 2026-03-24
 categories: [Tools]
 tags: ["ai-ml", "intermediate", "amazon-transcribe", "speech-to-text", "audio", "aws", "transcription"]
+last_updated: 2026-05-30
 ---
 
 Amazon Transcribe is AWS's managed speech-to-text service. It converts audio files or streams to text with timestamps, speaker labels, and confidence scores. For enterprise use cases - call center recordings, meeting transcription, media subtitling, voice-driven applications - Transcribe provides a managed alternative to building and hosting transcription models.

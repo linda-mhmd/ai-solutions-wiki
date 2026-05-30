@@ -8,9 +8,15 @@ related:
   - guides/devsecops-ai
   - guides/ci-cd-for-ai
   - patterns/compliance-as-code
+last_updated: 2026-05-30
 ---
 
 DevSecOps integrates security practices into every phase of the software development lifecycle rather than treating security as a final gate before production. The name combines Development, Security, and Operations to signal that security is a shared responsibility, not a separate team's problem.
+
+<figure class="bz-figure">
+  <img src="/img/craft/workbench-shift-left-security-text.png" alt="A workbench with security tools integrated into the development workflow: security checks happening early, not as an afterthought." loading="lazy">
+  <figcaption>DevSecOps shifts security left. Instead of a final gate before production, security tools are integrated into the workbench where code is written. Problems are caught early, when they are cheap to fix.</figcaption>
+</figure>
 
 In traditional workflows, a security review happens late - after code is written, tested, and staged. Findings at that point are expensive to fix and create friction between teams. DevSecOps shifts security left: scanning dependencies during development, checking infrastructure-as-code before deployment, and running dynamic analysis in staging.
 

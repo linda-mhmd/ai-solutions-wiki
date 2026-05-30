@@ -9,6 +9,7 @@ related:
   - glossary/emotion-css-in-js
   - glossary/nextjs
   - glossary/typescript
+last_updated: 2026-05-30
 ---
 
 Material UI (now branded as MUI) is a comprehensive React component library that implements Google's Material Design system. It provides a complete set of pre-built, customizable UI components --- buttons, forms, navigation, data display, dialogs --- that follow consistent design principles and accessibility standards. Material UI is one of the oldest and most widely adopted component libraries in the React ecosystem.
