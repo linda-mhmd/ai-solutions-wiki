@@ -54,47 +54,26 @@
       }
     });
 
-    // Desktop dropdown toggle (click for keyboard/touch)
-    document.querySelectorAll('.nav-group-btn, .nav-group-link').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const group = btn.closest('.nav-group');
-        const mega = group ? group.querySelector('.nav-mega, .nav-dropdown') : null;
-        if (!mega) return; // no dropdown: follow the link normally
-        e.preventDefault();
-        e.stopPropagation();
-        const isOpen = group.classList.contains('open');
-        document.querySelectorAll('.nav-group.open').forEach(g => {
-          g.classList.remove('open');
-          const trigger = g.querySelector('.nav-group-btn, .nav-group-link');
-          if (trigger) trigger.setAttribute('aria-expanded', 'false');
-        });
-        if (!isOpen) {
+    // Nav mega menus: CSS :hover opens them; JS adds a 150ms close delay
+    // so pointer-events:auto stays active while the cursor moves into the panel.
+    // Clicking a trigger navigates to the hub page (native <a> behaviour).
+    // Clicking a card navigates to that card's page (native <a> behaviour).
+    (function() {
+      var timers = new Map();
+      document.querySelectorAll('.nav-links .nav-group').forEach(function(group) {
+        group.addEventListener('mouseenter', function() {
+          if (timers.has(group)) { clearTimeout(timers.get(group)); timers.delete(group); }
           group.classList.add('open');
-          btn.setAttribute('aria-expanded', 'true');
-        } else {
-          // Second click on an open group: navigate to the hub page
-          window.location.href = btn.getAttribute('href');
-        }
-      });
-    });
-
-    document.addEventListener('click', () => {
-      document.querySelectorAll('.nav-group.open').forEach(g => {
-        g.classList.remove('open');
-        const trigger = g.querySelector('.nav-group-btn, .nav-group-link');
-        if (trigger) trigger.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        document.querySelectorAll('.nav-group.open').forEach(g => {
-          g.classList.remove('open');
-          const trigger = g.querySelector('.nav-group-btn, .nav-group-link');
-          if (trigger) trigger.setAttribute('aria-expanded', 'false');
         });
-      }
-    });
+        group.addEventListener('mouseleave', function() {
+          var t = setTimeout(function() {
+            group.classList.remove('open');
+            timers.delete(group);
+          }, 150);
+          timers.set(group, t);
+        });
+      });
+    })();
 
     // TOC active heading via IntersectionObserver
     const tocLinks = document.querySelectorAll('.toc-inner nav ul li a');

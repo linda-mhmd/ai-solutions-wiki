@@ -209,6 +209,17 @@ img { max-width: 100%; height: auto; display: block; }
   position: relative;
   list-style: none;
 }
+/* Invisible bridge: extends nav-group hover area downward to cover the gap
+   between trigger and dropdown panel, keeping :hover active */
+.nav-group::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 6px;
+  pointer-events: auto;
+}
 
 /* nav-group-btn kept for backwards compat, nav-group-link is the clickable <a> version */
 .nav-group-btn,
@@ -252,7 +263,7 @@ img { max-width: 100%; height: auto; display: block; }
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-6px);
   min-width: 170px;
   background: var(--light-bg);
   border: 1px solid var(--border-strong);
@@ -262,14 +273,14 @@ img { max-width: 100%; height: auto; display: block; }
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.15s ease, transform 0.15s ease;
-  transform: translateX(-50%) translateY(-6px);
   z-index: 200;
+  white-space: normal;
 }
 .nav-group:hover .nav-dropdown,
 .nav-group.open .nav-dropdown {
   opacity: 1;
   pointer-events: auto;
-  transform: translateX(-50%) translateY(4px);
+  transform: translateX(-50%) translateY(0);
 }
 .nav-dropdown--wide {
   min-width: 200px;
@@ -317,12 +328,15 @@ img { max-width: 100%; height: auto; display: block; }
   pointer-events: none;
   transition: opacity 0.15s ease, transform 0.15s ease;
   z-index: 200;
+  /* Reset white-space: nav-links sets nowrap to keep nav items on one line,
+     but that property is inherited — reset here so card descriptions wrap */
+  white-space: normal;
 }
 .nav-group:hover .nav-mega,
 .nav-group.open .nav-mega {
   opacity: 1;
   pointer-events: auto;
-  transform: translateX(-50%) translateY(4px);
+  transform: translateX(-50%) translateY(0);
 }
 
 /* Audience mega: 2-column grid of cards */
