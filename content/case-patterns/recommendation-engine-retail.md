@@ -4,6 +4,9 @@ description: "Architecture and lessons from building a production recommendation
 date: 2026-03-28
 categories: [Case Patterns]
 tags: [recommendation-engine, retail, personalization, e-commerce, machine-learning]
+image: /img/shaping-ai/executive-network-glass-touch-notext.png
+image_alt: "A suited executive touching a glass panel as a red node network spreads from the contact point, representing a recommendation engine that activates from a single user signal."
+image_caption: "One touch. A network of signals. The engine finds the next product before the customer thinks to look."
 ---
 
 An online retailer with 5 million monthly active users and a catalog of 120,000 products needed to move beyond basic "customers also bought" recommendations. The existing rule-based system had a 2.1% click-through rate on recommendations and contributed 8% of total revenue. The goal was to deploy a personalized recommendation engine that could improve both metrics.

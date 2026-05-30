@@ -1,0 +1,51 @@
+{{ define "main" }}
+
+{{ $sections := .Sections }}
+
+<section class="hub-hero">
+  <div class="bz-container">
+    {{ partial "breadcrumbs.html" . }}
+    <h1 class="hub-h1">{{ .Title }}</h1>
+    {{ with .Description }}<p class="hub-desc">{{ . }}</p>{{ end }}
+  </div>
+</section>
+
+<section class="hub-section">
+  <div class="bz-container">
+
+    {{ with .Content }}
+    <div class="article-body sl-intro-body" style="margin-bottom:32px">{{ . }}</div>
+    {{ end }}
+
+    <div class="hub-audience-grid">
+      {{ range $sections.ByTitle }}
+      {{ $img  := .Params.image }}
+      {{ $alt  := .Params.image_alt | default .Title }}
+      {{ $desc := .Description | default "" }}
+      <a href="{{ .RelPermalink }}" class="hub-audience-card">
+        {{ if $img }}
+        <figure class="hub-audience-figure" style="margin:0">
+          <img src="{{ $img }}" alt="{{ $alt }}" loading="lazy">
+        </figure>
+        {{ end }}
+        <div class="hub-audience-body">
+          <span class="hub-audience-role">{{ .Title }}</span>
+          {{ if $desc }}
+          <p class="hub-audience-desc">{{ $desc | truncate 120 }}</p>
+          {{ end }}
+          <span class="hub-audience-cta">
+            {{ len .Pages }} use cases →
+          </span>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+
+  </div>
+</section>
+
+<div class="bz-container">
+  {{ partial "cta.html" . }}
+</div>
+
+{{ end }}

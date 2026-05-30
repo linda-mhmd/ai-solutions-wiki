@@ -1,486 +1,11 @@
 {{ define "main" }}
-<style>
-  /* ---- Build Page Styles ---- */
-  .build-hero {
-    background-color: #faf8f4;
-    background-image:
-      linear-gradient(rgba(180, 140, 100, 0.12) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(180, 140, 100, 0.12) 1px, transparent 1px);
-    background-size: 28px 28px;
-    padding: 72px 0 64px;
-    border-bottom: 1px solid #ded7cc;
-  }
-  [data-theme="dark"] .build-hero {
-    background-color: var(--surface);
-    background-image:
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    border-bottom-color: var(--border);
-  }
-
-  .build-hero-inner {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
-
-  .build-hero-badge {
-    display: inline-block;
-    font-size: 0.68rem;
-    font-weight: 700;
-    color: #b85c38;
-    font-family: var(--font-mono);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-  [data-theme="dark"] .build-hero-badge { color: #d4785a; }
-
-  .build-hero h1 {
-    font-size: clamp(1.75rem, 4vw, 2.6rem);
-    font-weight: 800;
-    color: var(--text-primary);
-    letter-spacing: -0.02em;
-    margin-bottom: 16px;
-    line-height: 1.2;
-    max-width: 680px;
-  }
-
-  .build-hero p {
-    font-size: 1.05rem;
-    color: var(--text-secondary);
-    line-height: 1.65;
-    margin-bottom: 32px;
-    max-width: 600px;
-  }
-
-  .build-hero-stats {
-    display: flex;
-    gap: 40px;
-    padding-top: 24px;
-    border-top: 1px solid #ded7cc;
-  }
-  [data-theme="dark"] .build-hero-stats { border-top-color: var(--border); }
-
-  .build-stat {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .build-stat strong {
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: var(--text-primary);
-    font-family: var(--font-mono);
-  }
-
-  .build-stat span {
-    font-size: 0.68rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-family: var(--font-mono);
-  }
-
-  /* ---- Architecture overview ---- */
-  .build-arch {
-    padding: 64px 24px;
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .build-arch-inner {
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-
-  .build-section-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-  }
-
-  .build-section-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    letter-spacing: -0.01em;
-    margin-bottom: 8px;
-  }
-
-  .build-section-sub {
-    font-size: 0.925rem;
-    color: var(--text-secondary);
-    margin-bottom: 36px;
-    max-width: 560px;
-  }
-
-  /* ---- Project relationship map ---- */
-  .project-map {
-    background: var(--light-bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 32px;
-    overflow-x: auto;
-  }
-
-  .project-map-title {
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text-muted);
-    margin-bottom: 24px;
-    text-align: center;
-  }
-
-  .arch-map-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    align-items: center;
-    min-width: 600px;
-  }
-
-  .arch-map-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .arch-map-node {
-    padding: 8px 16px;
-    border-radius: var(--radius);
-    font-size: 0.78rem;
-    font-weight: 600;
-    border: 1.5px solid;
-    white-space: nowrap;
-    text-align: center;
-  }
-
-  .arch-map-node.beginner {
-    border-color: #10b981;
-    color: #10b981;
-    background: rgb(16 185 129 / 0.07);
-  }
-
-  .arch-map-node.intermediate {
-    border-color: #2563eb;
-    color: #2563eb;
-    background: rgb(37 99 235 / 0.07);
-  }
-
-  .arch-map-node.advanced {
-    border-color: #7c3aed;
-    color: #7c3aed;
-    background: rgb(124 58 237 / 0.07);
-  }
-
-  .arch-map-arrow {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-  }
-
-  .arch-map-divider {
-    width: 100%;
-    height: 1px;
-    background: var(--border);
-    position: relative;
-  }
-
-  .arch-map-legend {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-  }
-
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-  }
-
-  .legend-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 2px;
-  }
-
-  .legend-dot.beginner { background: #10b981; }
-  .legend-dot.intermediate { background: #2563eb; }
-  .legend-dot.advanced { background: #7c3aed; }
-
-  /* ---- Project cards grid ---- */
-  .build-projects {
-    padding: 64px 24px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .build-projects-inner {
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 20px;
-  }
-
-  .project-card {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: border-color 0.15s;
-    text-decoration: none;
-  }
-
-  .project-card:hover {
-    border-color: #b85c38;
-    text-decoration: none;
-  }
-
-  /* Project illustration area */
-  .project-illustration {
-    height: 140px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .project-illustration.rag-bg { background: #0f172a; }
-  .project-illustration.agent-bg { background: #1a0a2e; }
-  .project-illustration.chat-bg { background: #0a1628; }
-  .project-illustration.pipeline-bg { background: #0a1f0a; }
-  .project-illustration.classify-bg { background: #1f0a0a; }
-  .project-illustration.search-bg { background: #0f1728; }
-
-  /* Mini CSS diagrams inside illustrations */
-  .mini-diagram {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 12px;
-  }
-
-  .mini-node {
-    padding: 5px 10px;
-    border-radius: 6px;
-    font-size: 0.65rem;
-    font-weight: 600;
-    border: 1px solid;
-    white-space: nowrap;
-    color: #fff;
-  }
-
-  .mini-node.blue { border-color: rgb(96 165 250 / 0.6); background: rgb(37 99 235 / 0.3); }
-  .mini-node.violet { border-color: rgb(167 139 250 / 0.6); background: rgb(124 58 237 / 0.3); }
-  .mini-node.green { border-color: rgb(52 211 153 / 0.6); background: rgb(16 185 129 / 0.3); }
-  .mini-node.amber { border-color: rgb(251 191 36 / 0.6); background: rgb(217 119 6 / 0.3); }
-
-  .mini-arrow {
-    color: rgba(255 255 255 / 0.4);
-    font-size: 0.8rem;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-  }
-
-  .mini-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    align-items: center;
-  }
-
-  /* Project card body */
-  .project-card-body {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    flex: 1;
-  }
-
-  .project-card-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-  }
-
-  .difficulty-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 2px 8px;
-    border-radius: 3px;
-    font-family: var(--font-mono);
-  }
-
-  .difficulty-badge.beginner {
-    background: rgb(16 185 129 / 0.1);
-    color: #10b981;
-    border: 1px solid rgb(16 185 129 / 0.2);
-  }
-
-  .difficulty-badge.intermediate {
-    background: rgb(37 99 235 / 0.1);
-    color: #2563eb;
-    border: 1px solid rgb(37 99 235 / 0.2);
-  }
-
-  .difficulty-badge.advanced {
-    background: rgb(124 58 237 / 0.1);
-    color: #7c3aed;
-    border: 1px solid rgb(124 58 237 / 0.2);
-  }
-
-  .est-time {
-    font-size: 0.72rem;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    white-space: nowrap;
-  }
-
-  .project-card-body h3 {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    line-height: 1.3;
-  }
-
-  .project-build-label {
-    font-size: 0.72rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text-muted);
-    margin-bottom: 2px;
-  }
-
-  .project-build-desc {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-    flex: 1;
-  }
-
-  .project-card-footer {
-    margin-top: auto;
-    padding-top: 12px;
-    border-top: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-  }
-
-  .project-tags {
-    display: flex;
-    gap: 4px;
-    flex-wrap: wrap;
-  }
-
-  /* ---- CTA ---- */
-  .build-cta {
-    padding: 64px 0;
-    background: #111;
-    border-top: 1px solid #222;
-    text-align: center;
-  }
-
-  .build-cta-inner {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
-
-  .build-cta h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #f1f5f9;
-    margin-bottom: 12px;
-    letter-spacing: -0.02em;
-  }
-
-  .build-cta p {
-    color: rgba(255, 255, 255, 0.55);
-    font-size: 0.975rem;
-    line-height: 1.6;
-    margin-bottom: 28px;
-    max-width: 480px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .cta-group {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .cta-outline {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: transparent;
-    color: #f1f5f9;
-    font-family: var(--font);
-    font-size: 0.9rem;
-    font-weight: 600;
-    padding: 10px 20px;
-    border-radius: 3px;
-    text-decoration: none;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: border-color 0.15s;
-  }
-
-  .cta-outline:hover {
-    border-color: rgba(255, 255, 255, 0.4);
-    text-decoration: none;
-  }
-
-  @media (max-width: 768px) {
-    .projects-grid { grid-template-columns: 1fr; }
-    .arch-map-grid { min-width: 320px; }
-    .build-hero-stats { gap: 20px; }
-    .build-projects { padding: 40px 16px; }
-  }
-</style>
 
 <!-- Hero -->
-<section class="build-hero">
-  <div class="build-hero-inner">
-    <div class="build-hero-badge">Project Guides</div>
-    <h1>{{ .Title }}</h1>
-    <p>{{ .Description }}</p>
+<section class="hub-hero">
+  <div class="bz-container">
+    {{ partial "breadcrumbs.html" . }}
+    <h1 class="hub-h1">{{ .Title }}</h1>
+    {{ with .Description }}<p class="hub-desc">{{ . }}</p>{{ end }}
     <div class="build-hero-stats">
       <div class="build-stat"><strong>6</strong><span>Projects</span></div>
       <div class="build-stat"><strong>3</strong><span>Difficulty levels</span></div>
@@ -489,11 +14,11 @@
   </div>
 </section>
 
-<!-- Architecture overview of how projects relate -->
-<section class="build-arch">
-  <div class="build-arch-inner">
-    <p class="build-section-label">How projects connect</p>
-    <h2 class="build-section-title">Build in any order, or follow the path</h2>
+<!-- How projects connect -->
+<section class="hub-section">
+  <div class="bz-container">
+    <p class="bz-section-label">How projects connect</p>
+    <h2 class="build-section-h2">Build in any order, or follow the path</h2>
     <p class="build-section-sub">Each project is self-contained, but building in order takes you from beginner foundations to advanced production patterns.</p>
     <div class="project-map">
       <p class="project-map-title">Project progression map</p>
@@ -510,7 +35,7 @@
           <div class="arch-map-node intermediate">RAG Search Engine</div>
         </div>
         <div class="arch-map-row">
-          <div class="arch-map-arrow" style="transform: rotate(90deg);">
+          <div class="arch-map-arrow arch-map-arrow--down">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </div>
         </div>
@@ -535,22 +60,22 @@
   </div>
 </section>
 
-<!-- Project Cards -->
-<section class="build-projects">
-  <div class="build-projects-inner">
-    <p class="build-section-label">All projects</p>
-    <h2 class="build-section-title">Pick a project and start building</h2>
+<!-- Project cards -->
+<section class="hub-section">
+  <div class="bz-container">
+    <p class="bz-section-label">All projects</p>
+    <h2 class="build-section-h2">Pick a project and start building</h2>
     <div class="projects-grid">
 
-      <!-- Project 1: Chatbot with Memory -->
-      <a href="{{ "guides/" | relURL }}" class="project-card">
-        <div class="project-illustration chat-bg">
+      <!-- 1: Chatbot with Memory -->
+      <a href="{{ "guides/" | relURL }}" class="build-project-card">
+        <div class="project-illustration">
           <div class="mini-diagram">
-            <div class="mini-node blue">User</div>
-            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
-            <div class="mini-node blue">LLM</div>
-            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
-            <div class="mini-node green">Memory</div>
+            <div class="mini-node red">User</div>
+            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="mini-node red">LLM</div>
+            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="mini-node ember">Memory</div>
           </div>
         </div>
         <div class="project-card-body">
@@ -573,24 +98,22 @@
               <span class="tag-pill small">memory</span>
               <span class="tag-pill small">chat</span>
             </div>
-            <span class="card-link">Start building
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </span>
+            <span class="card-link">Start building <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
           </div>
         </div>
       </a>
 
-      <!-- Project 2: Document Classifier -->
-      <a href="{{ "guides/" | relURL }}" class="project-card">
-        <div class="project-illustration classify-bg">
+      <!-- 2: Document Classifier -->
+      <a href="{{ "guides/" | relURL }}" class="build-project-card">
+        <div class="project-illustration">
           <div class="mini-diagram">
-            <div class="mini-node amber">Doc</div>
-            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
-            <div class="mini-node amber">Classifier</div>
-            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="mini-node rust">Doc</div>
+            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="mini-node rust">Classifier</div>
+            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
             <div class="mini-stack">
-              <div class="mini-node green" style="font-size:0.58rem;padding:3px 7px;">Category A</div>
-              <div class="mini-node green" style="font-size:0.58rem;padding:3px 7px;">Category B</div>
+              <div class="mini-node ember mini-node--sm">Category A</div>
+              <div class="mini-node ember mini-node--sm">Category B</div>
             </div>
           </div>
         </div>
@@ -613,24 +136,22 @@
               <span class="tag-pill small">classification</span>
               <span class="tag-pill small">prompting</span>
             </div>
-            <span class="card-link">Start building
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </span>
+            <span class="card-link">Start building <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
           </div>
         </div>
       </a>
 
-      <!-- Project 3: RAG Search Engine -->
-      <a href="{{ "patterns/" | relURL }}" class="project-card">
-        <div class="project-illustration rag-bg">
+      <!-- 3: RAG Search Engine -->
+      <a href="{{ "patterns/" | relURL }}" class="build-project-card">
+        <div class="project-illustration">
           <div class="mini-diagram">
-            <div class="mini-node blue">Query</div>
-            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
-            <div class="mini-node blue">Embedder</div>
-            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
-            <div class="mini-node blue">Vector DB</div>
-            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
-            <div class="mini-node green">LLM</div>
+            <div class="mini-node red">Query</div>
+            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="mini-node red">Embedder</div>
+            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="mini-node red">Vector DB</div>
+            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="mini-node ember">LLM</div>
           </div>
         </div>
         <div class="project-card-body">
@@ -653,24 +174,22 @@
               <span class="tag-pill small">embeddings</span>
               <span class="tag-pill small">vectors</span>
             </div>
-            <span class="card-link">Start building
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </span>
+            <span class="card-link">Start building <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
           </div>
         </div>
       </a>
 
-      <!-- Project 4: Data Pipeline -->
-      <a href="{{ "guides/" | relURL }}" class="project-card">
-        <div class="project-illustration pipeline-bg">
+      <!-- 4: AI Data Pipeline -->
+      <a href="{{ "guides/" | relURL }}" class="build-project-card">
+        <div class="project-illustration">
           <div class="mini-diagram">
-            <div class="mini-node green">Ingest</div>
-            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
-            <div class="mini-node green">Enrich</div>
-            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
-            <div class="mini-node green">Store</div>
-            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
-            <div class="mini-node green">Serve</div>
+            <div class="mini-node ember">Ingest</div>
+            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="mini-node ember">Enrich</div>
+            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="mini-node ember">Store</div>
+            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="mini-node ember">Serve</div>
           </div>
         </div>
         <div class="project-card-body">
@@ -693,24 +212,22 @@
               <span class="tag-pill small">ETL</span>
               <span class="tag-pill small">extraction</span>
             </div>
-            <span class="card-link">Start building
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </span>
+            <span class="card-link">Start building <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
           </div>
         </div>
       </a>
 
-      <!-- Project 5: Autonomous Agent -->
-      <a href="{{ "patterns/" | relURL }}" class="project-card">
-        <div class="project-illustration agent-bg">
+      <!-- 5: Autonomous Agent -->
+      <a href="{{ "patterns/" | relURL }}" class="build-project-card">
+        <div class="project-illustration">
           <div class="mini-diagram">
-            <div class="mini-node violet">Planner</div>
-            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
-            <div class="mini-node violet">Executor</div>
-            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="mini-node rose">Planner</div>
+            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="mini-node rose">Executor</div>
+            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
             <div class="mini-stack">
-              <div class="mini-node green" style="font-size:0.58rem;padding:3px 7px;">Tool A</div>
-              <div class="mini-node green" style="font-size:0.58rem;padding:3px 7px;">Tool B</div>
+              <div class="mini-node ember mini-node--sm">Tool A</div>
+              <div class="mini-node ember mini-node--sm">Tool B</div>
             </div>
           </div>
         </div>
@@ -734,23 +251,21 @@
               <span class="tag-pill small">tool-use</span>
               <span class="tag-pill small">planning</span>
             </div>
-            <span class="card-link">Start building
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </span>
+            <span class="card-link">Start building <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
           </div>
         </div>
       </a>
 
-      <!-- Project 6: Multi-Agent System -->
-      <a href="{{ "patterns/" | relURL }}" class="project-card">
-        <div class="project-illustration agent-bg">
+      <!-- 6: Multi-Agent System -->
+      <a href="{{ "patterns/" | relURL }}" class="build-project-card">
+        <div class="project-illustration">
           <div class="mini-diagram">
-            <div class="mini-node violet">Orchestrator</div>
-            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="mini-node rose">Orchestrator</div>
+            <div class="mini-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
             <div class="mini-stack">
-              <div class="mini-node blue" style="font-size:0.58rem;padding:3px 7px;">Agent A</div>
-              <div class="mini-node blue" style="font-size:0.58rem;padding:3px 7px;">Agent B</div>
-              <div class="mini-node blue" style="font-size:0.58rem;padding:3px 7px;">Agent C</div>
+              <div class="mini-node red mini-node--sm">Agent A</div>
+              <div class="mini-node red mini-node--sm">Agent B</div>
+              <div class="mini-node red mini-node--sm">Agent C</div>
             </div>
           </div>
         </div>
@@ -773,9 +288,7 @@
               <span class="tag-pill small">multi-agent</span>
               <span class="tag-pill small">orchestration</span>
             </div>
-            <span class="card-link">Start building
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </span>
+            <span class="card-link">Start building <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
           </div>
         </div>
       </a>
@@ -785,20 +298,29 @@
 </section>
 
 <!-- CTA -->
-<section class="build-cta">
-  <div class="build-cta-inner">
-    <h2>Ready to go deeper?</h2>
-    <p>Explore the patterns and principles behind every build guide. Or jump into industry solutions to see these patterns applied in production contexts.</p>
-    <div class="cta-group">
-      <a href="{{ "patterns/" | relURL }}" class="cta-button large">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-        Browse Patterns
-      </a>
-      <a href="{{ "solutions/" | relURL }}" class="cta-outline">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
-        Industry Solutions
-      </a>
+<section class="hub-fallback">
+  <div class="bz-container">
+    <div class="hub-fallback-inner">
+      <div>
+        <h2 class="hub-fallback-h2">Ready to go deeper?</h2>
+        <p class="hub-fallback-desc">Explore the patterns and principles behind every build guide. Or jump into industry solutions to see these patterns applied in production contexts.</p>
+      </div>
+      <div class="build-btn-group">
+        <a href="{{ "patterns/" | relURL }}" class="bz-btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          Browse Patterns
+        </a>
+        <a href="{{ "solutions/" | relURL }}" class="bz-btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+          Industry Solutions
+        </a>
+      </div>
     </div>
   </div>
 </section>
+
+<div class="bz-container">
+  {{ partial "cta.html" . }}
+</div>
+
 {{ end }}

@@ -4,6 +4,9 @@ description: "How a team built a geospatial intelligence platform combining sate
 date: 2026-03-24
 categories: [Case Patterns]
 tags: ["ai-ml", "advanced", "geospatial", "satellite-data", "intelligence-platform", "computer-vision", "aws"]
+image: /img/enterprise-dark/gears-neural-wires-notext.png
+image_alt: "Dark interlocking gears laced with red neural wires, representing the interconnected data layers that a geospatial intelligence platform must integrate and analyse."
+image_caption: "Public datasets. Satellite feeds. Sensor networks. The platform joins them into a single queryable model."
 ---
 
 A geospatial analytics team built a platform to generate infrastructure change detection reports from publicly available satellite imagery and open government datasets. The platform detects construction activity, land use change, and infrastructure development across thousands of locations - work that previously required manual analyst review of imagery.

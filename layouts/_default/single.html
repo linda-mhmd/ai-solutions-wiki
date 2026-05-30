@@ -14,7 +14,9 @@
           <a href="{{ printf "%s/" . | relURL }}" class="section-badge">{{ . | humanize | title }}</a>
           {{ end }}
           {{ with .Params.categories }}{{ range first 2 . }}
+          {{ if ne (. | lower) ($.Section | lower) }}
           <a href="{{ "/categories/" | relURL }}{{ . | urlize }}/" class="category-pill">{{ . }}</a>
+          {{ end }}
           {{ end }}{{ end }}
         </div>
 
@@ -53,6 +55,13 @@
         </div>
         {{ end }}
       </header>
+
+      {{ with .Params.image }}
+      <figure class="bz-figure">
+        <img src="{{ . }}" alt="{{ $.Params.image_alt | default $.Title }}" loading="lazy">
+        {{ with $.Params.image_caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+      </figure>
+      {{ end }}
 
       <div class="article-body" data-pagefind-body>
         {{ .Content }}

@@ -4,6 +4,9 @@ description: "Architecture and lessons from deploying AI to monitor communicatio
 date: 2026-03-28
 categories: [Case Patterns]
 tags: [compliance, monitoring, financial-services, regulatory, surveillance]
+image: /img/shaping-ai/eye-neural-network-notext.png
+image_alt: "An extreme close-up of an eye with a red neural network traced in the iris, representing AI-powered continuous surveillance of communications and transactions."
+image_caption: "Compliance monitoring is peripheral vision at institutional scale. Nothing deviates without a trace."
 ---
 
 A financial institution with 3,000 employees was required by regulators to monitor employee communications and transactions for potential compliance violations: insider trading, market manipulation, conflicts of interest, and unauthorized outside business activities. The manual review team of 12 compliance analysts could review only 5% of communications, creating significant regulatory risk.

@@ -4,6 +4,9 @@ description: "Architecture and lessons from deploying AI-driven demand forecasti
 date: 2026-03-28
 categories: [Case Patterns]
 tags: [supply-chain, logistics, optimization, forecasting, route-planning]
+image: /img/obsidian-lab/pipeline-components-sequence-notext.png
+image_alt: "Industrial components in sequence: gear, lens, camera, radio, control panel, representing each stage in a connected supply chain pipeline."
+image_caption: "Supplier to warehouse to distribution: each stage passes work to the next. The model optimises the handoffs."
 ---
 
 A national logistics company operating 15 distribution centers and a fleet of 800 vehicles faced two persistent problems: demand forecasting errors that caused either excess inventory or stockouts at distribution centers, and route planning that relied on static schedules rather than real-time conditions. Both problems were costing the company approximately $12 million annually in excess inventory, emergency shipments, and inefficient routing.

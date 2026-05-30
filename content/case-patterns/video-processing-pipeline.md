@@ -4,6 +4,9 @@ description: "Architecture and lessons from building a production AI pipeline th
 date: 2026-03-24
 categories: [Case Patterns]
 tags: ["media-processing", "advanced", "video-processing", "pipeline", "aws", "transcoding", "architecture"]
+image: /img/enterprise-dark/corridor-red-columns-notext.png
+image_alt: "A dark industrial corridor with tall red light columns, representing a video processing pipeline where frames pass through sequential stages."
+image_caption: "Frame by frame. Stage by stage. The pipeline ingests raw footage and emits classified, indexed output."
 ---
 
 A national broadcaster needed to make decades of archived news footage searchable - not just by file metadata, but by spoken content, on-screen text, and visual subject matter. The archive contained over 400,000 hours of content across formats ranging from modern digital files to digitized VHS. Manual indexing was not viable at this scale.

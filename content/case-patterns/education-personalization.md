@@ -4,6 +4,9 @@ description: "Architecture and lessons from building an AI system that personali
 date: 2026-03-28
 categories: [Case Patterns]
 tags: [education, personalization, adaptive-learning, edtech, student-engagement]
+image: /img/shaping-ai/books-radial-red-sphere-notext.png
+image_alt: "Books arranged radially around a glowing red central sphere, representing a knowledge base from which personalised learning paths radiate to each student."
+image_caption: "Every learner starts at the same content. The model routes each one through it differently."
 ---
 
 An education technology platform serving 500,000 K-12 students needed to move beyond one-size-fits-all content delivery. Students at different skill levels, learning speeds, and engagement patterns were receiving the same content sequence. Struggling students fell further behind while advanced students were bored. The platform deployed AI-driven personalization to adapt the learning experience to each student.

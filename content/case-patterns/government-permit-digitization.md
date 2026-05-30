@@ -4,6 +4,9 @@ description: "Architecture and lessons from digitizing and automating the proces
 date: 2026-03-28
 categories: [Case Patterns]
 tags: [government, permit-processing, digitization, document-extraction, public-sector]
+image: /img/enterprise-dark/neon-corridor-walking-notext.png
+image_alt: "A dark corridor framed with neon arches, people walking through, representing the institutional journey of a permit application through a digitised process."
+image_caption: "The application enters. The system routes, validates, and tracks it. The citizen does not wait in a physical queue."
 ---
 
 A municipal government building department processed 12,000 permit applications annually. Applications arrived as paper forms, PDFs, and email submissions with attached plans. Processing involved manual data entry, plan review checklist verification, fee calculation, and routing to appropriate reviewers. Average processing time from submission to initial review was 23 business days, with citizen complaints about delays being the department's top constituent concern.

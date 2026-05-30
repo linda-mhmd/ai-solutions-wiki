@@ -4,6 +4,9 @@ description: "Architecture and lessons from deploying AI to optimize warehouse l
 date: 2026-03-28
 categories: [Case Patterns]
 tags: [warehouse, optimization, logistics, operations, labor-planning]
+image: /img/obsidian-lab/mechanical-system-composite-notext.png
+image_alt: "A composite of mechanical systems: a textile loom, copper cables, a filing cabinet, and scaffolding, representing the interconnected infrastructure of a warehouse operation."
+image_caption: "Shelves, picking paths, loading docks, and demand forecasts: optimisation touches every layer."
 ---
 
 A distribution company operating a 400,000-square-foot warehouse processing 25,000 order lines per day was struggling with declining productivity. As the product catalog grew from 8,000 to 15,000 SKUs, picking efficiency dropped 20% because fast-moving items were scattered across the warehouse and picking routes were inefficient. Labor costs were the largest operational expense, and overtime was running 30% over budget.

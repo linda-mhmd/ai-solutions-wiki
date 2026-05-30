@@ -4,6 +4,9 @@ description: "Architecture and lessons from building an AI system that extracts,
 date: 2026-03-28
 categories: [Case Patterns]
 tags: [medical-records, healthcare, extraction, HIPAA, document-processing]
+image: /img/obsidian-lab/filing-cabinet-amber-notext.png
+image_alt: "A long dark bank of filing cabinets with one drawer open, glowing amber, representing a selected record retrieved from a large archive."
+image_caption: "Fifty thousand requests per month. Each one a record that must be found, read, and summarised."
 ---
 
 A healthcare network with 12 hospitals and 200 clinics processed 50,000 medical record requests per month for care coordination, insurance authorization, and legal compliance. Each request required a human reviewer to read records (often hundreds of pages), extract relevant clinical information, and prepare summaries. Average processing time was 45 minutes per request, with a team of 80 reviewers working full-time.

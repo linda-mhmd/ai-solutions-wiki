@@ -1,0 +1,21 @@
+{{ define "main" }}
+
+<div class="through-persona-hero" style="background-image: url('{{ .Params.image | default "/img/juggling/juggler-silhouette-three-props-notext.png" }}')">
+  <div class="through-persona-overlay" aria-hidden="true"></div>
+  <div class="bz-container">
+    {{ partial "breadcrumbs.html" . }}
+    <div class="through-persona-head">
+      <span class="through-persona-kicker">Learn Through Your World</span>
+      <h1 class="through-persona-h1">{{ .Title }}</h1>
+      {{ with .Description }}<p class="through-persona-sub">{{ . }}</p>{{ end }}
+    </div>
+  </div>
+</div>
+
+{{ .Content }}
+
+<div class="bz-container">
+  {{ partial "cta.html" . }}
+</div>
+
+{{ end }}

@@ -4,6 +4,9 @@ description: "Architecture and lessons from deploying a real-time AI fraud detec
 date: 2026-03-28
 categories: [Case Patterns]
 tags: [fraud-detection, banking, real-time, anomaly-detection, financial-services]
+image: /img/enterprise-dark/gateway-chamber-split-notext.png
+image_alt: "A dark half-lit industrial gateway with a red glowing core, representing the threshold between authorised and unauthorised access."
+image_caption: "Every transaction passes through a gate. The model decides who crosses."
 ---
 
 A regional bank processing 2 million card transactions daily was experiencing $4.2 million in annual fraud losses with a rule-based detection system that flagged 3% of transactions, of which only 8% were actually fraudulent. The high false positive rate frustrated customers with declined legitimate transactions and overwhelmed the fraud investigation team.

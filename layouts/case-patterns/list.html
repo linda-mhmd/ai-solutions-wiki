@@ -1,0 +1,73 @@
+{{ define "main" }}
+
+{{ $count := len .Pages }}
+
+<section class="sl-hero">
+  <div class="bz-container">
+    {{ partial "breadcrumbs.html" . }}
+    <div class="sl-hero-inner">
+      <h1 class="sl-h1">{{ .Title }}</h1>
+      {{ with .Description }}<p class="sl-desc">{{ . }}</p>{{ end }}
+      <div class="sl-hero-meta">
+        <span class="sl-hero-count">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
+          {{ $count }} {{ if eq $count 1 }}case{{ else }}cases{{ end }}
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="article-layout">
+  <div class="article-container">
+
+    {{ with .Content }}
+    <div class="article-body sl-intro-body">{{ . }}</div>
+    {{ end }}
+
+    <div class="sl-grid-header">
+      <span class="bz-section-label">All cases</span>
+    </div>
+
+    {{ if .Pages }}
+    <div class="sl-article-grid" data-pagefind-ignore>
+      {{ range .Pages.ByTitle }}
+      <a href="{{ .RelPermalink }}" class="sl-card{{ if .Params.image }} sl-card--visual{{ end }}">
+        {{ if .Params.image }}
+        <img class="sl-card-img" src="{{ .Params.image }}" alt="{{ .Params.image_alt | default .Title }}" loading="lazy">
+        <div class="sl-card-body">
+        {{ end }}
+          <span class="sl-card-title">{{ .Title | replaceRE "^Case Pattern: " "" }}</span>
+          {{ with .Description }}
+          <span class="sl-card-desc">{{ . | truncate 100 }}</span>
+          {{ end }}
+          <div class="sl-card-footer">
+            {{ if .Params.tags }}
+            <div class="sl-card-tags">
+              {{ range first 2 .Params.tags }}
+              <span class="sl-tag">{{ . }}</span>
+              {{ end }}
+            </div>
+            {{ end }}
+            <span class="sl-card-arrow">→</span>
+          </div>
+        {{ if .Params.image }}</div>{{ end }}
+      </a>
+      {{ end }}
+    </div>
+    {{ else }}
+    <div class="sl-empty"><p>Cases coming soon.</p></div>
+    {{ end }}
+
+  </div>
+
+  <div class="article-sidebar" data-pagefind-ignore>
+    {{ partial "toc.html" . }}
+  </div>
+</div>
+
+<div class="bz-container">
+  {{ partial "cta.html" . }}
+</div>
+
+{{ end }}

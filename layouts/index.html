@@ -21,50 +21,16 @@
       <div class="idx-hero-search">
         <div id="hero-search"></div>
       </div>
-      <div class="idx-hero-counts">
-        <span class="idx-hero-count-item"><strong>{{ $cGuides }}</strong> guides</span>
-        <span class="idx-hero-count-sep"></span>
-        <span class="idx-hero-count-item"><strong>{{ $cTools }}</strong> tools</span>
-        <span class="idx-hero-count-sep"></span>
-        <span class="idx-hero-count-item"><strong>{{ $cGlossary }}</strong> definitions</span>
-        <span class="idx-hero-count-sep"></span>
-        <span class="idx-hero-count-item"><strong>{{ $cAll }}+</strong> articles</span>
+      <div class="idx-hero-paths">
+        <a href="{{ "/basics/" | relURL }}" class="idx-hero-path-link">New to this? Start at Zero →</a>
+        <span class="idx-hero-path-sep">·</span>
+        <a href="{{ "/for/" | relURL }}" class="idx-hero-path-link">Find your path →</a>
+        <span class="idx-hero-path-sep">·</span>
+        <a href="{{ "/glossary/" | relURL }}" class="idx-hero-path-link">Look up a term →</a>
       </div>
     </div>
   </div>
 </section>
-
-<!-- STATS STRIP -->
-<div class="idx-stats-strip">
-  <div class="bz-container">
-    <div class="idx-stats-inner">
-      <a href="{{ "/guides/" | relURL }}" class="idx-stat-block">
-        <span class="idx-stat-num">{{ $cGuides }}</span>
-        <span class="idx-stat-label">How-to Guides</span>
-      </a>
-      <a href="{{ "/tools/" | relURL }}" class="idx-stat-block">
-        <span class="idx-stat-num">{{ $cTools }}</span>
-        <span class="idx-stat-label">Tool Reviews</span>
-      </a>
-      <a href="{{ "/patterns/" | relURL }}" class="idx-stat-block">
-        <span class="idx-stat-num">{{ $cPatterns }}</span>
-        <span class="idx-stat-label">Patterns</span>
-      </a>
-      <a href="{{ "/comparisons/" | relURL }}" class="idx-stat-block">
-        <span class="idx-stat-num">{{ $cCompare }}</span>
-        <span class="idx-stat-label">Comparisons</span>
-      </a>
-      <a href="{{ "/glossary/" | relURL }}" class="idx-stat-block">
-        <span class="idx-stat-num">{{ $cGlossary }}</span>
-        <span class="idx-stat-label">Glossary Terms</span>
-      </a>
-      <a href="{{ "/frameworks/" | relURL }}" class="idx-stat-block">
-        <span class="idx-stat-num">{{ $cFramework }}</span>
-        <span class="idx-stat-label">Frameworks</span>
-      </a>
-    </div>
-  </div>
-</div>
 
 <!-- AI SYSTEM STACK DIAGRAM -->
 <section class="idx-stack">
@@ -79,83 +45,228 @@
 
     <div class="idx-stack-diagram">
 
+      <!-- Layer 05: Applications -->
       <div class="idx-stack-layer">
         <div class="idx-stack-layer-meta">
           <span class="idx-stack-layer-num">Layer 05</span>
           <span class="idx-stack-layer-name">Applications</span>
+          <span class="idx-stack-layer-desc">What users interact with</span>
         </div>
         <div class="idx-stack-chips">
-          <a href="{{ "/solutions/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">Industry Solutions</a>
-          <a href="{{ "/case-patterns/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">Case Patterns</a>
-          <span class="idx-stack-chip idx-stack-chip--dim">Chatbots</span>
-          <span class="idx-stack-chip idx-stack-chip--dim">RAG Search</span>
-          <span class="idx-stack-chip idx-stack-chip--dim">Agent Systems</span>
-          <span class="idx-stack-chip idx-stack-chip--dim">Dashboards</span>
-          <span class="idx-stack-chip idx-stack-chip--dim">Classification</span>
+          <div class="idx-stack-chips-head">
+            <span class="idx-stack-desc-right">What users interact with</span>
+            <span class="idx-stack-detail">Interfaces, workflows, and AI-powered products end users see directly. Industry verticals, chatbots, search, and classification pipelines.</span>
+          </div>
+          <div class="idx-stack-chips-row">
+            <a href="{{ "/solutions/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              Industry Solutions
+            </a>
+            <a href="{{ "/case-patterns/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              Case Patterns
+            </a>
+            <a href="{{ "/search/?q=rag+systems" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              RAG Search
+            </a>
+            <a href="{{ "/patterns/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2M9 2v2M15 20v2M9 20v2M2 15h2M2 9h2M20 15h2M20 9h2"/></svg>
+              Agent Systems
+            </a>
+            <a href="{{ "/guides/building-ai-chatbots/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
+              Chatbots
+            </a>
+            <a href="{{ "/search/?q=dashboard" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              Dashboards
+            </a>
+            <a href="{{ "/glossary/supervised-learning/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+              Classification
+            </a>
+          </div>
         </div>
       </div>
 
+      <!-- Layer 04: Orchestration -->
       <div class="idx-stack-layer">
         <div class="idx-stack-layer-meta">
           <span class="idx-stack-layer-num">Layer 04</span>
           <span class="idx-stack-layer-name">Orchestration</span>
+          <span class="idx-stack-layer-desc">How models are directed</span>
         </div>
         <div class="idx-stack-chips">
-          <a href="{{ "/patterns/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">Patterns</a>
-          <a href="{{ "/guides/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">Guides</a>
-          <span class="idx-stack-chip idx-stack-chip--dim">Prompt Engineering</span>
-          <span class="idx-stack-chip idx-stack-chip--dim">Tool Calling</span>
-          <span class="idx-stack-chip idx-stack-chip--dim">Agentic Loops</span>
-          <span class="idx-stack-chip idx-stack-chip--dim">Memory</span>
-          <span class="idx-stack-chip idx-stack-chip--dim">Routing</span>
+          <div class="idx-stack-chips-head">
+            <span class="idx-stack-desc-right">How models are directed</span>
+            <span class="idx-stack-detail">Prompt patterns, agentic loops, tool calling, memory, and routing logic that control model behaviour at runtime.</span>
+          </div>
+          <div class="idx-stack-chips-row">
+            <a href="{{ "/patterns/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="16" y1="3" x2="16" y2="21"/><line x1="8" y1="3" x2="8" y2="21"/><line x1="20" y1="9" x2="4" y2="9"/><line x1="20" y1="15" x2="4" y2="15"/></svg>
+              Patterns
+            </a>
+            <a href="{{ "/guides/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              Guides
+            </a>
+            <a href="{{ "/search/?q=prompt+engineering" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+              Prompt Engineering
+            </a>
+            <a href="{{ "/search/?q=agents" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+              Agentic Loops
+            </a>
+            <a href="{{ "/glossary/function-calling/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              Tool Calling
+            </a>
+            <a href="{{ "/glossary/memory-management/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              Memory
+            </a>
+            <a href="{{ "/glossary/llm-routing/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
+              Routing
+            </a>
+          </div>
         </div>
       </div>
 
+      <!-- Layer 03: Models -->
       <div class="idx-stack-layer">
         <div class="idx-stack-layer-meta">
           <span class="idx-stack-layer-num">Layer 03</span>
           <span class="idx-stack-layer-name">Models</span>
+          <span class="idx-stack-layer-desc">The intelligence layer</span>
         </div>
         <div class="idx-stack-chips">
-          <a href="{{ "/tools/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">Tool Reviews</a>
-          <a href="{{ "/comparisons/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">Comparisons</a>
-          <span class="idx-stack-chip idx-stack-chip--dim">Foundation Models</span>
-          <span class="idx-stack-chip idx-stack-chip--dim">Fine-tuning</span>
-          <span class="idx-stack-chip idx-stack-chip--dim">Embeddings</span>
-          <span class="idx-stack-chip idx-stack-chip--dim">Evaluation</span>
-          <span class="idx-stack-chip idx-stack-chip--dim">Inference</span>
+          <div class="idx-stack-chips-head">
+            <span class="idx-stack-desc-right">The intelligence layer</span>
+            <span class="idx-stack-detail">Foundation models, fine-tuning strategies, embedding techniques, evaluation frameworks, and inference optimisation.</span>
+          </div>
+          <div class="idx-stack-chips-row">
+            <a href="{{ "/tools/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              Tool Reviews
+            </a>
+            <a href="{{ "/comparisons/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              Comparisons
+            </a>
+            <a href="{{ "/glossary/foundation-models/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              Foundation Models
+            </a>
+            <a href="{{ "/search/?q=embeddings" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+              Embeddings
+            </a>
+            <a href="{{ "/glossary/fine-tuning/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+              Fine-tuning
+            </a>
+            <a href="{{ "/glossary/rag-evaluation/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Evaluation
+            </a>
+            <a href="{{ "/glossary/inference/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Inference
+            </a>
+          </div>
         </div>
       </div>
 
+      <!-- Layer 02: Data -->
       <div class="idx-stack-layer">
         <div class="idx-stack-layer-meta">
           <span class="idx-stack-layer-num">Layer 02</span>
           <span class="idx-stack-layer-name">Data</span>
+          <span class="idx-stack-layer-desc">What models learn from</span>
         </div>
         <div class="idx-stack-chips">
-          <a href="{{ "/guides/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">Guides</a>
-          <a href="{{ "/glossary/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">Glossary</a>
-          <span class="idx-stack-chip idx-stack-chip--dim">Vector Stores</span>
-          <span class="idx-stack-chip idx-stack-chip--dim">Pipelines</span>
-          <span class="idx-stack-chip idx-stack-chip--dim">Preprocessing</span>
-          <span class="idx-stack-chip idx-stack-chip--dim">Lineage</span>
-          <span class="idx-stack-chip idx-stack-chip--dim">Feature Stores</span>
+          <div class="idx-stack-chips-head">
+            <span class="idx-stack-desc-right">What models learn from</span>
+            <span class="idx-stack-detail">Ingestion pipelines, vector stores, feature engineering, preprocessing, and data lineage for AI systems.</span>
+          </div>
+          <div class="idx-stack-chips-row">
+            <a href="{{ "/guides/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              Guides
+            </a>
+            <a href="{{ "/glossary/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              Glossary
+            </a>
+            <a href="{{ "/glossary/data-lineage/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
+              Lineage
+            </a>
+            <a href="{{ "/glossary/stream-processing/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              Pipelines
+            </a>
+            <a href="{{ "/glossary/vector-database/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              Vector Stores
+            </a>
+            <a href="{{ "/guides/data-preparation-for-ai/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+              Preprocessing
+            </a>
+            <a href="{{ "/glossary/feature-store/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              Feature Stores
+            </a>
+          </div>
         </div>
       </div>
 
+      <!-- Layer 01: Infrastructure -->
       <div class="idx-stack-layer">
         <div class="idx-stack-layer-meta">
           <span class="idx-stack-layer-num">Layer 01</span>
           <span class="idx-stack-layer-name">Infrastructure</span>
+          <span class="idx-stack-layer-desc">Where everything runs</span>
         </div>
         <div class="idx-stack-chips">
-          <a href="{{ "/frameworks/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">Frameworks</a>
-          <a href="{{ "/tools/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">Tools</a>
-          <span class="idx-stack-chip idx-stack-chip--dim">Cloud / AWS</span>
-          <span class="idx-stack-chip idx-stack-chip--dim">APIs</span>
-          <span class="idx-stack-chip idx-stack-chip--dim">Monitoring</span>
-          <span class="idx-stack-chip idx-stack-chip--dim">Security</span>
-          <span class="idx-stack-chip idx-stack-chip--dim">Cost Management</span>
+          <div class="idx-stack-chips-head">
+            <span class="idx-stack-desc-right">Where everything runs</span>
+            <span class="idx-stack-detail">Cloud providers, deployment frameworks, APIs, security controls, observability, and cost governance for AI workloads.</span>
+          </div>
+          <div class="idx-stack-chips-row">
+            <a href="{{ "/frameworks/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              Frameworks
+            </a>
+            <a href="{{ "/tools/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              Tools
+            </a>
+            <a href="{{ "/glossary/vpc/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+              Cloud / AWS
+            </a>
+            <a href="{{ "/glossary/security-pillar/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Security
+            </a>
+            <a href="{{ "/glossary/prometheus/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              Monitoring
+            </a>
+            <a href="{{ "/glossary/api/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              APIs
+            </a>
+            <a href="{{ "/guides/ai-cost-accounting/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              Cost Management
+            </a>
+          </div>
         </div>
       </div>
 
@@ -565,13 +676,16 @@
   </div>
 </section>
 
-<!-- CTA -->
+<!-- OPEN SOURCE FOOTER CTA -->
 <section class="bz-cta">
   <div class="bz-container">
-    <p class="bz-cta-eyebrow">Workshops</p>
-    <h2 class="bz-cta-title">From knowledge to working prototype.</h2>
-    <p class="bz-cta-sub">Structured methodology. Zero to deployed AI in three sessions. For teams that need to move fast without guessing.</p>
-    <a href="{{ .Site.Params.workshopsURL }}" class="bz-btn-primary" target="_blank" rel="noopener">AI Workshops Online<svg class="ext-icon-inline" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="opens in new tab"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg></a>
+    <p class="bz-cta-eyebrow">Open source</p>
+    <h2 class="bz-cta-title">Tools built from the same experience.</h2>
+    <p class="bz-cta-sub">Freelancer Templates and Freelancer Automation grew out of the same real-project work that powers this wiki. Both are free to use.</p>
+    <div class="idx-hero-paths">
+      <a href="{{ .Site.Params.freelancerTemplatesURL | default "https://freelancer-templates.org" }}" class="bz-btn-primary" target="_blank" rel="noopener">Freelancer Templates<svg class="ext-icon-inline" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="opens in new tab"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg></a>
+      <a href="{{ .Site.Params.freelancerAutomationURL | default "https://freelancer-automation.com" }}" class="idx-pathway-link" target="_blank" rel="noopener">Freelancer Automation<svg class="ext-icon-inline" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="opens in new tab"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg></a>
+    </div>
   </div>
 </section>
 

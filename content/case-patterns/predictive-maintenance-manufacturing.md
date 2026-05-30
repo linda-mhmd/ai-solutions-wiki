@@ -4,6 +4,9 @@ description: "Architecture and lessons from deploying AI-driven predictive maint
 date: 2026-03-28
 categories: [Case Patterns]
 tags: [predictive-maintenance, manufacturing, IoT, time-series, anomaly-detection]
+image: /img/obsidian-lab/lever-chain-mechanism-notext.png
+image_alt: "A hand pushing a lever through a mechanical chain, representing human-triggered automation and the moment a predictive signal becomes a maintenance action."
+image_caption: "The sensor detects the deviation. The model predicts the failure window. The work order goes out before the machine stops."
 ---
 
 A continuous manufacturing plant running 24/7 operations experienced an average of 14 unplanned equipment failures per month, each costing $50,000-$200,000 in lost production, emergency repairs, and downstream schedule disruption. The plant deployed an AI-driven predictive maintenance system to detect failures before they occur and schedule maintenance during planned downtime windows.

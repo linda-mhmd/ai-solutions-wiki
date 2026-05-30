@@ -4,6 +4,9 @@ description: "Architecture and lessons from building a production document proce
 date: 2026-03-28
 categories: [Case Patterns]
 tags: [document-processing, financial-services, extraction, compliance, pipeline]
+image: /img/obsidian-lab/loom-red-thread-notext.png
+image_alt: "A dark industrial loom with a red wire threading precisely through its constraints, representing structured data extraction from complex documents."
+image_caption: "Every invoice, contract, and statement is a thread to pull. The loom processes them at scale."
 ---
 
 A mid-size financial services firm processed 15,000 documents per month across loan applications, account opening forms, compliance filings, and customer correspondence. Each document type had different extraction requirements, validation rules, and routing destinations. Manual processing took an average of 12 minutes per document and produced a 4% error rate that triggered regulatory findings.

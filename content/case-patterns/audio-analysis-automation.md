@@ -4,6 +4,9 @@ description: "Architecture for an AI system that processes multi-track audio fro
 date: 2026-03-24
 categories: [Case Patterns]
 tags: ["media-processing", "advanced", "audio-analysis", "speech-to-text", "automation", "pipeline", "aws"]
+image: /img/dark-cherry/data-projection.png
+image_alt: "A cylinder projecting red dots in rows on a dark surface, representing audio data converted to structured patterns for automated analysis."
+image_caption: "Speech becomes tokens. Tokens become structure. The analysis runs without a human listener in the loop."
 ---
 
 A post-production facility built an AI system to analyze raw multi-track audio from film and television shoots. The system identifies technical issues (noise, clipping, hum), classifies content by track type, transcribes dialogue, and generates automated production notes - work that previously required a sound editor to manually review hours of raw footage.

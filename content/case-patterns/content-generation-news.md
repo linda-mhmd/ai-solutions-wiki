@@ -4,6 +4,9 @@ description: "How a news agency automated structured report generation from data
 date: 2026-03-24
 categories: [Case Patterns]
 tags: ["ai-ml", "advanced", "content-generation", "news", "llm", "automation", "media"]
+image: /img/shaping-ai/operator-red-data-streams-notext.png
+image_alt: "A figure surrounded by red streaming data ribbons in a circular space, representing the continuous flow of news signals that an automated content system must process and publish."
+image_caption: "Data arrives. The model structures it. The editor reviews what the algorithm could not judge."
 ---
 
 A regional news agency automated the production of structured data-driven articles: financial results summaries, sports match reports, weather briefings, and local government data roundups. These articles follow predictable formats and are produced in high volume - work well suited to AI generation, freeing journalists for investigative and analytical work.

@@ -4,6 +4,9 @@ description: "Architecture and lessons from deploying AI to monitor environmenta
 date: 2026-03-28
 categories: [Case Patterns]
 tags: [environmental-monitoring, government, compliance, satellite-imagery, IoT]
+image: /img/enterprise-dark/pcb-aerial-red-notext.png
+image_alt: "An aerial view of a dark circuit board with red circuit trace networks, representing satellite-derived environmental monitoring data processed at scale."
+image_caption: "Sensors across a landscape. Each trace is a data feed. The model reads them all simultaneously."
 ---
 
 A state environmental protection agency was responsible for monitoring 4,500 permitted facilities and 12,000 miles of waterways for environmental compliance. With only 45 field inspectors, the agency could inspect each facility once every 3 years on average. Violations were typically discovered reactively through complaints or visible incidents rather than proactive monitoring.

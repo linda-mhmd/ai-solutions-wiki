@@ -4,6 +4,9 @@ description: "Architecture and lessons from deploying AI-assisted candidate scre
 date: 2026-03-28
 categories: [Case Patterns]
 tags: [recruitment, hr, screening, bias-mitigation, talent-acquisition]
+image: /img/enterprise-dark/boardroom-ai-diagram-notext.png
+image_alt: "A dark boardroom with a team viewing a three-dimensional AI diagram, representing AI-assisted recruitment review and candidate assessment."
+image_caption: "The model screens the volume. The hiring manager reviews the shortlist. Human judgment applies where it matters most."
 ---
 
 A large enterprise filling 500+ positions annually received an average of 200 applications per role. The recruiting team of 15 could not review all applications thoroughly, spending an average of 90 seconds per resume. Time-to-shortlist averaged 12 days, and hiring managers frequently complained that strong candidates were missed in the initial screen.

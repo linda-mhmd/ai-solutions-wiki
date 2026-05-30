@@ -4,6 +4,9 @@ description: "Architecture and lessons from building an AI pipeline that process
 date: 2026-03-28
 categories: [Case Patterns]
 tags: [satellite-imagery, geospatial, computer-vision, change-detection, remote-sensing]
+image: /img/rapid-ai/maze-aerial-green-center-notext.png
+image_alt: "A dark labyrinth viewed from above with a glowing green mechanism at the centre, representing aerial imagery analysed by a model to locate specific patterns."
+image_caption: "The satellite captures the grid. The model finds the signal inside it."
 ---
 
 A geospatial intelligence firm needed to process 2 terabytes of satellite imagery per week to detect changes in infrastructure, monitor agricultural land use, and track environmental conditions across client regions of interest. Manual analysis by imagery analysts could process approximately 50 square kilometers per analyst per day. The firm's coverage requirements exceeded 500,000 square kilometers weekly.
