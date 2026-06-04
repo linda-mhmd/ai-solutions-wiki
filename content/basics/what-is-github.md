@@ -6,8 +6,8 @@ level: 2
 categories: [Basics]
 tags: [beginner, github, collaboration, open-source, pull-request]
 youtube_id: "nhNq2kIvi9s"
-youtube_title: "GitHub Tutorial for Beginners"
-youtube_channel: "GitHub"
+youtube_title: "Learn GitHub in 20 Minutes"
+youtube_channel: "Colt Steele"
 docs: "https://docs.github.com/en/get-started"
 docs_label: "GitHub Getting Started Docs"
 faqs:
@@ -25,8 +25,8 @@ GitHub is a website where developers store their Git repositories online, collab
 {{< /quickanswer >}}
 
 <figure class="bz-figure">
-  <img src="/img/dark-cherry/gears-mechanism.png" alt="Dark industrial gears and mechanical components illuminated by deep red light: interlocking systems working in coordinated sequence." loading="lazy">
-  <figcaption>GitHub is the mechanism that makes team software development work. Every contributor, branch, pull request, and review is a gear in the same machine.</figcaption>
+  <img src="/img/wardrobe/junior-partner-collaboration.png" alt="Two people working closely together at a dark table, papers and decisions between them: the collaboration model that GitHub makes possible at any scale." loading="lazy">
+  <figcaption>GitHub is where individual work becomes a shared project. Every contributor works on their own copy, then the group decides what gets merged into the main collection.</figcaption>
 </figure>
 
 ## Git vs GitHub, the difference

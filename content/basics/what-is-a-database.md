@@ -6,7 +6,7 @@ level: 3
 categories: [Basics]
 tags: [beginner, database, sql, postgresql, data]
 youtube_id: "Tk1t3WKK-ZY"
-youtube_title: "What is a Database?"
+youtube_title: "What is a database? (in under 4 minutes)"
 youtube_channel: "ByteByteGo"
 docs: "https://www.postgresql.org/docs/current/intro-whatis.html"
 docs_label: "What is PostgreSQL?, Official Docs"

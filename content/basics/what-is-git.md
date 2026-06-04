@@ -6,8 +6,8 @@ level: 2
 categories: [Basics]
 tags: [beginner, git, version-control, commits, branches]
 youtube_id: "8JJ101D3knE"
-youtube_title: "Git and GitHub for Beginners, Crash Course"
-youtube_channel: "freeCodeCamp.org"
+youtube_title: "Git Tutorial for Beginners: Learn Git in 1 Hour"
+youtube_channel: "Programming with Mosh"
 docs: "https://git-scm.com/book/en/v2"
 docs_label: "Pro Git, free official book"
 faqs:

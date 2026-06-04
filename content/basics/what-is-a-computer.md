@@ -5,8 +5,8 @@ date: 2026-05-24
 level: 0
 categories: [Basics]
 tags: [beginner, computer, hardware]
-youtube_id: "tpIctyqH29Q"
-youtube_title: "Crash Course Computer Science, How Computers Work"
+youtube_id: "O5nskjZ_GoI"
+youtube_title: "Early Computing: Crash Course Computer Science #1"
 youtube_channel: "Crash Course"
 docs: "https://cs50.harvard.edu/x/"
 docs_label: "CS50, Harvard's free intro to computer science"

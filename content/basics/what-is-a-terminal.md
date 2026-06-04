@@ -6,7 +6,7 @@ level: 1
 categories: [Basics]
 tags: [beginner, terminal, command-line, shell, cli]
 youtube_id: "5XgBd6rjuDQ"
-youtube_title: "Terminal for Beginners"
+youtube_title: "How to use the Command Line | Terminal Basics for Beginners"
 youtube_channel: "TechWorld with Nana"
 docs: "https://missing.csail.mit.edu/"
 docs_label: "The Missing Semester of Your CS Education, MIT"

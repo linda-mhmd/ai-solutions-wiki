@@ -5,8 +5,8 @@ date: 2026-05-24
 level: 2
 categories: [Basics]
 tags: [beginner, version-control, git, collaboration]
-youtube_id: "Yc8sCSeMhi4"
-youtube_title: "Git Tutorial for Beginners, Git & GitHub Fundamentals In Depth"
+youtube_id: "DVRQoVRzMIY"
+youtube_title: "Git Tutorial for Beginners: Git & GitHub Fundamentals In Depth"
 youtube_channel: "TechWorld with Nana"
 docs: "https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control"
 docs_label: "About Version Control, Pro Git Book"

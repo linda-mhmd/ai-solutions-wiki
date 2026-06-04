@@ -25,8 +25,8 @@ Code is a set of instructions written in a formal language that a computer can f
 {{< /quickanswer >}}
 
 <figure class="bz-figure">
-  <img src="/img/dark-cherry/prism-precision.png" alt="A black geometric prism on a dark surface with a deep red laser beam cutting through it precisely: input transformed into structured output." loading="lazy">
-  <figcaption>Code is a precise set of instructions that transforms input into output. The prism does not interpret. It does exactly what physics requires. Code is the same: unambiguous, exact, deterministic.</figcaption>
+  <img src="/img/obsidian-lab/bolt-mold-joint-triptych-notext.png" alt="A copper bolt, a precision mold, and interlocking joinery blocks side by side: three components each made to a standard, each fitting the next without rework." loading="lazy">
+  <figcaption>Code is made of discrete pieces, each with a defined shape and purpose. Like a bolt cut to spec, they fit together without modification because the standard was decided before the cutting started.</figcaption>
 </figure>
 
 ## Code is a recipe

@@ -7,7 +7,7 @@ categories: [Basics]
 tags: [beginner, open-source, community, licensing]
 youtube_id: "Tyd0FO0tko8"
 youtube_title: "What is Open Source Software?"
-youtube_channel: "Explained with Dom"
+youtube_channel: "Intel Software"
 docs: "https://opensource.guide/"
 docs_label: "Open Source Guides, GitHub"
 faqs:

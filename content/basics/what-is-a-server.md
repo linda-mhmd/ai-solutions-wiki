@@ -6,7 +6,7 @@ level: 3
 categories: [Basics]
 tags: [beginner, server, infrastructure, backend, hosting]
 youtube_id: "VXmvM2QtuMU"
-youtube_title: "What is a Server? Servers vs Desktops Explained"
+youtube_title: "What is a Server? (Deepdive)"
 youtube_channel: "PowerCert Animated Videos"
 docs: "https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server"
 docs_label: "What is a web server?, MDN"

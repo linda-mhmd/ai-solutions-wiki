@@ -5,8 +5,8 @@ date: 2026-05-24
 level: 4
 categories: [Basics]
 tags: [beginner, ai, machine-learning, llm, neural-networks]
-youtube_id: "zjkBMFhNj_g"
-youtube_title: "But What is a Neural Network?"
+youtube_id: "aircAruvnKk"
+youtube_title: "But what is a neural network? | Deep learning chapter 1"
 youtube_channel: "3Blue1Brown"
 docs: "https://docs.anthropic.com/en/docs/"
 docs_label: "Anthropic Documentation"

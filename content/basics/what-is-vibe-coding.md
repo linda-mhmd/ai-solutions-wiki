@@ -39,6 +39,10 @@ Now there is a third option: describe what you want to an AI that understands co
 
 The barrier to building a working prototype dropped from months of study to a weekend of focused effort. This is not hype, it is a real shift that is already changing who builds software and what gets built.
 
+<figure class="bz-figure">
+  <img src="/img/craft/sheet-music-vibe-coding-shift-text.png" alt="Infographic: sheet music on the left representing traditional manual coding, transitioning to a conductor's podium on the right representing vibe coding - describing intent and directing the AI." loading="lazy">
+</figure>
+
 ## The vibe coding workflow
 
 Vibe coding is not "prompt once, ship forever." The reality is iterative:
