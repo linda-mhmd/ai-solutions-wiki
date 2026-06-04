@@ -5,9 +5,6 @@ date: 2026-05-24
 level: 1
 categories: [Basics]
 tags: [beginner, code, programming, languages]
-youtube_id: "zOjov-2OV0"
-youtube_title: "What is Programming? (Plain English)"
-youtube_channel: "freeCodeCamp.org"
 docs: "https://developer.mozilla.org/en-US/docs/Learn"
 docs_label: "Learn web development, MDN"
 faqs:

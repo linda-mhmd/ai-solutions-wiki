@@ -5,8 +5,8 @@ date: 2026-05-24
 level: 4
 categories: [Basics]
 tags: [beginner, vibe-coding, ai, claude, cursor, prompting]
-youtube_id: "p4pO9V0LfEQ"
-youtube_title: "Cursor AI Tutorial for Beginners"
+youtube_id: "5zR1ZE5aqho"
+youtube_title: "Cursor Crash Course & AI Coding For Beginners"
 youtube_channel: "Traversy Media"
 docs: "https://docs.anthropic.com/en/docs/claude-code/overview"
 docs_label: "Claude Code Overview, Anthropic"
