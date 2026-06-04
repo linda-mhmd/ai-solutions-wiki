@@ -71,8 +71,8 @@ AWS funds projects with a clear path to production workloads. Success criteria i
 ## Further reading
 
 - [AWS Partner Funding Benefits](https://aws.amazon.com/partners/funding/): official overview of available partner funding programs
-- [AWS Migration Acceleration Program](https://aws.amazon.com/migration-acceleration-program/): MAP program page with eligibility overview
-- [New MAP Incentives to Accelerate Migration and Modernization](https://aws.amazon.com/blogs/apn/new-map-incentives-to-accelerate-migration-and-modernization/): AWS APN blog post on MAP 2.0 updates
+- [AWS Migration Acceleration Program](https://aws.amazon.com/migration-acceleration-program/): MAP program overview covering the three-phase framework (Assess, Mobilize, Migrate)
+- [New MAP Incentives to Accelerate Migration and Modernization](https://aws.amazon.com/blogs/apn/new-map-incentives-to-accelerate-migration-and-modernization/): AWS APN blog announcing MAP 2.0 scaled incentives and strategic partner updates (July 2024)
 - [Business Outcomes Xcelerator Program](https://aws.amazon.com/blogs/apn/business-outcomes-xcelerator-program/): AWS APN blog introduction to the BOX program
 - [AWS Proof of Concept Funding Guide](https://www.metaltoad.com/blog/aws-partner-proof-concept-funding): AWS Partner Metal Toad on PoC funding mechanics and the 10% ARR calculation
 - [3 Changes to the AWS Migration Acceleration Program](https://rapidscale.net/resources/blog/aws/3-changes-to-aws-migration-acceleration-program-map): RapidScale on MAP Lite thresholds and SPI credit caps
@@ -81,7 +81,7 @@ AWS funds projects with a clear path to production workloads. Success criteria i
 
 [^1]: Metal Toad (AWS Partner), [AWS Partner Proof of Concept Funding](https://www.metaltoad.com/blog/aws-partner-proof-concept-funding). PoC funding is calculated at 10% of expected ARR, capped at $25,000 USD. Specific amounts are confirmed by multiple AWS Partners including [Dedicatted](https://dedicatted.com/insights/aws-proof-of-concept-how-to-try-new-cloud-services-for-free).
 
-[^2]: AWS APN Blog, [New MAP Incentives to Accelerate Migration and Modernization](https://aws.amazon.com/blogs/apn/new-map-incentives-to-accelerate-migration-and-modernization/). Credit cap updated from approximately $460,000 to $2 million for large migrations.
+[^2]: RapidScale, [3 Changes to the AWS Migration Acceleration Program](https://rapidscale.net/resources/blog/aws/3-changes-to-aws-migration-acceleration-program-map). Confirms the credit cap increase from approximately $460,000 to $2 million effective July 1, 2024. The AWS APN blog post [New MAP Incentives to Accelerate Migration and Modernization](https://aws.amazon.com/blogs/apn/new-map-incentives-to-accelerate-migration-and-modernization/) announces the same update in qualitative terms.
 
 [^3]: RapidScale, [3 Changes to the AWS Migration Acceleration Program](https://rapidscale.net/resources/blog/aws/3-changes-to-aws-migration-acceleration-program-map). Covers MAP Lite thresholds ($100K-$500K ARR), standard MAP thresholds, and per-phase credit percentages. Further detail at [Opsio Cloud](https://opsiocloud.com/knowledge-base/what-are-aws-map-credits/).
 
