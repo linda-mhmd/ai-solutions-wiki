@@ -3,7 +3,8 @@ title: "AWS Lambda for AI Pipelines"
 description: "Serverless inference, event-driven processing, and integration patterns with Bedrock, SageMaker, and Step Functions. Cost optimization for AI workloads."
 date: 2026-03-24
 categories: [Tools]
-tags: ["cloud-computing", "intermediate", "aws-lambda", "serverless", "functions", "aws", "event-driven"]
+layer: infrastructure
+tags: ["cloud-computing", "intermediate", "aws-lambda", "serverless", "functions", "aws", "event-driven", "aws-service"]
 tools: [amazon-lambda, amazon-bedrock, amazon-sagemaker, amazon-step-functions]
 related:
   - tools/azure-functions
@@ -15,6 +16,13 @@ last_updated: 2026-05-30
 ---
 
 AWS Lambda is the glue that connects AI services in event-driven pipelines. It is not an AI service itself - it is a serverless compute environment where you run the orchestration logic, pre-processing, and post-processing code that sits between your data and your AI services. For many AI architectures, Lambda is the cheapest and simplest way to build event-driven processing.
+
+## Watch: AWS Lambda (documentation overview)
+{{< video src="screencasts/Lambda.mp4" title="AWS Lambda: AWS documentation overview" caption="A short walkthrough of AWS Lambda: small functions that run on demand, with no server to manage." >}}
+
+The garden way to picture it: a serverless function is drip irrigation. It switches on only when a plant is dry, runs for a few seconds, then stops.
+
+{{< video src="garden/serverless-drip-ondemand.mp4" metaphor="true" title="The garden metaphor" caption="Serverless as on-demand drip irrigation. From the AI Film Crew course." >}}
 
 ## Lambda in AI Pipeline Architectures
 

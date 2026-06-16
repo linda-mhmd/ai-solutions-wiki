@@ -5,13 +5,27 @@
         <img src="/img/logo-transparent.png" alt="AI Solutions Wiki" class="nav-logo-img" width="48" height="48">
         <span>AI Solutions Wiki</span>
       </a>
+      {{/* Active-group highlight: map the current top-level section to its nav group.
+           Done server-side because mega-menu sections (glossary, tools, guides, ...) live at
+           a different URL than their group hub (/explore/), so URL-prefix matching cannot work. */}}
+      {{ $sec := .Section }}
+      {{ $g_for := slice "for" }}
+      {{ $g_learn := slice "learn" "levels" "foundations" "layers" "through" }}
+      {{ $g_build := slice "build" "architecture" "software-engineering" }}
+      {{ $g_explore := slice "explore" "tools" "glossary" "comparisons" "frameworks" "guides" "solutions" "patterns" "case-patterns" "ideas" "news" }}
+      {{ $g_basics := slice "basics" }}
+      {{/* Persona pages build to root URLs (/vibe-coders/), so .Section is not "for".
+           Detect them by the `path:` frontmatter that only the 6 personas carry. */}}
+      {{ $active_for := or (in $g_for $sec) (isset .Params "path") }}
       <ul class="nav-links">
 
-        <li><a href="{{ "/basics/" | relURL }}" class="nav-direct-link nav-basics-link">Start at Zero</a></li>
+        <li><a href="{{ "/basics/" | relURL }}" class="nav-direct-link nav-basics-link{{ if in $g_basics $sec }} active{{ end }}"{{ if in $g_basics $sec }} aria-current="page"{{ end }}>Start at Zero</a></li>
+
+        <li><a href="{{ "/course/" | relURL }}" class="nav-direct-link{{ if eq $sec "course" }} active{{ end }}"{{ if eq $sec "course" }} aria-current="page"{{ end }}>Course</a></li>
 
         <!-- For You mega menu -->
         <li class="nav-group">
-          <a href="{{ "/for/" | relURL }}" class="nav-group-link">
+          <a href="{{ "/for/" | relURL }}" class="nav-group-link{{ if $active_for }} active{{ end }}"{{ if $active_for }} aria-current="page"{{ end }}>
             For You
             <svg class="nav-caret" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </a>
@@ -45,19 +59,24 @@
                 <span class="nav-mega-card-title">Consultant or Advisor</span>
                 <span class="nav-mega-card-desc">Speak AI fluently with clients. Governance frameworks, vocabulary, strategic tools.</span>
               </a>
+              <a href="{{ "/for/gardener/" | relURL }}" class="nav-mega-card" role="menuitem">
+                <span class="nav-mega-card-title">Gardener</span>
+                <span class="nav-mega-card-desc">Learn by growing, soil to harvest, one layer at a time. The garden-metaphor path and video course.</span>
+              </a>
             </div>
           </div>
         </li>
 
         <!-- Learn dropdown -->
         <li class="nav-group">
-          <a href="{{ "/learn/" | relURL }}" class="nav-group-link">
+          <a href="{{ "/learn/" | relURL }}" class="nav-group-link{{ if in $g_learn $sec }} active{{ end }}"{{ if in $g_learn $sec }} aria-current="page"{{ end }}>
             Learn
             <svg class="nav-caret" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </a>
           <div class="nav-dropdown nav-dropdown--learn" role="menu" aria-label="Learn">
             <a href="{{ "/learn/" | relURL }}" class="nav-dropdown-view-all" role="menuitem">All learning paths →</a>
             <div class="nav-dropdown-divider"></div>
+            <a href="{{ "/learn/gardener/" | relURL }}" role="menuitem">The Gardener Path</a>
             <a href="{{ "/levels/" | relURL }}" role="menuitem">Level Curriculum</a>
             <a href="{{ "/foundations/" | relURL }}" role="menuitem">Foundations</a>
             <a href="{{ "/layers/" | relURL }}" role="menuitem">AI Stack Map</a>
@@ -67,7 +86,7 @@
 
         <!-- Build dropdown -->
         <li class="nav-group">
-          <a href="{{ "/build/" | relURL }}" class="nav-group-link">
+          <a href="{{ "/build/" | relURL }}" class="nav-group-link{{ if in $g_build $sec }} active{{ end }}"{{ if in $g_build $sec }} aria-current="page"{{ end }}>
             Build
             <svg class="nav-caret" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </a>
@@ -81,14 +100,14 @@
 
         <!-- Explore mega menu -->
         <li class="nav-group">
-          <a href="{{ "/explore/" | relURL }}" class="nav-group-link">
+          <a href="{{ "/explore/" | relURL }}" class="nav-group-link{{ if in $g_explore $sec }} active{{ end }}"{{ if in $g_explore $sec }} aria-current="page"{{ end }}>
             Explore
             <svg class="nav-caret" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </a>
           <div class="nav-mega nav-mega--explore" role="menu" aria-label="Explore">
             <div class="nav-mega-top">
               <span class="nav-mega-header">Reference library</span>
-              <a href="{{ "/explore/" | relURL }}" class="nav-mega-view-all">Browse all →</a>
+              <a href="{{ "/browse/" | relURL }}" class="nav-mega-view-all">Browse all →</a>
             </div>
             <div class="nav-mega-2col">
               <div class="nav-mega-col">

@@ -3,7 +3,7 @@ title: "AWS WAF - Web Application Firewall"
 description: "AWS WAF is a web application firewall that protects web applications and APIs from common exploits, bot traffic, and malicious requests at the edge."
 date: 2026-03-28
 categories: [Tools]
-tags: [aws-waf, AWS, security, firewall, web-security, api-protection]
+tags: [aws-waf, AWS, security, firewall, web-security, api-protection, "aws-service"]
 related:
   - tools/google-cloud-armor
 last_updated: 2026-05-30

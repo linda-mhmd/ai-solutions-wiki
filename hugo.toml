@@ -32,6 +32,15 @@ buildFuture = true
 
 [params]
   description = "Engineering reference for production AI systems: architecture patterns, evaluation methods, operational practices, governance, and tooling for teams building enterprise-grade AI. Maintained by AWS Community Hero Linda Mohamed."
+  # AI Film Crew course video: set this to the YouTube id of the full-course upload and every
+  # chapter deep-links into it via its `video_start` seconds. (A chapter can override with its
+  # own `youtube:` in front matter.) Empty = a "coming soon" placeholder is shown.
+  courseYoutube = ""
+  # Origin/CDN that serves the remotion `public/` assets (clips, guide, stills) for the live
+  # Remotion Player on course pages, e.g. "https://cdn.example.com". Empty = placeholder.
+  playerAssetBase = ""
+  # Origin/CDN serving the rendered per-module course videos (out/module*.mp4). Empty = placeholder.
+  videoBase = "/videos/course"
   author = "Linda Mohamed"
   authorName = "Linda Mohamed"
   authorURL = "https://lindamohamed.com"
@@ -58,7 +67,9 @@ buildFuture = true
   category = "categories"
   tag = "tags"
   industry = "industries"
-  tool = "tools"
+  # NOTE: no `tool = "tools"` taxonomy on purpose. It collided with the content/tools/
+  # section (both resolve to /tools/), which made /tools/ render ~13 taxonomy terms
+  # instead of the 180 service pages. The `tools:` frontmatter is still read as metadata.
 
 [outputs]
   home = ["HTML", "RSS", "JSON", "LLMSTXT"]
@@ -83,9 +94,17 @@ buildFuture = true
     url = "/layers/"
     weight = 5
   [[menu.main]]
+    name = "Learn"
+    url = "/learn/gardener/"
+    weight = 7
+  [[menu.main]]
     name = "Getting Started"
     url = "/getting-started/"
     weight = 8
+  [[menu.main]]
+    name = "News"
+    url = "/news/"
+    weight = 10
   [[menu.main]]
     name = "Build"
     url = "/build/"

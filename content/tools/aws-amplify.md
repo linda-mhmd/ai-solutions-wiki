@@ -3,7 +3,7 @@ title: "AWS Amplify - Full-Stack App Development"
 description: "Using AWS Amplify to deploy front-end applications, host static sites, and connect to AWS AI backends."
 date: 2026-03-24
 categories: [Tools]
-tags: ["software-engineering", "intermediate", "aws-amplify", "frontend", "deployment", "aws", "fullstack"]
+tags: ["software-engineering", "intermediate", "aws-amplify", "frontend", "deployment", "aws", "fullstack", "aws-service"]
 last_updated: 2026-05-30
 ---
 
@@ -48,6 +48,6 @@ Amplify adds an abstraction layer over CloudFormation. For teams that need preci
 
 ## Related Articles
 
-- [Amazon Cognito]({{< relref "aws-cognito.md" >}}) - authentication backend for Amplify apps
+- [Amazon Cognito]({{< relref "tools/amazon-cognito" >}}) - authentication backend for Amplify apps
 - [Hugo]({{< relref "hugo.md" >}}) - static site generator deployable via Amplify
 - [Terraform]({{< relref "terraform.md" >}}) - alternative infrastructure approach

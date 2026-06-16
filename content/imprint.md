@@ -45,6 +45,8 @@ Die Inhalte dieser Webseite unterliegen, soweit dies rechtlich möglich ist, div
 
 ### Haftungsausschluss
 
+Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt und dienen ausschließlich Informationszwecken. Der Webseitenbetreiber übernimmt keine Gewähr für die Richtigkeit, Vollständigkeit oder Aktualität der bereitgestellten Inhalte. Eine Haftung für Schäden, die durch die Nutzung oder Nichtnutzung der angebotenen Informationen entstehen, wird ausgeschlossen.
+
 Der Webseitenbetreiber übernimmt keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich. Sollten Sie auf ausgehende Links aufmerksam werden, welche auf eine Webseite mit rechtswidriger Tätigkeit oder Information verweisen, ersuchen wir um einen entsprechenden Hinweis, um diese nach § 17 Abs. 2 ECG umgehend zu entfernen.
 
 ---

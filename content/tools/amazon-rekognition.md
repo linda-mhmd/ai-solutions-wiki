@@ -3,11 +3,18 @@ title: "Amazon Rekognition - Image and Video Analysis"
 description: "What Rekognition does, which features work well in enterprise applications, accuracy considerations, pricing, and common integration patterns."
 date: 2026-03-24
 categories: [Tools]
-tags: ["ai-ml", "intermediate", "computer-vision", "image-analysis", "video-analysis", "aws", "object-detection"]
+tags: ["ai-ml", "intermediate", "computer-vision", "image-analysis", "video-analysis", "aws", "object-detection", "aws-service"]
 last_updated: 2026-05-30
 ---
 
 Amazon Rekognition is AWS's managed computer vision service. It provides pre-trained models for object detection, scene analysis, text detection, facial analysis, and content moderation - accessible through an API without requiring ML expertise to deploy or operate.
+
+## Watch: Amazon Rekognition (documentation overview)
+{{< video src="screencasts/Rekognition.mp4" title="Amazon Rekognition: AWS documentation overview" caption="A short walkthrough of Amazon Rekognition detecting objects, scenes, and faces in images and video." >}}
+
+The garden way to picture it: computer vision is the garden's extra sense. It sees what is in every frame, not just what is said.
+
+{{< video src="garden/infrared-thermal-garden.mp4" metaphor="true" title="The garden metaphor" caption="Machine sight over the bed: labelling what it sees. From the AI Film Crew course." >}}
 
 ## Core Feature Areas
 

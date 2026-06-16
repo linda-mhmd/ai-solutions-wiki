@@ -1,0 +1,17 @@
+{{- /* The five-layer cross-section, highlighting one layer. Usage: {{< five-layers active="1" >}} */ -}}
+{{- $active := .Get "active" | default "" -}}
+{{- $layers := slice
+  (dict "n" "01" "name" "Interface"     "role" "what you click")
+  (dict "n" "02" "name" "Orchestration" "role" "what gives the orders")
+  (dict "n" "03" "name" "Compute"       "role" "what does the work")
+  (dict "n" "04" "name" "AI runtime"    "role" "what makes the judgment calls")
+  (dict "n" "05" "name" "State"         "role" "where everything rests") -}}
+<figure class="fl-diagram" aria-label="The five layers under every AI system">
+  {{- range $i, $l := $layers -}}
+  <div class="fl-layer{{ if eq (printf "%d" (add $i 1)) $active }} is-active{{ end }}">
+    <span class="fl-num">{{ $l.n }}</span>
+    <span class="fl-body"><span class="fl-name">{{ $l.name }}</span><span class="fl-role">{{ $l.role }}</span></span>
+  </div>
+  {{- end -}}
+  <figcaption class="fl-cap">Five layers under every AI system. We go top to bottom: the surface you touch, down to the bedrock everything rests on.</figcaption>
+</figure>

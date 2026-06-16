@@ -11,14 +11,15 @@ related:
   - comparisons/milvus-vs-opensearch
   - guides/building-rag-systems
   - guides/vector-database-selection
-last_updated: 2026-05-30
+last_updated: 2026-06-14
+lastmod: 2026-06-14
 ---
 
 Chroma and Qdrant are both open-source vector databases, but they target different points on the simplicity-to-performance spectrum. Chroma prioritizes developer experience and ease of getting started. Qdrant prioritizes performance and production features. This comparison helps you choose based on your stage and requirements.
 
 ## Architecture
 
-**Chroma** is designed for simplicity. It can run in-process (embedded mode) within your Python application with zero setup, or as a client-server deployment. Built in Python with a Rust-based storage layer. Focuses on making vector search accessible to developers who are not database experts.
+**Chroma** is designed for simplicity. It can run in-process (embedded mode) within your Python application with zero setup, or as a client-server deployment. Its 1.0.0 release (April 2025) shipped a rewritten Rust core that the team reported as roughly 4x faster than the previous version, so the single-node experience stays easy while the engine became more performant. Chroma now offers a single-node deployment, a distributed Rust-based self-hosted deployment, and Chroma Cloud (a managed serverless vector database). In February 2026 Chroma added Distributed Chroma with a Bring Your Own Cloud (BYOC) option that runs the distributed services in your own Kubernetes cluster. Focuses on making vector search accessible to developers who are not database experts.
 
 **Qdrant** is designed for performance. Written entirely in Rust. Runs as a standalone service (Docker or binary) or as Qdrant Cloud (managed). Distributed mode supports horizontal scaling across multiple nodes.
 
@@ -26,14 +27,14 @@ Chroma and Qdrant are both open-source vector databases, but they target differe
 
 | Feature | Chroma | Qdrant |
 |---|---|---|
-| Language | Python + Rust | Rust |
+| Language | Python + Rust core | Rust |
 | Embedded mode | Yes (in-process) | No (always a service) |
-| Distributed mode | Limited | Yes (multi-node clusters) |
-| Index type | HNSW | HNSW with quantization |
+| Distributed mode | Yes (distributed Rust deployment, BYOC, or Chroma Cloud) | Yes (multi-node clusters) |
+| Index type | HNSW (dense), plus sparse vectors for BM25 and SPLADE | HNSW with quantization |
 | Filtering | Metadata filtering | Advanced payload filtering |
-| Multi-tenancy | Collections | Collections + payload-based |
-| Max scale | Millions of vectors | Billions of vectors |
-| Client SDKs | Python, JavaScript | Python, JavaScript, Rust, Go, Java |
+| Multi-tenancy | Collections | Collections, payload-based, and tiered multitenancy |
+| Max scale | Millions on a single node, larger on Chroma Cloud | Billions of vectors |
+| Client SDKs (official) | Python, JavaScript, TypeScript | Python, JavaScript/TypeScript, Rust, Go, Java, .NET |
 | Managed cloud | Chroma Cloud | Qdrant Cloud |
 | License | Apache 2.0 | Apache 2.0 |
 
@@ -59,11 +60,12 @@ The API is clean and well-documented, but it requires more setup than Chroma's e
 
 **Qdrant** has a clear performance advantage:
 - Rust implementation provides lower latency and higher throughput
-- Quantization support (scalar, product, binary) reduces memory usage by 4-32x with minimal accuracy loss
-- HNSW implementation is optimized for various use cases
+- Quantization support (scalar, product, binary) reduces memory usage with minimal accuracy loss, and Qdrant has expanded its low-bit quantization options over 2025 and 2026
+- GPU-accelerated HNSW indexing speeds up ingestion of large datasets
+- HNSW implementation is optimized for various use cases, with the ACORN algorithm improving the quality of heavily filtered queries
 - Payload indexing accelerates filtered searches
 
-**Chroma** provides adequate performance for development and moderate production workloads but cannot match Qdrant's raw throughput at scale.
+**Chroma** provides adequate performance for development and production workloads. The Rust core rewrite (1.0.0) closed much of the gap on a single node, and Chroma Cloud runs a distributed indexing layer for larger scale, but for the heaviest throughput and very large collections Qdrant remains the stronger raw-performance choice.
 
 For datasets under 1 million vectors with moderate query load, both perform acceptably. Above 1 million vectors or under high query concurrency, Qdrant's performance advantages become significant.
 
@@ -76,12 +78,13 @@ For datasets under 1 million vectors with moderate query load, both perform acce
 - Replication for high availability
 - Monitoring via Prometheus metrics
 - Comprehensive configuration options
+- Enterprise cloud features added in April 2026: Multi-AZ clusters (data replicated across three availability zones for automatic failover), audit logging (structured JSON of API activity), and GPU-accelerated indexing on Qdrant Cloud
 
-**Chroma** is improving but has gaps:
-- Limited distributed capabilities
-- Simpler persistence model
-- Fewer operational tools
-- Less mature monitoring
+**Chroma** has matured but still trails on operational depth:
+- A distributed Rust-based deployment and a Bring Your Own Cloud (BYOC) option now exist alongside Chroma Cloud, so distributed is no longer out of reach
+- Self-hosted single-node still uses a simpler persistence model
+- Fewer built-in operational tools than Qdrant
+- Less mature self-hosted monitoring
 
 ## Filtering
 
@@ -89,7 +92,7 @@ Both support metadata filtering alongside vector search, but Qdrant is more capa
 
 **Qdrant** supports rich payload filtering: exact match, range, geo, full-text search within payloads, nested object filtering, and boolean combinations. Payload indexes accelerate filter-heavy queries.
 
-**Chroma** supports metadata filtering with $eq, $ne, $gt, $gte, $lt, $lte, $in, $nin operators. Sufficient for most use cases but less expressive than Qdrant.
+**Chroma** supports metadata filtering with $eq, $ne, $gt, $gte, $lt, $lte, $in, $nin operators. Sufficient for most use cases but less expressive than Qdrant. Chroma added sparse vector search (BM25 and SPLADE) in late 2025, plus full-text and regex search, so it now supports dense, sparse, and hybrid retrieval rather than dense vectors alone.
 
 ## When to Choose Chroma
 
@@ -113,3 +116,12 @@ Both support metadata filtering alongside vector search, but Qdrant is more capa
 A common pattern: start with Chroma for prototyping (instant setup, no infrastructure), then migrate to Qdrant for production (better performance, operational features). The migration involves re-indexing your vectors in Qdrant and updating your query code. The embedding vectors themselves do not change, so the migration is straightforward.
 
 Both are open source with Apache 2.0 licenses and offer managed cloud options for teams that prefer to avoid operational overhead.
+
+## Sources
+
+- [Chroma documentation: introduction](https://docs.trychroma.com/docs/overview/introduction)
+- [Chroma engineering: Distributed Chroma, Bring Your Own Cloud (February 2026)](https://www.trychroma.com/engineering/distributed-chroma-byoc)
+- [Chroma 1.0.0: Chroma is now 4x faster (April 2025)](https://www.trychroma.com/project/1.0.0)
+- [Qdrant 2025 recap: Powering the agentic era](https://qdrant.tech/blog/2025-recap/)
+- [Qdrant API and SDKs (official client libraries)](https://qdrant.tech/documentation/interfaces/)
+- [Qdrant Cloud launches high-performance features for AI workloads (April 2026)](https://siliconangle.com/2026/04/28/qdrant-cloud-launches-high-performance-vector-database-features-ai-workloads/)

@@ -1,0 +1,12 @@
+{{- /* Render an icon resource. Colourful icons (official service SVGs in icons/color/, and
+       AWS PNGs) render as <img> to keep their real colours. Mono brand SVGs inline so they
+       theme via currentColor. Input: dict "res" "class" "alt". */ -}}
+{{- $res := .res -}}
+{{- if $res -}}
+{{- $colorful := or (eq $res.MediaType.SubType "png") (in $res.RelPermalink "/icons/color/") -}}
+{{- if $colorful -}}
+<img class="svc-icon-img {{ .class }}" src="{{ $res.RelPermalink }}" alt="{{ .alt }}" loading="lazy">
+{{- else -}}
+<span class="svc-icon {{ .class }}">{{ $res.Content | safeHTML }}</span>
+{{- end -}}
+{{- end -}}

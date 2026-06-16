@@ -3,7 +3,7 @@ title: "AWS Elemental MediaConvert - Video Processing at Scale"
 description: "Using AWS Elemental MediaConvert for transcoding, format conversion, and video processing in AI media pipelines."
 date: 2026-03-25
 categories: [Tools]
-tags: ["media-processing", "intermediate", "aws-mediaconvert", "video-encoding", "transcoding", "aws", "media"]
+tags: ["media-processing", "intermediate", "aws-mediaconvert", "video-encoding", "transcoding", "aws", "media", "aws-service"]
 last_updated: 2026-05-30
 ---
 
@@ -12,6 +12,13 @@ AWS Elemental MediaConvert is a file-based video transcoding service. It convert
 Official documentation: https://aws.amazon.com/mediaconvert/
 
 **Azure equivalent:** Azure Media Services. **GCP equivalent:** Google Cloud Transcoder API.
+
+## Watch: AWS Elemental MediaConvert (documentation overview)
+{{< video src="screencasts/MediaConvert.mp4" title="AWS Elemental MediaConvert: AWS documentation overview" caption="A short walkthrough of MediaConvert rendering finished video in multiple formats and aspect ratios from one job." >}}
+
+The garden way to picture it: rendering is the harvest. The same crop is turned into different fruits, each ready for where it will be consumed.
+
+{{< video src="garden/different-fruits-ripening.mp4" metaphor="true" title="The garden metaphor" caption="One pipeline, many finished cuts. From the AI Film Crew course." >}}
 
 ## Core Use Cases
 

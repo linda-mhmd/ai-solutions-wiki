@@ -2,10 +2,11 @@
 title: "Build vs Buy for AI Solutions"
 description: "A framework for deciding whether to build custom AI solutions or buy commercial products, covering cost analysis, capability comparison, and decision criteria."
 date: 2026-03-28
-last_verified: 2026-05-30
+last_verified: 2026-06-14
 categories: [Comparisons]
 tags: [build-vs-buy, strategy, AI-development, enterprise, decision-framework]
-last_updated: 2026-05-30
+last_updated: 2026-06-14
+lastmod: 2026-06-14
 ---
 
 Every AI initiative faces the build-vs-buy decision: develop a custom solution or purchase a commercial product. The answer depends on how differentiated the AI capability is to your business, the total cost of ownership, and your organization's ability to build and maintain AI systems.
@@ -41,7 +42,7 @@ Buying means purchasing a commercial AI product that solves your problem out of 
 
 **What you buy:**
 - SaaS AI products (AI-powered CRM, document processing, customer service)
-- AI platform features (Salesforce Einstein, ServiceNow AI, Microsoft Copilot)
+- AI platform features (Salesforce Agentforce, formerly Einstein Copilot; ServiceNow AI Agents; Microsoft Copilot)
 - Specialized AI solutions (medical AI, legal AI, financial AI products)
 
 **Advantages:**
@@ -68,6 +69,8 @@ Buying means purchasing a commercial AI product that solves your problem out of 
 
 **If differentiator: build.** Custom development protects your competitive advantage.
 **If commodity: buy.** Commercial products deliver commodity capabilities faster and cheaper.
+
+Recent evidence reinforces this default toward buy for non-differentiating work. MIT's NANDA initiative, in its 2025 "State of AI in Business" report, found that around 95% of enterprise generative AI pilots delivered no measurable return, and that buying tools from specialized vendors succeeded roughly twice as often as building the equivalent capability in-house. The lesson is not "never build," but "do not build a commodity": reserve custom engineering for the capability that genuinely sets you apart.
 
 ### Do you have the team?
 
@@ -103,7 +106,7 @@ For 100 users at $200/seat/month, the 3-year buy cost is $720K + implementation.
 
 Many organizations find the best answer is a combination:
 
-**Buy the platform, build the differentiation.** Use commercial AI infrastructure (Bedrock, SageMaker) for the platform layer. Build custom models, prompts, and business logic on top. This provides the infrastructure without the operational burden while preserving customization.
+**Buy the platform, build the differentiation.** Use commercial AI infrastructure (Amazon Bedrock, Amazon SageMaker AI) for the platform layer. Build custom models, prompts, and business logic on top. This provides the infrastructure without the operational burden while preserving customization. The line between these tools has blurred: since Amazon SageMaker Unified Studio became generally available (March 2025), Bedrock foundation models, Knowledge Bases, Guardrails, and Agents are accessible inside the same environment as SageMaker's custom training and tuning, and Amazon Bedrock AgentCore provides managed runtime, memory, identity, and tooling for production agents built on any open-source framework. For the underlying trade-off, see {{< relref "comparisons/custom-ml-vs-foundation-models" >}}.
 
 **Buy for some use cases, build for others.** Use commercial products for commodity AI needs (document processing, generic chatbots) and build custom solutions for differentiated capabilities.
 
@@ -122,3 +125,11 @@ Many organizations find the best answer is a combination:
 **Ignoring the team you have.** The best technical decision is irrelevant if your team cannot execute it. Match the approach to your team's capabilities.
 
 The build-vs-buy decision should be revisited periodically. As AI technology matures, more capabilities become commodity (favoring buy). As your organization's AI maturity grows, more custom solutions become feasible (expanding build options).
+
+## Sources
+
+- MIT NANDA, "The GenAI Divide: State of AI in Business 2025" (the report behind the 95% no-return and buy-over-build findings): [mlq.ai mirror](https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf)
+- Fortune, "MIT report: 95% of generative AI pilots at companies are failing" (summary of the NANDA findings, including buy vs. build success rates): [fortune.com](https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/)
+- AWS, "Amazon SageMaker Unified Studio is now generally available" (March 13, 2025): [aws.amazon.com](https://aws.amazon.com/about-aws/whats-new/2025/03/amazon-sagemaker-unified-studio-generally-available/)
+- AWS, "Amazon Bedrock in SageMaker Unified Studio" (Bedrock capabilities within the unified environment): [aws.amazon.com/bedrock/unifiedstudio](https://aws.amazon.com/bedrock/unifiedstudio/)
+- Salesforce, "Agentforce: The AI Agent Platform" (the rebrand that folded Einstein Copilot into Agentforce): [salesforce.com/agentforce](https://www.salesforce.com/agentforce/)

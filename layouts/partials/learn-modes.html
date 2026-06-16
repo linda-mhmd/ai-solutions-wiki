@@ -1,0 +1,34 @@
+{{- /* "Learn this your way" panel: surfaces the learning modes that exist for THIS page
+       (read, watch the existing screencast, see the AI-stack layer, take a guided course)
+       plus a deeplearning.ai-style "Mark as learned" progress control (localStorage). */ -}}
+{{- $hasVideo := in .RawContent "{{< video" -}}
+{{- $hasLayer := .Params.layer -}}
+<div class="learn-modes" data-pagefind-ignore>
+  <span class="lm-label">Learn this your way</span>
+  <div class="lm-chips">
+    <span class="lm-chip is-active" data-mode="read">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      Read
+    </span>
+    {{ if $hasVideo }}
+    <button class="lm-chip" type="button" data-mode="watch">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/></svg>
+      Watch
+    </button>
+    {{ end }}
+    {{ if $hasLayer }}
+    <button class="lm-chip" type="button" data-mode="stack">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+      See the stack
+    </button>
+    {{ end }}
+    <a class="lm-chip" href="{{ "/learn/" | relURL }}">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      Guided course
+    </a>
+  </div>
+  <button class="lm-learned" type="button" aria-pressed="false">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+    <span class="lm-learned-txt">Mark as learned</span>
+  </button>
+</div>

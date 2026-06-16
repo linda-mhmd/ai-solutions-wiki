@@ -2,7 +2,8 @@
 title: "RAG vs Fine-Tuning - When to Use Each"
 description: "A practical framework for deciding between retrieval augmented generation and fine-tuning to customize LLM behavior for enterprise applications."
 date: 2026-03-24
-last_verified: 2026-05-30
+last_verified: 2026-06-14
+lastmod: 2026-06-14
 categories: [Comparisons]
 tags: ["ai-ml", "intermediate", "rag", "fine-tuning", "comparison", "retrieval", "training"]
 related:
@@ -12,7 +13,7 @@ related:
   - guides/building-rag-systems
   - tools/amazon-bedrock
   - tools/amazon-sagemaker
-last_updated: 2026-05-30
+last_updated: 2026-06-14
 ---
 
 RAG and fine-tuning are both approaches to improving LLM performance on specific tasks beyond what prompting alone achieves. They solve different problems, have very different cost and complexity profiles, and are often used together in mature systems. Understanding which to use - and when - is a fundamental skill for enterprise AI architects.
@@ -61,6 +62,15 @@ If the model gives wrong answers because it reasons incorrectly, formats output 
 - Fine-tuned knowledge "decays" - as the world changes, the fine-tuned model falls behind without re-training
 - Catastrophic forgetting - fine-tuning on a narrow task can degrade performance on other tasks
 
+## Fine-Tuning Methods Have Diversified
+
+The "thousands of labeled examples" requirement above describes supervised fine-tuning (SFT), still the most common method. Two other methods are now widely available and change that calculus:
+
+- **Direct preference optimization (DPO)** - trains the model on pairs of preferred and rejected responses rather than single gold answers. It is well suited to tuning tone, style, and safety. OpenAI offers DPO on the GPT-4.1 series.
+- **Reinforcement fine-tuning (RFT)** - replaces a labeled dataset with a programmable grader (a reward function) that scores sampled responses, then nudges the model toward higher-scoring outputs. It targets complex, verifiable tasks where you can define what "good" looks like, and it can work from a small set of prompts rather than thousands of labeled examples. OpenAI offers RFT on its o4-mini reasoning model. Amazon Bedrock added RFT in December 2025 (initially for Amazon Nova 2 Lite), and in February 2026 extended it to open-weight models including OpenAI's GPT-OSS and Qwen, with OpenAI-compatible APIs.
+
+RFT and DPO lower the data barrier, but they do not change the core trade-off: these methods still adjust the model's behavior, not its access to current, attributable facts. For changing knowledge, retrieval remains the right tool.
+
 ## The Combination Pattern
 
 Many mature enterprise AI systems use both:
@@ -96,5 +106,8 @@ For most enterprise teams starting an AI project:
 - Ovadia, O., Brief, M., Mishaeli, M., Elisha, O. (2024). *Fine-Tuning or Retrieval? Comparing Knowledge Injection in LLMs.* EMNLP 2024. arXiv:2312.05934. [https://arxiv.org/abs/2312.05934](https://arxiv.org/abs/2312.05934)
 - AWS. *Amazon Bedrock Knowledge Bases.* [https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html)
 - AWS. *Amazon Bedrock model customization (fine-tuning, continued pre-training).* [https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
+- AWS. *Amazon Bedrock now supports reinforcement fine-tuning* (December 3, 2025). [https://aws.amazon.com/about-aws/whats-new/2025/12/bedrock-reinforcement-fine-tuning-66-base-models/](https://aws.amazon.com/about-aws/whats-new/2025/12/bedrock-reinforcement-fine-tuning-66-base-models/)
+- AWS. *Amazon Bedrock reinforcement fine-tuning adds support for open-weight models with OpenAI-compatible APIs* (February 17, 2026). [https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-bedrock-reinforcement-fine-tuning-openai/](https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-bedrock-reinforcement-fine-tuning-openai/)
+- OpenAI. *Reinforcement fine-tuning guide.* [https://developers.openai.com/api/docs/guides/reinforcement-fine-tuning](https://developers.openai.com/api/docs/guides/reinforcement-fine-tuning)
 - OpenAI. *Fine-tuning guide.* [https://platform.openai.com/docs/guides/fine-tuning](https://platform.openai.com/docs/guides/fine-tuning)
 - Anthropic. *Prompt engineering overview.* [https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)

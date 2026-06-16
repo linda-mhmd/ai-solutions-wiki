@@ -75,4 +75,4 @@ Use FFmpeg when you are processing existing video rather than generating new vid
 
 - [FFmpeg]({{< relref "ffmpeg.md" >}}) - video processing for existing footage
 - [Amazon Polly]({{< relref "amazon-polly.md" >}}) - voiceover audio for Remotion compositions
-- [AWS Lambda]({{< relref "amazon-lambda.md" >}}) - serverless rendering infrastructure
+- [AWS Lambda]({{< relref "tools/aws-lambda" >}}) - serverless rendering infrastructure

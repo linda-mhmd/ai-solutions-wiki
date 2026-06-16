@@ -1,0 +1,23 @@
+# Auto-detected: logos whose entire mark is dark with no light element,
+# so they get a light backing chip to stay legible on the dark card.
+# Regenerate: python3 /tmp/detect_dark.py  (keyed on the icon FILE slug)
+slugs:
+  - amazon-opensearch
+  - apache-airflow
+  - apache-kafka
+  - claude-anthropic
+  - elasticsearch
+  - expo
+  - google-firebase
+  - keycloak
+  - knative
+  - neo4j
+  - ollama
+  - openfaas
+  - opentelemetry
+  - prefect
+  - qdrant
+  - railway
+  - stripe-connect
+  - temporal
+  - terraform

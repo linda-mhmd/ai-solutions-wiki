@@ -2,10 +2,11 @@
 title: "Microservices vs Monolith for AI Applications"
 description: "Comparing microservice and monolithic architectures for AI applications, covering deployment patterns, team structure implications, and performance considerations."
 date: 2026-03-28
-last_verified: 2026-05-30
+last_verified: 2026-06-14
 categories: [Comparisons]
 tags: [microservices, monolith, architecture, AI-infrastructure, design-patterns]
-last_updated: 2026-05-30
+last_updated: 2026-06-14
+lastmod: 2026-06-14
 ---
 
 The microservices vs monolith debate is well-established in software engineering. AI applications add new dimensions: model serving has different scaling requirements than business logic, data pipelines have different deployment cycles than APIs, and ML experiments benefit from rapid iteration that monoliths enable. This comparison addresses AI-specific architectural considerations.
@@ -22,7 +23,7 @@ All components in a single deployable unit: API layer, business logic, model inf
 
 Components separated into independently deployable services: model serving service, API gateway, data processing service, feature service, and business logic service.
 
-**Example:** An API gateway routes requests to a business logic service, which calls a model serving service (TGI, vLLM, or SageMaker endpoint) for inference and a feature service for real-time features.
+**Example:** An API gateway routes requests to a business logic service, which calls a model serving service (vLLM, SGLang, or an Amazon SageMaker AI endpoint, formerly branded Amazon SageMaker) for inference and a feature service for real-time features. Hugging Face Text Generation Inference (TGI) filled this role for years and is still deployable, but it entered maintenance mode and Hugging Face now points new work toward engines like vLLM and SGLang.
 
 ## Comparison
 
@@ -77,7 +78,7 @@ Data pipelines for training and inference often have different deployment cycles
 
 ## The Practical Middle Ground: Modular Monolith
 
-For most AI applications, especially early-stage ones, the modular monolith provides the best balance:
+For most AI applications, especially early-stage ones, the modular monolith provides the best balance. The wider industry has shifted in this direction through 2025 and into 2026: many teams that over-decomposed into fine-grained services are now consolidating them back into modular monoliths to cut operational overhead and inter-service data transfer costs. AI coding agents that can read and refactor a whole codebase have also lowered the cost of keeping clear module boundaries inside a single deployable, weakening one of the historical arguments for splitting into services.
 
 **Structure:** Single deployable unit, but internally organized into clear modules with defined interfaces (model module, data module, API module, business logic module).
 
@@ -112,3 +113,14 @@ Start monolithic, extract to microservices based on observed needs:
 **Start with a monolith** for new AI applications. The speed of development and simplicity of operations outweigh the scaling limitations for the first 6-12 months. Extract to microservices when you have concrete evidence (not theoretical concerns) that the monolith is limiting your ability to scale, deploy, or organize teams effectively.
 
 The worst outcome is a distributed monolith: microservices that are tightly coupled, deployed together, and have all the complexity of microservices with none of the benefits. This happens when teams extract services prematurely before understanding the boundaries.
+
+A widely cited example is Amazon Prime Video. Its video quality analysis team had built a monitoring tool as distributed components orchestrated by AWS Step Functions, then consolidated those components into a single process running on Amazon ECS and Amazon EC2. The move removed the orchestration and inter-component data transfer that dominated the bill and reported a reduction in infrastructure costs of over 90 percent, while increasing the number of streams the service could handle. The lesson is not that monoliths always win, it is that the right granularity depends on the specific workload, and that going more distributed is not automatically more scalable or cheaper.
+
+For deployment targets, see the related comparisons {{< relref "comparisons/kubernetes-vs-ecs-ai" >}} and {{< relref "comparisons/lambda-vs-fargate-ai" >}}. For how the inference pattern itself shapes these tradeoffs, see {{< relref "comparisons/batch-vs-real-time-inference" >}}.
+
+## Sources
+
+- [Scaling up the Prime Video audio/video monitoring service and reducing costs by 90% (InfoQ summary of the Prime Video engineering case study)](https://www.infoq.com/news/2023/05/prime-ec2-ecs-saves-costs/) - the team moved from Step Functions orchestrated distributed components to a monolith on ECS and EC2, cutting infrastructure cost by over 90 percent.
+- [vLLM documentation](https://docs.vllm.ai/en/latest/) - the high-throughput LLM inference and serving engine referenced as a model serving option, including its V1 engine, PagedAttention, and continuous batching.
+- [Text Generation Inference (Hugging Face) documentation](https://huggingface.co/docs/text-generation-inference/index) - TGI, the Hugging Face toolkit for serving large language models, now in maintenance mode with the project recommending engines such as vLLM and SGLang going forward.
+- [Amazon SageMaker AI real-time inference endpoints (AWS documentation)](https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints.html) - managed endpoints for hosting models behind an independently scalable service.

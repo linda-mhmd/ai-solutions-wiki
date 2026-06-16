@@ -3,7 +3,7 @@ title: "Amazon Redshift - Cloud Data Warehouse"
 description: "A comprehensive reference for Amazon Redshift: columnar data warehousing, ML integration, and analytics patterns for AI-driven enterprise data platforms."
 date: 2026-03-28
 categories: [Tools]
-tags: [amazon-redshift, AWS, data-warehouse, analytics, SQL, ML]
+tags: [amazon-redshift, AWS, data-warehouse, analytics, SQL, ML, "aws-service"]
 related:
   - tools/amazon-athena
   - tools/amazon-glue

@@ -1,0 +1,128 @@
+{{ define "main" }}
+{{ $tools := .Pages.ByTitle }}
+{{ $total := len $tools }}
+{{/* tally derived facets */}}
+{{ $sc := newScratch }}
+{{ range $tools }}
+  {{ $f := partial "tool-facets.html" . }}
+  {{ $sc.Add (printf "prov_%s" $f.provider) 1 }}
+  {{ $sc.Add (printf "cat_%s" $f.category) 1 }}
+  {{ $sc.Add (printf "type_%s" $f.type) 1 }}
+  {{ if $f.free }}{{ $sc.Add "free" 1 }}{{ end }}
+{{ end }}
+{{ $cats := slice "AI/ML" "Analytics" "Data" "DevOps" "Cloud" "Security" "Productivity" "Other" }}
+{{ $provs := slice (slice "aws" "AWS") (slice "azure" "Azure") (slice "gcp" "Google Cloud") (slice "opensource" "Open Source") (slice "other" "Other") }}
+{{ $types := slice "Managed Service" "Open Source" "Framework" "Library" }}
+
+<section class="sl-hero">
+  <div class="bz-container">
+    <nav class="sl-breadcrumb" aria-label="breadcrumb">
+      <a href="{{ "/" | relURL }}" class="sl-breadcrumb-home">AI Solutions Wiki</a>
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      <span aria-current="page">{{ .Title }}</span>
+    </nav>
+    <div class="sl-hero-grid">
+      <div class="sl-hero-inner">
+        <h1 class="sl-h1">{{ .Title }}</h1>
+        {{ with .Description }}<p class="sl-desc">{{ . }}</p>{{ end }}
+        <div class="tg-stats">
+          <button class="tg-stat is-active" data-stat="all" type="button"><b>{{ $total }}</b> Total</button>
+          <button class="tg-stat" data-stat="provider:aws" type="button"><b>{{ $sc.Get "prov_aws" }}</b> AWS</button>
+          <button class="tg-stat" data-stat="provider:azure" type="button"><b>{{ $sc.Get "prov_azure" }}</b> Azure</button>
+          <button class="tg-stat" data-stat="provider:gcp" type="button"><b>{{ $sc.Get "prov_gcp" }}</b> Google Cloud</button>
+          <button class="tg-stat" data-stat="provider:opensource" type="button"><b>{{ $sc.Get "prov_opensource" }}</b> Open Source</button>
+          <button class="tg-stat" data-stat="free" type="button"><b>{{ $sc.Get "free" }}</b> Free / self-host</button>
+        </div>
+        <p class="tg-legend">Each card is a quick decision: <b>what it is</b>, <b>who runs it</b> (managed service or open source you can self-host), the <b>relative cost</b> to run ($ to $$$), and a <b>lifecycle</b> flag when a service is in preview, retiring, or no longer recommended.</p>
+      </div>
+      <div class="sl-hero-aside">{{ partial "wiki-sections.html" . }}</div>
+    </div>
+  </div>
+</section>
+
+<div class="bz-container tg-layout">
+  <!-- FILTER RAIL -->
+  <aside class="tg-rail" data-pagefind-ignore>
+    <div class="tg-rail-group">
+      <span class="tg-rail-title">Browse</span>
+      <button class="tg-facet is-active" data-facet="all" type="button">All tools <span class="tg-n">{{ $total }}</span></button>
+      <button class="tg-facet" data-facet="fav" type="button">My favorites <span class="tg-n tg-fav-count">0</span></button>
+    </div>
+    <div class="tg-rail-group">
+      <span class="tg-rail-title">Category</span>
+      {{ range $cats }}{{ $n := $sc.Get (printf "cat_%s" .) }}{{ if $n }}
+      <button class="tg-facet" data-group="category" data-value="{{ . }}" type="button">{{ . }} <span class="tg-n">{{ $n }}</span></button>
+      {{ end }}{{ end }}
+    </div>
+    <div class="tg-rail-group">
+      <span class="tg-rail-title">Provider</span>
+      {{ range $provs }}{{ $n := $sc.Get (printf "prov_%s" (index . 0)) }}{{ if $n }}
+      <button class="tg-facet" data-group="provider" data-value="{{ index . 0 }}" type="button">{{ index . 1 }} <span class="tg-n">{{ $n }}</span></button>
+      {{ end }}{{ end }}
+    </div>
+    <div class="tg-rail-group">
+      <span class="tg-rail-title">Type</span>
+      {{ range $types }}{{ $n := $sc.Get (printf "type_%s" .) }}{{ if $n }}
+      <button class="tg-facet" data-group="type" data-value="{{ . }}" type="button">{{ . }} <span class="tg-n">{{ $n }}</span></button>
+      {{ end }}{{ end }}
+    </div>
+    <div class="tg-rail-group">
+      <span class="tg-rail-title">Pricing</span>
+      <button class="tg-facet" data-group="free" data-value="1" type="button">Free / self-host <span class="tg-n">{{ $sc.Get "free" }}</span></button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="tg-main">
+    <div class="tg-toolbar">
+      <input type="search" class="xp-search tg-search" placeholder="Search by name, description, or tag..." aria-label="Search tools">
+      <span class="tg-count"><span class="tg-shown">{{ $total }}</span> of {{ $total }}</span>
+    </div>
+    <div class="sl-article-grid tg-grid" data-pagefind-ignore>
+      {{ range $tools }}
+      {{ $f := partial "tool-profile.html" . }}
+      {{ $slug := "" }}{{ with .File }}{{ $slug = .BaseFileName }}{{ end }}
+      {{ $parts := split .Title " - " }}{{ $name := index $parts 0 }}
+      {{ $sub := "" }}{{ if gt (len $parts) 1 }}{{ $sub = delimit (after 1 $parts) " - " }}{{ end }}
+      {{ if eq $sub "" }}{{ with .Description }}{{ $sub = (. | truncate 70) }}{{ end }}{{ end }}
+      {{ $icon := "" }}{{ if .File }}{{ $icon = partial "svc-icon-file.html" $slug }}{{ end }}
+      {{ $updated := .Lastmod }}{{ with .Params.last_updated }}{{ $updated = (time.AsTime .) }}{{ end }}
+      {{ $yr := now.Year }}{{ $uFmt := cond (eq $updated.Year $yr) "2 Jan" "2 Jan 2006" }}
+      {{ $dead := in (slice "discontinued" "deprecated" "retiring" "existing-only" "renamed") $f.status }}
+      <a href="{{ .RelPermalink }}" class="sl-card tg-card{{ if $icon }} has-icon{{ end }}"
+         data-slug="{{ $slug }}" data-provider="{{ $f.provider }}" data-category="{{ $f.category }}" data-type="{{ $f.type }}"
+         data-title="{{ .Title | lower }}"{{ with .Params.tags }} data-tags="{{ delimit . "," | lower }}"{{ end }}{{ if ne $f.status "active" }} data-status="{{ $f.status }}"{{ end }}{{ if $dead }} data-dead="1"{{ end }}{{ if $f.free }} data-free="1"{{ end }}>
+        <button class="tg-fav" type="button" data-slug="{{ $slug }}" aria-label="Save to favorites" title="Save to favorites">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </button>
+        <div class="sl-card-head">
+          {{ if $icon }}<span class="sl-card-icon {{ partial "darklogo-class.html" $icon }}">{{ partial "render-icon.html" (dict "res" $icon "class" "" "alt" "") }}</span>{{ end }}
+          <span class="sl-card-headtext">
+            <span class="sl-card-name">{{ $name }}</span>
+            {{ with $sub }}<span class="sl-card-sub">{{ . }}</span>{{ end }}
+          </span>
+          {{ $pcode := dict "aws" "AWS" "azure" "Azure" "gcp" "GCP" "opensource" "OSS" "other" "" }}
+          {{ with index $pcode $f.provider }}<span class="tg-provider tg-provider--{{ $f.provider }}">{{ . }}</span>{{ end }}
+        </div>
+        {{ if or $f.openness $f.cost (ne $f.status "active") }}
+        <div class="tg-chips">
+          {{ with $f.openness }}<span class="tg-chip">{{ . }}</span>{{ end }}
+          {{ with $f.cost }}<span class="tg-chip tg-chip--cost" title="Relative cost to run">{{ . }}</span>{{ end }}
+          {{ partial "lifecycle-badge.html" (dict "status" $f.status "note" $f.statusNote) }}
+        </div>
+        {{ end }}
+        {{ with $f.bestFor }}<p class="tg-bestfor"><span class="tg-bf-label">Best for</span> {{ . }}</p>{{ end }}
+        <div class="tg-cardmeta">
+          <span><span class="tg-cm-label">Category</span>{{ $f.category }}</span>
+          <span><span class="tg-cm-label">Type</span>{{ $f.type }}</span>
+          <span><span class="tg-cm-label">Updated</span>{{ $updated.Format $uFmt }}</span>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+    <p class="xp-empty" hidden>No tools match your filters.</p>
+  </div>
+</div>
+
+{{ partial "asset-js.html" "tools-gallery.js" }}
+{{ end }}

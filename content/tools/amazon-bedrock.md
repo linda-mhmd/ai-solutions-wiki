@@ -3,7 +3,8 @@ title: "Amazon Bedrock - Enterprise AI Foundation"
 description: "A comprehensive reference for Amazon Bedrock: available models, key features, use cases, and pricing patterns for enterprise teams."
 date: 2026-03-24
 categories: [Tools]
-tags: ["ai-ml", "beginner", "amazon-bedrock", "foundation-models", "aws", "llm", "managed-ai"]
+layer: models
+tags: ["ai-ml", "beginner", "amazon-bedrock", "foundation-models", "aws", "llm", "managed-ai", "aws-service"]
 related:
   - tools/amazon-sagemaker
   - tools/amazon-opensearch
@@ -26,7 +27,8 @@ solutions:
   - solutions/finance/credit-scoring
   - solutions/retail/recommendation-engine
   - solutions/healthcare/medical-imaging
-last_updated: 2026-05-30
+last_updated: 2026-06-14
+lastmod: 2026-06-14
 ---
 
 Amazon Bedrock is AWS's managed service for foundation model access. It provides a single API to call multiple large language models from different providers, alongside managed infrastructure for knowledge bases, agents, and output safety controls. For enterprise teams building on AWS, it is the primary integration point for generative AI capabilities.
@@ -35,15 +37,24 @@ Official documentation: https://docs.aws.amazon.com/bedrock/latest/userguide/
 Pricing: https://aws.amazon.com/bedrock/pricing/  
 Service quotas: https://docs.aws.amazon.com/bedrock/latest/userguide/quotas.html
 
+## Watch: Amazon Bedrock (documentation overview)
+{{< video src="screencasts/Bedrock.mp4" title="Amazon Bedrock: AWS documentation overview" caption="A short walkthrough of Amazon Bedrock: access to frontier models through one managed API." >}}
+
+The garden way to picture it: the model is the experienced gardener's judgement, learned over many seasons and applied to a new plant at a glance.
+
+{{< video src="garden/sensors-living-data.mp4" metaphor="true" title="The garden metaphor" caption="Learned judgement over living data. From the AI Film Crew course." >}}
+
 ## Available Models
 
 Bedrock provides access to models from several providers. Model availability varies by region.
 
-**Anthropic Claude** - The strongest general-purpose models available on Bedrock. Claude 3.5 Sonnet offers the best balance of capability and cost for most enterprise tasks. Claude 3 Haiku is the fastest and cheapest option for high-volume, simpler tasks. Claude 3 Opus handles the most complex reasoning requirements. Particularly strong for: document analysis, long-context tasks, code generation, structured output extraction.
+**Anthropic Claude** - The strongest general-purpose models available on Bedrock. The lineup is now the Claude 4 family and later (for example Opus, Sonnet, and Haiku 4.x, plus Claude Opus 4.7, which became available on Bedrock on April 16, 2026, and the newer Claude Fable 5 generation). Within a generation, Opus class models handle the most complex reasoning and long-running agentic work, Sonnet class models give the best balance of capability and cost for most enterprise tasks, and Haiku class models are the fastest and cheapest option for high-volume, simpler tasks. Particularly strong for: document analysis, long-context tasks (Sonnet and Opus offer context windows up to 1 million tokens), code generation, structured output extraction. Older Claude 3 and 3.5 models remain available but are no longer the recommended default.
 
-**Meta Llama** - Open-weights models (Llama 3.1 8B, 70B, 405B; Llama 3.2 1B, 3B, 11B, 90B). Useful when cost is the primary constraint and task complexity is moderate. The 8B model is competitive with older GPT-3.5 class models at a fraction of the cost.
+**Meta Llama** - Open-weights models (Llama 3.1 8B, 70B, 405B; Llama 3.2 1B, 3B, 11B, 90B; later Llama 3.3 and Llama 4 generations). Useful when cost is the primary constraint and task complexity is moderate, or when an open-weights license matters.
 
-**Amazon Titan** - Amazon's proprietary models. Titan Text is a competent general-purpose model with strong AWS ecosystem integration. Titan Embeddings is well-suited for vector search applications, particularly when used with Bedrock Knowledge Bases.
+**Amazon Nova** - Amazon's own foundation model family, introduced at re:Invent 2024 and now Amazon's primary first-party model line on Bedrock. The text and multimodal tier spans Nova Micro (text-only, lowest latency), Nova Lite, Nova Pro, and Nova Premier, with Nova Canvas (image generation) and Nova Reel (video generation) for creative content. The Nova 2 generation (Nova 2 Lite and Nova 2 Pro in preview), announced at re:Invent 2025, adds extended reasoning with selectable thinking intensity, built-in tools, and a one-million-token context window.
+
+**Amazon Titan** - Amazon's earlier proprietary models. Titan Text is a competent general-purpose model with strong AWS ecosystem integration, and Titan Embeddings is well-suited for vector search applications, particularly when used with Bedrock Knowledge Bases. For new general-purpose work, Amazon now positions the Nova family ahead of Titan.
 
 **Mistral AI** - Mistral 7B, Mistral 8x7B, Mistral Large. European AI provider with a strong compliance story relevant to GDPR and EU AI Act contexts. Competitive performance on instruction-following and summarization tasks.
 
@@ -59,6 +70,10 @@ Bedrock provides access to models from several providers. Model availability var
 
 **Model evaluation** - Built-in tooling to compare model outputs across a test set. Useful for selecting models and measuring prompt improvements quantitatively rather than through manual review.
 
+**AgentCore** - Amazon Bedrock AgentCore is a framework-agnostic platform for building, deploying, and operating production agents at scale, generally available since October 13, 2025. It works with any model, framework (for example CrewAI, LangGraph, LlamaIndex), or protocol, and its component services include AgentCore Runtime (isolated, long-running execution), Memory, Gateway (turns APIs and AWS Lambda functions into agent tools, with Model Context Protocol support), Identity (OAuth-based authorization), and Observability (Amazon CloudWatch dashboards, OpenTelemetry compatible). It complements the simpler in-Bedrock Agents feature for teams that need more control over the runtime.
+
+**Prompt caching and batch inference** - Prompt caching (generally available since April 2025) reuses cached prompt prefixes such as system prompts and retrieved context across calls, reducing cost and latency for repeated requests. Batch inference processes large input sets asynchronously at a discount to on-demand pricing. Priority and Flex service tiers let you trade latency against cost for interactive versus non-interactive workloads.
+
 ## Pricing Patterns
 
 Bedrock uses on-demand pricing (per input/output token) for most use cases, with Provisioned Throughput as an option for guaranteed capacity. On-demand pricing ranges from approximately 0.0003 EUR per 1,000 input tokens (Titan Text Lite) to 0.015 EUR per 1,000 input tokens (Claude 3.5 Sonnet) in eu-west-1. Output tokens are priced 3-5x higher than input tokens.
@@ -73,7 +88,7 @@ AWS announced Amazon Bedrock in April 2023 during a special announcement event, 
 
 At GA launch, Bedrock offered models from AI21 Labs, Anthropic (Claude), Cohere, Stability AI, and Amazon (Titan), with Meta's Llama models following shortly after. The serverless architecture meant customers had no infrastructure to provision -- they made API calls and paid per token.
 
-At re:Invent 2023 (November/December), AWS announced significant expansions: access to Anthropic's Claude 2.1 with a 200,000-token context window, general availability of Agents for Amazon Bedrock (enabling multi-step task execution using company systems and data), and the introduction of Guardrails for Amazon Bedrock (allowing companies to define content filtering policies). Subsequent re:Invent cycles in 2024 and 2025 added Amazon's own Nova model family, Bedrock Knowledge Bases for RAG, reranking capabilities, and model evaluation tools.
+At re:Invent 2023 (November/December), AWS announced significant expansions: access to Anthropic's Claude 2.1 with a 200,000-token context window, general availability of Agents for Amazon Bedrock (enabling multi-step task execution using company systems and data), and the introduction of Guardrails for Amazon Bedrock (allowing companies to define content filtering policies). At re:Invent 2024 (December), AWS introduced Amazon's own Nova model family (Micro, Lite, Pro, and Premier, plus Nova Canvas and Nova Reel), alongside Bedrock Knowledge Bases for RAG, reranking capabilities, and model evaluation tools. At re:Invent 2025 (December), AWS announced the Amazon Nova 2 generation (Nova 2 Lite and Nova 2 Pro in preview) and made Amazon Bedrock AgentCore, its production agent platform, generally available (October 2025).
 
 ## Sources
 
@@ -81,3 +96,6 @@ At re:Invent 2023 (November/December), AWS announced significant expansions: acc
 2. About Amazon. "AWS Announces More Model Choice and Powerful New Capabilities in Amazon Bedrock." November 2023. [https://press.aboutamazon.com/2023/11/aws-announces-more-model-choice-and-powerful-new-capabilities-in-amazon-bedrock-to-securely-build-and-scale-generative-ai-applications](https://press.aboutamazon.com/2023/11/aws-announces-more-model-choice-and-powerful-new-capabilities-in-amazon-bedrock-to-securely-build-and-scale-generative-ai-applications)
 3. AWS Blog. "Top announcements of AWS re:Invent 2023." [https://aws.amazon.com/blogs/aws/top-announcements-of-aws-reinvent-2023/](https://aws.amazon.com/blogs/aws/top-announcements-of-aws-reinvent-2023/)
 4. AWS Documentation. "Amazon Bedrock." [https://docs.aws.amazon.com/bedrock/](https://docs.aws.amazon.com/bedrock/)
+5. AWS. "Amazon Bedrock AgentCore is now generally available." October 13, 2025. [https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available](https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available)
+6. AWS. "Announcing Amazon Nova 2 foundation models now available in Amazon Bedrock." December 2, 2025. [https://aws.amazon.com/about-aws/whats-new/2025/12/nova-2-foundation-models-amazon-bedrock](https://aws.amazon.com/about-aws/whats-new/2025/12/nova-2-foundation-models-amazon-bedrock)
+7. AWS. "Claude Opus 4.7 is now available in Amazon Bedrock." April 16, 2026. [https://aws.amazon.com/about-aws/whats-new/2026/04/claude-opus-4.7-amazon-bedrock/](https://aws.amazon.com/about-aws/whats-new/2026/04/claude-opus-4.7-amazon-bedrock/)

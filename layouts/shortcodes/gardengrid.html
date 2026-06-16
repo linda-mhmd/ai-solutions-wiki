@@ -1,0 +1,14 @@
+{{- if not (.Page.Scratch.Get "gardenGridCSS") -}}
+{{- .Page.Scratch.Set "gardenGridCSS" true -}}
+<style>
+.garden-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.2rem;margin:1.8rem 0}
+.garden-card{display:flex;flex-direction:column;border:1px solid rgba(148,163,184,.18);border-radius:13px;overflow:hidden;background:rgba(15,23,42,.5);text-decoration:none;color:inherit;transition:transform .15s,border-color .15s}
+.garden-card:hover{transform:translateY(-3px);border-color:var(--primary)}
+.garden-card video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#000}
+.garden-card-body{padding:.85rem 1rem 1rem}
+.garden-card-title{font-weight:700;line-height:1.3;margin-bottom:.3rem}
+.garden-card-cap{font-size:.92rem;color:#94a3b8;line-height:1.45}
+.garden-card-go{margin-top:.55rem;font:600 .82rem/1 ui-monospace,SFMono-Regular,monospace;color:var(--primary);letter-spacing:.04em}
+</style>
+{{- end -}}
+<div class="garden-grid" data-pagefind-ignore>{{ .Inner }}</div>

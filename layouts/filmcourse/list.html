@@ -1,0 +1,68 @@
+{{ define "main" }}
+{{ $mods := .RegularPages.ByWeight }}
+{{ $total := 0.0 }}{{ range $mods }}{{ $total = add $total (.Params.duration_min | default 0.0) }}{{ end }}
+{{ $layers := slice "Interface" "Orchestration" "Compute" "AI runtime" "State" }}
+<section class="sl-hero">
+  <div class="bz-container">
+    <nav class="sl-breadcrumb" aria-label="breadcrumb">
+      <a href="{{ "/" | relURL }}" class="sl-breadcrumb-home">AI Solutions Wiki</a>
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      <span aria-current="page">{{ .Title }}</span>
+    </nav>
+    <div class="sl-hero-grid">
+      <div class="sl-hero-inner">
+        <h1 class="sl-h1">{{ .Title }}</h1>
+        {{ with .Description }}<p class="sl-desc">{{ . }}</p>{{ end }}
+        <div class="tg-stats">
+          <span class="tg-stat is-active"><b>{{ len $mods }}</b> Modules</span>
+          <span class="tg-stat"><b>~{{ printf "%.0f" $total }}</b> Minutes of video</span>
+          <span class="tg-stat"><b>5</b> layers, one real system</span>
+        </div>
+      </div>
+      <div class="sl-hero-aside">{{ partial "wiki-sections.html" . }}</div>
+    </div>
+  </div>
+</section>
+
+<div class="bz-container co-curriculum">
+  <aside class="co-rail" data-pagefind-ignore>
+    <div class="co-rail-block">
+      <span class="co-rail-label">The five layers</span>
+      <div class="fl-diagram fl-mini">
+        {{ range $i, $l := $layers }}<div class="fl-layer"><span class="fl-num">0{{ add $i 1 }}</span><span class="fl-body"><span class="fl-name">{{ $l }}</span></span></div>{{ end }}
+      </div>
+      <p class="co-rail-note">Start at zero, then drill through all five using one real production pipeline on AWS.</p>
+    </div>
+    <div class="co-rail-block">
+      <span class="co-rail-label">All {{ len $mods }} modules</span>
+      <ol class="co-rail-index">
+        {{ range $mods }}<li><a href="{{ .RelPermalink }}"><span class="co-rail-num">{{ .Params.chapter }}</span><span class="co-rail-t">{{ replaceRE "^Module \\d+: " "" .Title }}</span><span class="co-rail-dur">{{ .Params.duration_min }}m</span></a></li>{{ end }}
+      </ol>
+    </div>
+  </aside>
+
+  <div class="co-main">
+    {{ with .Content }}<div class="article-body co-intro" data-pagefind-body>{{ . }}</div>{{ end }}
+    <div class="co-cards">
+      {{ range $mods }}
+      {{ $still := printf "m%02d-a.jpg" (.Params.chapter | int) }}
+      {{ $title := replaceRE "^Module \\d+: " "" .Title }}
+      {{ $nh := 0 }}{{ with .Fragments.Headings }}{{ $nh = len . }}{{ end }}
+      <a href="{{ .RelPermalink }}" class="co-card">
+        <span class="co-card-thumb">
+          <img src="{{ (printf "/images/course/%s" $still) | relURL }}" alt="{{ .Title }}" loading="lazy">
+          <span class="co-card-play"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          {{ with .Params.duration_min }}<span class="co-card-dur">{{ . }} min</span>{{ end }}
+        </span>
+        <span class="co-card-body">
+          <span class="co-card-eyebrow"><span class="co-card-mnum">Module {{ .Params.chapter }}</span>{{ with .Params.layer }}<span class="co-card-layer">{{ . }}</span>{{ end }}</span>
+          <span class="co-card-title">{{ $title }}</span>
+          {{ with .Params.summary }}<span class="co-card-summary">{{ . }}</span>{{ end }}
+          <span class="co-card-foot">{{ if $nh }}{{ $nh }} sections{{ else }}Read and watch{{ end }}<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}

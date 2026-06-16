@@ -2,10 +2,11 @@
 title: "Claude vs GPT - Choosing an Enterprise LLM"
 description: "A practical comparison of Anthropic Claude and OpenAI GPT for enterprise applications - capability differences, access options, compliance characteristics, and decision criteria."
 date: 2026-03-24
-last_verified: 2026-05-30
+last_verified: 2026-06-14
 categories: [Comparisons]
 tags: ["ai-ml", "beginner", "claude", "gpt", "comparison", "llm", "foundation-models"]
-last_updated: 2026-05-30
+last_updated: 2026-06-14
+lastmod: 2026-06-14
 ---
 
 Claude (Anthropic) and GPT (OpenAI) are the two most widely deployed foundation models in enterprise AI applications. Both are capable general-purpose LLMs; the differences that matter for enterprise decisions are in access options, compliance characteristics, specific capability strengths, and cost structure rather than a clear overall winner.
@@ -13,37 +14,38 @@ Claude (Anthropic) and GPT (OpenAI) are the two most widely deployed foundation 
 ## Access and Infrastructure
 
 **Claude:**
-- Available via Anthropic API (direct)
-- Available via Amazon Bedrock - this is the preferred enterprise path, as it provides AWS IAM integration, VPC deployment, data residency within your AWS account, and AWS compliance certifications (SOC 2, ISO, HIPAA eligible)
-- Not using your inputs for model training (both direct API and Bedrock)
+- Available via the Claude API (direct from Anthropic)
+- Available via Amazon Bedrock - this is the preferred enterprise path for AWS shops, as it provides AWS IAM integration, VPC deployment, data residency within your AWS account, and AWS compliance certifications (SOC 2, ISO, HIPAA eligible)
+- Also available via Google Cloud Vertex AI and via Microsoft Foundry (the platform formerly branded Azure OpenAI Service / Azure AI Foundry), so Claude is no longer AWS-only on the managed side
+- Anthropic does not use your API or Bedrock inputs and outputs to train its models
 
 **GPT:**
-- Available via OpenAI API (direct)
-- Available via Azure OpenAI Service - the enterprise path, with Azure Active Directory integration, private endpoints, Azure compliance certifications, and Microsoft's enterprise data processing commitments
-- Not using your inputs for model training (both direct and Azure API with data processing agreements)
+- Available via the OpenAI API (direct)
+- Available via Microsoft Foundry - the enterprise path, with Microsoft Entra ID (formerly Azure Active Directory) integration, private endpoints, Azure compliance certifications, and Microsoft's enterprise data processing commitments. Azure OpenAI Service is now part of Microsoft Foundry
+- By default OpenAI does not use API inputs or outputs to train its models, and the Microsoft Foundry path adds Azure's data processing commitments
 
-For AWS-native organizations, Claude via Bedrock is typically the lower-friction choice - IAM, VPC, CloudTrail logging, and AWS cost consolidation all apply. For Microsoft-centric organizations, GPT via Azure OpenAI aligns better with existing infrastructure and compliance posture.
+For AWS-native organizations, Claude via Bedrock is typically the lower-friction choice - IAM, VPC, CloudTrail logging, and AWS cost consolidation all apply. For Microsoft-centric organizations, GPT via Microsoft Foundry aligns better with existing infrastructure and compliance posture. Note that both vendors now serve their models across multiple clouds, so platform choice is increasingly about your existing identity, networking, and billing rather than which model you can reach.
 
 ## Context Window
 
-Claude supports up to 200,000 tokens of context (approximately 150,000 words). GPT-4 supports up to 128,000 tokens. For applications processing large documents, entire codebases, or multi-document analysis, Claude's larger context window is a practical advantage.
+Context windows have grown sharply on both sides. As of mid 2026, Anthropic's flagship Claude models (Claude Opus 4.8 and Claude Sonnet 4.6) support a 1 million token context window, with the faster Claude Haiku 4.5 at 200,000 tokens. OpenAI's current frontier model (GPT-5.5) also ships with a context window of roughly 1 million tokens. The 200K vs 128K gap that historically favored Claude has largely closed at the top of each lineup.
 
-In practice, both windows are large enough for most enterprise use cases. The 200K vs 128K distinction matters specifically for long-document applications where you want to process an entire document in one call rather than chunking.
+In practice, both windows are far larger than most enterprise use cases require. Very large contexts matter specifically for long-document and whole-codebase applications where you want to process everything in one call rather than chunking. Be aware that both vendors apply higher per-token pricing above a threshold (for example, OpenAI charges a premium on prompts beyond 272,000 input tokens), so a bigger window does not mean a bigger window is free. Always check the current model documentation, since these limits change with each release.
 
 ## Capability Comparison
 
-Both models perform comparably on most standard benchmarks, and the gap between tiers within each family (Haiku vs Sonnet vs Opus for Claude; GPT-4o-mini vs GPT-4o for GPT) is larger than the gap between comparable tiers across families.
+Both models perform comparably on most standard benchmarks, and the gap between tiers within each family (Haiku vs Sonnet vs Opus for Claude; the mini vs full vs Pro variants for GPT) is larger than the gap between comparable tiers across families. Both families now ship higher tiers above the original lineup (for example Anthropic's Claude Fable 5 sits above the Opus tier), so match the tier to the task before comparing across vendors.
 
 **Where Claude tends to perform better:**
 - Following complex, structured instructions with multiple constraints
-- Long-document analysis tasks
+- Long-document and whole-codebase analysis tasks
 - Declining to generate content when instructed - Claude's safety training makes it more conservative
 
 **Where GPT tends to perform better:**
-- Tool use and function calling in multi-step agentic applications (historically better documented ecosystem)
-- Integration with Microsoft's application stack (Copilot, Office 365 integrations)
+- Native integration with Microsoft's application stack (Microsoft 365 Copilot, Office integrations)
+- A long-established function-calling ecosystem and broad third-party tooling
 
-These differences are task-dependent and close over time as both providers update their models. Benchmark on your specific use case rather than relying on general comparisons.
+On agentic tool use the historical gap has narrowed. The Model Context Protocol (MCP), an open standard Anthropic introduced in late 2024, is now supported across major vendors including OpenAI, Google, and Microsoft, so connecting either model to external tools no longer depends on one provider's proprietary approach. **Model Context Protocol (MCP)** - an open standard that gives a model a uniform way to call external tools and data sources. These differences are task-dependent and close over time as both providers update their models. Benchmark on your specific use case rather than relying on general comparisons.
 
 ## Cost Comparison
 

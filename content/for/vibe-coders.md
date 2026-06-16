@@ -1,4 +1,5 @@
 ---
+aliases: ["/vibe-coders/"]
 title: "For Vibe Coders"
 description: "Build real products without writing every line. Understand enough to direct the AI, debug what breaks, and ship something that works."
 date: 2026-05-29

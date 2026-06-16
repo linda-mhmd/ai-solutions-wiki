@@ -12,7 +12,8 @@ related:
   - tools/amazon-opensearch
   - glossary/embeddings
   - glossary/vector-database
-last_updated: 2026-05-30
+last_updated: 2026-06-14
+lastmod: 2026-06-14
 ---
 
 Retrieval-Augmented Generation (RAG) is the standard architecture for giving AI models access to private knowledge without fine-tuning. Instead of baking knowledge into model weights, RAG retrieves relevant documents at query time and includes them in the model's context. The concept is simple; building a production system that works reliably is not.
@@ -66,7 +67,7 @@ Before documents can be retrieved, they need to be in a form the system can work
   <div class="bz-flow-step">
     <span class="bz-flow-step-tag">Index</span>
     <span class="bz-flow-step-name">Embed and store</span>
-    <span class="bz-flow-step-desc">Titan Embeddings to vectors; stored in OpenSearch, pgvector, or Bedrock Knowledge Bases</span>
+    <span class="bz-flow-step-desc">Titan Text Embeddings V2 to vectors; stored in OpenSearch, pgvector, S3 Vectors, or Bedrock Knowledge Bases</span>
   </div>
 </div>
 
@@ -99,17 +100,18 @@ Chunks are converted to dense vectors using embedding models. Vector similarity 
 - Vector dimensions (affects storage and search cost)
 - Latency (embedding happens both at indexing time and query time)
 
-Amazon Bedrock Titan Embeddings is a practical default for AWS-native implementations. For multilingual requirements, test against your specific language combinations - some models handle mixed-language content better than others.
+Amazon Titan Text Embeddings V2 is a practical default for AWS-native implementations. It lets you configure the output vector size (256, 512, or 1024 dimensions), so you can trade a small amount of accuracy for lower storage and search cost: AWS reports that 512-dimension vectors retain about 99 percent and 256-dimension vectors about 97 percent of the accuracy of the full 1024-dimension output. For multilingual requirements, test against your specific language combinations - some models handle mixed-language content better than others. Amazon Bedrock also offers Cohere embedding models if you need an alternative.
 
 ## Step 4 - Vector Store
 
 Embeddings are stored in a vector database that supports approximate nearest neighbor (ANN) search. Options on AWS:
 
-- **Amazon OpenSearch with vector engine** - Good for hybrid search (keyword + semantic) and existing OpenSearch users
-- **pgvector on Amazon RDS** - PostgreSQL extension for teams already using RDS, good for smaller scale
-- **Amazon Bedrock Knowledge Bases** - Managed service that handles ingestion, embedding, and retrieval, reducing operational overhead
+- **Amazon OpenSearch Service** - OpenSearch Serverless or a managed cluster, both with a vector engine. Good for hybrid search (keyword + semantic) and existing OpenSearch users.
+- **pgvector on Amazon Aurora PostgreSQL** - The PostgreSQL pgvector extension for teams already on Aurora, good for smaller scale. Aurora PostgreSQL is the version Amazon Bedrock Knowledge Bases can quick-create as a vector store. You can also run pgvector on standard Amazon RDS for PostgreSQL outside of Knowledge Bases.
+- **Amazon S3 Vectors** - A storage-first vector store that became generally available on December 2, 2025. It stores and queries vectors directly in Amazon S3, scales to billions of vectors per index, and AWS positions it for large but less latency-sensitive RAG workloads at up to 90 percent lower cost than warm storage. It integrates with Bedrock Knowledge Bases as a quick-create option.
+- **Amazon Bedrock Knowledge Bases** - A managed service that handles ingestion, chunking, embedding, and retrieval, reducing operational overhead. It can sit in front of OpenSearch, Aurora PostgreSQL, Amazon Neptune Analytics, S3 Vectors, or third-party stores such as Pinecone and MongoDB Atlas.
 
-For production systems over 1 million chunks, or with high query throughput, dedicated vector stores (OpenSearch) outperform general-purpose databases with vector extensions.
+For production systems over 1 million chunks, or with high query throughput, dedicated low-latency vector stores (OpenSearch) outperform general-purpose databases with vector extensions. S3 Vectors trades some query latency for much lower storage cost, so it suits large archives that are queried less frequently.
 
 ## Step 5 - Retrieval Tuning
 
@@ -145,7 +147,7 @@ Tuning approaches:
 
 **Hybrid search** - Combine semantic similarity with keyword (BM25) search. Semantic handles conceptual queries; keyword handles specific terms, codes, and names. The combination outperforms either alone for most enterprise knowledge bases.
 
-**Re-ranking** - Retrieve a larger candidate set (top 20) and re-rank with a cross-encoder model before passing the top 5 to generation. More computationally expensive but improves relevance significantly.
+**Re-ranking** - Retrieve a larger candidate set (top 20) and re-rank with a cross-encoder model before passing the top 5 to generation. More computationally expensive but improves relevance significantly. On AWS you can use the managed Amazon Bedrock Rerank API, which currently supports Amazon Rerank 1.0 and Cohere Rerank 3.5, and wire it directly into Bedrock Knowledge Bases through the Retrieve and RetrieveAndGenerate APIs.
 
 **Query expansion** - Use the LLM to generate multiple phrasings of the query before retrieving. Catches relevant documents that use different terminology than the query.
 
@@ -166,3 +168,6 @@ Production RAG systems benefit from evaluation infrastructure: regularly testing
 - Gao, Y. et al. "Retrieval-Augmented Generation for Large Language Models: A Survey." (2023). https://arxiv.org/abs/2312.10997, Comprehensive survey of RAG variants including Naive RAG, Advanced RAG, and Modular RAG architectures, with a taxonomy of chunking, retrieval, and generation strategies.
 - Robertson, S. and Zaragoza, H. "The Probabilistic Relevance Framework: BM25 and Beyond." *Foundations and Trends in Information Retrieval* 3, no. 4 (2009): 333–389., The BM25 algorithm referenced in the hybrid search section; the standard keyword retrieval baseline.
 - Nogueira, R. and Cho, K. "Passage Re-ranking with BERT." (2019). https://arxiv.org/abs/1901.04085, Foundational work on cross-encoder re-ranking, which underpins the two-stage retrieve-then-rerank pattern described above.
+- Amazon Web Services. "Amazon S3 Vectors is now generally available with 40 times the scale of preview." (2025). https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-s3-vectors-generally-available/, Primary source for the S3 Vectors general availability date (December 2, 2025), scale, and the up-to-90-percent cost reduction claim.
+- Amazon Web Services. "Amazon Bedrock now supports Rerank API to improve accuracy of RAG applications." (2024). https://aws.amazon.com/about-aws/whats-new/2024/12/amazon-bedrock-rerank-api-accuracy-rag-applications, Primary source for the managed Rerank API and the supported Amazon Rerank 1.0 and Cohere Rerank 3.5 models.
+- Amazon Web Services. "Amazon Titan Text Embeddings V2 now available in Amazon Bedrock." (2024). https://aws.amazon.com/about-aws/whats-new/2024/04/amazon-titan-text-embeddings-v2-amazon-bedrock, Primary source for the configurable 256, 512, and 1024 dimension output sizes and their accuracy trade-offs.

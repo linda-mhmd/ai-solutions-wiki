@@ -2,7 +2,7 @@
 title: "Model Context Protocol (MCP)"
 description: "An open protocol that standardises how language models connect to tools, data sources, and external systems through a uniform client-server interface."
 date: 2026-05-08
-lastmod: 2026-05-08
+lastmod: 2026-06-14
 categories: [Glossary]
 tags: ["ai-ml", "intermediate", "agents", "tool-use", "protocols", "anthropic", "interoperability"]
 related:
@@ -10,10 +10,10 @@ related:
   - glossary/function-calling
   - glossary/tool-use
   - glossary/llm
-last_updated: 2026-05-30
+last_updated: 2026-06-14
 ---
 
-The Model Context Protocol (MCP) is an open specification that defines how language model applications discover, invoke, and exchange data with external tools and data sources. Introduced by Anthropic in November 2024 and subsequently adopted across the agent ecosystem, MCP separates the model-facing client from tool-side servers via a stable JSON-RPC interface, replacing the bespoke, per-application integration code that previously connected each agent to each tool.
+The Model Context Protocol (MCP) is an open specification that defines how language model applications discover, invoke, and exchange data with external tools and data sources. Introduced by Anthropic on 25 November 2024 and subsequently adopted across the agent ecosystem, MCP separates the model-facing client from tool-side servers via a stable JSON-RPC interface, replacing the bespoke, per-application integration code that previously connected each agent to each tool. The protocol is versioned by date, and the latest stable revision is 2025-11-25, released on the protocol's first anniversary.
 
 ## How It Works
 
@@ -21,11 +21,11 @@ MCP defines three roles:
 
 - **Host**: the application that hosts the language model (an IDE assistant, agent runtime, or chat application)
 - **Client**: a connector inside the host that speaks MCP to a single server
-- **Server**: a process that exposes capabilities (tools, resources, prompts, sampling, roots) to clients
+- **Server**: a process that exposes capabilities to clients. Servers offer tools, resources, and prompts. Clients in turn offer features back to servers: sampling (server-initiated LLM calls), roots (filesystem or URI boundaries), and elicitation (server-initiated requests for input from the user).
 
-Communication happens over JSON-RPC 2.0 either via stdio (for local servers) or HTTP with Server-Sent Events (for remote servers). A server advertises its capabilities through a structured manifest. Clients discover capabilities at session initialisation, then call tools, fetch resources, or request prompts as the model reasons.
+Communication happens over JSON-RPC 2.0 across two standard transports: stdio (the server runs as a local subprocess) and Streamable HTTP (the server runs as an independent process serving one HTTP endpoint, optionally using Server-Sent Events to stream responses). Streamable HTTP replaced the earlier HTTP plus SSE transport from the 2024-11-05 revision, and is the recommended path for remote servers. A server advertises its capabilities during initialisation. Clients discover those capabilities at session start, then call tools, fetch resources, or request prompts as the model reasons.
 
-The protocol is transport-agnostic, stateful per session, and supports streaming responses, progress notifications, and cancellation.
+The protocol is transport-agnostic, stateful per session, and supports streaming responses, progress notifications, and cancellation. The 2025-11-25 revision added a Tasks abstraction (SEP-1686) for tracking long-running server work through states such as working, input_required, completed, failed, and cancelled, letting clients poll for status and retrieve results after completion.
 
 ## When to Use MCP
 
@@ -56,11 +56,16 @@ This separation matters: tools are *actions* the model decides to take, resource
 
 MCP servers run with their own permissions. The host mediates between the model and the server: tool calls require explicit host approval (auto-approved or user-confirmed), resources require explicit attachment, and the host can sandbox or rate-limit any server. Sensitive servers (filesystem, shell, payment APIs) should run with minimal privileges and require user consent per call.
 
-The protocol does not prescribe authentication; servers handle their own auth (OAuth, API keys, bearer tokens). For remote servers, the OAuth 2.1 profile is the recommended path.
+The protocol does not prescribe authentication; servers handle their own auth (OAuth, API keys, bearer tokens). For remote servers, the OAuth 2.1 profile is the recommended path. The 2025-11-25 revision simplified the enterprise story: it replaced fragile Dynamic Client Registration with URL-based registration via OAuth Client ID Metadata Documents (SEP-991), added client credentials for machine-to-machine authorization (SEP-1046), and introduced URL-mode elicitation (SEP-1036) so users can complete OAuth or payment flows in their own browser without credentials passing through the MCP client.
 
 ## Adoption
 
-By 2026 MCP has wide ecosystem adoption: Claude (desktop and API), OpenAI (Agents SDK and ChatGPT desktop), Google (Gemini Code Assist), Microsoft (Copilot Studio), and major agent frameworks (LangGraph, CrewAI, AWS Strands, AgentCore Gateway) all interoperate over MCP. Public MCP server registries list hundreds of community and vendor servers.
+By 2026 MCP has wide ecosystem adoption: Claude (desktop and API), OpenAI (Agents SDK and ChatGPT desktop), Google (Gemini Code Assist), Microsoft (Copilot Studio), and major agent frameworks (LangGraph, CrewAI, AWS Strands, Amazon Bedrock AgentCore Gateway) all interoperate over MCP.
+
+Two ecosystem milestones are worth noting:
+
+- **Official MCP Registry**: a community-driven, open-source registry of publicly available MCP servers, launched in preview in September 2025 at registry.modelcontextprotocol.io. It acts as a source of truth for server discovery and lets organisations build their own sub-registries, and had grown to roughly two thousand entries by late 2025.
+- **MCP Apps (SEP-1865)**: an extension co-authored by Anthropic and OpenAI, released in January 2026, that standardises how servers ship interactive HTML and JavaScript user interfaces (forms, dashboards, visualisations) alongside tool outputs, communicating with the host over JSON-RPC via postMessage.
 
 ## Trade-offs vs Native Function Calling
 
@@ -85,8 +90,11 @@ For production agent platforms with many tools and many hosts, the operational c
 ## Sources and Further Reading
 
 - Anthropic (2024). *Introducing the Model Context Protocol*. [https://www.anthropic.com/news/model-context-protocol](https://www.anthropic.com/news/model-context-protocol)
-- Model Context Protocol specification (current). [https://modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification)
-- MCP authorization profile (OAuth 2.1 / RFC 6749, RFC 8252, RFC 9068). [https://modelcontextprotocol.io/specification/basic/authorization](https://modelcontextprotocol.io/specification/basic/authorization)
+- Model Context Protocol specification, revision 2025-11-25 (current stable). [https://modelcontextprotocol.io/specification/2025-11-25](https://modelcontextprotocol.io/specification/2025-11-25)
+- MCP transports specification (stdio and Streamable HTTP). [https://modelcontextprotocol.io/specification/2025-11-25/basic/transports](https://modelcontextprotocol.io/specification/2025-11-25/basic/transports)
+- Model Context Protocol blog (2025). *One Year of MCP: November 2025 Spec Release*. [https://blog.modelcontextprotocol.io/posts/2025-11-25-first-mcp-anniversary/](https://blog.modelcontextprotocol.io/posts/2025-11-25-first-mcp-anniversary/)
+- Model Context Protocol blog (2025). *Introducing the MCP Registry*. [https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/](https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/)
+- Model Context Protocol blog (2025). *MCP Apps: Extending servers with interactive user interfaces*. [https://blog.modelcontextprotocol.io/posts/2025-11-21-mcp-apps/](https://blog.modelcontextprotocol.io/posts/2025-11-21-mcp-apps/)
 - Reference and community servers: [https://github.com/modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers)
 - JSON-RPC 2.0 specification (the wire format MCP uses). [https://www.jsonrpc.org/specification](https://www.jsonrpc.org/specification)
 - AWS (2025). *Amazon Bedrock AgentCore Gateway: turning APIs into MCP tools*. [https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html)

@@ -1,0 +1,24 @@
+{{- $src := .Get "src" -}}
+{{- $metaphor := eq (.Get "metaphor") "true" -}}
+{{- $title := .Get "title" -}}
+{{- $caption := .Get "caption" -}}
+{{- $poster := .Get "poster" -}}
+{{- if not (.Page.Scratch.Get "videoCSS") -}}
+{{- .Page.Scratch.Set "videoCSS" true -}}
+<style>
+.wiki-video{margin:1.75rem 0;border:1px solid rgba(148,163,184,.18);border-radius:14px;overflow:hidden;background:#0b1120;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.wiki-video-title{padding:.7rem 1rem;font:600 .82rem/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;color:#cbd5e1;background:rgba(15,23,42,.9);border-bottom:1px solid rgba(148,163,184,.15);display:flex;align-items:center;gap:.5rem}
+.wiki-video-title::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--primary);box-shadow:0 0 10px var(--primary)}
+.wiki-video-el{display:block;width:100%;height:auto;background:#000}
+.wiki-video-caption{padding:.7rem 1rem;font-size:.92rem;line-height:1.5;color:#94a3b8;background:rgba(15,23,42,.6)}
+.wiki-video--metaphor{border-color:rgba(106,155,209,.25)}
+.wiki-video--metaphor .wiki-video-title::before{background:#10b981;box-shadow:0 0 10px #10b981}
+</style>
+{{- end -}}
+<figure class="wiki-video{{ if $metaphor }} wiki-video--metaphor{{ end }}" data-pagefind-ignore>
+  {{- with $title }}<figcaption class="wiki-video-title">{{ . }}</figcaption>{{ end -}}
+  <video class="wiki-video-el" {{ if $metaphor }}autoplay loop muted playsinline{{ else }}controls preload="metadata"{{ end }}{{ with $poster }} poster="{{ . | relURL }}"{{ end }}>
+    <source src="{{ (printf "/videos/%s" $src) | relURL }}" type="video/mp4">
+  </video>
+  {{- with $caption }}<figcaption class="wiki-video-caption">{{ . | markdownify }}</figcaption>{{ end -}}
+</figure>

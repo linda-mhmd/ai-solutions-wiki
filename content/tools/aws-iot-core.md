@@ -3,7 +3,7 @@ title: "AWS IoT Core - IoT Platform for AI Applications"
 description: "A comprehensive reference for AWS IoT Core: device connectivity, message routing, rules engine, and integration patterns for IoT-driven AI and ML workloads."
 date: 2026-03-28
 categories: [Tools]
-tags: [aws-iot-core, AWS, IoT, MQTT, edge, device-management]
+tags: [aws-iot-core, AWS, IoT, MQTT, edge, device-management, "aws-service"]
 related:
   - tools/amazon-timestream
   - tools/amazon-sagemaker

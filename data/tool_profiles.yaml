@@ -1,0 +1,384 @@
+# Decision-object profiles seeded from the two deep-research reports
+# (deep-research-report.md + deep-research-report (1).md), keyed by content slug.
+# Fields: status (active|preview|beta|deprecated|retiring|existing-only|discontinued),
+# status_note, cost ($|$$|$$$), openness, self_host, lock_in (Low|Medium|High),
+# best_for, avoid_if, announced, free_tier, alternatives, stars (OSS GitHub stars).
+# A page's own frontmatter overrides these; missing values are derived heuristically.
+# Verified to mid-2026; see the reports for citations.
+
+amazon-athena:
+  status: active
+  cost: "$$"
+  openness: "Managed on open source"
+  self_host: false
+  lock_in: Medium
+  best_for: "Ad-hoc SQL over data already in S3"
+  avoid_if: "You need OLTP or always-on low-latency BI"
+  announced: "2016"
+  alternatives: ["BigQuery", "Snowflake", "Trino", "DuckDB"]
+
+amazon-bedrock:
+  status: active
+  cost: "$$$"
+  openness: "Closed managed"
+  self_host: false
+  lock_in: High
+  best_for: "Managed multi-model generative AI on AWS"
+  avoid_if: "You need self-hosted or provider-agnostic control"
+  announced: "2023-09-28"
+  alternatives: ["Azure AI Foundry", "Google Vertex AI", "vLLM / TGI"]
+
+bedrock-agentcore:
+  status: preview
+  status_note: "Platform is live; several components (Optimization, Agent Registry, Payments) are still in preview."
+  cost: "$$$"
+  openness: "Closed managed"
+  self_host: false
+  lock_in: High
+  best_for: "Taking agents from prototype to managed production"
+  avoid_if: "Lightweight local agent experiments"
+  announced: "2025"
+  alternatives: ["LangGraph", "OpenAI Agents SDK", "Temporal"]
+
+amazon-cloudwatch:
+  status: active
+  cost: "$$"
+  openness: "Managed (open standards)"
+  self_host: false
+  lock_in: High
+  best_for: "AWS-native metrics, logs, and traces"
+  avoid_if: "You are standardized on an external observability stack"
+  announced: "2009-05-18"
+  alternatives: ["Datadog", "Grafana + Prometheus", "New Relic"]
+
+amazon-cognito:
+  status: active
+  cost: "$$"
+  openness: "Closed managed"
+  self_host: false
+  lock_in: High
+  best_for: "AWS-native authentication for apps and agents"
+  avoid_if: "You need deep enterprise CIAM or cross-cloud neutrality"
+  free_tier: "10,000 monthly active users"
+  alternatives: ["Auth0", "Okta", "Entra External ID", "Keycloak"]
+
+amazon-comprehend:
+  status: active
+  cost: "$$"
+  openness: "Closed managed"
+  self_host: false
+  lock_in: High
+  best_for: "Classic NLP at scale without training models"
+  avoid_if: "You need frontier LLM reasoning"
+  free_tier: "50K text units/month (select APIs)"
+  alternatives: ["Azure AI Language", "Google Natural Language", "spaCy", "Hugging Face"]
+
+amazon-connect:
+  status: active
+  cost: "$$$"
+  openness: "Closed managed"
+  self_host: false
+  lock_in: High
+  best_for: "Cloud contact center with AI assist"
+  avoid_if: "You only need a simple in-app chat widget"
+  alternatives: ["Genesys Cloud", "Five9", "NICE CXone", "Twilio Flex"]
+
+amazon-dynamodb:
+  status: active
+  cost: "$$"
+  openness: "Closed managed"
+  self_host: false
+  lock_in: High
+  best_for: "High-scale key-value and document workloads"
+  avoid_if: "Ad-hoc relational analytics or complex joins"
+  announced: "2012-01-18"
+  free_tier: "25 GB always-free"
+  alternatives: ["Cosmos DB", "Bigtable", "MongoDB Atlas", "Cassandra"]
+
+amazon-emr:
+  status: active
+  cost: "$$"
+  openness: "Managed on open source"
+  self_host: false
+  lock_in: Medium
+  best_for: "Managed Spark, Trino, and Flink at scale"
+  avoid_if: "Tiny jobs or SQL-only needs (use Athena)"
+  announced: "2009-04"
+  alternatives: ["Databricks", "Amazon Athena", "AWS Glue", "Spark on Kubernetes"]
+
+amazon-opensearch:
+  status: active
+  cost: "$$"
+  openness: "Managed on open source"
+  self_host: false
+  lock_in: Medium
+  best_for: "Managed search and vector retrieval"
+  avoid_if: "You want a fully self-hosted open stack"
+  alternatives: ["Elasticsearch", "Pinecone", "Weaviate", "Qdrant"]
+
+apache-airflow:
+  status: active
+  cost: "$$"
+  openness: "Open source (Apache 2.0)"
+  self_host: true
+  lock_in: Low
+  best_for: "Orchestrating data pipelines as DAGs"
+  avoid_if: "Simple cron or single-task scheduling"
+  alternatives: ["Prefect", "Dagster", "AWS Step Functions", "Argo Workflows"]
+
+apache-kafka:
+  status: active
+  cost: "$$"
+  openness: "Open source (Apache 2.0)"
+  self_host: true
+  lock_in: Low
+  best_for: "Durable high-throughput event streaming"
+  avoid_if: "You only need a simple queue or pub/sub"
+  announced: "2011"
+  stars: 32800
+  alternatives: ["Amazon MSK", "Amazon Kinesis", "RabbitMQ", "Redpanda"]
+
+apache-spark:
+  status: active
+  cost: "$$"
+  openness: "Open source (Apache 2.0)"
+  self_host: true
+  lock_in: Low
+  best_for: "Large-scale ETL and distributed analytics"
+  avoid_if: "Small datasets or pure BI / reporting"
+  announced: "2010"
+  stars: 43298
+  alternatives: ["Databricks", "Apache Flink", "Trino", "Dask", "DuckDB"]
+
+apache-superset:
+  status: active
+  cost: "$"
+  openness: "Open source (Apache 2.0)"
+  self_host: true
+  lock_in: Low
+  best_for: "Self-hosted BI and SQL dashboards"
+  avoid_if: "You want no-ops SaaS BI from day one"
+  stars: 73300
+  alternatives: ["Metabase", "Grafana", "Power BI", "Looker Studio"]
+
+aws-amplify:
+  status: active
+  cost: "$"
+  openness: "Closed managed"
+  self_host: false
+  lock_in: High
+  best_for: "Frontend-first full-stack apps on AWS"
+  avoid_if: "You need provider-neutral infra or hand-rolled IaC"
+  alternatives: ["Vercel", "Firebase", "Netlify", "SST / CDK"]
+
+aws-fargate:
+  status: active
+  cost: "$$"
+  openness: "Closed managed"
+  self_host: false
+  lock_in: High
+  best_for: "Containers without managing nodes"
+  avoid_if: "Steady-state high utilization or host-level control"
+  announced: "2017-11-29"
+  alternatives: ["Google Cloud Run", "Azure Container Apps", "ECS on EC2", "Kubernetes"]
+
+aws-iot-core:
+  status: active
+  cost: "$$"
+  openness: "Closed managed"
+  self_host: false
+  lock_in: High
+  best_for: "Securely connecting fleets of devices"
+  avoid_if: "Your 'device' is really just a browser"
+  announced: "2015-12-18"
+  alternatives: ["Azure IoT Hub", "EMQX", "HiveMQ"]
+
+aws-lambda:
+  status: active
+  cost: "$"
+  openness: "Closed managed"
+  self_host: false
+  lock_in: High
+  best_for: "Event-driven serverless functions"
+  avoid_if: "Long-running jobs or special host dependencies"
+  announced: "2014-11-13"
+  free_tier: "1M requests + 400k GB-seconds/month"
+  alternatives: ["Google Cloud Functions", "Cloud Run", "Azure Functions", "AWS Fargate"]
+
+aws-step-functions:
+  status: active
+  cost: "$"
+  openness: "Closed managed"
+  self_host: false
+  lock_in: High
+  best_for: "Durable multi-service workflow orchestration"
+  avoid_if: "Very simple apps where plain code is clearer"
+  announced: "2016-12-01"
+  alternatives: ["Temporal", "Apache Airflow", "Argo Workflows", "Azure Logic Apps"]
+
+aws-waf:
+  status: active
+  cost: "$$"
+  openness: "Closed managed"
+  self_host: false
+  lock_in: High
+  best_for: "Managed app-layer protection for web apps and APIs"
+  avoid_if: "Internal-only traffic; not a substitute for secure coding"
+  alternatives: ["Cloudflare WAF", "Akamai", "Azure WAF", "ModSecurity"]
+
+aws-mediaconvert:
+  status: active
+  cost: "$$"
+  openness: "Closed managed"
+  self_host: false
+  lock_in: High
+  best_for: "File-based video transcoding for VOD / OTT"
+  avoid_if: "Non-media workflows"
+  announced: "2017"
+  alternatives: ["Bitmovin", "Encoding.com", "FFmpeg"]
+
+azure-ad-b2c:
+  status: existing-only
+  status_note: "No longer available to purchase for new customers (effective May 1, 2025)."
+  cost: "$$"
+  openness: "Closed managed"
+  self_host: false
+  lock_in: High
+  best_for: "Maintaining or migrating existing B2C tenants"
+  avoid_if: "Greenfield CIAM; use Entra External ID instead"
+  alternatives: ["Entra External ID", "Auth0", "Okta", "Keycloak"]
+
+azure-anomaly-detector:
+  status: retiring
+  status_note: "No new resources since Sep 20, 2023; retires October 1, 2026."
+  openness: "Closed managed (OSS migration path)"
+  self_host: false
+  lock_in: High
+  best_for: "Migration planning only"
+  avoid_if: "Any new work; use Microsoft Fabric or the OSS anomaly-detector"
+  alternatives: ["Microsoft Fabric", "OSS anomaly-detector", "Custom statistical models"]
+
+azure-personalizer:
+  status: retiring
+  status_note: "No new resources since Sep 20, 2023; retires October 1, 2026."
+  openness: "Closed managed"
+  self_host: false
+  lock_in: High
+  best_for: "Migration planning only"
+  avoid_if: "Any new work; build contextual bandits or use a current service"
+  alternatives: ["Custom reinforcement learning", "Contextual bandits"]
+
+azure-iot-hub:
+  status: active
+  cost: "$$"
+  openness: "Closed managed"
+  self_host: false
+  lock_in: High
+  best_for: "Managed device-to-cloud messaging on Azure"
+  avoid_if: "Edge-first or non-Azure stacks"
+  alternatives: ["AWS IoT Core", "EMQX", "HiveMQ"]
+
+google-cloud-iot-core:
+  status: discontinued
+  status_note: "Google retired Cloud IoT Core in August 2023; the product page now redirects to architecture docs."
+  openness: "Closed managed"
+  self_host: false
+  best_for: "Reference only; choose a current IoT platform"
+  avoid_if: "Any new work"
+  alternatives: ["AWS IoT Core", "Azure IoT Hub", "EMQX", "HiveMQ"]
+
+claude-anthropic:
+  status: active
+  openness: "Closed managed"
+  self_host: false
+  lock_in: Medium
+  best_for: "Frontier LLM access via API and apps"
+  avoid_if: "You need fully local / on-prem inference"
+  alternatives: ["OpenAI", "Google Gemini", "Llama (self-hosted)"]
+
+langchain:
+  status: active
+  cost: "$"
+  openness: "Open source"
+  self_host: true
+  lock_in: Medium
+  best_for: "Composing LLM and agent applications"
+  avoid_if: "You want a minimal dependency footprint"
+  stars: 139000
+  alternatives: ["LlamaIndex", "Haystack", "Semantic Kernel", "Direct provider SDKs"]
+
+pinecone:
+  status: active
+  cost: "$$"
+  openness: "Closed managed"
+  self_host: false
+  lock_in: High
+  best_for: "Managed vector database for RAG"
+  avoid_if: "You want open-source or self-hosted vectors"
+  free_tier: "Starter tier free"
+  alternatives: ["Qdrant", "Weaviate", "pgvector", "Milvus"]
+
+qdrant:
+  status: active
+  openness: "Open source"
+  self_host: true
+  lock_in: Low
+  best_for: "Self-hostable vector database"
+  avoid_if: "You want zero-ops managed vectors"
+  stars: 32300
+  alternatives: ["Pinecone", "Weaviate", "pgvector"]
+
+elasticsearch:
+  status: active
+  openness: "Source-available / managed"
+  self_host: true
+  lock_in: Medium
+  best_for: "Full-text search and analytics"
+  avoid_if: "You want a small embedded search"
+  alternatives: ["OpenSearch", "Meilisearch", "Typesense"]
+
+remotion:
+  status: active
+  openness: "Open source (license varies)"
+  self_host: true
+  lock_in: Low
+  best_for: "Programmatic video creation with React"
+  avoid_if: "You only need a timeline video editor"
+  stars: 50200
+  alternatives: ["FFmpeg", "After Effects", "Motion Canvas"]
+
+terraform:
+  status: active
+  openness: "Open source (BSL)"
+  self_host: true
+  lock_in: Medium
+  best_for: "Infrastructure as code across providers"
+  avoid_if: "You want a fully OSI-licensed tool (use OpenTofu)"
+  alternatives: ["OpenTofu", "Pulumi", "CloudFormation", "AWS CDK"]
+
+temporal:
+  status: active
+  openness: "Open source"
+  self_host: true
+  lock_in: Low
+  best_for: "Durable workflow orchestration in code"
+  avoid_if: "Simple one-shot tasks"
+  alternatives: ["AWS Step Functions", "Apache Airflow", "Cadence"]
+
+prefect:
+  status: active
+  openness: "Open source"
+  self_host: true
+  lock_in: Low
+  best_for: "Pythonic data workflow orchestration"
+  avoid_if: "Non-Python pipelines"
+  alternatives: ["Apache Airflow", "Dagster", "AWS Step Functions"]
+
+ollama:
+  status: active
+  openness: "Open source"
+  self_host: true
+  lock_in: Low
+  best_for: "Running open LLMs locally"
+  avoid_if: "You need managed scale or SLAs"
+  alternatives: ["LM Studio", "llama.cpp", "vLLM"]

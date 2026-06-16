@@ -92,8 +92,12 @@ Under GDPR, you have the right to access, rectify, delete, restrict processing, 
 
 Contact: hello@lindamohamed.com
 
-### 4. Updates
+### 4. External Links
+
+This website contains links to external websites. Their operators are solely responsible for their own data protection practices.
+
+### 5. Updates
 
 This privacy policy may be updated as needed. The current version is always available on this page.
 
-*Last updated: May 2026*
+*Last updated: 2026-05-31*

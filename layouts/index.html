@@ -16,8 +16,8 @@
   <div class="idx-hero-overlay" aria-hidden="true"></div>
   <div class="bz-container">
     <div class="idx-hero-inner">
-      <h1 class="idx-hero-h1">Production AI<br>for teams that ship.</h1>
-      <p class="idx-hero-sub">Architecture patterns, implementation guides, and tool references. Built for engineers turning AI into working systems.</p>
+      <h1 class="idx-hero-h1">Learn to build the<br>solution you need.</h1>
+      <p class="idx-hero-sub">A plain-words guide through the jungle of modern software and AI. Build something that solves a real problem you, and probably others, actually have. Understand every step, and share what you learn.</p>
       <div class="idx-hero-search">
         <div id="hero-search"></div>
       </div>
@@ -29,6 +29,18 @@
         <a href="{{ "/glossary/" | relURL }}" class="idx-hero-path-link">Look up a term →</a>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- BROWSE: wiki-sections accordion navigator (same as on section pages) -->
+<section class="idx-browse">
+  <div class="bz-container idx-browse-inner">
+    <div class="idx-browse-intro">
+      <p class="bz-section-label">Browse</p>
+      <h2 class="idx-browse-h2">Jump to any section</h2>
+      <p class="idx-browse-sub">Every part of the wiki, grouped. Open a group to see its sections, the same navigator you get on every page.</p>
+    </div>
+    {{ partial "wiki-sections.html" . }}
   </div>
 </section>
 
@@ -46,7 +58,7 @@
     <div class="idx-stack-diagram">
 
       <!-- Layer 05: Applications -->
-      <div class="idx-stack-layer">
+      <div class="idx-stack-layer" data-layer="applications">
         <div class="idx-stack-layer-meta">
           <span class="idx-stack-layer-num">Layer 05</span>
           <span class="idx-stack-layer-name">Applications</span>
@@ -91,7 +103,7 @@
       </div>
 
       <!-- Layer 04: Orchestration -->
-      <div class="idx-stack-layer">
+      <div class="idx-stack-layer" data-layer="orchestration">
         <div class="idx-stack-layer-meta">
           <span class="idx-stack-layer-num">Layer 04</span>
           <span class="idx-stack-layer-name">Orchestration</span>
@@ -136,7 +148,7 @@
       </div>
 
       <!-- Layer 03: Models -->
-      <div class="idx-stack-layer">
+      <div class="idx-stack-layer" data-layer="models">
         <div class="idx-stack-layer-meta">
           <span class="idx-stack-layer-num">Layer 03</span>
           <span class="idx-stack-layer-name">Models</span>
@@ -181,7 +193,7 @@
       </div>
 
       <!-- Layer 02: Data -->
-      <div class="idx-stack-layer">
+      <div class="idx-stack-layer" data-layer="data">
         <div class="idx-stack-layer-meta">
           <span class="idx-stack-layer-num">Layer 02</span>
           <span class="idx-stack-layer-name">Data</span>
@@ -226,7 +238,7 @@
       </div>
 
       <!-- Layer 01: Infrastructure -->
-      <div class="idx-stack-layer">
+      <div class="idx-stack-layer" data-layer="infrastructure">
         <div class="idx-stack-layer-meta">
           <span class="idx-stack-layer-num">Layer 01</span>
           <span class="idx-stack-layer-name">Infrastructure</span>
@@ -572,6 +584,28 @@
     </div>
   </div>
 </section>
+
+<!-- WHAT JUST HAPPENED (news) -->
+{{ $news := where .Site.RegularPages "Section" "news" }}
+{{ if $news }}
+<section class="idx-news">
+  <div class="bz-container">
+    <div class="idx-news-head">
+      <p class="bz-section-label">What just happened</p>
+      <a href="{{ "/news/" | relURL }}" class="idx-news-all">All news and updates &rarr;</a>
+    </div>
+    <div class="idx-news-grid">
+      {{ range first 4 ($news.ByDate.Reverse) }}
+      <a href="{{ .RelPermalink }}" class="idx-news-card">
+        <span class="idx-news-date">{{ .Date.Format "2 Jan 2006" }}</span>
+        <span class="idx-news-title">{{ .Title }}</span>
+        <span class="idx-news-desc">{{ .Description | truncate 120 }}</span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
 
 <!-- SECTION DIVIDER 04 -->
 <div class="bz-section-divider">

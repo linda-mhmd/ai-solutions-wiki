@@ -1,0 +1,43 @@
+{{ define "main" }}
+{{ $sections := slice "tools" "comparisons" "frameworks" "guides" "patterns" "case-patterns" "solutions" "ideas" }}
+{{ $labels := dict "tools" "Tools" "comparisons" "Comparisons" "frameworks" "Frameworks" "guides" "Guides" "patterns" "Patterns" "case-patterns" "Case Patterns" "solutions" "Industry Solutions" "ideas" "Ideas" }}
+{{ $all := slice }}
+{{ range $sections }}{{ $sp := site.GetPage (printf "/%s" .) }}{{ with $sp }}{{ range .RegularPagesRecursive }}{{ $all = $all | append . }}{{ end }}{{ end }}{{ end }}
+
+<section class="sl-hero">
+  <div class="bz-container">
+    <nav class="sl-breadcrumb" aria-label="breadcrumb">
+      <a href="{{ "/" | relURL }}" class="sl-breadcrumb-home">AI Solutions Wiki</a>
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      <span aria-current="page">Browse</span>
+    </nav>
+    <div class="sl-hero-grid">
+      <div class="sl-hero-inner">
+        <h1 class="sl-h1">{{ .Title }}</h1>
+        {{ with .Description }}<p class="sl-desc">{{ . }}</p>{{ end }}
+        <div class="sl-hero-meta"><span class="sl-hero-count">{{ len $all }} entries</span></div>
+      </div>
+      <div class="sl-hero-aside">{{ partial "wiki-sections.html" . }}</div>
+    </div>
+  </div>
+</section>
+
+<div class="bz-container sl-body">
+  <div class="xp-filter" data-pagefind-ignore>
+    <input type="search" class="xp-search" placeholder="Filter by name or tag..." aria-label="Filter entries">
+    <div class="xp-chips">
+      <button class="xp-chip is-active" data-filter="all" type="button">All <span class="xp-chip-n">{{ len $all }}</span></button>
+      {{ range $s := $sections }}
+        {{ $sp := site.GetPage (printf "/%s" $s) }}{{ $n := 0 }}{{ with $sp }}{{ $n = len .RegularPagesRecursive }}{{ end }}
+        {{ if gt $n 0 }}<button class="xp-chip" data-filter="{{ $s }}" data-section="{{ $s }}" type="button">{{ index $labels $s }} <span class="xp-chip-n">{{ $n }}</span></button>{{ end }}
+      {{ end }}
+    </div>
+  </div>
+  <div class="sl-article-grid xp-grid" data-pagefind-ignore>
+    {{ range (sort $all "Title") }}{{ partial "card.html" . }}{{ end }}
+  </div>
+  <p class="xp-empty" hidden>No entries match your filter.</p>
+</div>
+
+<script src="{{ "js/explore-filter.js" | relURL }}" defer></script>
+{{ end }}

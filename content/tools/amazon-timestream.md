@@ -3,7 +3,7 @@ title: "Amazon Timestream - Time Series Database"
 description: "A comprehensive reference for Amazon Timestream: purpose-built time series storage, query patterns, and integration with IoT and operational AI workloads."
 date: 2026-03-28
 categories: [Tools]
-tags: [amazon-timestream, AWS, time-series, IoT, monitoring, database]
+tags: [amazon-timestream, AWS, time-series, IoT, monitoring, database, "aws-service"]
 related:
   - tools/aws-iot-core
   - tools/amazon-managed-grafana

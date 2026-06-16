@@ -8,26 +8,33 @@
     {{ partial "breadcrumbs.html" . }}
 
     <article class="article-content">
-      <header class="article-header">
-        <div class="article-meta-top" data-pagefind-ignore>
-          <a href="{{ "/basics/" | relURL }}" class="section-badge">Basics</a>
-          {{ with .Params.level }}
-          <span class="bz-level-pill">Level {{ . }}</span>
+      {{ $clip := (index site.Data.basics_videos .File.BaseFileName) | default "germination-timelapse.mp4" }}
+      <header class="article-header basics-hero">
+        <video class="basics-hero-bg" autoplay loop muted playsinline preload="metadata" aria-hidden="true">
+          <source src="{{ (printf "/videos/garden/%s" $clip) | relURL }}" type="video/mp4">
+        </video>
+        <div class="basics-hero-scrim" aria-hidden="true"></div>
+        <div class="basics-hero-inner">
+          <div class="article-meta-top" data-pagefind-ignore>
+            <a href="{{ "/basics/" | relURL }}" class="section-badge">Basics</a>
+            {{ with .Params.level }}
+            <span class="bz-level-pill">Level {{ . }}</span>
+            {{ end }}
+          </div>
+
+          <h1 data-pagefind-meta="title">{{ .Title }}</h1>
+
+          {{ with .Description }}
+          <p class="article-description">{{ . }}</p>
           {{ end }}
-        </div>
 
-        <h1 data-pagefind-meta="title">{{ .Title }}</h1>
-
-        {{ with .Description }}
-        <p class="article-description">{{ . }}</p>
-        {{ end }}
-
-        <div class="article-meta" data-pagefind-ignore>
-          <span class="meta-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            {{ .ReadingTime }} min read
-          </span>
-          <span class="meta-item">No prior knowledge needed</span>
+          <div class="article-meta" data-pagefind-ignore>
+            <span class="meta-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              {{ .ReadingTime }} min read
+            </span>
+            <span class="meta-item">No prior knowledge needed</span>
+          </div>
         </div>
       </header>
 

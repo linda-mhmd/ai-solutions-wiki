@@ -3,7 +3,8 @@ title: "Amazon S3 - Object Storage for AI Pipelines"
 description: "How Amazon S3 functions as the storage backbone for AI data pipelines: ingest, staging, output, and lifecycle management."
 date: 2026-03-25
 categories: [Tools]
-tags: ["cloud-computing", "beginner", "aws-s3", "object-storage", "aws", "data-pipeline", "storage"]
+layer: data
+tags: ["cloud-computing", "beginner", "aws-s3", "object-storage", "aws", "data-pipeline", "storage", "aws-service"]
 related:
   - tools/azure-blob-storage
   - tools/google-cloud-storage
@@ -16,6 +17,13 @@ Amazon S3 (Simple Storage Service) is object storage built to store and retrieve
 Official documentation: https://aws.amazon.com/s3/
 
 **Azure equivalent:** Azure Blob Storage. **GCP equivalent:** Google Cloud Storage.
+
+## Watch: Amazon S3 (documentation overview)
+{{< video src="screencasts/S3.mp4" title="Amazon S3: AWS documentation overview" caption="A short walkthrough of Amazon S3: buckets, objects, and where a pipeline's inputs and outputs live." >}}
+
+The garden way to picture it: object storage is the seed vault of a system. Every input and result is labelled and kept, so everything else can be rebuilt from it.
+
+{{< video src="garden/state-seed-vault.mp4" metaphor="true" title="The garden metaphor" caption="Storage as a seed vault: everything labelled, kept safe, found in seconds. From the AI Film Crew course." >}}
 
 ## Core Concepts
 
@@ -74,5 +82,5 @@ SmugMug, the photo hosting service, became one of the first significant S3 custo
 ## Related Articles
 
 - [Amazon EventBridge]({{< relref "amazon-eventbridge.md" >}}) - triggering pipelines from S3 events
-- [AWS Lambda]({{< relref "amazon-lambda.md" >}}) - processing objects on arrival
+- [AWS Lambda]({{< relref "tools/aws-lambda" >}}) - processing objects on arrival
 - [Building an AI Video Pipeline]({{< relref "/solutions/media/video-pipeline-architecture.md" >}}) - end-to-end example

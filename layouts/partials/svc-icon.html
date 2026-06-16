@@ -1,0 +1,4 @@
+{{- /* Render a small inline service logo. Input: dict "token" (string).
+       Renders nothing if no icon exists for the token. */ -}}
+{{- $res := partial "svc-icon-file.html" .token -}}
+{{- partial "render-icon.html" (dict "res" $res "class" "" "alt" (printf "%s logo" (.token | humanize | title))) -}}

@@ -2,24 +2,27 @@
 title: "AWS AI Services vs Google Cloud AI - Complete Comparison"
 description: "A service-by-service map of AWS AI and ML services to their Google Cloud equivalents, covering language models, speech, vision, and MLOps."
 date: 2026-03-24
-last_verified: 2026-05-30
+last_verified: 2026-06-14
 categories: [Comparisons]
 tags: ["cloud-computing", "intermediate", "aws", "gcp", "ai-services", "comparison", "cloud"]
-last_updated: 2026-05-30
+last_updated: 2026-06-14
+lastmod: 2026-06-14
 ---
 
 AWS and Google Cloud have the two most comprehensive AI service portfolios in the industry. Google's advantage is deep AI research (the transformer paper, BERT, AlphaFold originated from Google), while AWS leads on enterprise integration and service breadth. This article maps services between the two platforms.
+
+A naming note for 2026: at Cloud Next 2026, Google rebranded Vertex AI as the Gemini Enterprise Agent Platform (Vertex AI is now the former name, and existing Vertex AI APIs, SDKs, and workloads continue to run unchanged). This page keeps the Vertex AI names because they remain the established and widely used identifiers, but expect to see the new Gemini Enterprise branding in Google's console and newer documentation.
 
 ## Foundation Models and LLM Access
 
 | AWS | GCP | Notes |
 |---|---|---|
-| [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html) | [Vertex AI Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/model-garden/explore-models) | Both provide access to multiple model families. Vertex offers Gemini (Google's flagship), Llama, and Mistral. Bedrock offers Claude, Llama, Mistral, Cohere, and Amazon Titan. |
-| [Bedrock Agents](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html) | [Vertex AI Agent Builder](https://cloud.google.com/products/agent-builder) | Managed agent frameworks. Vertex Agent Builder includes grounding with Google Search as a built-in capability. |
+| [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html) | [Vertex AI Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/model-garden/explore-models) | Both provide access to multiple model families. Vertex offers Gemini (Google's flagship), Llama, and Mistral. Bedrock offers Anthropic Claude, Meta Llama, Mistral, Cohere, and Amazon's own Nova models (Nova replaced the earlier Amazon Titan family). |
+| [Bedrock Agents](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html) / [Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) | [Vertex AI Agent Builder](https://cloud.google.com/products/agent-builder) | Managed agent frameworks. AWS added Bedrock AgentCore (generally available October 2025) to deploy and operate agents built with any framework (LangGraph, CrewAI, LlamaIndex, Strands Agents). Vertex AI Agent Builder includes grounding with Google Search as a built-in capability. |
 | [Bedrock Knowledge Bases](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) | [Vertex AI Search / RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview) | Managed RAG pipelines. Vertex AI Search integrates Google's search quality into enterprise applications. |
 | [Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) | [Vertex AI Safety Filters](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/responsible-ai) | Safety and content controls for model outputs. |
 
-Google's Gemini 1.5 Pro / 2.0 models are strong competitors to Claude 3.5/4.x models on Bedrock. Gemini's 2M token context window exceeds what is available via Bedrock. For teams not locked into AWS, Vertex AI is a credible alternative.
+Google's current frontier Gemini models (the Gemini 3 family, including Gemini 3 Pro) are strong competitors to the Anthropic Claude models offered on Bedrock. Gemini 3 Pro ships with a 1 million token context window, which is large but in line with the long-context options now available across providers, so context length alone is no longer the differentiator it once was. The bigger practical split is which model families and tooling each platform gives you first: Bedrock for Anthropic Claude and Amazon Nova, Vertex AI for Gemini and Google Search grounding. For teams not locked into AWS, Vertex AI is a credible alternative.
 
 ## Speech and Language
 
@@ -29,6 +32,8 @@ Google's Gemini 1.5 Pro / 2.0 models are strong competitors to Claude 3.5/4.x mo
 | [Amazon Polly](https://docs.aws.amazon.com/polly/latest/dg/what-is.html) | [Google Text-to-Speech](https://cloud.google.com/text-to-speech/docs/basics) | GCP's Neural2 and Chirp HD voices are high quality. GCP supports more languages. |
 | [Amazon Translate](https://docs.aws.amazon.com/translate/latest/dg/what-is.html) | [Cloud Translation API](https://cloud.google.com/translate/docs/overview) | Both support 70+ languages with neural MT. GCP's AutoML Translation allows domain customization. |
 | [Amazon Comprehend](https://docs.aws.amazon.com/comprehend/latest/dg/what-is.html) | [Google Natural Language API](https://cloud.google.com/natural-language/docs/basics) | Entity extraction, sentiment, syntax. GCP's Healthcare NL API specializes in clinical text. |
+
+Beyond the classic split of separate speech-to-text and text-to-speech services, AWS now offers Amazon Nova Sonic on Bedrock, a single speech-to-speech model for real-time voice conversations (Nova 2 Sonic followed in December 2025). It collapses the traditional transcribe, reason, then synthesize pipeline (Amazon Transcribe to a text model to Amazon Polly) into one model, which is useful for voice agents and call automation.
 
 ## Vision
 
@@ -43,7 +48,7 @@ Google's Gemini 1.5 Pro / 2.0 models are strong competitors to Claude 3.5/4.x mo
 
 | AWS | GCP | Notes |
 |---|---|---|
-| [Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html) | [Vertex AI](https://cloud.google.com/vertex-ai/docs/start/introduction-unified-platform) | Full ML lifecycle platforms. Vertex AI Workbench (Jupyter notebooks) is polished. SageMaker has tighter AWS ecosystem integration. |
+| [Amazon SageMaker AI](https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html) | [Vertex AI](https://cloud.google.com/vertex-ai/docs/start/introduction-unified-platform) | Full ML lifecycle platforms. The core ML platform is now branded Amazon SageMaker AI, and AWS introduced the next generation of SageMaker (announced at re:Invent 2024) with SageMaker Unified Studio, a single environment for data, analytics, and AI. Vertex AI Workbench (Jupyter notebooks) is polished. SageMaker has tighter AWS ecosystem integration. |
 | [SageMaker Pipelines](https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines.html) | [Vertex AI Pipelines](https://cloud.google.com/vertex-ai/docs/pipelines/introduction) | ML workflow orchestration using Kubeflow Pipelines SDK. |
 | [SageMaker Ground Truth](https://docs.aws.amazon.com/sagemaker/latest/dg/sms.html) | [Vertex AI Data Labeling](https://cloud.google.com/vertex-ai/docs/datasets/data-labeling-job) | Human-in-the-loop labeling at scale. |
 | [Amazon Forecast](https://docs.aws.amazon.com/forecast/latest/dg/what-is-forecast.html) | [Vertex AI Forecast](https://cloud.google.com/vertex-ai/docs/tabular-data/forecasting/overview) | Time-series forecasting service. |
@@ -82,6 +87,9 @@ Google's Gemini 1.5 Pro / 2.0 models are strong competitors to Claude 3.5/4.x mo
 - Amazon Comprehend: [https://docs.aws.amazon.com/comprehend/latest/dg/what-is.html](https://docs.aws.amazon.com/comprehend/latest/dg/what-is.html)
 - Amazon Translate: [https://docs.aws.amazon.com/translate/latest/dg/what-is.html](https://docs.aws.amazon.com/translate/latest/dg/what-is.html)
 - Amazon Polly: [https://docs.aws.amazon.com/polly/latest/dg/what-is.html](https://docs.aws.amazon.com/polly/latest/dg/what-is.html)
+- Amazon Bedrock AgentCore (now generally available): [https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available](https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available)
+- Amazon Nova foundation models: [https://aws.amazon.com/nova/models/](https://aws.amazon.com/nova/models/)
+- The next generation of Amazon SageMaker: [https://aws.amazon.com/about-aws/whats-new/2024/12/next-generation-amazon-sagemaker](https://aws.amazon.com/about-aws/whats-new/2024/12/next-generation-amazon-sagemaker)
 
 **Google Cloud Official Documentation**
 - Vertex AI: [https://cloud.google.com/vertex-ai/docs/start/introduction-unified-platform](https://cloud.google.com/vertex-ai/docs/start/introduction-unified-platform)
@@ -92,9 +100,11 @@ Google's Gemini 1.5 Pro / 2.0 models are strong competitors to Claude 3.5/4.x mo
 - Google Speech-to-Text: [https://cloud.google.com/speech-to-text/docs/basics](https://cloud.google.com/speech-to-text/docs/basics)
 - Google Text-to-Speech: [https://cloud.google.com/text-to-speech/docs/basics](https://cloud.google.com/text-to-speech/docs/basics)
 - Cloud Translation API: [https://cloud.google.com/translate/docs/overview](https://cloud.google.com/translate/docs/overview)
+- Gemini Enterprise Agent Platform (formerly Vertex AI): [https://cloud.google.com/products/gemini-enterprise-agent-platform](https://cloud.google.com/products/gemini-enterprise-agent-platform)
 
 ## Related Articles
 
 - [AWS AI Services vs Azure AI]({{< relref "aws-vs-azure-ai.md" >}}) - AWS vs Azure comparison
 - [Amazon Bedrock]({{< relref "/tools/amazon-bedrock.md" >}}) - AWS foundation model service
 - [Bedrock vs Azure OpenAI]({{< relref "bedrock-vs-azure-openai.md" >}}) - detailed LLM platform comparison
+- [Amazon SageMaker]({{< relref "/tools/amazon-sagemaker.md" >}}) - AWS managed ML platform

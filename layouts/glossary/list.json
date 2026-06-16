@@ -1,0 +1,66 @@
+{{- /* Glossary term index for client-side auto-linking + hover previews.
+       Emitted at /glossary/index.json. Keys kept short to limit size (445+ terms):
+       t=primary term, a=aliases, u=url, s=summary, r=related connections. */ -}}
+{{- $terms := slice -}}
+{{- range (where site.RegularPages "Section" "glossary") -}}
+  {{- $title := .Title -}}
+  {{- $aliases := slice -}}
+  {{- if in $title " - " -}}
+    {{- $p := split $title " - " -}}
+    {{- $aliases = slice (index $p 0) (delimit (after 1 $p) " - ") -}}
+  {{- else -}}
+    {{- $aliases = slice $title -}}
+  {{- end -}}
+  {{- /* expand aliases with short forms so text like "serverless" matches "Serverless Computing",
+         "vector" matches "Vector Database", "foundation model" matches "Foundation Models" */ -}}
+  {{- with .Params.aliases }}{{ range . }}{{ $aliases = $aliases | append . }}{{ end }}{{ end -}}
+  {{- $generic := slice "Computing" "Systems" "System" "Models" "Database" "Databases" "Architecture" "Architectures" "Frameworks" "Patterns" "Pipelines" "Pipeline" -}}
+  {{- $extra := slice -}}
+  {{- range $aliases -}}
+    {{- $a := . -}}
+    {{- if and (gt (len $a) 5) (hasSuffix $a "s") (not (hasSuffix $a "ss")) -}}{{ $extra = $extra | append (substr $a 0 (sub (len $a) 1)) }}{{- end -}}
+    {{- if and (ge (len $a) 4) (not (hasSuffix $a "s")) -}}{{ $extra = $extra | append (printf "%ss" $a) }}{{- end -}}
+    {{- $w := split $a " " -}}
+    {{- if gt (len $w) 1 -}}
+      {{- $last := index $w (sub (len $w) 1) -}}
+      {{- if in $generic $last -}}
+        {{- $head := delimit (first (sub (len $w) 1) $w) " " -}}
+        {{- if ge (len $head) 4 -}}{{ $extra = $extra | append $head -}}
+          {{- if and (gt (len $head) 5) (hasSuffix $head "s") (not (hasSuffix $head "ss")) -}}{{ $extra = $extra | append (substr $head 0 (sub (len $head) 1)) }}{{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $aliases = $aliases | append $extra | uniq -}}
+  {{- $rel := slice -}}
+  {{- with .Params.related }}{{ range . }}{{ $rp := site.GetPage . }}{{ with $rp }}{{ $rel = $rel | append (dict "u" .RelPermalink "t" .Title) }}{{ end }}{{ end }}{{ end -}}
+  {{- /* Real answer for the hover: the page's actual opening definition (first content),
+         not the meta description that just restates the question. Precedence:
+         explicit tldr/summary frontmatter > content summary > description. */ -}}
+  {{- $sum := "" -}}
+  {{- with .Params.tldr }}{{ $sum = . }}{{ else }}{{ with .Params.summary }}{{ $sum = . }}{{ else }}{{ $sum = .Summary | plainify | htmlUnescape }}{{ end }}{{ end -}}
+  {{- $sum = $sum | chomp -}}
+  {{- if lt (len $sum) 24 }}{{ $sum = .Description | default $sum }}{{ end -}}
+  {{- $terms = $terms | append (dict
+      "t" (index $aliases 0)
+      "a" $aliases
+      "u" .RelPermalink
+      "s" ($sum | truncate 340)
+      "r" $rel
+  ) -}}
+{{- end -}}
+{{- /* Also link tool/service names to their tool pages (k:t marks a tool link), so mentions of
+       Lambda, Bedrock, Step Functions, etc. connect everywhere, Wikipedia-style. */ -}}
+{{- range (where site.RegularPages "Section" "tools") -}}
+  {{- $tt := index (split .Title " - ") 0 -}}
+  {{- $ta := slice $tt -}}
+  {{- range (slice "AWS " "Amazon " "Azure " "Google Cloud " "Google " "Apache ") -}}
+    {{- if hasPrefix $tt . -}}{{ $ta = $ta | append (strings.TrimPrefix . $tt) }}{{- end -}}
+  {{- end -}}
+  {{- with .Params.aliases }}{{ range . }}{{ $ta = $ta | append . }}{{ end }}{{ end -}}
+  {{- $tsum := .Description | default (.Summary | plainify | htmlUnescape) | chomp -}}
+  {{- $terms = $terms | append (dict
+      "t" $tt "a" ($ta | uniq) "u" .RelPermalink "s" ($tsum | truncate 300) "r" slice "k" "t"
+  ) -}}
+{{- end -}}
+{{- $terms | jsonify -}}

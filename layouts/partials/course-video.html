@@ -1,0 +1,38 @@
+{{- /* Course video. Preference order:
+       1. Rendered MP4      — page `video_file` + site `videoBase` (the CDN/origin serving the
+          rendered out/*.mp4). A plain <video> with controls. This is the per-module render.
+       2. Live Remotion Player — page `composition` + site `playerAssetBase`.
+       3. YouTube embed     — page `youtube` id or site `courseYoutube`, deep-linked by start.
+       4. "Coming soon" placeholder.
+       Input: a page (.). */ -}}
+{{- $vf := .Params.video_file -}}
+{{- $vbase := site.Params.videoBase -}}
+{{- $comp := .Params.composition -}}
+{{- $pbase := site.Params.playerAssetBase -}}
+{{- $start := .Params.video_start | default 0 -}}
+{{- $yt := .Params.youtube -}}{{- if not $yt }}{{ $yt = site.Params.courseYoutube }}{{ end -}}
+{{- if and $vf $vbase -}}
+<div class="course-video">
+  <video controls preload="metadata" playsinline {{ with .Params.poster }}poster="{{ $vbase }}/{{ . }}"{{ end }} src="{{ $vbase }}/{{ $vf }}">
+    Your browser does not support the video tag. <a href="{{ $vbase }}/{{ $vf }}">Download the video</a>.
+  </video>
+</div>
+{{- else if and $comp $pbase -}}
+<div class="course-video">
+  <div class="rmtn-player" data-comp="{{ $comp }}" data-start="{{ $start }}"></div>
+</div>
+<script>window.remotion_staticBase = window.remotion_staticBase || "{{ $pbase }}";</script>
+{{ partial "asset-js.html" "remotion-course-player.js" }}
+{{- else if $yt -}}
+<div class="course-video">
+  <iframe src="https://www.youtube-nocookie.com/embed/{{ $yt }}?start={{ $start }}&amp;rel=0" title="{{ .Title }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+{{- else -}}
+<div class="course-video course-video--soon" role="img" aria-label="Course video coming soon">
+  <div class="cv-soon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+    <span class="cv-soon-title">Video coming soon</span>
+    {{ with .Params.duration_min }}<span class="cv-soon-sub">About {{ . }} minutes</span>{{ end }}
+  </div>
+</div>
+{{- end -}}

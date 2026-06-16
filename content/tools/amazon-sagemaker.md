@@ -3,7 +3,7 @@ title: "Amazon SageMaker - Custom ML Model Training and Deployment"
 description: "What SageMaker is, when to use it instead of Bedrock, key capabilities, pricing model, and the workflows that suit it best."
 date: 2026-03-24
 categories: [Tools]
-tags: ["ai-ml", "advanced", "amazon-sagemaker", "ml-training", "model-deployment", "aws", "mlops"]
+tags: ["ai-ml", "advanced", "amazon-sagemaker", "ml-training", "model-deployment", "aws", "mlops", "aws-service"]
 related:
   - tools/amazon-bedrock
   - tools/kubeflow

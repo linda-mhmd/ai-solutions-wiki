@@ -1,0 +1,8 @@
+{{- /* Emit a <script> tag for a static/js file with a content-hash ?v= cache-buster, so an
+       edited script is always re-fetched (static files are otherwise cached indefinitely).
+       Input: the filename, e.g. "glossary-link.js". */ -}}
+{{- $f := . -}}
+{{- $path := printf "static/js/%s" $f -}}
+{{- $v := "0" -}}
+{{- if fileExists $path -}}{{ $v = substr (readFile $path | crypto.MD5) 0 10 }}{{- end -}}
+<script src="{{ (printf "js/%s" $f) | relURL }}?v={{ $v }}" defer></script>

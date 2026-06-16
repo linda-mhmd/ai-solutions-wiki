@@ -2,7 +2,7 @@
 title: "Jest vs Pytest for AI Application Testing"
 description: "Comparing Jest and Pytest for testing AI applications: language ecosystems, fixture systems, snapshot testing, async support, mocking, and AI-specific considerations."
 date: 2026-03-28
-last_verified: 2026-05-30
+last_verified: 2026-06-14
 categories: [Comparisons]
 tags: [jest, pytest, testing, javascript, python, ai-engineering]
 related:
@@ -10,10 +10,13 @@ related:
   - guides/testing-ai-systems
   - glossary/unit-testing
   - glossary/snapshot-testing
-last_updated: 2026-05-30
+last_updated: 2026-06-14
+lastmod: 2026-06-14
 ---
 
-Jest and Pytest are the dominant test frameworks in their respective ecosystems: Jest for JavaScript/TypeScript and Pytest for Python. Since AI applications use both languages (Python for ML/backend, TypeScript for frontend/API layers), many teams use both frameworks in the same project. This comparison evaluates their strengths for AI application testing specifically.
+Jest and pytest are the dominant test frameworks in their respective ecosystems: Jest for JavaScript/TypeScript and pytest for Python. Since AI applications use both languages (Python for ML/backend, TypeScript for frontend/API layers), many teams use both frameworks in the same project. This comparison evaluates their strengths for AI application testing specifically.
+
+As of June 2026, the current stable releases are Jest 30 (the v30 line shipped on 4 June 2025 after roughly three years without a major release, with 30.4.x patches following) and pytest 9 (9.1.0, released 13 June 2026). Jest 30 dropped support for Node 14, 16, 19, and 21 and now requires Node 18 or newer plus TypeScript 5.4 or newer; pytest 9 requires Python 3.10 or newer. On the JavaScript side, Vitest (Vitest 4 reached stable in late 2025) has become the default test runner for new Vite, React, and Next.js projects and a common Jest replacement, so much of the Jest guidance below applies equally to Vitest, whose API is intentionally close to Jest's.
 
 ## Language Ecosystem Fit
 
@@ -109,7 +112,7 @@ def test_pipeline(mock_openai):
 
 **Jest** handles async/await natively since JavaScript is async-first. Async tests return promises and Jest handles them transparently.
 
-**Pytest** supports async testing via `pytest-asyncio`. Configuration requires markers or plugin settings, adding some friction.
+**Pytest** supports async testing via `pytest-asyncio` (1.4.0 as of May 2026). Each async test needs the `@pytest.mark.asyncio` marker, or you set `asyncio_mode = auto` once in your config so every async test is collected without a per test marker. The alternative `anyio` plugin covers both asyncio and Trio.
 
 ```python
 @pytest.mark.asyncio
@@ -118,15 +121,15 @@ async def test_async_pipeline():
     assert result is not None
 ```
 
-**Winner: Jest** for async convenience. Most AI API calls are inherently async.
+**Winner: Jest** for async convenience. Most AI API calls are inherently async. pytest closes much of the gap with `asyncio_mode = auto`, but Jest still handles promises with zero configuration.
 
 ## AI-Specific Libraries
 
-**Pytest** integrates with DeepEval, RAGAS, Hypothesis (property-based testing), and most Python AI evaluation tools. The Python ML ecosystem is vastly larger than JavaScript's.
+**Pytest** integrates with DeepEval, Ragas, Hypothesis (property-based testing), and most Python AI evaluation tools. DeepEval is built around pytest-style assertions and runs as a pytest plugin, so LLM evaluations live alongside ordinary unit tests; Ragas focuses on retrieval augmented generation metrics such as faithfulness, context precision, and context recall. The Python ML ecosystem is vastly larger than JavaScript's.
 
-**Jest** integrates with Promptfoo (via CLI), fast-check (property-based testing), and JavaScript AI SDKs.
+**Jest** integrates with Promptfoo (run via its CLI rather than as a Jest plugin), fast-check (property-based testing), and JavaScript AI SDKs such as the Vercel AI SDK.
 
-**Winner: Pytest.** The Python AI ecosystem provides more testing and evaluation tools.
+**Winner: pytest.** The Python AI ecosystem provides more testing and evaluation tools, and the leading LLM eval frameworks (DeepEval, Ragas) target pytest directly.
 
 ## Performance
 
@@ -134,7 +137,9 @@ async def test_async_pipeline():
 
 **Pytest** runs tests sequentially by default. Parallel execution requires `pytest-xdist`. Fast for individual tests but needs configuration for parallel suites.
 
-**Winner: Jest** for out-of-the-box parallelism.
+On the JavaScript side, Vitest is generally faster than Jest for cold starts and watch mode reruns, which is one reason many teams now reach for Vitest first. If raw speed matters more than Jest's maturity, evaluate Vitest before committing.
+
+**Winner: Jest** for out-of-the-box parallelism (and Vitest if you want more speed in the JavaScript ecosystem).
 
 ## Recommendation
 
@@ -142,4 +147,14 @@ async def test_async_pipeline():
 
 **Use Jest** (or Vitest) for testing AI frontend code: React components that render AI responses, API route handlers, streaming response rendering, and TypeScript utility functions.
 
-**For full-stack AI applications,** use both. Run Pytest for backend tests and Jest for frontend tests, triggered from the same CI pipeline. Do not try to consolidate onto one framework when the codebase spans both languages.
+**For full-stack AI applications,** use both. Run pytest for backend tests and Jest (or Vitest) for frontend tests, triggered from the same CI pipeline. Do not try to consolidate onto one framework when the codebase spans both languages.
+
+## Sources
+
+- [Jest 30: Faster, Leaner, Better](https://jestjs.io/blog/2025/06/04/jest-30) - the official Jest 30 release post (4 June 2025): performance and memory gains, dropped Node versions, TypeScript 5.4 minimum, and new matchers.
+- [Jest documentation](https://jestjs.io/docs/getting-started) - snapshot testing, mock functions, async tests, and setup hooks.
+- [pytest documentation](https://docs.pytest.org/) - fixtures, scoping, parametrization, and plugin model for the current pytest 9 line.
+- [pytest on PyPI](https://pypi.org/project/pytest/) - latest release (9.1.0, 13 June 2026) and supported Python versions.
+- [pytest-asyncio documentation](https://pytest-asyncio.readthedocs.io/en/stable/concepts.html) - strict vs auto mode for async tests, with `asyncio_mode = auto` removing per test markers.
+- [DeepEval documentation](https://deepeval.com/) - pytest-native LLM evaluation framework with built-in metrics.
+- [Ragas documentation](https://docs.ragas.io/) - retrieval augmented generation evaluation metrics (faithfulness, context precision and recall).

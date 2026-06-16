@@ -1,0 +1,65 @@
+{{- /* Expanded hero for a tool/model page (dark). Icon tile + type badge + big name +
+       Added/Updated + description + capability chips + connected links. */ -}}
+{{ $parts := split .Title " - " }}
+{{ $name := index $parts 0 }}
+{{ $sub := "" }}{{ if gt (len $parts) 1 }}{{ $sub = delimit (after 1 $parts) " - " }}{{ end }}
+{{ $updated := .Lastmod }}{{ with .Params.last_updated }}{{ $updated = (time.AsTime .) }}{{ end }}
+{{ $typeLabels := dict "models" "AI Model" "infrastructure" "Cloud Infrastructure" "data" "Data Service" "orchestration" "Orchestration" "applications" "Application" }}
+{{ $type := "Tool" }}{{ with .Params.layer }}{{ $type = (index $typeLabels .) | default (. | humanize | title) }}{{ end }}
+{{/* Distinguish a foundation model you actually pick (Claude, GPT, Llama) from a managed AI
+     service where the model is hidden behind a task API (Comprehend, Rekognition, Textract).
+     Explicit `kind` wins; otherwise infer from task tags on models-layer entries. */}}
+{{ if .Params.service_kind }}
+  {{ if eq .Params.service_kind "service" }}{{ $type = "AI Service" }}{{ else if eq .Params.service_kind "model" }}{{ $type = "AI Model" }}{{ end }}
+{{ else if eq .Params.layer "models" }}
+  {{ $svcTags := slice "nlp" "vision" "ocr" "speech" "translation" "sentiment-analysis" "entity-extraction" "document" "image" "video" "transcription" "forecasting" "recommendation" "anomaly-detection" "computer-vision" "text-to-speech" "speech-to-text" "moderation" }}
+  {{ $isSvc := false }}{{ range (.Params.tags | default slice) }}{{ if in $svcTags (. | lower) }}{{ $isSvc = true }}{{ end }}{{ end }}
+  {{ if $isSvc }}{{ $type = "AI Service" }}{{ end }}
+{{ end }}
+{{ $icon := "" }}{{ if .File }}{{ $icon = partial "svc-icon-file.html" .File.BaseFileName }}{{ end }}
+{{ $levels := slice "beginner" "intermediate" "advanced" "expert" }}
+<div class="tool-hero">
+  <div class="tool-hero-top">
+    {{ if $icon }}<div class="th-icon {{ partial "darklogo-class.html" $icon }}">{{ partial "render-icon.html" (dict "res" $icon "class" "" "alt" .Title) }}</div>{{ end }}
+    <div class="th-main">
+      <div class="th-row1">
+        <span class="th-type">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.9 5.5L19.5 9l-4.5 3.3L16.7 18 12 14.6 7.3 18l1.7-5.7L4.5 9l5.6-1.5z"/></svg>
+          {{ $type }}
+        </span>
+        <div class="th-dates">
+          <span class="th-date">
+            <span class="th-date-label">Added</span>
+            <span class="th-date-val"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>{{ .Date.Format "2 Jan 2006" }}</span>
+          </span>
+          {{ if $updated }}
+          <span class="th-date">
+            <span class="th-date-label">Last updated</span>
+            <span class="th-date-val"><span class="th-dot"></span>{{ $updated.Format "2 Jan 2006" }}</span>
+          </span>
+          {{ end }}
+          <span class="th-date">
+            <span class="th-date-label">Read time</span>
+            <span class="th-date-val"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>{{ .ReadingTime }} min</span>
+          </span>
+        </div>
+      </div>
+      <h1 class="th-name" data-pagefind-meta="title">{{ $name }}{{ with $sub }} <span class="th-name-sub">{{ . }}</span>{{ end }}</h1>
+      {{ with .Description }}<p class="th-desc">{{ . }}</p>{{ end }}
+      {{ with .Params.tags }}
+      <div class="th-chips">
+        {{ range first 6 . }}{{ if not (in $levels (. | lower)) }}<span class="th-chip">{{ . }}</span>{{ end }}{{ end }}
+      </div>
+      {{ end }}
+      {{ partial "layer-indicator.html" . }}
+    </div>
+  </div>
+  {{ with .Params.related }}
+  <div class="tool-hero-foot">
+    <span class="th-foot-label">Connected</span>
+    {{ range first 5 . }}{{ $p := site.GetPage . }}{{ with $p }}<a href="{{ .RelPermalink }}" class="th-foot-link">{{ .LinkTitle }}</a>{{ end }}{{ end }}
+  </div>
+  {{ end }}
+  {{ with .Section }}<span data-pagefind-meta="section" data-pagefind-filter="section" style="display:none">{{ . | humanize | title }}</span>{{ end }}
+  {{ with .Params.tags }}{{ range . }}{{ if in $levels (. | lower) }}<span data-pagefind-filter="level" style="display:none">{{ . | title }}</span>{{ end }}{{ end }}{{ end }}
+</div>

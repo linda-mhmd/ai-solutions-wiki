@@ -3,7 +3,7 @@ title: "AWS Fargate - Serverless Container Compute"
 description: "AWS Fargate is a serverless compute engine for containers that eliminates the need to manage underlying EC2 instances when running containerized AI workloads on ECS or EKS."
 date: 2026-03-28
 categories: [Tools]
-tags: [aws-fargate, AWS, containers, serverless, ecs, eks]
+tags: [aws-fargate, AWS, containers, serverless, ecs, eks, "aws-service"]
 related:
   - tools/google-cloud-run
   - comparisons/lambda-vs-fargate-ai

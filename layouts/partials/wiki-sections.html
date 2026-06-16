@@ -1,0 +1,51 @@
+{{- /* Grouped "Wiki sections" navigator as a single-open accordion: only the group the
+       reader is currently in is open; opening another collapses the rest (native
+       <details name>). Shown on every wiki page. Only lists sections with content. */ -}}
+{{ $cur := .Section }}
+{{ $groups := slice
+  (dict "label" "Updates"   "items" (slice "news") "direct" true)
+  (dict "label" "Course"    "items" (slice "course"))
+  (dict "label" "Reference" "items" (slice "tools" "glossary" "comparisons" "frameworks"))
+  (dict "label" "Learn"     "items" (slice "basics" "levels" "foundations"))
+  (dict "label" "Build"     "items" (slice "guides" "patterns" "build" "architecture"))
+  (dict "label" "Applied"   "items" (slice "solutions" "case-patterns" "ideas"))
+}}
+{{ $labels := dict
+  "news" "News" "course" "Film Crew Course"
+  "tools" "Tools" "glossary" "Glossary" "comparisons" "Comparisons" "frameworks" "Frameworks"
+  "basics" "Start at Zero" "levels" "Levels" "foundations" "Foundations"
+  "guides" "Guides" "patterns" "Patterns" "build" "Build" "architecture" "Architecture"
+  "solutions" "Industry Solutions" "case-patterns" "Case Patterns" "ideas" "Ideas" }}
+<aside class="wiki-sections">
+  <div class="ws-title">
+    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+    <span>Wiki sections</span>
+  </div>
+  {{ range $g := $groups }}
+    {{ $visible := slice }}
+    {{ range $g.items }}{{ $p := site.GetPage (printf "/%s" .) }}{{ if and $p (gt (len $p.RegularPagesRecursive) 0) }}{{ $visible = $visible | append . }}{{ end }}{{ end }}
+    {{ if $visible }}
+    {{ $isCur := false }}{{ range $visible }}{{ if eq . $cur }}{{ $isCur = true }}{{ end }}{{ end }}
+    {{ if $g.direct }}
+      {{ range $visible }}
+      <a href="{{ printf "/%s/" . | relURL }}" class="ws-acc ws-direct{{ if eq $cur . }} ws-direct--active{{ end }}">
+        <span>{{ index $labels . }}</span>
+        <svg class="ws-direct-arrow" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      {{ end }}
+    {{ else }}
+    <details class="ws-acc" name="wiki-sections-acc"{{ if $isCur }} open{{ end }}>
+      <summary class="ws-acc-sum">
+        <span>{{ $g.label }}</span>
+        <svg class="ws-acc-chev" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </summary>
+      <ul class="sl-sb-list">
+        {{ range $visible }}
+        <li><a href="{{ printf "/%s/" . | relURL }}" class="sl-sb-link {{ if eq $cur . }}sl-sb-link--active{{ end }}">{{ index $labels . }}</a></li>
+        {{ end }}
+      </ul>
+    </details>
+    {{ end }}
+    {{ end }}
+  {{ end }}
+</aside>

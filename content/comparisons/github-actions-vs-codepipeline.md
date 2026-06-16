@@ -2,10 +2,11 @@
 title: "GitHub Actions vs AWS CodePipeline for AI/ML CI/CD"
 description: "Comparing GitHub Actions and AWS CodePipeline for AI and ML continuous integration and deployment, covering features, ecosystem, and cost."
 date: 2026-03-28
-last_verified: 2026-05-30
+last_verified: 2026-06-14
 categories: [Comparisons]
 tags: [GitHub-Actions, CodePipeline, CI-CD, DevOps, MLOps]
-last_updated: 2026-05-30
+last_updated: 2026-06-14
+lastmod: 2026-06-14
 ---
 
 CI/CD for AI workloads includes standard software CI/CD (code testing, building, deploying) plus ML-specific steps (model training, evaluation, model registry updates). GitHub Actions and AWS CodePipeline approach this differently.
@@ -14,27 +15,27 @@ CI/CD for AI workloads includes standard software CI/CD (code testing, building,
 
 **GitHub Actions** is a CI/CD platform integrated into GitHub. Workflows are defined in YAML files in the repository. Extensive marketplace of community-built actions. Runs on GitHub-hosted or self-hosted runners.
 
-**AWS CodePipeline** is a managed CI/CD service on AWS. Pipelines are defined through the console, CLI, CloudFormation, or CDK. Integrates natively with AWS services. CodeBuild provides the build/execution environment.
+**AWS CodePipeline** is a managed CI/CD service on AWS. Pipelines are defined through the console, CLI, CloudFormation, or CDK. Integrates natively with AWS services, with CodeBuild providing the build and execution environment. It connects to GitHub, GitLab, and Bitbucket through AWS CodeConnections (formerly AWS CodeStar Connections). AWS CodeCommit, the AWS-hosted Git service, has been closed to new customers since mid-2024, so most teams now point CodePipeline at an external Git provider.
 
 ## Feature Comparison
 
 | Feature | GitHub Actions | AWS CodePipeline |
 |---|---|---|
 | Pipeline definition | YAML in repo | Console, CLI, CloudFormation, CDK |
-| Trigger types | Push, PR, schedule, manual, webhook | CodeCommit, S3, GitHub, manual |
+| Trigger types | Push, PR, schedule, manual, webhook | GitHub, GitLab, Bitbucket (via connections), S3, ECR, EventBridge, manual |
 | Marketplace | 15,000+ community actions | AWS service integrations |
-| GPU runners | Self-hosted only | CodeBuild GPU build environments |
+| GPU runners | GPU-powered larger runners (Team or Enterprise Cloud) or self-hosted | CodeBuild GPU build environments |
 | Parallel jobs | Matrix builds, concurrent jobs | Parallel stages and actions |
 | Manual approvals | Environment protection rules | Manual approval action |
 | Secrets management | GitHub Secrets + OIDC | AWS Secrets Manager, SSM Parameters |
 | Artifact storage | GitHub Artifacts (90-day retention) | S3 |
-| Cost | Free tier (2,000 min/month), then per-minute | Free (pay for CodeBuild and resources used) |
+| Cost | Free tier (2,000 min/month), then per-minute | $1/month per active V1 pipeline, or $0.002 per action execution minute for V2, plus CodeBuild and resources used |
 
 ## ML-Specific Considerations
 
 ### Model Training in CI/CD
 
-**GitHub Actions:** Cannot run GPU training on GitHub-hosted runners. For GPU training, use self-hosted runners on GPU instances, or trigger training on external services (SageMaker) from the workflow. Many teams use GitHub Actions to trigger SageMaker training jobs and wait for completion.
+**GitHub Actions:** GitHub now offers GPU-powered larger runners (NVIDIA T4) on the Team and Enterprise Cloud plans, so lightweight GPU training can run on GitHub-hosted infrastructure. For larger or longer training jobs, most teams still use self-hosted runners on GPU instances, or trigger training on external services (SageMaker) from the workflow. A common pattern is to use GitHub Actions to start a SageMaker training job and wait for completion.
 
 **CodePipeline:** CodeBuild supports GPU build environments (NVIDIA CUDA). Can run lightweight training directly in CodeBuild. For larger training, invoke SageMaker training jobs from CodeBuild. Native AWS integration simplifies IAM and networking.
 
@@ -70,11 +71,11 @@ Both support deploying AI infrastructure:
 
 ## Cost
 
-**GitHub Actions:** Free tier includes 2,000 minutes/month for private repos. Additional minutes: $0.008/minute (Linux). Self-hosted runners are free (you pay for infrastructure).
+**GitHub Actions:** Free tier includes 2,000 minutes/month for private repos on the Free plan (more on Team and Enterprise plans). Usage in public repositories is free. As of January 1, 2026, GitHub cut hosted runner rates by up to 39 percent: standard Linux 2-core is now $0.006/minute (down from $0.008), Windows 2-core $0.010/minute, and macOS $0.062/minute. Larger and GPU runners cost more. Self-hosted runners remain free (you pay for the underlying infrastructure). GitHub proposed a per-minute platform charge for self-hosted runners in private repos in late 2025, but postponed it indefinitely after community feedback.
 
-**CodePipeline:** The pipeline itself is $1/month per active pipeline. CodeBuild charges: $0.005/minute for general1.small, $0.01/minute for general1.medium. GPU instances cost more.
+**CodePipeline:** There are two pipeline types with different pricing. V1-type pipelines cost $1.00/month per active pipeline (one free per month). V2-type pipelines cost $0.002 per action execution minute, with 100 free action execution minutes per month, and add features such as pipeline-level variables and triggers. CodeBuild is billed separately: roughly $0.005/minute for general1.small and $0.01/minute for general1.medium on Linux, with GPU and larger instances costing more (CodeBuild also offers a per-second Lambda compute option). The CodeBuild free tier includes 100 build minutes per month.
 
-For most AI projects with moderate CI/CD activity, both cost under $50/month. The cost difference is not a deciding factor.
+For most AI projects with moderate CI/CD activity, both cost under $50/month. The cost difference is rarely the deciding factor.
 
 ## Common Patterns
 
@@ -97,3 +98,10 @@ GitHub Actions runs on every PR (tests, linting, evaluation). When code merges t
 **Choose CodePipeline** when you need deep AWS integration, your pipelines involve many AWS services, you prefer console-based pipeline management, or your organization has strict AWS-only policies.
 
 **Choose both** when you want the best of each: GitHub Actions for developer-facing CI on pull requests, CodePipeline for AWS-centric deployment to staging and production.
+
+## Sources
+
+- [GitHub Actions runner pricing (GitHub Docs)](https://docs.github.com/en/billing/reference/actions-runner-pricing)
+- [Reduced pricing for GitHub-hosted runners usage (GitHub Changelog, January 2026)](https://github.blog/changelog/2026-01-01-reduced-pricing-for-github-hosted-runners-usage/)
+- [AWS CodePipeline pricing](https://aws.amazon.com/codepipeline/pricing/)
+- [Introducing AWS CodeConnections, formerly AWS CodeStar Connections (AWS What's New)](https://aws.amazon.com/about-aws/whats-new/2024/03/aws-codeconnections-formerly-codestar-connections/)

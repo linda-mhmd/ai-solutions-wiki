@@ -1,0 +1,20 @@
+{{- /* Logo row for an "X-vs-Y" comparison page, derived from the slug.
+       Input: the page (.). Renders only if at least one side has a logo. */ -}}
+{{- $slug := .File.BaseFileName -}}
+{{- if in $slug "-vs-" -}}
+  {{- $parts := split $slug "-vs-" -}}
+  {{- $anyIcon := false -}}
+  {{- range $parts }}{{ if partial "svc-icon-file.html" . }}{{ $anyIcon = true }}{{ end }}{{ end -}}
+  {{- if $anyIcon -}}
+  <div class="svc-logo-row" aria-hidden="true">
+    {{- range $i, $p := $parts -}}
+      {{- if $i }}<span class="svc-vs">vs</span>{{ end -}}
+      {{- $res := partial "svc-icon-file.html" $p -}}
+      <span class="svc-logo-item {{ partial "darklogo-class.html" $res }}">
+        {{- partial "render-icon.html" (dict "res" $res "class" "svc-icon-lg" "alt" (printf "%s logo" ($p | humanize | title))) -}}
+        <span class="svc-name">{{ $p | humanize | title }}</span>
+      </span>
+    {{- end -}}
+  </div>
+  {{- end -}}
+{{- end -}}

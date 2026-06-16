@@ -2,21 +2,22 @@
 title: "FastAPI vs Flask for AI Applications"
 description: "Comparing FastAPI and Flask for building AI model serving APIs and backend services, covering performance, developer experience, and production readiness."
 date: 2026-03-28
-last_verified: 2026-05-30
+last_verified: 2026-06-14
 categories: [Comparisons]
 tags: [FastAPI, Flask, Python, API, AI-infrastructure]
-last_updated: 2026-05-30
+last_updated: 2026-06-14
+lastmod: 2026-06-14
 ---
 
-FastAPI and Flask are the two most popular Python web frameworks for building AI APIs. Most AI model serving, LLM orchestration, and ML pipeline APIs are built with one of them. This comparison focuses on AI-specific considerations.
+FastAPI and Flask are the two most popular Python web frameworks for building AI APIs. Most AI model serving, LLM orchestration, and ML pipeline APIs are built with one of them. This comparison focuses on AI-specific considerations. As of 2026, FastAPI (0.137.0, built on Starlette and Pydantic v2) has become the de facto default for new AI and ML serving APIs, while Flask (3.1.x) remains a mature, widely deployed choice, especially for existing applications and server-rendered web apps.
 
 ## Quick Comparison
 
 | Feature | FastAPI | Flask |
 |---|---|---|
-| Async support | Native (built on ASGI) | Limited (via extensions) |
+| Async support | Native (built on ASGI/Starlette) | Partial (async def views via flask[async], run on worker threads) |
 | Performance | High (async, Starlette) | Moderate (sync by default) |
-| Type validation | Built-in (Pydantic) | Manual or via extensions |
+| Type validation | Built-in (Pydantic v2) | Manual or via extensions |
 | Auto-documentation | Automatic OpenAPI/Swagger | Manual or via Flask-RESTX |
 | Learning curve | Moderate | Low |
 | Ecosystem | Growing | Massive |
@@ -41,7 +42,7 @@ AI applications make many external API calls (LLM providers, vector databases, f
 
 **FastAPI** endpoints are async by default. Multiple concurrent LLM API calls execute simultaneously, not sequentially. This significantly improves throughput for applications that orchestrate multiple AI service calls.
 
-**Flask** is synchronous by default. Concurrent API calls require threading (via concurrent.futures) or async extensions (via Quart, an async Flask alternative). Achievable but requires more code.
+**Flask** supports async def views when installed with the async extra (pip install flask[async]), available since Flask 2.0, but each async view runs in its own worker thread rather than on a shared event loop, so it does not deliver the same I/O concurrency as a native ASGI framework. For high-concurrency async work, the common paths are threading (via concurrent.futures) or moving to Quart, the ASGI sibling maintained by the Pallets team. Achievable but requires more setup.
 
 **Advantage:** FastAPI for applications making many external API calls
 
@@ -49,7 +50,7 @@ AI applications make many external API calls (LLM providers, vector databases, f
 
 AI APIs have complex request and response schemas (nested objects, arrays of embeddings, structured model outputs):
 
-**FastAPI** uses Pydantic models for automatic validation. Define the schema once; FastAPI validates inputs, generates documentation, and provides type hints. This is particularly valuable for AI APIs with complex schemas.
+**FastAPI** uses Pydantic models for automatic validation (Pydantic v2, whose Rust-based core validates significantly faster than v1). Define the schema once; FastAPI validates inputs, generates documentation, and provides type hints. This is particularly valuable for AI APIs with complex schemas, and it is the same Pydantic that powers structured-output and tool-calling helpers in libraries like LangChain and Pydantic AI.
 
 **Flask** requires manual validation or extensions (marshmallow, flask-pydantic). More code for the same result.
 
@@ -61,7 +62,7 @@ Both frameworks need to load ML models at startup:
 
 **FastAPI** uses the lifespan context manager for startup/shutdown logic. Load models in the lifespan function; they persist across requests.
 
-**Flask** uses before_first_request (deprecated in recent versions) or application factory patterns. Models are typically loaded at module level or in the app factory.
+**Flask** previously used the before_first_request hook, but that was removed in Flask 2.3.0 (Flask is on 3.1.x as of 2026). Models are now typically loaded at module level or in the application factory, since Flask has no built-in lifespan event equivalent to FastAPI's.
 
 Both handle model loading adequately. The pattern is slightly different but neither is significantly better.
 
@@ -112,3 +113,10 @@ Both deploy well in containers (Docker) and on AWS (ECS, Lambda, SageMaker).
 ## Recommendation
 
 For new AI applications, FastAPI is the better default choice. Its async support, streaming capabilities, and automatic validation align well with AI API requirements. For existing Flask applications, there is no urgent need to migrate - Flask handles AI workloads adequately, and the migration cost is rarely justified by performance gains alone.
+
+## Sources
+
+- [FastAPI documentation](https://fastapi.tiangolo.com/) - official docs covering async, StreamingResponse, WebSockets, lifespan events, and Pydantic-based validation.
+- [FastAPI on PyPI](https://pypi.org/project/fastapi/) - latest release (0.137.0, June 2026), Python 3.10+ requirement, and Pydantic v2 dependency.
+- [Flask documentation: Using async and await](https://flask.palletsprojects.com/en/stable/async-await/) - explains the flask[async] extra and that async views run in a worker thread.
+- [Flask changelog](https://flask.palletsprojects.com/en/stable/changes/) - version history, including the 3.1.x line and the removal of before_first_request in 2.3.0.

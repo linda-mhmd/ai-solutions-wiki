@@ -3,13 +3,20 @@ title: "Amazon Bedrock AgentCore - Serverless AI Agent Hosting"
 description: "How Amazon Bedrock AgentCore provides managed infrastructure for running AI agents at scale without managing servers."
 date: 2026-03-25
 categories: [Tools]
-tags: ["ai-agents", "advanced", "bedrock-agentcore", "aws", "agent-runtime", "tool-use", "memory"]
+tags: ["ai-agents", "advanced", "bedrock-agentcore", "aws", "agent-runtime", "tool-use", "memory", "aws-service"]
 last_updated: 2026-05-30
 ---
 
 AWS Bedrock AgentCore is the managed runtime layer for deploying AI agents in production. Rather than building your own agent execution infrastructure (managing compute, scaling, state persistence, and tool invocation), AgentCore provides these capabilities as a managed service. Agents run serverlessly - you pay per invocation, not for idle capacity.
 
 Official documentation: https://aws.amazon.com/bedrock/agentcore/
+
+## Watch: Bedrock AgentCore (documentation overview)
+{{< video src="screencasts/AgentCore.mp4" title="Amazon Bedrock AgentCore: AWS documentation overview" caption="A short walkthrough of AgentCore, the managed runtime where AI agents plan, use tools, and run." >}}
+
+The garden way to picture it: an agent crew is a specialist garden team. Each member does one job, checks the others, and hands the work on.
+
+{{< video src="garden/agents-robot-crew.mp4" metaphor="true" title="The garden metaphor" caption="A crew of specialist agents, each with one job. From the AI Film Crew course." >}}
 
 ## What AgentCore Provides
 

@@ -1,0 +1,6 @@
+{{- /* A still frame from the module video, as a figure. Usage:
+       {{< still src="m04-a.jpg" caption="..." >}} */ -}}
+<figure class="co-still">
+  <img src="{{ (printf "/images/course/%s" (.Get "src")) | relURL }}" alt="{{ .Get "caption" | default "Still from the module video" }}" loading="lazy">
+  {{- with .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end -}}
+</figure>

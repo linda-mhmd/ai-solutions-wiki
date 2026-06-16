@@ -1,0 +1,37 @@
+{{- /* Shared overview card. Input: a page (.). Used by section list pages and the Explore gallery.
+       data-* attributes drive the gallery's client-side filtering and per-section colour. */ -}}
+{{- $p := . -}}
+{{ $parts := split $p.Title " - " }}
+{{ $name := index $parts 0 }}
+{{ $sub := "" }}{{ if gt (len $parts) 1 }}{{ $sub = delimit (after 1 $parts) " - " }}{{ end }}
+{{ if eq $sub "" }}{{ with $p.Description }}{{ $sub = (. | truncate 72) }}{{ end }}{{ end }}
+{{ $cat := "" }}{{ with $p.Params.layer }}{{ $cat = . | humanize | title }}{{ else }}{{ with $p.Params.categories }}{{ $cat = index . 0 }}{{ end }}{{ end }}
+{{ $updated := $p.Lastmod }}{{ with $p.Params.last_updated }}{{ $updated = (time.AsTime .) }}{{ end }}
+{{ $icon := "" }}{{ if $p.File }}{{ $icon = partial "svc-icon-file.html" $p.File.BaseFileName }}{{ end }}
+{{ $yr := now.Year }}
+{{ $aFmt := cond (eq $p.Date.Year $yr) "2 Jan" "2 Jan 2006" }}
+{{ $uFmt := "2 Jan 2006" }}{{ if $updated }}{{ $uFmt = cond (eq $updated.Year $yr) "2 Jan" "2 Jan 2006" }}{{ end }}
+<a href="{{ $p.RelPermalink }}" class="sl-card{{ if $icon }} has-icon{{ end }}" data-section="{{ $p.Section }}" data-title="{{ $p.Title | lower }}"{{ with $p.Params.tags }} data-tags="{{ delimit . "," | lower }}"{{ end }}{{ with $p.Params.layer }} data-layer="{{ . }}"{{ end }}>
+  <div class="sl-card-head">
+    {{ if $icon }}<span class="sl-card-icon {{ partial "darklogo-class.html" $icon }}">{{ partial "render-icon.html" (dict "res" $icon "class" "" "alt" "") }}</span>{{ end }}
+    <span class="sl-card-headtext">
+      <span class="sl-card-name">{{ $name }}</span>
+      {{ with $sub }}<span class="sl-card-sub">{{ . }}</span>{{ end }}
+    </span>
+    {{ with $cat }}<span class="sl-card-badge">{{ . }}</span>{{ end }}
+  </div>
+  <div class="sl-card-foot">
+    <span class="sl-card-date">
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      Added {{ $p.Date.Format $aFmt }}
+    </span>
+    {{ if $updated }}
+    <span class="sl-card-sep">&middot;</span>
+    <span class="sl-card-date">
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      Upd {{ $updated.Format $uFmt }}
+    </span>
+    {{ end }}
+    {{ with $p.ReadingTime }}<span class="sl-card-sep">&middot;</span><span class="sl-card-read">{{ . }} min</span>{{ end }}
+  </div>
+</a>

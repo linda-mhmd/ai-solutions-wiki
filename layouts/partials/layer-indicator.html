@@ -1,0 +1,14 @@
+{{- /* Shows where the page sits in the 5-layer AI stack. Renders only if `layer` is set. */ -}}
+{{- $cur := .Params.layer -}}
+{{- if $cur -}}
+{{- $layers := slice "applications" "orchestration" "models" "data" "infrastructure" -}}
+{{- $labels := dict "applications" "Applications" "orchestration" "Orchestration" "models" "Models" "data" "Data" "infrastructure" "Infrastructure" -}}
+<div class="layer-map" aria-label="Position in the AI stack">
+  <span class="layer-map-label">AI stack</span>
+  <div class="layer-map-track">
+    {{- range $layers -}}
+    <a href="{{ "/layers/" | relURL }}" class="layer-seg{{ if eq . $cur }} is-current{{ end }}" data-layer="{{ . }}" title="{{ index $labels . }} layer">{{ index $labels . }}</a>
+    {{- end -}}
+  </div>
+</div>
+{{- end -}}

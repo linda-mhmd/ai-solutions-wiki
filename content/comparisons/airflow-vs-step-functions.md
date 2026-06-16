@@ -2,19 +2,20 @@
 title: "Apache Airflow vs AWS Step Functions for ML Pipelines"
 description: "Comparing Airflow and Step Functions for orchestrating ML training, data processing, and deployment pipelines."
 date: 2026-03-28
-last_verified: 2026-05-30
+last_verified: 2026-06-14
 categories: [Comparisons]
 tags: [Airflow, Step-Functions, orchestration, MLOps, pipelines]
-last_updated: 2026-05-30
+last_updated: 2026-06-14
+lastmod: 2026-06-14
 ---
 
 ML pipelines need orchestration: run data ingestion, then preprocessing, then training, then evaluation, then conditionally deploy. Apache Airflow and AWS Step Functions are the two most common orchestrators for these workflows on AWS.
 
 ## Platform Overview
 
-**Apache Airflow** is an open-source workflow orchestration platform. Workflows (DAGs) are defined in Python. Amazon MWAA (Managed Workflows for Apache Airflow) provides managed Airflow on AWS. Airflow has a rich ecosystem of operators for integrating with external services.
+**Apache Airflow** is an open-source workflow orchestration platform. Workflows (DAGs) are defined in Python. Amazon MWAA (Managed Workflows for Apache Airflow) provides managed Airflow on AWS. Airflow has a rich ecosystem of operators for integrating with external services. Apache Airflow 3.0 became generally available in April 2025 and is a significant release: a rewritten React and FastAPI web UI, DAG versioning (a run completes against the DAG version it started on), a new Task SDK, event-driven scheduling, and a Task Execution API that decouples task execution from the scheduler. Amazon MWAA added Airflow 3 support on October 1, 2025 and, as of mid-2026, offers it alongside the 2.x line; Airflow 3 environments on MWAA run on Python 3.12.
 
-**AWS Step Functions** is a serverless workflow orchestration service. Workflows are defined in Amazon States Language (JSON) or using the AWS SDK's workflow builder. Step Functions integrates natively with 200+ AWS services.
+**AWS Step Functions** is a serverless workflow orchestration service. Workflows are defined in Amazon States Language (JSON or YAML), in Workflow Studio, or using the AWS Cloud Development Kit (CDK). Through AWS SDK integrations, Step Functions can call over nine thousand API actions across more than 200 AWS services, and the HTTP Task lets a workflow call external HTTPS APIs (for example Stripe or Salesforce) without a Lambda function in between.
 
 ## Feature Comparison
 
@@ -23,7 +24,7 @@ ML pipelines need orchestration: run data ingestion, then preprocessing, then tr
 | Workflow definition | Python (DAGs) | JSON/YAML (ASL) or SDK |
 | Scheduling | Built-in scheduler (cron, intervals) | EventBridge rules (separate) |
 | Visual designer | Airflow UI (DAG visualization) | Workflow Studio (visual builder) |
-| AWS integrations | Via operators (150+ providers) | Native (200+ services) |
+| AWS integrations | Via operators (amazon provider package) | Native plus AWS SDK (200+ services, 9,000+ actions) |
 | Error handling | Retry, on_failure callbacks | Retry, Catch, fallback states |
 | Parallel execution | Yes (parallel tasks) | Yes (Parallel, Map states) |
 | Human approval | Custom operator (e.g., Slack) | Manual approval via callback |
@@ -43,11 +44,11 @@ ML pipelines need orchestration: run data ingestion, then preprocessing, then tr
 
 ### Model Training Pipelines
 
-**Airflow** can trigger SageMaker training jobs via the SageMaker operator, wait for completion, and proceed to evaluation. The SageMaker operator is mature and well-documented.
+**Airflow** can trigger Amazon SageMaker AI training jobs via the SageMaker operators, wait for completion, and proceed to evaluation. (The classic build, train, and deploy service was renamed Amazon SageMaker AI in late 2024; the name Amazon SageMaker now refers to the broader unified data and AI platform.) The SageMaker operators are mature and well-documented.
 
-**Step Functions** has native SageMaker integration: CreateTrainingJob, CreateTransformJob, CreateEndpoint. No custom code needed. The integration is direct and handles polling and error cases automatically.
+**Step Functions** has native SageMaker AI integration: CreateTrainingJob, CreateTransformJob, CreateEndpoint. No custom code needed. The integration is direct and handles polling and error cases automatically.
 
-**Advantage:** Step Functions for simple SageMaker pipelines; Airflow for complex pipelines with many custom steps
+**Advantage:** Step Functions for simple SageMaker AI pipelines; Airflow for complex pipelines with many custom steps
 
 ### Deployment Pipelines
 
@@ -59,7 +60,7 @@ ML pipelines need orchestration: run data ingestion, then preprocessing, then tr
 
 ## Operational Considerations
 
-**MWAA** runs a persistent Airflow environment (scheduler, web server, workers). Minimum cost: ~$360/month for the smallest environment. The environment runs continuously, regardless of pipeline activity. Scaling workers for burst workloads requires configuration.
+**MWAA** runs a persistent Airflow environment (scheduler, web server, workers). The smallest environment (mw1.small) is billed at about $0.49 per hour, which works out to roughly $360 per month if it runs continuously, before any extra workers, schedulers, web servers, or metadata database storage. The environment runs continuously, regardless of pipeline activity. Scaling workers for burst workloads requires configuration.
 
 **Step Functions** is truly serverless. No infrastructure to manage. You pay only when workflows execute. Idle cost: zero. Scales automatically to any workload.
 
@@ -92,3 +93,14 @@ Airflow handles complex, scheduled data pipelines (daily data processing, featur
 **Choose Airflow (MWAA)** when you have complex ML pipelines with many steps, need Python-native workflow definition, run pipelines frequently (daily or more), or the team already knows Airflow.
 
 **Choose Step Functions** when you want serverless operation with zero idle cost, need tight AWS service integration, run pipelines infrequently, or prefer visual workflow design for simple pipelines.
+
+If you have decided on Airflow but are choosing an engine, see also {{< relref "comparisons/airflow-vs-dagster" >}}.
+
+## Sources and Further Reading
+
+- AWS (2025). *Announcing Apache Airflow 3.0 support in Amazon Managed Workflows for Apache Airflow.* [https://aws.amazon.com/about-aws/whats-new/2025/10/apache-airflow-3-amazon-mwaa/](https://aws.amazon.com/about-aws/whats-new/2025/10/apache-airflow-3-amazon-mwaa/)
+- AWS. *Apache Airflow versions on Amazon Managed Workflows for Apache Airflow.* [https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html](https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html)
+- AWS. *Amazon MWAA pricing.* [https://aws.amazon.com/managed-workflows-for-apache-airflow/pricing/](https://aws.amazon.com/managed-workflows-for-apache-airflow/pricing/)
+- AWS. *Integrating services with Step Functions.* [https://docs.aws.amazon.com/step-functions/latest/dg/concepts-service-integrations.html](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-service-integrations.html)
+- AWS. *AWS Step Functions pricing.* [https://aws.amazon.com/step-functions/pricing/](https://aws.amazon.com/step-functions/pricing/)
+- Apache Airflow (2025). *Apache Airflow 3 is Generally Available.* [https://airflow.apache.org/blog/airflow-three-point-oh-is-here/](https://airflow.apache.org/blog/airflow-three-point-oh-is-here/)

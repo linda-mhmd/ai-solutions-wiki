@@ -1,0 +1,10 @@
+<a class="garden-card" href="{{ .Get "link" | relURL }}">
+  <video autoplay loop muted playsinline>
+    <source src="{{ printf "/videos/%s" (.Get "src") | relURL }}" type="video/mp4">
+  </video>
+  <div class="garden-card-body">
+    <div class="garden-card-title">{{ .Get "title" }}</div>
+    <div class="garden-card-cap">{{ .Get "caption" }}</div>
+    <div class="garden-card-go">See the concept &rarr;</div>
+  </div>
+</a>

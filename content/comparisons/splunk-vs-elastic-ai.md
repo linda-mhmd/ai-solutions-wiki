@@ -2,19 +2,20 @@
 title: "Splunk vs Elastic for AI Operations"
 description: "Comparing Splunk and Elastic for AI operations monitoring, log analysis, and observability in ML systems."
 date: 2026-03-28
-last_verified: 2026-05-30
+last_verified: 2026-06-14
 categories: [Comparisons]
 tags: [Splunk, Elastic, monitoring, observability, AI-ops]
-last_updated: 2026-05-30
+last_updated: 2026-06-14
+lastmod: 2026-06-14
 ---
 
 Splunk and Elastic (Elasticsearch, Kibana, Beats) are both used for log analysis and observability. For AI operations, they serve as platforms for ingesting model logs, analyzing prediction patterns, detecting anomalies, and building operational dashboards.
 
 ## Platform Overview
 
-**Splunk** is a commercial platform for searching, monitoring, and analyzing machine-generated data. Known for its powerful search language (SPL), enterprise-grade reliability, and strong security analytics. Available as Splunk Cloud (managed) or Splunk Enterprise (self-hosted).
+**Splunk** is a commercial platform for searching, monitoring, and analyzing machine-generated data. Known for its powerful search language (SPL), enterprise-grade reliability, and strong security analytics. Available as Splunk Cloud (managed) or Splunk Enterprise (self-hosted). Cisco completed its acquisition of Splunk on March 18, 2024 (about 28 billion dollars), and Splunk now operates as a Cisco company, with its observability and security products increasingly integrated into Cisco's broader portfolio.
 
-**Elastic** is built around the open-source Elasticsearch engine with Kibana for visualization. Available as Elastic Cloud (managed), Amazon OpenSearch Service (AWS-managed fork), or self-hosted. Known for flexibility and developer-friendly tooling.
+**Elastic** is built around the Elasticsearch engine with Kibana for visualization. Available as Elastic Cloud (managed), self-hosted, or via Amazon OpenSearch Service (a managed service based on an open-source fork of Elasticsearch and Kibana). In August 2024 Elastic added the AGPLv3 (an OSI-approved open-source license) as a third option for the free Elasticsearch and Kibana source code, alongside the Elastic License v2 and SSPL, making the core officially open source again. Known for flexibility and developer-friendly tooling.
 
 ## Feature Comparison
 
@@ -22,11 +23,11 @@ Splunk and Elastic (Elasticsearch, Kibana, Beats) are both used for log analysis
 |---|---|---|
 | Search language | SPL (powerful, proprietary) | KQL, Lucene, EQL |
 | Visualization | Splunk dashboards | Kibana dashboards |
-| ML capabilities | Splunk ML Toolkit (MLTK) | Elastic ML (anomaly detection, forecasting) |
-| Vector search | No | Yes (dense vector fields) |
+| ML capabilities | Splunk AI Toolkit (formerly MLTK) | Elastic ML (anomaly detection, forecasting) |
+| Vector search | No | Yes (dense and sparse vectors, ELSER, semantic_text) |
 | SIEM | Splunk Enterprise Security | Elastic Security |
 | APM | Splunk APM | Elastic APM |
-| Open source | No | Core is open (Elastic License) |
+| Open source | No | Yes (ELv2, SSPL, or AGPLv3) |
 | AWS integration | Splunk Add-on for AWS | Native via OpenSearch Service |
 
 ## AI Operations Use Cases
@@ -41,9 +42,9 @@ Both platforms can ingest and analyze model prediction logs:
 
 ### Anomaly Detection
 
-**Splunk MLTK** includes ML algorithms for anomaly detection, forecasting, and clustering. You can train models on historical log data and detect anomalies in real-time. The toolset is designed for IT operations use cases.
+**Splunk AI Toolkit** (the renamed Machine Learning Toolkit) includes ML algorithms for anomaly detection, forecasting, and clustering, surfaced through guided Assistants and ML-SPL search commands. You can train models on historical log data and detect anomalies in real-time. The toolset is designed for IT operations use cases. Recent releases have layered in generative AI features, including hosted foundation models, retrieval-augmented generation, an Agent Builder, and a Model Context Protocol (MCP) server (in controlled availability for Splunk Cloud Platform) that lets AI assistants query Splunk data in natural language rather than SPL.
 
-**Elastic ML** provides automated anomaly detection and forecasting. It runs as a background job on your data and alerts when unusual patterns are detected. The anomaly detection is well-suited for metric data (latency spikes, error rate changes, volume anomalies).
+**Elastic ML** provides automated anomaly detection and forecasting. It runs as a background job on your data and alerts when unusual patterns are detected. The anomaly detection is well-suited for metric data (latency spikes, error rate changes, volume anomalies). Beyond log analysis, Elasticsearch doubles as a vector database (dense and sparse vectors), with a built-in sparse embedding model (ELSER) and the semantic_text field type for semantic search, which makes it a common backing store for retrieval-augmented generation (RAG) over operational and knowledge data.
 
 Both are adequate for detecting operational anomalies in AI systems. Neither is designed specifically for ML model quality monitoring (data drift, accuracy degradation).
 
@@ -93,4 +94,14 @@ For cost-conscious teams, Elastic or OpenSearch is significantly cheaper than Sp
 
 ## For AI Operations Specifically
 
-Neither Splunk nor Elastic is purpose-built for AI operations monitoring. Both can store and analyze model logs, but neither provides native model quality monitoring (drift detection, accuracy tracking, fairness metrics). For comprehensive AI monitoring, consider purpose-built tools (Evidently, WhyLabs, SageMaker Model Monitor) that integrate with your chosen observability platform for alerting and visualization.
+Neither Splunk nor Elastic is purpose-built for AI operations monitoring. Both can store and analyze model logs, but neither provides native model quality monitoring (drift detection, accuracy tracking, fairness metrics). For comprehensive AI monitoring, consider purpose-built tools (Evidently, WhyLabs, Amazon SageMaker Model Monitor) that integrate with your chosen observability platform for alerting and visualization.
+
+If you are weighing the Elastic side of this decision against the AWS-managed fork, see {{< relref "comparisons/opensearch-vs-elasticsearch" >}} for a deeper look at how Elasticsearch and Amazon OpenSearch Service have diverged since the fork.
+
+## Sources
+
+- [Cisco Completes Acquisition of Splunk](https://investor.cisco.com/news/news-details/2024/Cisco-Completes-Acquisition-of-Splunk/default.aspx) - Cisco Investor Relations, March 18, 2024.
+- [Elasticsearch Is Open Source, Again](https://www.elastic.co/blog/elasticsearch-is-open-source-again) - Elastic, on adding AGPLv3 alongside ELv2 and SSPL.
+- [Software licensing FAQ](https://www.elastic.co/pricing/faq/licensing) - Elastic, current licensing options for Elasticsearch and Kibana source code.
+- [Unlock the Power of Splunk Cloud Platform with the MCP Server](https://www.splunk.com/en_us/blog/artificial-intelligence/unlock-the-power-of-splunk-cloud-platform-with-the-mcp-server.html) - Splunk, on the Model Context Protocol server.
+- [Linux Foundation Announces OpenSearch Software Foundation](https://www.linuxfoundation.org/press/linux-foundation-announces-opensearch-software-foundation-to-foster-open-collaboration-in-search-and-analytics) - AWS transfer of OpenSearch to the Linux Foundation, September 2024.

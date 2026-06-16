@@ -1,4 +1,5 @@
 ---
+aliases: ["/students-switchers/"]
 title: "For Students and Career Switchers"
 description: "Build the mental model that makes everything click. Five levels from computers to AI. No assumptions about what you already know."
 date: 2026-05-29

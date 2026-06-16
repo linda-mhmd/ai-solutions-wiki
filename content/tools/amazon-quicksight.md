@@ -3,7 +3,7 @@ title: "Amazon QuickSight - Business Intelligence and AI Insights"
 description: "A comprehensive reference for Amazon QuickSight: managed BI dashboards, ML-powered insights, natural language queries, and embedded analytics for AI projects."
 date: 2026-03-28
 categories: [Tools]
-tags: [amazon-quicksight, AWS, BI, dashboards, analytics, visualization]
+tags: [amazon-quicksight, AWS, BI, dashboards, analytics, visualization, "aws-service"]
 related:
   - tools/amazon-redshift
   - tools/amazon-athena

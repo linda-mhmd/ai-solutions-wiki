@@ -2,28 +2,29 @@
 title: "Hugging Face vs Amazon Bedrock - Model Access Comparison"
 description: "Comparing Hugging Face and Amazon Bedrock for accessing and deploying AI models, covering model selection, deployment options, cost, and operational complexity."
 date: 2026-03-28
-last_verified: 2026-05-30
+last_verified: 2026-06-14
 categories: [Comparisons]
 tags: [Hugging-Face, Amazon-Bedrock, models, deployment, comparison]
-last_updated: 2026-05-30
+last_updated: 2026-06-14
+lastmod: 2026-06-14
 ---
 
-Hugging Face and Amazon Bedrock both provide access to AI models, but they serve different needs. Hugging Face is an open platform with 500,000+ models that you host yourself. Bedrock is a managed AWS service providing access to curated foundation models with zero infrastructure management. The choice depends on whether you need flexibility or simplicity.
+Hugging Face and Amazon Bedrock both provide access to AI models, but they serve different needs. Hugging Face is an open platform hosting more than 2 million public models that you can host yourself or run through managed inference. Bedrock is a managed AWS service providing API access to a curated set of foundation models with zero infrastructure management. The choice depends on whether you need open flexibility or operational simplicity.
 
 ## Platform Overview
 
 **Hugging Face** is a platform and community for sharing ML models, datasets, and applications. It provides the Transformers library for using models locally, Inference Endpoints for managed hosting, and the Hub for model discovery. You can use any open-source model, fine-tune it, and deploy it on any infrastructure.
 
-**Amazon Bedrock** is a fully managed AWS service that provides API access to foundation models from Anthropic, Meta, Mistral, Cohere, Amazon, and others. You call an API; AWS handles the infrastructure. Models are accessed through a unified API, and you pay per token.
+**Amazon Bedrock** is a fully managed AWS service that provides API access to foundation models from leading providers. As of 2026 Bedrock offers 100+ models from providers including Anthropic, Meta, Mistral AI, Cohere, AI21 Labs, Amazon (Nova and Titan), Stability AI, DeepSeek, OpenAI (the open-weight gpt-oss models), and others. You call a unified API, AWS handles the infrastructure, and you typically pay per token.
 
 ## Model Selection
 
 | Aspect | Hugging Face | Amazon Bedrock |
 |---|---|---|
-| Model count | 500,000+ models | ~20 foundation models |
-| Model types | Everything (LLMs, vision, audio, NER, classification) | Foundation models (LLMs, embeddings, image generation) |
-| Model providers | Community and commercial | Curated (Anthropic, Meta, Mistral, Cohere, Amazon) |
-| Custom models | Upload and deploy any model | Custom model import (limited) |
+| Model count | 2 million+ public models | 100+ foundation models |
+| Model types | Everything (LLMs, vision, audio, NER, classification) | Foundation models (LLMs, embeddings, image generation, video) |
+| Model providers | Community and commercial | Curated (Anthropic, Meta, Mistral AI, Cohere, AI21 Labs, Amazon, Stability AI, DeepSeek, OpenAI open-weight, and more) |
+| Custom models | Upload and deploy any model | Custom model import (select architectures) |
 | Fine-tuned models | Full fine-tuning and LoRA support | Fine-tuning for select models |
 
 Hugging Face gives access to the entire open-source model ecosystem. If you need a specific model architecture, a domain-specific model, or a task-specific model (NER, sentiment analysis, translation), Hugging Face likely has it. Bedrock provides access to the best foundation models through a simple API.
@@ -46,7 +47,7 @@ Hugging Face gives access to the entire open-source model ecosystem. If you need
 
 **Knowledge Bases.** Managed RAG infrastructure that handles document ingestion, chunking, embedding, and retrieval.
 
-**Agents.** Managed agent runtime with tool use, orchestration, and memory.
+**Agents.** Managed agent capabilities with tool use, orchestration, and memory. Bedrock AgentCore (generally available since October 2025) adds a runtime, gateway, memory, and identity services for deploying production agents at scale.
 
 ## Operational Complexity
 
@@ -65,7 +66,7 @@ Hugging Face gives access to the entire open-source model ecosystem. If you need
 
 **Hugging Face Inference Endpoints.** Per-hour pricing based on hardware. Similar to self-hosting but with managed infrastructure. Starts at ~$0.06/hour for CPU, ~$1.30/hour for GPU.
 
-**Amazon Bedrock.** Per-token pricing. Claude 3.5 Sonnet: ~$3/M input tokens, ~$15/M output tokens. Cost scales with usage. Good for variable workloads; expensive at very high volume compared to self-hosted.
+**Amazon Bedrock.** Per-token pricing. Claude Sonnet 4.5, for example, is priced at $3 per million input tokens and $15 per million output tokens in us-east-1. Cost scales with usage. Bedrock also offers batch inference (50% discount) and prompt caching (up to 90% off cached input) to reduce cost. Good for variable workloads, but expensive at very high volume compared to self-hosted.
 
 **Break-even analysis.** At low volume, Bedrock is cheaper (pay only for what you use). At high volume (millions of tokens per day), self-hosted open-source models on Hugging Face can be significantly cheaper. The break-even depends on model choice, volume, and utilization.
 
@@ -97,3 +98,11 @@ Hugging Face gives access to the entire open-source model ecosystem. If you need
 **Hugging Face to Bedrock.** If operational complexity becomes a burden, moving to Bedrock's managed API simplifies operations at the cost of flexibility and potentially higher per-token costs.
 
 The best approach for most organizations is to start with Bedrock for simplicity, evaluate costs as usage grows, and selectively move high-volume workloads to self-hosted Hugging Face models when the cost savings justify the operational investment.
+
+## Sources and Further Reading
+
+- Hugging Face (2026). *State of Open Source on Hugging Face: Spring 2026 (more than 2 million public models and over 500,000 public datasets).* [https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026](https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026)
+- AWS. *Amazon Bedrock overview (100+ foundation models from leading providers).* [https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html)
+- AWS. *Amazon Bedrock pricing.* [https://aws.amazon.com/bedrock/pricing/](https://aws.amazon.com/bedrock/pricing/)
+- AWS (2025). *Amazon Bedrock AgentCore is now generally available (October 13, 2025).* [https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available](https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available)
+- Hugging Face. *Inference Endpoints (dedicated) pricing.* [https://huggingface.co/docs/inference-endpoints/en/support/pricing](https://huggingface.co/docs/inference-endpoints/en/support/pricing)

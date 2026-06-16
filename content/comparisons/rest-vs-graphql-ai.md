@@ -2,10 +2,11 @@
 title: "REST vs GraphQL for AI Application APIs"
 description: "Comparing REST and GraphQL API designs for AI applications, covering streaming support, query patterns, caching, and practical recommendations."
 date: 2026-03-28
-last_verified: 2026-05-30
+last_verified: 2026-06-14
 categories: [Comparisons]
 tags: [REST, GraphQL, API-design, architecture, AI-apps]
-last_updated: 2026-05-30
+last_updated: 2026-06-14
+lastmod: 2026-06-14
 ---
 
 AI applications expose APIs for model inference, data retrieval, and system management. REST and GraphQL represent different approaches to API design. For AI workloads, the choice is influenced by streaming requirements, query complexity, and client diversity.
@@ -31,7 +32,7 @@ LLM applications need token-by-token streaming. This is the most critical API de
 
 **REST** handles streaming naturally via Server-Sent Events (SSE). The client makes a POST request and receives a stream of events, each containing a token or chunk. This is the standard approach used by OpenAI, Anthropic, and most LLM APIs. Well-supported by all HTTP clients and frameworks.
 
-**GraphQL** supports streaming via Subscriptions (WebSocket-based). However, LLM streaming over GraphQL subscriptions is less standard. Most LLM provider SDKs use REST-based streaming. Using GraphQL for LLM streaming adds complexity without clear benefit.
+**GraphQL** supports incremental delivery in two ways. Subscriptions (typically WebSocket-based) push real-time updates, and the `@defer` and `@stream` directives let a single query return partial results progressively over a multipart HTTP response. Both can carry token-by-token output, but neither matches the simplicity of SSE for this case. The `@defer` and `@stream` directives remained experimental and were not part of the September 2025 edition of the GraphQL specification. Most LLM provider SDKs use REST-based streaming, so using GraphQL for LLM streaming adds complexity without a clear benefit.
 
 **Winner:** REST for LLM streaming
 
@@ -122,3 +123,21 @@ For AI inference requests (where the model execution time dominates), the API la
 For most AI applications, REST is the better default. LLM streaming is naturally REST-based, the ecosystem is more mature, and the simplicity reduces development and maintenance effort. Consider GraphQL when building complex AI management dashboards or applications where clients have diverse data needs from a richly connected data model.
 
 Many AI applications use both: REST for inference APIs (streaming, simple request/response) and GraphQL for management and dashboard APIs (complex queries, nested data).
+
+## A Third Option for AI Agents: MCP
+
+REST and GraphQL are designed for clients that know in advance which endpoints or fields to call. AI agents are different: the model itself decides at runtime which capability to invoke. For that pattern, the Model Context Protocol (MCP) has become a common standard.
+
+**MCP** - an open protocol introduced by Anthropic in November 2024 that lets an LLM application discover and call tools, resources, and prompts exposed by a server. It uses JSON-RPC 2.0 messages over transports such as stdio or streamable HTTP, with a single connection rather than many resource endpoints. The specification is versioned by date (the 2025-11-25 revision is the current release as of this writing) and is now stewarded as an open project with broad adoption across LLM providers and tools.
+
+MCP does not replace REST or GraphQL for human-built clients. A mobile app or dashboard still calls your inference and management APIs directly. MCP sits alongside them: it is the interface you expose when you want an AI agent to use your service as a tool. Many teams wrap existing REST endpoints in an MCP server so that agents get a discoverable, schema-described tool surface while human clients keep the underlying REST or GraphQL API.
+
+For low-latency service-to-service calls where neither REST overhead nor agent tool discovery is the concern, see {{< relref "comparisons/grpc-vs-rest-ai" >}}.
+
+## Sources
+
+- [Streaming messages (Claude API docs, server-sent events)](https://platform.claude.com/docs/en/build-with-claude/streaming)
+- [Streaming API responses (OpenAI API docs)](https://developers.openai.com/api/docs/guides/streaming-responses)
+- [Announcing the September 2025 Edition of the GraphQL Specification (GraphQL Foundation)](https://graphql.org/blog/2025-09-08-september-edition/)
+- [GraphQL subscriptions (graphql.org)](https://graphql.org/learn/subscriptions/)
+- [Model Context Protocol specification (uses JSON-RPC 2.0)](https://modelcontextprotocol.io/specification)

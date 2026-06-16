@@ -6,12 +6,15 @@
 <body>
   <div class="reading-progress" aria-hidden="true"></div>
   {{ partial "nav.html" . }}
-  <main id="main-content">
+  <main id="main-content"{{ with .Section }} data-section="{{ . }}"{{ end }}{{ with .Params.layer }} data-layer="{{ . }}"{{ end }}{{ with .Params.level_num }} data-level="{{ . }}"{{ end }}{{ with .Params.path }} data-path="{{ . }}"{{ end }}>
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "footer.html" . }}
 
-  <script src="{{ "js/wiki-library.js" | relURL }}" defer></script>
+  {{ partial "asset-js.html" "wiki-library.js" }}
+  {{ partial "asset-js.html" "glossary-link.js" }}
+  {{ partial "asset-js.html" "visited.js" }}
+  {{ partial "asset-js.html" "learn-modes.js" }}
   <script src="{{ "pagefind/pagefind-ui.js" | relURL }}"></script>
   <script>
     if (document.getElementById('hero-search')) {
@@ -40,11 +43,16 @@
       localStorage.setItem('theme', next);
     });
 
-    // Active nav link
+    // Active nav link. Also highlights the specific sub-item (Glossary, Tools, a persona
+    // card, ...) inside dropdowns AND mega menus. The parent group is already marked active
+    // server-side in nav.html, but we re-mark it here for the dropdown-only sections too.
     const currentPath = window.location.pathname;
-    document.querySelectorAll('.nav-dropdown a, .mobile-nav-links a, .nav-direct-link').forEach(link => {
+    document.querySelectorAll('.nav-dropdown a, .nav-mega a, .mobile-nav-links a, .nav-direct-link').forEach(link => {
       const href = link.getAttribute('href');
-      if (href && href !== '/' && currentPath.startsWith(href)) {
+      // Skip the "view all" hub links (/for/, /explore/, ...) so they do not steal the
+      // highlight from the precise sub-item on a deep page.
+      const isViewAll = link.classList.contains('nav-mega-view-all') || link.classList.contains('nav-dropdown-view-all');
+      if (href && href !== '/' && currentPath.startsWith(href) && !(isViewAll && currentPath !== href)) {
         link.classList.add('active');
         const group = link.closest('.nav-group');
         if (group) {

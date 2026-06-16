@@ -2,10 +2,11 @@
 title: "gRPC vs REST for AI/ML Microservices"
 description: "Comparing gRPC and REST for serving AI models in microservice architectures, covering performance, developer experience, and ecosystem support."
 date: 2026-03-28
-last_verified: 2026-05-30
+last_verified: 2026-06-14
 categories: [Comparisons]
 tags: [gRPC, REST, API, microservices, model-serving]
-last_updated: 2026-05-30
+last_updated: 2026-06-14
+lastmod: 2026-06-14
 ---
 
 AI serving systems must handle high-throughput, low-latency prediction requests. The choice between gRPC and REST for inter-service communication affects latency, throughput, developer experience, and ecosystem compatibility. This comparison covers the trade-offs for AI/ML microservice architectures.
@@ -14,7 +15,7 @@ AI serving systems must handle high-throughput, low-latency prediction requests.
 
 **REST (Representational State Transfer)** uses HTTP/1.1 or HTTP/2 with JSON payloads. It is the default for web APIs, widely understood, and supported by every programming language and framework. REST APIs are resource-oriented and use standard HTTP methods.
 
-**gRPC (Google Remote Procedure Call)** uses HTTP/2 with Protocol Buffer (protobuf) binary serialization. It provides strongly-typed service definitions, bidirectional streaming, and automatic client/server code generation from proto files.
+**gRPC (gRPC Remote Procedure Calls)** uses HTTP/2 with Protocol Buffers (protobuf) binary serialization. It provides strongly-typed service definitions, bidirectional streaming, and automatic client and server code generation from proto files. gRPC ships checkpoint releases on a roughly six-week cadence (gRPC Core reached the 1.81.x series in mid-2025). HTTP/3 (QUIC) support is an active area of development: because QUIC handles packet loss per stream, gRPC over HTTP/3 avoids the TCP head-of-line blocking that can stall HTTP/2 connections under loss, at the cost of higher server CPU usage.
 
 ## Feature Comparison
 
@@ -69,4 +70,18 @@ AI serving systems must handle high-throughput, low-latency prediction requests.
 
 Many AI platforms use both: REST for external APIs (customer-facing endpoints, third-party integrations) and gRPC for internal communication (model serving, feature retrieval, inter-service calls). An API gateway translates between REST and gRPC at the boundary. This gives external consumers the familiarity of REST while internal services benefit from gRPC's performance.
 
-Frameworks like TensorFlow Serving and Triton Inference Server support both REST and gRPC endpoints natively, allowing teams to choose per use case without changing the serving infrastructure.
+Frameworks like TensorFlow Serving and NVIDIA Triton Inference Server support both REST and gRPC endpoints natively, allowing teams to choose per use case without changing the serving infrastructure. Triton exposes both interfaces through the community-developed KServe inference protocol, so the same model server speaks REST and gRPC against a standardized request format. On the LLM side, inference engines such as vLLM lead with an OpenAI-compatible HTTP API and have been adding a gRPC serving path for lower-overhead internal calls, reflecting the same REST-at-the-edge, gRPC-inside split.
+
+## Connect RPC and Bridging the Browser Gap
+
+The historical weak spot for gRPC, browser clients needing a gRPC-Web proxy, is being addressed by Connect RPC, an open source family of gRPC-compatible libraries from Buf that joined the Cloud Native Computing Foundation (CNCF) in 2025. Connect handlers and clients speak three protocols (gRPC, gRPC-Web, and Connect's own protocol), and the Connect protocol is a simple POST-based scheme that works over plain HTTP/1.1 or HTTP/2 and is callable directly from browsers and with curl. For AI teams, this lowers the cost of exposing protobuf-defined services to web frontends without standing up a separate translation layer, narrowing one of the main reasons to fall back to REST.
+
+For where this protocol choice sits in the broader serving picture, see {{< relref "comparisons/batch-vs-real-time-inference" >}} on inference patterns, {{< relref "comparisons/microservices-vs-monolith-ai" >}} on service boundaries, and {{< relref "comparisons/fastapi-vs-flask-ai" >}} on the Python frameworks that often expose these endpoints.
+
+## Sources
+
+- [gRPC Core releases (grpc/grpc, GitHub)](https://github.com/grpc/grpc/releases)
+- [gRPC: What is gRPC? (official documentation)](https://grpc.io/docs/what-is-grpc/introduction/)
+- [Triton Inference Server features, including HTTP/REST and gRPC via the KServe protocol (GitHub)](https://github.com/triton-inference-server/server)
+- [Connect RPC joins CNCF (Buf blog)](https://buf.build/blog/connect-rpc-joins-cncf)
+- [vLLM documentation: OpenAI-compatible server](https://docs.vllm.ai/en/stable/serving/openai_compatible_server.html)

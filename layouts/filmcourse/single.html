@@ -1,0 +1,85 @@
+{{ define "main" }}
+{{ $chapters := .CurrentSection.RegularPages.ByWeight }}
+{{ $n := len $chapters }}
+{{ $idx := -1 }}{{ range $i, $p := $chapters }}{{ if eq $p.RelPermalink $.RelPermalink }}{{ $idx = $i }}{{ end }}{{ end }}
+{{ $prev := false }}{{ if gt $idx 0 }}{{ $prev = index $chapters (sub $idx 1) }}{{ end }}
+{{ $next := false }}{{ if and (ge $idx 0) (lt $idx (sub $n 1)) }}{{ $next = index $chapters (add $idx 1) }}{{ end }}
+
+<div class="article-layout">
+  <div class="article-container">
+    {{ partial "breadcrumbs.html" . }}
+    <article class="article-content course-chapter">
+
+      <header class="course-ch-head">
+        <div class="course-ch-eyebrow">
+          <a href="{{ "/course/" | relURL }}">AI Film Crew Course</a>
+          <span>Module {{ .Params.chapter }} of {{ $n }}</span>
+          {{ with .Params.layer }}<span>{{ . }}</span>{{ end }}
+          {{ with .Params.duration_min }}<span>{{ . }} min</span>{{ end }}
+        </div>
+        <h1 data-pagefind-meta="title">{{ .Title }}</h1>
+        {{ with .Params.summary }}<p class="article-description">{{ . }}</p>{{ end }}
+      </header>
+
+      {{ partial "course-video.html" . }}
+
+      <div class="course-block">
+        <h2 class="course-h2">Everything in this module</h2>
+        <p class="course-block-sub">The full walk-through of the video, to read at your own pace. Any term that has a glossary entry is linked; hover it for a quick definition.</p>
+        <div class="article-body co-fulltext" data-pagefind-body>
+          {{ .Content }}
+        </div>
+      </div>
+
+      {{ with .Params.concepts }}
+      <section class="course-block">
+        <h2 class="course-h2">Concepts in this module</h2>
+        <div class="course-chips">
+          {{ range . }}{{ $p := site.GetPage (printf "/glossary/%s" .) }}{{ with $p }}<a href="{{ .RelPermalink }}" class="course-chip">{{ .Title }}</a>{{ end }}{{ end }}
+        </div>
+      </section>
+      {{ end }}
+
+      {{ with .Params.services }}
+      <section class="course-block">
+        <h2 class="course-h2">Services and tools in this module</h2>
+        <div class="course-tool-grid">
+          {{ range . }}{{ $p := site.GetPage (printf "/tools/%s" .) }}{{ with $p }}
+          {{ $icon := "" }}{{ with .File }}{{ $icon = partial "svc-icon-file.html" .BaseFileName }}{{ end }}
+          {{ $parts := split .Title " - " }}
+          <a href="{{ .RelPermalink }}" class="course-tool">
+            {{ if $icon }}<span class="course-tool-icon {{ partial "darklogo-class.html" $icon }}">{{ partial "render-icon.html" (dict "res" $icon "class" "" "alt" "") }}</span>{{ end }}
+            <span class="course-tool-text"><span class="course-tool-name">{{ index $parts 0 }}</span>{{ with .Description }}<span class="course-tool-desc">{{ . | truncate 80 }}</span>{{ end }}</span>
+          </a>
+          {{ end }}{{ end }}
+        </div>
+      </section>
+      {{ end }}
+
+      <section class="course-block co-keepgoing">
+        <h2 class="course-h2">Keep going</h2>
+        <p class="course-block-sub">Look up any term in the {{ with site.GetPage "/glossary" }}<a href="{{ .RelPermalink }}">glossary</a>{{ else }}glossary{{ end }}, or build a system like this with the {{ with site.GetPage "/guides" }}<a href="{{ .RelPermalink }}">build guides</a>{{ else }}guides{{ end }}{{ with site.Params.workshopsURL }} and a <a href="{{ . }}" target="_blank" rel="noopener">hands-on workshop</a>{{ end }}.</p>
+      </section>
+
+      <nav class="course-chapter-nav" aria-label="Module navigation">
+        {{ if $prev }}<a href="{{ $prev.RelPermalink }}" class="course-nav-link course-nav-prev"><span class="course-nav-dir">Previous module</span><span class="course-nav-title">{{ $prev.Title }}</span></a>{{ else }}<a href="{{ "/course/" | relURL }}" class="course-nav-link course-nav-prev"><span class="course-nav-dir">Back to</span><span class="course-nav-title">Course overview</span></a>{{ end }}
+        {{ if $next }}<a href="{{ $next.RelPermalink }}" class="course-nav-link course-nav-next"><span class="course-nav-dir">Next module</span><span class="course-nav-title">{{ $next.Title }}</span></a>{{ else }}<a href="{{ "/course/" | relURL }}" class="course-nav-link course-nav-next"><span class="course-nav-dir">Finished</span><span class="course-nav-title">Back to course overview</span></a>{{ end }}
+      </nav>
+
+    </article>
+  </div>
+
+  <div class="article-sidebar" data-pagefind-ignore>
+    {{ partial "library-panel.html" . }}
+    <div class="course-progress-rail">
+      <span class="course-rail-title">Modules</span>
+      <ol class="course-rail-list">
+        {{ range $chapters }}
+        <li><a href="{{ .RelPermalink }}" class="course-rail-link{{ if eq .RelPermalink $.RelPermalink }} is-current{{ end }}"><span class="course-rail-num">{{ .Params.chapter }}</span>{{ .Title }}</a></li>
+        {{ end }}
+      </ol>
+    </div>
+    {{ partial "wiki-sections.html" . }}
+  </div>
+</div>
+{{ end }}

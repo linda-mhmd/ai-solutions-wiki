@@ -1,4 +1,5 @@
 ---
+aliases: ["/finance-business/"]
 title: "For Finance and Business"
 description: "AI projects have costs, timelines, and regulatory risks. Evaluate them with confidence instead of relying entirely on the engineering team."
 date: 2026-05-29

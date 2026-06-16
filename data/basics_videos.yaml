@@ -1,0 +1,33 @@
+# Maps a basics page slug to a garden metaphor clip (in static/videos/garden/)
+# used as the page's hero background. From the AI Film Crew course.
+what-is-a-computer: infrared-thermal-garden.mp4
+what-is-code: germination-timelapse.mp4
+what-is-an-api: orchestration-potting-line.mp4
+what-is-a-server: full-lifecycle-timelapse.mp4
+what-is-a-database: state-seed-vault.mp4
+what-is-a-terminal: logging-stream.mp4
+what-is-ai: sensors-living-data.mp4
+what-is-the-internet: many-gardens-cultures.mp4
+what-is-the-cloud: cloud-rented-allotment.mp4
+what-is-version-control: full-lifecycle-timelapse.mp4
+what-is-git: full-lifecycle-timelapse.mp4
+what-is-github: many-gardens-cultures.mp4
+what-is-open-source: many-gardens-cultures.mp4
+what-is-react-native: different-fruits-ripening.mp4
+what-is-vibe-coding: agents-robot-crew.mp4
+what-is-software: full-lifecycle-timelapse.mp4
+what-is-a-function: germination-timelapse.mp4
+what-is-data-and-json: state-seed-vault.mp4
+what-is-state: state-seed-vault.mp4
+what-is-storage-and-files: state-seed-vault.mp4
+what-is-scaling: serverless-drip-ondemand.mp4
+what-are-regions: many-gardens-cultures.mp4
+what-is-a-model: sensors-living-data.mp4
+what-are-prompts: different-fruits-ripening.mp4
+what-is-a-framework: orchestration-potting-line.mp4
+what-is-frontend-and-backend: different-fruits-ripening.mp4
+what-is-deployment: serverless-drip-ondemand.mp4
+what-are-environments: cloud-rented-allotment.mp4
+what-is-testing: different-fruits-ripening.mp4
+what-is-monitoring-and-logs: logging-stream.mp4
+what-is-security-and-auth: infrared-thermal-garden.mp4

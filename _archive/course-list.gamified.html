@@ -1,0 +1,34 @@
+{{ define "main" }}
+{{ partial "course-style.html" . }}
+<div class="article-wrap" style="max-width:880px;margin:0 auto;padding:2rem 1.2rem">
+<div class="course-wrap" id="course-map" data-course="{{ .RelPermalink }}">
+  <div class="lesson-eyebrow">Gamified course - free, saved in your browser</div>
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.description }}<p class="article-desc" style="color:#94a3b8;font-size:1.1rem">{{ . }}</p>{{ end }}
+  <div class="article-body">{{ .Content }}</div>
+
+  <div class="cm-progress">
+    <div class="cm-bar"><div class="cm-bar-fill"></div></div>
+    <span class="cm-progress-label">Not started yet</span>
+  </div>
+  <a class="cm-continue cq-btn cq-btn-primary" href="#">Start the course</a>
+
+  <div class="cm-focus">
+    <h2>Where to focus next</h2>
+    <ul class="cm-focus-list"><li>Complete a few lessons. Anything you score below 80% on will show up here so you know where to review.</li></ul>
+  </div>
+
+  {{ $last := "" }}
+  {{ range .RegularPages.ByWeight }}
+    {{ if ne .Params.chapter $last }}
+      {{ if ne $last "" }}</ol>{{ end }}
+      <h2 class="cm-chapter">{{ .Params.chapter | default "Lessons" }}</h2><ol class="cm-lessons">
+      {{ $last = .Params.chapter }}
+    {{ end }}
+    <li class="lesson" data-lesson-id="{{ .RelPermalink }}"><a href="{{ .RelPermalink }}">{{ .Title }}</a><span class="lesson-badge"></span></li>
+  {{ end }}
+  {{ if ne $last "" }}</ol>{{ end }}
+</div>
+</div>
+<script src="{{ "js/course.js" | relURL }}" defer></script>
+{{ end }}

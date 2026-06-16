@@ -1,0 +1,9 @@
+{{- /* Prominent status banner for discontinued / deprecated / renamed services.
+       Driven by frontmatter: status, status_detail, status_source. */ -}}
+{{- with .Params.status -}}
+{{- $s := . | lower -}}
+<div class="status-banner status-banner--{{ $s }}" role="note">
+  <span class="status-banner-tag">{{ $s }}</span>
+  <span class="status-banner-text">{{ $.Params.status_detail }}{{ with $.Params.status_source }} <a href="{{ . }}" target="_blank" rel="noopener">Source &nearr;</a>{{ end }}</span>
+</div>
+{{- end -}}

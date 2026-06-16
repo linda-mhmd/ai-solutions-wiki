@@ -1,0 +1,4 @@
+{{- /* Single service logo for a tool page, from the page slug (resolved via aliases).
+       Input: the page (.). Renders nothing if no icon exists. */ -}}
+{{- $res := partial "svc-icon-file.html" .File.BaseFileName -}}
+{{- partial "render-icon.html" (dict "res" $res "class" "svc-icon-xl tool-logo" "alt" (printf "%s logo" .Title)) -}}

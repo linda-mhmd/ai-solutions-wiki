@@ -1,0 +1,14 @@
+{{- /* Lifecycle badge. Renders nothing for active/unknown so most cards stay neutral; only
+       notable states get a small tinted pill. Input: dict "status" "note". */ -}}
+{{- $s := .status -}}{{- $note := .note -}}
+{{- $map := dict
+  "preview"       (slice "Preview" "amber")
+  "beta"          (slice "Beta" "sky")
+  "deprecated"    (slice "Deprecated" "rose")
+  "retiring"      (slice "Retiring" "rose")
+  "existing-only" (slice "Existing customers only" "amber")
+  "discontinued"  (slice "Discontinued" "grey")
+  "renamed"       (slice "Renamed" "sky") -}}
+{{- with index $map $s -}}
+<span class="lc-badge lc-{{ index . 1 }}"{{ with $note }} title="{{ . }}"{{ end }}>{{ index . 0 }}</span>
+{{- end -}}

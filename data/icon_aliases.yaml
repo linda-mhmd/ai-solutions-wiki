@@ -1,0 +1,57 @@
+# Maps a wiki token (page slug, or a side of an "X-vs-Y" comparison slug) to a base
+# icon file in assets/icons/<value>.(svg|png). Only real products get logos; concepts
+# (agile, fine-tuning, rag, ...) have no entry and render no logo.
+# AWS services use the real per-service AWS architecture icon (png). There is NO generic
+# AWS logo fallback: we are not AWS.
+
+# Models / providers
+claude: anthropic
+claude-enterprise: anthropic
+gpt: openai
+gpt4: openai
+gpt5: openai
+chatgpt: openai
+azure-openai: openai
+
+# Frameworks that share a brand logo
+langgraph: langchain
+llama: meta
+
+# AWS service short tokens (used in comparison slugs) -> the real per-service icon file
+bedrock: amazon-bedrock
+agentcore: bedrock-agentcore
+sagemaker: amazon-sagemaker
+lambda: aws-lambda
+s3: aws-s3
+step-functions: aws-step-functions
+athena: amazon-athena
+glue: amazon-glue
+emr: amazon-emr
+redshift: amazon-redshift
+opensearch: amazon-opensearch
+kendra: amazon-kendra
+comprehend: amazon-comprehend
+dynamodb: amazon-dynamodb
+neptune: amazon-neptune
+timestream: amazon-timestream
+cloudwatch: amazon-cloudwatch
+eventbridge: amazon-eventbridge
+textract: amazon-textract
+transcribe: amazon-transcribe
+rekognition: amazon-rekognition
+lex: amazon-lex
+connect: amazon-connect
+mediaconvert: aws-mediaconvert
+fargate: aws-fargate
+
+# Google Cloud / Azure (brand logos)
+vertex-ai: gcp
+gcp-ai: gcp
+google-vertex-ai: gcp
+azure-ai: azure
+azure-governance: azure
+
+# Tool name variants
+github-actions: githubactions
+huggingface-transformers: huggingface
+node: nodejs

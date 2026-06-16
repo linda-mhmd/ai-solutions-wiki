@@ -2,19 +2,20 @@
 title: "Great Expectations vs Deequ for Data Quality"
 description: "Comparing Great Expectations and AWS Deequ for data quality validation in ML pipelines."
 date: 2026-03-28
-last_verified: 2026-05-30
+last_verified: 2026-06-14
 categories: [Comparisons]
 tags: [Great-Expectations, Deequ, data-quality, validation, testing]
-last_updated: 2026-05-30
+last_updated: 2026-06-14
+lastmod: 2026-06-14
 ---
 
 Data quality validation prevents bad data from producing bad models. Great Expectations and Deequ are the two most widely used open-source data quality tools for ML pipelines. They take different approaches: Great Expectations is a Python-native framework for defining and running data expectations; Deequ is a Scala/Spark library for data quality profiling and constraint verification. This comparison covers the differences that matter for ML data pipeline teams.
 
 ## Tool Overview
 
-**Great Expectations** (GX, 2018) is a Python framework that lets you define "expectations" about your data: expected column types, value ranges, uniqueness, null rates, distribution properties, and custom validations. Expectations are organized into suites and validated against data batches. GX generates data documentation ("Data Docs") automatically.
+**Great Expectations** (GX, 2018) is a Python framework that lets you define "expectations" about your data: expected column types, value ranges, uniqueness, null rates, distribution properties, and custom validations. Expectations are organized into suites and validated against data batches. GX generates data documentation ("Data Docs") automatically. The open-source library was renamed GX OSS to **GX Core** with the 1.0 release (August 2024), which adopted semantic versioning and a streamlined, fully-typed API; the current release line is 1.18.x (mid-2026). Note two 2026 developments: GX Cloud, the managed SaaS offering, was wound down in 2026 (a shutdown was communicated to customers in May 2026), and Fivetran announced in May 2026 that it would become steward of the GX Core open-source project and community, so GX Core continues as an open-source, community-driven project.
 
-**AWS Deequ** (2018, Amazon) is a Scala library built on Apache Spark. It provides data profiling (automatic statistics computation), constraint suggestion (proposes constraints based on data), constraint verification (validates data against defined constraints), and anomaly detection (identifies data drift over time).
+**AWS Deequ** (2018, Amazon) is a Scala library built on Apache Spark, released under the Apache 2.0 license. It provides data profiling (automatic statistics computation), constraint suggestion (proposes constraints based on data), constraint verification (validates data against defined constraints), and anomaly detection (identifies data drift over time). The 2.x line targets recent Spark 3.x releases, and **PyDeequ** (the `awslabs/python-deequ` project) wraps Deequ for Python and PySpark users. Deequ also powers **AWS Glue Data Quality**, a managed serverless service that exposes Deequ through the Data Quality Definition Language (DQDL) rather than Scala.
 
 ## Feature Comparison
 
@@ -23,7 +24,7 @@ Data quality validation prevents bad data from producing bad models. Great Expec
 | Language | Python | Scala (Spark) |
 | Data backends | Pandas, Spark, SQL (many databases) | Spark only |
 | Expectation definition | Python API, JSON config | Scala DSL |
-| Built-in expectations | 300+ | ~30 constraint types |
+| Built-in expectations | Curated core set in GX Core (the legacy v0 gallery listed 300+), plus community Expectations | ~30 constraint types |
 | Custom expectations | Python classes | Scala functions |
 | Data profiling | Basic (via profiler) | Advanced (column statistics, histograms) |
 | Constraint suggestion | Yes (rule-based) | Yes (profiling-based) |
@@ -31,7 +32,7 @@ Data quality validation prevents bad data from producing bad models. Great Expec
 | Data documentation | Data Docs (HTML reports) | JSON metrics output |
 | Checkpoint automation | Yes (checkpoint API) | Manual (integrate into Spark jobs) |
 | Orchestrator integration | Airflow, Dagster, Prefect | Airflow (via Spark operators) |
-| Cloud integration | GX Cloud (managed) | AWS Glue native integration |
+| Cloud integration | GX Cloud (managed SaaS, wound down in 2026) | AWS Glue Data Quality (managed, Deequ-based, DQDL) |
 | Community | Large Python data community | Spark/AWS community |
 
 ## Data Quality for ML Pipelines
@@ -73,7 +74,7 @@ After feature engineering, validate that the output features match the expected 
 ## When to Choose Great Expectations
 
 - Python-based data pipelines (Pandas, SQLAlchemy)
-- Need for extensive built-in expectations (300+)
+- Need for an extensive, extensible expectation library plus community Expectations
 - Multi-backend environment (validate data in databases, files, and Spark)
 - Team wants automated data documentation (Data Docs)
 - Non-Spark environments or small-to-medium data volumes
@@ -83,9 +84,19 @@ After feature engineering, validate that the output features match the expected 
 - Spark-based data pipelines (AWS EMR, Glue, Databricks)
 - Need for built-in data profiling and constraint suggestion
 - Time-series anomaly detection for data drift monitoring
-- AWS-native environment with Glue integration
+- AWS-native environment, including the managed AWS Glue Data Quality service that runs Deequ behind DQDL rules
 - Large-scale data (terabytes) that requires Spark's distributed processing
 
 ## Using Both
 
 Some teams use both: Deequ for large-scale Spark-based validation and profiling on data lake tables, and Great Expectations for validating smaller datasets in Python-based feature engineering and serving pipelines. The tools are complementary rather than mutually exclusive.
+
+A practical 2026 note: if you depended on GX Cloud for managed expectation runs, that hosted offering was retired in 2026, so plan around self-hosted GX Core (now stewarded by Fivetran) or another managed data quality option. On the AWS side, AWS Glue Data Quality gives you a managed, Deequ-backed alternative without running Spark or Scala yourself.
+
+## Sources
+
+- [Introducing GX Core 1.0](https://greatexpectations.io/blog/introducing-gx-core-1-0/) - Great Expectations blog (the GX OSS to GX Core rename, semantic versioning, and the curated set of fully configured Expectations).
+- [great_expectations on GitHub](https://github.com/great-expectations/great_expectations) and the [GX Core changelog](https://docs.greatexpectations.io/docs/core/changelog/) - current release line and Python support.
+- [Fivetran to Become Steward of the Great Expectations Open Source Community and GX Core Project](https://www.businesswire.com/news/home/20260513083026/en/Fivetran-to-Become-Steward-of-the-Great-Expectations-Open-Source-Community-and-GX-Core-Project) - Business Wire, May 13, 2026.
+- [awslabs/deequ on GitHub](https://github.com/awslabs/deequ) and [awslabs/python-deequ (PyDeequ)](https://github.com/awslabs/python-deequ) - Deequ and PyDeequ source, releases, and Apache 2.0 license.
+- [AWS Glue Data Quality](https://docs.aws.amazon.com/glue/latest/dg/glue-data-quality.html) - AWS documentation confirming Glue Data Quality is built on the open-source Deequ framework and uses DQDL.

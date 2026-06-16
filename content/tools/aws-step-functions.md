@@ -3,7 +3,8 @@ title: "AWS Step Functions - Workflow Orchestration for AI Pipelines"
 description: "How Step Functions orchestrates multi-step AI workflows, handles retries and errors, and integrates with other AWS services - with practical patterns for AI use cases."
 date: 2026-03-24
 categories: [Tools]
-tags: ["cloud-computing", "intermediate", "aws-step-functions", "workflow", "orchestration", "aws", "serverless"]
+layer: orchestration
+tags: ["cloud-computing", "intermediate", "aws-step-functions", "workflow", "orchestration", "aws", "serverless", "aws-service"]
 related:
   - glossary/serverless
   - patterns/data-pipeline-patterns
@@ -18,6 +19,13 @@ last_updated: 2026-05-30
 ---
 
 AWS Step Functions is a serverless workflow orchestration service that coordinates sequences of AWS service calls, Lambda functions, and external APIs. For AI pipelines - which typically involve multiple stages (ingest, process, model call, store results) - Step Functions provides the glue layer that handles sequencing, error handling, retries, and parallel execution.
+
+## Watch: AWS Step Functions (documentation overview)
+{{< video src="screencasts/StepFunctions.mp4" title="AWS Step Functions: AWS documentation overview" caption="A short walkthrough of a Step Functions workflow: each box is one step, with its input, output, and any failure visible." >}}
+
+The garden way to picture it: orchestration is a potting line. Every step happens in order, and you can see exactly which one jammed.
+
+{{< video src="garden/orchestration-potting-line.mp4" metaphor="true" title="The garden metaphor" caption="Orchestration as a potting line, every step in order. From the AI Film Crew course." >}}
 
 ## Why Step Functions for AI Pipelines
 

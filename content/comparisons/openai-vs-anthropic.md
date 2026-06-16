@@ -2,10 +2,11 @@
 title: "OpenAI vs Anthropic - Platform and Model Comparison"
 description: "A comprehensive comparison of OpenAI and Anthropic as AI providers, covering models, APIs, safety approaches, enterprise features, and pricing."
 date: 2026-03-28
-last_verified: 2026-05-30
+last_verified: 2026-06-14
 categories: [Comparisons]
 tags: [OpenAI, Anthropic, LLM, comparison, AI-providers]
-last_updated: 2026-05-30
+last_updated: 2026-06-14
+lastmod: 2026-06-14
 ---
 
 OpenAI and Anthropic are the two leading foundation model providers. Both offer frontier AI models through APIs, but they differ in model philosophy, safety approach, enterprise features, and ecosystem. This comparison helps teams evaluate which provider fits their needs.
@@ -14,38 +15,43 @@ OpenAI and Anthropic are the two leading foundation model providers. Both offer 
 
 ### OpenAI
 
-**GPT-4o.** Multimodal flagship model. Text, image, and audio input. Fast and cost-effective for most tasks. Available via API and ChatGPT.
+OpenAI's current generation is the GPT-5 family, which succeeded the GPT-4 line (GPT-4o, GPT-4 Turbo) and folded the separate "o-series" reasoning models (o1, o3) into a unified set of models with built-in reasoning. The naming and exact version numbers change frequently, so check OpenAI's pricing and models pages for the current set before you commit. The general shape of the lineup is:
 
-**GPT-4 Turbo.** Higher capability model for complex reasoning tasks. Larger context window (128K tokens).
+**Flagship multimodal models.** Current frontier GPT-5 series models. Text and image input, large context windows, and reasoning that "thinks" before responding for complex analysis, math, and coding. Available via the API and ChatGPT.
 
-**o1 and o3 series.** Reasoning models that "think" before responding. Better for complex analysis, math, and coding. Higher latency and cost.
+**Mini and nano variants.** Smaller, cheaper, faster models for high-volume or latency-sensitive tasks where the flagship would be overkill. Quality is good for simpler work at a fraction of the cost.
 
-**GPT-4o mini.** Efficient model for simpler tasks. Very low cost while maintaining good quality.
+**Specialized models.** OpenAI also ships dedicated embeddings, image generation, and speech (transcription and text to speech) models alongside its language models. See the platform comparison below.
 
 ### Anthropic
 
-**Claude 3.5 Opus.** Highest capability model. Best for complex analysis, nuanced writing, and tasks requiring deep understanding.
+Anthropic names its current generation by tier (Opus, Sonnet, Haiku) plus a version number. As of mid-2026 the current lineup is Claude Opus 4.8, Claude Sonnet 4.6, and Claude Haiku 4.5, with Claude Fable 5 sitting above the Opus tier as Anthropic's most capable widely released model. All current models accept text and image input and support tool use.
 
-**Claude 3.5 Sonnet.** Balanced model for most enterprise tasks. Good performance at moderate cost. Fast enough for real-time applications.
+**Claude Opus 4.8.** Anthropic's most capable Opus-tier model. Best for complex reasoning, long-horizon agentic coding, and high-autonomy work. 1M token context window.
 
-**Claude 3.5 Haiku.** Fastest and cheapest model. Suitable for classification, extraction, and high-volume processing.
+**Claude Sonnet 4.6.** Balanced model for most enterprise tasks. Strong performance at moderate cost, fast enough for real-time applications. 1M token context window.
+
+**Claude Haiku 4.5.** Fastest and lowest-cost model with near-frontier intelligence. Suitable for classification, extraction, and high-volume processing. 200K token context window.
+
+**Claude Fable 5.** Anthropic's most capable widely released model, aimed at the most demanding reasoning and long-horizon agentic work. Priced above the Opus tier. 1M token context window.
 
 ## API and Platform
 
 | Feature | OpenAI | Anthropic |
 |---|---|---|
 | API style | REST with streaming | REST with streaming |
-| Context window | Up to 128K tokens | Up to 200K tokens |
-| Vision support | Yes (GPT-4o, GPT-4 Turbo) | Yes (Claude 3.5 Sonnet, Claude 3.5 Opus) |
+| Context window | Large (frontier models offer up to roughly 1M tokens) | Up to 1M tokens (Opus and Sonnet tiers; Haiku is 200K) |
+| Vision support | Yes (current GPT-5 family) | Yes (all current Claude models) |
 | Tool/function calling | Yes | Yes |
-| Structured output (JSON mode) | Yes | Yes |
+| Structured output (JSON mode) | Yes | Yes (structured outputs via output_config) |
 | Batch API | Yes | Yes |
-| Fine-tuning | Yes (GPT-4o, GPT-3.5) | Limited availability |
-| Embeddings | Yes (text-embedding-3) | No (use third-party) |
-| Image generation | Yes (DALL-E) | No |
-| Speech (STT/TTS) | Yes (Whisper, TTS) | No |
+| Prompt caching | Yes | Yes |
+| Fine-tuning | Yes (broad support) | Limited availability |
+| Embeddings | Yes (text-embedding-3 family) | No (use third-party) |
+| Image generation | Yes | No |
+| Speech (STT/TTS) | Yes | No |
 
-OpenAI offers a broader platform with embeddings, image generation, and speech services in addition to language models. Anthropic is focused specifically on language models and excels in that area.
+OpenAI offers a broader platform with embeddings, image generation, and speech services in addition to language models. Anthropic is focused specifically on language models and excels in that area. Anthropic does, however, ship server-side tools (web search, code execution, computer use) and a Managed Agents surface for stateful, multi-step agents.
 
 ## Safety and Alignment
 
@@ -65,15 +71,17 @@ In practice, both providers' models are suitable for enterprise use. Claude mode
 
 **OpenAI** models are available through Azure OpenAI Service, providing enterprise-grade deployment within Azure's compliance framework.
 
-**Anthropic** Claude models are available through Amazon Bedrock and Google Cloud Vertex AI. This multi-cloud availability is an advantage for organizations committed to AWS or GCP.
+**Anthropic** Claude models are available through Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Foundry, making Claude available across all three major cloud platforms. Anthropic also offers Claude Platform on AWS, an Anthropic-operated service that runs on AWS infrastructure (SigV4 auth, IAM access control, AWS Marketplace billing) with same-day feature parity to the first-party API. This multi-cloud availability is an advantage for organizations committed to AWS, GCP, or Azure.
 
-For AWS-centric organizations, Claude on Bedrock is the more natural choice. For Azure-centric organizations, OpenAI through Azure is the default. For GCP organizations, both are available through Vertex AI.
+For AWS-centric organizations, Claude on Bedrock (or Claude Platform on AWS) is the more natural choice. For Azure-centric organizations, OpenAI through Azure is the default, though Claude is also reachable via Microsoft Foundry. For GCP organizations, both providers are available through Vertex AI.
+
+Anthropic is independent and privately held. Amazon and Google are both major strategic investors and cloud and compute partners (Amazon is the primary cloud and training partner), but neither owns Anthropic. OpenAI retains its long-standing partnership with Microsoft, which is its primary cloud provider and a major investor.
 
 ## Pricing Comparison
 
 Pricing changes frequently; check current rates. General patterns:
 
-**Input tokens:** Anthropic and OpenAI are roughly competitive at each tier. Sonnet and GPT-4o are similarly priced for comparable capability.
+**Input tokens:** Anthropic and OpenAI are roughly competitive at each tier. Comparable mid-tier models from each provider tend to be similarly priced. As a reference point, Claude Sonnet 4.6 is $3 per million input tokens and $15 per million output tokens, and Claude Haiku 4.5 is $1 per million input and $5 per million output; check each provider's pricing page for current OpenAI rates.
 
 **Output tokens:** Typically 3-5x more expensive than input tokens for both providers.
 
@@ -83,24 +91,25 @@ Pricing changes frequently; check current rates. General patterns:
 
 | Use Case | Advantage |
 |---|---|
-| Complex reasoning and analysis | Both competitive; o1/o3 for math-heavy tasks |
-| Long document processing | Anthropic (200K context window) |
+| Complex reasoning and analysis | Both competitive; both now have models with built-in reasoning |
+| Long document processing | Both competitive (both offer large, up to roughly 1M token, context windows on frontier models) |
 | Code generation | Both competitive |
+| Agentic and long-horizon tasks | Anthropic (Claude is positioned heavily around agentic coding; Claude Code and Managed Agents) |
 | Creative writing | Anthropic (Claude tends to produce more natural prose) |
 | Multi-modal (text + image) | Both competitive |
-| Image generation | OpenAI (DALL-E, no Anthropic equivalent) |
-| Speech processing | OpenAI (Whisper + TTS, no Anthropic equivalent) |
-| Embeddings | OpenAI (text-embedding-3, no Anthropic equivalent) |
+| Image generation | OpenAI (no Anthropic equivalent) |
+| Speech processing | OpenAI (no Anthropic equivalent) |
+| Embeddings | OpenAI (text-embedding-3 family, no Anthropic equivalent) |
 | Fine-tuning | OpenAI (broader fine-tuning support) |
 | Safety-critical applications | Anthropic (more conservative safety approach) |
-| AWS deployment | Anthropic (native Bedrock integration) |
+| AWS deployment | Anthropic (native Bedrock integration plus Claude Platform on AWS) |
 | Azure deployment | OpenAI (native Azure OpenAI integration) |
 
 ## Recommendation
 
 **Choose OpenAI when** you need a broad AI platform (language, vision, speech, embeddings, image generation), are on Azure, or need fine-tuning capabilities.
 
-**Choose Anthropic when** you prioritize safety, need long context processing, are on AWS, or need strong analytical and writing capabilities.
+**Choose Anthropic when** you prioritize safety, need long context processing, are on AWS, run agentic or long-horizon coding workloads, or need strong analytical and writing capabilities.
 
 **Consider both** for production systems. Multi-provider architectures provide redundancy and allow routing to the best model for each task. Abstract your LLM calls behind an interface that allows switching providers.
 
@@ -121,6 +130,8 @@ Pricing changes frequently; check current rates. General patterns:
 - Bai, Y., Jones, A., Ndousse, K., et al. (2022). *Training a Helpful and Harmless Assistant with RLHF.* arXiv:2204.05862. [https://arxiv.org/abs/2204.05862](https://arxiv.org/abs/2204.05862)
 - Ouyang, L., Wu, J., Jiang, X., et al. (2022). *Training Language Models to Follow Instructions with Human Feedback.* NeurIPS 2022. arXiv:2203.02155. [https://arxiv.org/abs/2203.02155](https://arxiv.org/abs/2203.02155)
 - Chiang, W.-L., Zheng, L., Sheng, Y., et al. (2024). *Chatbot Arena.* ICML 2024. arXiv:2403.04132. [https://arxiv.org/abs/2403.04132](https://arxiv.org/abs/2403.04132)
-- OpenAI Platform documentation. [https://platform.openai.com/docs/](https://platform.openai.com/docs/)
-- Anthropic API documentation. [https://docs.anthropic.com/](https://docs.anthropic.com/)
+- OpenAI Platform documentation (models and pricing). [https://platform.openai.com/docs/](https://platform.openai.com/docs/)
+- Anthropic Claude API documentation. [https://platform.claude.com/docs/](https://platform.claude.com/docs/)
+- Anthropic. *Models overview* (current model lineup, context windows, pricing). [https://platform.claude.com/docs/en/about-claude/models/overview](https://platform.claude.com/docs/en/about-claude/models/overview)
 - Anthropic. *Building effective agents.* [https://www.anthropic.com/research/building-effective-agents](https://www.anthropic.com/research/building-effective-agents)
+- Anthropic. *Anthropic raises Series H funding* (May 2026; ownership, cloud partnerships, three-cloud availability). [https://www.anthropic.com/news/series-h](https://www.anthropic.com/news/series-h)

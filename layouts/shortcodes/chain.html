@@ -1,0 +1,23 @@
+{{- /* A vertical service/step chain, the way the video shows it. One row per line in the body,
+       pipe-delimited: "Name | role". Optional 3rd field = a tool slug to resolve an icon.
+       Usage:
+       {{< chain >}}
+       Next.js | the app you see | nextjs
+       CloudFront | cache + TLS | amazon-cloudfront
+       {{< /chain >}} */ -}}
+{{- $rows := split (trim .Inner "\n") "\n" -}}
+<div class="co-chain" data-pagefind-ignore>
+  {{- range $i, $row := $rows -}}
+    {{- $row = trim $row " " -}}
+    {{- if $row -}}
+    {{- $p := split $row "|" -}}
+    {{- $name := trim (index $p 0) " " -}}
+    {{- $role := "" -}}{{ if ge (len $p) 2 }}{{ $role = trim (index $p 1) " " }}{{ end }}
+    {{- $icon := "" -}}{{ if ge (len $p) 3 }}{{ $icon = partial "svc-icon-file.html" (trim (index $p 2) " ") }}{{ end }}
+    <div class="co-chain-node">
+      <span class="co-chain-mark{{ if $icon }} co-chain-mark--icon {{ partial "darklogo-class.html" $icon }}{{ end }}">{{ if $icon }}{{ partial "render-icon.html" (dict "res" $icon "class" "" "alt" "") }}{{ else }}{{ add $i 1 }}{{ end }}</span>
+      <span class="co-chain-text"><span class="co-chain-name">{{ $name }}</span>{{ with $role }}<span class="co-chain-role">{{ . }}</span>{{ end }}</span>
+    </div>
+    {{- end -}}
+  {{- end -}}
+</div>

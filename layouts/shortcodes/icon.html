@@ -1,0 +1,9 @@
+{{- /* Inline a service logo in body copy: {{< icon langchain >}} or {{< icon "amazon-bedrock" >}}.
+       Renders nothing (and warns at build) if no icon asset matches the token. */ -}}
+{{- $token := .Get 0 -}}
+{{- $res := partial "svc-icon-file.html" $token -}}
+{{- if $res -}}
+<span class="svc-icon" title="{{ $token | humanize | title }}">{{ $res.Content | safeHTML }}</span>
+{{- else -}}
+{{- warnf "icon shortcode: no asset for %q (page %s)" $token .Page.File.Path -}}
+{{- end -}}

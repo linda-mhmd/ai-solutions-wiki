@@ -11,6 +11,8 @@ last_updated: 2026-05-30
 
 An AI video pipeline automates the process of ingesting raw video, extracting intelligence from it, and producing edited or enriched output. This article describes a production-ready architecture built on AWS that handles media ingest through final output delivery.
 
+{{< video src="solutions/videoflow-overview.mp4" title="VideoFlow: the pipeline in two minutes" caption="VideoFlow is the worked example behind this guide: one upload becomes three finished cuts, automatically, for about 34 cents. The full beginner [course](/course/) walks the architecture layer by layer." >}}
+
 ## Pipeline Overview
 
 The pipeline has five conceptual stages:

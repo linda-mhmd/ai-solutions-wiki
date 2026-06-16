@@ -1,0 +1,42 @@
+{{- /* Derive facets for a tool page from its slug, tags, and layer. Returns a dict:
+       provider, providerLabel, category, type, maturity. Heuristic; the enhancement pass
+       can later set explicit frontmatter to override. Input: a page (.). */ -}}
+{{- $p := . -}}
+{{- $slug := "" -}}{{- with $p.File }}{{ $slug = .BaseFileName }}{{ end -}}
+{{- $tags := $p.Params.tags | default slice -}}
+{{- $layer := $p.Params.layer -}}
+
+{{- /* provider */ -}}
+{{- $provider := "other" -}}{{- $pl := "Other" -}}
+{{- if or (hasPrefix $slug "aws-") (hasPrefix $slug "amazon-") (hasPrefix $slug "bedrock-") (in $tags "aws-service") (in $tags "aws") -}}{{- $provider = "aws" -}}{{- $pl = "AWS" -}}
+{{- else if or (hasPrefix $slug "azure-") (in $tags "azure") -}}{{- $provider = "azure" -}}{{- $pl = "Azure" -}}
+{{- else if or (hasPrefix $slug "google-") (hasPrefix $slug "gcp-") (in $tags "gcp") -}}{{- $provider = "gcp" -}}{{- $pl = "Google Cloud" -}}
+{{- else if or (in $tags "open-source") (in $tags "opensource") (in $tags "framework") (in $tags "library") -}}{{- $provider = "opensource" -}}{{- $pl = "Open Source" -}}
+{{- end -}}
+
+{{- /* category */ -}}
+{{- $cat := "Other" -}}
+{{- if eq $layer "models" -}}{{ $cat = "AI/ML" }}
+{{- else if eq $layer "data" -}}{{ $cat = "Data" }}
+{{- else if eq $layer "infrastructure" -}}{{ $cat = "Cloud" }}
+{{- else if eq $layer "orchestration" -}}{{ $cat = "DevOps" }}
+{{- else if eq $layer "applications" -}}{{ $cat = "Productivity" }}
+{{- else if or (in $tags "security") (in $tags "authentication") (in $tags "identity") -}}{{ $cat = "Security" }}
+{{- else if or (in $tags "analytics") (in $tags "bi") -}}{{ $cat = "Analytics" }}
+{{- else if or (in $tags "ai-ml") (in $tags "llm") (in $tags "machine-learning") (in $tags "nlp") (in $tags "agents") -}}{{ $cat = "AI/ML" }}
+{{- else if or (in $tags "data") (in $tags "database") (in $tags "etl") (in $tags "data-pipeline") -}}{{ $cat = "Data" }}
+{{- else if or (in $tags "devops") (in $tags "ci-cd") (in $tags "monitoring") (in $tags "observability") (in $tags "serverless") -}}{{ $cat = "DevOps" }}
+{{- else if in $tags "cloud-computing" -}}{{ $cat = "Cloud" }}
+{{- end -}}
+
+{{- /* type */ -}}
+{{- $type := "Managed Service" -}}
+{{- if in $tags "framework" -}}{{ $type = "Framework" }}
+{{- else if in $tags "library" -}}{{ $type = "Library" }}
+{{- else if eq $provider "opensource" -}}{{ $type = "Open Source" }}
+{{- end -}}
+
+{{- $mat := "Production" -}}
+{{- /* free = open-source (self-hostable) or an explicit free pricing model */ -}}
+{{- $free := or (eq $provider "opensource") (eq $p.Params.pricing_model "free") -}}
+{{- return (dict "provider" $provider "providerLabel" $pl "category" $cat "type" $type "maturity" $mat "free" $free) -}}

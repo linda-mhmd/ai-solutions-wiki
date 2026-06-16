@@ -1,0 +1,45 @@
+{{- /* Decision-profile panel for a tool page: openness, cost, lock-in, self-host, free tier,
+       announced, best-for / avoid-if, alternatives, and a lifecycle note. Sourced from
+       tool-profile.html (frontmatter > research data > derivation). Input: a page (.). */ -}}
+{{- $f := partial "tool-profile.html" . -}}
+{{- $hasStats := or $f.openness $f.cost $f.lockIn $f.freeTier $f.announced -}}
+{{- $hasFit := or $f.bestFor $f.avoidIf -}}
+{{- $hasAlts := gt (len $f.alternatives) 0 -}}
+{{- $notActive := ne $f.status "active" -}}
+{{- if or $hasStats $hasFit $hasAlts $notActive -}}
+<section class="tool-decision" data-pagefind-ignore>
+  <div class="td-head">
+    <span class="td-title">At a glance</span>
+    {{ if $notActive }}{{ partial "lifecycle-badge.html" (dict "status" $f.status "note" $f.statusNote) }}{{ end }}
+  </div>
+  {{ with $f.statusNote }}{{ if $notActive }}<p class="td-note">{{ . }}</p>{{ end }}{{ end }}
+  {{ if $hasStats }}
+  <div class="td-grid">
+    {{ with $f.openness }}<div class="td-cell"><span class="td-label">Openness</span><span class="td-val">{{ . }}</span></div>{{ end }}
+    {{ with $f.cost }}<div class="td-cell"><span class="td-label">Relative cost</span><span class="td-val td-mono">{{ . }}</span></div>{{ end }}
+    {{ with $f.lockIn }}<div class="td-cell"><span class="td-label">Lock-in risk</span><span class="td-val">{{ . }}</span></div>{{ end }}
+    <div class="td-cell"><span class="td-label">Self-host</span><span class="td-val">{{ if $f.selfHost }}Yes{{ else }}No{{ end }}</span></div>
+    {{ with $f.freeTier }}<div class="td-cell"><span class="td-label">Free tier</span><span class="td-val">{{ . }}</span></div>{{ end }}
+    {{ with $f.announced }}<div class="td-cell"><span class="td-label">Announced</span><span class="td-val">{{ . }}</span></div>{{ end }}
+    {{ with $f.stars }}<div class="td-cell"><span class="td-label">GitHub stars</span><span class="td-val td-mono">{{ printf "%.1fk" (div . 1000.0) }}</span></div>{{ end }}
+  </div>
+  {{ end }}
+  {{ if $hasFit }}
+  <div class="td-fit">
+    {{ with $f.bestFor }}<p class="td-fit-row td-good"><span class="td-fit-label">Best for</span>{{ . }}</p>{{ end }}
+    {{ with $f.avoidIf }}<p class="td-fit-row td-bad"><span class="td-fit-label">Avoid if</span>{{ . }}</p>{{ end }}
+  </div>
+  {{ end }}
+  {{ if $hasAlts }}
+  <div class="td-alts">
+    <span class="td-label">Alternatives</span>
+    <span class="td-alt-list">
+      {{ range $f.alternatives }}
+      {{ $tp := site.GetPage (printf "/tools/%s" (. | urlize)) }}
+      {{ if $tp }}<a href="{{ $tp.RelPermalink }}" class="td-alt">{{ . }}</a>{{ else }}<span class="td-alt">{{ . }}</span>{{ end }}
+      {{ end }}
+    </span>
+  </div>
+  {{ end }}
+</section>
+{{- end -}}

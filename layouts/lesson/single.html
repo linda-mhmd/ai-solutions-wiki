@@ -1,0 +1,48 @@
+{{ define "main" }}
+{{ partial "course-style.html" . }}
+{{ $lessons := .CurrentSection.RegularPages.ByWeight }}
+{{ $next := "" }}{{ $nextTitle := "" }}
+{{ range $i, $p := $lessons }}{{ if eq $p.RelPermalink $.RelPermalink }}{{ $ni := add $i 1 }}{{ if lt $ni (len $lessons) }}{{ $n := index $lessons $ni }}{{ $next = $n.RelPermalink }}{{ $nextTitle = $n.Title }}{{ end }}{{ end }}{{ end }}
+<div class="article-wrap" style="max-width:860px;margin:0 auto;padding:2rem 1.2rem">
+<article class="article" id="lesson-root"
+  data-lesson-id="{{ .RelPermalink }}"
+  data-course-url="{{ .CurrentSection.RelPermalink }}"
+  data-next="{{ $next }}"
+  data-next-title="{{ $nextTitle }}">
+  <nav class="breadcrumbs" aria-label="Breadcrumb" style="margin-bottom:.6rem;font-size:.9rem">
+    <a href="{{ .CurrentSection.RelPermalink }}">{{ .CurrentSection.Title }}</a>
+  </nav>
+  {{ with .Params.chapter }}<div class="lesson-eyebrow">{{ . }}</div>{{ end }}
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.description }}<p class="article-desc" style="color:#94a3b8;font-size:1.05rem">{{ . }}</p>{{ end }}
+  {{ with .Params.video }}
+  {{ $meta := eq $.Params.video_type "metaphor" }}
+  <figure class="lesson-video{{ if $meta }} is-metaphor{{ end }}">
+    <figcaption class="lesson-video-bar">{{ $.Params.video_title | default "Watch" }}</figcaption>
+    <video {{ if $meta }}autoplay loop muted playsinline{{ else }}controls preload="metadata"{{ end }}>
+      <source src="{{ (printf "/videos/%s" .) | relURL }}" type="video/mp4">
+    </video>
+  </figure>
+  {{ end }}
+  <div class="article-body">
+    {{ .Content }}
+  </div>
+  {{ with .Params.summary }}
+  <div class="lesson-summary">
+    <h2>In summary</h2>
+    <ul>{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
+  </div>
+  {{ end }}
+  {{ if .Params.quiz }}
+  <div class="cq-wrap">
+    <h2>Check yourself</h2>
+    <div id="quiz-mount"></div>
+    <script type="application/json" id="lesson-quiz-data">{{ .Params.quiz | jsonify | safeJS }}</script>
+  </div>
+  {{ else }}
+  <div class="cq-wrap"><button type="button" id="mark-complete" class="cq-btn cq-btn-primary">Mark this lesson complete</button></div>
+  {{ end }}
+</article>
+</div>
+<script src="{{ "js/course.js" | relURL }}" defer></script>
+{{ end }}

@@ -1,0 +1,41 @@
+{{- /* Decision-object profile for a tool page. Precedence: page frontmatter > research data
+       (data/tool_profiles.yaml) > heuristic derivation (tool-facets.html). Input: a page (.).
+       Returns a dict: status, statusNote, cost, openness, selfHost, lockIn, bestFor, avoidIf,
+       announced, freeTier, alternatives, stars, provider, providerLabel, category, type, free. */ -}}
+{{- $p := . -}}
+{{- $slug := "" -}}{{- with $p.File }}{{ $slug = .BaseFileName }}{{ end -}}
+{{- $prof := or (index (site.Data.tool_profiles | default dict) $slug) dict -}}
+{{- $f := partial "tool-facets.html" $p -}}
+
+{{- $status := $p.Params.status | default $prof.status | default "active" -}}
+{{- $statusNote := $p.Params.status_detail | default $prof.status_note -}}
+{{- $cost := $p.Params.cost | default $prof.cost -}}
+{{- $lockIn := $p.Params.lock_in | default $prof.lock_in -}}
+{{- $bestFor := $p.Params.best_for | default $prof.best_for -}}
+{{- $avoidIf := $p.Params.avoid_if | default $prof.avoid_if -}}
+{{- $announced := $p.Params.announced | default $prof.announced -}}
+{{- $freeTier := $p.Params.free_tier | default $prof.free_tier -}}
+{{- /* alternatives come from the research profile only (clean display names); the page's own
+       `alternatives` frontmatter uses a different path-based convention surfaced elsewhere. */ -}}
+{{- $alts := $prof.alternatives | default slice -}}
+{{- $stars := $prof.stars -}}
+
+{{- /* openness: explicit, else derived from provider */ -}}
+{{- $openness := $p.Params.openness | default $prof.openness -}}
+{{- if not $openness -}}
+  {{- if eq $f.provider "opensource" -}}{{ $openness = "Open source" }}
+  {{- else if in (slice "aws" "azure" "gcp") $f.provider -}}{{ $openness = "Managed" }}
+  {{- end -}}
+{{- end -}}
+
+{{- /* self-host: explicit bool wins, else profile, else derived from open source */ -}}
+{{- $selfHost := false -}}
+{{- if isset $prof "self_host" -}}{{ $selfHost = $prof.self_host }}{{ end -}}
+{{- if isset $p.Params "self_host" -}}{{ $selfHost = $p.Params.self_host }}{{ else if and (not (isset $prof "self_host")) (eq $f.provider "opensource") -}}{{ $selfHost = true }}{{ end -}}
+
+{{- return (dict
+  "status" $status "statusNote" $statusNote "cost" $cost "openness" $openness
+  "selfHost" $selfHost "lockIn" $lockIn "bestFor" $bestFor "avoidIf" $avoidIf
+  "announced" $announced "freeTier" $freeTier "alternatives" $alts "stars" $stars
+  "provider" $f.provider "providerLabel" $f.providerLabel "category" $f.category
+  "type" $f.type "free" $f.free) -}}

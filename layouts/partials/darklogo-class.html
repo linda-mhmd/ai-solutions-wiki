@@ -1,0 +1,8 @@
+{{- /* Returns "is-darklogo" when the given icon resource is an all-dark monochrome logo that
+       needs a light backing chip to stay legible on the dark card. Keyed on the icon FILE slug;
+       list is auto-generated in data/dark_logos.yaml by /tmp/detect_dark.py. Input: icon resource. */ -}}
+{{- $icon := . -}}
+{{- if $icon -}}
+{{- $base := path.BaseName $icon.RelPermalink -}}
+{{- if in (site.Data.dark_logos.slugs | default slice) $base -}}is-darklogo{{- end -}}
+{{- end -}}

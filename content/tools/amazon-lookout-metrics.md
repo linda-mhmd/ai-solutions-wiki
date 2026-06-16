@@ -3,19 +3,41 @@ title: "Amazon Lookout for Metrics - Anomaly Detection"
 description: "A comprehensive reference for Amazon Lookout for Metrics: automated anomaly detection in business and operational metrics, alerting, and root cause analysis."
 date: 2026-03-28
 categories: [Tools]
-tags: [amazon-lookout-metrics, AWS, anomaly-detection, monitoring, ML]
+status: discontinued
+status_detail: "Amazon Lookout for Metrics closed to new customers on 9 October 2024 and reached end of support on 10 October 2025. It is no longer available. For anomaly detection AWS now recommends Amazon CloudWatch, Amazon OpenSearch, Amazon Redshift ML, Amazon QuickSight, AWS Glue Data Quality, or Amazon SageMaker Canvas."
+status_source: "https://aws.amazon.com/blogs/machine-learning/transitioning-off-amazon-lookout-for-metrics/"
+tags: [AWS, anomaly-detection, discontinued, "aws-service"]
 related:
   - tools/amazon-cloudwatch
-  - tools/amazon-managed-grafana
+  - tools/amazon-opensearch
   - tools/amazon-quicksight
-last_updated: 2026-05-30
+layer: data
+provider: aws
+pricing_model: payg
+maturity: production
+last_updated: 2026-06-14
+lastmod: 2026-06-14
+enhanced_pass: "2026-06"
 ---
 
-Amazon Lookout for Metrics is a managed service that detects anomalies in business and operational metrics using machine learning. You connect it to your metric data sources, define the measures and dimensions you want to monitor, and the service automatically learns normal patterns and alerts you when something deviates unexpectedly. Unlike threshold-based alerting, Lookout for Metrics adapts to seasonal patterns, trends, and day-of-week variations without manual threshold tuning.
+Amazon Lookout for Metrics has been discontinued. AWS closed it to new customers on 9 October 2024 and ended support on 10 October 2025, after which models and resources are deleted, the service no longer appears in the AWS Management Console, and applications that call the Lookout for Metrics API stop working. This page is kept for reference and to point you to the current alternatives.
 
-Official documentation: https://docs.aws.amazon.com/lookoutmetrics/
-Pricing: https://aws.amazon.com/lookout-for-metrics/pricing/
-Service quotas: https://docs.aws.amazon.com/lookoutmetrics/latest/dev/quotas.html
+For anomaly detection today, AWS recommends these live services (chosen from the official transition guidance):
+
+- {{< relref "tools/amazon-cloudwatch" >}} anomaly detection - applies statistical and machine learning algorithms to a metric, builds a band of expected values that accounts for seasonality (hourly, daily, weekly) and trend, and can alarm when the value goes above, below, or outside that band. Best for operational and infrastructure metrics.
+- {{< relref "tools/amazon-opensearch" >}} - an integrated anomaly detection engine for real time and historical data, suited to logs and search-indexed time series.
+- Amazon Redshift ML - anomaly detection on warehouse data using SQL, with the built-in XGBoost model type or models hosted in Amazon SageMaker.
+- {{< relref "tools/amazon-quicksight" >}} - built-in ML insights and anomaly detection across millions of metrics inside dashboards.
+- AWS Glue Data Quality - rule-based and ML-recommended checks, including anomaly detection, inside data pipelines.
+- Amazon SageMaker Canvas - no-code anomaly detection for analysts who want to build models without writing code.
+
+If you have a general business or operational metric and want managed alerting with the least setup, CloudWatch anomaly detection is the closest direct replacement for most Lookout for Metrics use cases.
+
+**Foundations for beginners**: Anomaly detection means automatically flagging data points that do not fit the normal pattern, instead of waiting for a fixed threshold to be crossed. See {{< relref "glossary/anomaly-detection" >}} for the underlying methods and {{< relref "glossary/observability" >}} for how detection fits into monitoring a running system. Lookout for Metrics worked on time series (values recorded over time, like hourly revenue); the classic statistical baseline for that is {{< relref "glossary/arima" >}}.
+
+Historically, Amazon Lookout for Metrics was a managed service that detected anomalies in business and operational metrics using machine learning. You connected it to your metric data sources, defined the measures and dimensions to monitor, and the service learned normal patterns and alerted you when something deviated unexpectedly. Unlike threshold-based alerting, it adapted to seasonal patterns, trends, and day-of-week variations without manual threshold tuning.
+
+Note: the former product page, pricing page, and developer documentation for Lookout for Metrics now redirect away, since the service has been retired. The authoritative reference is the AWS transition guidance: https://aws.amazon.com/blogs/machine-learning/transitioning-off-amazon-lookout-for-metrics/
 
 ## Core Concepts
 
@@ -57,4 +79,12 @@ Lookout for Metrics works best with stable, repeating patterns. It is less effec
 
 ## Pricing
 
-Pricing is based on the number of metrics monitored (each unique measure-dimension combination counts as one metric). The per-metric cost decreases at higher volumes. For a detector monitoring revenue across 100 dimension combinations, estimate costs based on 100 metrics at the published per-metric rate.
+Historically, pricing was based on the number of metrics monitored (each unique measure-dimension combination counted as one metric), with the per-metric cost tiered down at higher volumes. The pricing page is no longer published because the service has been retired, so plan instead against the pricing of the recommended alternative you adopt (for example CloudWatch anomaly detection is priced per anomaly-detection-enabled metric).
+
+## Sources
+
+- AWS Machine Learning Blog, Transitioning off Amazon Lookout for Metrics (closed to new customers 9 October 2024, end of support 10 October 2025, full list of recommended alternatives): https://aws.amazon.com/blogs/machine-learning/transitioning-off-amazon-lookout-for-metrics/
+- Amazon CloudWatch documentation, Using CloudWatch anomaly detection (the closest live replacement for general metric anomaly detection): https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html
+- Amazon CloudWatch API Reference, PutAnomalyDetector (the API that creates an anomaly detector): https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutAnomalyDetector.html
+- Amazon QuickSight documentation, ML insights and anomaly detection: https://docs.aws.amazon.com/quicksight/latest/user/anomaly-detection.html
+- Amazon OpenSearch Service documentation, Anomaly detection: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ad.html

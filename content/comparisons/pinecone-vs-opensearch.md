@@ -2,17 +2,18 @@
 title: "Pinecone vs OpenSearch for Vector Search"
 description: "Comparing Pinecone and Amazon OpenSearch for vector search in AI applications, covering performance, operations, cost, and feature differences."
 date: 2026-03-28
-last_verified: 2026-05-30
+last_verified: 2026-06-14
 categories: [Comparisons]
 tags: [Pinecone, OpenSearch, vector-search, RAG, database]
-last_updated: 2026-05-30
+last_updated: 2026-06-14
+lastmod: 2026-06-14
 ---
 
 Pinecone is a purpose-built vector database. OpenSearch is a search and analytics engine with vector search capabilities added via the k-NN plugin. Both can power RAG systems and semantic search, but they differ in focus, operational complexity, and feature depth.
 
 ## Architecture
 
-**Pinecone** is built from the ground up for vector operations. Everything in the architecture - storage, indexing, querying - is optimized for high-dimensional vector similarity search. Available as a fully managed SaaS service with a serverless option.
+**Pinecone** is built from the ground up for vector operations. Everything in the architecture - storage, indexing, querying - is optimized for high-dimensional vector similarity search. Available as a fully managed SaaS service. Pinecone now treats its serverless architecture (decoupled storage and compute on object storage) as the default for all new indexes. The older pod-based architecture is legacy: it remains supported for existing users, but new development and optimization focus on serverless, and Pinecone provides tooling to migrate pod indexes to serverless.
 
 **OpenSearch** is a general-purpose search engine (fork of Elasticsearch) that added vector search through its k-NN plugin. Vector search coexists with full-text search, analytics, and log management capabilities. Available as Amazon OpenSearch Service (managed) or self-hosted.
 
@@ -21,8 +22,8 @@ Pinecone is a purpose-built vector database. OpenSearch is a search and analytic
 | Feature | Pinecone | OpenSearch |
 |---|---|---|
 | Vector search | Core capability | Plugin (k-NN) |
-| Full-text search | No | Yes (core capability) |
-| Hybrid search (vector + keyword) | Sparse-dense vectors | Native combination of k-NN and BM25 |
+| Full-text search | Yes (BM25, Lucene query syntax; added later) | Yes (core capability) |
+| Hybrid search (vector + keyword) | Sparse-dense vectors, lexical search | Native combination of k-NN and BM25 |
 | Metadata filtering | Yes | Yes (full query DSL) |
 | Aggregations/analytics | No | Yes (extensive) |
 | Log management | No | Yes (core use case) |
@@ -39,6 +40,8 @@ Pinecone is a purpose-built vector database. OpenSearch is a search and analytic
 
 For pure vector search workloads, Pinecone typically delivers lower and more consistent latency. For workloads that combine vector search with text search, OpenSearch eliminates the need for a separate system.
 
+The OpenSearch vector engine has improved substantially. At re:Invent 2025 (December 2, 2025), Amazon OpenSearch Service added GPU-accelerated indexing, which offloads vector graph construction to a managed serverless GPU fleet for large indexes, and auto-optimization, which tunes index configuration automatically across recall, latency, and cost. AWS reports up to roughly 10x faster indexing at about a quarter of the indexing cost versus non-GPU indexing, and billion-scale indexes built in under an hour. Amazon OpenSearch Serverless also added disk-optimized vectors (September 2025) to lower memory cost for large datasets at the expense of slightly higher latency. Amazon OpenSearch Service tracks the open-source release line and supports OpenSearch 3.5 as of March 2026.
+
 ## Operations
 
 **Pinecone** is zero-ops. Create an index via API, insert vectors, query. No capacity planning, no cluster management, no upgrades. The serverless tier eliminates even index sizing decisions.
@@ -49,9 +52,9 @@ For pure vector search workloads, Pinecone typically delivers lower and more con
 
 ## Cost
 
-**Pinecone Serverless:** Pay per query and per storage. Approximately $0.08 per million read units and $0.33 per GB/month storage. Very cost-effective for low-to-moderate query volumes.
+**Pinecone Serverless:** Pay for storage, write units, and read units, with no idle compute charge. On the Standard plan, published rates are around $0.33 per GB/month storage, roughly $4 to $4.50 per million write units, and roughly $16 to $18 per million read units (rates vary by cloud and region, and Enterprise rates are higher). Plans are tiered: a free Starter tier, Builder at $20/month, Standard at a $50/month minimum, and Enterprise at a $500/month minimum. Confirm current numbers on the Pinecone pricing page, as they change. Cost-effective for read-heavy RAG workloads at low to moderate scale, though agent-style traffic that issues many queries can run well above calculator estimates.
 
-**Pinecone Pods:** Reserved capacity. Starting at ~$70/month for the smallest pod. Costs increase with scale and replicas.
+**Pinecone Pods:** Legacy reserved-capacity model. Still available to existing users, but Pinecone now steers new workloads to serverless.
 
 **OpenSearch Service:** Instance-based pricing. A t3.medium.search costs ~$50/month. Production deployments (3 data nodes + 3 master nodes) start at ~$200-300/month. You also get full-text search, analytics, and dashboards for this cost.
 
@@ -76,7 +79,7 @@ For pure vector search workloads, Pinecone typically delivers lower and more con
 
 **Pinecone to OpenSearch:** Export vectors and metadata, reindex into OpenSearch. Change query API calls. Straightforward but requires testing performance and tuning OpenSearch k-NN settings.
 
-**OpenSearch to Pinecone:** Export vectors and metadata, upsert into Pinecone. Simpler operationally but loses full-text search and analytics capabilities.
+**OpenSearch to Pinecone:** Export vectors and metadata, upsert into Pinecone. Simpler operationally. Pinecone now offers its own full-text and lexical search, but you still lose OpenSearch analytics, aggregations, and log management.
 
 For many RAG applications, the practical advice is: start with OpenSearch if you are on AWS and need more than just vector search, or start with Pinecone if you want the simplest possible vector search and do not need additional search capabilities.
 
@@ -94,6 +97,12 @@ For many RAG applications, the practical advice is: start with OpenSearch if you
 - Jégou, H., Douze, M., Schmid, C. (2011). *Product Quantization for Nearest Neighbor Search.* IEEE TPAMI. [https://lear.inrialpes.fr/pubs/2011/JDS11/jegou_searching_with_quantization.pdf](https://lear.inrialpes.fr/pubs/2011/JDS11/jegou_searching_with_quantization.pdf)
 - Lewis, P., Perez, E., Piktus, A., et al. (2020). *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.* NeurIPS 2020. arXiv:2005.11401. [https://arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401)
 - Pinecone documentation. [https://docs.pinecone.io/](https://docs.pinecone.io/)
+- Pinecone. *Pricing.* [https://www.pinecone.io/pricing/](https://www.pinecone.io/pricing/)
+- Pinecone. *Understanding cost.* [https://docs.pinecone.io/guides/manage-cost/understanding-cost](https://docs.pinecone.io/guides/manage-cost/understanding-cost)
+- Pinecone. *Migrate a pod-based index to serverless.* [https://docs.pinecone.io/guides/indexes/pods/migrate-a-pod-based-index-to-serverless](https://docs.pinecone.io/guides/indexes/pods/migrate-a-pod-based-index-to-serverless)
+- Pinecone. *Lexical search.* [https://docs.pinecone.io/guides/search/lexical-search](https://docs.pinecone.io/guides/search/lexical-search)
 - AWS. *Amazon OpenSearch Service vector engine.* [https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vector-search.html](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vector-search.html)
-- AWS. *Amazon OpenSearch k-NN plugin.* [https://opensearch.org/docs/latest/search-plugins/knn/index/](https://opensearch.org/docs/latest/search-plugins/knn/index/)
+- AWS. *Amazon OpenSearch Service improves vector database performance and cost with GPU acceleration and auto-optimization* (December 2, 2025). [https://aws.amazon.com/blogs/aws/amazon-opensearch-service-improves-vector-database-performance-and-cost-with-gpu-acceleration-and-auto-optimization/](https://aws.amazon.com/blogs/aws/amazon-opensearch-service-improves-vector-database-performance-and-cost-with-gpu-acceleration-and-auto-optimization/)
+- AWS. *Amazon OpenSearch Service now supports OpenSearch version 3.5* (March 18, 2026). [https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-opensearch-service-version-3-5/](https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-opensearch-service-version-3-5/)
+- OpenSearch. *Amazon OpenSearch k-NN plugin.* [https://opensearch.org/docs/latest/search-plugins/knn/index/](https://opensearch.org/docs/latest/search-plugins/knn/index/)
 - ANN Benchmarks (community-maintained ANN library benchmark). [https://ann-benchmarks.com/](https://ann-benchmarks.com/)
