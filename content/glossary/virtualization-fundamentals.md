@@ -35,8 +35,15 @@ Containers start in seconds (vs. minutes for VMs), consume less memory (no dupli
 
 IBM pioneered virtualization with the CP-40 system in 1967 and its successor CP-67, which allowed multiple virtual machines to run concurrently on a single mainframe [1]. Gerald Popek and Robert Goldberg formalized the requirements for virtualizable computer architectures in their 1974 paper, defining the conditions under which a hypervisor can faithfully reproduce the underlying machine [2]. The x86 architecture was not natively virtualizable by these criteria until Intel VT-x (2005) and AMD-V (2006) added hardware support. Docker, released in 2013, made Linux containers accessible to mainstream developers [3].
 
+## From staple to expensive legacy: the Broadcom era
+
+For two decades, VMware's x86 virtualization was the default way to consolidate enterprise servers. That changed in 2023. Broadcom completed its acquisition of VMware on 22 November 2023, then ended perpetual licenses on 11 December 2023 and moved customers to subscription-only bundles [4]. Organizations locked into VMware faced sharp price increases with no quick exit. It is a textbook case of vendor lock-in turning a trusted product into expensive legacy.
+
+So is virtualization "expensive legacy" now? It depends entirely on whether you can leave. Virtualization itself is not obsolete, because it still runs underneath most of the cloud. The newer abstraction for packaging and running applications is the container, popularized by Docker and orchestrated by Kubernetes. Teams that want off VMware now weigh open hypervisors like Proxmox and KVM, or public cloud, against the cost of staying. For the contract side of this story, see [software licensing and vendor lock-in](/guides/software-licensing-and-vendor-lock-in/), the [history of IT](/guides/history-of-it/), and the [interactive IT history timeline](/explore/it-timeline/).
+
 ## Sources
 
 1. Creasy, R.J. (1981). "The Origin of the VM/370 Time-Sharing System." *IBM Journal of Research and Development*, 25(5), 483-490.
 2. Popek, G.J. & Goldberg, R.P. (1974). "Formal Requirements for Virtualizable Third Generation Architectures." *Communications of the ACM*, 17(7), 412-421.
 3. Merkel, D. (2014). "Docker: Lightweight Linux Containers for Consistent Development and Deployment." *Linux Journal*, 2014(239).
+4. Broadcom (2023). "Broadcom Completes Acquisition of VMware" (22 November 2023); VMware, "End of Availability of Perpetual Licensing and SaaS Services" (11 December 2023).

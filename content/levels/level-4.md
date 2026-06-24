@@ -128,11 +128,91 @@ Two articles. Each one is dense. The material here changes how you think about A
 
 ## Articles in this level
 
+### The foundation
+
 ### [What is AI?](/basics/what-is-ai/)
 
-Machine learning, neural networks, and language models explained without mathematics. Covers supervised learning, the training process, what parameters are, how transformer architecture enables language understanding, and why GPUs are the limiting resource in AI development. Includes an honest account of what language models cannot do and why.
+The broad category: machine learning, neural networks, and why AI 2026 is different from AI 1990. Covers supervised learning, the training process, what parameters are, and an honest account of what language models cannot do.
 
-**You should read this if:** You use AI tools daily but could not explain to a stakeholder why an AI system made a specific decision, or you need to evaluate an AI vendor's claims against what the technology actually does.
+**You should read this if:** You need to evaluate an AI vendor's claims or explain to a stakeholder why an AI system made a specific decision.
+
+### [What is Generative AI?](/basics/what-is-generative-ai/)
+
+The specific type of AI that creates text, images, audio, and code. How it differs from traditional AI that classifies or predicts. Covers the four main types (LLMs, image generators, voice AI, video AI) and why the business case is strongest for high-volume creative and analytical tasks.
+
+**You should read this if:** You are using ChatGPT, Claude, or Midjourney and want to understand what category of technology these belong to.
+
+### [What is Machine Learning?](/basics/what-is-machine-learning/)
+
+How AI learns from examples instead of following hand-written rules. Covers supervised, unsupervised, and reinforcement learning with concrete examples of each. Includes the standard ML workflow and when not to use ML at all.
+
+**You should read this if:** Someone on your team said "we need ML" and you want to understand what that means before approving the budget.
+
+### [What is a Neural Network?](/basics/what-is-a-neural-network/)
+
+The mathematical architecture behind every modern AI model. Explains layers, weights, and backpropagation without calculus. Covers the difference between CNNs, transformers, and diffusion models.
+
+**You should read this if:** You hear "neural network" and "deep learning" used interchangeably and want to understand the actual relationship.
+
+---
+
+### Language and text AI
+
+### [What is a Large Language Model (LLM)?](/basics/what-is-an-llm/)
+
+The technology behind ChatGPT, Claude, and Gemini. How LLMs generate text token by token, what a context window limits, and why they are not databases. Includes a comparison of GPT-4o, Claude, Gemini, and Mistral.
+
+**You should read this if:** You access AI through a chatbot but have never understood what is actually happening when you send a message.
+
+### [What is ChatGPT?](/basics/what-is-chatgpt/)
+
+OpenAI's product explained: what GPT-4o is, what the model family looks like, what ChatGPT can and cannot do, and how it compares to Claude and Gemini. Includes a code example showing how to use the API.
+
+**You should read this if:** You use ChatGPT regularly and want to understand the product and model well enough to evaluate alternatives.
+
+### [What is Natural Language Processing (NLP)?](/basics/what-is-nlp/)
+
+The broader field that all text AI belongs to. Covers the core tasks (classification, summarisation, translation, extraction), how the field evolved from rule-based to statistical to transformer-based systems, and which tools to use.
+
+**You should read this if:** You are building or evaluating a product that processes text and need vocabulary to describe what it should do.
+
+---
+
+### Agents and behaviour
+
+### [What is an AI Agent?](/basics/what-is-an-ai-agent/)
+
+When LLMs stop answering questions and start taking actions. The agentic loop, tool use (web search, code execution, APIs, file systems), and multi-agent coordination. Includes a comparison of agent frameworks (LangGraph, CrewAI, AWS Bedrock Agents).
+
+**You should read this if:** Your team is proposing an "AI agent" and you need to evaluate whether the task is bounded enough for current AI reliability.
+
+### [What is AI Hallucination?](/basics/what-is-ai-hallucination/)
+
+Why language models produce confident, fluent, factually wrong output. Where hallucination is most common, how to detect it, and three concrete techniques that reduce it: source grounding, citation prompting, and RAG.
+
+**You should read this if:** You have seen an AI tool produce wrong information and need to understand whether and how to trust AI output in your workflows.
+
+---
+
+### Model customisation
+
+### [What is Fine-tuning?](/basics/what-is-fine-tuning/)
+
+Adapting a pre-trained model on your own data. The difference between instruction fine-tuning and domain adaptation. When fine-tuning beats prompt engineering, what it costs, and how LoRA makes it affordable. Includes code examples for the OpenAI API and Hugging Face.
+
+**You should read this if:** Your team is asking whether to fine-tune a model and you need to evaluate the cost and data requirements before approving the work.
+
+---
+
+### Visual AI
+
+### [What is Computer Vision?](/basics/what-is-computer-vision/)
+
+AI that understands images and video: classification, object detection, OCR, and video analysis. Covers how CNNs work, when to use cloud vision APIs vs multimodal LLMs, and how to evaluate accuracy on your own image types.
+
+**You should read this if:** Your product involves processing images, documents, or video and you need to understand the AI options available.
+
+---
 
 ### [What is Vibe Coding?](/basics/what-is-vibe-coding/)
 
