@@ -1,38 +1,52 @@
 # ai-solutions.wiki robots.txt
-# Policy: allow search indexing and AI citation; block AI training crawlers.
+# Policy: allow search indexing and AI citation/web-search; block AI model training crawlers.
+# Distinction: training bots (scrape for dataset) are blocked.
+#              Search/citation bots (index for real-time answers) are allowed.
 
-# --- AI training crawlers (block) ---
+# --- AI model training crawlers (block) ---
+# GPTBot: OpenAI model training (separate from OAI-SearchBot which is web browsing)
 User-agent: GPTBot
 Disallow: /
 
-User-agent: OmniGPT
-Disallow: /
-
+# CCBot: Common Crawl, used for training datasets
 User-agent: CCBot
 Disallow: /
 
-User-agent: ClaudeBot
-Disallow: /
-
+# anthropic-ai: Anthropic training signal (ClaudeBot is the web-search crawler and is allowed below)
 User-agent: anthropic-ai
 Disallow: /
 
+# Google-Extended: Google's AI training crawler (Gemini/Bard training; Googlebot for Search is separate)
 User-agent: Google-Extended
 Disallow: /
 
+# Diffbot: commercial data extraction / training dataset aggregator
 User-agent: Diffbot
 Disallow: /
 
+# Bytespider: ByteDance scraper, used for training
 User-agent: Bytespider
 Disallow: /
 
+# ImagesiftBot: image scraper for AI training datasets
 User-agent: ImagesiftBot
+Disallow: /
+
+# OmniGPT, YouBot: training/scraping bots
+User-agent: OmniGPT
 Disallow: /
 
 User-agent: YouBot
 Disallow: /
 
-# --- Allow everything else (search indexing, AI browsing/citing, etc.) ---
+# --- Allow: search indexing and AI citation/web-search bots ---
+# Googlebot: Google Search indexing (powers Google AI Overviews)
+# Bingbot: Microsoft Bing (powers Copilot web search)
+# PerplexityBot: Perplexity AI real-time search and citation
+# OAI-SearchBot: OpenAI ChatGPT web browsing / citation (different from GPTBot training)
+# ClaudeBot: Anthropic Claude web browsing / citation (different from anthropic-ai training)
+# All other standard search engine crawlers
+
 User-agent: *
 Allow: /
 
