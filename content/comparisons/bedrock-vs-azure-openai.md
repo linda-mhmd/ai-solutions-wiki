@@ -49,7 +49,7 @@ Default to the AI service from the cloud provider you are already using. The int
 
 - [Bedrock vs Vertex AI](/comparisons/bedrock-vs-vertex-ai/), [SageMaker vs Bedrock](/comparisons/sagemaker-vs-bedrock/)
 - [AWS vs Azure AI](/comparisons/aws-vs-azure-ai/), [AWS vs GCP AI](/comparisons/aws-vs-gcp-ai/)
-- [OpenAI vs Anthropic](/comparisons/openai-vs-anthropic/), [Claude vs GPT](/comparisons/claude-vs-gpt/)
+- [OpenAI vs Anthropic](/comparisons/openai-vs-anthropic/), [Claude vs ChatGPT](/comparisons/claude-vs-chatgpt/)
 - [LLM (glossary)](/glossary/llm/), [Foundation Models](/glossary/foundation-models/)
 - [Function Calling](/glossary/function-calling/), [Guardrails](/glossary/guardrails/)
 

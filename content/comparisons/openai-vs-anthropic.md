@@ -115,7 +115,7 @@ Pricing changes frequently; check current rates. General patterns:
 
 ## See Also
 
-- [Claude vs GPT](/comparisons/claude-vs-gpt/), [GPT-4 vs Claude Enterprise](/comparisons/gpt4-vs-claude-enterprise/)
+- [Claude vs ChatGPT](/comparisons/claude-vs-chatgpt/), [GPT-4 vs Claude Enterprise](/comparisons/gpt4-vs-claude-enterprise/)
 - [Bedrock vs Azure OpenAI](/comparisons/bedrock-vs-azure-openai/), [Huggingface vs Bedrock](/comparisons/huggingface-vs-bedrock/)
 - [Function Calling](/glossary/function-calling/), [Tool Use](/glossary/tool-use/), [Model Context Protocol](/glossary/model-context-protocol/)
 - [LLM (glossary)](/glossary/llm/), [Foundation Models](/glossary/foundation-models/)

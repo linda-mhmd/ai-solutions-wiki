@@ -1,0 +1,1061 @@
+{{ define "main" }}
+<style>
+  .kg-page { display:flex; flex-direction:column; height:calc(100vh - 60px); height:calc(100dvh - 60px); overflow:hidden; }
+  .kg-topbar { background:var(--surface); border-bottom:1px solid var(--border); padding:1rem 1.5rem 0.75rem; flex-shrink:0; display:flex; flex-direction:column; gap:0; }
+  .kg-topbar-row1 { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+  .kg-topbar-row2 { display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; padding-top:0.6rem; margin-top:0.6rem; border-top:1px solid var(--border); min-height:32px; }
+  .kg-filter-sep { width:1px; height:14px; background:var(--border-strong); flex-shrink:0; margin:0 0.2rem; align-self:center; }
+  .kg-section-chip { appearance:none; -webkit-appearance:none; font-size:0.7rem; font-family:var(--mono); color:var(--text-secondary); cursor:pointer; padding:0.15rem 0.5rem; border-radius:999px; border:1px solid transparent; background:none; transition:all .15s; user-select:none; }
+  .kg-section-chip:hover { border-color:var(--border-strong); color:var(--text-primary); }
+  .kg-section-chip.active { border-color:var(--accent); color:var(--text-primary); background:rgba(224,49,75,.1); }
+  .kg-status-legend { display:flex; align-items:center; gap:0.6rem; margin-left:auto; }
+  .kg-status-item { display:flex; align-items:center; gap:0.3rem; font-size:0.67rem; font-family:var(--mono); color:var(--text-secondary); }
+  .kg-status-dot { width:9px; height:9px; border-radius:50%; flex-shrink:0; }
+  .kg-edgekey { display:flex; align-items:center; gap:0.7rem; flex-wrap:wrap; }
+  .kg-edge-item { display:flex; align-items:center; gap:0.3rem; font-size:0.67rem; font-family:var(--mono); color:var(--text-secondary); }
+  .kg-edge-item svg { flex-shrink:0; }
+  .kg-panel-status { display:flex; align-items:center; gap:0.4rem; margin-top:0.35rem; flex-wrap:wrap; }
+  .kg-panel-status-badge { font-size:0.63rem; font-family:var(--mono); font-weight:600; padding:0.12rem 0.4rem; border-radius:999px; letter-spacing:.04em; text-transform:uppercase; }
+  .kg-panel-status-badge--visited { background:rgba(240,237,232,.1); color:var(--text-secondary); }
+  .kg-panel-status-badge--saved { background:rgba(224,49,75,.15); color:#e0314b; }
+  .kg-panel-status-badge--reading { background:rgba(249,115,22,.15); color:#f97316; }
+  .kg-panel-status-badge--done { background:rgba(34,197,94,.15); color:#22c55e; }
+  .kg-topbar-left { display:flex; flex-direction:column; gap:0.2rem; min-width:220px; }
+  .kg-topbar-title { font-size:1.25rem; font-weight:700; color:var(--text-primary); }
+  .kg-topbar-desc { font-size:0.8rem; color:var(--text-secondary); font-family:var(--mono); }
+  .kg-search-wrap { flex:1; min-width:200px; max-width:360px; position:relative; }
+  .kg-search { width:100%; background:var(--bg); border:1px solid var(--border-strong); border-radius:6px; padding:0.5rem 0.75rem 0.5rem 2.25rem; color:var(--text-primary); font-size:0.875rem; font-family:var(--sans); outline:none; transition:border-color .15s; }
+  .kg-search:focus { border-color:var(--accent); }
+  .kg-search::placeholder { color:var(--text-secondary); }
+  .kg-search-icon { position:absolute; left:0.6rem; top:50%; transform:translateY(-50%); color:var(--text-secondary); pointer-events:none; }
+  .kg-legend { display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center; }
+  .kg-legend-chip { appearance:none; -webkit-appearance:none; background:none; display:flex; align-items:center; gap:0.35rem; font-size:0.75rem; font-family:var(--mono); color:var(--text-secondary); cursor:pointer; padding:0.2rem 0.55rem; border-radius:999px; border:1px solid transparent; transition:all .15s; user-select:none; }
+  .kg-legend-chip:hover { border-color:var(--border-strong); color:var(--text-primary); }
+  .kg-legend-chip.active { border-color:var(--border-strong); color:var(--text-primary); background:rgba(127,127,127,.08); }
+  .kg-legend-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+  .kg-canvas-wrap { flex:1; position:relative; overflow:hidden; background:var(--bg); }
+  #kg-svg { width:100%; height:100%; display:block; }
+  .kg-panel { position:absolute; right:1rem; top:1rem; bottom:1rem; width:var(--kg-panel-w, 300px); background:var(--surface); border:1px solid var(--border-strong); border-radius:10px; display:flex; flex-direction:column; overflow:hidden; z-index:10; box-shadow:0 8px 32px rgba(0,0,0,.6); }
+  .kg-panel-resize { position:absolute; top:0; left:-4px; width:9px; height:100%; cursor:ew-resize; z-index:12; touch-action:none; }
+  .kg-panel-resize::after { content:""; position:absolute; left:4px; top:0; bottom:0; width:2px; background:transparent; transition:background .12s; }
+  .kg-panel-resize:hover::after, .kg-panel.kg-resizing .kg-panel-resize::after { background:var(--accent); }
+  .kg-panel.kg-resizing { user-select:none; }
+  .kg-panel.kg-collapsed { width:34px; }
+  .kg-panel.kg-collapsed .kg-panel-header, .kg-panel.kg-collapsed .kg-panel-body, .kg-panel.kg-collapsed .kg-panel-footer, .kg-panel.kg-collapsed .kg-panel-resize { display:none; }
+  .kg-panel-reopen { display:none; }
+  .kg-panel.kg-collapsed .kg-panel-reopen { display:flex; align-items:center; justify-content:center; width:100%; height:100%; appearance:none; background:none; border:none; color:var(--text-secondary); cursor:pointer; }
+  .kg-panel.kg-collapsed .kg-panel-reopen:hover { color:var(--text-primary); }
+  .kg-panel-collapse { position:absolute; top:1rem; right:1rem; appearance:none; background:var(--bg); border:1px solid var(--border-strong); color:var(--text-secondary); border-radius:6px; width:24px; height:24px; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0; z-index:2; }
+  .kg-panel-collapse:hover { border-color:var(--accent); color:var(--text-primary); }
+  /* The [hidden] attribute is toggled in JS, but the display:flex above outranks the UA [hidden] rule.
+     These guards restore correct hide behaviour so the panel and status row stay closed until used. */
+  .kg-panel[hidden], .kg-panel-status[hidden] { display:none; }
+  .kg-panel-header { padding:1rem 1rem 0.75rem; border-bottom:1px solid var(--border); flex-shrink:0; }
+  .kg-panel-cat { font-size:0.7rem; font-family:var(--mono); font-weight:600; letter-spacing:.08em; text-transform:uppercase; margin-bottom:0.3rem; }
+  .kg-panel-name { font-size:1.05rem; font-weight:700; color:var(--text-primary); line-height:1.3; margin:0; }
+  .kg-panel-desc { font-size:0.8rem; color:var(--text-secondary); margin:0.4rem 0 0; line-height:1.5; }
+  .kg-panel-body { flex:1; overflow-y:auto; padding:0.75rem 1rem; }
+  .kg-panel-section-label { font-size:0.7rem; font-family:var(--mono); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--text-secondary); margin:0.75rem 0 0.4rem; }
+  .kg-panel-section-label:first-child { margin-top:0; }
+  .kg-panel-level { display:flex; align-items:center; gap:0.4rem; font-size:0.72rem; font-family:var(--mono); color:var(--text-secondary); margin:0 0 0.6rem; line-height:1.3; }
+  .kg-panel-level-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+  .kg-panel-link-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.3rem; }
+  .kg-panel-link-list a { display:block; font-size:0.8rem; color:var(--accent); text-decoration:none; padding:0.25rem 0.4rem; border-radius:4px; transition:background .1s; }
+  .kg-panel-link-list a:hover { background:rgba(224,49,75,.12); }
+  .kg-panel-node-btn { display:flex; align-items:center; justify-content:space-between; background:none; border:none; width:100%; text-align:left; padding:0.3rem 0.4rem; border-radius:4px; cursor:pointer; gap:0.5rem; transition:background .1s; }
+  .kg-panel-node-btn:hover { background:rgba(255,255,255,.04); }
+  .kg-panel-node-label { font-size:0.8rem; color:var(--text-primary); }
+  .kg-panel-node-rel { font-size:0.7rem; font-family:var(--mono); color:var(--text-secondary); white-space:nowrap; }
+  .kg-panel-footer { padding:0.75rem 1rem; border-top:1px solid var(--border); flex-shrink:0; display:flex; gap:0.5rem; }
+  .kg-open-btn { flex:1; background:var(--accent); color:#fff; border:none; border-radius:6px; padding:0.5rem; font-size:0.85rem; font-weight:600; cursor:pointer; transition:opacity .15s; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.3rem; }
+  .kg-open-btn:hover { opacity:.85; }
+  .kg-close-btn { background:var(--bg); border:1px solid var(--border-strong); border-radius:6px; padding:0.5rem 0.75rem; font-size:0.85rem; color:var(--text-secondary); cursor:pointer; transition:border-color .15s; }
+  .kg-close-btn:hover { border-color:var(--accent); color:var(--text-primary); }
+  .kg-hint { position:absolute; bottom:1rem; left:50%; transform:translateX(-50%); font-size:0.75rem; font-family:var(--mono); color:var(--text-secondary); background:var(--surface); padding:0.35rem 0.75rem; border-radius:999px; border:1px solid var(--border); pointer-events:none; white-space:nowrap; }
+  /* Theme-aware node text: CSS overrides SVG presentation attributes */
+  .kg-node text { fill: var(--text-primary); stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; paint-order: stroke; font-size: 10px; font-family: Inter, sans-serif; pointer-events: none; }
+  @media (max-width:640px) {
+    .kg-panel, .kg-panel.kg-collapsed { right:0; left:0; top:auto; bottom:0; width:100%; height:55%; border-radius:12px 12px 0 0; }
+    .kg-panel.kg-collapsed .kg-panel-header { display:block; }
+    .kg-panel.kg-collapsed .kg-panel-body { display:block; }
+    .kg-panel.kg-collapsed .kg-panel-footer { display:flex; }
+    .kg-panel.kg-collapsed .kg-panel-reopen { display:none; }
+    .kg-panel-resize, .kg-panel-collapse { display:none; }
+    .kg-topbar { padding:0.75rem 1rem 0.6rem; }
+    .kg-legend { display:none; }
+    .kg-topbar-row2 { display:none; }
+  }
+</style>
+
+<div class="kg-page">
+{{ partial "explore-switcher.html" (dict "page" . "inline" true) }}
+
+  <div class="kg-topbar">
+    <div class="kg-topbar-row1">
+      <div class="kg-topbar-left">
+        <span class="kg-topbar-title">{{ .Title }}</span>
+        <span class="kg-topbar-desc">{{ len .Site.RegularPages }} articles, 129 concepts, 244 connections</span>
+      </div>
+      <div class="kg-search-wrap">
+        <svg class="kg-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" id="kg-search" class="kg-search" placeholder="Search concepts..." autocomplete="off" aria-label="Search concepts in the knowledge graph">
+      </div>
+      <div class="kg-legend" id="kg-legend" role="list"></div>
+    </div>
+    <div class="kg-topbar-row2" id="kg-topbar-row2">
+      <div id="kg-section-chips" role="list" aria-label="Filter by wiki section"></div>
+      <div class="kg-filter-sep" aria-hidden="true"></div>
+      <div class="kg-edgekey" aria-label="What the connecting lines mean">
+        <span class="kg-edge-item" title="Solid arrow: learn the concept the arrow points to first. It is a building block.">
+          <svg width="30" height="10" viewBox="0 0 30 10" aria-hidden="true"><line x1="1" y1="5" x2="22" y2="5" stroke="currentColor" stroke-width="1.6"/><path d="M22,1.5 L28,5 L22,8.5 Z" fill="currentColor"/></svg>needs first
+        </span>
+        <span class="kg-edge-item" title="Dotted arrow: this concept is used for, or produces, the one the arrow points to. They work together.">
+          <svg width="30" height="10" viewBox="0 0 30 10" aria-hidden="true"><line x1="1" y1="5" x2="22" y2="5" stroke="currentColor" stroke-width="1.6" stroke-dasharray="1.5 3"/><path d="M22,1.5 L28,5 L22,8.5 Z" fill="currentColor"/></svg>works with
+        </span>
+        <span class="kg-edge-item" title="Dashed line, no arrow: the two concepts are related, but there is no required order.">
+          <svg width="30" height="10" viewBox="0 0 30 10" aria-hidden="true"><line x1="1" y1="5" x2="29" y2="5" stroke="currentColor" stroke-width="1.6" stroke-dasharray="4 3"/></svg>related
+        </span>
+      </div>
+      <div class="kg-status-legend" id="kg-status-legend" aria-label="Status legend"></div>
+    </div>
+  </div>
+
+  <div class="kg-canvas-wrap">
+    <svg id="kg-svg" role="img" aria-label="Interactive knowledge graph of AI concepts"></svg>
+    <div id="kg-panel" class="kg-panel" hidden>
+      <div class="kg-panel-resize" id="kg-panel-resize" role="separator" aria-orientation="vertical" aria-label="Drag to resize panel" title="Drag to resize"></div>
+      <button class="kg-panel-reopen" id="kg-panel-reopen" type="button" aria-label="Expand panel" title="Expand panel">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <button class="kg-panel-collapse" id="kg-panel-collapse" type="button" aria-label="Collapse panel" title="Collapse">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+      <div class="kg-panel-header">
+        <div id="kg-panel-cat" class="kg-panel-cat"></div>
+        <h2 id="kg-panel-name" class="kg-panel-name"></h2>
+        <p id="kg-panel-desc" class="kg-panel-desc"></p>
+        <div id="kg-panel-status" class="kg-panel-status" hidden></div>
+      </div>
+      <div class="kg-panel-body" id="kg-panel-body"></div>
+      <div class="kg-panel-footer">
+        <a id="kg-open-btn" class="kg-open-btn" href="#" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Open article
+        </a>
+        <button class="kg-close-btn" id="kg-close-btn" type="button" aria-label="Close info panel">Close</button>
+      </div>
+    </div>
+    <div class="kg-hint" id="kg-hint">Click a concept to see what to learn first and next. Each dot is a topic, coloured by area. A solid arrow means "learn this first"; a dotted arrow means "works with"; a dashed line means "related, any order".</div>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js" integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i" crossorigin="anonymous"></script>
+<script>
+(function() {
+  'use strict';
+
+  const CAT_COLORS = {
+    foundation:    '#e0314b',
+    models:        '#f97316',
+    architecture:  '#3b82f6',
+    tools:         '#22c55e',
+    patterns:      '#f59e0b',
+    infrastructure:'#06b6d4',
+    governance:    '#a855f7',
+    design:        '#ec4899',
+    computing:     '#84cc16',
+    startup:       '#14b8a6'
+  };
+  const CAT_LABELS = {
+    foundation:    'Foundation',
+    models:        'Models',
+    architecture:  'Architecture',
+    tools:         'Tools',
+    patterns:      'Patterns',
+    infrastructure:'Infrastructure',
+    governance:    'Governance',
+    design:        'Design',
+    computing:     'CS Basics',
+    startup:       'Startup'
+  };
+
+  function isDark() {
+    return document.documentElement.getAttribute('data-theme') !== 'light';
+  }
+  function linkDefault() { return isDark() ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.1)'; }
+  function linkFaded()   { return isDark() ? 'rgba(255,255,255,0.02)' : 'rgba(0,0,0,0.02)'; }
+  function linkActive()  { return isDark() ? 'rgba(255,255,255,0.6)'  : 'rgba(0,0,0,0.55)'; }
+  function linkDim()     { return isDark() ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.04)'; }
+  function arrowFill()   { return isDark() ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.2)'; }
+
+  const NODES = [
+    {id:'llm',label:'Large Language Models',url:'/glossary/llm/',cat:'foundation',desc:'Neural networks trained on text to understand and generate language. Power ChatGPT, Claude, and Gemini.'},
+    {id:'transformers',label:'Transformers',url:'/glossary/transformer-architecture/',cat:'foundation',desc:'Architecture underlying all modern LLMs, using self-attention to process sequences in parallel.'},
+    {id:'embeddings',label:'Embeddings',url:'/glossary/embeddings/',cat:'foundation',desc:'Dense vector representations of meaning. Similar concepts produce vectors close together in space.'},
+    {id:'tokens',label:'Tokenization',url:'/glossary/tokenization/',cat:'foundation',desc:'How LLMs split text into sub-word units called tokens. Pricing is always per token.'},
+    {id:'context-window',label:'Context Window',url:'/glossary/context-window/',cat:'foundation',desc:'Maximum input length an LLM can process in a single call. Modern models: 128K to 2M tokens.'},
+    {id:'fine-tuning',label:'Fine-tuning',url:'/glossary/fine-tuning/',cat:'foundation',desc:'Adapting a pre-trained model to a specific domain or task with additional training data.'},
+    {id:'rlhf',label:'RLHF',url:'/glossary/reinforcement-learning/',cat:'foundation',desc:'Reinforcement Learning from Human Feedback. Aligns model outputs to human preferences.'},
+    {id:'foundation-models',label:'Foundation Models',url:'/glossary/foundation-models/',cat:'foundation',desc:'Large pre-trained models trained at scale, designed to be adapted to many downstream tasks.'},
+    {id:'hallucination',label:'Hallucination',url:'/glossary/hallucination/',cat:'foundation',desc:'When LLMs generate plausible-sounding but factually incorrect content. Mitigated by RAG.'},
+    {id:'prompt-engineering',label:'Prompt Engineering',url:'/glossary/prompt-engineering/',cat:'foundation',desc:'Designing effective inputs to get reliable, useful outputs from language models.'},
+    {id:'rag',label:'RAG',url:'/glossary/rag/',cat:'foundation',desc:'Retrieval-Augmented Generation: ground LLM answers in retrieved documents to reduce hallucination.'},
+    {id:'attention',label:'Attention Mechanism',url:'/glossary/attention-mechanism/',cat:'foundation',desc:'Core mechanism in transformers that weighs how much each token should attend to every other token.'},
+    {id:'chain-of-thought',label:'Chain-of-Thought',url:'/glossary/chain-of-thought/',cat:'foundation',desc:'Prompting technique that makes the model reason step by step before producing an answer.'},
+    {id:'inference',label:'Inference',url:'/glossary/inference/',cat:'foundation',desc:'Running a trained model to generate predictions or text. Separate from training.'},
+    {id:'gpt-4o',label:'GPT-4o',url:'/comparisons/llm-landscape-2026/',cat:'models',desc:'OpenAI flagship. Multimodal, 128K context. Most widely tested model in enterprise.'},
+    {id:'claude-4',label:'Claude 4',url:'/comparisons/llm-landscape-2026/',cat:'models',desc:'Anthropic current generation: Haiku, Sonnet 4.6, Opus 4.8, Fable 5. 200K context.'},
+    {id:'gemini-2',label:'Gemini 2.0',url:'/comparisons/llm-landscape-2026/',cat:'models',desc:'Google flagship. Up to 2M context window. Native multimodal including video.'},
+    {id:'llama-3',label:'Llama 3.x',url:'/comparisons/llm-landscape-2026/',cat:'models',desc:"Meta open-weight family. 70B matches frontier models. Apache 2.0 license."},
+    {id:'mistral',label:'Mistral AI',url:'/comparisons/llm-landscape-2026/',cat:'models',desc:'European LLM provider. Strong multilingual, EU data residency, competitive pricing.'},
+    {id:'deepseek',label:'DeepSeek',url:'/comparisons/llm-landscape-2026/',cat:'models',desc:'DeepSeek V3 and R1. Benchmark performance matching GPT-4o at significantly lower cost.'},
+    {id:'grok',label:'Grok (xAI)',url:'/comparisons/llm-landscape-2026/',cat:'models',desc:"Elon Musk's xAI model. Integrated with X platform data. Strong coding and STEM."},
+    {id:'qwen',label:'Qwen (Alibaba)',url:'/comparisons/llm-landscape-2026/',cat:'models',desc:'Alibaba open-weight family. Strong Chinese and multilingual. Apache 2.0 license.'},
+    {id:'reasoning-models',label:'Reasoning Models',url:'/comparisons/llm-landscape-2026/',cat:'models',desc:'o1, o3, o4-mini, DeepSeek R1: think before answering. Measurably better at math and logic.'},
+    {id:'agents',label:'AI Agents',url:'/glossary/ai-agents/',cat:'architecture',desc:'LLMs with tool access that can take actions, not just generate text. Observe, decide, act.'},
+    {id:'multi-agent',label:'Multi-Agent Systems',url:'/glossary/multi-agent-systems/',cat:'architecture',desc:'Multiple specialized agents collaborating on complex tasks. Each owns a capability.'},
+    {id:'llm-gateway',label:'LLM Gateway',url:'/guides/llm-gateway-architecture/',cat:'architecture',desc:'Central routing layer for multi-model, multi-provider LLM access. Adds fallback and cost control.'},
+    {id:'microservices',label:'Microservices',url:'/comparisons/microservices-vs-monolith-ai/',cat:'architecture',desc:'Small, independently deployable services that compose into a larger system.'},
+    {id:'api',label:'APIs',url:'/basics/what-is-an-api/',cat:'architecture',desc:'Interfaces that let services communicate and share data. The integration layer.'},
+    {id:'vector-database',label:'Vector Database',url:'/glossary/vector-database/',cat:'architecture',desc:'Storage optimized for similarity search over embeddings. Core infrastructure for RAG.'},
+    {id:'streaming',label:'Streaming Responses',url:'/patterns/response-streaming/',cat:'architecture',desc:'Token-by-token delivery of LLM responses. Reduces perceived latency for users.'},
+    {id:'async',label:'Async Queues',url:'/guides/async-job-queues/',cat:'architecture',desc:'Background job processing for long-running AI tasks that exceed HTTP timeout limits.'},
+    {id:'structured-output',label:'Structured Output',url:'/patterns/structured-output/',cat:'architecture',desc:'Constraining LLM output to valid JSON or typed schemas for reliable downstream use.'},
+    {id:'claude-anthropic',label:'Claude API',url:'/tools/claude-anthropic/',cat:'tools',desc:'Anthropic API. Enterprise-focused, strong instruction following. 200K context.'},
+    {id:'amazon-bedrock',label:'Amazon Bedrock',url:'/tools/amazon-bedrock/',cat:'tools',desc:'AWS managed LLM service. Multi-model access, data stays in your AWS account.'},
+    {id:'amazon-sagemaker',label:'SageMaker',url:'/tools/amazon-sagemaker/',cat:'tools',desc:'AWS ML platform for training, hosting, and monitoring models at scale.'},
+    {id:'supabase',label:'Supabase',url:'/tools/supabase/',cat:'tools',desc:'Open-source Firebase alternative. Includes pgvector for embedding storage and search.'},
+    {id:'fastapi',label:'FastAPI',url:'/tools/fastapi/',cat:'tools',desc:'Python API framework. Async-first, auto-generates OpenAPI docs. Ideal for AI backends.'},
+    {id:'railway',label:'Railway',url:'/tools/railway/',cat:'tools',desc:'Deployment platform with automatic CI/CD for backend services. No Kubernetes required.'},
+    {id:'expo',label:'Expo',url:'/tools/expo/',cat:'tools',desc:'React Native framework for building iOS and Android apps from one codebase.'},
+    {id:'stripe-connect',label:'Stripe Connect',url:'/tools/stripe-connect/',cat:'tools',desc:'Payment infrastructure for platforms and marketplaces with multi-party payouts.'},
+    {id:'zustand',label:'Zustand',url:'/tools/zustand/',cat:'tools',desc:'Minimal React state management. No boilerplate, works with React hooks.'},
+    {id:'zero-shot',label:'Zero-shot Prompting',url:'/glossary/zero-shot-learning/',cat:'patterns',desc:'LLM tasks with no examples in the prompt. Relies entirely on pre-training knowledge.'},
+    {id:'few-shot',label:'Few-shot Learning',url:'/glossary/few-shot-learning/',cat:'patterns',desc:'Providing 2-5 examples in the prompt to guide output format and style.'},
+    {id:'react-pattern',label:'ReAct Pattern',url:'/patterns/react-pattern-ai/',cat:'patterns',desc:'Reason + Act loop: model thinks, calls tools, observes output, repeats until done.'},
+    {id:'tool-use',label:'Tool Use',url:'/glossary/tool-use/',cat:'patterns',desc:'LLM ability to call external functions, APIs, and databases as part of generation.'},
+    {id:'semantic-cache',label:'Semantic Caching',url:'/patterns/semantic-caching/',cat:'patterns',desc:'Cache LLM responses by semantic similarity to reduce cost and latency.'},
+    {id:'chain-summarization',label:'Chain Summarization',url:'/patterns/summarization-chain/',cat:'patterns',desc:'Summarize long documents by processing chunks sequentially, combining results.'},
+    {id:'chunking',label:'Chunking',url:'/patterns/embedding-pipeline/',cat:'patterns',desc:'Splitting documents into segments before embedding and indexing for RAG.'},
+    {id:'reranking',label:'Reranking',url:'/patterns/rag-implementation/',cat:'patterns',desc:'Second-pass scoring of retrieved documents before assembly into LLM context.'},
+    {id:'cloud',label:'Cloud Computing',url:'/basics/what-is-the-cloud/',cat:'infrastructure',desc:'On-demand compute, storage, and services over the internet. Pay for what you use.'},
+    {id:'containers',label:'Containers',url:'/glossary/docker/',cat:'infrastructure',desc:'Portable, isolated application environments. Docker packages your app and dependencies.'},
+    {id:'kubernetes',label:'Kubernetes',url:'/glossary/kubernetes/',cat:'infrastructure',desc:'Container orchestration for scaled AI inference workloads. Autoscaling and resilience.'},
+    {id:'cicd',label:'CI/CD',url:'/glossary/ci-cd/',cat:'infrastructure',desc:'Automated testing and deployment pipelines. Code merged to main triggers a deploy.'},
+    {id:'observability',label:'Observability',url:'/glossary/observability/',cat:'infrastructure',desc:'Logging, metrics, and tracing for production AI systems. Catch regressions early.'},
+    {id:'database',label:'Databases',url:'/basics/what-is-a-database/',cat:'infrastructure',desc:'Structured data storage. Relational (Postgres), document (Mongo), vector (pgvector).'},
+    {id:'serverless',label:'Serverless',url:'/glossary/serverless/',cat:'infrastructure',desc:'Function-as-a-service. Scales to zero, pay per invocation. AWS Lambda, Vercel Functions.'},
+    {id:'version-control',label:'Version Control',url:'/basics/what-is-version-control/',cat:'infrastructure',desc:'Tracking code changes over time. Git and GitHub are the industry standard.'},
+    {id:'eu-ai-act',label:'EU AI Act',url:'/frameworks/eu-ai-act-risk-framework/',cat:'governance',desc:'EU regulation classifying AI by risk level. High-risk systems require conformity assessment.'},
+    {id:'iso-42001',label:'ISO 42001',url:'/frameworks/iso-42001/',cat:'governance',desc:'International standard for AI management systems. Pairs with ISO 27001.'},
+    {id:'nist-rmf',label:'NIST AI RMF',url:'/frameworks/nist-ai-rmf/',cat:'governance',desc:'US framework for AI risk management: Govern, Map, Measure, Manage.'},
+    {id:'ai-safety',label:'AI Safety',url:'/glossary/ai-safety/',cat:'governance',desc:'Practices ensuring AI systems behave as intended without causing unintended harm.'},
+    {id:'bias',label:'Bias and Fairness',url:'/glossary/responsible-ai/',cat:'governance',desc:'Identifying and mitigating discriminatory patterns in training data and model outputs.'},
+    {id:'data-governance',label:'Data Governance',url:'/glossary/data-lineage/',cat:'governance',desc:'Policies for data quality, lineage, ownership, and regulatory compliance.'},
+    {id:'owasp-llm',label:'OWASP LLM Top 10',url:'/guides/owasp-top-10-llm/',cat:'governance',desc:'Security risks specific to LLM apps: prompt injection, insecure output handling, data leakage.'},
+    {id:'granite',label:'IBM Granite',url:'/comparisons/llm-landscape-2026/',cat:'models',desc:'IBM open-source model. Apache 2.0, training data disclosed. Designed for regulated enterprise (finance, healthcare, legal).'},
+    {id:'olmo',label:'OLMo (AllenAI)',url:'/comparisons/llm-landscape-2026/',cat:'models',desc:'Allen Institute fully open model. Weights + training data + training code all public under Apache 2.0.'},
+    {id:'falcon',label:'Falcon (TII)',url:'/comparisons/llm-landscape-2026/',cat:'models',desc:'Technology Innovation Institute model. Apache 2.0 license. Strong Arabic-language capability.'},
+    {id:'starcoder2',label:'StarCoder2',url:'/comparisons/llm-landscape-2026/',cat:'models',desc:'BigCode code-generation model. 600+ programming languages. Permissive OpenRAIL-M license.'},
+    {id:'dbrx',label:'DBRX (Databricks)',url:'/comparisons/llm-landscape-2026/',cat:'models',desc:'Databricks MoE model. 132B total, 36B active. Integrates natively with Databricks Lakehouse.'},
+    {id:'groq',label:'Groq',url:'/comparisons/llm-landscape-2026/',cat:'tools',desc:'Custom LPU hardware for LLM inference. 10-20x faster token generation than GPU. OpenAI-compatible API.'},
+    {id:'together-ai',label:'Together AI',url:'/comparisons/llm-landscape-2026/',cat:'tools',desc:'100+ open-weight models on one API. Fine-tuning and custom model hosting. Largest open-model catalog.'},
+    {id:'fireworks-ai',label:'Fireworks AI',url:'/comparisons/llm-landscape-2026/',cat:'tools',desc:'Inference provider with structured output support across all open models. FireOptimizer reduces cost.'},
+    {id:'huggingface',label:'Hugging Face',url:'/comparisons/llm-landscape-2026/',cat:'tools',desc:'Model hub with Inference API and Inference Endpoints. Thousands of community models available.'},
+    {id:'ollama',label:'Ollama',url:'/comparisons/llm-landscape-2026/',cat:'tools',desc:'Run LLMs locally. OpenAI-compatible localhost API. Works on Apple Silicon and NVIDIA GPUs.'},
+    {id:'vllm',label:'vLLM',url:'/comparisons/llm-landscape-2026/',cat:'tools',desc:'High-throughput open-source inference server. PagedAttention for efficient KV-cache. OpenAI-compatible.'},
+    {id:'azure-ai',label:'Azure AI',url:'/comparisons/llm-landscape-2026/',cat:'tools',desc:'Microsoft managed AI platform. Azure OpenAI Service + AI Foundry + AI Search. Enterprise compliance certs.'},
+    {id:'vertex-ai',label:'Vertex AI',url:'/comparisons/llm-landscape-2026/',cat:'tools',desc:'Google Cloud managed ML platform. Model Garden (150+ models), Gemini access, pipeline tooling.'},
+    {id:'oci-gen-ai',label:'OCI Generative AI',url:'/comparisons/llm-landscape-2026/',cat:'tools',desc:'Oracle Cloud LLM service. AI Vector Search built into Oracle Database 23ai for in-database RAG.'},
+    {id:'cursor',label:'Cursor',url:'/tools/cursor-ai/',cat:'tools',desc:'AI code editor built on VS Code. Inline edits, codebase chat, and an agent mode for multi-file changes.'},
+    {id:'github-copilot',label:'GitHub Copilot',url:'/tools/github-copilot/',cat:'tools',desc:'AI pair programmer inside the IDE. Autocomplete, chat, and agents across major editors.'},
+    {id:'perplexity',label:'Perplexity',url:'/tools/perplexity/',cat:'tools',desc:'AI answer engine. Retrieval-augmented search that returns answers with cited sources.'},
+    {id:'lovable',label:'Lovable',url:'/tools/lovable/',cat:'tools',desc:'Prompt-to-app builder. Generates full-stack web apps from natural-language instructions.'},
+    {id:'elevenlabs',label:'ElevenLabs',url:'/tools/elevenlabs/',cat:'tools',desc:'AI voice synthesis and text-to-speech. Realistic voices, cloning, and dubbing.'},
+    {id:'gamma',label:'Gamma',url:'/tools/gamma/',cat:'tools',desc:'AI presentation and document builder. Generates slide decks and pages from a prompt.'},
+    {id:'stable-diffusion',label:'Stable Diffusion',url:'/tools/stable-diffusion/',cat:'models',desc:'Open-weight image generation model. Runs locally, fine-tunable, with a large ecosystem.'},
+    {id:'chatgpt',label:'ChatGPT',url:'/basics/what-is-chatgpt/',cat:'models',desc:'OpenAI conversational assistant built on the GPT models. The product that mainstreamed LLMs.'},
+    {id:'generative-ai',label:'Generative AI',url:'/basics/what-is-generative-ai/',cat:'foundation',desc:'AI that creates new text, images, audio, or code rather than only classifying existing inputs.'},
+    {id:'machine-learning',label:'Machine Learning',url:'/basics/what-is-machine-learning/',cat:'foundation',desc:'Systems that learn patterns from data instead of being explicitly programmed rule by rule.'},
+    {id:'neural-network',label:'Neural Networks',url:'/basics/what-is-a-neural-network/',cat:'foundation',desc:'Layered networks of weighted nodes. The structure underneath deep learning and modern LLMs.'},
+    {id:'nlp',label:'NLP',url:'/basics/what-is-nlp/',cat:'foundation',desc:'Natural Language Processing: teaching machines to read, parse, and generate human language.'},
+    {id:'computer-vision',label:'Computer Vision',url:'/basics/what-is-computer-vision/',cat:'foundation',desc:'AI that interprets images and video. Detection, classification, and segmentation.'},
+    {id:'vibe-coding',label:'Vibe Coding',url:'/basics/what-is-vibe-coding/',cat:'foundation',desc:'Directing AI tools to build software through natural language instead of writing code by hand.'},
+    {id:'agentic-loops',label:'Agentic Loops',url:'/glossary/agentic-loops/',cat:'patterns',desc:'The observe, plan, act, and reflect cycle that lets agents pursue goals over many steps.'},
+    {id:'ai-factory',label:'AI Factory',url:'/glossary/ai-factory/',cat:'infrastructure',desc:'A repeatable pipeline for building, deploying, and monitoring models at industrial scale.'},
+    {id:'pinecone-weaviate',label:'Pinecone vs Weaviate',url:'/comparisons/pinecone-vs-weaviate/',cat:'architecture',desc:'Two leading vector databases for RAG. Managed simplicity versus open-source flexibility.'},
+    {id:'design-cross-platform',label:'Cross-Platform Design',url:'/guides/designing-across-ios-android-web/',cat:'design',desc:'One design language across iOS, Android, and web first, then progressive native polish.'},
+    {id:'design-navigation',label:'Navigation Patterns',url:'/guides/mobile-navigation-patterns/',cat:'design',desc:'Bottom tabs, hamburger menus, and top tabs, and when each pattern fits.'},
+    {id:'design-whitespace',label:'White Space and Hierarchy',url:'/guides/white-space-and-visual-hierarchy/',cat:'design',desc:'Spacing, grouping, and visual hierarchy that make an interface feel designed.'},
+    {id:'design-mockup',label:'Mockup to Prototype',url:'/guides/from-mockup-to-prototype/',cat:'design',desc:'The design-first workflow: sketch, wireframe, mockup, prototype, then build.'},
+    {id:'design-native',label:'Platform-Native UX',url:'/guides/platform-native-ux-patterns/',cat:'design',desc:'Making Android feel Android, iOS feel iOS, and web feel web after a unified v1.'},
+    {id:'context-engineering',label:'Context Engineering',url:'/guides/context-engineering/',cat:'patterns',desc:'Curating the optimal set of tokens in the context window to cut cost and protect accuracy.'},
+    {id:'agent-memory',label:'Agent Memory',url:'/guides/ai-agent-memory-management/',cat:'patterns',desc:'Short-term context plus long-term stores that let agents recall information across sessions.'},
+    {id:'model-routing',label:'Multi-Model Routing',url:'/guides/multi-model-routing/',cat:'architecture',desc:'Sending each query to the right model by complexity and cost, with fallback for reliability.'},
+    {id:'slm',label:'Small Language Models',url:'/comparisons/small-vs-large-language-models/',cat:'models',desc:'Compact models, often under 10B parameters, that run on-device and can beat large models on narrow tasks.'},
+    {id:'ai-pricing',label:'AI Pricing Models',url:'/comparisons/ai-subscription-pricing-2026/',cat:'infrastructure',desc:'Subscription per-seat versus API usage-based pricing, with caching and batch discounts, as of 2026.'},
+    {id:'prompt-caching',label:'Prompt Caching',url:'/glossary/prompt-caching/',cat:'patterns',desc:'Reusing a processed prompt prefix at roughly a 90 percent read discount to cut token cost and latency.'},
+    {id:'distillation',label:'Knowledge Distillation',url:'/glossary/knowledge-distillation/',cat:'foundation',desc:'Training a small student model to mimic a larger teacher, the technique behind many small models.'},
+    {id:'cs-coding',label:'Coding',url:'/basics/what-is-coding/',cat:'computing',desc:'Writing precise instructions a computer can follow. The foundation of all software.'},
+    {id:'cs-prog-lang',label:'Programming Languages',url:'/basics/what-is-a-programming-language/',cat:'computing',desc:'The languages you write code in, from Python to Rust, translated to machine code.'},
+    {id:'cs-algorithm',label:'Algorithms',url:'/basics/what-is-an-algorithm/',cat:'computing',desc:'A finite sequence of well-defined steps that turns an input into an output.'},
+    {id:'cs-numbers',label:'Number Systems',url:'/basics/number-systems/',cat:'computing',desc:'How computers represent data with binary, plus decimal, hexadecimal, ASCII, and Unicode.'},
+    {id:'cs-bigo',label:'Big O Notation',url:'/basics/what-is-big-o-notation/',cat:'computing',desc:'Notation for how running time or memory grows as the input grows.'},
+    {id:'cs-search',label:'Search Algorithms',url:'/basics/search-algorithms/',cat:'computing',desc:'Finding an item in data: linear scan, binary search on sorted data, or hashing.'},
+    {id:'cs-sorting',label:'Sorting Algorithms',url:'/basics/sorting-algorithms/',cat:'computing',desc:'Putting data in order: bubble, insertion, merge, quicksort, and Timsort.'},
+    {id:'cs-data-structures',label:'Data Structures',url:'/basics/what-is-a-data-structure/',cat:'computing',desc:'Ways to organize data in memory so operations are fast: arrays, lists, trees, hash tables.'},
+    {id:'cs-paradigms',label:'Programming Paradigms',url:'/basics/programming-paradigms/',cat:'computing',desc:'Styles of organizing code: procedural, object-oriented, functional, and declarative.'},
+    {id:'cs-frontend-backend',label:'Frontend and Backend',url:'/basics/frontend-vs-backend/',cat:'computing',desc:'The layers of an app: the frontend the user sees and the backend on the server.'},
+    {id:'cs-tooling',label:'Libraries and Frameworks',url:'/basics/library-vs-framework-vs-sdk/',cat:'computing',desc:'Reusable building blocks: libraries you call, frameworks that call you, SDKs, and APIs.'},
+    {id:'arch-history',label:'Architecture History',url:'/guides/history-of-software-architecture/',cat:'architecture',desc:'How software architecture evolved from mainframes to microservices, serverless, and AI-native, and why each shift happened.'},
+    {id:'sp-stages',label:'Deployment Stages',url:'/guides/localhost-to-production-deployment-stages/',cat:'startup',desc:'Localhost to public, and why you need dev, test, demo, and production environments once others depend on you.'},
+    {id:'sp-lean',label:'Lean Startup',url:'/guides/lean-startup-on-a-budget/',cat:'startup',desc:'Build, measure, learn: validate an idea fast and cheap before building it properly.'},
+    {id:'sp-timeboxing',label:'Timeboxing',url:'/basics/what-is-timeboxing/',cat:'startup',desc:'Fixing a maximum time for a task to force decisions and limit perfectionism.'},
+    {id:'sp-bootstrapping',label:'Bootstrapping',url:'/basics/what-is-bootstrapping/',cat:'startup',desc:'Funding a company from your own savings and revenue instead of outside investment.'},
+    {id:'sp-pitch',label:'Pitching and Fundraising',url:'/guides/how-to-pitch-and-raise-money/',cat:'startup',desc:'Funding stages, pitch decks, and how to raise money from angels and venture capital.'},
+    {id:'history-of-it',label:'History of IT',url:'/guides/history-of-it/',cat:'architecture',desc:'The full story from the abacus to AI agents: hardware, software, cloud, vendors, licensing, and trends. Paired with the interactive timeline.'},
+    {id:'service-lifecycle',label:'Service Lifecycle',url:'/guides/service-lifecycle-and-deprecation/',cat:'governance',desc:'How technology fades from active to maintenance to legacy to end of life, and how to plan for it.'},
+    {id:'software-licensing',label:'Software Licensing and Lock-in',url:'/guides/software-licensing-and-vendor-lock-in/',cat:'governance',desc:'Open source, copyleft, and source-available licenses, the relicensing wars, and vendor lock-in risk.'},
+    {id:'gartner-mq',label:'Gartner Magic Quadrant',url:'/glossary/gartner-magic-quadrant/',cat:'governance',desc:'How Gartner plots vendors on completeness of vision and ability to execute, and how to read it.'},
+    {id:'hype-cycle',label:'Gartner Hype Cycle',url:'/glossary/hype-cycle/',cat:'governance',desc:'The five stages from technology trigger to plateau of productivity, a lens for telling hype from durable value.'}
+  ];
+
+  const LINKS = [
+    {source:'software-licensing',target:'history-of-it',rel:'PART_OF'},
+    {source:'service-lifecycle',target:'history-of-it',rel:'PART_OF'},
+    {source:'history-of-it',target:'arch-history',rel:'RELATED_TO'},
+    {source:'hype-cycle',target:'gartner-mq',rel:'RELATED_TO'},
+    {source:'gartner-mq',target:'history-of-it',rel:'RELATED_TO'},
+    {source:'service-lifecycle',target:'software-licensing',rel:'RELATED_TO'},
+    {source:'software-licensing',target:'ai-pricing',rel:'RELATED_TO'},
+    {source:'llm',target:'transformers',rel:'REQUIRES'},
+    {source:'attention',target:'transformers',rel:'PART_OF'},
+    {source:'llm',target:'tokens',rel:'REQUIRES'},
+    {source:'llm',target:'context-window',rel:'PART_OF'},
+    {source:'transformers',target:'embeddings',rel:'PRODUCES'},
+    {source:'llm',target:'foundation-models',rel:'IS_A'},
+    {source:'fine-tuning',target:'foundation-models',rel:'USED_FOR'},
+    {source:'rlhf',target:'fine-tuning',rel:'IS_A'},
+    {source:'llm',target:'hallucination',rel:'PRODUCES'},
+    {source:'prompt-engineering',target:'llm',rel:'USED_FOR'},
+    {source:'inference',target:'llm',rel:'USED_FOR'},
+    {source:'chain-of-thought',target:'prompt-engineering',rel:'PART_OF'},
+    {source:'zero-shot',target:'prompt-engineering',rel:'PART_OF'},
+    {source:'few-shot',target:'prompt-engineering',rel:'PART_OF'},
+    {source:'few-shot',target:'zero-shot',rel:'RELATED_TO'},
+    {source:'rag',target:'llm',rel:'USED_FOR'},
+    {source:'rag',target:'embeddings',rel:'REQUIRES'},
+    {source:'rag',target:'vector-database',rel:'REQUIRES'},
+    {source:'rag',target:'hallucination',rel:'USED_FOR'},
+    {source:'chunking',target:'rag',rel:'USED_FOR'},
+    {source:'reranking',target:'rag',rel:'USED_FOR'},
+    {source:'embeddings',target:'vector-database',rel:'RELATED_TO'},
+    {source:'semantic-cache',target:'embeddings',rel:'REQUIRES'},
+    {source:'gpt-4o',target:'foundation-models',rel:'INSTANCE_OF'},
+    {source:'claude-4',target:'foundation-models',rel:'INSTANCE_OF'},
+    {source:'gemini-2',target:'foundation-models',rel:'INSTANCE_OF'},
+    {source:'llama-3',target:'foundation-models',rel:'INSTANCE_OF'},
+    {source:'mistral',target:'foundation-models',rel:'INSTANCE_OF'},
+    {source:'deepseek',target:'foundation-models',rel:'INSTANCE_OF'},
+    {source:'grok',target:'foundation-models',rel:'INSTANCE_OF'},
+    {source:'qwen',target:'foundation-models',rel:'INSTANCE_OF'},
+    {source:'reasoning-models',target:'chain-of-thought',rel:'REQUIRES'},
+    {source:'reasoning-models',target:'llm',rel:'IS_A'},
+    {source:'gpt-4o',target:'claude-4',rel:'RELATED_TO'},
+    {source:'claude-4',target:'gemini-2',rel:'RELATED_TO'},
+    {source:'llama-3',target:'gpt-4o',rel:'RELATED_TO'},
+    {source:'deepseek',target:'llama-3',rel:'RELATED_TO'},
+    {source:'mistral',target:'llama-3',rel:'RELATED_TO'},
+    {source:'qwen',target:'llama-3',rel:'RELATED_TO'},
+    {source:'agents',target:'llm',rel:'REQUIRES'},
+    {source:'agents',target:'tool-use',rel:'REQUIRES'},
+    {source:'agents',target:'react-pattern',rel:'REQUIRES'},
+    {source:'multi-agent',target:'agents',rel:'REQUIRES'},
+    {source:'tool-use',target:'api',rel:'REQUIRES'},
+    {source:'llm-gateway',target:'claude-anthropic',rel:'USED_FOR'},
+    {source:'llm-gateway',target:'amazon-bedrock',rel:'USED_FOR'},
+    {source:'llm-gateway',target:'llm',rel:'USED_FOR'},
+    {source:'structured-output',target:'llm',rel:'USED_FOR'},
+    {source:'structured-output',target:'api',rel:'RELATED_TO'},
+    {source:'streaming',target:'api',rel:'REQUIRES'},
+    {source:'async',target:'microservices',rel:'PART_OF'},
+    {source:'chain-summarization',target:'llm',rel:'REQUIRES'},
+    {source:'amazon-bedrock',target:'claude-4',rel:'USED_FOR'},
+    {source:'amazon-bedrock',target:'llama-3',rel:'USED_FOR'},
+    {source:'amazon-bedrock',target:'amazon-sagemaker',rel:'RELATED_TO'},
+    {source:'amazon-bedrock',target:'cloud',rel:'REQUIRES'},
+    {source:'claude-anthropic',target:'claude-4',rel:'USED_FOR'},
+    {source:'supabase',target:'vector-database',rel:'USED_FOR'},
+    {source:'supabase',target:'database',rel:'IS_A'},
+    {source:'fastapi',target:'async',rel:'USED_FOR'},
+    {source:'fastapi',target:'structured-output',rel:'USED_FOR'},
+    {source:'fastapi',target:'rag',rel:'USED_FOR'},
+    {source:'railway',target:'fastapi',rel:'USED_FOR'},
+    {source:'railway',target:'cicd',rel:'USED_FOR'},
+    {source:'expo',target:'zustand',rel:'USED_FOR'},
+    {source:'expo',target:'stripe-connect',rel:'USED_FOR'},
+    {source:'kubernetes',target:'containers',rel:'USED_FOR'},
+    {source:'kubernetes',target:'cloud',rel:'REQUIRES'},
+    {source:'observability',target:'llm',rel:'USED_FOR'},
+    {source:'observability',target:'inference',rel:'USED_FOR'},
+    {source:'serverless',target:'cloud',rel:'REQUIRES'},
+    {source:'version-control',target:'cicd',rel:'USED_FOR'},
+    {source:'eu-ai-act',target:'ai-safety',rel:'BROADER_THEME'},
+    {source:'eu-ai-act',target:'bias',rel:'USED_FOR'},
+    {source:'eu-ai-act',target:'data-governance',rel:'REQUIRES'},
+    {source:'iso-42001',target:'eu-ai-act',rel:'RELATED_TO'},
+    {source:'nist-rmf',target:'ai-safety',rel:'BROADER_THEME'},
+    {source:'owasp-llm',target:'ai-safety',rel:'BROADER_THEME'},
+    {source:'owasp-llm',target:'llm',rel:'USED_FOR'},
+    {source:'bias',target:'ai-safety',rel:'BROADER_THEME'},
+    {source:'data-governance',target:'database',rel:'USED_FOR'},
+    {source:'data-governance',target:'rag',rel:'USED_FOR'},
+    {source:'granite',target:'foundation-models',rel:'INSTANCE_OF'},
+    {source:'granite',target:'fine-tuning',rel:'USED_FOR'},
+    {source:'granite',target:'llama-3',rel:'RELATED_TO'},
+    {source:'olmo',target:'foundation-models',rel:'INSTANCE_OF'},
+    {source:'olmo',target:'granite',rel:'RELATED_TO'},
+    {source:'falcon',target:'foundation-models',rel:'INSTANCE_OF'},
+    {source:'falcon',target:'llama-3',rel:'RELATED_TO'},
+    {source:'starcoder2',target:'llm',rel:'IS_A'},
+    {source:'starcoder2',target:'fastapi',rel:'RELATED_TO'},
+    {source:'dbrx',target:'foundation-models',rel:'INSTANCE_OF'},
+    {source:'dbrx',target:'llama-3',rel:'RELATED_TO'},
+    {source:'groq',target:'llama-3',rel:'USED_FOR'},
+    {source:'groq',target:'inference',rel:'USED_FOR'},
+    {source:'groq',target:'api',rel:'RELATED_TO'},
+    {source:'together-ai',target:'llama-3',rel:'USED_FOR'},
+    {source:'together-ai',target:'deepseek',rel:'USED_FOR'},
+    {source:'together-ai',target:'falcon',rel:'USED_FOR'},
+    {source:'together-ai',target:'dbrx',rel:'USED_FOR'},
+    {source:'fireworks-ai',target:'structured-output',rel:'USED_FOR'},
+    {source:'fireworks-ai',target:'llama-3',rel:'USED_FOR'},
+    {source:'huggingface',target:'granite',rel:'USED_FOR'},
+    {source:'huggingface',target:'olmo',rel:'USED_FOR'},
+    {source:'huggingface',target:'starcoder2',rel:'USED_FOR'},
+    {source:'huggingface',target:'falcon',rel:'USED_FOR'},
+    {source:'ollama',target:'llama-3',rel:'USED_FOR'},
+    {source:'ollama',target:'granite',rel:'USED_FOR'},
+    {source:'ollama',target:'starcoder2',rel:'USED_FOR'},
+    {source:'ollama',target:'api',rel:'RELATED_TO'},
+    {source:'vllm',target:'llama-3',rel:'USED_FOR'},
+    {source:'vllm',target:'inference',rel:'USED_FOR'},
+    {source:'vllm',target:'kubernetes',rel:'REQUIRES'},
+    {source:'azure-ai',target:'gpt-4o',rel:'USED_FOR'},
+    {source:'azure-ai',target:'llama-3',rel:'USED_FOR'},
+    {source:'azure-ai',target:'llm-gateway',rel:'USED_FOR'},
+    {source:'vertex-ai',target:'gemini-2',rel:'USED_FOR'},
+    {source:'vertex-ai',target:'llama-3',rel:'USED_FOR'},
+    {source:'vertex-ai',target:'rag',rel:'USED_FOR'},
+    {source:'oci-gen-ai',target:'vector-database',rel:'USED_FOR'},
+    {source:'oci-gen-ai',target:'rag',rel:'USED_FOR'},
+    {source:'cursor',target:'llm',rel:'REQUIRES'},
+    {source:'cursor',target:'claude-4',rel:'USED_FOR'},
+    {source:'cursor',target:'vibe-coding',rel:'USED_FOR'},
+    {source:'cursor',target:'agents',rel:'USED_FOR'},
+    {source:'github-copilot',target:'llm',rel:'REQUIRES'},
+    {source:'github-copilot',target:'gpt-4o',rel:'USED_FOR'},
+    {source:'github-copilot',target:'cursor',rel:'RELATED_TO'},
+    {source:'perplexity',target:'rag',rel:'REQUIRES'},
+    {source:'perplexity',target:'llm',rel:'REQUIRES'},
+    {source:'lovable',target:'vibe-coding',rel:'USED_FOR'},
+    {source:'lovable',target:'agents',rel:'REQUIRES'},
+    {source:'lovable',target:'llm',rel:'REQUIRES'},
+    {source:'elevenlabs',target:'generative-ai',rel:'INSTANCE_OF'},
+    {source:'elevenlabs',target:'inference',rel:'REQUIRES'},
+    {source:'gamma',target:'generative-ai',rel:'INSTANCE_OF'},
+    {source:'stable-diffusion',target:'generative-ai',rel:'INSTANCE_OF'},
+    {source:'stable-diffusion',target:'foundation-models',rel:'INSTANCE_OF'},
+    {source:'stable-diffusion',target:'huggingface',rel:'RELATED_TO'},
+    {source:'stable-diffusion',target:'computer-vision',rel:'USED_FOR'},
+    {source:'chatgpt',target:'gpt-4o',rel:'REQUIRES'},
+    {source:'chatgpt',target:'llm',rel:'INSTANCE_OF'},
+    {source:'generative-ai',target:'llm',rel:'RELATED_TO'},
+    {source:'generative-ai',target:'foundation-models',rel:'REQUIRES'},
+    {source:'serverless',target:'inference',rel:'USED_FOR'},
+    {source:'fine-tuning',target:'machine-learning',rel:'PART_OF'},
+    {source:'transformers',target:'neural-network',rel:'IS_A'},
+    {source:'neural-network',target:'machine-learning',rel:'IS_A'},
+    {source:'llm',target:'machine-learning',rel:'IS_A'},
+    {source:'nlp',target:'llm',rel:'USED_FOR'},
+    {source:'computer-vision',target:'machine-learning',rel:'IS_A'},
+    {source:'vibe-coding',target:'llm',rel:'REQUIRES'},
+    {source:'vibe-coding',target:'agents',rel:'REQUIRES'},
+    {source:'agentic-loops',target:'agents',rel:'USED_FOR'},
+    {source:'agentic-loops',target:'react-pattern',rel:'RELATED_TO'},
+    {source:'agentic-loops',target:'tool-use',rel:'REQUIRES'},
+    {source:'ai-factory',target:'cicd',rel:'REQUIRES'},
+    {source:'ai-factory',target:'observability',rel:'REQUIRES'},
+    {source:'ai-factory',target:'kubernetes',rel:'REQUIRES'},
+    {source:'pinecone-weaviate',target:'vector-database',rel:'RELATED_TO'},
+    {source:'pinecone-weaviate',target:'rag',rel:'USED_FOR'},
+    {source:'design-cross-platform',target:'expo',rel:'USED_FOR'},
+    {source:'design-cross-platform',target:'vibe-coding',rel:'USED_FOR'},
+    {source:'design-cross-platform',target:'design-navigation',rel:'RELATED_TO'},
+    {source:'design-cross-platform',target:'design-whitespace',rel:'RELATED_TO'},
+    {source:'design-cross-platform',target:'design-mockup',rel:'RELATED_TO'},
+    {source:'design-cross-platform',target:'design-native',rel:'RELATED_TO'},
+    {source:'design-mockup',target:'vibe-coding',rel:'USED_FOR'},
+    {source:'design-native',target:'expo',rel:'USED_FOR'},
+    {source:'design-navigation',target:'design-native',rel:'RELATED_TO'},
+    {source:'context-engineering',target:'context-window',rel:'USED_FOR'},
+    {source:'context-engineering',target:'llm',rel:'USED_FOR'},
+    {source:'context-engineering',target:'prompt-engineering',rel:'RELATED_TO'},
+    {source:'context-engineering',target:'prompt-caching',rel:'USED_FOR'},
+    {source:'context-engineering',target:'tokens',rel:'USED_FOR'},
+    {source:'context-engineering',target:'rag',rel:'RELATED_TO'},
+    {source:'context-engineering',target:'agent-memory',rel:'RELATED_TO'},
+    {source:'agent-memory',target:'agents',rel:'USED_FOR'},
+    {source:'agent-memory',target:'vector-database',rel:'REQUIRES'},
+    {source:'agent-memory',target:'embeddings',rel:'REQUIRES'},
+    {source:'agent-memory',target:'rag',rel:'RELATED_TO'},
+    {source:'model-routing',target:'llm-gateway',rel:'REQUIRES'},
+    {source:'model-routing',target:'llm',rel:'USED_FOR'},
+    {source:'model-routing',target:'slm',rel:'USED_FOR'},
+    {source:'model-routing',target:'inference',rel:'USED_FOR'},
+    {source:'model-routing',target:'semantic-cache',rel:'RELATED_TO'},
+    {source:'model-routing',target:'ai-pricing',rel:'USED_FOR'},
+    {source:'slm',target:'foundation-models',rel:'IS_A'},
+    {source:'slm',target:'llm',rel:'RELATED_TO'},
+    {source:'slm',target:'fine-tuning',rel:'REQUIRES'},
+    {source:'slm',target:'ollama',rel:'USED_FOR'},
+    {source:'slm',target:'distillation',rel:'REQUIRES'},
+    {source:'slm',target:'inference',rel:'USED_FOR'},
+    {source:'ai-pricing',target:'llm',rel:'RELATED_TO'},
+    {source:'ai-pricing',target:'tokens',rel:'REQUIRES'},
+    {source:'ai-pricing',target:'slm',rel:'RELATED_TO'},
+    {source:'prompt-caching',target:'inference',rel:'USED_FOR'},
+    {source:'prompt-caching',target:'tokens',rel:'USED_FOR'},
+    {source:'distillation',target:'foundation-models',rel:'USED_FOR'},
+    {source:'distillation',target:'fine-tuning',rel:'RELATED_TO'},
+    {source:'cs-prog-lang',target:'cs-coding',rel:'REQUIRES'},
+    {source:'cs-algorithm',target:'cs-coding',rel:'REQUIRES'},
+    {source:'cs-bigo',target:'cs-algorithm',rel:'REQUIRES'},
+    {source:'cs-data-structures',target:'cs-algorithm',rel:'REQUIRES'},
+    {source:'cs-search',target:'cs-algorithm',rel:'REQUIRES'},
+    {source:'cs-sorting',target:'cs-algorithm',rel:'REQUIRES'},
+    {source:'cs-search',target:'cs-bigo',rel:'REQUIRES'},
+    {source:'cs-sorting',target:'cs-bigo',rel:'REQUIRES'},
+    {source:'cs-search',target:'cs-data-structures',rel:'REQUIRES'},
+    {source:'cs-sorting',target:'cs-data-structures',rel:'REQUIRES'},
+    {source:'cs-coding',target:'cs-numbers',rel:'RELATED_TO'},
+    {source:'cs-data-structures',target:'cs-numbers',rel:'RELATED_TO'},
+    {source:'cs-sorting',target:'cs-search',rel:'RELATED_TO'},
+    {source:'machine-learning',target:'cs-algorithm',rel:'REQUIRES'},
+    {source:'cs-data-structures',target:'database',rel:'RELATED_TO'},
+    {source:'cs-coding',target:'vibe-coding',rel:'RELATED_TO'},
+    {source:'cs-paradigms',target:'cs-prog-lang',rel:'REQUIRES'},
+    {source:'cs-frontend-backend',target:'cs-prog-lang',rel:'REQUIRES'},
+    {source:'cs-tooling',target:'cs-prog-lang',rel:'REQUIRES'},
+    {source:'cs-paradigms',target:'cs-algorithm',rel:'RELATED_TO'},
+    {source:'cs-frontend-backend',target:'api',rel:'RELATED_TO'},
+    {source:'cs-frontend-backend',target:'database',rel:'RELATED_TO'},
+    {source:'cs-tooling',target:'api',rel:'RELATED_TO'},
+    {source:'cs-tooling',target:'cs-frontend-backend',rel:'RELATED_TO'},
+    {source:'arch-history',target:'microservices',rel:'RELATED_TO'},
+    {source:'arch-history',target:'serverless',rel:'RELATED_TO'},
+    {source:'arch-history',target:'api',rel:'RELATED_TO'},
+    {source:'arch-history',target:'cs-frontend-backend',rel:'RELATED_TO'},
+    {source:'sp-bootstrapping',target:'sp-lean',rel:'RELATED_TO'},
+    {source:'sp-timeboxing',target:'sp-lean',rel:'RELATED_TO'},
+    {source:'sp-stages',target:'sp-lean',rel:'RELATED_TO'},
+    {source:'sp-pitch',target:'sp-lean',rel:'RELATED_TO'},
+    {source:'sp-pitch',target:'sp-bootstrapping',rel:'RELATED_TO'},
+    {source:'sp-stages',target:'railway',rel:'RELATED_TO'},
+    {source:'sp-stages',target:'cicd',rel:'RELATED_TO'},
+    {source:'sp-stages',target:'ai-pricing',rel:'RELATED_TO'},
+    {source:'sp-lean',target:'vibe-coding',rel:'RELATED_TO'}
+  ];
+
+  const nodeById = new Map(NODES.map(n => [n.id, n]));
+
+  function getSection(url) {
+    if (!url) return null;
+    var m = url.match(/^\/([^/]+)\//);
+    return m ? m[1] : null;
+  }
+  NODES.forEach(function(n) { n.section = getSection(n.url); });
+
+  var visitedPages = {};
+  var libArticles = {};
+  (function loadUserState() {
+    try { var v = localStorage.getItem('aiwiki.visited.v1'); if (v) visitedPages = JSON.parse(v); } catch(e) {}
+    try {
+      var l = localStorage.getItem('ai-wiki-lib-v1');
+      if (l) { var ld = JSON.parse(l); if (ld.v === 1) libArticles = ld.articles || {}; }
+    } catch(e) {}
+  })();
+
+  var activeSection = 'all';
+
+  // Typed relationship taxonomy (closed set). Each edge reads "source <label> target".
+  // Grounded in SKOS / RDFS / ConceptNet and Novak-Canas concept-map propositions.
+  const REL_LABELS = {
+    IS_A:'is a kind of', INSTANCE_OF:'is an example of', PART_OF:'is part of',
+    REQUIRES:'requires', USED_FOR:'is used for', PRODUCES:'produces',
+    BROADER_THEME:'is a theme of', RELATED_TO:'is related to'
+  };
+  // Prerequisite relations define learning order: in s->t, TARGET must be learned before SOURCE.
+  const PREREQ_RELS = {IS_A:1, INSTANCE_OF:1, PART_OF:1, REQUIRES:1};
+  function relFamily(rel) {
+    if (PREREQ_RELS[rel]) return 'prereq';
+    if (rel === 'RELATED_TO') return 'assoc';
+    return 'func';
+  }
+  LINKS.forEach(function(l) {
+    l.rel = l.rel || 'RELATED_TO';
+    l.relLabel = REL_LABELS[l.rel] || 'is related to';
+    l.family = relFamily(l.rel);
+  });
+
+  // Learning-path structures, precomputed on the typed edges.
+  const prereqOf = new Map(NODES.map(n => [n.id, []])); // concepts to learn FIRST
+  const unlocks  = new Map(NODES.map(n => [n.id, []])); // concepts that build ON this one
+  const related  = new Map(NODES.map(n => [n.id, []])); // associative / functional links
+  const adj      = new Map(NODES.map(n => [n.id, []])); // all neighbours (for highlight)
+  LINKS.forEach(function(l) {
+    const s = typeof l.source === 'object' ? l.source.id : l.source;
+    const t = typeof l.target === 'object' ? l.target.id : l.target;
+    adj.get(s).push({id: t}); adj.get(t).push({id: s});
+    if (PREREQ_RELS[l.rel]) {
+      prereqOf.get(s).push({id: t, rel: l.rel});
+      unlocks.get(t).push({id: s, rel: l.rel});
+    } else {
+      related.get(s).push({id: t, rel: l.rel, dir: 'out'});
+      related.get(t).push({id: s, rel: l.rel, dir: 'in'});
+    }
+  });
+
+  // Level = longest prerequisite chain depth (0 = foundational). DAG guarantees termination.
+  const levelMemo = new Map();
+  function levelOf(id) {
+    if (levelMemo.has(id)) return levelMemo.get(id);
+    levelMemo.set(id, 0); // guard
+    let lvl = 0;
+    (prereqOf.get(id) || []).forEach(function(p) { lvl = Math.max(lvl, levelOf(p.id) + 1); });
+    levelMemo.set(id, lvl);
+    return lvl;
+  }
+  NODES.forEach(function(n) { n.level = levelOf(n.id); });
+
+  const svg = d3.select('#kg-svg');
+  const container = document.querySelector('.kg-canvas-wrap');
+  let W = container.clientWidth;
+  let H = container.clientHeight;
+
+  const g = svg.append('g').attr('class', 'kg-g');
+
+  const zoom = d3.zoom()
+    .scaleExtent([0.15, 4])
+    .on('zoom', e => g.attr('transform', e.transform));
+  svg.call(zoom).on('dblclick.zoom', null);
+
+  svg.append('defs').append('marker')
+    .attr('id', 'kg-arrow')
+    .attr('viewBox', '0 -4 8 8')
+    .attr('refX', 18)
+    .attr('refY', 0)
+    .attr('markerWidth', 5)
+    .attr('markerHeight', 5)
+    .attr('orient', 'auto')
+    .append('path')
+    .attr('d', 'M0,-4L8,0L0,4')
+    .attr('fill', arrowFill());
+
+  function baseWidth(l) { return l.family === 'prereq' ? 1.5 : 1; }
+  // Edge style mirrors the connection-type key in the top bar:
+  //   prereq -> solid line + arrow ("needs first")
+  //   func   -> dotted line + arrow ("works with": used for / produces / theme of)
+  //   assoc  -> dashed line, no arrow ("related", no required order)
+  function edgeDash(l) { return l.family === 'assoc' ? '4 3' : (l.family === 'func' ? '1.5 3' : null); }
+  const link = g.append('g').attr('class', 'kg-links')
+    .selectAll('line')
+    .data(LINKS)
+    .join('line')
+    .attr('stroke', linkDefault())
+    .attr('stroke-width', baseWidth)
+    .attr('stroke-dasharray', edgeDash)
+    .attr('marker-end', l => l.family === 'assoc' ? null : 'url(#kg-arrow)');
+
+  const node = g.append('g').attr('class', 'kg-nodes')
+    .selectAll('g')
+    .data(NODES)
+    .join('g')
+    .attr('class', 'kg-node')
+    .attr('cursor', 'pointer')
+    .call(d3.drag()
+      .on('start', dragstarted)
+      .on('drag', dragged)
+      .on('end', dragended));
+
+  node.append('circle')
+    .attr('r', d => d.cat === 'foundation' || d.cat === 'architecture' ? 9 : 7)
+    .attr('fill', d => CAT_COLORS[d.cat])
+    .attr('fill-opacity', 0.9)
+    .attr('stroke', d => CAT_COLORS[d.cat])
+    .attr('stroke-width', 1.5)
+    .attr('stroke-opacity', 0.5);
+
+  node.append('text')
+    .text(d => d.label)
+    .attr('text-anchor', 'middle')
+    .attr('dy', d => (d.cat === 'foundation' || d.cat === 'architecture' ? 9 : 7) + 14);
+
+  node.on('click', function(event, d) {
+    event.stopPropagation();
+    selectNode(d);
+  });
+
+  node.on('mouseenter', function(event, d) {
+    highlightConnected(d.id);
+  });
+
+  node.on('mouseleave', function() {
+    clearHighlight();
+  });
+
+  svg.on('click', function() {
+    clearSelection();
+  });
+
+  const simulation = d3.forceSimulation(NODES)
+    .force('link', d3.forceLink(LINKS).id(d => d.id).distance(120).strength(0.4))
+    .force('charge', d3.forceManyBody().strength(-350).distanceMax(500))
+    .force('center', d3.forceCenter(W / 2, H / 2))
+    .force('collision', d3.forceCollide(30))
+    .force('x', d3.forceX(W / 2).strength(0.03))
+    .force('y', d3.forceY(H / 2).strength(0.03))
+    .on('tick', ticked);
+
+  function ticked() {
+    link
+      .attr('x1', d => d.source.x)
+      .attr('y1', d => d.source.y)
+      .attr('x2', d => d.target.x)
+      .attr('y2', d => d.target.y);
+    node.attr('transform', d => `translate(${d.x},${d.y})`);
+  }
+
+  function dragstarted(event, d) {
+    if (!event.active) simulation.alphaTarget(0.3).restart();
+    d.fx = d.x; d.fy = d.y;
+  }
+  function dragged(event, d) { d.fx = event.x; d.fy = event.y; }
+  function dragended(event, d) {
+    if (!event.active) simulation.alphaTarget(0);
+    d.fx = null; d.fy = null;
+  }
+
+  function highlightConnected(id) {
+    const connectedIds = new Set([id]);
+    adj.get(id).forEach(c => connectedIds.add(c.id));
+    node.selectAll('circle')
+      .attr('fill-opacity', d => connectedIds.has(d.id) ? 1 : 0.15)
+      .attr('stroke-opacity', d => connectedIds.has(d.id) ? 0.8 : 0.1);
+    node.selectAll('text').attr('fill-opacity', d => connectedIds.has(d.id) ? 1 : 0.15);
+    const la = linkActive(); const ld = linkDim();
+    link
+      .attr('stroke', l => {
+        const sid = l.source.id || l.source;
+        const tid = l.target.id || l.target;
+        return (sid === id || tid === id) ? la : ld;
+      })
+      .attr('stroke-width', l => {
+        const sid = l.source.id || l.source;
+        const tid = l.target.id || l.target;
+        const on = (sid === id || tid === id);
+        return on ? baseWidth(l) + 1 : baseWidth(l);
+      });
+  }
+
+  function getNodeVisible(d) {
+    return activeCategories.has(d.cat) && (activeSection === 'all' || d.section === activeSection);
+  }
+
+  function applyAllFilters() {
+    node.selectAll('circle')
+      .attr('fill-opacity', function(d) { return getNodeVisible(d) ? 0.9 : 0.05; })
+      .attr('stroke-opacity', function(d) { return getNodeVisible(d) ? 0.5 : 0.02; });
+    node.selectAll('text').attr('fill-opacity', function(d) { return getNodeVisible(d) ? 1 : 0.05; });
+    var ld = linkDefault(); var lf = linkFaded();
+    link.attr('stroke', function(l) {
+      var sid = typeof l.source === 'object' ? l.source.id : l.source;
+      var tid = typeof l.target === 'object' ? l.target.id : l.target;
+      var sn = nodeById.get(sid); var tn = nodeById.get(tid);
+      return (sn && tn && getNodeVisible(sn) && getNodeVisible(tn)) ? ld : lf;
+    }).attr('stroke-width', baseWidth);
+  }
+
+  function clearHighlight() {
+    if (selectedId) {
+      highlightConnected(selectedId);
+    } else {
+      applyAllFilters();
+    }
+  }
+
+  let selectedId = null;
+  const panel = document.getElementById('kg-panel');
+  const hint = document.getElementById('kg-hint');
+
+  function selectNode(d) {
+    selectedId = d.id;
+    document.getElementById('kg-panel-cat').textContent = CAT_LABELS[d.cat];
+    document.getElementById('kg-panel-cat').style.color = CAT_COLORS[d.cat];
+    document.getElementById('kg-panel-name').textContent = d.label;
+    document.getElementById('kg-panel-desc').textContent = d.desc;
+    document.getElementById('kg-open-btn').href = d.url;
+
+    var panelStatus = document.getElementById('kg-panel-status');
+    while (panelStatus.firstChild) panelStatus.removeChild(panelStatus.firstChild);
+    var isVisited = d.url && Object.prototype.hasOwnProperty.call(visitedPages, d.url);
+    var libEntry = d.url ? libArticles[d.url] : null;
+    var libStatus = libEntry ? libEntry.status : null;
+    if (libStatus || isVisited) {
+      var badge = document.createElement('span');
+      var badgeType = libStatus || 'visited';
+      badge.className = 'kg-panel-status-badge kg-panel-status-badge--' + badgeType;
+      badge.textContent = badgeType.charAt(0).toUpperCase() + badgeType.slice(1);
+      panelStatus.appendChild(badge);
+      panelStatus.hidden = false;
+    } else {
+      panelStatus.hidden = true;
+    }
+
+    const pre = prereqOf.get(d.id) || [];
+    const nxt = unlocks.get(d.id) || [];
+    const rel = related.get(d.id) || [];
+
+    const body = document.getElementById('kg-panel-body');
+    body.innerHTML = '';
+
+    // Learning-depth line: foundational concepts sit at level 0.
+    var meta = document.createElement('div');
+    meta.className = 'kg-panel-level';
+    var ldot = document.createElement('span');
+    ldot.className = 'kg-panel-level-dot';
+    ldot.style.background = CAT_COLORS[d.cat];
+    meta.appendChild(ldot);
+    meta.appendChild(document.createTextNode(
+      d.level === 0
+        ? 'Foundational concept, no prerequisites'
+        : ('Builds on ' + pre.length + ' concept' + (pre.length === 1 ? '' : 's') + ', learning depth ' + d.level)
+    ));
+    body.appendChild(meta);
+
+    function addSection(title, items, relTextFn) {
+      if (!items.length) return;
+      var lbl = document.createElement('div');
+      lbl.className = 'kg-panel-section-label';
+      lbl.textContent = title;
+      body.appendChild(lbl);
+      var ul = document.createElement('ul');
+      ul.className = 'kg-panel-link-list';
+      items.forEach(function(n) {
+        var nd = nodeById.get(n.id);
+        if (!nd) return;
+        var btn = document.createElement('button');
+        btn.className = 'kg-panel-node-btn';
+        btn.type = 'button';
+        var lab = document.createElement('span');
+        lab.className = 'kg-panel-node-label';
+        lab.textContent = nd.label;
+        var rl = document.createElement('span');
+        rl.className = 'kg-panel-node-rel';
+        rl.textContent = relTextFn ? relTextFn(n) : '';
+        btn.appendChild(lab); btn.appendChild(rl);
+        btn.addEventListener('click', function(e) { e.stopPropagation(); selectNode(nd); });
+        ul.appendChild(btn);
+      });
+      body.appendChild(ul);
+    }
+
+    var INV_LABELS = {USED_FOR:'used for this', PRODUCES:'produces this', BROADER_THEME:'in this theme'};
+    function relatedText(n) {
+      if (n.rel === 'RELATED_TO') return 'is related to';
+      if (n.dir === 'out') return REL_LABELS[n.rel];      // this -> other
+      return INV_LABELS[n.rel] || REL_LABELS[n.rel];      // other -> this
+    }
+    addSection('Prerequisites: learn first', pre, function(n) { return REL_LABELS[n.rel]; });
+    addSection('Learn next', nxt, function() { return 'builds on this'; });
+    addSection('Related concepts', rel, relatedText);
+
+    if (!pre.length && !nxt.length && !rel.length) {
+      var none = document.createElement('p');
+      none.className = 'kg-panel-desc';
+      none.textContent = 'No mapped connections yet.';
+      body.appendChild(none);
+    }
+
+    panel.hidden = false;
+    panel.classList.remove('kg-collapsed');
+    hint.hidden = true;
+    highlightConnected(d.id);
+  }
+
+  function clearSelection() {
+    selectedId = null;
+    panel.hidden = true;
+    hint.hidden = false;
+    clearHighlight();
+  }
+
+  document.getElementById('kg-close-btn').addEventListener('click', e => { e.stopPropagation(); clearSelection(); });
+
+  function filterBySearch(query) {
+    const q = query.toLowerCase().trim();
+    if (!q) { clearHighlight(); return; }
+    node.selectAll('circle')
+      .attr('fill-opacity', d => d.label.toLowerCase().includes(q) || d.desc.toLowerCase().includes(q) ? 1 : 0.12)
+      .attr('stroke-opacity', d => d.label.toLowerCase().includes(q) ? 0.9 : 0.05);
+    node.selectAll('text')
+      .attr('fill-opacity', d => d.label.toLowerCase().includes(q) ? 1 : 0.1);
+    link.attr('stroke', linkFaded()).attr('stroke-width', 1);
+  }
+
+  const searchInput = document.getElementById('kg-search');
+  searchInput.addEventListener('input', e => filterBySearch(e.target.value));
+
+  const legend = document.getElementById('kg-legend');
+  const activeCategories = new Set(Object.keys(CAT_COLORS));
+
+  Object.entries(CAT_LABELS).forEach(([cat, label]) => {
+    const chip = document.createElement('button');
+    chip.className = 'kg-legend-chip active';
+    chip.type = 'button';
+    chip.setAttribute('role', 'listitem');
+    chip.setAttribute('aria-pressed', 'true');
+    chip.dataset.cat = cat;
+    chip.innerHTML = `<span class="kg-legend-dot" style="background:${CAT_COLORS[cat]}"></span>${label}`;
+    chip.addEventListener('click', () => {
+      // Click isolates to this category (show ONLY it). Click it again (when already isolated)
+      // resets to showing all. This reads more naturally than "click to hide".
+      const isolated = activeCategories.size === 1 && activeCategories.has(cat);
+      activeCategories.clear();
+      if (isolated) { Object.keys(CAT_COLORS).forEach(c => activeCategories.add(c)); }
+      else { activeCategories.add(cat); }
+      legend.querySelectorAll('.kg-legend-chip').forEach(c => {
+        const on = activeCategories.has(c.dataset.cat);
+        c.classList.toggle('active', on);
+        c.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      applyAllFilters();
+    });
+    legend.appendChild(chip);
+  });
+
+  // === SECTION FILTER CHIPS ===
+  var SECTION_LABELS_MAP = {tools:'Tools',glossary:'Glossary',guides:'Guides',comparisons:'Comparisons',patterns:'Patterns',frameworks:'Frameworks',basics:'Basics'};
+  var SECTION_ORDER = ['all','glossary','comparisons','tools','patterns','guides','basics','frameworks'];
+  var sectionChipsEl = document.getElementById('kg-section-chips');
+  var sectionsPresent = new Set(NODES.map(function(n) { return n.section; }).filter(Boolean));
+
+  SECTION_ORDER.forEach(function(s) {
+    if (s !== 'all' && !sectionsPresent.has(s)) return;
+    var count = s === 'all' ? NODES.length : NODES.filter(function(n) { return n.section === s; }).length;
+    var chip = document.createElement('button');
+    chip.type = 'button';
+    chip.className = 'kg-section-chip' + (s === 'all' ? ' active' : '');
+    chip.dataset.section = s;
+    chip.setAttribute('role', 'listitem');
+    chip.setAttribute('aria-pressed', s === 'all' ? 'true' : 'false');
+    chip.textContent = (s === 'all' ? 'All' : SECTION_LABELS_MAP[s]) + ' (' + count + ')';
+    sectionChipsEl.appendChild(chip);
+  });
+
+  sectionChipsEl.addEventListener('click', function(e) {
+    var btn = e.target.closest('.kg-section-chip');
+    if (!btn) return;
+    activeSection = btn.dataset.section;
+    sectionChipsEl.querySelectorAll('.kg-section-chip').forEach(function(c) {
+      var isActive = c.dataset.section === activeSection;
+      c.classList.toggle('active', isActive);
+      c.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+    applyAllFilters();
+  });
+
+  // === STATUS LEGEND ===
+  var statusLegendEl = document.getElementById('kg-status-legend');
+  [{key:'visited',label:'Visited',style:'border:1.5px solid rgba(240,237,232,.45);background:transparent;'},{key:'saved',label:'Saved',style:'background:#e0314b;'},{key:'reading',label:'Reading',style:'background:#f97316;'},{key:'done',label:'Done',style:'background:#22c55e;'}]
+    .forEach(function(si) {
+      var item = document.createElement('div');
+      item.className = 'kg-status-item';
+      var dot = document.createElement('div');
+      dot.className = 'kg-status-dot';
+      dot.setAttribute('style', si.style);
+      dot.setAttribute('aria-hidden', 'true');
+      item.appendChild(dot);
+      var lbl = document.createTextNode(si.label);
+      item.appendChild(lbl);
+      statusLegendEl.appendChild(item);
+    });
+
+  // === STATUS RINGS (visited / library state) ===
+  var STATUS_RING = {saved:'#e0314b', reading:'#f97316', done:'#22c55e'};
+  var VISITED_RING = 'rgba(240,237,232,0.4)';
+
+  node.each(function(d) {
+    if (!d.url) return;
+    var isVisited = Object.prototype.hasOwnProperty.call(visitedPages, d.url);
+    var libEntry = libArticles[d.url];
+    var libStatus = libEntry ? libEntry.status : null;
+    if (!isVisited && !libStatus) return;
+    var mainR = (d.cat === 'foundation' || d.cat === 'architecture') ? 9 : 7;
+    var ringColor = libStatus ? STATUS_RING[libStatus] : VISITED_RING;
+    d3.select(this).insert('circle', 'text')
+      .datum(d)
+      .attr('class', 'kg-status-ring')
+      .attr('r', mainR + 5)
+      .attr('fill', 'none')
+      .attr('stroke', ringColor)
+      .attr('stroke-width', libStatus ? 2.5 : 1.5)
+      .attr('stroke-opacity', 0.85);
+  });
+
+  function resize() {
+    W = container.clientWidth;
+    H = container.clientHeight;
+    simulation.force('center', d3.forceCenter(W / 2, H / 2))
+      .force('x', d3.forceX(W / 2).strength(0.03))
+      .force('y', d3.forceY(H / 2).strength(0.03))
+      .alpha(0.1).restart();
+  }
+  window.addEventListener('resize', resize);
+
+  // Reapply all theme-dependent colors when dark/light mode is toggled
+  new MutationObserver(function() {
+    d3.select('#kg-arrow path').attr('fill', arrowFill());
+    if (selectedId) {
+      highlightConnected(selectedId);
+    } else {
+      applyAllFilters();
+    }
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+  // ===== detail panel: resize (drag inner edge) + collapse, width persisted =====
+  (function () {
+    var handle = document.getElementById('kg-panel-resize');
+    var WKEY = 'aiwiki.kg.panelW', MINW = 280;
+    function maxW() { return Math.min(820, Math.round(window.innerWidth * 0.7)); }
+    try { var saved = parseInt(localStorage.getItem(WKEY), 10); if (saved >= MINW) panel.style.setProperty('--kg-panel-w', Math.min(saved, maxW()) + 'px'); } catch (e) {}
+    var rz = false, sx = 0, sw = 0;
+    if (handle) {
+      handle.addEventListener('pointerdown', function (e) { rz = true; sx = e.clientX; sw = panel.getBoundingClientRect().width; panel.classList.add('kg-resizing'); handle.setPointerCapture(e.pointerId); e.preventDefault(); });
+      handle.addEventListener('pointermove', function (e) { if (!rz) return; var w = Math.max(MINW, Math.min(maxW(), sw + (sx - e.clientX))); panel.style.setProperty('--kg-panel-w', w + 'px'); });
+      var endRz = function () { if (!rz) return; rz = false; panel.classList.remove('kg-resizing'); try { localStorage.setItem(WKEY, Math.round(panel.getBoundingClientRect().width)); } catch (e) {} };
+      handle.addEventListener('pointerup', endRz); handle.addEventListener('pointercancel', endRz);
+      handle.addEventListener('dblclick', function () { panel.style.setProperty('--kg-panel-w', '300px'); try { localStorage.setItem(WKEY, 300); } catch (e) {} });
+    }
+    var cBtn = document.getElementById('kg-panel-collapse'), rBtn = document.getElementById('kg-panel-reopen');
+    if (cBtn) cBtn.addEventListener('click', function (e) { e.stopPropagation(); panel.classList.add('kg-collapsed'); });
+    if (rBtn) rBtn.addEventListener('click', function (e) { e.stopPropagation(); panel.classList.remove('kg-collapsed'); });
+  })();
+
+  simulation.alpha(1).restart();
+  setTimeout(() => { simulation.stop(); }, 8000);
+
+})();
+</script>
+{{ end }}

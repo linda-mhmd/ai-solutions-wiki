@@ -3,7 +3,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="theme-color" content="{{ .Site.Params.primaryColor | default "#2563eb" }}">
 
-<title>{{ if .IsHome }}Production AI Architecture and Implementation Guides | AI Solutions Wiki{{ else }}{{ .Title }} | AI Solutions Wiki{{ end }}</title>
+<title>{{ if .IsHome }}AI Architecture and Build Guides | AI Solutions Wiki{{ else }}{{ .Title }} | AI Solutions Wiki{{ end }}</title>
 
 {{ $desc := or .Description .Summary .Site.Params.description }}
 {{ with $desc }}<meta name="description" content="{{ . }}">{{ end }}
@@ -215,7 +215,7 @@
 {{ $jsonld | jsonify (dict "indent" "  ") | safeJS }}
 </script>
 
-{{ $css := resources.Get "css/wiki.css" | minify }}
+{{ $css := resources.Get "css/wiki.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 <link rel="stylesheet" href="{{ "pagefind/pagefind-ui.css" | relURL }}">
 

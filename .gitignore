@@ -31,3 +31,9 @@ scripts/
 # Source/working files — not served by the site
 # Store these in Google Drive or Dropbox instead
 input/
+ai-solutions (1).zip
+
+# Playwright MCP browser-automation artifacts (console logs, page snapshots)
+.playwright-mcp/
+perplexity-snapshot.md
+blog-screenshots/ai-solutions-wiki-post.html

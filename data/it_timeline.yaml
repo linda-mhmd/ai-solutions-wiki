@@ -1,0 +1,1993 @@
+# =============================================================================
+# IT HISTORY TIMELINE - single source of truth
+# Used by layouts/explore/it-timeline.html and the history article cluster.
+#
+# Trustworthiness rules (do not break):
+#   - `year` is the REAL-WORLD origin (invention or first public appearance),
+#     not when this wiki documented it.
+#   - every item carries at least one primary `sources` entry, verified by
+#     fetching it during research. `kind` records the source type.
+#   - NO em-dashes anywhere. Plain hyphens only.
+#
+# Relationship semantics (drive the legacy -> successor arcs in the view):
+#   - superseded_by: [ids]  -> this thing was replaced or largely superseded by Y
+#   - abstraction_of: [ids] -> THIS is the higher-level abstraction that sits on
+#                              top of and hides Y (Y still exists underneath)
+# =============================================================================
+
+lifecycles:
+  - id: active
+    label: "Active"
+    color: "#22c55e"
+    desc: "Current and recommended for new work."
+  - id: maintenance
+    label: "Maintenance only"
+    color: "#84cc16"
+    desc: "Still supported, but no major new features. Past its peak."
+  - id: closed-to-new
+    label: "Closed to new customers"
+    color: "#f59e0b"
+    desc: "Existing users are kept, but the old model is no longer sold to newcomers."
+  - id: legacy-accepted
+    label: "Legacy, still running"
+    color: "#06b6d4"
+    desc: "Past its prime, kept alive because replacing it costs too much."
+  - id: discontinued
+    label: "Discontinued / end of life"
+    color: "#e0314b"
+    desc: "No longer supported or available."
+  - id: milestone
+    label: "Concept, standard or event"
+    color: "#a855f7"
+    desc: "An idea, standard, paper or event rather than a product with a lifecycle."
+
+categories:
+  - {id: foundation,     label: "Foundations",          color: "#e0314b"}
+  - {id: computing,      label: "Hardware",             color: "#84cc16"}
+  - {id: architecture,   label: "Architecture",         color: "#3b82f6"}
+  - {id: infrastructure, label: "Infrastructure",       color: "#06b6d4"}
+  - {id: tools,          label: "Languages and tools",  color: "#22c55e"}
+  - {id: patterns,       label: "Practices",            color: "#f59e0b"}
+  - {id: models,         label: "AI and models",        color: "#f97316"}
+  - {id: vendor,         label: "Vendors and products", color: "#14b8a6"}
+  - {id: legal,          label: "Licensing and legal",  color: "#ec4899"}
+  - {id: governance,     label: "Trends and governance",color: "#a855f7"}
+
+eras:
+  - id: pre-electronic
+    name: "Pre-electronic computing"
+    span: "Antiquity to 1930s"
+    driver: "Calculation was done by hand or by gears. Each device automated one more step of arithmetic or logic, building the ideas that electronic computers would later run."
+  - id: electronic-dawn
+    name: "The electronic dawn"
+    span: "1940s to 1950s"
+    driver: "Vacuum tubes and then the transistor let machines compute with electricity instead of moving parts. Computing went from one-off lab experiments to the first commercial machines."
+  - id: mainframe
+    name: "The mainframe era"
+    span: "1960s to 1970s"
+    driver: "Computers were rare, huge and expensive, so one central machine served many users. Shared architectures, the first networks and the relational database appeared."
+  - id: pc-client-server
+    name: "PC and client-server"
+    span: "1980s to early 1990s"
+    driver: "Cheap microprocessors put a computer on every desk. Work moved off the central machine, and open standards let independent vendors build a whole ecosystem."
+  - id: web
+    name: "The web and enterprise"
+    span: "mid-1990s to 2005"
+    driver: "The web connected personal computers to the entire world. Browsers, open-source servers and the first internet businesses defined the dot-com era."
+  - id: cloud
+    name: "The cloud era"
+    span: "2006 to 2010"
+    driver: "Renting computing by the hour replaced buying servers. Amazon, Google and Microsoft turned infrastructure into a utility, and the smartphone put it in every pocket."
+  - id: cloud-native
+    name: "Cloud-native and DevOps"
+    span: "2011 to 2019"
+    driver: "Containers and orchestration made software portable and elastic. Teams adopted DevOps, microservices and automation to ship continuously at scale."
+  - id: ai-native
+    name: "AI-native and the license wars"
+    span: "2020 to now"
+    driver: "Transformer models turned data into general capability, while a wave of open-source relicensing and vendor consolidation reminded everyone that IT is contracts as much as code."
+
+items:
+
+  # ===== PRE-ELECTRONIC =====
+
+  - id: abacus
+    label: "Abacus"
+    year: -2300
+    year_label: "c. 2300 BCE"
+    invented: "Counting devices emerged in Sumer around 2700 to 2300 BCE. The Salamis Tablet (c. 300 BCE) is the oldest surviving counting board."
+    standardized: "Settled into regional forms: the Roman hand-abacus, the Chinese suanpan and later the Japanese soroban."
+    era: pre-electronic
+    cat: computing
+    lifecycle: legacy-accepted
+    wiki_url: ""
+    desc: "A manual counting frame that represents place values with beads or pebbles in columns. A person can add, subtract, multiply and divide by moving counters."
+    why: "It was humanity's first reusable calculating device, and it is still used to teach arithmetic today."
+    legal: ""
+    superseded_by: [pascaline]
+    abstraction_of: []
+    sources:
+      - {title: "Salamis tablet, marble (Computer History Museum, CHM Revolution)", url: "https://www.computerhistory.org/revolution/artifact/1/128", kind: archive}
+
+  - id: pascaline
+    label: "Pascaline (Pascal's calculator)"
+    year: 1642
+    year_label: "1642"
+    invented: "Blaise Pascal designed and built the Pascaline in 1642 in Rouen, France, to help with his father's tax accounting."
+    standardized: "Pascal received a Royal Privilege in 1649 granting exclusive rights to make and sell the machine in France."
+    era: pre-electronic
+    cat: computing
+    lifecycle: milestone
+    wiki_url: ""
+    desc: "A mechanical adding machine that used geared ten-tooth wheels to add and subtract, with carries propagated automatically. Multiplication and division were done by repeated addition."
+    why: "It was one of the first working mechanical calculators and proved arithmetic could be automated by gears."
+    legal: "Royal Privilege (a monopoly grant) issued to Pascal in 1649."
+    superseded_by: [leibniz-reckoner]
+    abstraction_of: []
+    sources:
+      - {title: "Pascaline, Mechanical Calculator (Britannica)", url: "https://www.britannica.com/technology/Pascaline", kind: secondary}
+
+  - id: leibniz-reckoner
+    label: "Leibniz Step Reckoner"
+    year: 1672
+    year_label: "1672 to 1694"
+    invented: "Gottfried Wilhelm Leibniz designed the Step Reckoner from around 1672, presenting a wooden model to the Royal Society, and completed working brass machines by 1694."
+    standardized: "Leibniz's stepped-drum mechanism became a standard calculator design reused for the next 250 years."
+    era: pre-electronic
+    cat: computing
+    lifecycle: milestone
+    wiki_url: ""
+    desc: "A mechanical calculator using Leibniz's stepped drum and a movable carriage. It was the first machine that could perform all four arithmetic operations."
+    why: "It introduced the stepped drum, a mechanism reused in calculators for centuries, and showed full arithmetic could be mechanized."
+    legal: ""
+    superseded_by: [analytical-engine]
+    abstraction_of: [pascaline]
+    sources:
+      - {title: "A Leibniz Stepped Reckoner calculator (Computer History Museum)", url: "https://www.computerhistory.org/revolution/calculators/1/49/198", kind: archive}
+
+  - id: jacquard-loom
+    label: "Jacquard loom (punched-card control)"
+    year: 1804
+    year_label: "1804"
+    invented: "Joseph-Marie Jacquard developed his punched-card loom control in France around 1804, building on earlier punched designs by Vaucanson."
+    standardized: "The chained-punched-card loom spread rapidly across the European textile industry and became the dominant pattern-weaving method."
+    era: pre-electronic
+    cat: foundation
+    lifecycle: legacy-accepted
+    wiki_url: ""
+    desc: "A loom controlled by a chain of punched cards, where holes in each card select which threads lift for each row. It automated complex patterned weaving."
+    why: "It was the first use of stored, interchangeable instructions on punched cards, directly inspiring Babbage and Hollerith."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Joseph Marie Jacquard (IEEE Computer Society, Computer Pioneers)", url: "https://history.computer.org/pioneers/jacquard.html", kind: secondary}
+
+  - id: analytical-engine
+    label: "Babbage's Analytical and Difference Engines"
+    year: 1837
+    year_label: "Difference Engine 1822, Analytical Engine from 1837"
+    invented: "Charles Babbage announced the Difference Engine in 1822 and began designing the general-purpose Analytical Engine from 1837 in London."
+    standardized: "Never completed in his lifetime. The Science Museum London built a working Difference Engine No. 2 to his designs in 1991."
+    era: pre-electronic
+    cat: computing
+    lifecycle: milestone
+    wiki_url: ""
+    desc: "The Analytical Engine was a design for a general-purpose, programmable mechanical computer with a processing mill, a memory store and punched-card input."
+    why: "It was the first design for a general-purpose programmable computer, anticipating the stored-program machine by a century."
+    legal: ""
+    superseded_by: [eniac]
+    abstraction_of: [jacquard-loom]
+    sources:
+      - {title: "Overview, The Babbage Engine (Computer History Museum)", url: "https://www.computerhistory.org/babbage/overview/", kind: archive}
+      - {title: "Charles Babbage's Difference Engines (Science Museum London)", url: "https://www.sciencemuseum.org.uk/objects-and-stories/charles-babbages-difference-engines-and-science-museum", kind: archive}
+
+  - id: first-algorithm
+    label: "Ada Lovelace's algorithm (Note G)"
+    year: 1843
+    year_label: "1843"
+    invented: "Ada Lovelace published Note G, an algorithm to compute Bernoulli numbers on Babbage's Analytical Engine, in her 1843 translation of Menabrea's Sketch of the Analytical Engine."
+    standardized: ""
+    era: pre-electronic
+    cat: foundation
+    lifecycle: milestone
+    wiki_url: ""
+    desc: "A step-by-step table of operations for the Analytical Engine that computes Bernoulli numbers using loops. It is widely regarded as the first published algorithm intended for a machine."
+    why: "It showed that a machine could be programmed to do more than fixed calculation, making Lovelace an early conceptual programmer."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Menabrea, Sketch of the Analytical Engine, trans. A.A.L., Scientific Memoirs Vol. 3 (1843), Wikisource primary text", url: "https://en.wikisource.org/wiki/Scientific_Memoirs/3/Sketch_of_the_Analytical_Engine_invented_by_Charles_Babbage,_Esq.", kind: archive}
+
+  - id: boolean-algebra
+    label: "Boolean algebra"
+    year: 1847
+    year_label: "1847, expanded 1854"
+    invented: "George Boole introduced his algebra of logic in The Mathematical Analysis of Logic (1847) and developed it fully in An Investigation of the Laws of Thought (1854)."
+    standardized: "Became the formal basis of digital logic after Shannon applied it to switching circuits in 1937."
+    era: pre-electronic
+    cat: foundation
+    lifecycle: legacy-accepted
+    wiki_url: ""
+    desc: "A system of algebra in which variables take only the values true and false (1 and 0) and combine via AND, OR and NOT. It treats logic as a branch of mathematics."
+    why: "It is the mathematical foundation of every digital circuit and all computer logic."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "An Investigation of the Laws of Thought (George Boole, 1854), full text, Internet Archive", url: "https://archive.org/details/investigationofl00boolrich", kind: book}
+      - {title: "George Boole (Stanford Encyclopedia of Philosophy)", url: "https://plato.stanford.edu/entries/boole/", kind: secondary}
+
+  - id: punched-cards
+    label: "Hollerith punched-card tabulator"
+    year: 1890
+    year_label: "1889 patent, 1890 census"
+    invented: "Herman Hollerith patented the electromechanical punched-card tabulator (US Patent 395,782, granted 1889) and used it to process the 1890 US Census."
+    standardized: "Hollerith's company merged in 1911 and was renamed IBM in 1924. Punched cards became the dominant data medium for decades."
+    era: pre-electronic
+    cat: computing
+    lifecycle: legacy-accepted
+    wiki_url: ""
+    desc: "A system that recorded data as holes punched in cards, then counted and sorted the cards electromechanically. It cut the 1890 census tabulation from years to months."
+    why: "It launched mechanized data processing and the company that became IBM, making punched cards the standard input medium into the 1970s."
+    legal: "US Patent 395,782, Art of Compiling Statistics, granted 1889."
+    superseded_by: [core-memory]
+    abstraction_of: [jacquard-loom]
+    sources:
+      - {title: "Herman Hollerith Receives a Patent (Computer History Museum, This Day in History)", url: "https://www.computerhistory.org/tdih/january/8/", kind: archive}
+      - {title: "Herman Hollerith and Mechanical Tabulation (US Census Bureau History)", url: "https://www.census.gov/about/history/stories/monthly/2016/january-2016.html", kind: archive}
+
+  - id: turing-machine
+    label: "Turing machine (On Computable Numbers)"
+    year: 1936
+    year_label: "1936"
+    invented: "Alan Turing wrote On Computable Numbers, with an Application to the Entscheidungsproblem (received 28 May 1936), published in the Proceedings of the London Mathematical Society."
+    standardized: "The Turing machine became the standard formal model of computation, central to computability theory."
+    era: pre-electronic
+    cat: foundation
+    lifecycle: milestone
+    wiki_url: ""
+    desc: "An abstract machine that reads and writes symbols on an infinite tape according to a finite table of rules. Turing used it to define which problems are computable."
+    why: "It gave a precise mathematical definition of computation and the universal computer, the theoretical foundation of computer science."
+    legal: ""
+    superseded_by: []
+    abstraction_of: [boolean-algebra]
+    sources:
+      - {title: "A. M. Turing, On Computable Numbers, Proc. London Math. Soc. ser. 2 vol. 42 (1936-37), full text PDF", url: "https://people.math.ethz.ch/~halorenz/4students/Literatur/TuringFullText.pdf", kind: paper}
+
+  - id: shannon-info
+    label: "Shannon: switching logic and information theory"
+    year: 1937
+    year_label: "1937 thesis, 1948 information theory"
+    invented: "Claude Shannon's 1937 MIT master's thesis applied Boolean algebra to relay and switching circuits. His 1948 paper A Mathematical Theory of Communication founded information theory."
+    standardized: "The 1948 paper, in the Bell System Technical Journal, established information theory and the bit as the unit of information."
+    era: pre-electronic
+    cat: foundation
+    lifecycle: milestone
+    wiki_url: ""
+    desc: "Shannon's thesis showed electrical switching circuits can implement Boolean logic. His 1948 paper defined information mathematically, introduced the bit and set limits on reliable communication."
+    why: "Together these works gave digital logic its mathematical basis and created information theory, underpinning all computing and communication."
+    legal: ""
+    superseded_by: []
+    abstraction_of: [boolean-algebra]
+    sources:
+      - {title: "C. E. Shannon, A symbolic analysis of relay and switching circuits (MIT thesis), DSpace@MIT", url: "https://dspace.mit.edu/handle/1721.1/11173", kind: archive}
+      - {title: "C. E. Shannon, A Mathematical Theory of Communication, Bell System Technical Journal 27 (1948)", url: "https://onlinelibrary.wiley.com/doi/abs/10.1002/j.1538-7305.1948.tb01338.x", kind: paper}
+
+  # ===== ELECTRONIC DAWN =====
+
+  - id: eniac
+    label: "ENIAC"
+    year: 1945
+    year_label: "1945 operational, unveiled 1946"
+    invented: "J. Presper Eckert and John Mauchly built ENIAC at the University of Pennsylvania's Moore School. It ran in 1945 and was unveiled on 14 February 1946."
+    standardized: "It operated until 1955 and set the template for electronic computing."
+    era: electronic-dawn
+    cat: computing
+    lifecycle: milestone
+    wiki_url: ""
+    desc: "A room-sized machine of about 17,468 vacuum tubes, the first general-purpose, electronic, programmable computer in the US. It computed artillery firing tables far faster than any earlier machine."
+    why: "It proved large-scale electronic computation was practical, launching the electronic computer era."
+    legal: ""
+    superseded_by: [univac]
+    abstraction_of: [analytical-engine]
+    sources:
+      - {title: "ENIAC (Penn Engineering, University of Pennsylvania)", url: "https://www.engineering.upenn.edu/about/history-heritage/eniac/", kind: archive}
+
+  - id: von-neumann
+    label: "von Neumann architecture (EDVAC report)"
+    year: 1945
+    year_label: "1945"
+    invented: "John von Neumann wrote the First Draft of a Report on the EDVAC, circulated 30 June 1945 at the Moore School, University of Pennsylvania."
+    standardized: "The stored-program von Neumann architecture became the de facto standard organization for nearly all general-purpose computers since."
+    era: electronic-dawn
+    cat: architecture
+    lifecycle: legacy-accepted
+    wiki_url: ""
+    desc: "A computer design in which both program instructions and data are held in the same read-write memory, processed by a single control unit and arithmetic unit. This is the stored-program concept."
+    why: "It defined the architecture that almost every modern computer still follows."
+    legal: ""
+    superseded_by: []
+    abstraction_of: [eniac]
+    sources:
+      - {title: "John von Neumann, First Draft of a Report on the EDVAC (1945), full text, Internet Archive", url: "https://archive.org/details/vnedvac", kind: archive}
+
+  - id: transistor
+    label: "Transistor"
+    year: 1947
+    year_label: "1947"
+    invented: "John Bardeen and Walter Brattain, in William Shockley's group at Bell Labs, demonstrated the first working point-contact transistor on 16 December 1947."
+    standardized: "Announced 30 June 1948. The junction and silicon transistors made it the standard electronic switch by the late 1950s."
+    era: electronic-dawn
+    cat: computing
+    lifecycle: legacy-accepted
+    wiki_url: ""
+    desc: "A solid-state semiconductor device that amplifies or switches electrical signals. It replaced the bulky, hot, fragile vacuum tube."
+    why: "It is the fundamental building block of all modern electronics and the chips inside every computer."
+    legal: "US Patent 2,524,035 (filed 1948, issued 1950)."
+    superseded_by: [integrated-circuit]
+    abstraction_of: []
+    sources:
+      - {title: "1947: Invention of the Point-Contact Transistor (Computer History Museum, The Silicon Engine)", url: "https://www.computerhistory.org/siliconengine/invention-of-the-point-contact-transistor/", kind: archive}
+
+  - id: univac
+    label: "UNIVAC I"
+    year: 1951
+    year_label: "1951"
+    invented: "Designed by Eckert and Mauchly (later Remington Rand). The first unit was accepted by the US Census Bureau in 1951."
+    standardized: "Forty-six UNIVAC I machines were built. It established the commercial computer market."
+    era: electronic-dawn
+    cat: computing
+    lifecycle: milestone
+    wiki_url: ""
+    desc: "The first commercially produced electronic digital computer in the United States, built for business and government data processing. It used vacuum tubes and magnetic tape."
+    why: "It moved electronic computing out of the lab into commercial use, starting the computer industry."
+    legal: ""
+    superseded_by: []
+    abstraction_of: [eniac]
+    sources:
+      - {title: "UNIVAC I (US Census Bureau History)", url: "https://www.census.gov/about/history/bureau-history/census-innovations/technology/univac-i.html", kind: archive}
+
+  - id: core-memory
+    label: "Magnetic-core memory"
+    year: 1953
+    year_label: "early 1950s, Whirlwind 1953"
+    invented: "Jay Forrester at MIT developed coincident-current magnetic-core memory for Project Whirlwind, demonstrated in 1953."
+    standardized: "Core memory was the dominant computer main memory through the 1950s and 1960s, until semiconductor RAM replaced it in the 1970s."
+    era: electronic-dawn
+    cat: computing
+    lifecycle: discontinued
+    wiki_url: ""
+    desc: "Memory built from tiny magnetizable ferrite rings threaded on a grid of wires, each ring storing one bit by its magnetization. It gave fast, reliable, non-volatile random access."
+    why: "It provided the first practical fast random-access memory, enabling reliable interactive and real-time computers."
+    legal: "Forrester patent US 2,736,880. IBM paid MIT a large settlement for rights in 1964."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "1953: Whirlwind computer debuts core memory (Computer History Museum, The Storage Engine)", url: "https://www.computerhistory.org/storageengine/whirlwind-computer-debuts-core-memory/", kind: archive}
+
+  - id: compiler
+    label: "First compiler (Grace Hopper's A-0)"
+    year: 1952
+    year_label: "1951 to 1952"
+    invented: "Grace Hopper wrote the A-0 system for UNIVAC I in 1951 to 1952 and described automatic programming in her 1952 ACM paper The Education of a Computer."
+    standardized: "Recognized as an IEEE Milestone. The compiler idea led to FLOW-MATIC, FORTRAN and COBOL."
+    era: electronic-dawn
+    cat: tools
+    lifecycle: legacy-accepted
+    wiki_url: ""
+    desc: "The A-0 system translated symbolic code into machine code that UNIVAC could run. It was an early translator program, closer to a loader and linker than a modern compiler."
+    why: "It introduced the idea that a program could write programs, removing the need to hand-code in machine language."
+    legal: ""
+    superseded_by: [fortran]
+    abstraction_of: []
+    sources:
+      - {title: "Grace Hopper, The Education of a Computer, Proceedings of the 1952 ACM National Meeting (ACM Digital Library)", url: "https://dl.acm.org/doi/10.1145/609784.609818", kind: paper}
+
+  - id: fortran
+    label: "FORTRAN"
+    year: 1957
+    year_label: "1957, spec 1954 to 1956"
+    invented: "John Backus's team at IBM developed FORTRAN for the IBM 704. The reference manual is dated 1956 and the system shipped to customers in April 1957."
+    standardized: "First standardized by ASA (later ANSI) in 1966, with later ISO standards."
+    era: electronic-dawn
+    cat: tools
+    lifecycle: legacy-accepted
+    wiki_url: ""
+    desc: "FORTRAN (FORmula TRANslation) was the first widely used high-level programming language, aimed at scientific and engineering calculation. Its compiler produced efficient machine code from algebra-like statements."
+    why: "It proved high-level languages could be both usable and fast, making programming accessible beyond machine-code specialists."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "FORTRAN (Computer History Museum Software Preservation, original IBM documents)", url: "https://softwarepreservation.computerhistory.org/FORTRAN/", kind: archive}
+
+  - id: integrated-circuit
+    label: "Integrated circuit"
+    year: 1958
+    year_label: "1958 to 1959"
+    invented: "Jack Kilby at Texas Instruments built the first working integrated circuit in 1958. Robert Noyce at Fairchild independently devised the practical monolithic silicon IC, filing his patent in 1959."
+    standardized: "Monolithic silicon ICs became the universal basis of microelectronics in the 1960s."
+    era: electronic-dawn
+    cat: computing
+    lifecycle: legacy-accepted
+    wiki_url: ""
+    desc: "A single chip of semiconductor that holds many interconnected components formed together. It replaced wiring discrete parts by hand."
+    why: "It made electronics small, cheap and reliable at scale, enabling microprocessors and the entire modern computing industry."
+    legal: "Kilby (TI) and Noyce (Fairchild) patents, followed by years of dispute and cross-licensing."
+    superseded_by: [intel-4004]
+    abstraction_of: [transistor]
+    sources:
+      - {title: "1959: Practical Monolithic Integrated Circuit Concept Patented (Computer History Museum)", url: "https://www.computerhistory.org/siliconengine/practical-monolithic-integrated-circuit-concept-patented/", kind: archive}
+
+  - id: cobol
+    label: "COBOL"
+    year: 1959
+    year_label: "1959 to 1960"
+    invented: "COBOL was defined by the CODASYL committee, convened by the US Department of Defense in 1959. Grace Hopper's FLOW-MATIC heavily influenced its design."
+    standardized: "The COBOL-60 specifications were approved in 1960 and published by the US Government. Later standardized by ANSI (1968) and ISO."
+    era: electronic-dawn
+    cat: tools
+    lifecycle: legacy-accepted
+    wiki_url: ""
+    desc: "COBOL (COmmon Business-Oriented Language) is a high-level language for business data processing, using English-like syntax so programs read like prose."
+    why: "It standardized business computing and still runs critical banking, government and insurance systems today."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "COBOL: Initial Specifications for a Common Business Oriented Language (CODASYL, 1960), bitsavers scan", url: "https://www.bitsavers.org/pdf/codasyl/COBOL_Report_Apr60.pdf", kind: standard}
+
+  # ===== MAINFRAME =====
+
+  - id: system-360
+    label: "IBM System/360"
+    year: 1964
+    year_label: "1964"
+    invented: "IBM announced the System/360 on 7 April 1964, the first family of computers built to share one architecture across a full range of machine sizes."
+    standardized: "Its instruction-set architecture became a long-lived standard. IBM Z mainframes continue the lineage today."
+    era: mainframe
+    cat: computing
+    lifecycle: legacy-accepted
+    wiki_url: ""
+    desc: "The first family of computers built to share one architecture and software across many machine sizes. A program written for a small model ran on a large one without rewriting."
+    why: "It established the idea of a compatible computer family and an instruction set that outlives any single machine, a lineage that still runs core banking systems."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "The IBM System/360 (IBM official history)", url: "https://www.ibm.com/history/system-360", kind: archive}
+      - {title: "IBM Announces System/360 Computer Family (Computer History Museum)", url: "https://www.computerhistory.org/tdih/april/7/", kind: archive}
+
+  - id: moores-law
+    label: "Moore's law"
+    year: 1965
+    year_label: "1965"
+    invented: "Gordon Moore, Cramming more components onto integrated circuits, Electronics magazine, 19 April 1965."
+    standardized: ""
+    era: mainframe
+    cat: foundation
+    lifecycle: milestone
+    wiki_url: ""
+    desc: "Moore observed that the number of components on an integrated circuit was doubling at a regular pace. The observation guided the semiconductor industry for decades."
+    why: "It set the long-run expectation that computing gets exponentially cheaper and denser over time, shaping chip roadmaps and the economics of the whole industry."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Cramming more components onto integrated circuits (Computer History Museum catalog of the original article)", url: "https://www.computerhistory.org/collections/catalog/102770822", kind: paper}
+
+  - id: arpanet
+    label: "ARPANET"
+    year: 1969
+    year_label: "1969"
+    invented: "The first host-to-host message was sent on 29 October 1969 from UCLA to SRI. The login attempt crashed after two characters, so the first text transmitted was lo."
+    standardized: "Operational through the 1970s and 1980s, decommissioned in 1990 once its lineage was absorbed into the TCP/IP internet."
+    era: mainframe
+    cat: infrastructure
+    lifecycle: legacy-accepted
+    wiki_url: ""
+    desc: "The first operational packet-switched computer network and the direct ancestor of the internet. Its first message was sent between UCLA and SRI in 1969."
+    why: "It proved that geographically separated computers could exchange data over a shared packet-switched network, founding the internet's lineage."
+    legal: ""
+    superseded_by: [tcp-ip]
+    abstraction_of: []
+    sources:
+      - {title: "Leonard Kleinrock, UCLA: The Day the Infant Internet Uttered its First Words (IMP Log primary record)", url: "https://www.lk.cs.ucla.edu/internet_first_words.html", kind: archive}
+
+  - id: unix
+    label: "Unix"
+    year: 1969
+    year_label: "1969"
+    invented: "Development began in 1969 at Bell Labs (Ken Thompson, Dennis Ritchie and others) on a PDP-7. The first edition manual came in 1971."
+    standardized: "POSIX (from 1988) and the Single UNIX Specification (from 1994) later standardized Unix interfaces."
+    era: mainframe
+    cat: infrastructure
+    lifecycle: legacy-accepted
+    wiki_url: "/glossary/operating-system-fundamentals/"
+    desc: "A multi-user, multitasking operating system created at Bell Labs in 1969. Its file system, process model and pipelined commands shaped almost every operating system that followed."
+    why: "Unix established the design patterns of small composable tools and hierarchical file systems that underpin Linux, macOS and modern servers."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "The Evolution of the Unix Time-sharing System (Dennis M. Ritchie, AT&T Bell Labs Technical Journal, 1984)", url: "https://www.cis.upenn.edu/~lee/07cis505/Papers/ritchie-bstj84.pdf", kind: paper}
+
+  - id: relational-model
+    label: "Relational model of data"
+    year: 1970
+    year_label: "1970"
+    invented: "Edgar F. Codd, IBM Research San Jose, A Relational Model of Data for Large Shared Data Banks, Communications of the ACM, June 1970."
+    standardized: ""
+    era: mainframe
+    cat: foundation
+    lifecycle: active
+    wiki_url: "/basics/what-is-a-database/"
+    desc: "The relational model represents data as tables of tuples, separating the logical view of data from its physical storage. It gave databases a rigorous mathematical foundation."
+    why: "It is the theoretical foundation for every relational database and for SQL, decoupling applications from how data is physically stored."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "A Relational Model of Data for Large Shared Data Banks (E. F. Codd, CACM 13(6), June 1970)", url: "https://www.engineering.upenn.edu/~zives/03f/cis550/codd.pdf", kind: paper}
+
+  - id: intel-4004
+    label: "Intel 4004 microprocessor"
+    year: 1971
+    year_label: "1971"
+    invented: "Intel announced the 4004 on 15 November 1971, developed with Busicom. It was the first commercial general-purpose programmable microprocessor, a whole 4-bit CPU on one chip."
+    standardized: ""
+    era: mainframe
+    cat: computing
+    lifecycle: milestone
+    wiki_url: ""
+    desc: "The first commercial general-purpose programmable microprocessor, packing a complete 4-bit CPU onto a single chip. It was built for a calculator but designed to be reprogrammable."
+    why: "It put a whole CPU on one chip, the building block that later made personal computers and embedded systems possible."
+    legal: ""
+    superseded_by: []
+    abstraction_of: [integrated-circuit]
+    sources:
+      - {title: "The First Programmable Microprocessor: The 4004 (Intel official timeline)", url: "https://timeline.intel.com/1971/the-first-programmable-microprocessor:-the-4004", kind: archive}
+
+  - id: email
+    label: "Networked email with @"
+    year: 1971
+    year_label: "1971"
+    invented: "Ray Tomlinson at BBN developed ARPANET's first network email in 1971 by combining SNDMSG and CPYNET, and chose the @ sign to separate user name from host name."
+    standardized: "The user@host convention was later formalized in internet mail RFCs (RFC 821 and 822 in 1982)."
+    era: mainframe
+    cat: infrastructure
+    lifecycle: active
+    wiki_url: ""
+    desc: "Networked email let a user on one computer send a message to a user on a different computer over the ARPANET. Tomlinson introduced the @ sign in 1971 to address mail across machines."
+    why: "It created person-to-person messaging across networked machines, and the @ addressing scheme is still in every email address today."
+    legal: ""
+    superseded_by: []
+    abstraction_of: [arpanet]
+    sources:
+      - {title: "Official Biography, Raymond Tomlinson (Internet Hall of Fame)", url: "https://www.internethalloffame.org/official-biography-raymond-tomlinson/", kind: announcement}
+
+  - id: c-language
+    label: "C programming language"
+    year: 1972
+    year_label: "1972"
+    invented: "Dennis Ritchie at Bell Labs evolved C from B between 1969 and 1973, with the most creative period in 1972, to build utilities and the Unix kernel."
+    standardized: "Ratified as ANSI C (C89) in 1989 and adopted by ISO as C90 in 1990. ISO revisions continue (C99, C11, C17, C23)."
+    era: mainframe
+    cat: tools
+    lifecycle: active
+    wiki_url: ""
+    desc: "A compiled, statically typed systems programming language created at Bell Labs to rewrite Unix. It gives low-level access to memory while staying portable across hardware."
+    why: "C remains the lingua franca of operating systems and embedded devices, and its syntax shaped C++, Java and JavaScript."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "The Development of the C Language (Dennis M. Ritchie, Bell Labs)", url: "http://cm-bell-labs.github.io/who/dmr/chist.html", kind: paper}
+
+  - id: ethernet
+    label: "Ethernet"
+    year: 1973
+    year_label: "1973"
+    invented: "Robert Metcalfe and David Boggs created Ethernet at Xerox PARC. Metcalfe's foundational memo dates to 1973, and the CACM paper was published in 1976."
+    standardized: "Patented as US 4,063,220 (issued 1977). Later standardized as IEEE 802.3 in 1983."
+    era: mainframe
+    cat: architecture
+    lifecycle: active
+    wiki_url: ""
+    desc: "A local area network technology that lets computers share a broadcast medium using carrier sense multiple access with collision detection. It became the dominant standard for wired LANs."
+    why: "It defined how computers in one building or campus share a network, and it remains the foundation of wired local networking."
+    legal: "US Patent 4,063,220 (assignee Xerox), issued 1977."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Metcalfe & Boggs, Ethernet: Distributed Packet Switching for Local Computer Networks, CACM 19(7), July 1976", url: "https://gordonbell.azurewebsites.net/computer_structures_principles_and_examples/csp0445.htm", kind: paper}
+      - {title: "US Patent 4,063,220A (Google Patents)", url: "https://patents.google.com/patent/US4063220A/en", kind: patent}
+
+  - id: tcp-ip
+    label: "TCP/IP"
+    year: 1974
+    year_label: "1974 paper, 1983 standard"
+    invented: "Vinton Cerf and Robert Kahn, A Protocol for Packet Network Intercommunication, IEEE Transactions on Communications, May 1974."
+    standardized: "On 1 January 1983, ARPANET conducted a coordinated flag-day cutover from NCP to TCP/IP, making it the mandatory standard."
+    era: mainframe
+    cat: architecture
+    lifecycle: milestone
+    wiki_url: "/glossary/tcp-ip-model/"
+    desc: "The protocol suite that lets independent packet networks interconnect into a single internet. Cerf and Kahn described it in 1974, and ARPANET switched to it in 1983."
+    why: "It is the addressing and transport foundation of the internet, allowing different networks worldwide to communicate as one."
+    legal: ""
+    superseded_by: []
+    abstraction_of: [arpanet]
+    sources:
+      - {title: "Cerf & Kahn, A Protocol for Packet Network Intercommunication, IEEE Trans. Communications, May 1974 (PDF)", url: "https://www.cs.princeton.edu/courses/archive/fall06/cos561/papers/cerf74.pdf", kind: paper}
+
+  - id: sql
+    label: "SQL"
+    year: 1974
+    year_label: "1974"
+    invented: "Donald Chamberlin and Raymond Boyce at IBM Research, SEQUEL: A Structured English Query Language, 1974. SEQUEL was later renamed SQL for trademark reasons."
+    standardized: "First standardized by ANSI in 1986 and ISO in 1987 (ISO 9075). Revised many times since."
+    era: mainframe
+    cat: tools
+    lifecycle: active
+    wiki_url: ""
+    desc: "A declarative query language for relational databases that lets you describe what data you want rather than how to fetch it. It originated as SEQUEL at IBM."
+    why: "SQL is the dominant language for querying relational data and remains the default interface to most databases over 50 years later."
+    legal: ""
+    superseded_by: []
+    abstraction_of: [relational-model]
+    sources:
+      - {title: "SEQUEL: A Structured English Query Language (Chamberlin & Boyce, 1974), IBM Research", url: "https://research.ibm.com/publications/sequel-a-struciured-english-query-language", kind: paper}
+
+  # ===== PC AND CLIENT-SERVER =====
+
+  - id: sap
+    label: "SAP and enterprise resource planning"
+    year: 1972
+    year_label: "1972 founded"
+    invented: "Founded in 1972 in Germany by five former IBM engineers to build integrated, real-time business software."
+    standardized: "The mainframe suite R/2 followed in 1979, and the three-tier client-server suite R/3 launched in 1992, setting the global standard for ERP."
+    era: pc-client-server
+    cat: vendor
+    lifecycle: active
+    wiki_url: "/glossary/information-systems-overview/"
+    desc: "SAP builds integrated, real-time business software that runs finance, supply chain, HR and operations from one connected data model. R/3 (1992) became the dominant ERP suite."
+    why: "SAP pioneered integrated ERP and became the system of record for much of the global economy, which is why it is so deeply embedded and so hard to replace."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "SAP History (SAP official company history)", url: "https://www.sap.com/about/company/history.html", kind: announcement}
+      - {title: "SAP R/3 (release 1992, three-tier client-server ERP)", url: "https://en.wikipedia.org/wiki/SAP_R/3", kind: secondary}
+
+  - id: oracle-db
+    label: "Oracle Database"
+    year: 1979
+    year_label: "1979 (Oracle V2)"
+    invented: "Larry Ellison, Bob Miner and Ed Oates released Oracle V2 in 1979, the first commercially available SQL-based relational database."
+    standardized: ""
+    era: pc-client-server
+    cat: vendor
+    lifecycle: active
+    wiki_url: "/basics/what-is-a-database/"
+    desc: "Oracle V2 (1979) was the first commercial SQL relational database. There was no shipped V1; the founders named the first release Version 2 so buyers would not distrust a first release."
+    why: "It brought Codd's relational model and SQL to market as a product, making relational databases a real business technology."
+    legal: ""
+    superseded_by: []
+    abstraction_of: [relational-model]
+    sources:
+      - {title: "Introduction to Oracle Database, History (Oracle official documentation)", url: "https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/introduction-to-oracle-database.html", kind: announcement}
+
+  - id: ibm-pc
+    label: "IBM Personal Computer (5150)"
+    year: 1981
+    year_label: "1981"
+    invented: "IBM's Boca Raton team introduced the Personal Computer model 5150 on 12 August 1981, built on the Intel 8088 with an open architecture and off-the-shelf parts."
+    standardized: "Its open, documented architecture let third parties build compatible hardware and software, creating the PC standard."
+    era: pc-client-server
+    cat: computing
+    lifecycle: legacy-accepted
+    wiki_url: ""
+    desc: "IBM's first mass-market personal computer. Its open architecture and published documentation let third parties build compatible machines, creating the IBM-compatible PC."
+    why: "It established the IBM-compatible PC as the dominant business computing platform for decades."
+    legal: ""
+    superseded_by: []
+    abstraction_of: [intel-4004]
+    sources:
+      - {title: "IBM Introduces Personal Computer (Computer History Museum, This Day in History)", url: "https://www.computerhistory.org/tdih/august/12/", kind: archive}
+      - {title: "The IBM PC (IBM official history)", url: "https://www.ibm.com/history/personal-computer", kind: archive}
+
+  - id: ms-dos
+    label: "MS-DOS"
+    year: 1981
+    year_label: "1981"
+    invented: "Microsoft derived MS-DOS from 86-DOS (originally QDOS by Tim Paterson). It shipped with the IBM PC as PC DOS 1.0 in 1981."
+    standardized: ""
+    era: pc-client-server
+    cat: infrastructure
+    lifecycle: discontinued
+    wiki_url: "/glossary/operating-system-fundamentals/"
+    desc: "Microsoft's disk operating system for x86 PCs, shipped in 1981 with the original IBM PC. It gave users a command-line interface to manage files and run programs from floppy disks."
+    why: "It became the default operating system across IBM-compatible PCs and the foundation Microsoft built Windows on top of."
+    legal: ""
+    superseded_by: [ms-windows]
+    abstraction_of: []
+    sources:
+      - {title: "Microsoft MS-DOS early source code (Computer History Museum)", url: "https://computerhistory.org/blog/microsoft-ms-dos-early-source-code/", kind: archive}
+
+  - id: gui-mac
+    label: "Graphical user interface (Apple Macintosh)"
+    year: 1984
+    year_label: "1984 (Xerox Alto 1973)"
+    invented: "The Apple Macintosh launched on 24 January 1984. The GUI lineage traces to the Xerox Alto (1973) and the commercial Xerox Star (1981) from Xerox PARC."
+    standardized: ""
+    era: pc-client-server
+    cat: architecture
+    lifecycle: active
+    wiki_url: ""
+    desc: "The first commercially successful personal computer built around a graphical user interface and mouse. It brought windows, icons and point-and-click to a mass-market audience."
+    why: "It made the GUI the mainstream way people interact with computers, a paradigm still in use today."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "A Computer for the Rest of Us (Computer History Museum)", url: "https://computerhistory.org/blog/a-computer-for-the-rest-of-us/", kind: archive}
+      - {title: "50 Years Later, We're Still Living in the Xerox Alto's World (IEEE Spectrum)", url: "https://spectrum.ieee.org/xerox-alto", kind: secondary}
+
+  - id: dns
+    label: "Domain Name System (DNS)"
+    year: 1983
+    year_label: "1983"
+    invented: "Designed by Paul Mockapetris (USC ISI) and specified in RFC 882 and RFC 883, both November 1983, to replace the central HOSTS.TXT file with a distributed hierarchy."
+    standardized: "RFC 882 and 883 (1983) were obsoleted by RFC 1034 and 1035 in 1987, which remain the base DNS standard."
+    era: pc-client-server
+    cat: infrastructure
+    lifecycle: milestone
+    wiki_url: ""
+    desc: "The distributed directory of the internet that translates names like example.com into the numeric IP addresses computers use. It uses a tree-structured namespace of name servers."
+    why: "Without DNS every device would need a manually updated master list of every host, so it made the internet scalable and usable by people instead of numbers."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "RFC 882: Domain names, Concepts and facilities (Mockapetris, 1983)", url: "https://www.rfc-editor.org/info/rfc882", kind: rfc}
+      - {title: "RFC 1034: Domain Names, Concepts and Facilities (1987, obsoletes 882)", url: "https://www.rfc-editor.org/info/rfc1034", kind: rfc}
+
+  - id: gnu-gpl
+    label: "GNU Project and the GPL"
+    year: 1983
+    year_label: "1983 GNU, 1989 GPLv1"
+    invented: "Richard Stallman announced the GNU Project on 27 September 1983, aiming to build a complete free Unix-compatible operating system."
+    standardized: "GNU General Public License version 1 was published in February 1989, formalizing the copyleft model."
+    era: pc-client-server
+    cat: legal
+    lifecycle: active
+    wiki_url: "/basics/what-is-open-source/"
+    desc: "The GNU Project builds a complete free operating system, and the GPL is the copyleft license that protects the freedom to use, study, modify and share that software."
+    why: "It created the legal and ethical foundation of the free and open source software movement that most modern software depends on."
+    legal: "GPLv1 (1989) introduced copyleft: anyone may use, modify and redistribute, but distributed derivative works must stay under the same license and ship their source."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "GNU Initial Announcement (Richard Stallman, 1983), gnu.org", url: "https://www.gnu.org/gnu/initial-announcement.html", kind: announcement}
+      - {title: "GNU General Public License, Version 1 (1989), gnu.org", url: "https://www.gnu.org/licenses/old-licenses/gpl-1.0.html", kind: standard}
+
+  - id: ms-windows
+    label: "Microsoft Windows"
+    year: 1985
+    year_label: "1985"
+    invented: "Microsoft released Windows 1.0 on 20 November 1985 as a graphical shell running on top of MS-DOS."
+    standardized: ""
+    era: pc-client-server
+    cat: infrastructure
+    lifecycle: active
+    wiki_url: "/glossary/operating-system-fundamentals/"
+    desc: "A graphical operating environment that ran on top of MS-DOS, adding windows, a mouse-driven interface and bundled programs. It grew into the dominant desktop operating system."
+    why: "It began the Windows line that became the default desktop operating system worldwide."
+    legal: ""
+    superseded_by: []
+    abstraction_of: [ms-dos]
+    sources:
+      - {title: "Microsoft Windows 1.01 (1985), Internet Archive (release date 1985-11-20)", url: "https://archive.org/details/windows-1.01-1985", kind: archive}
+
+  - id: www
+    label: "World Wide Web"
+    year: 1989
+    year_label: "1989 proposal, 1991 public"
+    invented: "Tim Berners-Lee wrote Information Management: A Proposal at CERN in March 1989. The first server and browser ran by the end of 1990, and the web went public in 1991."
+    standardized: "CERN released the web software into the public domain on 30 April 1993. The W3C was founded in 1994 to develop open standards."
+    era: pc-client-server
+    cat: architecture
+    lifecycle: milestone
+    wiki_url: "/basics/what-is-the-internet/"
+    desc: "The system of interlinked hypertext documents, identified by URLs and served over HTTP, that runs on top of the internet. It turned the internet into a global information space anyone could browse."
+    why: "It made information on the internet linkable, navigable and openly accessible, creating the modern web and the way most people use computers."
+    legal: "CERN placed the web code in the public domain on 30 April 1993, relinquishing all rights to it."
+    superseded_by: []
+    abstraction_of: [tcp-ip]
+    sources:
+      - {title: "Tim Berners-Lee, Information Management: A Proposal (CERN, 1989), W3C archive", url: "https://www.w3.org/History/1989/proposal-msw.html", kind: paper}
+      - {title: "A short history of the Web (CERN)", url: "https://home.cern/science/computing/birth-web/short-history-web", kind: secondary}
+
+  - id: linux
+    label: "Linux kernel"
+    year: 1991
+    year_label: "1991"
+    invented: "Linus Torvalds announced the project on 25 August 1991 in the comp.os.minix newsgroup. Version 0.01 was released in September 1991."
+    standardized: "Distributed under the GNU GPL from 1992. Developed openly at kernel.org to this day."
+    era: pc-client-server
+    cat: infrastructure
+    lifecycle: active
+    wiki_url: "/glossary/operating-system-fundamentals/"
+    desc: "A free, Unix-like operating system kernel that manages hardware and provides core services. It started as a hobby project and now runs most servers, cloud infrastructure and Android phones."
+    why: "It gave the world a free, modifiable, production-grade kernel that became the backbone of the internet and modern computing."
+    legal: "Licensed under the GNU GPL version 2."
+    superseded_by: []
+    abstraction_of: [unix]
+    sources:
+      - {title: "Linus Torvalds, What would you like to see most in minix? comp.os.minix, 25 August 1991 (Google Groups archive)", url: "https://groups.google.com/g/comp.os.minix/c/dlNtH7RRrGA/m/SwRavCzVE7gJ", kind: archive}
+
+  - id: three-tier
+    label: "Three-tier architecture"
+    year: 1990
+    year_label: "early 1990s"
+    invented: "Emerged in the early 1990s as the dominant pattern for client-server applications, separating presentation, application logic and data tiers."
+    standardized: "Never formally standardized. It became an industry convention through vendor middleware and technical literature."
+    era: pc-client-server
+    cat: architecture
+    lifecycle: legacy-accepted
+    wiki_url: ""
+    desc: "Splits an application into three independent layers: a presentation tier for the interface, an application tier for business logic, and a data tier for storage."
+    why: "It replaced tightly coupled monolithic and two-tier designs with separated concerns, becoming the default enterprise structure for decades."
+    legal: ""
+    superseded_by: [microservices]
+    abstraction_of: []
+    sources:
+      - {title: "What Is Three-Tier Architecture? (IBM Think)", url: "https://www.ibm.com/think/topics/three-tier-architecture", kind: secondary}
+
+  # ===== WEB AND ENTERPRISE =====
+
+  - id: http-html
+    label: "HTTP and HTML"
+    year: 1991
+    year_label: "1991, HTTP/1.1 1997"
+    invented: "Tim Berners-Lee invented HTTP and HTML at CERN around 1989 to 1991 to publish and link documents over the internet."
+    standardized: "HTTP/1.0 documented in RFC 1945 (1996); HTTP/1.1 in RFC 2068 (1997, later RFC 2616)."
+    era: web
+    cat: foundation
+    lifecycle: active
+    wiki_url: ""
+    desc: "HTTP is the request-response protocol browsers use to fetch resources, and HTML is the markup language that structures web pages. Together they made the web work."
+    why: "They are the two core standards every website and browser still depends on."
+    legal: ""
+    superseded_by: []
+    abstraction_of: [tcp-ip]
+    sources:
+      - {title: "RFC 1945: Hypertext Transfer Protocol, HTTP/1.0", url: "https://www.rfc-editor.org/rfc/rfc1945", kind: rfc}
+      - {title: "RFC 2068: Hypertext Transfer Protocol, HTTP/1.1", url: "https://www.rfc-editor.org/rfc/rfc2068", kind: rfc}
+
+  - id: mosaic-netscape
+    label: "Mosaic and Netscape Navigator"
+    year: 1993
+    year_label: "Mosaic 1993, Netscape 1994"
+    invented: "NCSA Mosaic was released in 1993 by Marc Andreessen and Eric Bina. Andreessen co-founded Netscape, which shipped Navigator in late 1994."
+    standardized: ""
+    era: web
+    cat: tools
+    lifecycle: discontinued
+    wiki_url: ""
+    desc: "Mosaic was the first widely used graphical web browser, putting images and text on the same page. Netscape Navigator commercialized that and drove early mass adoption."
+    why: "These browsers turned the web from a research tool into a mainstream consumer medium."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "NCSA Mosaic (Wikipedia)", url: "https://en.wikipedia.org/wiki/NCSA_Mosaic", kind: secondary}
+
+  - id: apache-httpd
+    label: "Apache HTTP Server"
+    year: 1995
+    year_label: "1995"
+    invented: "The Apache Group released its first public version in April 1995, building on the NCSA HTTPd server, and shipped Apache 1.0 on 1 December 1995."
+    standardized: ""
+    era: web
+    cat: infrastructure
+    lifecycle: active
+    wiki_url: ""
+    desc: "Open-source web server software that delivers web pages to browsers over HTTP. It became the most-used web server within a year of release."
+    why: "Apache made running a production web server free and accessible, powering much of the early and modern web."
+    legal: "Apache License (open source)."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "About the Apache HTTP Server Project (httpd.apache.org)", url: "https://httpd.apache.org/ABOUT_APACHE.html", kind: announcement}
+
+  - id: mysql
+    label: "MySQL"
+    year: 1995
+    year_label: "1995"
+    invented: "Michael Widenius and David Axmark released the first internal version of MySQL on 23 May 1995 at the Swedish company TcX."
+    standardized: ""
+    era: web
+    cat: infrastructure
+    lifecycle: active
+    wiki_url: "/basics/what-is-a-database/"
+    desc: "An open-source relational database that stores and queries structured data using SQL. It became the database half of the LAMP stack behind countless web apps."
+    why: "MySQL gave web developers a free, fast relational database, fueling the growth of dynamic websites."
+    legal: "Dual-licensed GPL and commercial. Owned by Oracle since 2010."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "MySQL Retrospective: The Early Years (Oracle blog)", url: "https://blogs.oracle.com/mysql/mysql-retrospective-the-early-years", kind: announcement}
+
+  - id: php
+    label: "PHP"
+    year: 1995
+    year_label: "1995"
+    invented: "Rasmus Lerdorf announced Personal Home Page Tools 1.0 on 8 June 1995 and released its source code that month."
+    standardized: ""
+    era: web
+    cat: tools
+    lifecycle: active
+    wiki_url: ""
+    desc: "A server-side scripting language designed to embed code in HTML and build dynamic web pages. It originally stood for Personal Home Page Tools."
+    why: "PHP made server-side web development easy enough that it still powers a large share of the web, including WordPress."
+    legal: "PHP License (open source)."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "History of PHP (official PHP manual)", url: "https://www.php.net/manual/en/history.php.php", kind: announcement}
+
+  - id: java
+    label: "Java"
+    year: 1995
+    year_label: "1995 announced, JDK 1.0 1996"
+    invented: "Sun Microsystems publicly introduced Java (created by James Gosling's team, originally named Oak) on 23 May 1995. JDK 1.0 shipped in January 1996."
+    standardized: ""
+    era: web
+    cat: tools
+    lifecycle: active
+    wiki_url: ""
+    desc: "A general-purpose language that compiles to bytecode and runs on the Java Virtual Machine, promising write once, run anywhere. It became a backbone of enterprise software."
+    why: "Java brought portable, managed code to the masses and still runs vast amounts of enterprise and Android software."
+    legal: "Owned by Oracle via the Sun acquisition. OpenJDK is GPL-licensed."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Java (programming language) (Wikipedia)", url: "https://en.wikipedia.org/wiki/Java_(programming_language)", kind: secondary}
+
+  - id: javascript
+    label: "JavaScript"
+    year: 1995
+    year_label: "1995"
+    invented: "Brendan Eich created the first prototype in about ten days in May 1995 at Netscape. It shipped in Navigator 2.0 and was renamed JavaScript in December 1995."
+    standardized: "Standardized as ECMAScript by Ecma International (ECMA-262), first edition June 1997."
+    era: web
+    cat: tools
+    lifecycle: active
+    wiki_url: ""
+    desc: "The scripting language that runs in web browsers to make pages interactive. It later spread to servers, tooling and almost every part of software development."
+    why: "JavaScript is the only programming language native to every web browser, making it foundational to the modern web."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Brendan Eich (Wikipedia)", url: "https://en.wikipedia.org/wiki/Brendan_Eich", kind: secondary}
+
+  - id: ssl-tls
+    label: "SSL and TLS"
+    year: 1994
+    year_label: "SSL 1994 to 1996, TLS 1.0 1999"
+    invented: "Netscape's Taher Elgamal designed SSL in 1994. SSL 2.0 shipped in 1995 and SSL 3.0 was finalized in November 1996."
+    standardized: "The IETF standardized the protocol as TLS 1.0 in RFC 2246 (1999). SSL 3.0 was later documented in RFC 6101."
+    era: web
+    cat: foundation
+    lifecycle: milestone
+    wiki_url: ""
+    desc: "SSL and its successor TLS encrypt traffic between browsers and servers, enabling HTTPS. They provide confidentiality and server authentication for web communication."
+    why: "Without SSL/TLS there would be no secure online commerce, banking or private browsing."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "RFC 2246: The TLS Protocol Version 1.0", url: "https://www.rfc-editor.org/rfc/rfc2246", kind: rfc}
+
+  - id: flash
+    label: "Adobe (Macromedia) Flash"
+    year: 1996
+    year_label: "1996"
+    invented: "Macromedia acquired FutureSplash in December 1996 and rebranded it Macromedia Flash 1.0. Adobe acquired Macromedia in 2005."
+    standardized: ""
+    era: web
+    cat: tools
+    lifecycle: discontinued
+    wiki_url: ""
+    desc: "A platform for animation, interactive content and video that ran via a browser plugin. It dominated rich web media in the 2000s before mobile and open standards displaced it."
+    why: "Flash defined interactive web content for over a decade, then became a cautionary tale about depending on a closed plugin."
+    legal: "Proprietary. Adobe ended Flash Player support on 31 December 2020 and blocked content in January 2021."
+    superseded_by: [http-html]
+    abstraction_of: []
+    sources:
+      - {title: "Adobe Flash Player End of Life (Adobe)", url: "https://www.adobe.com/products/flashplayer/end-of-life.html", kind: announcement}
+
+  - id: xml
+    label: "XML 1.0"
+    year: 1998
+    year_label: "1998"
+    invented: "A W3C working group designed XML as a simplified subset of SGML for structured data exchange."
+    standardized: "Published as a W3C Recommendation on 10 February 1998."
+    era: web
+    cat: foundation
+    lifecycle: legacy-accepted
+    wiki_url: ""
+    desc: "A text format for marking up structured data so machines and people can both read it. It became the common format for config files, documents and web service messages."
+    why: "XML standardized how applications exchange structured data across platforms, enabling early web services and countless data formats."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Extensible Markup Language (XML) 1.0 (W3C Recommendation, 1998)", url: "https://www.w3.org/TR/1998/REC-xml-19980210", kind: standard}
+
+  - id: salesforce-saas
+    label: "Salesforce and Software-as-a-Service"
+    year: 1999
+    year_label: "1999"
+    invented: "Marc Benioff and co-founders started Salesforce in 1999 to deliver CRM as a browser-based subscription, branded No Software."
+    standardized: ""
+    era: web
+    cat: vendor
+    lifecycle: active
+    wiki_url: ""
+    desc: "Salesforce delivered enterprise CRM entirely over the web on a subscription, pioneering the Software-as-a-Service model. Customers paid per user instead of buying and installing software."
+    why: "Salesforce proved businesses would run critical software in the cloud, laying the groundwork for the SaaS economy."
+    legal: "Proprietary subscription (SaaS) model."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "The History of Salesforce (Salesforce News)", url: "https://www.salesforce.com/news/stories/the-history-of-salesforce/", kind: announcement}
+
+  - id: vmware-esx
+    label: "VMware x86 virtualization"
+    year: 1999
+    year_label: "Workstation 1999, ESX 2001"
+    invented: "VMware, founded in 1998, shipped VMware Workstation in 1999 and the bare-metal ESX Server hypervisor in 2001, the first commercially successful x86 virtualization."
+    standardized: ""
+    era: web
+    cat: infrastructure
+    lifecycle: closed-to-new
+    wiki_url: "/glossary/virtualization-fundamentals/"
+    desc: "A bare-metal hypervisor that runs many isolated virtual machines on one physical x86 server. It let one machine safely host many operating systems."
+    why: "x86 virtualization made server consolidation and the entire cloud computing model economically possible, which is also why being locked into it is now so costly."
+    legal: "Proprietary. After Broadcom's 2023 acquisition, VMware ended perpetual licenses and moved to subscription-only bundles, sharply raising costs. See broadcom-vmware."
+    superseded_by: [docker]
+    abstraction_of: []
+    sources:
+      - {title: "VMware (Wikipedia)", url: "https://en.wikipedia.org/wiki/VMware", kind: secondary}
+
+  - id: soap-ws
+    label: "SOAP and web services"
+    year: 1998
+    year_label: "XML-RPC 1998, SOAP 1.1 2000"
+    invented: "Dave Winer's XML-RPC (1998) led to SOAP, developed with Microsoft, IBM and others."
+    standardized: "SOAP 1.1 was published as a W3C Note in 2000. SOAP 1.2 became a W3C Recommendation in 2003."
+    era: web
+    cat: architecture
+    lifecycle: legacy-accepted
+    wiki_url: "/basics/what-is-an-api/"
+    desc: "An XML-based protocol for calling functions on remote servers over a network, the foundation of early enterprise web services. It wrapped requests in strict XML envelopes."
+    why: "SOAP defined the first broadly adopted standard for machine-to-machine web services, before REST took over."
+    legal: ""
+    superseded_by: [rest]
+    abstraction_of: []
+    sources:
+      - {title: "Simple Object Access Protocol (SOAP) 1.1 (W3C Note, 2000)", url: "https://www.w3.org/TR/2000/NOTE-SOAP-20000508/", kind: standard}
+
+  - id: rest
+    label: "REST architectural style"
+    year: 2000
+    year_label: "2000"
+    invented: "Roy Fielding defined REST in Chapter 5 of his 2000 PhD dissertation at the University of California, Irvine."
+    standardized: "Described in an academic dissertation rather than a formal standard, but widely adopted as the dominant web API style."
+    era: web
+    cat: architecture
+    lifecycle: active
+    wiki_url: "/basics/what-is-an-api/"
+    desc: "An architectural style that uses standard HTTP methods and resource URLs to build web APIs. It favors statelessness and simple, uniform interfaces over heavy protocols."
+    why: "REST became the default way to design web APIs, far simpler than SOAP and aligned with how the web already worked."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Architectural Styles and the Design of Network-based Software Architectures (Fielding, 2000)", url: "https://roy.gbiv.com/pubs/dissertation/top.htm", kind: paper}
+
+  - id: windows-xp
+    label: "Windows XP"
+    year: 2001
+    year_label: "2001"
+    invented: "Microsoft released Windows XP to general availability on 25 October 2001."
+    standardized: ""
+    era: web
+    cat: vendor
+    lifecycle: legacy-accepted
+    wiki_url: ""
+    desc: "Microsoft's consumer and business desktop operating system, known for stability and a long life. Many machines, including ATMs and industrial systems, still run it years after support ended."
+    why: "It is the classic example of legacy that organizations keep running because the cost and risk of migrating outweigh the cost of staying put."
+    legal: "Proprietary. Mainstream support ended in 2009, extended support ended on 8 April 2014."
+    superseded_by: [ms-windows]
+    abstraction_of: []
+    sources:
+      - {title: "Windows XP (Microsoft Lifecycle)", url: "https://learn.microsoft.com/en-us/lifecycle/products/windows-xp", kind: announcement}
+
+  - id: agile-manifesto
+    label: "Manifesto for Agile Software Development"
+    year: 2001
+    year_label: "2001"
+    invented: "Seventeen software practitioners met at Snowbird, Utah in February 2001 and wrote the Agile Manifesto, defining four values and twelve principles."
+    standardized: ""
+    era: web
+    cat: patterns
+    lifecycle: milestone
+    wiki_url: ""
+    desc: "A short statement of values favoring working software, collaboration and responding to change over rigid plans and processes. It reframed how teams build software."
+    why: "It launched the agile movement that reshaped software project management worldwide."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Manifesto for Agile Software Development", url: "https://agilemanifesto.org/", kind: announcement}
+
+  - id: dynatrace-apm
+    label: "Dynatrace and APM"
+    year: 2005
+    year_label: "2005"
+    invented: "Bernd Greifeneder and co-founders started Dynatrace in Linz, Austria in 2005 to trace application performance end to end."
+    standardized: ""
+    era: web
+    cat: tools
+    lifecycle: active
+    wiki_url: "/glossary/observability/"
+    desc: "An application performance monitoring and observability platform that traces transactions across distributed systems. It helps teams find and fix performance problems in production."
+    why: "Dynatrace appeared just as the cloud broke the old log-into-one-server model of debugging, defining modern APM and observability for systems too complex to watch by hand."
+    legal: "Proprietary. Publicly traded on the NYSE since 2019."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Dynatrace, Bernd Greifeneder (LinzWiki)", url: "https://www.linzwiki.at/wiki/Bernd_Greifeneder/", kind: secondary}
+
+  - id: google-reader
+    label: "Google Reader"
+    year: 2005
+    year_label: "2005, shut down 2013"
+    invented: "Google launched Reader through Google Labs on 7 October 2005."
+    standardized: ""
+    era: web
+    cat: vendor
+    lifecycle: discontinued
+    wiki_url: ""
+    desc: "A web-based RSS and Atom feed aggregator that let people follow blogs and news in one place. Its shutdown became a landmark example of a beloved product being killed."
+    why: "Its 2013 shutdown is a famous case study in deprecation and the risk of depending on a free vendor service with no contract behind it."
+    legal: "Proprietary. Shut down on 1 July 2013."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "A second spring of cleaning (Google official blog, announcing the shutdown)", url: "https://blog.google/topics/inside-google/a-second-spring-of-cleaning/", kind: announcement}
+
+  - id: git
+    label: "Git"
+    year: 2005
+    year_label: "2005"
+    invented: "Linus Torvalds wrote Git in April 2005 after the Linux kernel project lost free access to the proprietary BitKeeper tool."
+    standardized: ""
+    era: web
+    cat: tools
+    lifecycle: active
+    wiki_url: "/basics/what-is-git/"
+    desc: "A distributed version control system that tracks changes to source code and lets many developers work in parallel. Every clone holds the full project history."
+    why: "Git is the de facto standard for source control and underpins platforms like GitHub and GitLab."
+    legal: "GPLv2 (open source)."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Git turns 20: A Q&A with Linus Torvalds (GitHub Blog)", url: "https://github.blog/open-source/git/git-turns-20-a-qa-with-linus-torvalds/", kind: announcement}
+
+  # ===== THE CLOUD ERA =====
+
+  - id: aws-s3
+    label: "Amazon S3"
+    year: 2006
+    year_label: "2006"
+    invented: "AWS launched Amazon Simple Storage Service (S3) on 14 March 2006, offering scalable object storage over a web services API."
+    standardized: ""
+    era: cloud
+    cat: infrastructure
+    lifecycle: active
+    wiki_url: "/tools/aws-s3/"
+    desc: "Cloud object storage where developers store and retrieve any amount of data over the internet, paying only for what they use. It was the first widely adopted AWS service."
+    why: "S3 launched the modern public cloud, proving developers would rent infrastructure on demand."
+    legal: "Proprietary, usage-based pricing."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Amazon Web Services Launches (Amazon press release, 2006)", url: "https://press.aboutamazon.com/2006/3/amazon-web-services-launches", kind: announcement}
+
+  - id: aws-ec2
+    label: "Amazon EC2"
+    year: 2006
+    year_label: "2006"
+    invented: "AWS announced Amazon Elastic Compute Cloud (EC2) as a public beta on 25 August 2006, providing resizable virtual servers built on Xen."
+    standardized: ""
+    era: cloud
+    cat: computing
+    lifecycle: active
+    wiki_url: "/basics/what-is-the-cloud/"
+    desc: "On-demand virtual servers in the cloud that you can launch and shut down in minutes, paying by the hour. It removed the need to buy physical hardware upfront."
+    why: "EC2 made elastic, pay-as-you-go compute the foundation of cloud-native architecture."
+    legal: "Proprietary, usage-based pricing."
+    superseded_by: []
+    abstraction_of: [vmware-esx]
+    sources:
+      - {title: "Amazon EC2 Beta (AWS News Blog, 2006)", url: "https://aws.amazon.com/blogs/aws/amazon_ec2_beta/", kind: announcement}
+
+  - id: cloud-term
+    label: "The term cloud computing"
+    year: 2006
+    year_label: "2006"
+    invented: "Google CEO Eric Schmidt used cloud computing to describe a server-based service model at a conference on 9 August 2006, popularizing the term."
+    standardized: ""
+    era: cloud
+    cat: foundation
+    lifecycle: milestone
+    wiki_url: "/basics/what-is-the-cloud/"
+    desc: "Cloud computing is the idea that data and applications live on remote servers accessed over the internet rather than on local machines. The phrase entered mainstream use in 2006."
+    why: "It named the industry-defining shift from owning servers to renting computing as a utility."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Who Coined Cloud Computing? (MIT Technology Review)", url: "https://www.technologyreview.com/2011/10/31/257406/who-coined-cloud-computing/", kind: secondary}
+
+  - id: hadoop
+    label: "Apache Hadoop"
+    year: 2006
+    year_label: "2006"
+    invented: "Doug Cutting and Mike Cafarella split Hadoop out of the Nutch project in early 2006, inspired by Google's GFS and MapReduce papers."
+    standardized: ""
+    era: cloud
+    cat: infrastructure
+    lifecycle: maintenance
+    wiki_url: ""
+    desc: "An open-source framework for storing and processing huge datasets across clusters of commodity machines. It brought distributed big-data processing to the masses."
+    why: "Hadoop made large-scale data processing affordable and kicked off the big-data era, though newer engines have since taken over."
+    legal: "Apache License (open source)."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Apache Hadoop (Wikipedia)", url: "https://en.wikipedia.org/wiki/Apache_Hadoop", kind: secondary}
+
+  - id: iphone
+    label: "Apple iPhone"
+    year: 2007
+    year_label: "2007"
+    invented: "Steve Jobs introduced the iPhone on 9 January 2007. It went on sale in the US on 29 June 2007."
+    standardized: ""
+    era: cloud
+    cat: vendor
+    lifecycle: milestone
+    wiki_url: ""
+    desc: "Combined a phone, music player and internet device with a multi-touch screen into one product. It launched the modern smartphone and the mobile-first era."
+    why: "The iPhone redefined personal computing and made mobile the dominant way people access software and the internet."
+    legal: "Proprietary."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Apple Reinvents the Phone with iPhone (Apple Newsroom, 2007)", url: "https://www.apple.com/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/", kind: announcement}
+
+  - id: heroku
+    label: "Heroku"
+    year: 2007
+    year_label: "2007"
+    invented: "Founded in 2007. Heroku launched commercially with Ruby support in 2009 and was acquired by Salesforce in 2010."
+    standardized: ""
+    era: cloud
+    cat: infrastructure
+    lifecycle: maintenance
+    wiki_url: ""
+    desc: "A platform-as-a-service that lets developers deploy apps with a git push, without managing servers. It popularized the developer-friendly PaaS model."
+    why: "Heroku showed that deployment could be effortless, shaping expectations for every later platform."
+    legal: "Proprietary. Owned by Salesforce since 2011."
+    superseded_by: []
+    abstraction_of: [aws-ec2]
+    sources:
+      - {title: "Salesforce.com Completes Acquisition of Heroku (Salesforce)", url: "https://www.salesforce.com/news/press-releases/2011/01/03/salesforce-com-completes-acquisition-of-heroku/", kind: announcement}
+
+  - id: github
+    label: "GitHub"
+    year: 2008
+    year_label: "2008"
+    invented: "Tom Preston-Werner, Chris Wanstrath and PJ Hyett launched GitHub publicly on 10 April 2008."
+    standardized: ""
+    era: cloud
+    cat: tools
+    lifecycle: active
+    wiki_url: "/basics/what-is-github/"
+    desc: "A hosting platform for Git repositories with collaboration features like pull requests and issues. It became the center of open-source and team software development."
+    why: "GitHub made Git social and turned collaborative coding into a global default."
+    legal: "Proprietary. Owned by Microsoft since 2018."
+    superseded_by: []
+    abstraction_of: [git]
+    sources:
+      - {title: "We Launched (GitHub Blog, April 2008)", url: "https://github.blog/news-insights/the-library/we-launched/", kind: announcement}
+
+  - id: android
+    label: "Android"
+    year: 2008
+    year_label: "2007 announced, 2008 first phone"
+    invented: "Google and the Open Handset Alliance announced Android on 5 November 2007. The first Android phone, the HTC Dream, shipped in October 2008."
+    standardized: ""
+    era: cloud
+    cat: vendor
+    lifecycle: active
+    wiki_url: ""
+    desc: "An open-source, Linux-based mobile operating system led by Google and the Open Handset Alliance. It became the world's most widely used mobile platform."
+    why: "Android brought smartphones to the mass market and now runs on billions of devices."
+    legal: "Open source (Apache License) with proprietary Google services on top."
+    superseded_by: []
+    abstraction_of: [linux]
+    sources:
+      - {title: "Industry Leaders Announce Open Platform for Mobile Devices (Open Handset Alliance)", url: "https://www.openhandsetalliance.com/press_110507.html", kind: announcement}
+
+  - id: app-engine
+    label: "Google App Engine"
+    year: 2008
+    year_label: "2008"
+    invented: "Google launched App Engine as a developer preview on 7 April 2008, initially supporting Python."
+    standardized: ""
+    era: cloud
+    cat: infrastructure
+    lifecycle: active
+    wiki_url: ""
+    desc: "A platform-as-a-service that runs web apps on Google's infrastructure with automatic scaling. Developers upload code and Google handles the servers."
+    why: "App Engine was an early bet that developers wanted fully managed, auto-scaling application hosting."
+    legal: "Proprietary, usage-based pricing."
+    superseded_by: []
+    abstraction_of: [aws-ec2]
+    sources:
+      - {title: "Introducing Google App Engine (Google App Engine Blog, 2008)", url: "http://googleappengine.blogspot.com/2008/04/introducing-google-app-engine-our-new.html", kind: announcement}
+
+  - id: nodejs
+    label: "Node.js"
+    year: 2009
+    year_label: "2009"
+    invented: "Ryan Dahl created Node.js in 2009, pairing Google's V8 engine with an event loop for server-side JavaScript, and presented it at JSConf EU in November 2009."
+    standardized: ""
+    era: cloud
+    cat: tools
+    lifecycle: active
+    wiki_url: ""
+    desc: "A runtime that lets JavaScript run on servers using a non-blocking, event-driven model. It made JavaScript a full-stack language."
+    why: "Node.js unified front-end and back-end development under one language and powers a huge share of modern web backends."
+    legal: "Open source. Governed by the OpenJS Foundation."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Node.js (Wikipedia)", url: "https://en.wikipedia.org/wiki/Node.js", kind: secondary}
+
+  - id: mongodb
+    label: "MongoDB"
+    year: 2009
+    year_label: "2009"
+    invented: "10gen (now MongoDB Inc.) open-sourced MongoDB in February 2009 as a document-oriented NoSQL database."
+    standardized: ""
+    era: cloud
+    cat: infrastructure
+    lifecycle: active
+    wiki_url: "/basics/what-is-a-database/"
+    desc: "A document-oriented NoSQL database that stores data as flexible JSON-like documents instead of rigid tables. It suits rapidly changing schemas and large-scale web apps."
+    why: "MongoDB popularized the document NoSQL model as a flexible alternative to relational databases."
+    legal: "Originally AGPL v3, relicensed to the source-available SSPL in 2018. See mongodb-sspl."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "MongoDB (Wikipedia)", url: "https://en.wikipedia.org/wiki/MongoDB", kind: secondary}
+
+  - id: redis
+    label: "Redis"
+    year: 2009
+    year_label: "2009"
+    invented: "Salvatore Sanfilippo created Redis in 2009 to scale his startup, open-sourcing the first public release in April 2009."
+    standardized: ""
+    era: cloud
+    cat: infrastructure
+    lifecycle: active
+    wiki_url: ""
+    desc: "An in-memory key-value data store used as a database, cache and message broker. Its speed and simple data structures made it a standard caching layer."
+    why: "Redis became the go-to in-memory store for caching and real-time workloads across the industry."
+    legal: "Originally BSD. Later relicensed (RSALv2 and SSPL in 2024, with an AGPL option added in 2025)."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Thank You, Salvatore Sanfilippo (Redis blog)", url: "https://redis.io/blog/thank-you-salvatore-sanfilippo/", kind: announcement}
+
+  - id: azure
+    label: "Microsoft Azure"
+    year: 2010
+    year_label: "2008 announced, 2010 GA"
+    invented: "Microsoft unveiled Windows Azure on 27 October 2008. It reached general availability on 1 February 2010."
+    standardized: ""
+    era: cloud
+    cat: infrastructure
+    lifecycle: active
+    wiki_url: ""
+    desc: "A public cloud platform offering compute, storage, databases and many managed services. It is one of the three dominant global cloud providers."
+    why: "Azure made Microsoft a major cloud player and brought enterprise workloads into the cloud at scale."
+    legal: "Proprietary, usage-based pricing."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Windows Azure General Availability (Official Microsoft Blog, 2010)", url: "https://blogs.microsoft.com/blog/2010/02/01/windows-azure-general-availability/", kind: announcement}
+
+  - id: openstack
+    label: "OpenStack"
+    year: 2010
+    year_label: "2010"
+    invented: "Rackspace and NASA announced OpenStack in July 2010. The first release, code-named Austin, shipped in October 2010."
+    standardized: ""
+    era: cloud
+    cat: infrastructure
+    lifecycle: maintenance
+    wiki_url: ""
+    desc: "An open-source platform for building and running private and public clouds, providing compute, storage and networking. It aimed to be an open alternative to proprietary clouds."
+    why: "OpenStack gave organizations an open way to run cloud infrastructure on their own hardware, though its momentum faded as public clouds dominated."
+    legal: "Apache License. Governed by the Open Infrastructure Foundation."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Announcing the OpenStack 2010.1 Austin Release (OpenStack Blog)", url: "https://www.openstack.org/blog/announcing-the-openstack-2010-1-austin-release/", kind: announcement}
+
+  # ===== CLOUD-NATIVE AND DEVOPS =====
+
+  - id: devops
+    label: "DevOps"
+    year: 2009
+    year_label: "2009"
+    invented: "The term was coined by Patrick Debois for the first devopsdays conference in Ghent, October 2009."
+    standardized: ""
+    era: cloud-native
+    cat: patterns
+    lifecycle: milestone
+    wiki_url: "/glossary/ci-cd/"
+    desc: "A culture and practice that merges software development and IT operations to ship changes faster and more reliably. Debois named it when he organized the first devopsdays in 2009."
+    why: "DevOps broke down the wall between developers and operations, enabling continuous delivery and automated infrastructure."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "The Incredible True Story of How DevOps Got Its Name (New Relic)", url: "https://newrelic.com/blog/news/devops-name", kind: secondary}
+
+  - id: kafka
+    label: "Apache Kafka"
+    year: 2011
+    year_label: "2011"
+    invented: "Jay Kreps, Neha Narkhede and Jun Rao built Kafka at LinkedIn and open-sourced it in January 2011."
+    standardized: "Became an Apache Software Foundation top-level project in 2012."
+    era: cloud-native
+    cat: infrastructure
+    lifecycle: active
+    wiki_url: ""
+    desc: "A distributed event-streaming and publish-subscribe system built at LinkedIn to track high-volume activity events. It became the default backbone for real-time data pipelines."
+    why: "Kafka made it practical to move trillions of events per day reliably, turning the event log into a core architectural primitive."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Open-sourcing Kafka, LinkedIn's distributed message queue (LinkedIn blog, 2011)", url: "https://www.linkedin.com/blog/member/archive/open-source-linkedin-kafka", kind: announcement}
+
+  - id: react
+    label: "React"
+    year: 2013
+    year_label: "2013"
+    invented: "Jordan Walke at Facebook created React. It was unveiled at JSConf US in May 2013 and introduced on the React blog in June 2013."
+    standardized: ""
+    era: cloud-native
+    cat: tools
+    lifecycle: active
+    wiki_url: ""
+    desc: "A JavaScript library for building user interfaces from composable components with a virtual DOM. Facebook open-sourced it in 2013, and it became the dominant front-end library."
+    why: "React shifted front-end development to a component model with declarative rendering, reshaping how web and native UIs are built."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Why did we build React? (React blog, June 2013)", url: "https://legacy.reactjs.org/blog/2013/06/05/why-react.html", kind: announcement}
+
+  - id: docker
+    label: "Docker"
+    year: 2013
+    year_label: "2013"
+    invented: "Solomon Hykes at dotCloud demoed Docker at PyCon on 13 March 2013 and open-sourced it under Apache 2.0."
+    standardized: "The image and runtime format were later standardized via the Open Container Initiative (2015)."
+    era: cloud-native
+    cat: infrastructure
+    lifecycle: active
+    wiki_url: "/glossary/docker/"
+    desc: "Docker packages an application and its dependencies into a portable container image that runs the same anywhere. It made Linux containers easy enough for mainstream developers."
+    why: "Docker turned containers into a developer-friendly, portable unit of deployment and is the new abstraction that largely replaced full virtual machines for packaging apps."
+    legal: ""
+    superseded_by: []
+    abstraction_of: [vmware-esx]
+    sources:
+      - {title: "The Docker project turns 10 (Snyk retrospective on the 2013 PyCon launch)", url: "https://snyk.io/blog/the-docker-project-turns-10/", kind: secondary}
+
+  - id: kubernetes
+    label: "Kubernetes"
+    year: 2014
+    year_label: "2014"
+    invented: "Joe Beda, Brendan Burns, Craig McLuckie and team at Google open-sourced Kubernetes in June 2014, drawing on lessons from Google's internal Borg system."
+    standardized: "Donated to the CNCF in 2015 and graduated in 2018."
+    era: cloud-native
+    cat: infrastructure
+    lifecycle: active
+    wiki_url: "/glossary/kubernetes/"
+    desc: "An open-source container orchestration system that automates deployment, scaling and management of containerized apps. It became the de facto cloud-native control plane."
+    why: "Kubernetes became the standard for running containers at scale, defining how modern infrastructure is operated."
+    legal: ""
+    superseded_by: []
+    abstraction_of: [docker]
+    sources:
+      - {title: "From Google to the world: the Kubernetes origin story (Google Cloud Blog)", url: "https://cloud.google.com/blog/products/containers-kubernetes/from-google-to-the-world-the-kubernetes-origin-story", kind: announcement}
+
+  - id: terraform
+    label: "Terraform"
+    year: 2014
+    year_label: "2014"
+    invented: "Mitchell Hashimoto and Armon Dadgar at HashiCorp announced Terraform on 28 July 2014."
+    standardized: ""
+    era: cloud-native
+    cat: tools
+    lifecycle: active
+    wiki_url: "/tools/terraform/"
+    desc: "An infrastructure-as-code tool that provisions cloud and on-prem resources from declarative configuration files. It pioneered cloud-agnostic, declarative provisioning."
+    why: "Terraform made infrastructure reproducible and version-controlled across many providers, becoming the IaC standard, until a 2023 license change split the community."
+    legal: "Open source under MPL 2.0 until 2023, when HashiCorp relicensed it to the source-available BSL. See hashicorp-bsl and opentofu."
+    superseded_by: [opentofu]
+    abstraction_of: []
+    sources:
+      - {title: "HashiCorp Terraform announcement (HashiCorp blog, 2014)", url: "https://www.hashicorp.com/en/blog/terraform-announcement", kind: announcement}
+
+  - id: microservices
+    label: "Microservices"
+    year: 2014
+    year_label: "2014"
+    invented: "The term was popularized by James Lewis and Martin Fowler's article on 25 March 2014, building on a James Lewis talk in 2012."
+    standardized: ""
+    era: cloud-native
+    cat: architecture
+    lifecycle: active
+    wiki_url: "/comparisons/microservices-vs-monolith-ai/"
+    desc: "An architectural style that builds an application as a suite of small, independently deployable services. Lewis and Fowler's 2014 article gave the pattern its canonical definition."
+    why: "Microservices let teams deploy and scale parts of a system independently, which suited cloud and container infrastructure."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Microservices: a definition of this new architectural term (Lewis and Fowler, 2014)", url: "https://martinfowler.com/articles/microservices.html", kind: announcement}
+
+  - id: aws-lambda
+    label: "AWS Lambda and serverless"
+    year: 2014
+    year_label: "2014"
+    invented: "AWS announced Lambda at re:Invent on 13 November 2014."
+    standardized: ""
+    era: cloud-native
+    cat: infrastructure
+    lifecycle: active
+    wiki_url: "/tools/aws-lambda/"
+    desc: "Runs code in response to events without provisioning or managing servers, billing only for execution time. It launched the mainstream serverless computing model."
+    why: "Lambda removed server management entirely, the next abstraction above containers, popularizing function-as-a-service and event-driven design."
+    legal: ""
+    superseded_by: []
+    abstraction_of: [docker]
+    sources:
+      - {title: "AWS Lambda, Run Code in the Cloud (AWS News Blog, 2014)", url: "https://aws.amazon.com/blogs/aws/run-code-cloud/", kind: announcement}
+
+  - id: cncf
+    label: "Cloud Native Computing Foundation"
+    year: 2015
+    year_label: "2015"
+    invented: "Founded under the Linux Foundation on 21 June 2015, with Kubernetes as the seed project."
+    standardized: ""
+    era: cloud-native
+    cat: governance
+    lifecycle: active
+    wiki_url: ""
+    desc: "A Linux Foundation body that hosts and governs cloud-native open-source projects, starting with Kubernetes. It provides vendor-neutral stewardship for the ecosystem."
+    why: "The CNCF gave Kubernetes and dozens of cloud-native tools a neutral home, which is exactly the kind of governance that protects users from single-vendor license changes."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Cloud Native Computing Foundation (official site)", url: "https://www.cncf.io/", kind: announcement}
+
+  - id: tensorflow
+    label: "TensorFlow"
+    year: 2015
+    year_label: "2015"
+    invented: "Google Brain open-sourced TensorFlow in November 2015."
+    standardized: ""
+    era: cloud-native
+    cat: tools
+    lifecycle: active
+    wiki_url: ""
+    desc: "Google's open-source machine learning framework for building and training neural networks. Its 2015 release made large-scale deep learning broadly accessible."
+    why: "TensorFlow put a production-grade deep learning framework in everyone's hands, fueling the practical ML boom."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "TensorFlow, Google's latest machine learning system, open sourced for everyone (Google Open Source Blog, 2015)", url: "https://opensource.googleblog.com/2015/11/tensorflow-googles-latest-machine.html", kind: announcement}
+
+  - id: graphql
+    label: "GraphQL"
+    year: 2015
+    year_label: "2015"
+    invented: "Lee Byron, Nick Schrock and team at Facebook built GraphQL internally in 2012 and released the public spec in September 2015."
+    standardized: "The GraphQL Foundation (Linux Foundation) was formed in 2018, and the spec is maintained openly."
+    era: cloud-native
+    cat: tools
+    lifecycle: active
+    wiki_url: "/basics/what-is-an-api/"
+    desc: "A query language and runtime for APIs that lets clients request exactly the data they need in one round trip. Facebook built it in 2012 and released it publicly in 2015."
+    why: "GraphQL gave clients precise control over data fetching, an alternative to over- and under-fetching with REST."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "GraphQL: a data query language (Engineering at Meta, 2015)", url: "https://engineering.fb.com/2015/09/14/core-infra/graphql-a-data-query-language/", kind: announcement}
+
+  - id: site-reliability-engineering
+    label: "Site Reliability Engineering"
+    year: 2003
+    year_label: "2003, book 2016"
+    invented: "The practice was started by Ben Treynor Sloss at Google in 2003 and codified in the O'Reilly book Site Reliability Engineering in 2016."
+    standardized: "Defined as a discipline by the 2016 Google SRE book."
+    era: cloud-native
+    cat: patterns
+    lifecycle: milestone
+    wiki_url: "/glossary/site-reliability-engineering/"
+    desc: "SRE applies software engineering practices to operations, using error budgets and service-level objectives to balance reliability and feature velocity."
+    why: "SRE gave operations a rigorous engineering discipline, the model many companies adopted alongside DevOps."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Google SRE book, Part I Introduction (states SRE began at Google in 2003)", url: "https://sre.google/sre-book/part-I-introduction/", kind: book}
+
+  - id: transformer
+    label: "Transformer architecture"
+    year: 2017
+    year_label: "2017"
+    invented: "Vaswani et al. at Google, Attention Is All You Need, published on arXiv on 12 June 2017."
+    standardized: ""
+    era: cloud-native
+    cat: models
+    lifecycle: milestone
+    wiki_url: "/glossary/transformer-architecture/"
+    desc: "A neural network architecture based entirely on attention, dispensing with recurrence and convolution. It became the foundation of nearly all modern large language models."
+    why: "The Transformer made models highly parallelizable and scalable, directly enabling GPT-3, ChatGPT and the LLM era."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Attention Is All You Need (Vaswani et al., arXiv:1706.03762, 2017)", url: "https://arxiv.org/abs/1706.03762", kind: paper}
+
+  - id: service-mesh
+    label: "Service mesh (Istio)"
+    year: 2017
+    year_label: "2017"
+    invented: "Istio was launched by Google, IBM and Lyft, built on Lyft's Envoy proxy, on 24 May 2017."
+    standardized: ""
+    era: cloud-native
+    cat: architecture
+    lifecycle: active
+    wiki_url: "/glossary/service-mesh/"
+    desc: "An infrastructure layer that handles traffic management, security and observability between microservices without changing application code. Istio popularized the pattern in 2017."
+    why: "Service meshes moved cross-cutting concerns like routing, mutual TLS and telemetry out of application code into the platform."
+    legal: ""
+    superseded_by: []
+    abstraction_of: [microservices]
+    sources:
+      - {title: "Introducing Istio: the first public release (Istio.io, 2017)", url: "https://istio.io/latest/news/releases/0.x/announcing-0.1/", kind: announcement}
+
+  - id: gartner-mq
+    label: "Gartner and the Magic Quadrant"
+    year: 1979
+    year_label: "Gartner 1979, Magic Quadrant 1990s"
+    invented: "Gideon Gartner founded the analyst firm Gartner in 1979. The Magic Quadrant visual research format emerged in the 1990s."
+    standardized: "The Magic Quadrant became the most cited vendor-comparison format in enterprise IT buying."
+    era: pc-client-server
+    cat: governance
+    lifecycle: active
+    wiki_url: "/glossary/gartner-magic-quadrant/"
+    desc: "Gartner is the largest IT research and advisory firm. Its Magic Quadrant plots vendors in a market on two axes, completeness of vision and ability to execute, into Leaders, Challengers, Visionaries and Niche Players."
+    why: "It shapes billions in enterprise purchasing decisions, so knowing how to read it (and its limits) is part of every serious technology choice."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Magic Quadrant FAQ (Gartner official)", url: "https://www.gartner.com/en/research/methodologies/magic-quadrants-research", kind: announcement}
+
+  - id: hype-cycle
+    label: "Gartner Hype Cycle"
+    year: 1995
+    year_label: "1995"
+    invented: "Gartner analyst Jackie Fenn introduced the Hype Cycle in 1995 to describe the maturity pattern of emerging technologies."
+    standardized: "Gartner publishes Hype Cycle reports across dozens of technology areas every year."
+    era: web
+    cat: governance
+    lifecycle: active
+    wiki_url: "/glossary/hype-cycle/"
+    desc: "A graph of how expectations for a new technology rise and fall over time, through five stages: the technology trigger, peak of inflated expectations, trough of disillusionment, slope of enlightenment and plateau of productivity."
+    why: "It is a useful (and much-debated) lens for telling durable shifts from hype, which is exactly the judgement beginners need when choosing what to learn or adopt."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Gartner Hype Cycle Research Methodology (Gartner official)", url: "https://www.gartner.com/en/research/methodologies/gartner-hype-cycle", kind: announcement}
+
+  # ===== AI-NATIVE AND THE LICENSE WARS =====
+
+  - id: python2-eol
+    label: "Python 2 end of life"
+    year: 2020
+    year_label: "2020"
+    invented: "The Python Software Foundation sunset Python 2 on 1 January 2020."
+    standardized: ""
+    era: ai-native
+    cat: tools
+    lifecycle: discontinued
+    wiki_url: ""
+    desc: "Python 2 reached end of life on 1 January 2020, after which it received no further fixes, security patches or improvements. It capped a long migration to Python 3 begun in 2008."
+    why: "It is a model of a planned, well-signposted end of life for a hugely popular language, and a reminder that even free, beloved tools eventually stop."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Sunsetting Python 2 (Python.org)", url: "https://www.python.org/doc/sunset-python-2/", kind: announcement}
+
+  - id: gpt3
+    label: "GPT-3"
+    year: 2020
+    year_label: "2020"
+    invented: "OpenAI published Language Models are Few-Shot Learners (Brown et al.) on arXiv on 28 May 2020."
+    standardized: ""
+    era: ai-native
+    cat: models
+    lifecycle: milestone
+    wiki_url: "/glossary/llm/"
+    desc: "OpenAI's 175-billion-parameter language model that performs tasks from few-shot prompts without fine-tuning. It showed that scaling Transformers produced broad general capability."
+    why: "GPT-3 showed that large language models could generalize across tasks from prompts alone, setting up the generative AI wave."
+    legal: ""
+    superseded_by: [chatgpt, gpt4-claude]
+    abstraction_of: [transformer]
+    sources:
+      - {title: "Language Models are Few-Shot Learners (Brown et al., arXiv:2005.14165, 2020)", url: "https://arxiv.org/abs/2005.14165", kind: paper}
+
+  - id: solarwinds
+    label: "SolarWinds supply-chain compromise"
+    year: 2020
+    year_label: "2020"
+    invented: "The compromise was disclosed publicly in December 2020. CISA issued Emergency Directive 21-01 on 13 December 2020."
+    standardized: ""
+    era: ai-native
+    cat: governance
+    lifecycle: milestone
+    wiki_url: ""
+    desc: "Attackers inserted a backdoor into SolarWinds Orion software updates, compromising US government agencies and many enterprises. It is a landmark software supply-chain attack."
+    why: "It exposed the systemic risk of trusted software update channels and drove major investment in supply-chain security and software bills of materials."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Advisory AA20-352A (CISA, 17 December 2020)", url: "https://www.cisa.gov/news-events/cybersecurity-advisories/aa20-352a", kind: announcement}
+
+  - id: centos-stream
+    label: "Red Hat shifts CentOS to CentOS Stream"
+    year: 2020
+    year_label: "2020"
+    invented: "Red Hat announced the shift on 8 December 2020."
+    standardized: ""
+    era: ai-native
+    cat: legal
+    lifecycle: discontinued
+    wiki_url: ""
+    desc: "Red Hat ended CentOS Linux, a free rebuild of RHEL, and refocused on CentOS Stream, an upstream branch that tracks ahead of RHEL. CentOS Linux 8 support was cut from 2029 to the end of 2021."
+    why: "It removed the free, stable RHEL-compatible distribution many organizations relied on, a vivid lesson in depending on a vendor's free tier."
+    legal: "Not a license change but a drastic support and lifecycle change. The shortened lifecycle (2029 cut to 2021) angered users and spawned the Rocky Linux and AlmaLinux forks."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "CentOS Project shifts focus to CentOS Stream (Blog.CentOS.org, 2020)", url: "https://blog.centos.org/2020/12/future-is-centos-stream/", kind: announcement}
+
+  - id: dockershim-removal
+    label: "Kubernetes removes dockershim"
+    year: 2020
+    year_label: "deprecated 2020, removed 2022"
+    invented: "Deprecation was announced for Kubernetes v1.20 on 2 December 2020. dockershim was removed in v1.24, released in May 2022."
+    standardized: ""
+    era: ai-native
+    cat: infrastructure
+    lifecycle: milestone
+    wiki_url: ""
+    desc: "Kubernetes deprecated and later removed dockershim, the shim that let the kubelet talk to Docker, in favor of CRI-compliant runtimes like containerd. Docker-built images keep working."
+    why: "It is a model example of a clean, well-communicated deprecation with a long migration runway, the opposite of an abrupt license change."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Don't Panic: Kubernetes and Docker (Kubernetes blog, 2020)", url: "https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/", kind: announcement}
+
+  - id: mongodb-sspl
+    label: "MongoDB relicenses to SSPL"
+    year: 2018
+    year_label: "2018"
+    invented: "MongoDB issued the Server Side Public License (SSPL) on 16 October 2018."
+    standardized: ""
+    era: ai-native
+    cat: legal
+    lifecycle: milestone
+    wiki_url: ""
+    desc: "MongoDB moved its Community Server from the AGPLv3 open-source license to its own SSPL in 2018, targeting cloud providers offering MongoDB as a managed service."
+    why: "It was the first high-profile move from an OSI-approved license to a source-available one aimed at cloud vendors, starting the license wars."
+    legal: "SSPL is source-available but not OSI-approved open source. It requires anyone offering the software as a service to open-source their entire service stack, which is impractical for cloud providers. The OSI rejected SSPL as open source."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "MongoDB Issues New Server Side Public License (MongoDB press release, 2018)", url: "https://www.mongodb.com/company/newsroom/press-releases/mongodb-issues-new-server-side-public-license-for-mongodb-community-server", kind: announcement}
+
+  - id: elastic-license
+    label: "Elastic relicenses Elasticsearch"
+    year: 2021
+    year_label: "2021"
+    invented: "Elastic announced the change on 14 January 2021."
+    standardized: ""
+    era: ai-native
+    cat: legal
+    lifecycle: milestone
+    wiki_url: ""
+    desc: "Elastic moved Elasticsearch and Kibana from the Apache 2.0 open-source license to dual SSPL and the Elastic License. The move targeted Amazon's managed Elasticsearch service."
+    why: "It triggered AWS to fork the projects into OpenSearch, cementing source-available licensing as a vendor weapon against cloud providers."
+    legal: "Moved from OSI-approved Apache 2.0 to SSPL and Elastic License 2.0, neither OSI open source. AWS forked the last Apache-2.0 versions into OpenSearch. Elastic re-added an AGPLv3 option in 2024."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Doubling down on open, Part II (Elastic blog, 2021)", url: "https://www.elastic.co/blog/licensing-change", kind: announcement}
+
+  - id: log4shell
+    label: "Log4Shell (CVE-2021-44228)"
+    year: 2021
+    year_label: "2021"
+    invented: "A critical flaw in Apache Log4j 2, reported to Apache in November 2021 and publicly disclosed on 9 December 2021."
+    standardized: ""
+    era: ai-native
+    cat: governance
+    lifecycle: milestone
+    wiki_url: ""
+    desc: "A critical remote code execution flaw (CVSS 10.0) in the ubiquitous Apache Log4j 2 logging library, exploitable via crafted log strings. It affected countless Java applications worldwide."
+    why: "It showed how a single flaw in a widely embedded open-source dependency can endanger the entire software ecosystem."
+    legal: ""
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "CVE-2021-44228 (NVD, CVSS 10.0)", url: "https://nvd.nist.gov/vuln/detail/CVE-2021-44228", kind: standard}
+
+  - id: chatgpt
+    label: "ChatGPT"
+    year: 2022
+    year_label: "2022"
+    invented: "OpenAI released ChatGPT on 30 November 2022."
+    standardized: ""
+    era: ai-native
+    cat: models
+    lifecycle: active
+    wiki_url: "/glossary/llm/"
+    desc: "OpenAI's conversational interface to a fine-tuned GPT model, able to answer follow-ups and refuse some requests. It reached a million users in five days and brought generative AI to the mainstream."
+    why: "ChatGPT made large language models usable by anyone, kicking off the consumer and enterprise generative AI boom."
+    legal: ""
+    superseded_by: []
+    abstraction_of: [gpt3, transformer]
+    sources:
+      - {title: "Introducing ChatGPT (OpenAI, 2022)", url: "https://openai.com/index/chatgpt/", kind: announcement}
+
+  - id: hashicorp-bsl
+    label: "HashiCorp relicenses to BSL"
+    year: 2023
+    year_label: "2023"
+    invented: "HashiCorp announced adoption of the Business Source License v1.1 on 10 August 2023."
+    standardized: ""
+    era: ai-native
+    cat: legal
+    lifecycle: milestone
+    wiki_url: "/tools/terraform/"
+    desc: "HashiCorp moved Terraform, Vault, Consul and other products from the MPL 2.0 open-source license to the Business Source License (BSL). The change restricts competitive commercial use and triggered the OpenTofu fork."
+    why: "A major IaC vendor abandoning open source pushed the community to fork Terraform, marking a peak of the license wars and a hard lesson in build-on-it risk."
+    legal: "Moved from OSI-approved MPL 2.0 to BSL/BUSL 1.1, which is source-available, not OSI open source. The BSL forbids using the code to offer a competing product. Each version converts to MPL 2.0 four years after release."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "HashiCorp adopts Business Source License (HashiCorp blog, 2023)", url: "https://www.hashicorp.com/en/blog/hashicorp-adopts-business-source-license", kind: announcement}
+
+  - id: opentofu
+    label: "OpenTofu (Terraform fork)"
+    year: 2023
+    year_label: "2023"
+    invented: "A community fork of Terraform. The OpenTF manifesto appeared on 15 August 2023, and the project joined the Linux Foundation as OpenTofu on 20 September 2023."
+    standardized: "Governed by the Linux Foundation."
+    era: ai-native
+    cat: tools
+    lifecycle: active
+    wiki_url: "/tools/terraform/"
+    desc: "The community-driven, MPL-2.0 open-source fork of Terraform created after HashiCorp's BSL relicensing. It is drop-in compatible and governed neutrally under the Linux Foundation."
+    why: "OpenTofu showed the open-source community could collectively respond to a relicensing by forking and sustaining a neutral alternative."
+    legal: "Preserves the original MPL 2.0 open-source license that Terraform abandoned. A direct response to the HashiCorp BSL change, forked from the last MPL-2.0 release."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Linux Foundation Launches OpenTofu (Linux Foundation press release, 2023)", url: "https://www.linuxfoundation.org/press/announcing-opentofu", kind: announcement}
+
+  - id: broadcom-vmware
+    label: "Broadcom acquires VMware"
+    year: 2023
+    year_label: "2023"
+    invented: "Broadcom completed its roughly 69 billion dollar acquisition of VMware on 22 November 2023, then ended perpetual licensing on 11 December 2023."
+    standardized: ""
+    era: ai-native
+    cat: legal
+    lifecycle: milestone
+    wiki_url: "/glossary/virtualization-fundamentals/"
+    desc: "Broadcom closed its acquisition of VMware in 2023, then ended perpetual licenses weeks later and moved VMware to subscription-only bundles. It reshaped enterprise virtualization economics."
+    why: "Ending perpetual licenses and bundling products forced large price increases on enterprises that were locked into VMware, pushing many to evaluate Proxmox, KubeVirt and public cloud."
+    legal: "A major commercial licensing change. On 11 December 2023 VMware ended sale of perpetual licenses, moving to subscription or term licenses only and bundling products. Existing customers must convert to subscription at renewal."
+    superseded_by: []
+    abstraction_of: []
+    sources:
+      - {title: "Broadcom Completes Acquisition of VMware (Broadcom investor relations, 2023)", url: "https://investors.broadcom.com/news-releases/news-release-details/broadcom-completes-acquisition-vmware", kind: announcement}
+      - {title: "VMware End of Availability of Perpetual Licensing (VMware blog, 2023)", url: "https://blogs.vmware.com/cloud-foundation/2024/01/22/vmware-end-of-availability-of-perpetual-licensing-and-saas-services/", kind: announcement}
+
+  - id: gpt4-claude
+    label: "Frontier models (GPT-4 and Claude)"
+    year: 2023
+    year_label: "2023"
+    invented: "OpenAI announced GPT-4 and Anthropic launched Claude on the same day, 14 March 2023."
+    standardized: ""
+    era: ai-native
+    cat: models
+    lifecycle: active
+    wiki_url: "/glossary/llm/"
+    desc: "In March 2023, OpenAI released the multimodal GPT-4 and Anthropic launched Claude on the same day, opening the era of competing frontier large language models."
+    why: "Multiple capable frontier models arriving together turned LLMs into a competitive platform layer for building applications."
+    legal: ""
+    superseded_by: []
+    abstraction_of: [transformer, gpt3]
+    sources:
+      - {title: "GPT-4 (OpenAI, 2023)", url: "https://openai.com/index/gpt-4-research/", kind: announcement}
+      - {title: "Introducing Claude (Anthropic, 2023)", url: "https://www.anthropic.com/news/introducing-claude", kind: announcement}
+
+  - id: ai-agents
+    label: "AI agents and agentic systems"
+    year: 2023
+    year_label: "2023 to 2024"
+    invented: "The wave began in 2023 to 2024. AutoGPT, released on 30 March 2023, sparked broad interest in autonomous agents."
+    standardized: ""
+    era: ai-native
+    cat: patterns
+    lifecycle: active
+    wiki_url: ""
+    desc: "AI agents wrap large language models with tools, memory and planning so they can pursue multi-step goals. AutoGPT's 2023 release sparked broad interest in agentic systems."
+    why: "Agents extended LLMs from single answers to autonomous task execution, defining the next phase of applied AI."
+    legal: ""
+    superseded_by: []
+    abstraction_of: [gpt4-claude, transformer]
+    sources:
+      - {title: "AutoGPT repository (Significant-Gravitas, GitHub)", url: "https://github.com/Significant-Gravitas/AutoGPT", kind: archive}

@@ -1,0 +1,24 @@
+{{ define "main" }}
+{{/* New planet-view galaxy (beta). Self-contained design adapted from the Claude-designed
+     prototype: scoped CSS (assets/css/galaxy.css), real data injected from data/galaxy_planet.json,
+     renderer at assets/js/galaxy.js. Both are fingerprinted so the browser always gets the
+     current version (no stale cache, no hard-refresh needed). Mounts under the site nav. */}}
+{{ $gxCss := resources.Get "css/galaxy.css" | fingerprint }}
+<link rel="stylesheet" href="{{ $gxCss.RelPermalink }}">
+<style>
+  .gxb-page { display: flex; flex-direction: column; height: calc(100vh - 60px); height: calc(100dvh - 60px); overflow: hidden; background: #04050b; }
+  .galaxy-beta-wrap { position: relative; flex: 1; min-height: 0; overflow: hidden; background: #04050b; }
+  .galaxy-app .d-title a:hover { text-decoration: underline !important; }
+</style>
+
+<div class="gxb-page">
+  {{ partial "explore-switcher.html" (dict "page" . "inline" true) }}
+  <div class="galaxy-beta-wrap">
+    <div class="galaxy-app" id="galaxy"></div>
+  </div>
+</div>
+
+<script>window.GALAXY_DATA = JSON.parse({{ .Site.Data.galaxy_planet | jsonify }});</script>
+{{ $gxJs := resources.Get "js/galaxy.js" | fingerprint }}
+<script src="{{ $gxJs.RelPermalink }}"></script>
+{{ end }}

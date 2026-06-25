@@ -183,7 +183,7 @@ print(response.choices[0].message.content)
 ## What's next
 
 - [What is a Large Language Model?](/basics/what-is-an-llm/): The technology powering ChatGPT in depth
-- [Claude vs GPT](/comparisons/claude-vs-gpt/): Detailed comparison of Anthropic and OpenAI models
+- [Claude vs ChatGPT](/comparisons/claude-vs-chatgpt/): Detailed comparison of Anthropic and OpenAI models
 - [What is AI Hallucination?](/basics/what-is-ai-hallucination/): Why ChatGPT and other LLMs produce confident wrong answers
 
 ## Further reading

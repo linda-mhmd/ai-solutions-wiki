@@ -2,24 +2,22 @@
 <style>
   /* ---- Foundations Section Landing Page ---- */
   .foundations-hero {
-    background-color: #faf8f4;
+    background-color: var(--surface);
     background-image:
-      linear-gradient(rgba(180, 140, 100, 0.12) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(180, 140, 100, 0.12) 1px, transparent 1px);
+      linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
     background-size: 28px 28px;
     padding: 72px 0 64px;
-    border-bottom: 1px solid #ded7cc;
+    border-bottom: 1px solid var(--border);
   }
   [data-theme="dark"] .foundations-hero {
-    background-color: var(--surface);
     background-image:
       linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    border-bottom-color: var(--border);
   }
 
   .foundations-hero-inner {
-    max-width: 1280px;
+    max-width: var(--site-max);
     margin: 0 auto;
     padding: 0 32px;
   }
@@ -28,13 +26,12 @@
     display: inline-block;
     font-size: 0.68rem;
     font-weight: 700;
-    color: #b85c38;
+    color: var(--accent);
     font-family: var(--font-mono);
     letter-spacing: 0.12em;
     text-transform: uppercase;
     margin-bottom: 16px;
   }
-  [data-theme="dark"] .foundations-badge { color: #d4785a; }
 
   .foundations-hero h1 {
     font-size: clamp(1.75rem, 4vw, 2.6rem);
@@ -61,7 +58,7 @@
   }
 
   .foundations-intro-inner {
-    max-width: 1280px;
+    max-width: var(--site-max);
     margin: 0 auto;
     padding: 0 32px;
   }
@@ -83,7 +80,7 @@
   }
 
   .foundations-principles-inner {
-    max-width: 1280px;
+    max-width: var(--site-max);
     margin: 0 auto;
     padding: 0 32px;
   }
@@ -93,11 +90,10 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: #b85c38;
+    color: var(--accent);
     font-family: var(--font-mono);
     margin-bottom: 8px;
   }
-  [data-theme="dark"] .foundations-section-label { color: #d4785a; }
 
   .foundations-section-title {
     font-size: 1.5rem;
@@ -120,24 +116,25 @@
     width: 36px;
     height: 36px;
     border-radius: 3px;
-    background: rgba(184, 92, 56, 0.08);
-    color: #b85c38;
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--accent);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 12px;
     flex-shrink: 0;
   }
-  [data-theme="dark"] .principle-card-icon { background: rgba(212, 120, 90, 0.1); color: #d4785a; }
+  [data-theme="dark"] .principle-card-icon { background: color-mix(in srgb, var(--accent) 20%, transparent); }
 
   /* ---- Principle cards grid ---- */
   .principle-cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 0;
     border-top: 1px solid var(--border);
     border-left: 1px solid var(--border);
   }
+  @media (max-width: 960px) { .principle-cards-grid { grid-template-columns: repeat(2, 1fr); } }
 
   .principle-card {
     background: var(--bg);
@@ -155,7 +152,7 @@
 
   .principle-card-accent {
     height: 3px;
-    background: #b85c38;
+    background: var(--accent);
   }
 
   .principle-card-body {
@@ -163,16 +160,21 @@
     flex: 1;
   }
 
-  .principle-card-number {
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: #b85c38;
+  .principle-card-source {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-secondary);
     font-family: var(--font-mono);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
-  [data-theme="dark"] .principle-card-number { color: #d4785a; }
+  .principle-card-source::before {
+    content: "";
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--accent); flex-shrink: 0;
+  }
 
   .principle-card-body h3 {
     font-size: 1.1rem;
@@ -207,24 +209,22 @@
   .principle-card-tag {
     font-size: 0.65rem;
     font-weight: 700;
-    color: #b85c38;
+    color: var(--accent);
     background: transparent;
-    border: 1px solid rgba(184, 92, 56, 0.3);
+    border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
     border-radius: 3px;
     padding: 2px 8px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-family: var(--font-mono);
   }
-  [data-theme="dark"] .principle-card-tag { color: #d4785a; border-color: rgba(212, 120, 90, 0.3); }
 
   .principle-card-arrow {
     font-size: 0.825rem;
-    color: #b85c38;
+    color: var(--accent);
     font-weight: 600;
     white-space: nowrap;
   }
-  [data-theme="dark"] .principle-card-arrow { color: #d4785a; }
 
   /* ---- Responsive ---- */
   @media (max-width: 600px) {
@@ -257,9 +257,9 @@
 <!-- Principles grid -->
 <div class="foundations-principles">
   <div class="foundations-principles-inner">
-    <div class="foundations-section-label">Core Principles</div>
+    <div class="foundations-section-label">Established engineering practices</div>
     <h2 class="foundations-section-title">Engineering Foundations</h2>
-    <p class="foundations-section-sub">Each principle below is a self-contained reference page with examples, historical context, and direct application to AI systems.</p>
+    <p class="foundations-section-sub">These are not our opinion of what matters. Each is a widely-adopted software engineering standard formalized by a named author or organization. The source and year are on every card; open one for the full reference, examples, and how it applies to AI systems.</p>
 
     <div class="principle-cards-grid">
 
@@ -269,9 +269,9 @@
           <span class="principle-card-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>
           </span>
-          <div class="principle-card-number">Principle 1</div>
           <h3>SOLID Principles</h3>
-          <p>Five object-oriented design principles that govern how components should be structured and relate to each other.</p>
+          <div class="principle-card-source">Robert C. Martin, 2000</div>
+          <p>Five object-oriented design rules that keep code easy to change as requirements grow, instead of rotting into something rigid and fragile.</p>
         </div>
         <div class="principle-card-footer">
           <div class="principle-card-tags"><span class="principle-card-tag">OOP</span></div>
@@ -285,9 +285,9 @@
           <span class="principle-card-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
           </span>
-          <div class="principle-card-number">Principle 2</div>
           <h3>Clean Architecture</h3>
-          <p>The dependency rule and layered architecture pattern that keeps business logic isolated from frameworks, databases, and delivery mechanisms.</p>
+          <div class="principle-card-source">Robert C. Martin, 2017</div>
+          <p>Keeps business logic independent of frameworks, databases, and UI, so the parts that change most never destabilize the core of the system.</p>
         </div>
         <div class="principle-card-footer">
           <div class="principle-card-tags"><span class="principle-card-tag">Architecture</span></div>
@@ -301,9 +301,9 @@
           <span class="principle-card-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
           </span>
-          <div class="principle-card-number">Principle 3</div>
           <h3>Design Patterns</h3>
-          <p>The Gang of Four catalog of reusable solutions to recurring object-oriented design problems.</p>
+          <div class="principle-card-source">Gang of Four, 1994</div>
+          <p>A shared vocabulary of 23 proven solutions to recurring design problems, so teams can name and reuse structure instead of reinventing it.</p>
         </div>
         <div class="principle-card-footer">
           <div class="principle-card-tags"><span class="principle-card-tag">Patterns</span></div>
@@ -317,9 +317,9 @@
           <span class="principle-card-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/></svg>
           </span>
-          <div class="principle-card-number">Principle 4</div>
           <h3>Domain-Driven Design</h3>
-          <p>Evans's approach to aligning software structure with business domains through ubiquitous language and bounded contexts.</p>
+          <div class="principle-card-source">Eric Evans, 2003</div>
+          <p>Aligns code structure and language with the business domain through bounded contexts, so complex systems stay coherent as they grow.</p>
         </div>
         <div class="principle-card-footer">
           <div class="principle-card-tags"><span class="principle-card-tag">DDD</span></div>
@@ -333,9 +333,9 @@
           <span class="principle-card-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
           </span>
-          <div class="principle-card-number">Principle 5</div>
           <h3>Testing Strategy</h3>
-          <p>The testing pyramid, test-driven development, and the discipline of building confidence in software through automated verification.</p>
+          <div class="principle-card-source">Beck 2002, Cohn 2009</div>
+          <p>The testing pyramid and test-driven development: automated proof that code does what it should, with fast feedback the moment it does not.</p>
         </div>
         <div class="principle-card-footer">
           <div class="principle-card-tags"><span class="principle-card-tag">Testing</span></div>
@@ -349,9 +349,9 @@
           <span class="principle-card-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
           </span>
-          <div class="principle-card-number">Principle 6</div>
           <h3>Continuous Integration and Delivery</h3>
-          <p>Pipeline automation, deployment strategies, and the practice of keeping software in a releasable state at all times.</p>
+          <div class="principle-card-source">Humble &amp; Farley, 2010</div>
+          <p>Automated build, test, and deploy that keeps software releasable at all times, turning risky big releases into small routine ones.</p>
         </div>
         <div class="principle-card-footer">
           <div class="principle-card-tags"><span class="principle-card-tag">CI/CD</span></div>
@@ -365,9 +365,9 @@
           <span class="principle-card-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </span>
-          <div class="principle-card-number">Principle 7</div>
           <h3>API Design</h3>
-          <p>REST, GraphQL, and gRPC. Principles of versioning, error handling, and building interfaces that survive over time.</p>
+          <div class="principle-card-source">Fielding (REST), 2000</div>
+          <p>REST, GraphQL, and gRPC, plus versioning and error handling, so an API stays a reliable contract for its callers as it evolves.</p>
         </div>
         <div class="principle-card-footer">
           <div class="principle-card-tags"><span class="principle-card-tag">APIs</span></div>
@@ -381,9 +381,9 @@
           <span class="principle-card-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
           </span>
-          <div class="principle-card-number">Principle 8</div>
           <h3>Security Fundamentals</h3>
-          <p>Authentication, authorization, encryption, and the OWASP framework for reasoning about software vulnerabilities.</p>
+          <div class="principle-card-source">OWASP, since 2003</div>
+          <p>Authentication, authorization, encryption, and the OWASP Top 10: security treated as a design property, not a late add-on.</p>
         </div>
         <div class="principle-card-footer">
           <div class="principle-card-tags"><span class="principle-card-tag">Security</span></div>
@@ -397,9 +397,9 @@
           <span class="principle-card-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           </span>
-          <div class="principle-card-number">Principle 9</div>
           <h3>Well-Architected Framework</h3>
-          <p>The cloud architecture review methodology used by AWS, Azure, and Google Cloud to evaluate workloads against proven best practices across reliability, security, cost, and operational excellence.</p>
+          <div class="principle-card-source">AWS, 2015</div>
+          <p>A structured review against reliability, security, cost, performance, and operational excellence: closing the gap between "it works" and "it is production-ready".</p>
         </div>
         <div class="principle-card-footer">
           <div class="principle-card-tags"><span class="principle-card-tag">Cloud</span></div>

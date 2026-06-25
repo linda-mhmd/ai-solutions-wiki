@@ -1,0 +1,16 @@
+{{/* Shared view switcher for the interactive Explore experience.
+     Floating (default):  {{ partial "explore-switcher.html" . }}
+     Inline (in a topbar): {{ partial "explore-switcher.html" (dict "page" . "inline" true) }} */}}
+{{ $p := . }}{{ $inline := false }}
+{{ if reflect.IsMap . }}{{ $p = .page }}{{ $inline = .inline }}{{ end }}
+{{ $cur := $p.RelPermalink }}
+{{ $views := slice
+  (dict "u" "/interactive/galaxy/"          "l" "Galaxy"          "new" true)
+  (dict "u" "/interactive/timeline/"        "l" "Timeline"        "new" false)
+  (dict "u" "/interactive/knowledge-graph/" "l" "Knowledge Graph" "new" false)
+  (dict "u" "/interactive/list/"            "l" "List"            "new" true) }}
+<nav class="xv-switch{{ if $inline }} xv-switch--inline{{ end }}" aria-label="Explore views">
+  {{ range $views }}
+  <a href="{{ .u | relURL }}" class="xv-tab{{ if eq $cur .u }} on{{ end }}"{{ if eq $cur .u }} aria-current="page"{{ end }}>{{ .l }}{{ if .new }}<span class="xv-new">New</span>{{ end }}</a>
+  {{ end }}
+</nav>

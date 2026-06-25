@@ -1,6 +1,6 @@
 ---
 title: "AI Solutions Wiki"
-description: "Learn to build software and AI that solves real problems. A free, plain-words guide and gamified courses covering the cloud, agents, RAG, memory, governance, and tools, so you can build your own solution and share what you learn."
+description: "A free, plain-words guide to building software and AI that solves real problems: cloud, agents, RAG, memory, governance, and the tools to ship it."
 last_updated: 2026-06-14
 ---
 

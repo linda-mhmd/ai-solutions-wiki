@@ -18,7 +18,9 @@
     if (!firstTime) {
       // Returning to a page seen before: a quiet eye in the breadcrumb area, with the
       // last-seen date/time revealed on hover. Low-key, not a loud badge.
-      var host = document.querySelector('.breadcrumbs, .sl-breadcrumb');
+      // Append into the breadcrumb's flex row (the ol) so the eye sits inline at the end,
+      // not orphaned on its own line below the trail.
+      var host = document.querySelector('.breadcrumbs ol') || document.querySelector('.sl-breadcrumb');
       if (host && !document.querySelector('.seen-note')) {
         var label = 'Seen before';
         if (prev) {

@@ -49,3 +49,24 @@ For enterprise deployments requiring data residency controls, compliance certifi
 ## Pricing via Bedrock
 
 Bedrock pricing for Claude is per-token (input and output separately). Haiku is significantly cheaper than Sonnet, which is cheaper than Opus. Pricing changes over time - always check the current Bedrock pricing page before building cost models for production workloads.
+
+## The Claude Product Family
+
+Beyond the models and the chat apps, Anthropic ships several products built on the same Claude models. They differ mainly in where they run and what they produce.
+
+| | Where it lives | What it is for | Plan needed |
+|---|---|---|---|
+| **[Claude Code](/tools/claude-code/)** | Terminal and IDEs | Editing, running, and shipping code | Pro, Max, Team Premium, or API |
+| **[Claude Design](/tools/claude-design/)** | claude.ai (Anthropic Labs) | Designing UI and documents as HTML | Pro, Max, Team, Enterprise |
+| **[Claude Cowork](/tools/claude-cowork/)** | Claude Desktop app | Autonomous multi-step knowledge work | Any paid plan |
+| **[Claude apps and API](/tools/claude-anthropic/)** | Web, mobile, desktop, API | Chat, analysis, building on the model | Free and up |
+
+For teams, Anthropic also offers [Claude Tag](/news/anthropic-claude-agents-in-slack/), a shared agent that lives inside Slack channels.
+
+## Further reading
+
+- [Claude Code](/tools/claude-code/): the agentic coding tool for your terminal and IDE
+- [Claude Design](/tools/claude-design/): conversation to editable HTML and document layouts
+- [Claude Cowork](/tools/claude-cowork/): an agent for multi-step knowledge work on your desktop
+- [Claude vs ChatGPT](/comparisons/claude-vs-chatgpt/): how the Claude and OpenAI apps and models compare
+- [Claude Tag in Slack](/news/anthropic-claude-agents-in-slack/): the shared team agent for channels

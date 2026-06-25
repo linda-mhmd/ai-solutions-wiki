@@ -3,7 +3,7 @@
 {{ $lessons := .CurrentSection.RegularPages.ByWeight }}
 {{ $next := "" }}{{ $nextTitle := "" }}
 {{ range $i, $p := $lessons }}{{ if eq $p.RelPermalink $.RelPermalink }}{{ $ni := add $i 1 }}{{ if lt $ni (len $lessons) }}{{ $n := index $lessons $ni }}{{ $next = $n.RelPermalink }}{{ $nextTitle = $n.Title }}{{ end }}{{ end }}{{ end }}
-<div class="article-wrap" style="max-width:860px;margin:0 auto;padding:2rem 1.2rem">
+<div class="article-wrap" style="max-width:var(--site-max);margin:0 auto;padding:2rem 1.2rem">
 <article class="article" id="lesson-root"
   data-lesson-id="{{ .RelPermalink }}"
   data-course-url="{{ .CurrentSection.RelPermalink }}"

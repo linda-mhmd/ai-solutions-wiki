@@ -1,0 +1,40 @@
+{{ define "main" }}
+<style>
+  .iov-wrap { max-width: var(--site-max); margin: 0 auto; padding: 3rem 24px 4rem; }   /* same width as header/footer + all pages */
+  .iov-eyebrow { font: 700 0.72rem/1 var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--primary); }
+  .iov-h1 { font: 800 2.4rem/1.08 var(--font); color: var(--text-primary); letter-spacing: -0.03em; margin: 0.6rem 0 0; }
+  .iov-lead { color: var(--text-secondary); max-width: 72ch; margin: 0.8rem 0 2.4rem; font-size: 1.08rem; line-height: 1.6; }
+  .iov-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+  @media (max-width: 640px) { .iov-grid { grid-template-columns: 1fr; } }
+  .iov-card { display: block; position: relative; border: 1px solid var(--border-strong); border-radius: 16px; overflow: hidden; background: var(--surface); text-decoration: none; transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s; }
+  .iov-card:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35); text-decoration: none; }
+  .iov-shot { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: top center; border-bottom: 1px solid var(--border); background: var(--bg); }
+  .iov-body { padding: 1.1rem 1.3rem 1.4rem; }
+  .iov-card-t { font: 700 1.12rem/1.2 var(--font); color: var(--text-primary); }
+  .iov-card-d { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; margin-top: 0.45rem; }
+  .iov-new { position: absolute; top: 0.85rem; right: 0.85rem; z-index: 1; font: 700 0.56rem/1 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; background: #22c55e; color: #042010; padding: 4px 7px; border-radius: 999px; box-shadow: 0 2px 8px rgba(0,0,0,0.45); }
+  .iov-card.seen .iov-new { display: none; }   /* badge clears once this view has been opened (localStorage aiwiki.seen-new) */
+</style>
+{{ $views := slice
+  (dict "u" "/interactive/galaxy/"          "t" "Galaxy"          "key" "iv-galaxy"    "img" "/img/interactive/galaxy.jpeg"          "d" "Every domain is a planet, every article a star, sized and linked by how the wiki connects. Click any node to follow its connections.")
+  (dict "u" "/interactive/timeline/"        "t" "Timeline"        "key" "iv-timeline"  "img" "/img/interactive/timeline.jpeg"        "d" "The history of computing and IT, from the abacus to agentic systems, with sources and lifecycle status for each milestone.")
+  (dict "u" "/interactive/knowledge-graph/" "t" "Knowledge Graph" "key" "iv-kg"        "img" "/img/interactive/knowledge-graph.jpeg" "d" "AI concepts and how they connect as prerequisites, related ideas, and tools. See what to learn first and what builds on it.")
+  (dict "u" "/interactive/list/"            "t" "List"            "key" "iv-list"      "img" "/img/interactive/list.jpeg"            "d" "A flat, searchable list of every concept and article, grouped by domain. The fastest way to jump straight to a page.") }}
+<div class="iov-wrap">
+  <div class="iov-eyebrow">Interactive</div>
+  <h1 class="iov-h1">{{ .Title }}</h1>
+  <p class="iov-lead">{{ .Description }}</p>
+  <div class="iov-grid">
+    {{ range $views }}
+    <a class="iov-card" href="{{ .u | relURL }}" data-newkey="{{ .key }}">
+      <span class="iov-new">New</span>
+      <img class="iov-shot" src="{{ .img | relURL }}" alt="Preview of the {{ .t }} view" loading="lazy" width="1280" height="720">
+      <div class="iov-body">
+        <div class="iov-card-t">{{ .t }}</div>
+        <div class="iov-card-d">{{ .d }}</div>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

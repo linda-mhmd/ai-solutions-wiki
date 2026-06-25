@@ -13,7 +13,8 @@
 {{ $uFmt := "2 Jan 2006" }}{{ if $updated }}{{ $uFmt = cond (eq $updated.Year $yr) "2 Jan" "2 Jan 2006" }}{{ end }}
 <a href="{{ $p.RelPermalink }}" class="sl-card{{ if $icon }} has-icon{{ end }}" data-section="{{ $p.Section }}" data-title="{{ $p.Title | lower }}"{{ with $p.Params.tags }} data-tags="{{ delimit . "," | lower }}"{{ end }}{{ with $p.Params.layer }} data-layer="{{ . }}"{{ end }}>
   <div class="sl-card-head">
-    {{ if $icon }}<span class="sl-card-icon {{ partial "darklogo-class.html" $icon }}">{{ partial "render-icon.html" (dict "res" $icon "class" "" "alt" "") }}</span>{{ end }}
+    {{ if $icon }}<span class="sl-card-icon {{ partial "darklogo-class.html" $icon }}">{{ partial "render-icon.html" (dict "res" $icon "class" "" "alt" "") }}</span>
+    {{ else }}<span class="sl-card-icon sl-card-icon--section" aria-hidden="true">{{ partial "section-icon.html" $p.Section }}</span>{{ end }}
     <span class="sl-card-headtext">
       <span class="sl-card-name">{{ $name }}</span>
       {{ with $sub }}<span class="sl-card-sub">{{ . }}</span>{{ end }}

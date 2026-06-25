@@ -3,7 +3,8 @@
 <head>
   {{ partial "head.html" . }}
 </head>
-<body>
+<body{{ if .IsHome }} class="is-home"{{ end }}>
+  <script>try{if(/[?&]embed=1/.test(location.search))document.documentElement.classList.add('is-embed');}catch(e){}</script>
   <div class="reading-progress" aria-hidden="true"></div>
   {{ partial "nav.html" . }}
   <main id="main-content"{{ with .Section }} data-section="{{ . }}"{{ end }}{{ with .Params.layer }} data-layer="{{ . }}"{{ end }}{{ with .Params.level_num }} data-level="{{ . }}"{{ end }}{{ with .Params.path }} data-path="{{ . }}"{{ end }}>
@@ -12,7 +13,10 @@
   {{ partial "footer.html" . }}
 
   {{ partial "asset-js.html" "wiki-library.js" }}
-  {{ partial "asset-js.html" "glossary-link.js" }}
+  {{/* Fingerprinted via the asset pipeline so edits always cache-bust (the static/ readFile
+       hash does not recompute reliably on the dev server). */}}
+  {{ $gl := resources.Get "js/glossary-link.js" | fingerprint }}
+  <script src="{{ $gl.RelPermalink }}" defer></script>
   {{ partial "asset-js.html" "visited.js" }}
   {{ partial "asset-js.html" "learn-modes.js" }}
   <script src="{{ "pagefind/pagefind-ui.js" | relURL }}"></script>
@@ -127,6 +131,28 @@
         });
       });
     }
+
+    // "New until you click it" badges + group notification dots (per-user, localStorage).
+    (function () {
+      var KEY = 'aiwiki.seen-new', seen = {};
+      try { seen = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) {}
+      function refreshDots() {
+        document.querySelectorAll('.nav-new-dot[data-group-dot]').forEach(function (dot) {
+          var g = dot.getAttribute('data-group-dot');
+          var grp = document.querySelector('[data-newgroup="' + g + '"]');
+          var anyUnseen = grp && Array.prototype.some.call(grp.querySelectorAll('[data-newkey]'), function (el) { return !seen[el.getAttribute('data-newkey')]; });
+          dot.classList.toggle('show', !!anyUnseen);
+        });
+      }
+      document.querySelectorAll('[data-newkey]').forEach(function (el) {
+        var k = el.getAttribute('data-newkey');
+        if (seen[k]) el.classList.add('seen');
+        el.addEventListener('click', function () {
+          if (!seen[k]) { seen[k] = 1; try { localStorage.setItem(KEY, JSON.stringify(seen)); } catch (e) {} el.classList.add('seen'); refreshDots(); }
+        });
+      });
+      refreshDots();
+    })();
 
     // Copy-to-clipboard for code blocks
     document.querySelectorAll('.code-copy-btn').forEach(btn => {

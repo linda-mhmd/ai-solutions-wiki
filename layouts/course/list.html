@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ partial "course-style.html" . }}
-<div class="article-wrap" style="max-width:880px;margin:0 auto;padding:2rem 1.2rem">
+<div class="article-wrap" style="max-width:var(--site-max);margin:0 auto;padding:2rem 1.2rem">
 <div class="course-wrap" id="course-map" data-course="{{ .RelPermalink }}">
   <div class="lesson-eyebrow">Gamified course - free, saved in your browser</div>
   <h1>{{ .Title }}</h1>

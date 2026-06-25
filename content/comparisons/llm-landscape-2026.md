@@ -8,7 +8,7 @@ last_updated: 2026-06-22
 related:
   - glossary/llm
   - glossary/foundation-models
-  - comparisons/claude-vs-gpt
+  - comparisons/claude-vs-chatgpt
   - guides/llm-evaluation-methods
   - guides/llm-cost-optimization
   - tools/claude-anthropic
@@ -797,7 +797,7 @@ Reasoning models are not better on all tasks. They are slower, more expensive, a
 ## Further Reading
 
 - [LLM Glossary Entry](/glossary/llm/): technical foundations of how large language models work
-- [Claude vs GPT: Enterprise Comparison](/comparisons/claude-vs-gpt/): detailed side-by-side of the two most deployed models
+- [Claude vs ChatGPT: Enterprise Comparison](/comparisons/claude-vs-chatgpt/): detailed side-by-side of the two most deployed models
 - [LLM Evaluation Methods](/guides/llm-evaluation-methods/): how to evaluate which model fits your workload
 - [LLM Cost Optimization](/guides/llm-cost-optimization/): reducing inference spend across providers
 - [LLM Gateway Architecture](/guides/llm-gateway-architecture/): routing between providers, fallback, and cost control

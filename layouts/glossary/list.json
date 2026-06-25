@@ -2,6 +2,11 @@
        Emitted at /glossary/index.json. Keys kept short to limit size (445+ terms):
        t=primary term, a=aliases, u=url, s=summary, r=related connections. */ -}}
 {{- $terms := slice -}}
+{{- /* Generic words that must NEVER become auto-link triggers. Derived aliases like
+       "Clean Architecture" -> "Clean" or "Azure Functions" -> "Functions" used to link every
+       plain-English occurrence of these words to the wrong page. Filtered out below. */ -}}
+{{- $common := slice "clean" "simple" "basic" "advanced" "modern" "native" "fast" "smart" "core" "open" "deep" "custom" "dynamic" "static" "general" "standard" "complete" "full" "light" "legacy" "function" "functions" "value" "values" "state" "global" "local" "remote" "public" "private" "scalable" "flexible" "robust" "secure" "powerful" "popular" "common" "foundation"
+  "connect" "design" "file" "files" "monitor" "storage" "forecast" "translate" "transcribe" "comprehend" "personalize" "glue" "edge" "amplify" "connect" "build" "code" "data" "model" "models" "service" "services" "platform" "tool" "tools" "system" "systems" "network" "layer" "layers" -}}
 {{- range (where site.RegularPages "Section" "glossary") -}}
   {{- $title := .Title -}}
   {{- $aliases := slice -}}
@@ -32,6 +37,9 @@
     {{- end -}}
   {{- end -}}
   {{- $aliases = $aliases | append $extra | uniq -}}
+  {{- /* drop any generic word so plain prose ("clean", "function") is not auto-linked */ -}}
+  {{- $kept := slice -}}{{- range $aliases -}}{{- if not (in $common (lower .)) -}}{{- $kept = $kept | append . -}}{{- end -}}{{- end -}}{{- $aliases = $kept -}}
+  {{- if $aliases -}}
   {{- $rel := slice -}}
   {{- with .Params.related }}{{ range . }}{{ $rp := site.GetPage . }}{{ with $rp }}{{ $rel = $rel | append (dict "u" .RelPermalink "t" .Title) }}{{ end }}{{ end }}{{ end -}}
   {{- /* Real answer for the hover: the page's actual opening definition (first content),
@@ -45,9 +53,10 @@
       "t" (index $aliases 0)
       "a" $aliases
       "u" .RelPermalink
-      "s" ($sum | truncate 340)
+      "s" ($sum | truncate 340 | htmlUnescape)
       "r" $rel
   ) -}}
+  {{- end -}}
 {{- end -}}
 {{- /* Also link tool/service names to their tool pages (k:t marks a tool link), so mentions of
        Lambda, Bedrock, Step Functions, etc. connect everywhere, Wikipedia-style. */ -}}
@@ -58,9 +67,24 @@
     {{- if hasPrefix $tt . -}}{{ $ta = $ta | append (strings.TrimPrefix . $tt) }}{{- end -}}
   {{- end -}}
   {{- with .Params.aliases }}{{ range . }}{{ $ta = $ta | append . }}{{ end }}{{ end -}}
+  {{- /* drop generic single words ("Functions" from "Azure Functions") so prose is not auto-linked */ -}}
+  {{- $tk := slice -}}{{- range ($ta | uniq) -}}{{- if not (in $common (lower .)) -}}{{- $tk = $tk | append . -}}{{- end -}}{{- end -}}
   {{- $tsum := .Description | default (.Summary | plainify | htmlUnescape) | chomp -}}
+  {{- if $tk -}}
   {{- $terms = $terms | append (dict
-      "t" $tt "a" ($ta | uniq) "u" .RelPermalink "s" ($tsum | truncate 300) "r" slice "k" "t"
+      "t" $tt "a" $tk "u" .RelPermalink "s" ($tsum | truncate 300 | htmlUnescape) "r" slice "k" "t"
   ) -}}
+  {{- end -}}
 {{- end -}}
+{{- /* HOVER-ONLY entries (x:1): comparisons, guides, patterns, frameworks, and foundations.
+       These give a preview card to any link pointing at them (e.g. the cards on /layers/ and
+       /architecture/) WITHOUT auto-linking their titles in prose. */ -}}
+{{- range (where site.RegularPages "Section" "in" (slice "comparisons" "guides" "patterns" "frameworks")) -}}
+  {{- $hs := .Description | default (.Summary | plainify | htmlUnescape) | chomp -}}
+  {{- $terms = $terms | append (dict "t" (index (split .Title " - ") 0) "u" .RelPermalink "s" ($hs | truncate 150 | htmlUnescape) "x" 1) -}}
+{{- end -}}
+{{- with site.GetPage "/foundations" }}{{ range .Pages -}}
+  {{- $hs := .Description | default (.Summary | plainify | htmlUnescape) | chomp -}}
+  {{- $terms = $terms | append (dict "t" (index (split .Title " - ") 0) "u" .RelPermalink "s" ($hs | truncate 150 | htmlUnescape) "x" 1) -}}
+{{- end }}{{ end -}}
 {{- $terms | jsonify -}}

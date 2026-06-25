@@ -46,7 +46,10 @@
     </div>
 
     <div class="sl-article-grid" data-pagefind-ignore>
-      {{ range .Pages.ByTitle }}{{ partial "card.html" . }}{{ end }}
+      {{/* Reference sections read best alphabetically; news must lead with the newest item. */}}
+      {{ $ordered := .Pages.ByTitle }}
+      {{ if eq .Section "news" }}{{ $ordered = .Pages.ByDate.Reverse }}{{ end }}
+      {{ range $ordered }}{{ partial "card.html" . }}{{ end }}
     </div>
 
     {{ if gt $count 24 }}

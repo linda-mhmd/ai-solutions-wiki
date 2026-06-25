@@ -32,6 +32,159 @@
   </div>
 </section>
 
+<!-- TASK ENTRY POINTS: how people actually arrive (task, not taxonomy) -->
+<style>
+  .idx-tasks { padding: 56px 0 8px; }
+  .idx-tasks-h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text-primary); margin: 6px 0 8px; }
+  .idx-tasks-sub { color: var(--text-secondary); font-size: 1.02rem; line-height: 1.6; max-width: 60ch; margin: 0 0 28px; }
+  .idx-tasks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+  .idx-task-card { border: 1px solid var(--border-strong); border-radius: 14px; background: var(--surface); padding: 18px 18px 20px; display: flex; flex-direction: column; }
+  .idx-task-tag { display: inline-flex; align-items: center; gap: 7px; font: 700 0.7rem/1 var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+  .idx-task-tag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .idx-task-links { display: flex; flex-direction: column; gap: 2px; }
+  .idx-task-links a { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 10px; margin: 0 -10px; border-radius: 8px; color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: background .12s, color .12s; }
+  .idx-task-links a:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); color: var(--accent); }
+  .idx-task-links a::after { content: "→"; color: var(--text-muted); font-size: 0.85rem; }
+  .idx-task-links a:hover::after { color: var(--accent); }
+  .idx-task-links .idx-task-more { color: var(--accent); font-weight: 600; font-size: 0.9rem; }
+  .idx-task-news { display: block; text-decoration: none; border: 1px solid var(--border); border-radius: 10px; padding: 14px; margin-bottom: 12px; background: var(--bg); transition: border-color .12s; flex: 1; }
+  .idx-task-news:hover { border-color: var(--accent); }
+  .idx-task-news strong { display: block; color: var(--text-primary); font-size: 0.98rem; line-height: 1.35; margin-bottom: 8px; }
+  .idx-task-news span { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+</style>
+<section class="idx-tasks">
+  <div class="bz-container">
+    <p class="bz-section-label">Start with what you need</p>
+    <h2 class="idx-tasks-h2">Find it by task, not by category</h2>
+    <p class="idx-tasks-sub">Most people arrive with a question, not a taxonomy. Jump straight in - every link goes into the full reference, and from there into the architecture, patterns, and guides behind it.</p>
+    <div class="idx-tasks-grid">
+
+      <div class="idx-task-card">
+        <span class="idx-task-tag">Trending now</span>
+        <div class="idx-task-links">
+          <a href="{{ "/glossary/model-context-protocol/" | relURL }}">Model Context Protocol (MCP)</a>
+          <a href="{{ "/glossary/ai-agents/" | relURL }}">AI agents</a>
+          <a href="{{ "/glossary/rag/" | relURL }}">RAG</a>
+          <a href="{{ "/glossary/agentic-loops/" | relURL }}">Agentic loops</a>
+          <a href="{{ "/glossary/context-engineering/" | relURL }}">Context engineering</a>
+          <a href="{{ "/glossary/vector-database/" | relURL }}">Vector databases</a>
+        </div>
+      </div>
+
+      <div class="idx-task-card">
+        <span class="idx-task-tag">Compare</span>
+        <div class="idx-task-links">
+          <a href="{{ "/comparisons/claude-vs-chatgpt/" | relURL }}">Claude vs ChatGPT</a>
+          <a href="{{ "/comparisons/langchain-vs-llamaindex/" | relURL }}">LangChain vs LlamaIndex</a>
+          <a href="{{ "/comparisons/small-vs-large-language-models/" | relURL }}">Small vs large models</a>
+          <a href="{{ "/comparisons/llm-landscape-2026/" | relURL }}">The 2026 LLM landscape</a>
+          <a href="{{ "/comparisons/" | relURL }}" class="idx-task-more">All comparisons</a>
+        </div>
+      </div>
+
+      <div class="idx-task-card">
+        <span class="idx-task-tag">Explain it simply</span>
+        <div class="idx-task-links">
+          <a href="{{ "/glossary/rag/" | relURL }}">What is RAG?</a>
+          <a href="{{ "/glossary/ai-agents/" | relURL }}">What is an AI agent?</a>
+          <a href="{{ "/glossary/model-context-protocol/" | relURL }}">What is MCP?</a>
+          <a href="{{ "/glossary/inference/" | relURL }}">What is inference?</a>
+          <a href="{{ "/glossary/context-window/" | relURL }}">What is a context window?</a>
+          <a href="{{ "/glossary/tokenization/" | relURL }}">What is tokenization?</a>
+        </div>
+      </div>
+
+      <div class="idx-task-card">
+        <span class="idx-task-tag">This week in AI</span>
+        {{ with index ((where .Site.RegularPages "Section" "news").ByDate.Reverse) 0 }}
+        <a class="idx-task-news" href="{{ .RelPermalink }}">
+          <strong>{{ .Title }}</strong>
+          <span>Read the latest →</span>
+        </a>
+        {{ end }}
+        <div class="idx-task-links">
+          <a href="{{ "/news/" | relURL }}" class="idx-task-more">All news and updates</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHAT JUST HAPPENED (news), surfaced near the top so visitors see what is current -->
+{{ $news := where .Site.RegularPages "Section" "news" }}
+{{ if $news }}
+<section class="idx-news">
+  <div class="bz-container">
+    <div class="idx-news-head">
+      <p class="bz-section-label">What just happened</p>
+      <a href="{{ "/news/" | relURL }}" class="idx-news-all">All news and updates &rarr;</a>
+    </div>
+    <div class="idx-news-grid">
+      {{ range first 4 ($news.ByDate.Reverse) }}
+      <a href="{{ .RelPermalink }}" class="idx-news-card">
+        <span class="idx-news-date">{{ .Date.Format "2 Jan 2006" }}</span>
+        <span class="idx-news-title">{{ .Title }}</span>
+        <span class="idx-news-desc">{{ .Description | truncate 120 }}</span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- INTERACTIVE LEARNING: visual, explorable ways through the wiki (new feature) -->
+<style>
+  .idx-iv { padding: 48px 0 8px; }
+  .idx-iv-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; }
+  .idx-iv-eyebrow { display: inline-flex; align-items: center; gap: 8px; font: 700 0.72rem/1 var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+  .idx-iv-tag { background: #22c55e; color: #042010; padding: 3px 7px; border-radius: 999px; font-size: 0.6rem; letter-spacing: 0.06em; }
+  .idx-iv-h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text-primary); margin: 10px 0 6px; }
+  .idx-iv-sub { color: var(--text-secondary); font-size: 1.02rem; line-height: 1.6; max-width: 62ch; margin: 0; }
+  .idx-iv-all { color: var(--accent); font-weight: 600; font-size: 0.92rem; text-decoration: none; white-space: nowrap; }
+  .idx-iv-all:hover { text-decoration: underline; }
+  .idx-iv-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 1000px) { .idx-iv-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px) { .idx-iv-grid { grid-template-columns: 1fr; } }
+  .idx-iv-card { display: block; position: relative; border: 1px solid var(--border-strong); border-radius: 14px; overflow: hidden; background: var(--surface); text-decoration: none; transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s; }
+  .idx-iv-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35); text-decoration: none; }
+  .idx-iv-shot { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top center; border-bottom: 1px solid var(--border); background: var(--bg); }
+  .idx-iv-body { padding: 0.9rem 1rem 1.1rem; }
+  .idx-iv-t { font: 700 1.02rem/1.2 var(--font); color: var(--text-primary); }
+  .idx-iv-d { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; margin-top: 0.35rem; }
+  .idx-iv-new { position: absolute; top: 0.7rem; right: 0.7rem; z-index: 1; font: 700 0.56rem/1 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; background: #22c55e; color: #042010; padding: 4px 7px; border-radius: 999px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45); }
+  .idx-iv-card.seen .idx-iv-new { display: none; }   /* badge clears once opened (localStorage aiwiki.seen-new), shared with the Interactive overview */
+</style>
+{{ $ivs := slice
+  (dict "u" "/interactive/galaxy/"          "t" "Galaxy"          "key" "iv-galaxy"   "img" "/img/interactive/galaxy.jpeg"          "d" "Every domain a planet, every article a star, linked by how the wiki connects.")
+  (dict "u" "/interactive/timeline/"        "t" "Timeline"        "key" "iv-timeline" "img" "/img/interactive/timeline.jpeg"        "d" "The history of computing, from the abacus to agentic systems, every milestone sourced.")
+  (dict "u" "/interactive/knowledge-graph/" "t" "Knowledge Graph" "key" "iv-kg"       "img" "/img/interactive/knowledge-graph.jpeg" "d" "AI concepts and how they connect: what to learn first and what builds on it.")
+  (dict "u" "/interactive/list/"            "t" "List"            "key" "iv-list"     "img" "/img/interactive/list.jpeg"            "d" "A flat, searchable list of every concept and article, grouped by domain.") }}
+<section class="idx-iv">
+  <div class="bz-container">
+    <div class="idx-iv-head">
+      <div>
+        <span class="idx-iv-eyebrow"><span class="idx-iv-tag">New</span> Interactive</span>
+        <h2 class="idx-iv-h2">Explore the wiki, visually</h2>
+        <p class="idx-iv-sub">A new way to learn: every concept, tool, and milestone as a connected map you can pan, filter, and follow. Pick a view and start exploring.</p>
+      </div>
+      <a href="{{ "/interactive/" | relURL }}" class="idx-iv-all">All interactive views &rarr;</a>
+    </div>
+    <div class="idx-iv-grid">
+      {{ range $ivs }}
+      <a class="idx-iv-card" href="{{ .u | relURL }}" data-newkey="{{ .key }}">
+        <span class="idx-iv-new">New</span>
+        <img class="idx-iv-shot" src="{{ .img | relURL }}" alt="Preview of the {{ .t }} interactive view" loading="lazy" width="1280" height="800">
+        <div class="idx-iv-body">
+          <div class="idx-iv-t">{{ .t }}</div>
+          <div class="idx-iv-d">{{ .d }}</div>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
 <!-- BROWSE: wiki-sections accordion navigator (same as on section pages) -->
 <section class="idx-browse">
   <div class="bz-container idx-browse-inner">
@@ -78,7 +231,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
               Case Patterns
             </a>
-            <a href="{{ "/search/?q=rag+systems" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+            <a href="{{ "/search/?q=rag+systems" | relURL }}" rel="nofollow" class="idx-stack-chip idx-stack-chip--link">
               <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
               RAG Search
             </a>
@@ -90,7 +243,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
               Chatbots
             </a>
-            <a href="{{ "/search/?q=dashboard" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+            <a href="{{ "/search/?q=dashboard" | relURL }}" rel="nofollow" class="idx-stack-chip idx-stack-chip--link">
               <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
               Dashboards
             </a>
@@ -123,11 +276,11 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
               Guides
             </a>
-            <a href="{{ "/search/?q=prompt+engineering" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+            <a href="{{ "/search/?q=prompt+engineering" | relURL }}" rel="nofollow" class="idx-stack-chip idx-stack-chip--link">
               <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
               Prompt Engineering
             </a>
-            <a href="{{ "/search/?q=agents" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+            <a href="{{ "/search/?q=agents" | relURL }}" rel="nofollow" class="idx-stack-chip idx-stack-chip--link">
               <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
               Agentic Loops
             </a>
@@ -172,7 +325,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
               Foundation Models
             </a>
-            <a href="{{ "/search/?q=embeddings" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
+            <a href="{{ "/search/?q=embeddings" | relURL }}" rel="nofollow" class="idx-stack-chip idx-stack-chip--link">
               <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
               Embeddings
             </a>
@@ -585,27 +738,6 @@
   </div>
 </section>
 
-<!-- WHAT JUST HAPPENED (news) -->
-{{ $news := where .Site.RegularPages "Section" "news" }}
-{{ if $news }}
-<section class="idx-news">
-  <div class="bz-container">
-    <div class="idx-news-head">
-      <p class="bz-section-label">What just happened</p>
-      <a href="{{ "/news/" | relURL }}" class="idx-news-all">All news and updates &rarr;</a>
-    </div>
-    <div class="idx-news-grid">
-      {{ range first 4 ($news.ByDate.Reverse) }}
-      <a href="{{ .RelPermalink }}" class="idx-news-card">
-        <span class="idx-news-date">{{ .Date.Format "2 Jan 2006" }}</span>
-        <span class="idx-news-title">{{ .Title }}</span>
-        <span class="idx-news-desc">{{ .Description | truncate 120 }}</span>
-      </a>
-      {{ end }}
-    </div>
-  </div>
-</section>
-{{ end }}
 
 <!-- SECTION DIVIDER 04 -->
 <div class="bz-section-divider">
@@ -682,30 +814,30 @@
       </a>
     </div>
     <div class="idx-topic-cloud">
-      <a href="{{ "/search/?q=rag" | relURL }}" class="idx-topic-tag idx-topic-tag--primary">RAG</a>
-      <a href="{{ "/search/?q=llm" | relURL }}" class="idx-topic-tag idx-topic-tag--primary">LLMs</a>
-      <a href="{{ "/search/?q=agents" | relURL }}" class="idx-topic-tag idx-topic-tag--primary">AI Agents</a>
-      <a href="{{ "/search/?q=mlops" | relURL }}" class="idx-topic-tag idx-topic-tag--primary">MLOps</a>
-      <a href="{{ "/search/?q=aws" | relURL }}" class="idx-topic-tag idx-topic-tag--primary">AWS</a>
-      <a href="{{ "/search/?q=vector+database" | relURL }}" class="idx-topic-tag">Vector Databases</a>
-      <a href="{{ "/search/?q=embeddings" | relURL }}" class="idx-topic-tag">Embeddings</a>
-      <a href="{{ "/search/?q=prompt+engineering" | relURL }}" class="idx-topic-tag">Prompt Engineering</a>
-      <a href="{{ "/search/?q=fine+tuning" | relURL }}" class="idx-topic-tag">Fine-tuning</a>
-      <a href="{{ "/search/?q=eu+ai+act" | relURL }}" class="idx-topic-tag">EU AI Act</a>
-      <a href="{{ "/search/?q=data+pipeline" | relURL }}" class="idx-topic-tag">Data Pipelines</a>
-      <a href="{{ "/search/?q=monitoring" | relURL }}" class="idx-topic-tag">Monitoring</a>
-      <a href="{{ "/search/?q=fastapi" | relURL }}" class="idx-topic-tag">FastAPI</a>
-      <a href="{{ "/search/?q=bedrock" | relURL }}" class="idx-topic-tag">AWS Bedrock</a>
-      <a href="{{ "/search/?q=claude" | relURL }}" class="idx-topic-tag">Claude</a>
-      <a href="{{ "/search/?q=testing" | relURL }}" class="idx-topic-tag">Testing</a>
-      <a href="{{ "/search/?q=security" | relURL }}" class="idx-topic-tag">Security</a>
-      <a href="{{ "/search/?q=iso+42001" | relURL }}" class="idx-topic-tag">ISO 42001</a>
-      <a href="{{ "/search/?q=langchain" | relURL }}" class="idx-topic-tag">LangChain</a>
-      <a href="{{ "/search/?q=kubernetes" | relURL }}" class="idx-topic-tag">Kubernetes</a>
-      <a href="{{ "/search/?q=transformer" | relURL }}" class="idx-topic-tag">Transformers</a>
-      <a href="{{ "/search/?q=inference" | relURL }}" class="idx-topic-tag">Inference</a>
-      <a href="{{ "/search/?q=cost" | relURL }}" class="idx-topic-tag">Cost Optimisation</a>
-      <a href="{{ "/search/?q=architecture" | relURL }}" class="idx-topic-tag">Architecture</a>
+      <a href="{{ "/search/?q=rag" | relURL }}" rel="nofollow" class="idx-topic-tag idx-topic-tag--primary">RAG</a>
+      <a href="{{ "/search/?q=llm" | relURL }}" rel="nofollow" class="idx-topic-tag idx-topic-tag--primary">LLMs</a>
+      <a href="{{ "/search/?q=agents" | relURL }}" rel="nofollow" class="idx-topic-tag idx-topic-tag--primary">AI Agents</a>
+      <a href="{{ "/search/?q=mlops" | relURL }}" rel="nofollow" class="idx-topic-tag idx-topic-tag--primary">MLOps</a>
+      <a href="{{ "/search/?q=aws" | relURL }}" rel="nofollow" class="idx-topic-tag idx-topic-tag--primary">AWS</a>
+      <a href="{{ "/search/?q=vector+database" | relURL }}" rel="nofollow" class="idx-topic-tag">Vector Databases</a>
+      <a href="{{ "/search/?q=embeddings" | relURL }}" rel="nofollow" class="idx-topic-tag">Embeddings</a>
+      <a href="{{ "/search/?q=prompt+engineering" | relURL }}" rel="nofollow" class="idx-topic-tag">Prompt Engineering</a>
+      <a href="{{ "/search/?q=fine+tuning" | relURL }}" rel="nofollow" class="idx-topic-tag">Fine-tuning</a>
+      <a href="{{ "/search/?q=eu+ai+act" | relURL }}" rel="nofollow" class="idx-topic-tag">EU AI Act</a>
+      <a href="{{ "/search/?q=data+pipeline" | relURL }}" rel="nofollow" class="idx-topic-tag">Data Pipelines</a>
+      <a href="{{ "/search/?q=monitoring" | relURL }}" rel="nofollow" class="idx-topic-tag">Monitoring</a>
+      <a href="{{ "/search/?q=fastapi" | relURL }}" rel="nofollow" class="idx-topic-tag">FastAPI</a>
+      <a href="{{ "/search/?q=bedrock" | relURL }}" rel="nofollow" class="idx-topic-tag">AWS Bedrock</a>
+      <a href="{{ "/search/?q=claude" | relURL }}" rel="nofollow" class="idx-topic-tag">Claude</a>
+      <a href="{{ "/search/?q=testing" | relURL }}" rel="nofollow" class="idx-topic-tag">Testing</a>
+      <a href="{{ "/search/?q=security" | relURL }}" rel="nofollow" class="idx-topic-tag">Security</a>
+      <a href="{{ "/search/?q=iso+42001" | relURL }}" rel="nofollow" class="idx-topic-tag">ISO 42001</a>
+      <a href="{{ "/search/?q=langchain" | relURL }}" rel="nofollow" class="idx-topic-tag">LangChain</a>
+      <a href="{{ "/search/?q=kubernetes" | relURL }}" rel="nofollow" class="idx-topic-tag">Kubernetes</a>
+      <a href="{{ "/search/?q=transformer" | relURL }}" rel="nofollow" class="idx-topic-tag">Transformers</a>
+      <a href="{{ "/search/?q=inference" | relURL }}" rel="nofollow" class="idx-topic-tag">Inference</a>
+      <a href="{{ "/search/?q=cost" | relURL }}" rel="nofollow" class="idx-topic-tag">Cost Optimisation</a>
+      <a href="{{ "/search/?q=architecture" | relURL }}" rel="nofollow" class="idx-topic-tag">Architecture</a>
     </div>
   </div>
 </section>
