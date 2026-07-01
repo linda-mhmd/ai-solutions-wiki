@@ -114,32 +114,23 @@ Output goes to `public/`.
 
 ---
 
-## Contributing
+## Community and Contributing
 
-Contributions are welcome. Articles get better when people who have built production systems add what they know.
+This is a personal hobby project, and for now I maintain it on my own. That shapes how getting involved works.
 
-**What to contribute:**
+**I would love to hear from you.** Reach out, ask questions, tell me what is wrong, suggest a topic, or just talk about the ideas here. That is the way I most enjoy people getting involved:
 
-- Corrections to technical inaccuracies
-- New articles on topics that are missing
-- Cross-links between related articles that should be connected
-- References to original papers, official documentation, or whitepapers
-- Real examples that make abstract concepts concrete
+- **[Book a free call](https://outlook.office.com/book/Letstalk1@lindamohamed.com/)** - the easiest way to talk to me directly
+- **[LinkedIn](https://www.linkedin.com/in/linda-mohamed/)** - send me a message
+- **[lindamohamed.com](https://www.lindamohamed.com)** - consulting, speaking, and advisory
 
-**How to contribute:**
+**Please do not open a pull request without talking to me first.** I am the only maintainer, this is a hobby, and I cannot review a stream of unsolicited pull requests without it becoming unmanageable. Unsolicited PRs will most likely be closed, with thanks and no hard feelings. If you would like to help with something specific, reach out and let us talk about it.
 
-1. Fork the repository
-2. Create or edit an article in `content/`
-3. Use the front matter format from an existing article (title, description, date, categories, tags, related)
-4. Submit a pull request
+**Found a factual error?** That I always want to know about. Open a [content error report](../../issues/new/choose) or just message me. A wrong date, a misattributed paper, a broken link: tell me and I will fix it.
 
-**Article standards:**
+**Want to build on it?** You are welcome to fork the project and adapt it under its [license](LICENSE.md).
 
-- No filler language ("revolutionizing", "cutting-edge", "seamlessly"). State what something does.
-- Version numbers and API details where relevant. Readers need specifics, not generalities.
-- Cross-reference related articles in the `related` field. The wiki should be browsable.
-- Cite the source. If an approach comes from a paper, whitepaper, or official documentation, link to it.
-- Acknowledge limitations. An article that says something works in all cases is probably wrong.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the full picture.
 
 ---
 

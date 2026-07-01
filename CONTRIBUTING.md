@@ -1,93 +1,40 @@
-# Contributing to AI Solutions Wiki
+# Community Guidelines
 
-AI Solutions Wiki is a community knowledge base. Contributions of all kinds are welcome: new articles, corrections, deeper citations, and real-world solution examples.
+Thank you for your interest in AI Solutions Wiki. Before anything else, the important context: this is a personal hobby project. I build and maintain it on my own, in my own time, and I pay for it myself. That spirit shapes how you can get involved.
 
-## How to Contribute
+## I would love to hear from you
 
-### Add or improve a solution article
+The best thing you can do is reach out and talk to me. Ask a question, tell me what is wrong, suggest a topic, share how you are using the wiki, or just say hello. I genuinely want the conversation, and it is the way I most enjoy people getting involved.
 
-Solution articles live in `content/solutions/<industry>/`. Each article documents a specific AI use case with:
-- The business problem
-- The AI approach and architecture
-- AWS / Azure / GCP implementation options
-- Where the approach works well and where it breaks
+- **[Book a free call](https://outlook.office.com/book/Letstalk1@lindamohamed.com/)** - the easiest way to talk to me directly
+- **[Message me on LinkedIn](https://www.linkedin.com/in/linda-mohamed/)** - questions, ideas, or feedback
+- **[lindamohamed.com](https://www.lindamohamed.com)** - consulting, speaking, workshops, and advisory
 
-To add a solution:
-1. Fork the repository
-2. Create a new `.md` file under the appropriate industry folder
-3. Follow the frontmatter structure from an existing solution article
-4. Submit a pull request
+## Why I am not taking direct contributions right now
 
-### Improve a tool or framework article
+I am the only maintainer, and this is a hobby rather than a staffed project. If everyone who wanted to help opened a pull request, I would not be able to review them with the care the content deserves, and the accuracy I care about would slip. So for now I keep the editing in one pair of hands. This keeps the wiki coherent and lets me stand behind every page.
 
-Tool articles live in `content/tools/`. You can:
-- Add missing `alternatives:` frontmatter (open-source, AWS, Azure, GCP alternatives)
-- Add `solutions:` frontmatter linking to solution articles that use this tool
-- Expand the article content with additional use cases or configuration examples
-- Add a `## Sources` section with primary citations
+**Please do not open a pull request without talking to me first.** Unsolicited pull requests will most likely be closed, with thanks and no hard feelings. This is not about the quality of your work. It is about what one person can realistically keep up with.
 
-### Add a glossary definition
+If there is something specific you would love to contribute, reach out first and let us talk about it. I am open to it. I just want it to start as a conversation rather than a queue I cannot keep up with.
 
-Glossary articles live in `content/glossary/`. Good additions:
-- Foundational ML/AI/CS terms that lack proper citation to the original paper
-- Practical guidance for technical decision-makers
-- Cross-references (`related:` frontmatter) to related terms and guides
+## Found a factual error?
 
-### Fix content errors
+This I always want to know about, because accuracy is the whole point of the project. A wrong date, a misattributed paper, a broken link, an outdated tool name: please tell me.
 
-If you find an inaccuracy (a wrong date, misattributed paper, or factually incorrect technical claim), please open a pull request with a correction and a source citation.
+- Open a [content error report](../../issues/new/choose), or
+- Message me through any of the channels above.
 
-## Frontmatter Reference
+A source for the correction is very welcome, so I can verify and fix it quickly.
 
-### Tool articles
+## Using and forking the wiki
 
-```yaml
----
-title: "Tool Name - Short Description"
-description: "One sentence describing what this tool does."
-date: YYYY-MM-DD
-categories: [Tools]
-tags: [tag1, tag2]
-related:
-  - tools/related-tool
-  - guides/related-guide
-alternatives:
-  open_source:
-    - tools/open-source-alternative
-  aws: tools/aws-equivalent
-  azure: tools/azure-equivalent
-  gcp: tools/gcp-equivalent
-solutions:
-  - solutions/industry/solution-article
----
-```
+You are welcome to read, share, and build on the project under its [license](LICENSE.md). If you fork it and make something good, I would love to hear about that too.
 
-### Solution articles
+## A note on tone
 
-```yaml
----
-title: "What This Solution Does"
-description: "Industry + problem + AI approach in one sentence."
-date: YYYY-MM-DD
-categories: [Solutions]
-tags: [tag1, tag2]
-industries: [finance]
-tools: [amazon-bedrock, langchain]
-related:
-  - guides/building-rag-systems
-  - tools/amazon-bedrock
----
-```
+Everything here aims to be accurate, sourced, and free of marketing language. If you reach out about the content, that is the bar I am holding it to, and the kind of feedback that helps most.
 
-## Style Guide
+Thank you for being here.
 
-- Write for a technically literate audience (software engineers, architects, technical leads)
-- Cite primary sources (original papers, official documentation, RFCs), not blog posts about papers
-- Use Wikipedia-style encyclopedic tone: accurate, neutral, no marketing language
-- Include a `## Sources and Further Reading` section with numbered citations
-- Link to related wiki articles using relative paths in `related:` frontmatter
-- Accuracy over comprehensiveness: a shorter correct article is better than a longer inaccurate one
-
-## Getting Help
-
-Open a GitHub issue with your question or suggestion. For significant structural changes, open an issue first before submitting a pull request.
+Linda Mohamed

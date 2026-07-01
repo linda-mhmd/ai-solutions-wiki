@@ -1,23 +1,18 @@
-## What does this PR do?
+<!--
+  Please read this before opening the pull request.
+-->
 
-<!-- One sentence summary -->
+## Before you open this pull request
 
-## Type of change
+Thank you for wanting to contribute. Please read this first.
 
-- [ ] Content correction (factual fix, broken link, typo)
-- [ ] New article
-- [ ] Article expansion or improvement
-- [ ] Cross-links or frontmatter updates
-- [ ] Build / config change
+**AI Solutions Wiki is a solo-maintained hobby project, and I am not accepting unsolicited pull requests right now.** I cannot review a stream of pull requests on my own without it becoming unmanageable, so unsolicited PRs will most likely be closed, with thanks and no hard feelings.
 
-## Checklist
+**Please reach out first instead, so we can talk:**
 
-- [ ] Article follows the style guide (no marketing language, encyclopedic tone)
-- [ ] Sources cited in a `## Sources and Further Reading` section
-- [ ] Frontmatter is complete (title, description, date, categories, tags)
-- [ ] Related articles linked in `related:` frontmatter
-- [ ] No em-dashes (use plain hyphens or colons instead)
+- Book a free call: https://outlook.office.com/book/Letstalk1@lindamohamed.com/
+- LinkedIn: https://www.linkedin.com/in/linda-mohamed/
 
-## Source for technical claims
+**Found a factual error** (a wrong date, broken link, or misattributed source)? Please open an issue rather than a pull request, and include a source if you can.
 
-<!-- If this adds or changes technical content, link to the primary source (paper, official docs, RFC) -->
+See [CONTRIBUTING.md](../CONTRIBUTING.md) for the full picture. Thank you for understanding.

@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Talk to me (book a free call)
+    url: https://outlook.office.com/book/Letstalk1@lindamohamed.com/
+    about: The best way to ask a question, suggest a topic, or talk about getting involved. This is a solo hobby project, so I prefer a real conversation over issues and pull requests.
+  - name: Message me on LinkedIn
+    url: https://www.linkedin.com/in/linda-mohamed/
+    about: Reach out directly with questions, ideas, or feedback.
+  - name: Workshops, consulting, and advisory
+    url: https://www.lindamohamed.com
+    about: Working with teams on production AI, speaking, and advisory.

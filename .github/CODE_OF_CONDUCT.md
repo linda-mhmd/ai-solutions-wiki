@@ -2,7 +2,7 @@
 
 ## Our Pledge
 
-Contributors and maintainers of the AI Solutions Wiki commit to making participation a respectful, harassment-free experience for everyone, regardless of background or experience level.
+Everyone who interacts with the AI Solutions Wiki, together with its maintainer, commits to making participation a respectful, harassment-free experience for everyone, regardless of background or experience level.
 
 ## Our Standards
 
@@ -21,7 +21,7 @@ Unacceptable behavior:
 
 ## Scope
 
-This code of conduct applies to contributions made via GitHub - pull requests, issues, and discussions.
+This code of conduct applies to all interactions with the project: issues, any pull requests, and direct messages about the wiki.
 
 ## Enforcement
 
