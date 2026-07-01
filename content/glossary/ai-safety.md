@@ -46,3 +46,8 @@ AI safety requires organizational commitment beyond technical measures. Safety r
 - Ouyang, L., et al. (2022). Training language models to follow instructions with human feedback. *NeurIPS 2022*. (InstructGPT/RLHF; alignment via human preference.)
 - Bai, Y., et al. (2022). Constitutional AI: Harmlessness from AI feedback. *arXiv:2212.08073*. (Anthropic's Constitutional AI method.)
 - National Institute of Standards and Technology. (2023). *AI Risk Management Framework (AI RMF 1.0)*. NIST. (US government framework for AI safety and risk management.)
+
+## Further reading
+
+- [How AI models are evaluated](/guides/how-ai-models-are-evaluated/): how red teaming, benchmarks, and safety testing combine into a model evaluation lifecycle.
+- [AI benchmark](/glossary/ai-benchmark/): standardized tests used to measure model capability and track safety-relevant behavior over time.

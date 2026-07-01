@@ -39,3 +39,8 @@ Organizations that lack resources for a dedicated red team can adopt red teaming
 - Ganguli, D., et al. (2022). Red teaming language models to reduce harms: Methods, scaling behaviors, and lessons learned. *arXiv:2209.07858*. (Anthropic's red teaming methodology and findings.)
 - National Institute of Standards and Technology. (2023). *NIST AI Risk Management Framework (AI RMF 1.0)*. NIST. Section 3.6 covers adversarial testing.
 - The White House. (2023). *Executive Order on the Safe, Secure, and Trustworthy Development and Use of Artificial Intelligence* (EO 14110). Directs NIST red teaming guidelines.
+
+## Further reading
+
+- [How AI models are evaluated](/guides/how-ai-models-are-evaluated/): the end-to-end evaluation lifecycle, showing how red team work connects to benchmarking and pre-release safety testing.
+- [AI benchmark](/glossary/ai-benchmark/): standardized capability tests that sit alongside adversarial red teaming in a full evaluation program.

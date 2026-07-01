@@ -22,6 +22,15 @@ Adversarial machine learning studies how attackers can manipulate ML systems and
 
 **Model extraction attacks** use query access to a deployed model to train a surrogate model that replicates its behavior. An attacker sends carefully chosen inputs, collects predictions, and trains a copy. This threatens proprietary models, as the extracted model can be used to generate adversarial examples or to avoid API costs.
 
+## Adversarial ML in modern AI systems
+
+Classic adversarial ML grew up around image and text classifiers. Large language models, retrieval systems, and agents add new attack surfaces that overlap with it but are not identical.
+
+- **Prompt injection** is related to, but distinct from, classic evasion. It manipulates a model through natural-language instructions rather than optimized numeric perturbations. See [prompt injection](/glossary/prompt-injection/).
+- **Agent and tool attacks** target what a model can do, not only what it says. When a model can call tools, browse, or run code, an attacker who steers it can reach the systems around it.
+- **Retrieval poisoning** is a poisoning attack aimed at retrieval-augmented generation: planting adversarial content in a knowledge base so the model retrieves and repeats it. That makes [RAG evaluation](/glossary/rag-evaluation/) a security concern, not only a quality one.
+- **Benchmark robustness is not production robustness.** A model that resists a fixed adversarial test set can still fail against novel, adaptive attacks in the wild. Treat a passing robustness score as a floor, not a guarantee.
+
 ## Why It Matters
 
 As ML systems are deployed in safety-critical and security-sensitive contexts (autonomous driving, malware detection, financial fraud prevention, content moderation), adversarial vulnerabilities become a direct business and safety risk. Understanding these threats is essential for risk assessment and compliance, particularly as AI regulations increasingly require robustness testing.
@@ -38,3 +47,7 @@ Defense starts with threat modeling: identify which attack types are realistic f
 - Madry, A., et al. (2018). Towards deep learning models resistant to adversarial attacks. *ICLR 2018*. (PGD adversarial training; widely used robust training standard.)
 - Chen, P.Y., et al. (2017). ZOO: Zeroth Order Optimization based black-box attacks. *ACM CCS Workshop on AISec 2017*.
 - Tramèr, F., et al. (2016). Stealing machine learning models via prediction APIs. *USENIX Security 2016*. (Model extraction attacks.)
+
+## Further reading
+
+- [How AI models are evaluated](/guides/how-ai-models-are-evaluated/): where adversarial robustness testing and red teaming fit in the broader model evaluation lifecycle.

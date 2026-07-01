@@ -23,13 +23,19 @@ The term comes from military and cybersecurity practice, where a red team simula
 
 **Harmful content generation** - Attempts to make the model produce dangerous, illegal, or toxic content. This includes instructions for weapons, exploitation, harassment, and other prohibited content categories.
 
-**Prompt injection** - Techniques that override the system prompt or safety instructions. Jailbreaks, role-playing attacks, and instruction smuggling that cause the model to ignore its guardrails.
+**Prompt injection** - Techniques that attempt to influence or bypass the model's intended instructions. Injection does not literally overwrite the system prompt. It smuggles in competing instructions through jailbreaks, role-playing attacks, or instruction smuggling, so the model follows the attacker rather than its guardrails.
 
-**Information leakage** - Attempts to extract the system prompt, training data, personal information, or proprietary information from the model's responses.
+**System prompt extraction** - Attempts to reveal the hidden system prompt or developer instructions behind the model.
+
+**Sensitive data leakage** - Attempts to extract training data, personal information, or proprietary information from the model's responses.
 
 **Bias and discrimination** - Probing for differential treatment across demographic groups, stereotyping, or discriminatory outputs.
 
 **Factual reliability** - Testing whether the model fabricates information, invents citations, or presents speculation as fact in domain-specific contexts.
+
+## Automated and agentic red teaming
+
+Red teaming is no longer only humans typing adversarial prompts. It is increasingly automated, continuous, and agentic. Language models now generate adversarial prompts at scale, and newer systems let one model autonomously probe another, finding and exploiting weaknesses without a person driving each step. This shift, AI systems red teaming other AI systems, is why evaluation is moving toward dynamic, always-on testing rather than a single pre-release review. Benchmarks such as AIRTBench measure exactly this autonomous red-teaming capability. See [how AI models are evaluated](/guides/how-ai-models-are-evaluated/) and the [AI benchmark](/glossary/ai-benchmark/) entry for how these pieces fit together.
 
 ## Running a Red Team Exercise
 
@@ -46,3 +52,8 @@ Red teaming should not be a one-time event. Run red team exercises before major 
 - Perez, E., et al. (2022). Red teaming language models with language models. *arXiv:2202.03286*. (Automated red teaming using LLMs to generate adversarial prompts at scale; foundational methodology paper.)
 - Ganguli, D., et al. (2022). Red teaming language models to reduce harms: Methods, scaling behaviors, and lessons learned. *arXiv:2209.07858*. (Anthropic's red teaming methodology; documents adversarial attack categories and mitigation findings.)
 - Perez, F., & Ribeiro, I. (2022). Ignore previous prompt: Attack techniques for language models. *NeurIPS 2022 ML Safety Workshop*. (Prompt injection attacks; the primary red teaming threat vector for LLM-based AI systems.)
+
+## Further reading
+
+- [How AI models are evaluated](/guides/how-ai-models-are-evaluated/): where red teaming fits in the wider model evaluation lifecycle, alongside benchmarks and safety testing.
+- [AI benchmark](/glossary/ai-benchmark/): standardized tests that complement red teaming by measuring capability rather than adversarial failure modes.
