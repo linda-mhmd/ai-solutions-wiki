@@ -56,4 +56,19 @@
     if (learned[p]) a.classList.add('is-learned');
     else if (visited[p] && p !== path) a.classList.add('is-visited');
   });
+
+  // "New" / "Updated" badges clear once you have read the target. A "New" badge clears on any read
+  // (you have seen it; the exact time does not matter, which also avoids day-granular date edge cases).
+  // An "Updated" badge clears only if you read it at or after the update, so a page that changed since
+  // your last visit shows "Updated" again. A 12h grace covers reads near the midnight-stamped date.
+  document.querySelectorAll('.sl-card-new[data-new-ts]').forEach(function (badge) {
+    var a = badge.closest('a[href^="/"]');
+    if (!a) return;
+    var p = a.getAttribute('href').replace(/\/+$/, '/');
+    var seenAt = visited[p];
+    if (!seenAt) return;
+    if (!badge.classList.contains('sl-card-new--upd')) { badge.remove(); return; }
+    var changed = parseInt(badge.getAttribute('data-new-ts'), 10) * 1000;
+    if (seenAt >= changed - 43200000) badge.remove();
+  });
 })();

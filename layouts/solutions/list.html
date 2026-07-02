@@ -1,51 +1,62 @@
 {{ define "main" }}
 
 {{ $sections := .Sections }}
+{{ $count := len $sections }}
 
-<section class="hub-hero">
+<section class="sl-hero">
   <div class="bz-container">
     {{ partial "breadcrumbs.html" . }}
-    <h1 class="hub-h1">{{ .Title }}</h1>
-    {{ with .Description }}<p class="hub-desc">{{ . }}</p>{{ end }}
-  </div>
-</section>
-
-<section class="hub-section">
-  <div class="bz-container">
-
-    {{ with .Content }}
-    <div class="article-body sl-intro-body" style="margin-bottom:32px">{{ . }}</div>
-    {{ end }}
-
-    <div class="hub-audience-grid">
-      {{ range $sections.ByTitle }}
-      {{ $img  := .Params.image }}
-      {{ $alt  := .Params.image_alt | default .Title }}
-      {{ $desc := .Description | default "" }}
-      <a href="{{ .RelPermalink }}" class="hub-audience-card">
-        {{ if $img }}
-        <figure class="hub-audience-figure" style="margin:0">
-          <img src="{{ $img }}" alt="{{ $alt }}" loading="lazy">
-        </figure>
-        {{ end }}
-        <div class="hub-audience-body">
-          <span class="hub-audience-role">{{ .Title }}</span>
-          {{ if $desc }}
-          <p class="hub-audience-desc">{{ $desc | truncate 120 }}</p>
-          {{ end }}
-          <span class="hub-audience-cta">
-            {{ len .Pages }} use cases →
-          </span>
-        </div>
-      </a>
-      {{ end }}
+    <div class="sl-hero-inner">
+      <h1 class="sl-h1">{{ .Title }}</h1>
+      {{ with .Description }}<p class="sl-desc">{{ . }}</p>{{ end }}
+      <div class="sl-hero-meta">
+        <span class="sl-hero-count">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg>
+          {{ $count }} {{ if eq $count 1 }}industry{{ else }}industries{{ end }}
+        </span>
+      </div>
     </div>
-
   </div>
 </section>
 
-<div class="bz-container">
+<div class="bz-container sl-body">
+
+  {{/* Only show an intro if it is a real paragraph, not a one-line paraphrase of the description. */}}
+  {{ if gt (len .RawContent) 140 }}
+  <div class="article-body sl-intro-body">{{ .Content }}</div>
+  {{ end }}
+
+  <div class="sl-grid-header">
+    <span class="bz-section-label">All industries</span>
+  </div>
+
+  {{ if $sections }}
+  <div class="sl-article-grid" data-pagefind-ignore>
+    {{ range $sections.ByTitle }}
+    {{ $n := len .Pages }}
+    <a href="{{ .RelPermalink }}" class="sl-card{{ if .Params.image }} sl-card--visual{{ end }}">
+      {{ if .Params.image }}
+      <img class="sl-card-img" src="{{ .Params.image }}" alt="{{ .Params.image_alt | default .Title }}" loading="lazy">
+      <div class="sl-card-body">
+      {{ end }}
+        <span class="sl-card-title">{{ .Title }}</span>
+        {{ with .Description }}
+        <span class="sl-card-desc">{{ . | truncate 100 }}</span>
+        {{ end }}
+        <div class="sl-card-footer">
+          <span class="sl-card-count">{{ $n }} use {{ if eq $n 1 }}case{{ else }}cases{{ end }}</span>
+          <span class="sl-card-arrow">→</span>
+        </div>
+      {{ if .Params.image }}</div>{{ end }}
+    </a>
+    {{ end }}
+  </div>
+  {{ else }}
+  <div class="sl-empty"><p>Industries coming soon.</p></div>
+  {{ end }}
+
   {{ partial "cta.html" . }}
+
 </div>
 
 {{ end }}

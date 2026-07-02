@@ -33,8 +33,10 @@
 <!-- BODY: full-width grid (wiki sections live in the header now) -->
 <div class="bz-container sl-body">
 
-    {{ with .Content }}
-    <div class="article-body sl-intro-body">{{ . }}</div>
+    {{/* Render an intro only when the section body is a real paragraph, not a one-line paraphrase
+         of the hero description (which would float orphaned above the grid). */}}
+    {{ if gt (len .RawContent) 140 }}
+    <div class="article-body sl-intro-body">{{ .Content }}</div>
     {{ end }}
 
     <!-- Article grid -->
@@ -45,11 +47,20 @@
       <span class="sl-grid-count">{{ $count }} total</span>
     </div>
 
-    <div class="sl-article-grid" data-pagefind-ignore>
-      {{/* Reference sections read best alphabetically; news must lead with the newest item. */}}
-      {{ $ordered := .Pages.ByTitle }}
-      {{ if eq .Section "news" }}{{ $ordered = .Pages.ByDate.Reverse }}{{ end }}
-      {{ range $ordered }}{{ partial "card.html" . }}{{ end }}
+    <div class="sl-article-grid{{ if eq .Kind "section" }} sl-article-grid--single{{ end }}" data-pagefind-ignore>
+      {{/* News leads with the newest item. Other sections keep A-Z, but new and recently updated
+           pages float to the top (newest first) so fresh content is easy to find. */}}
+      {{ if eq .Section "news" }}
+        {{ range .Pages.ByDate.Reverse }}{{ partial "card.html" . }}{{ end }}
+      {{ else }}
+        {{ $fresh := slice }}{{ $rest := slice }}
+        {{ range .Pages.ByTitle }}
+          {{ $fr := partial "freshness.html" . }}
+          {{ if $fr.fresh }}{{ $fresh = $fresh | append (dict "page" . "ts" $fr.ts) }}{{ else }}{{ $rest = $rest | append . }}{{ end }}
+        {{ end }}
+        {{ range sort $fresh "ts" "desc" }}{{ partial "card.html" .page }}{{ end }}
+        {{ range $rest }}{{ partial "card.html" . }}{{ end }}
+      {{ end }}
     </div>
 
     {{ if gt $count 24 }}

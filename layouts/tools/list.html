@@ -1,5 +1,13 @@
 {{ define "main" }}
-{{ $tools := .Pages.ByTitle }}
+{{/* New and recently updated tools float to the top (newest first), then A-Z. */}}
+{{ $fresh := slice }}{{ $rest := slice }}
+{{ range .Pages.ByTitle }}
+  {{ $fr := partial "freshness.html" . }}
+  {{ if $fr.fresh }}{{ $fresh = $fresh | append (dict "page" . "ts" $fr.ts) }}{{ else }}{{ $rest = $rest | append . }}{{ end }}
+{{ end }}
+{{ $tools := slice }}
+{{ range sort $fresh "ts" "desc" }}{{ $tools = $tools | append .page }}{{ end }}
+{{ range $rest }}{{ $tools = $tools | append . }}{{ end }}
 {{ $total := len $tools }}
 {{/* tally derived facets */}}
 {{ $sc := newScratch }}
@@ -88,6 +96,7 @@
       {{ $icon := "" }}{{ if .File }}{{ $icon = partial "svc-icon-file.html" $slug }}{{ end }}
       {{ $updated := .Lastmod }}{{ with .Params.last_updated }}{{ $updated = (time.AsTime .) }}{{ end }}
       {{ $yr := now.Year }}{{ $uFmt := cond (eq $updated.Year $yr) "2 Jan" "2 Jan 2006" }}
+      {{ $fr := partial "freshness.html" . }}
       {{ $dead := in (slice "discontinued" "deprecated" "retiring" "existing-only" "renamed") $f.status }}
       <a href="{{ .RelPermalink }}" class="sl-card tg-card{{ if $icon }} has-icon{{ end }}"
          data-slug="{{ $slug }}" data-provider="{{ $f.provider }}" data-category="{{ $f.category }}" data-type="{{ $f.type }}"
@@ -98,7 +107,7 @@
         <div class="sl-card-head">
           {{ if $icon }}<span class="sl-card-icon {{ partial "darklogo-class.html" $icon }}">{{ partial "render-icon.html" (dict "res" $icon "class" "" "alt" "") }}</span>{{ end }}
           <span class="sl-card-headtext">
-            <span class="sl-card-name">{{ $name }}</span>
+            <span class="sl-card-name">{{ $name }}{{ if $fr.fresh }} <span class="sl-card-new{{ if $fr.upd }} sl-card-new--upd{{ end }}" data-new-ts="{{ $fr.ts }}">{{ $fr.label }}</span>{{ end }}</span>
             {{ with $sub }}<span class="sl-card-sub">{{ . }}</span>{{ end }}
           </span>
           {{ $pcode := dict "aws" "AWS" "azure" "Azure" "gcp" "GCP" "opensource" "OSS" "other" "" }}

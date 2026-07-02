@@ -4378,6 +4378,14 @@ a.idx-stat-block:hover .idx-stat-label {
   transform: translateX(2px);
 }
 
+/* Count shown in a card footer (e.g. "6 use cases") - uses the section colour */
+.sl-card-count {
+  font-size: 0.7rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  color: var(--primary);
+}
+
 /* Overview card (dark): gradient icon tile, name + descriptor, badge top-right, divider, dated footer */
 .sl-article-grid { gap: 16px; }
 .sl-card {
@@ -4420,6 +4428,10 @@ a.idx-stat-block:hover .idx-stat-label {
   color: var(--primary); background: color-mix(in srgb, var(--primary) 14%, transparent);
   border: 1px solid color-mix(in srgb, var(--primary) 28%, transparent);
 }
+/* Single-section list pages: the category badge just repeats the section name (and can overlap long
+   titles), so hide it and give the title full width. Kept on browse and taxonomy (mixed) pages. */
+.sl-article-grid--single .sl-card-badge { display: none; }
+.sl-article-grid--single .sl-card-headtext { padding-right: 8px; }
 .sl-card-foot {
   display: flex; align-items: center; gap: 9px; flex-wrap: wrap;
   margin-top: auto; padding-top: 13px; border-top: 1px solid var(--border);
@@ -4438,10 +4450,19 @@ a.idx-stat-block:hover .idx-stat-label {
 }
 
 /* Browse gallery: filter bar + per-section card colour */
-.xp-filter { display: flex; flex-direction: column; gap: 14px; margin: 0 0 24px; }
+/* Search + filter chips share one row when they fit (wide screens); the chip block wraps to its
+   own line below the search when it does not, and stacks fully on small screens. */
+/* Equal breathing room above and below the filter row: .sl-body already adds 8px on top, so 16px
+   here makes the top gap (8+16) match the 24px bottom gap. */
+.xp-filter { display: flex; flex-flow: row wrap; align-items: center; gap: 12px 16px; margin: 16px 0 24px; }
+.xp-filter .xp-search { flex: 0 1 280px; width: auto; }
 .xp-search { width: 100%; max-width: 440px; padding: 11px 15px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-primary); font-size: .95rem; font-family: var(--font); }
 .xp-search:focus { outline: none; border-color: var(--primary); }
-.xp-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.xp-chips { display: flex; flex-wrap: wrap; gap: 8px; flex: 1 1 auto; min-width: 0; }
+@media (max-width: 720px) {
+  .xp-filter { flex-direction: column; align-items: stretch; }
+  .xp-filter .xp-search { flex: none; width: 100%; }
+}
 .xp-chip { display: inline-flex; align-items: center; gap: 7px; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text-secondary); font: 600 .82rem/1 var(--font); cursor: pointer; transition: color .15s, border-color .15s, background .15s; }
 .xp-chip:hover { border-color: var(--border-strong); color: var(--text-primary); }
 .xp-chip.is-active { background: color-mix(in srgb, var(--primary) 16%, transparent); border-color: color-mix(in srgb, var(--primary) 42%, transparent); color: var(--primary); }
@@ -4500,6 +4521,12 @@ a.idx-stat-block:hover .idx-stat-label {
 .sl-card.is-learned { border-color: color-mix(in srgb, #3fb37f 45%, var(--border)); }
 .sl-card.is-learned .sl-card-foot::before { content: "Learned"; color: #3fb37f; font: 600 .68rem/1 var(--font-mono); letter-spacing: .04em; margin-right: 2px; }
 
+/* "New" / "Updated" badges on listing entries. Green = new, accent = updated. Placed inline next
+   to the title; cleared by visited.js once the target page has been read (see data-new-ts). */
+.sl-card-new { display: inline-block; font: 700 .55rem/1 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; background: #22c55e; color: #042010; padding: 2px 6px; border-radius: 999px; margin-left: 7px; vertical-align: middle; white-space: nowrap; }
+.sl-card-new--upd { background: var(--accent); color: #fff; }
+.gl-term-name .sl-card-new { font-size: .5rem; margin-left: 6px; }
+
 /* Basics: cinematic plant-video hero (from the AI Film Crew garden footage) */
 .basics-hero { position: relative; overflow: hidden; border-radius: 18px; margin: 14px 0 2rem; min-height: 320px; display: flex; align-items: flex-end; border: 1px solid var(--border); }
 .basics-hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
@@ -4528,7 +4555,7 @@ a.idx-stat-block:hover .idx-stat-label {
 .tg-stat[data-provider] { cursor: pointer; }
 .tg-stat.is-active { border-color: var(--text-muted); color: var(--text-primary); background: var(--surface-hover); }
 .tg-stat b { color: var(--text-primary); font-weight: 700; margin-right: 4px; }
-.tg-layout { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 28px; align-items: start; padding-bottom: 48px; }
+.tg-layout { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 28px; align-items: start; padding-top: 32px; padding-bottom: 48px; }
 .tg-rail { position: sticky; top: 78px; max-height: calc(100vh - 96px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; display: flex; flex-direction: column; gap: 20px; padding-right: 6px; }
 .tg-rail-group { display: flex; flex-direction: column; gap: 3px; }
 .tg-rail-title { font: 600 .64rem/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 5px; }

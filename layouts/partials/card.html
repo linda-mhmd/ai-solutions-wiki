@@ -9,6 +9,7 @@
 {{ $updated := $p.Lastmod }}{{ with $p.Params.last_updated }}{{ $updated = (time.AsTime .) }}{{ end }}
 {{ $icon := "" }}{{ if $p.File }}{{ $icon = partial "svc-icon-file.html" $p.File.BaseFileName }}{{ end }}
 {{ $yr := now.Year }}
+{{ $fr := partial "freshness.html" $p }}
 {{ $aFmt := cond (eq $p.Date.Year $yr) "2 Jan" "2 Jan 2006" }}
 {{ $uFmt := "2 Jan 2006" }}{{ if $updated }}{{ $uFmt = cond (eq $updated.Year $yr) "2 Jan" "2 Jan 2006" }}{{ end }}
 <a href="{{ $p.RelPermalink }}" class="sl-card{{ if $icon }} has-icon{{ end }}" data-section="{{ $p.Section }}" data-title="{{ $p.Title | lower }}"{{ with $p.Params.tags }} data-tags="{{ delimit . "," | lower }}"{{ end }}{{ with $p.Params.layer }} data-layer="{{ . }}"{{ end }}>
@@ -16,7 +17,7 @@
     {{ if $icon }}<span class="sl-card-icon {{ partial "darklogo-class.html" $icon }}">{{ partial "render-icon.html" (dict "res" $icon "class" "" "alt" "") }}</span>
     {{ else }}<span class="sl-card-icon sl-card-icon--section" aria-hidden="true">{{ partial "section-icon.html" $p.Section }}</span>{{ end }}
     <span class="sl-card-headtext">
-      <span class="sl-card-name">{{ $name }}</span>
+      <span class="sl-card-name">{{ $name }}{{ if $fr.fresh }} <span class="sl-card-new{{ if $fr.upd }} sl-card-new--upd{{ end }}" data-new-ts="{{ $fr.ts }}">{{ $fr.label }}</span>{{ end }}</span>
       {{ with $sub }}<span class="sl-card-sub">{{ . }}</span>{{ end }}
     </span>
     {{ with $cat }}<span class="sl-card-badge">{{ . }}</span>{{ end }}

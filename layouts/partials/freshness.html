@@ -1,0 +1,19 @@
+{{- /* Freshness of a page, for "New / Updated until read" badges and for sorting fresh content
+       to the top of a listing. enableGitInfo is off, so .Lastmod defaults to .Date unless the page
+       sets `lastmod` or `last_updated` in frontmatter. Window: site.Params.newWindowDays (default 30).
+       Returns a dict: fresh (bool), new (bool), upd (bool), ts (unix seconds of the relevant change),
+       label (string, "New" / "Updated" / ""). Works entirely in unix seconds to stay int64-clean. */ -}}
+{{- $p := . -}}
+{{- $win := 30 -}}
+{{- with site.Params.newWindowDays -}}{{- $win = . -}}{{- end -}}
+{{- $cut := sub now.Unix (mul (int $win) 86400) -}}
+{{- $added := $p.Date -}}
+{{- $upd := $p.Lastmod -}}
+{{- with $p.Params.last_updated -}}{{- $upd = time.AsTime . -}}{{- end -}}
+{{- $addedU := $added.Unix -}}
+{{- $updU := $upd.Unix -}}
+{{- $isNew := gt $addedU $cut -}}
+{{- $isUpd := and (not $isNew) (gt $updU $cut) (gt (sub $updU $addedU) 86400) -}}
+{{- $ts := $addedU -}}
+{{- if $isUpd -}}{{- $ts = $updU -}}{{- end -}}
+{{- return (dict "fresh" (or $isNew $isUpd) "new" $isNew "upd" $isUpd "ts" $ts "label" (cond $isNew "New" (cond $isUpd "Updated" ""))) -}}

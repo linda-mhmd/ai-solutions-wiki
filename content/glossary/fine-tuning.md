@@ -59,6 +59,15 @@ Fine-tuning continues the training process on a dataset of examples specific to 
 
 The most common mistake is going straight to fine-tuning when better prompting or RAG would have solved the problem at a fraction of the cost and complexity.
 
+## Further reading
+
+- [Fine-tuning LLMs: a practical guide](/guides/fine-tuning-llms-guide/): the hands-on how-to once you have decided to fine-tune.
+- [LoRA and QLoRA](/glossary/lora/): the parameter-efficient methods that make fine-tuning cheap.
+- [RAG vs fine-tuning](/comparisons/rag-vs-fine-tuning/): a deeper head-to-head on knowledge versus behaviour.
+- [Building RAG systems](/guides/building-rag-systems/): how to implement the retrieval path if RAG is the answer.
+- [Direct Preference Optimization](/glossary/direct-preference-optimization/): the preference-tuning stage that can follow supervised fine-tuning.
+- [Hugging Face PEFT documentation](https://huggingface.co/docs/peft): the reference library for LoRA and QLoRA.
+
 ## Sources
 
 - Howard, J., & Ruder, S. (2018). Universal language model fine-tuning for text classification. *ACL 2018*. (ULMFiT; established fine-tuning pretrained LMs as the standard NLP paradigm.)

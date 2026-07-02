@@ -243,6 +243,77 @@ All files are `notext`: no baked-in text. Use as cinematic backgrounds or `.bz-f
 
 ---
 
+## Series 7: Decoding Modern Software (`/img/decoding-software/`)
+
+Style: dark cinematic 3D renders on near-black backgrounds. Cool palette with blue, white, RGB, and gold accents. Glass, metal, light-beam, and liquid metaphors for software engineering concepts. No text.
+Use: software architecture, data structures, concurrency, pipelines, abstraction, security, technical debt.
+
+All files are `notext`: no baked-in text. Use as cinematic backgrounds or `.bz-figure` inline images.
+
+| File | What it shows | Best used for |
+|------|---------------|---------------|
+| `frosted-slab-spotlight-notext.png` | frosted glass rounded slab lit by a single spotlight on black | abstraction, a clean interface, a module, a well-defined boundary |
+| `app-iceberg-servers-notext.png` | glowing app/phone above the waterline, servers submerged like an iceberg | hidden backend complexity beneath a simple app, the iceberg model |
+| `braided-fibers-blue-notext.png` | glowing blue braided fibre-optic strands twisted into a rope | integration, dependencies, merging branches, tightly coupled threads |
+| `rgb-glass-cubes-notext.png` | three glass cubes glowing red, green, and blue on a dark reflective floor | primitives, building blocks, data types, RGB channels |
+| `strands-branch-merge-notext.png` | neon strands (cyan, magenta, yellow) diverging from and rejoining a white beam | branching and merging, parallel paths, git branches, fork/join |
+| `gold-cascade-steps-notext.png` | molten gold liquid cascading down dark stone steps | cascade, data pipeline, ETL, waterfall flow, staged processing |
+| `interlocking-rings-core-notext.png` | metallic sphere of interlocking silver rings with a glowing orange core and sparks | orchestration engine, a complex coupled system, a running machine |
+| `obelisk-hall-blue-notext.png` | rows of dark obelisks with blue glowing cores in a foggy circuit-floor hall | monoliths, legacy systems, imposing architecture, data monuments |
+| `vault-energy-orb-notext.png` | heavy metal vault door open, revealing a glowing white energy orb | secrets management, encryption, secure storage, data at rest |
+| `conductor-baton-blue-notext.png` | suited hand holding a conductor's baton drawing blue light swirls | orchestration, direction, prompting, control, composition |
+| `glass-bridge-stress-cracks-notext.png` | transparent glass truss bridge with red glowing stress cracks | technical debt, fragility, structural integrity, load under stress |
+| `glass-cube-energy-notext.png` | transparent glass cube with metal brackets containing a blue energy swirl | encapsulation, a contained module, sandbox, a transparent black box |
+
+---
+
+## Series 8: Inside the AI Machine (`/img/ai-machine/`)
+
+Style: dark cinematic 3D renders on near-black backgrounds. Red and amber industrial palette. Heavy machinery, pipes, gears, glowing cores, and human silhouettes as an anatomy of the AI machine. No text.
+Use: AI internals, model cores, compute engines, data pipelines, infrastructure scale, human-vs-machine scale, powering up AI.
+
+All files are `notext`: no baked-in text. Use as cinematic backgrounds or `.bz-figure` inline images.
+
+| File | What it shows | Best used for |
+|------|---------------|---------------|
+| `ai-iceberg-gpus-notext.png` | glowing white app card above the waterline, red-lit GPUs and servers submerged below | hidden AI infrastructure beneath a simple app, compute you do not see |
+| `floating-ui-cards-notext.png` | frosted-glass app UI cards (image, sliders, buttons) drifting in black space | user interfaces, front-end surface, app screens, design system |
+| `frosted-capsule-notext.png` | single frosted glass pill/capsule glowing softly on black | a token, a primitive, a single unit, minimal abstraction |
+| `weaving-conductor-split-notext.png` | split: hands weaving red laser threads (left), a tiny conductor before a glowing white tower (right) | craft vs orchestration, building the model and directing the system |
+| `light-beams-junction-notext.png` | bright white light beams routed through heavy dark-red industrial junction machinery | routing, switching, interconnect, a data bus, signal crossbar |
+| `filament-sphere-core-notext.png` | glowing orange woven-filament sphere suspended in a dark concrete chamber | the model core, a neural net, the glowing engine at the centre |
+| `neural-column-nodes-notext.png` | dark column with red LED node-graph wings projecting on each side | neural network, embeddings, vector space, a model emitting representations |
+| `data-refinery-red-notext.png` | pipes pouring glowing red liquid into glass tanks in an industrial plant | data pipelines, ETL, ingestion, a data refinery, throughput |
+| `giant-gears-red-notext.png` | low-angle view up at massive dark gears with red rim light and steam | heavy machinery, the mechanism, compute engine internals, raw power |
+| `silhouette-machine-scale-notext.png` | lone human silhouette on a gantry before a towering red-lit industrial structure | human facing the scale of the machine, architect, oversight, awe |
+| `machine-heart-powerup-notext.png` | robot-like torso with a glowing golden orb heart, a power button above, red cables | the AI core, powering on, the machine given life, bootup, hero image |
+
+---
+
+## Series 9: The Hidden Ecosystem (`/img/hidden-ecosystem/`)
+
+Style: dark cinematic photography and renders on near-black backgrounds. Nature meets technology and human craft: jungle floors, glowing roots in rock, geological strata, a backlit leaf, blacksmiths, a film crew, a typewriter-to-data diptych. Warm gold and cool blue/white accents. No text.
+Use: hidden foundations and infrastructure, dependencies and supply chains, origins and lineage, the history and evolution of technology, organic growth and ecosystems, the unseen people and craft behind a system, data flow.
+
+All files are `notext`: no baked-in text. Use as cinematic backgrounds or `.bz-figure` inline images.
+
+| File | What it shows | Best used for |
+|------|---------------|---------------|
+| `pod-jungle-floor-notext.png` | a glowing blue-and-gold pod device resting on the floor of a dark, lush jungle under a shaft of light | a discovery, an AI artifact found in the wild, origin, the seed of a system, first signal |
+| `artifacts-table-galaxy-notext.png` | rustic wooden table holding a fibre-optic light spray, black obsidian, a glowing pod, and an ancient diagram scroll, a spiral galaxy above | the lineage of technology, raw material to modern system, an ecosystem overview, past and future together |
+| `hand-planting-golden-egg-notext.png` | a hand planting an ornate filigree golden egg into dark soil laced with roots | planting a seed, investment, funding, nurturing something valuable, the golden egg, first principles |
+| `geological-strata-layers-notext.png` | five stacked mineral strata (white, gold, copper, teal, dark) floating in exploded view on black | the stack, layers, foundations, sediment of history, a layered architecture |
+| `backlit-leaf-veins-notext.png` | a single backlit heart-shaped green leaf glowing in a shaft of light, veins visible, on black | growth, an organic system, veins and networks, life, a living or self-healing system |
+| `conductor-decision-tree-notext.png` | a conductor's hands with a baton over a faint white field of branching bracket and decision-tree lines | orchestration, decision trees, directing complexity, branching logic, routing |
+| `blacksmiths-forge-sparks-notext.png` | a group of women blacksmiths around an anvil, one hammering hot metal in a spray of orange sparks | craft, forging, building by hand, skilled collaborative work, making |
+| `film-crew-silhouette-notext.png` | silhouetted film crew (camera, boom mic, director) backlit by bright light on a smoky set | production, the hidden crew behind the output, roles working together, collaboration |
+| `glowing-roots-rock-notext.png` | a glowing white root system spreading through dark cave rock | hidden infrastructure, roots, dependency networks, mycelium, foundations you do not see |
+| `typewriter-to-data-diptych-notext.png` | diptych: a Victorian woman at a typewriter in a cobwebbed stone room (left), a modern man facing golden data light-streams and holograms (right) | past vs future, the evolution of computing and work, historical continuity, then and now |
+| `light-trails-viaduct-notext.png` | white-blue long-exposure light trails streaking down a dark concrete viaduct, a lone figure with a tablet on the bridge above | data flow, streams of information, throughput, a person overseeing flows, infrastructure carrying data |
+| `ecosystem-composite-notext.png` | a montage of the series (glowing leaf, hands with a document, server sparks, film crew, glowing roots) as a filmstrip and panels | a series overview or full-bleed background montage; lower priority as an article hero because it repeats other frames |
+
+---
+
 ## Usage rules
 
 **No-text images (cinematic backgrounds):**

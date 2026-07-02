@@ -18,56 +18,49 @@
   </div>
 </section>
 
-<div class="article-layout article-layout--wide">
-  <div class="article-container">
+<div class="bz-container sl-body">
 
-    {{ with .Content }}
-    <div class="article-body sl-intro-body">{{ . }}</div>
-    {{ end }}
+  {{/* Only show an intro if it is a real paragraph, not a one-line paraphrase of the description. */}}
+  {{ if gt (len .RawContent) 140 }}
+  <div class="article-body sl-intro-body">{{ .Content }}</div>
+  {{ end }}
 
-    <div class="sl-grid-header">
-      <span class="bz-section-label">All cases</span>
-    </div>
+  <div class="sl-grid-header">
+    <span class="bz-section-label">All cases</span>
+  </div>
 
-    {{ if .Pages }}
-    <div class="sl-article-grid" data-pagefind-ignore>
-      {{ range .Pages.ByTitle }}
-      <a href="{{ .RelPermalink }}" class="sl-card{{ if .Params.image }} sl-card--visual{{ end }}">
-        {{ if .Params.image }}
-        <img class="sl-card-img" src="{{ .Params.image }}" alt="{{ .Params.image_alt | default .Title }}" loading="lazy">
-        <div class="sl-card-body">
-        {{ end }}
-          <span class="sl-card-title">{{ .Title | replaceRE "^Case Pattern: " "" }}</span>
-          {{ with .Description }}
-          <span class="sl-card-desc">{{ . | truncate 100 }}</span>
-          {{ end }}
-          <div class="sl-card-footer">
-            {{ if .Params.tags }}
-            <div class="sl-card-tags">
-              {{ range first 2 .Params.tags }}
-              <span class="sl-tag">{{ . }}</span>
-              {{ end }}
-            </div>
-            {{ end }}
-            <span class="sl-card-arrow">→</span>
-          </div>
-        {{ if .Params.image }}</div>{{ end }}
-      </a>
+  {{ if .Pages }}
+  <div class="sl-article-grid" data-pagefind-ignore>
+    {{ range .Pages.ByTitle }}
+    <a href="{{ .RelPermalink }}" class="sl-card{{ if .Params.image }} sl-card--visual{{ end }}">
+      {{ if .Params.image }}
+      <img class="sl-card-img" src="{{ .Params.image }}" alt="{{ .Params.image_alt | default .Title }}" loading="lazy">
+      <div class="sl-card-body">
       {{ end }}
-    </div>
-    {{ else }}
-    <div class="sl-empty"><p>Cases coming soon.</p></div>
+        <span class="sl-card-title">{{ .Title | replaceRE "^Case Pattern: " "" }}</span>
+        {{ with .Description }}
+        <span class="sl-card-desc">{{ . | truncate 100 }}</span>
+        {{ end }}
+        <div class="sl-card-footer">
+          {{ if .Params.tags }}
+          <div class="sl-card-tags">
+            {{ range first 2 .Params.tags }}
+            <span class="sl-tag">{{ . }}</span>
+            {{ end }}
+          </div>
+          {{ end }}
+          <span class="sl-card-arrow">→</span>
+        </div>
+      {{ if .Params.image }}</div>{{ end }}
+    </a>
     {{ end }}
-
   </div>
+  {{ else }}
+  <div class="sl-empty"><p>Cases coming soon.</p></div>
+  {{ end }}
 
-  <div class="article-sidebar" data-pagefind-ignore>
-    {{ partial "toc.html" . }}
-  </div>
-</div>
-
-<div class="bz-container">
   {{ partial "cta.html" . }}
+
 </div>
 
 {{ end }}

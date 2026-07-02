@@ -7,7 +7,19 @@ categories: [Comparisons]
 tags: [on-premise, cloud, infrastructure, AI-infrastructure, comparison]
 last_updated: 2026-06-14
 lastmod: 2026-06-14
+related:
+  - glossary/sovereign-ai
+  - glossary/data-sovereignty
+  - tools/xinity
+  - guides/hybrid-and-multicloud-ai
+  - comparisons/gpu-clouds-and-neoclouds
+  - glossary/hybrid-cloud
 ---
+
+<figure class="bz-figure">
+  <img src="/img/ai-machine/silhouette-machine-scale-notext.png" alt="A lone figure on a gantry facing a towering red-lit industrial structure, evoking the scale of the on-premise versus cloud infrastructure decision." loading="lazy">
+  <figcaption>Own the machine or rent it: the on-premise versus cloud choice comes down to who carries the scale, the cost, and the control.</figcaption>
+</figure>
 
 The on-premise vs cloud decision for AI workloads involves trade-offs between control, cost, scalability, and capability. AI workloads have specific characteristics (GPU dependency, variable compute demand, rapid technology evolution) that shift the calculation compared to traditional workloads.
 
@@ -92,6 +104,12 @@ Cloud platforms offer scalable data processing (EMR, Glue, Athena) that compleme
 
 For most organizations, cloud security is stronger than on-premise security. The exceptions are classified government workloads, specific regulatory requirements mandating physical data control, and organizations with mature, well-resourced security teams.
 
+## Sovereignty and the 2026 European picture
+
+For European organizations, the on-premise case is increasingly about [sovereign AI](/glossary/sovereign-ai/), not just cost. Extraterritorial law such as the US CLOUD Act can, in principle, compel US-headquartered providers to disclose data regardless of where it is stored, which is why regulated sectors treat jurisdiction as a hard requirement rather than a preference. The EU AI Act, GDPR, and NIS2 add auditability obligations on top.
+
+Through 2026 the sovereign option stopped meaning "build everything yourself". Production sovereign infrastructure launched across Europe: the Deutsche Telekom Industrial AI Cloud, the EU-backed EURO-3C federation, and sovereign stacks from HPE, SAP, and BearingPoint. On the software side, on-premise engines such as [Xinity](/tools/xinity/) provide an OpenAI-compatible API on your own GPUs with zero data egress, which narrows the old capability gap between a hosted API and a private deployment. The practical decision is now per workload: keep the data that legally cannot leave on sovereign infrastructure, and send the rest to the cloud. See the [hybrid and multi-cloud AI guide](/guides/hybrid-and-multicloud-ai/) for how to split them.
+
 ## Hybrid Approach
 
 Many organizations use a hybrid model:
@@ -119,6 +137,14 @@ This approach balances cost, capability, and control.
 - Need access to latest GPU hardware without procurement delays
 
 For most organizations starting their AI journey, cloud is the right choice. It provides faster time to value, lower initial investment, and access to managed services that accelerate development. On-premise becomes attractive only at significant scale with predictable utilization.
+
+## Further reading
+
+- [What is sovereign AI?](/glossary/sovereign-ai/): why jurisdiction, not just cost, drives many on-premise decisions in 2026.
+- [Hybrid and multi-cloud AI](/guides/hybrid-and-multicloud-ai/): splitting workloads across on-prem and cloud per workload.
+- [Xinity](/tools/xinity/): an on-premise, OpenAI-compatible engine for sovereign serving.
+- [GPU clouds and neoclouds](/comparisons/gpu-clouds-and-neoclouds/): where to rent GPUs when cloud is the answer.
+- [What is data sovereignty?](/glossary/data-sovereignty/): the data-control concept underneath the compliance case.
 
 ## Sources
 

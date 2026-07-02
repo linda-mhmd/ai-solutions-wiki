@@ -118,7 +118,7 @@
         <!-- Explore mega menu -->
         <li class="nav-group">
           <a href="{{ "/explore/" | relURL }}" class="nav-group-link{{ if in $g_explore $sec }} active{{ end }}"{{ if in $g_explore $sec }} aria-current="page"{{ end }}>
-            Explore
+            Explore<span class="nav-new-dot" data-group-dot="explore" aria-hidden="true"></span>
             <svg class="nav-caret" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </a>
           <div class="nav-mega nav-mega--explore" role="menu" aria-label="Explore">
@@ -126,10 +126,10 @@
               <span class="nav-mega-header">Reference library</span>
               <a href="{{ "/browse/" | relURL }}" class="nav-mega-view-all">Browse all →</a>
             </div>
-            <div class="nav-mega-3col">
+            <div class="nav-mega-3col" data-newgroup="explore">
               <div class="nav-mega-col">
-                <span class="nav-mega-col-label">Interactive<span class="nav-mega-new">New</span></span>
-                <a href="{{ "/interactive/" | relURL }}" role="menuitem">Overview</a>
+                <span class="nav-mega-col-label">Interactive</span>
+                <a href="{{ "/interactive/" | relURL }}" role="menuitem" data-newkey="interactive">Overview<span class="nav-new-badge">New</span></a>
                 <a href="{{ "/interactive/galaxy/" | relURL }}" role="menuitem">Galaxy</a>
                 <a href="{{ "/interactive/timeline/" | relURL }}" role="menuitem">Timeline</a>
                 <a href="{{ "/interactive/knowledge-graph/" | relURL }}" role="menuitem">Knowledge Graph</a>
@@ -141,7 +141,7 @@
                 <a href="{{ "/glossary/" | relURL }}" role="menuitem">Glossary</a>
                 <a href="{{ "/comparisons/" | relURL }}" role="menuitem">Comparisons</a>
                 <a href="{{ "/frameworks/" | relURL }}" role="menuitem">Frameworks</a>
-                <a href="{{ "/history/" | relURL }}" role="menuitem">History<span class="nav-mega-new">New</span></a>
+                <a href="{{ "/history/" | relURL }}" role="menuitem" data-newkey="history">History<span class="nav-new-badge">New</span></a>
               </div>
               <div class="nav-mega-col">
                 <span class="nav-mega-col-label">In Depth</span>
@@ -236,7 +236,7 @@
       <div class="mobile-nav-group">
         <p class="mobile-nav-group-label">Interactive</p>
         <ul class="mobile-nav-links">
-          <li><a href="{{ "/interactive/" | relURL }}" class="mobile-nav-hub">Overview</a></li>
+          <li><a href="{{ "/interactive/" | relURL }}" class="mobile-nav-hub" data-newkey="interactive">Overview<span class="nav-new-badge">New</span></a></li>
           <li><a href="{{ "/interactive/galaxy/" | relURL }}">Galaxy</a></li>
           <li><a href="{{ "/interactive/timeline/" | relURL }}">Timeline</a></li>
           <li><a href="{{ "/interactive/knowledge-graph/" | relURL }}">Knowledge Graph</a></li>
@@ -255,7 +255,7 @@
           <li><a href="{{ "/frameworks/" | relURL }}">Frameworks</a></li>
           <li><a href="{{ "/glossary/" | relURL }}">Glossary</a></li>
           <li><a href="{{ "/solutions/" | relURL }}">Solutions</a></li>
-          <li><a href="{{ "/history/" | relURL }}">History</a></li>
+          <li><a href="{{ "/history/" | relURL }}" data-newkey="history">History<span class="nav-new-badge">New</span></a></li>
         </ul>
       </div>
 

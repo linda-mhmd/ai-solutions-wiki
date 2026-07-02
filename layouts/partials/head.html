@@ -79,7 +79,7 @@
     "NIST AI Risk Management Framework"
     "ISO/IEC 42001"
     "Software Architecture")
-  "sameAs" (slice "https://github.com/linda-mhmd/ai-solutions-wiki" "https://www.linkedin.com/in/linda-mohamed/")
+  "sameAs" (slice "https://github.com/linda-mhmd/ai-solutions-wiki" "https://www.linkedin.com/in/linda-mohamed/" "https://youtube.com/@mrs_lee_g")
 }}
 
 {{ $person := dict
@@ -191,7 +191,7 @@
     {{ with .Params.howto_total_time }}{{ $howto = merge $howto (dict "totalTime" .) }}{{ end }}
     {{ $graph = $graph | append $howto }}
   {{ end }}
-  {{ with .Params.faq }}
+  {{ with .Params.faqs }}
     {{ $faqItems := slice }}
     {{ range . }}
       {{ $faqItems = $faqItems | append (dict
@@ -232,100 +232,7 @@
 <link rel="icon" type="image/x-icon" href="{{ "favicon.ico" | relURL }}">
 <link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | relURL }}">
 
-<!-- Structured data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "AI Solutions Wiki",
-  "url": "https://ai-solutions.wiki",
-  "logo": "https://ai-solutions.wiki/favicon.svg",
-  "description": "Production AI architecture and implementation guides for teams building with AI.",
-  "sameAs": [
-    "https://www.linkedin.com/in/linda-mohamed/",
-    "https://github.com/mzzavaa",
-    "https://youtube.com/@mrs_lee_g"
-  ],
-  "founder": {
-    "@type": "Person",
-    "name": "Linda Mohamed",
-    "url": "https://lindamohamed.com"
-  }
-}
-</script>
-{{ if and (not .IsHome) (gt (len .Ancestors) 0) }}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": {{ .Site.BaseURL | jsonify }}
-    }
-    {{ range $i, $ancestor := .Ancestors.Reverse }}
-    ,{
-      "@type": "ListItem",
-      "position": {{ add $i 2 }},
-      "name": {{ $ancestor.Title | jsonify }},
-      "item": {{ $ancestor.Permalink | jsonify }}
-    }
-    {{ end }}
-    ,{
-      "@type": "ListItem",
-      "position": {{ add (len .Ancestors) 2 }},
-      "name": {{ .Title | jsonify }}
-    }
-  ]
-}
-</script>
-{{ end }}
-{{ if .IsPage }}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "TechArticle",
-  "headline": {{ .Title | jsonify }},
-  "description": {{ or .Description .Summary | jsonify }},
-  "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
-  "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
-  "url": {{ .Permalink | jsonify }},
-  "author": {
-    "@type": "Person",
-    "name": "Linda Mohamed",
-    "url": "https://lindamohamed.com"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "AI Solutions Wiki",
-    "url": "https://ai-solutions.wiki"
-  }
-  {{ with .Params.tags }},"keywords": {{ . | jsonify }}{{ end }}
-}
-</script>
-{{ end }}
-{{ if .Params.faqs }}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {{ range $i, $faq := .Params.faqs }}
-    {{ if $i }},{{ end }}{
-      "@type": "Question",
-      "name": {{ $faq.question | jsonify }},
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": {{ $faq.answer | jsonify }}
-      }
-    }
-    {{ end }}
-  ]
-}
-</script>
-{{ end }}
+<!-- Structured data is consolidated into the single @graph JSON-LD block above (Organization, Person, WebSite, BreadcrumbList, Article/TechArticle, HowTo, FAQPage). -->
 
 <!-- Privacy-friendly analytics by Plausible -->
 <script async src="https://plausible.io/js/pa-mgwu1LvUaCv8nLkKzBLdh.js"></script>

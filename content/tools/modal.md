@@ -9,7 +9,6 @@ related:
   - glossary/fine-tuning
   - tools/runpod
   - tools/baseten
-  - comparisons/gpu-clouds-and-neoclouds
 ---
 
 <figure class="bz-figure">

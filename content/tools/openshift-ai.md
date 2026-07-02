@@ -8,7 +8,7 @@ related:
   - tools/red-hat-openshift
   - glossary/mlops
   - glossary/inference
-  - guides/hybrid-and-multicloud-ai
+  - guides/multi-cloud-ai-strategy
   - guides/how-ai-models-are-evaluated
   - tools/amazon-bedrock
   - tools/azure-openai
@@ -105,7 +105,7 @@ Serving is where the open-source foundation matters most. OpenShift AI uses KSer
 
 ### The hybrid and portability angle
 
-The reason to choose OpenShift AI over a single-cloud service is the same reason to choose OpenShift itself: you run one platform everywhere. Red Hat positions it as a way to develop, train, and deploy models in a common environment whether on site, in the cloud, or at the edge, including disconnected environments with no internet access. If regulation, data residency, or latency keeps some workloads out of a public cloud, that portability is the point. For the wider decision, see the [hybrid and multi-cloud AI guide](/guides/hybrid-and-multicloud-ai/).
+The reason to choose OpenShift AI over a single-cloud service is the same reason to choose OpenShift itself: you run one platform everywhere. Red Hat positions it as a way to develop, train, and deploy models in a common environment whether on site, in the cloud, or at the edge, including disconnected environments with no internet access. If regulation, data residency, or latency keeps some workloads out of a public cloud, that portability is the point. For the wider decision, see the [multi-cloud AI strategy guide](/guides/multi-cloud-ai-strategy/).
 
 ## How it compares
 
@@ -135,7 +135,7 @@ OpenShift AI is a good fit for organisations that already run OpenShift or need 
 - [Red Hat OpenShift](/tools/red-hat-openshift/): the application platform OpenShift AI is built on.
 - [What is MLOps?](/glossary/mlops/): the lifecycle this platform is designed to support.
 - [What is inference?](/glossary/inference/): what happens when a served model answers a request.
-- [Hybrid and multi-cloud AI](/guides/hybrid-and-multicloud-ai/): how to decide where AI workloads should run.
+- [Multi-cloud AI strategy](/guides/multi-cloud-ai-strategy/): how to decide where AI workloads should run.
 - [How AI models are evaluated](/guides/how-ai-models-are-evaluated/): judging model quality before and after you serve it.
 - [Red Hat OpenShift AI product page](https://www.redhat.com/en/products/ai/openshift-ai): the official product overview.
 - [Red Hat OpenShift AI documentation](https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/): install, configure, and operate the self-managed edition.
