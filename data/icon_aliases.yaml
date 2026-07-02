@@ -55,3 +55,19 @@ azure-governance: azure
 github-actions: githubactions
 huggingface-transformers: huggingface
 node: nodejs
+
+# Products that share a brand logo with an existing icon
+claude-code: anthropic
+claude-cowork: anthropic
+claude-design: anthropic
+openai-api: openai
+whisper: openai
+google-gemini: gemini
+github-copilot: githubcopilot
+meta-llama: meta
+mistral-ai: mistral
+nvidia-ai: nvidia
+nemo-guardrails: nvidia
+tensorrt-llm: nvidia
+tgi: huggingface
+ray-serve: ray
