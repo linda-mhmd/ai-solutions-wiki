@@ -5320,6 +5320,199 @@ a.td-alt:hover { color: var(--text-primary); border-color: var(--border-strong);
   margin-top: 4px;
 }
 
+/* ============================================================
+   Industry solution landing pages (/solutions/<industry>/)
+   Hero uses the industry image as a full-bleed background.
+   ============================================================ */
+.sol-hero {
+  position: relative;
+  background-color: var(--surface);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid var(--border);
+}
+.sol-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(105deg, rgba(10,10,10,0.96) 0%, rgba(10,10,10,0.9) 38%, rgba(10,10,10,0.6) 74%, rgba(10,10,10,0.4) 100%),
+    linear-gradient(to top, rgba(10,10,10,0.88), rgba(10,10,10,0.12) 58%);
+}
+.sol-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding-top: 40px;
+  padding-bottom: 46px;
+}
+.sol-hero .breadcrumbs { margin-bottom: 22px; }
+.sol-hero .breadcrumbs a,
+.sol-hero .breadcrumbs span { color: rgba(255,255,255,0.72); }
+.sol-hero .breadcrumbs a:hover { color: #fff; }
+.sol-h1 {
+  font-size: clamp(1.9rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  margin: 0 0 12px;
+  max-width: 720px;
+}
+.sol-desc {
+  font-size: 1.0625rem;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.6;
+  margin: 0 0 20px;
+  max-width: 680px;
+}
+.sol-hero-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+/* Constraints / context box */
+.sol-intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 20px 22px;
+  margin-top: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+.sol-intro-icon {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--accent);
+}
+.sol-intro-icon svg { width: 24px; height: 24px; }
+.sol-intro-text { flex: 1; min-width: 0; font-size: 0.95rem; color: var(--text-secondary); }
+.sol-intro-text p { margin: 0; }
+.sol-intro-badges {
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-content: flex-start;
+  max-width: 260px;
+  padding-left: 20px;
+  border-left: 1px solid var(--border);
+}
+.sol-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  background: var(--bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.sol-badge svg { width: 13px; height: 13px; color: var(--accent); }
+
+/* Solution-area cards (generated from the industry's use-case pages) */
+.sol-area-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.sol-area-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px 18px 42px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  text-decoration: none;
+  transition: border-color .16s ease, transform .16s ease, background .16s ease;
+}
+.sol-area-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--accent) 5%, var(--surface));
+  text-decoration: none;
+}
+.sol-area-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+.sol-area-icon svg { width: 23px; height: 23px; }
+.sol-area-title { font-size: 0.95rem; font-weight: 600; color: var(--text-primary); line-height: 1.25; }
+.sol-area-desc { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; flex: 1; }
+.sol-area-meta {
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  letter-spacing: .02em;
+}
+.sol-area-arrow {
+  position: absolute;
+  right: 16px;
+  bottom: 14px;
+  color: var(--text-muted);
+  transition: color .12s, transform .12s;
+}
+.sol-area-card:hover .sol-area-arrow { color: var(--accent); transform: translateX(2px); }
+
+/* Compact "who is this for?" persona row */
+.sol-persona-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+.sol-persona-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--primary);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: border-color .16s ease, transform .16s ease;
+}
+.sol-persona-card:hover { transform: translateY(-2px); border-color: var(--primary); text-decoration: none; }
+.sol-persona-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--primary) 15%, transparent);
+  color: var(--primary);
+}
+.sol-persona-icon svg { width: 18px; height: 18px; }
+.sol-persona-role { font-size: 0.8rem; font-weight: 700; color: var(--text-primary); line-height: 1.2; }
+.sol-persona-desc { font-size: 0.72rem; color: var(--text-secondary); line-height: 1.45; }
+
+@media (max-width: 1024px) {
+  .sol-area-grid { grid-template-columns: repeat(2, 1fr); }
+  .sol-persona-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 720px) {
+  .sol-intro { flex-direction: column; }
+  .sol-intro-badges { max-width: none; padding-left: 0; border-left: none; }
+  .sol-area-grid { grid-template-columns: 1fr; }
+  .sol-persona-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* Learn: path cards */
 .hub-learn-grid {
   display: grid;

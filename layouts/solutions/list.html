@@ -1,7 +1,13 @@
 {{ define "main" }}
 
-{{ $sections := .Sections }}
-{{ $count := len $sections }}
+{{/* This layout serves two page kinds under /solutions/:
+     - the top index (has sub-sections)  -> a grid of industry cards
+     - an industry landing (no sub-sections, only use-case pages) -> a rich landing page */}}
+
+{{ if .Sections }}
+{{/* ============================ INDUSTRY INDEX ============================ */}}
+
+{{ $count := len .Sections }}
 
 <section class="sl-hero">
   <div class="bz-container">
@@ -30,9 +36,8 @@
     <span class="bz-section-label">All industries</span>
   </div>
 
-  {{ if $sections }}
   <div class="sl-article-grid" data-pagefind-ignore>
-    {{ range $sections.ByTitle }}
+    {{ range .Sections.ByTitle }}
     {{ $n := len .Pages }}
     <a href="{{ .RelPermalink }}" class="sl-card{{ if .Params.image }} sl-card--visual{{ end }}">
       {{ if .Params.image }}
@@ -51,12 +56,83 @@
     </a>
     {{ end }}
   </div>
-  {{ else }}
-  <div class="sl-empty"><p>Industries coming soon.</p></div>
-  {{ end }}
 
   {{ partial "cta.html" . }}
 
 </div>
+
+{{ else }}
+{{/* ============================ INDUSTRY LANDING ============================ */}}
+
+{{ $n := len .Pages }}
+
+<section class="sol-hero"{{ with .Params.image }} style="background-image: url('{{ . }}')"{{ end }}>
+  <div class="bz-container sol-hero-inner">
+    {{ partial "breadcrumbs.html" . }}
+    <h1 class="sol-h1">{{ .Title }}</h1>
+    {{ with .Description }}<p class="sol-desc">{{ . }}</p>{{ end }}
+    <div class="sol-hero-meta">
+      <span class="sl-hero-count">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
+        {{ $n }} use {{ if eq $n 1 }}case{{ else }}cases{{ end }}
+      </span>
+    </div>
+  </div>
+</section>
+
+<div class="bz-container sl-body">
+
+  {{/* Constraints / context box: the industry intro paragraph plus optional compliance badges. */}}
+  {{ if or (gt (len .RawContent) 40) .Params.compliance }}
+  <div class="sol-intro">
+    <span class="sol-intro-icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+    </span>
+    <div class="sol-intro-text article-body">{{ .Content }}</div>
+    {{ with .Params.compliance }}
+    <div class="sol-intro-badges">
+      {{ range . }}
+      <span class="sol-badge">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        {{ . }}
+      </span>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+  {{ end }}
+
+  {{ if .Pages }}
+  <div class="sl-grid-header">
+    <span class="bz-section-label">Solution areas</span>
+  </div>
+
+  {{ $industry := path.Base .RelPermalink }}
+  <div class="sol-area-grid">
+    {{ range .Pages.ByTitle }}
+    {{ $slug := .File.BaseFileName }}
+    {{ $short := .LinkTitle | replaceRE "^AI[ -](?:for |For |Powered |Optimized |Assisted |Driven |Enabled |Enhanced |Based |Native )?" "" }}
+    {{ $meta := complement (slice "ai-ml" "advanced" "beginner" "intermediate" $industry) (.Params.tags | default slice) }}
+    <a href="{{ .RelPermalink }}" class="sol-area-card">
+      <span class="sol-area-icon" aria-hidden="true">{{ partial "solution-icon.html" $slug }}</span>
+      <span class="sol-area-title">{{ $short }}</span>
+      {{ with .Description }}<span class="sol-area-desc">{{ . | truncate 130 }}</span>{{ end }}
+      {{ with $meta }}<span class="sol-area-meta">{{ delimit (first 3 .) "  /  " }}</span>{{ end }}
+      <span class="sol-area-arrow">→</span>
+    </a>
+    {{ end }}
+  </div>
+  {{ end }}
+
+  <div class="sl-grid-header">
+    <span class="bz-section-label">Who is this for?</span>
+  </div>
+  {{ partial "personas-compact.html" . }}
+
+  {{ partial "cta.html" . }}
+
+</div>
+
+{{ end }}
 
 {{ end }}
