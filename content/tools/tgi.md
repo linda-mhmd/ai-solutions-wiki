@@ -10,6 +10,11 @@ related:
   - tools/nvidia-ai
   - tools/together-ai
   - comparisons/gpu-clouds-and-neoclouds
+status: deprecated
+status_detail: "Hugging Face put TGI into maintenance mode and archived its GitHub repository (read-only) on 21 March 2026. It now accepts only minor bug fixes, and Hugging Face directs new self-hosted deployments to vLLM, SGLang, llama.cpp, or MLX."
+status_source: "https://github.com/huggingface/text-generation-inference"
+last_updated: 2026-07-05
+lastmod: 2026-07-05
 ---
 
 <figure class="bz-figure">

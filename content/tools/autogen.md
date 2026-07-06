@@ -8,7 +8,11 @@ related:
   - tools/crewai
   - tools/langchain
   - tools/semantic-kernel
-last_updated: 2026-05-30
+status: deprecated
+status_detail: "AutoGen is in maintenance mode (community-managed, no new features). Microsoft unified AutoGen and Semantic Kernel into the Microsoft Agent Framework, released as version 1.0 on 3 April 2026, which is the recommended successor for new multi-agent projects."
+status_source: "https://github.com/microsoft/autogen"
+last_updated: 2026-07-05
+lastmod: 2026-07-05
 ---
 
 AutoGen is an open-source framework from Microsoft Research for building multi-agent systems where multiple AI agents converse with each other to solve tasks. Each agent has a defined role, system prompt, and capabilities (LLM reasoning, code execution, tool use, or human input). Agents exchange messages in a conversation loop, collaborating to complete complex tasks that would be difficult for a single agent. For enterprise AI projects, AutoGen is relevant for workflows that benefit from decomposition into specialized roles: coding tasks with review, research with fact-checking, or planning with validation.

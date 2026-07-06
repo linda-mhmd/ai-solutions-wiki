@@ -2,8 +2,8 @@
 title: "EU AI Act: What Takes Effect on 2 August 2026"
 description: "On 2 August 2026 the AI Act becomes broadly applicable and GPAI enforcement begins. A Digital Omnibus may defer high-risk deadlines, but it is not yet law."
 date: 2026-05-07
-lastmod: 2026-06-15
-last_updated: 2026-06-15
+lastmod: 2026-07-05
+last_updated: 2026-07-05
 categories: [News]
 tags: [eu-ai-act, gpai, ai-governance, ai-regulation, compliance, foundation-models]
 related:
@@ -13,7 +13,7 @@ related:
   - guides/ai-model-governance
 ---
 
-The EU AI Act reaches a major milestone on 2 August 2026. As the law is currently written, most of the regulation becomes applicable on that date: the rules for high-risk AI systems listed in Annex III, the full governance and enforcement framework, and the penalty regime. It is also the day the European Commission and its AI Office gain the power to enforce the general-purpose AI (GPAI) obligations that have technically been in force since 2 August 2025. A separate "Digital Omnibus" reform would push several high-risk deadlines out by more than a year, but as of mid-June 2026 it has not been adopted, so the original date still stands as law.
+The EU AI Act reaches a major milestone on 2 August 2026. As the law is currently written, most of the regulation becomes applicable on that date: the rules for high-risk AI systems listed in Annex III, the full governance and enforcement framework, and the penalty regime. It is also the day the European Commission and its AI Office gain the power to enforce the general-purpose AI (GPAI) obligations that have technically been in force since 2 August 2025. A separate "Digital Omnibus" reform would push several high-risk deadlines out by more than a year. The Council gave it a final green light on 29 June 2026, but it has not yet been published in the Official Journal, so the original date still stands as law.
 
 ## What happened
 
@@ -21,7 +21,7 @@ The AI Act (Regulation (EU) 2024/1689) entered into force on 1 August 2024 and a
 
 For GPAI specifically, the obligations already exist, but 2 August 2026 is when the Commission can begin enforcement: requesting information and model access, ordering mitigations or recalls, and imposing fines of up to 3% of worldwide annual turnover or 15 million euro, whichever is higher. Providers of models with systemic risk (presumed when cumulative training compute exceeds 10^25 floating point operations under Article 51) carry extra duties around evaluation, adversarial testing, incident reporting, and cybersecurity.
 
-The complication is the Digital Omnibus. EU negotiators from the Commission, Parliament, and Council reached a provisional political agreement on 7 May 2026, confirmed by member state representatives on 13 May 2026. It would defer the obligations for stand-alone Annex III high-risk systems to 2 December 2027, and for high-risk AI embedded in regulated products (Annex I) to 2 August 2028. That package still needs a Parliament plenary vote, formal Council adoption, and publication in the Official Journal before it takes legal effect, none of which had happened by mid-June 2026.
+The complication is the Digital Omnibus. EU negotiators from the Commission, Parliament, and Council reached a provisional political agreement on 7 May 2026, confirmed by member state representatives on 13 May 2026. It would defer the obligations for stand-alone Annex III high-risk systems to 2 December 2027, and for high-risk AI embedded in regulated products (Annex I) to 2 August 2028. The Council gave the package its final green light on 29 June 2026. It still has to clear legal-linguistic revision, formal adoption by both co-legislators, and publication in the Official Journal before it takes legal effect. Publication is expected before 2 August 2026, but until the amendment appears in the Official Journal the original 2 August 2026 high-risk deadline remains the binding text.
 
 ## Why it matters for builders
 
@@ -45,3 +45,4 @@ Second, if you build or deploy high-risk systems, do not treat the proposed dela
 5. Latham & Watkins, AI Act Update: EU Resolves to Change Rules and Extend Deadlines: https://www.lw.com/en/insights/ai-act-update-eu-resolves-to-change-rules-and-extend-deadlines
 6. EU Artificial Intelligence Act, Article 51 (classification of GPAI models with systemic risk): https://artificialintelligenceact.eu/article/51/
 7. EU Artificial Intelligence Act, Article 99 (penalties): https://artificialintelligenceact.eu/article/99/
+8. Council of the EU, Artificial Intelligence: Council gives final green light to simplify and streamline rules (29 June 2026): https://www.consilium.europa.eu/en/press/press-releases/2026/06/29/artificial-intelligence-council-gives-final-green-light-to-simplify-and-streamline-rules/

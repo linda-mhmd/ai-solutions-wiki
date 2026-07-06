@@ -8,7 +8,11 @@ related:
   - tools/langchain
   - tools/azure-openai
   - tools/autogen
-last_updated: 2026-05-30
+status: deprecated
+status_detail: "Microsoft unified Semantic Kernel and AutoGen into the Microsoft Agent Framework, released as version 1.0 on 3 April 2026 and positioned as the enterprise-ready successor. Semantic Kernel continues in maintenance for existing applications; new projects should use Agent Framework."
+status_source: "https://github.com/microsoft/semantic-kernel"
+last_updated: 2026-07-05
+lastmod: 2026-07-05
 ---
 
 Semantic Kernel is Microsoft's open-source SDK for integrating large language models into applications. It supports C#, Python, and Java, making it the primary choice for enterprise teams working in the .NET ecosystem. Unlike LangChain (which is Python/JavaScript-first), Semantic Kernel treats C# as a first-class citizen, with strong typing, dependency injection integration, and patterns that align with enterprise .NET development practices.
