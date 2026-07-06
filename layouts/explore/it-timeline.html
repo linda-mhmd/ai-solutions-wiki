@@ -224,14 +224,14 @@
 <script>
 (function () {
   'use strict';
-  var DATA = JSON.parse({{ .Site.Data.it_timeline | jsonify }});
-  var IMAGES = JSON.parse({{ .Site.Data.it_timeline_images | jsonify }});
+  var DATA = JSON.parse({{ hugo.Data.it_timeline | jsonify }});
+  var IMAGES = JSON.parse({{ hugo.Data.it_timeline_images | jsonify }});
   var ITEMS = DATA.items || [], ERAS = DATA.eras || [], LIFE = DATA.lifecycles || [], CATS = DATA.categories || [];
   // Article URLs are kept in learning.json (single source of truth). Inject id -> url so each
   // timeline entry links to its real article instead of nowhere.
   var ITM_URLS = {};
   try {
-    var LEARN = JSON.parse({{ .Site.Data.learning | jsonify }});
+    var LEARN = JSON.parse({{ hugo.Data.learning | jsonify }});
     (LEARN.nodes || []).forEach(function (n) { if (n.learn_url) ITM_URLS[n.id] = n.learn_url; });
   } catch (e) {}
   ITEMS.forEach(function (i) { if (!i.wiki_url && ITM_URLS[i.id]) i.wiki_url = ITM_URLS[i.id]; });

@@ -232,7 +232,7 @@
 <script>
 (function () {
   'use strict';
-  var DATA = JSON.parse({{ .Site.Data.learning | jsonify }});
+  var DATA = JSON.parse({{ hugo.Data.learning | jsonify }});
   var NODES = DATA.nodes || [], LINKS = DATA.links || [], DOMAINS = DATA.domains || [], PATHS = DATA.paths || [];
   var byId = {}; NODES.forEach(function (n) { byId[n.id] = n; });
   var domById = {}; DOMAINS.forEach(function (d) { domById[d.id] = d; });
@@ -285,7 +285,7 @@
   var WORLD = 2400, worldW = 2400, worldH = 2400;
   var ERAS = DATA.eras || [], LIFE = DATA.lifecycles || [];
   var lifeById = {}; LIFE.forEach(function (l) { lifeById[l.id] = l; });
-  var IMAGES = {}; try { IMAGES = JSON.parse({{ .Site.Data.it_timeline_images | jsonify }}); } catch (e) {}
+  var IMAGES = {}; try { IMAGES = JSON.parse({{ hugo.Data.it_timeline_images | jsonify }}); } catch (e) {}
 
   function colorFor(n) {
     if (curView === 'timeline') { var lf = lifeById[n.lifecycle]; return (lf && lf.color) || 'rgba(150,150,150,.55)'; }

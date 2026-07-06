@@ -1,7 +1,7 @@
 {{- /* Resolve a service token to its icon resource (or nothing).
        Priority: colourful official SVG (icons/color/) > colourful AWS PNG > mono brand SVG. */ -}}
 {{- $token := . -}}
-{{- $aliases := site.Data.icon_aliases -}}
+{{- $aliases := hugo.Data.icon_aliases -}}
 {{- $resolved := $token -}}
 {{- with index $aliases $token }}{{ $resolved = . }}{{ end -}}
 {{- $res := resources.Get (printf "icons/color/%s.svg" $resolved) -}}

@@ -34,7 +34,7 @@
 
 <script>
 (function () {
-  var D = JSON.parse({{ .Site.Data.galaxy_planet | jsonify }});
+  var D = JSON.parse({{ hugo.Data.galaxy_planet | jsonify }});
   var DIFF = D.difficulties || {};
   var domColor = {}; (D.domains || []).forEach(function (d) { domColor[d.id] = d.color; });
   var body = document.getElementById('xl-body');

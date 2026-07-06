@@ -8,7 +8,7 @@
     {{ partial "breadcrumbs.html" . }}
 
     <article class="article-content">
-      {{ $clip := (index site.Data.basics_videos .File.BaseFileName) | default "germination-timelapse.mp4" }}
+      {{ $clip := (index hugo.Data.basics_videos .File.BaseFileName) | default "germination-timelapse.mp4" }}
       <header class="article-header basics-hero">
         <video class="basics-hero-bg" autoplay loop muted playsinline preload="metadata" aria-hidden="true">
           <source src="{{ (printf "/videos/garden/%s" $clip) | relURL }}" type="video/mp4">

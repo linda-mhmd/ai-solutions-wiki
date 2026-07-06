@@ -4,7 +4,7 @@
        announced, freeTier, alternatives, stars, provider, providerLabel, category, type, free. */ -}}
 {{- $p := . -}}
 {{- $slug := "" -}}{{- with $p.File }}{{ $slug = .BaseFileName }}{{ end -}}
-{{- $prof := or (index (site.Data.tool_profiles | default dict) $slug) dict -}}
+{{- $prof := or (index (hugo.Data.tool_profiles | default dict) $slug) dict -}}
 {{- $f := partial "tool-facets.html" $p -}}
 
 {{- $status := $p.Params.status | default $prof.status | default "active" -}}

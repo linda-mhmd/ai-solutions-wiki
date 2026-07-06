@@ -4,5 +4,5 @@
 {{- $icon := . -}}
 {{- if $icon -}}
 {{- $base := path.BaseName $icon.RelPermalink -}}
-{{- if in (site.Data.dark_logos.slugs | default slice) $base -}}is-darklogo{{- end -}}
+{{- if in (hugo.Data.dark_logos.slugs | default slice) $base -}}is-darklogo{{- end -}}
 {{- end -}}

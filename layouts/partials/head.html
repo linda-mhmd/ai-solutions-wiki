@@ -37,7 +37,7 @@
 {{ end }}
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:locale" content="{{ replace (.Site.LanguageCode | default "en-us") "-" "_" }}">
+<meta property="og:locale" content="{{ replace (.Site.Language.Locale | default "en-us") "-" "_" }}">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ .Title }}">
@@ -54,7 +54,7 @@
 {{ $orgId := printf "%s#organization" $siteURL }}
 {{ $personId := "https://lindamohamed.com#person" }}
 {{ $websiteId := printf "%s#website" $siteURL }}
-{{ $lang := .Site.LanguageCode | default "en-us" }}
+{{ $lang := .Site.Language.Locale | default "en-us" }}
 
 {{ $organization := dict
   "@type" "Organization"
