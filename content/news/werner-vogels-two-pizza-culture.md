@@ -12,10 +12,7 @@ related:
   - tools/claude-code
 ---
 
-<figure class="bz-figure">
-  <img src="/img/wardrobe/junior-partner-collaboration.png" alt="Two people working closely together at a shared table, representing a small, self-contained team." loading="lazy">
-  <figcaption>A two-pizza team is small enough that everyone knows what everyone else is working on, without heavy meetings.</figcaption>
-</figure>
+{{< video src="pizza-two-doughs.mp4" metaphor="true" poster="/img/pizza-two-doughs.png" caption="Two rounds of dough, two pizzas: Amazon sizes a team so that no more than two pizzas are needed to feed everyone in it." >}}
 
 On 2026-06-30, Amazon CTO Werner Vogels published a post titled "A return to two-pizza culture" on his All Things Distributed blog. It revisits two ideas that shaped how Amazon builds products, and argues that cheap [AI-assisted prototyping](/glossary/ai-agents/) changes when it may make sense to prototype before writing the full document.
 

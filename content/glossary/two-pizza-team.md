@@ -6,10 +6,7 @@ tags: ["glossary", "teams", "organization", "amazon", "ai"]
 related: ["glossary/working-backwards", "guides/from-zero-to-production", "comparisons/agile-vs-waterfall-ai-projects"]
 ---
 
-<figure class="bz-figure">
-  <img src="/img/juggling/three-balls-rgb-convergence-notext.png" alt="Three glowing spheres converging on a black background, representing a small team coordinating closely." loading="lazy">
-  <figcaption>A two-pizza team is small enough that a few people stay in sync without heavy process, like these three points converging on one spot.</figcaption>
-</figure>
+{{< video src="pizza-two-doughs.mp4" metaphor="true" poster="/img/pizza-two-doughs.png" caption="Two rounds of dough, two pizzas: a two-pizza team is sized so that two pizzas can feed everyone in it." >}}
 
 A **two-pizza team** is a team small enough to be fed by two pizzas, which works out to roughly five to ten people. Amazon never fixed an exact number, and different teams read it differently. The idea comes from Amazon and is attributed to Jeff Bezos. A team this size keeps everyone aware of what everyone else is working on, so it moves fast without heavy meetings or approval chains.
 

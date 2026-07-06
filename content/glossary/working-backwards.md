@@ -58,6 +58,11 @@ You build a prototype, use it as a customer would, find the gaps, and only then 
 
 Working Backwards pairs with the [two-pizza team](/glossary/two-pizza-team/), the small autonomous group Amazon uses to own a product from idea to operation. A tight team writing its own PR-FAQ keeps ownership and decision-making in one place.
 
+<figure class="bz-figure">
+  <img src="/img/pizza-two-doughs.png" alt="Two rounds of pizza dough resting side by side on a floured surface." loading="lazy">
+  <figcaption>The two-pizza team: a group no larger than two pizzas can feed, small enough to own a product end to end.</figcaption>
+</figure>
+
 The AI-era prototype-first version echoes the [build-measure-learn](/guides/build-measure-learn/) loop from lean startup thinking: you build a small thing, observe how it behaves, and learn before you scale. The PR-FAQ itself sits close to the [Lean Canvas](/guides/lean-canvas/), another single-page tool that forces you to name the customer and the problem before the solution.
 
 For the wider culture behind the practice, see the coverage of [Werner Vogels on two-pizza culture](/news/werner-vogels-two-pizza-culture/).

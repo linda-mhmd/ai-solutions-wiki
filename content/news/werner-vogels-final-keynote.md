@@ -48,6 +48,11 @@ Vogels stressed that ownership stays with the person, not the tool. "The work is
 
 The renaissance developer is a continuation of ideas Vogels has argued for years, not a break from them. In his June 2026 post on Amazon's [two-pizza team](/glossary/two-pizza-team/) culture, he made a related point: small teams that own their work move faster and stay accountable. You can read the wiki write-up in [Werner Vogels on two-pizza culture](/news/werner-vogels-two-pizza-culture/).
 
+<figure class="bz-figure">
+  <img src="/img/pizza-two-doughs.png" alt="Two rounds of pizza dough resting side by side on a floured surface." loading="lazy">
+  <figcaption>Amazon's two-pizza team: small enough that two pizzas can feed everyone, so ownership stays clear.</figcaption>
+</figure>
+
 Both messages land on the same idea. AI raises the amount a small, curious team can build, but it does not remove responsibility for what ships. That fits the Amazon habit of [working backwards](/glossary/working-backwards/) from the customer and keeping the people who build a system close to the people who run it.
 
 The keynote also marked a handover. After 14 years, Vogels chose to make room for other AWS voices while staying at the company. For builders who grew up watching his talks, it reads less as an ending and more as advice: stay curious, think in systems, own the work.
