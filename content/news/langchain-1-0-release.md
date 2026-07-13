@@ -47,3 +47,10 @@ The trade off is migration work. Anything you relied on from the old chains or r
 2. LangChain changelog. "LangChain 1.0 now generally available." [https://changelog.langchain.com/announcements/langchain-1-0-now-generally-available](https://changelog.langchain.com/announcements/langchain-1-0-now-generally-available)
 3. LangChain changelog. "LangChain 1.1." [https://changelog.langchain.com/announcements/langchain-1-1](https://changelog.langchain.com/announcements/langchain-1-1)
 4. LangChain docs. "What's new in LangChain v1." [https://docs.langchain.com/oss/python/releases/langchain-v1](https://docs.langchain.com/oss/python/releases/langchain-v1)
+
+## Further reading
+
+- [LangChain vs LlamaIndex](/comparisons/langchain-vs-llamaindex/): choosing an orchestration framework.
+- [CrewAI vs LangGraph](/comparisons/crewai-vs-langgraph/): the multi-agent framework LangChain 1.0 consolidates on.
+- [What is agentic AI?](/glossary/agentic-ai/): the workloads create_agent targets.
+- [Open-source coding agents compared](/comparisons/open-source-coding-agents/): where framework-built agents fit.

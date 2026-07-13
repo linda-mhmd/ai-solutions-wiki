@@ -47,3 +47,10 @@ MCP is now the closest thing the industry has to a universal port for AI tooling
 3. Model Context Protocol Blog. "MCP Apps: Extending servers with interactive user interfaces." [https://blog.modelcontextprotocol.io/posts/2025-11-21-mcp-apps/](https://blog.modelcontextprotocol.io/posts/2025-11-21-mcp-apps/)
 4. Model Context Protocol Blog. "Introducing the MCP Registry." [https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/](https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/)
 5. Anthropic. "Donating the Model Context Protocol and establishing the Agentic AI Foundation." [https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation](https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation)
+
+## Further reading
+
+- [What is the Model Context Protocol?](/glossary/model-context-protocol/): the standard this release updates.
+- [A2A protocol joins the Linux Foundation](/news/a2a-protocol-linux-foundation/): the complementary agent-to-agent protocol.
+- [Open-source coding agents compared](/comparisons/open-source-coding-agents/): tools that connect to MCP servers.
+- [What are AI agents?](/glossary/ai-agents/): the systems MCP gives tools to.

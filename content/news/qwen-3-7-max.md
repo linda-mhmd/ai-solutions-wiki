@@ -29,3 +29,10 @@ As a {{< relref "glossary/reasoning-models" >}} built for agent workloads, Qwen3
 ## Sources
 
 1. Alibaba / Qwen. "Qwen3.7: The Agent Frontier" (21 May 2026). [https://qwen.ai/blog?id=qwen3.7](https://qwen.ai/blog?id=qwen3.7)
+
+## Further reading
+
+- [The 2026 LLM landscape](/comparisons/llm-landscape-2026/): how Qwen's top tier compares.
+- [What are reasoning models?](/glossary/reasoning-models/): the class Qwen3.7-Max is built for.
+- [DeepSeek releases V4 open-weight models](/news/deepseek-v4/): the open-weight counterpoint from another lab.
+- [Alibaba Qwen](/tools/alibaba-qwen/): access and model details.

@@ -43,3 +43,10 @@ Vendor-neutral governance under the Linux Foundation matters because interoperab
 4. Linux Foundation. "A2A Protocol Surpasses 150 Organizations, Lands in Major Cloud Platforms, and Sees Enterprise Production Use in First Year." (April 9, 2026) [https://www.linuxfoundation.org/press/a2a-protocol-surpasses-150-organizations-lands-in-major-cloud-platforms-and-sees-enterprise-production-use-in-first-year](https://www.linuxfoundation.org/press/a2a-protocol-surpasses-150-organizations-lands-in-major-cloud-platforms-and-sees-enterprise-production-use-in-first-year)
 5. InfoWorld. "Google's Agent2Agent project moves to Linux Foundation." (June 23, 2025) [https://www.infoworld.com/article/4011301/googles-agent2agent-project-moves-to-linux-foundation.html](https://www.infoworld.com/article/4011301/googles-agent2agent-project-moves-to-linux-foundation.html)
 6. Wikipedia. "Agent2Agent." [https://en.wikipedia.org/wiki/Agent2Agent](https://en.wikipedia.org/wiki/Agent2Agent)
+
+## Further reading
+
+- [What is the Model Context Protocol?](/glossary/model-context-protocol/): the tool-access protocol A2A complements.
+- [MCP turns one](/news/mcp-turns-one/): the sister protocol's anniversary release.
+- [What are multi-agent systems?](/glossary/multi-agent-systems/): the coordination A2A enables.
+- [What are AI agents?](/glossary/ai-agents/): the participants an agent-to-agent protocol connects.

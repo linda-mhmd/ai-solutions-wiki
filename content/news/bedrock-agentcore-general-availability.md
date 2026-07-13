@@ -52,3 +52,10 @@ The trade off is the usual managed service one: faster to production and less pl
 5. AWS. "Amazon Bedrock AgentCore Evaluations is now generally available." (Mar 31, 2026) [https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available](https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available)
 6. AWS. "Agents that transact: Amazon Bedrock AgentCore now includes Payments (preview)." (May 7, 2026) [https://aws.amazon.com/about-aws/whats-new/2026/04/amazon-bedrock-agentcore-payments-preview/](https://aws.amazon.com/about-aws/whats-new/2026/04/amazon-bedrock-agentcore-payments-preview/)
 7. AWS News Blog. "Amazon Bedrock AgentCore adds quality evaluations and policy controls for deploying trusted AI agents." [https://aws.amazon.com/blogs/aws/amazon-bedrock-agentcore-adds-quality-evaluations-and-policy-controls-for-deploying-trusted-ai-agents/](https://aws.amazon.com/blogs/aws/amazon-bedrock-agentcore-adds-quality-evaluations-and-policy-controls-for-deploying-trusted-ai-agents/)
+
+## Further reading
+
+- [Amazon Bedrock](/tools/amazon-bedrock/): the platform AgentCore sits within.
+- [AgentCore vs Bedrock Agents](/comparisons/agentcore-vs-bedrock-agents/): how the two approaches differ.
+- [Getting started with Amazon Bedrock](/guides/getting-started-with-bedrock/): a hands-on entry point.
+- [What are AI agents?](/glossary/ai-agents/): the systems AgentCore runs.

@@ -29,3 +29,10 @@ A 1 million token context window makes DeepSeek-V4 a {{< relref "glossary/long-c
 ## Sources
 
 1. DeepSeek. "DeepSeek-V4 release" (24 April 2026). [https://api-docs.deepseek.com/news/news260424](https://api-docs.deepseek.com/news/news260424)
+
+## Further reading
+
+- [The 2026 LLM landscape](/comparisons/llm-landscape-2026/): how DeepSeek-V4 compares to other open and closed models.
+- [What is mixture of experts?](/glossary/mixture-of-experts/): the design behind the large total-versus-active parameter gap.
+- [Long-context models](/glossary/long-context-model/): what a 1M-token window does and does not buy you.
+- [NVIDIA Nemotron 3 open models](/news/nvidia-nemotron-3/): another major open-weight family from 2026.

@@ -50,3 +50,10 @@ If a model your product depends on were disabled tomorrow, how long would it tak
 7. CNBC. "Anthropic disables access to Fable 5 and Mythos 5 to comply with government directive." (June 12, 2026) [https://www.cnbc.com/2026/06/12/anthropic-disables-access-to-fable-5-and-mythos-5-to-comply-with-government-directive.html](https://www.cnbc.com/2026/06/12/anthropic-disables-access-to-fable-5-and-mythos-5-to-comply-with-government-directive.html)
 8. TechCrunch. "Anthropic's safety warnings may have just backfired." (June 12, 2026) [https://techcrunch.com/2026/06/12/anthropics-safety-warnings-may-have-just-backfired-the-government-has-pulled-the-plug-on-its-most-powerful-ai/](https://techcrunch.com/2026/06/12/anthropics-safety-warnings-may-have-just-backfired-the-government-has-pulled-the-plug-on-its-most-powerful-ai/)
 9. Quartz. "Anthropic disables Claude Fable 5 and Mythos 5 after U.S. export order." (June 12, 2026) [https://qz.com/anthropic-fable-5-mythos-5-export-control-directive-061226](https://qz.com/anthropic-fable-5-mythos-5-export-control-directive-061226)
+
+## Further reading
+
+- [Claude Opus 4.8](/news/claude-opus-4-8/): Anthropic's flagship in the same period.
+- [Claude and Anthropic](/tools/claude-anthropic/): the model lineup and access.
+- [The US moves to preempt state AI laws](/news/us-ai-policy-preemption-2026/): the wider US AI-policy context.
+- [The 2026 LLM landscape](/comparisons/llm-landscape-2026/): how the Claude tiers compare.

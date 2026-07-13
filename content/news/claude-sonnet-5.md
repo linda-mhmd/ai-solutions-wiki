@@ -29,3 +29,10 @@ For teams building on {{< relref "glossary/reasoning-models" >}}, Sonnet 5 offer
 ## Sources
 
 1. Anthropic. "Claude Sonnet 5" (30 June 2026). [https://www.anthropic.com/news/claude-sonnet-5](https://www.anthropic.com/news/claude-sonnet-5)
+
+## Further reading
+
+- [The 2026 LLM landscape](/comparisons/llm-landscape-2026/): how Sonnet 5 compares across tiers and providers.
+- [Claude Opus 4.8](/news/claude-opus-4-8/): the flagship Sonnet 5 approaches in quality.
+- [What are reasoning models?](/glossary/reasoning-models/): the model class Sonnet 5 belongs to.
+- [Claude and Anthropic](/tools/claude-anthropic/): models and integration details.

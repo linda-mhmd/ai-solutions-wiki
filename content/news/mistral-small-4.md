@@ -29,3 +29,10 @@ The parameter split - 119 billion total with about 6 billion active - marks a {{
 ## Sources
 
 1. Mistral AI. "Mistral Small 4" (16 March 2026). [https://mistral.ai/news/mistral-small-4/](https://mistral.ai/news/mistral-small-4/)
+
+## Further reading
+
+- [The 2026 LLM landscape](/comparisons/llm-landscape-2026/): how Mistral Small 4 sits among open-weight models.
+- [What is mixture of experts?](/glossary/mixture-of-experts/): the low-active-parameter design it uses.
+- [NVIDIA Nemotron 3 open models](/news/nvidia-nemotron-3/): another major open-weight family from 2026.
+- [Mistral AI](/tools/mistral-ai/): models and deployment.

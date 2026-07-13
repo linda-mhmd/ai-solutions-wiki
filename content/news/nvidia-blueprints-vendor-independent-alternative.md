@@ -53,3 +53,9 @@ Use them together: try and compare models on build.nvidia.com, then build the re
 - [The 2026 LLM landscape](/comparisons/llm-landscape-2026/): how the models you can try in those playgrounds compare.
 - [AI Learning Galaxy](/explore/galaxy/): learn every concept as a theory-plus-build pair.
 - [Working with multiple environments](/guides/working-with-multiple-environments/): build cheaply on free tiers with proper stages.
+- [AWS Builder Center free sandboxes](/news/aws-builder-center-free-sandbox/): a real AWS account for 8 hours, no account or credit card, the cloud-services counterpart to these model playgrounds.
+
+## Sources
+
+- [build.nvidia.com](https://build.nvidia.com/): the model playgrounds, free endpoints, and blueprint catalog.
+- [NVIDIA, NIM Agent Blueprints announcement](https://nvidianews.nvidia.com/news/nvidia-and-global-partners-launch-nim-agent-blueprints-for-enterprises-to-make-their-own-ai): what the blueprints are and who built them.

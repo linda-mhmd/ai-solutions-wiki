@@ -29,3 +29,10 @@ For teams comparing {{< relref "glossary/reasoning-models" >}} across providers,
 ## Sources
 
 1. Google. "Gemini 3.5" (19 May 2026). [https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/)
+
+## Further reading
+
+- [The 2026 LLM landscape](/comparisons/llm-landscape-2026/): how Gemini 3.5 Flash compares across providers.
+- [What are reasoning models?](/glossary/reasoning-models/): the class Gemini's agentic gains build on.
+- [OpenAI ships GPT-5.5 and GPT-5.6](/news/openai-gpt-5-5-and-5-6/): the competing frontier family.
+- [Google Gemini](/tools/google-gemini/): API and tooling details.

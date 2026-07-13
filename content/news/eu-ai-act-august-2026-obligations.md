@@ -46,3 +46,10 @@ Second, if you build or deploy high-risk systems, do not treat the proposed dela
 6. EU Artificial Intelligence Act, Article 51 (classification of GPAI models with systemic risk): https://artificialintelligenceact.eu/article/51/
 7. EU Artificial Intelligence Act, Article 99 (penalties): https://artificialintelligenceact.eu/article/99/
 8. Council of the EU, Artificial Intelligence: Council gives final green light to simplify and streamline rules (29 June 2026): https://www.consilium.europa.eu/en/press/press-releases/2026/06/29/artificial-intelligence-council-gives-final-green-light-to-simplify-and-streamline-rules/
+
+## Further reading
+
+- [The US moves to preempt state AI laws](/news/us-ai-policy-preemption-2026/): the contrasting US approach.
+- [Beyond the EU: South Korea and Japan's AI laws](/news/asia-ai-laws-2026/): how other jurisdictions regulate.
+- [The second International AI Safety Report](/news/international-ai-safety-report-2026/): the evidence base behind the rules.
+- [AI regulatory compliance checklist](/guides/ai-regulatory-compliance-checklist/): how to prepare.

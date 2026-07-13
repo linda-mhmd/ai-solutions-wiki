@@ -29,3 +29,10 @@ Open weights under Apache 2.0 plus coverage of all official European Union langu
 ## Sources
 
 1. Cohere. "Introducing Command A+" (20 May 2026). [https://cohere.com/blog/command-a-plus](https://cohere.com/blog/command-a-plus)
+
+## Further reading
+
+- [The 2026 LLM landscape](/comparisons/llm-landscape-2026/): how Command A+ compares to other open-weight models.
+- [What is mixture of experts?](/glossary/mixture-of-experts/): the sparse design Command A+ adopts.
+- [What is sovereign AI?](/glossary/sovereign-ai/): the self-hosting, data-residency use case it targets.
+- [Cohere](/tools/cohere/): models and integration.
