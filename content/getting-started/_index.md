@@ -19,6 +19,7 @@ Use this guide to find the entry point that best matches your situation. Each pa
 | **Founder or Executive** | [For Founders](/for/founders/) | Focus on architecture decisions, hiring, vendor evaluation, and strategic considerations. |
 | **Finance or Business professional** | [For Finance and Business](/for/finance-business/) | Understand cost modeling, compliance requirements, and regulatory frameworks for AI systems. |
 | **Vibe coder** | [For Vibe Coders](/for/vibe-coders/) | Practical guidance on debugging, deployment, and directing AI tools effectively. |
+| **Already building and unsure it is safe** | [The safety check](/guides/vibe-coding-in-public-safety-check/) | Five plain-English checks for your keys, database, and access before real users arrive. |
 | **Student or career switcher** | [For Students and Career Switchers](/for/students-switchers/) | Build a complete mental model from computers to AI, designed for those entering the field. |
 | **Consultant or advisor** | [For Consultants and Advisors](/for/consultants/) | Governance frameworks, strategic tools, and vocabulary for client-facing work. |
 

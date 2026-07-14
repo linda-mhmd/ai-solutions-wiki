@@ -4,7 +4,7 @@ title: "For Vibe Coders"
 description: "Build real products without writing every line. Understand enough to direct the AI, debug what breaks, and ship something that works."
 date: 2026-05-29
 tags: ["vibe-coding", "beginner", "no-code", "ai-tools"]
-last_updated: 2026-05-30
+last_updated: 2026-07-14
 ---
 
 ## You direct. The AI writes. But you need to speak the language.
@@ -29,6 +29,21 @@ You do not need to write code from scratch. You need enough vocabulary to descri
 **Claude generates code but you cannot tell if it is correct.** A working function and a broken function can look identical to someone who does not know what the function is supposed to do architecturally. Understanding the shape of a system helps you spot when the AI has gone sideways.
 
 **Describing the problem is half the fix.** The more precisely you can tell an AI what context it is in, what went wrong, and what the expected behaviour is, the more useful its response. That precision comes from vocabulary, not from being a senior engineer.
+
+---
+
+### Before you share it with the world
+
+There is one more wall, and it is the one people hit hardest because nobody warns them about it. The moment you deploy, your app is on the public internet. Anyone can reach it, search engines can index it, and if your keys or your database are not locked down, strangers can reach those too. This is not a reason to stay on your laptop. It is the reason to run a quick safety check before real people arrive.
+
+Most of it you can handle yourself once you know what to look for: keeping secret keys out of your code, making sure your database is not open to the world, and putting a login on the pages that need one. Some of it, once real users or money are involved, is worth a second pair of eyes. That is normal, and it is what every serious product does.
+
+Two short, honest guides walk you through exactly this:
+
+- [Vibe coding in public: the safety check](/guides/vibe-coding-in-public-safety-check/): five plain-English checks, each with a self-test you can run in minutes.
+- [When do you actually need a professional?](/guides/when-do-you-need-a-professional/): how to tell when you have reached the point where help pays for itself, and how to choose someone good.
+
+If you already know you are past that line, [here is how to get help](/get-help/), including a free call to work out what you actually need.
 
 ---
 
@@ -96,6 +111,9 @@ When you get a proposed fix, ask the AI to explain what changed and why. If the 
 
 ## Also useful
 
+- [Vibe coding in public: the safety check](/guides/vibe-coding-in-public-safety-check/): the five checks that keep your keys, database, and users safe once you go live
+- [When do you actually need a professional?](/guides/when-do-you-need-a-professional/): an honest self-assessment for knowing when to bring in help
+- [Get help with your project](/get-help/): four ways to work with an experienced builder, starting with a free call
 - [What is a Terminal?](/basics/what-is-a-terminal/): the interface between you and the machine your code runs on
 - [What is GitHub?](/basics/what-is-github/): where your code lives and how it gets to production
 - [From Zero to Production](/guides/from-zero-to-production/): the full production journey, mapped from first commit to live app

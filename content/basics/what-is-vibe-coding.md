@@ -194,6 +194,8 @@ It becomes harder as projects grow, more files, more dependencies, more edge cas
 
 This is not a reason not to start. Start building. Understanding grows through building. Some projects stay small and ship. Others grow into something that needs deeper expertise. Either way, you cannot get there without starting.
 
+When your project does grow, two short guides help you stay safe and know when to get help. [Vibe coding in public: the safety check](/guides/vibe-coding-in-public-safety-check/) walks through the handful of things that keep your keys, database, and users protected once you go live. [When do you actually need a professional?](/guides/when-do-you-need-a-professional/) is an honest, pressure-free way to tell when a second pair of eyes is worth it.
+
 ## Further reading
 
 - [Claude Code documentation](https://docs.anthropic.com/en/docs/claude-code/overview), complete guide to using Claude as a coding tool
