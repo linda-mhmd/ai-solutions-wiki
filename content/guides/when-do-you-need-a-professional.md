@@ -60,6 +60,8 @@ Read down this list. If several items feel like you, you are probably in Amber. 
 
 **It is making money or your name is on it.** Once your reputation or your income depends on it, the calculus changes. Cheap insurance is worth buying.
 
+**You are in a regulated field.** Health, money, children, hiring, credit, insurance, or professional advice all come with rules you cannot vibe past. More on this just below.
+
 ## Green, amber, or red?
 
 | | Green: build on | Amber: get a review | Red: bring someone in |
@@ -92,6 +94,51 @@ Shipping is not the finish line. It is the moment the ongoing work begins, and t
 
 **If people can upload files, someone has to pay to keep them.** The moment users can upload content you store, photos, documents, video, you have taken on an open-ended and growing cost. Do the arithmetic before you offer it. A thousand users saving twenty photos of four megabytes each is already eighty gigabytes, and it only goes up from there. Storage itself is cheap, often a few euro cents per gigabyte per month, but you also pay to back it up, and you pay bandwidth every time a file is viewed or downloaded, which for popular content dwarfs the storage. Free tiers disappear fast. This is a number to work out on purpose, not to discover on a bill.
 
+## It depends on your industry
+
+Everything above is the general picture. Some fields add rules you cannot vibe your way past, where getting it wrong is not a bug but a legal or safety problem. If your product touches any of these, an expert is not optional, and often neither is a lawyer.
+
+| If your product touches... | Why it changes everything | Where to start |
+|---|---|---|
+| **Health data** | Health information is specially protected, and a tool that diagnoses or advises can count as a regulated medical device | [GDPR for AI teams](/guides/gdpr-for-ai-teams/) |
+| **Payments or card data** | Handling card details brings strict security rules; the safe path is to never touch them and let a payment provider do it | [Secrets management](/guides/secrets-management-ai/) |
+| **Children** | Data about minors carries extra consent and protection rules almost everywhere | [GDPR for AI teams](/guides/gdpr-for-ai-teams/) |
+| **Decisions about people** | Automated calls on hiring, credit, or insurance can be legally high-risk and must be fair and explainable | [EU AI Act compliance](/guides/eu-ai-act-compliance-guide/) |
+| **Professional advice** | If your AI is wrong about law, medicine, or money, someone can be harmed and you may be liable | [Responsible AI](/guides/responsible-ai-guide/) |
+| **Biometrics or faces** | Biometric data is specially protected and some uses are restricted or banned outright | [EU AI Act compliance](/guides/eu-ai-act-compliance-guide/) |
+
+This is not the full list, and the details differ by country. The point is that "it works" is not the bar in these fields. "It is correct, explainable, secure, and lawful" is the bar, and that is expert territory by definition.
+
+## AI-specific traps
+
+AI adds failure modes that ordinary software does not have, and they are easy to miss because the app still looks like it is working.
+
+- **Hallucinations are your liability.** A model can state something false with complete confidence. If a user acts on it and is harmed, "the AI said it" is not a defence. You need guardrails, and for some uses a human checking the output. See [responsible AI](/guides/responsible-ai-guide/).
+- **Without evals, you cannot tell it still works.** A small prompt change or a model update can quietly make answers worse. Real AI products measure quality with [evaluations](/guides/how-ai-models-are-evaluated/), not gut feel, so a regression is caught before customers feel it.
+- **It is non-deterministic.** The same input can produce different output, so you cannot test it the way you test normal code. [Testing non-deterministic systems](/guides/testing-non-deterministic-systems/) is its own skill.
+- **The model can be retired.** The model you depend on can change or be withdrawn on the provider's schedule, not yours. Plan for it: [provider restrictions](/guides/preparing-for-ai-provider-restrictions/) and [vendor lock-in](/guides/software-licensing-and-vendor-lock-in/).
+
+## A few more places the ground gets deep
+
+The same pattern shows up in three other areas. Each is fine to grow into, as long as you know it is there and get help before it bites.
+
+- **The everyday law.** Even a hobby that grew needs a real privacy policy and terms, not a copied template; the ability to actually delete a user when they ask; care about where data physically lives; and clarity on who owns the AI-generated code and the licenses it pulled in. Start with [GDPR for AI teams](/guides/gdpr-for-ai-teams/) and [cross-border data transfers](/guides/cross-border-data-transfers-ai/).
+- **Reliability.** A backup you have never restored is not a backup. Real products test their restores, notice failure before users report it, and change the database on live data carefully. See [disaster recovery](/guides/disaster-recovery-ai/) and [monitoring in production](/guides/monitoring-ai-production/).
+- **Money that adds up quietly.** Beyond storage, watch bandwidth out of your cloud (egress), per-call model costs, sales tax and VAT, and fraud or chargebacks. The [total cost of ownership](/guides/ai-total-cost-ownership/) and [LLM cost optimization](/guides/llm-cost-optimization/) guides show how to keep the sums honest.
+
+## Where vibe coding stops being fun
+
+Building with AI is genuinely fun, right up until a few specific moments. Recognising them early is the whole point of this guide, because every one of them is far cheaper to prevent than to live through.
+
+- **The 2am outage.** Your app is down, real people are affected, and you do not know why or how to bring it back.
+- **The email from a stranger** telling you your database is open or your keys are public. If you are lucky, it is a friendly researcher and not someone worse.
+- **The bill you did not expect.** A model call stuck in a loop, a viral moment, or stored files quietly growing, and suddenly the invoice is real money.
+- **The legal letter.** A user asks you to delete everything about them, a regulator asks a question, or someone says your AI gave harmful advice.
+- **The data you cannot get back.** A bad change wiped or corrupted real data, and there is no tested backup to restore from.
+- **The wall.** The AI keeps regenerating the same broken code, you cannot tell why, and you no longer know enough to move forward on your own.
+
+None of these mean you did something wrong. They mean the project grew up. The builders who come through them well are the ones who saw them coming and brought in help before the moment, not during it. If any of these feel close, [that is exactly what a first call is for](/get-help/).
+
 ## How to choose someone good
 
 The hardest part is often not deciding to get help, but knowing who to trust. A few honest signals of someone worth working with:
@@ -122,5 +169,6 @@ If any of this describes where you are, [here is how to get help](/get-help/), i
 - [From zero to production](/guides/from-zero-to-production/): the full path a real product travels, so you can see what is ahead.
 - [GDPR for AI teams](/guides/gdpr-for-ai-teams/): what handling personal data actually obliges you to do.
 - [Hiring AI engineers](/guides/hiring-ai-engineers/): if the help you need is a longer-term teammate rather than a review.
+- [AI security best practices](/guides/ai-security-best-practices/): the deeper security work behind the checks a review would run.
 - [EU regulatory framework for AI](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai): the European Commission's official overview of when AI rules apply.
 - [European Commission: data protection](https://commission.europa.eu/law/law-topic/data-protection_en): the official starting point for what the GDPR requires.
