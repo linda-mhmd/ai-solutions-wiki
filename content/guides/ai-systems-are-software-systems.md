@@ -11,7 +11,7 @@ last_updated: 2026-05-30
 There is a persistent misconception in the AI industry: that building AI is a different discipline from building software. This misconception is reinforced by how AI is taught, marketed, and discussed. Tutorials end at "call the API." Notebooks are presented as deliverables. The gap between prototype and production is treated as someone else's problem.
 
 <figure class="bz-figure">
-  <img src="/img/craft/comparison-code-vs-ai.png" alt="A split comparison showing traditional code on one side and AI systems on the other: both require the same engineering discipline, but AI adds layers of complexity." loading="lazy">
+  <img src="/img/ai-machine/weaving-conductor-split-notext.png" alt="A split image: hands weaving red laser threads on one side, a small conductor facing a towering white structure on the other. Hands-on craft and high-level orchestration, side by side." loading="lazy">
   <figcaption>AI systems are software systems with additional complexity. The model is a small box surrounded by much larger boxes: data pipelines, orchestration, deployment, monitoring, and governance. The engineering discipline is the same.</figcaption>
 </figure>
 

@@ -9,7 +9,7 @@ last_updated: 2026-06-22
 ## AI in HR moves fast. The legal risk moves faster.
 
 <figure class="bz-figure">
-  <img src="/img/shaping-ai/boardroom-team-red-notext.png" alt="Team seated around a table in a dark boardroom with red-lit displays: people decisions made with AI require human oversight and clear governance." loading="lazy">
+  <img src="/img/enterprise-dark/boardroom-team-red-notext.png" alt="Team seated around a table in a dark boardroom with red-lit displays: people decisions made with AI require human oversight and clear governance." loading="lazy">
   <figcaption>AI in HR accelerates every people process. The oversight, the accountability, and the legal responsibility still sit with you.</figcaption>
 </figure>
 
