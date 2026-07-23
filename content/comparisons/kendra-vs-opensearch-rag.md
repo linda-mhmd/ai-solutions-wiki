@@ -9,7 +9,9 @@ last_updated: 2026-06-14
 lastmod: 2026-06-14
 ---
 
-RAG architectures need a retrieval layer that finds relevant documents to ground LLM responses. On AWS, two primary options are Amazon Kendra (an intelligent search service) and Amazon OpenSearch (a search and analytics engine with vector capabilities). They approach retrieval differently and suit different use cases. For RAG specifically, AWS added the Amazon Kendra GenAI Enterprise Edition index (announced December 2024), often called the Kendra GenAI Index, which combines hybrid keyword and vector search with semantic embedding and re-ranker models and plugs directly into Amazon Bedrock Knowledge Bases as a managed retriever.
+RAG architectures need a retrieval layer that finds relevant documents to ground LLM responses. On AWS, two primary options are Amazon Kendra (an intelligent search service) and Amazon OpenSearch (a search and analytics engine with vector capabilities). They approach retrieval differently and suit different use cases.
+
+> **Lifecycle note (July 2026):** AWS moved Amazon Kendra into maintenance mode on 30 June 2026 (closed to new customers from 30 July 2026, existing customers still supported), and recommends new retrieval work go to Amazon Bedrock Managed Knowledge Bases. For a new build, weigh OpenSearch or a Bedrock Knowledge Base rather than starting on Kendra. See the [2026 AWS lifecycle wave](/news/aws-service-deprecations-2026/). The comparison below stands for teams already on Kendra. For RAG specifically, AWS added the Amazon Kendra GenAI Enterprise Edition index (announced December 2024), often called the Kendra GenAI Index, which combines hybrid keyword and vector search with semantic embedding and re-ranker models and plugs directly into Amazon Bedrock Knowledge Bases as a managed retriever.
 
 ## Overview
 

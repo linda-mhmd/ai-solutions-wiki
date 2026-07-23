@@ -135,7 +135,7 @@ Building with AI is genuinely fun, right up until a few specific moments. Recogn
 - **The bill you did not expect.** A model call stuck in a loop, a viral moment, or stored files quietly growing, and suddenly the invoice is real money.
 - **The legal letter.** A user asks you to delete everything about them, a regulator asks a question, or someone says your AI gave harmful advice.
 - **The data you cannot get back.** A bad change wiped or corrupted real data, and there is no tested backup to restore from.
-- **The wall.** The AI keeps regenerating the same broken code, you cannot tell why, and you no longer know enough to move forward on your own.
+- **The wall.** The AI keeps regenerating the same broken code, you cannot tell why, and you no longer know enough to move forward on your own. The escape moves are learnable: [getting unstuck when the AI loops](/guides/getting-unstuck-when-the-ai-loops/).
 
 None of these mean you did something wrong. They mean the project grew up. The builders who come through them well are the ones who saw them coming and brought in help before the moment, not during it. If any of these feel close, [that is exactly what a first call is for](/get-help/).
 

@@ -12,9 +12,11 @@ related:
   - tools/amazon-bedrock
   - tools/amazon-opensearch
   - tools/aws-s3
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-07-17
+lastmod: 2026-07-17
 enhanced_pass: "2026-06"
+status: deprecated
+status_detail: "AWS placed Amazon Kendra into maintenance mode effective 30 June 2026: no new features, and closed to new customers from 30 July 2026. Existing customers keep full support, with no shutdown date announced. AWS recommends new retrieval work move to Amazon Bedrock Managed Knowledge Bases. See the 2026 AWS lifecycle wave: /news/aws-service-deprecations-2026/."
 ---
 
 Amazon Kendra is a managed enterprise search service from AWS that uses machine learning to return relevant answers from unstructured data. Unlike keyword-based search engines, Kendra understands natural language queries and returns precise answers extracted from documents rather than just a list of matching files. For AI projects, Kendra serves as a high-quality retrieval layer that can feed into generative AI workflows or stand alone as an intelligent search solution.
@@ -23,7 +25,9 @@ Official documentation: https://docs.aws.amazon.com/kendra/
 Pricing: https://aws.amazon.com/kendra/pricing/
 Service quotas: https://docs.aws.amazon.com/kendra/latest/dg/quotas.html
 
-Amazon Kendra is an active, fully supported AWS service. In December 2024 AWS added the GenAI Enterprise Edition index (often called the "GenAI Index"), now the recommended index type, built specifically for retrieval augmented generation and reuse across Amazon Bedrock and Amazon Q Business. See the Core Concepts and RAG Retriever sections below.
+> **Lifecycle note (July 2026):** AWS moved Amazon Kendra into maintenance mode on 30 June 2026, and it is closed to new customers from 30 July 2026. Existing customers keep full support with no announced shutdown date, but there are no new features, and AWS recommends new retrieval work go to [Amazon Bedrock Managed Knowledge Bases](/tools/amazon-bedrock/). If you are choosing a retriever today, treat Kendra as a legacy option and read the [2026 AWS lifecycle wave](/news/aws-service-deprecations-2026/). The reference below is preserved for teams already running Kendra.
+
+In December 2024 AWS added the GenAI Enterprise Edition index (often called the "GenAI Index"), built for retrieval augmented generation and reuse across Amazon Bedrock and Amazon Q Business. See the Core Concepts and RAG Retriever sections below.
 
 ## Foundations for beginners
 

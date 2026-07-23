@@ -287,6 +287,12 @@ You have completed the foundations curriculum. The next step is depth.
 
 ---
 
+## Before anyone else uses what you build
+
+Level 4 ends where real products begin. The moment your build meets real users, three short reads keep you and them safe: the [pre-launch safety check](/guides/vibe-coding-in-public-safety-check/) (keys, database, logins, in plain English), [when you actually need a professional](/guides/when-do-you-need-a-professional/) (an honest self-assessment, no pressure), and [how to get help](/get-help/) when the stakes rise. Getting help at the right moment is what serious builders do.
+
+---
+
 ## Further reading
 
 - [What is AI?](/basics/what-is-ai/): language models, training, and inference in plain English

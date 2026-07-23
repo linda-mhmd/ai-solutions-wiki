@@ -11,6 +11,8 @@ last_updated: 2026-06-14
 
 Both Amazon Bedrock AgentCore and Amazon Bedrock Agents let teams operate AI agents on AWS, but they sit at different layers of the stack and target different operating models. Bedrock Agents is a managed, opinionated agent service tightly bound to the Bedrock control plane. AgentCore is a runtime and a set of services for operating agents you build with any framework. The choice depends on whether you want a turnkey agent definition or a runtime substrate for agents you already own.
 
+> **Lifecycle note (July 2026):** AWS renamed the original service to Amazon Bedrock Agents Classic and closed it to new customers from 30 July 2026, pointing new work to AgentCore. Its model catalog is frozen and no end-of-life date is set, so existing agents keep running, but for a new build the decision below now resolves to AgentCore. This comparison is kept for teams still operating Bedrock Agents Classic. See the [2026 AWS lifecycle wave](/news/aws-service-deprecations-2026/).
+
 ## Core Architectural Difference
 
 **Amazon Bedrock Agents** is a managed agent service. You declare an agent in the Bedrock console or via API: a foundation model, instructions, action groups (Lambda-backed APIs), knowledge bases, and optional guardrails. AWS handles orchestration, tool invocation, knowledge retrieval, and trace generation. The agent definition lives inside Bedrock; the framework is implicit.

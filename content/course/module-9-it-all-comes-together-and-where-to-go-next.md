@@ -89,3 +89,5 @@ Swap the services, and the same shape fits podcasts, photo libraries, documents,
 ## Where to go next
 
 Built by Linda Mohamed, AWS Hero, Vienna. The full beginner course and build guide are free at ai-solutions.wiki. The blog, and the workshops, are at lindamohamed.com.
+
+One more thing before your own build meets real users. Run the [pre-launch safety check](/guides/vibe-coding-in-public-safety-check/): five plain-English checks on your keys, your database, and your logins. And when money, personal data, or other people's trust enter the picture, read [when you actually need a professional](/guides/when-do-you-need-a-professional/), or [get help directly](/get-help/). Every serious product brings in help at the right moment. Yours deserves the same.

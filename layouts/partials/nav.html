@@ -26,7 +26,7 @@
         <!-- For You mega menu -->
         <li class="nav-group">
           <a href="{{ "/for/" | relURL }}" class="nav-group-link{{ if $active_for }} active{{ end }}"{{ if $active_for }} aria-current="page"{{ end }}>
-            For You
+            For You<span class="nav-new-dot" data-group-dot="foryou" aria-hidden="true"></span>
             <svg class="nav-caret" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </a>
           <div class="nav-mega nav-mega--audience" role="menu" aria-label="For You">
@@ -34,7 +34,11 @@
               <span class="nav-mega-header">Who are you?</span>
               <a href="{{ "/for/" | relURL }}" class="nav-mega-view-all">See all paths →</a>
             </div>
-            <div class="nav-mega-grid">
+            <div class="nav-mega-grid" data-newgroup="foryou">
+              <a href="{{ "/for/engineers/" | relURL }}" class="nav-mega-card" role="menuitem" data-newkey="for-engineers">
+                <span class="nav-mega-card-title">Software Engineer<span class="nav-new-badge">New</span></span>
+                <span class="nav-mega-card-desc">You ship production systems. Map what LLMs actually change: evals, non-determinism, token economics.</span>
+              </a>
               <a href="{{ "/for/product-managers/" | relURL }}" class="nav-mega-card" role="menuitem">
                 <span class="nav-mega-card-title">Product Manager</span>
                 <span class="nav-mega-card-desc">Understand AI proposals, scope work, and ask better questions in every project room.</span>
@@ -62,6 +66,14 @@
               <a href="{{ "/for/gardener/" | relURL }}" class="nav-mega-card" role="menuitem">
                 <span class="nav-mega-card-title">Gardener</span>
                 <span class="nav-mega-card-desc">Learn by growing, soil to harvest, one layer at a time. The garden-metaphor path and video course.</span>
+              </a>
+              <a href="{{ "/for/marketers/" | relURL }}" class="nav-mega-card" role="menuitem">
+                <span class="nav-mega-card-title">Marketer</span>
+                <span class="nav-mega-card-desc">Brief the AI tools, judge the output, and see through the hype in vendor pitches.</span>
+              </a>
+              <a href="{{ "/for/hr-teams/" | relURL }}" class="nav-mega-card" role="menuitem">
+                <span class="nav-mega-card-title">HR Team</span>
+                <span class="nav-mega-card-desc">AI in hiring and people analytics, and which uses the EU AI Act counts as high-risk.</span>
               </a>
             </div>
           </div>
@@ -199,16 +211,20 @@
         </ul>
       </div>
 
-      <div class="mobile-nav-group">
+      <div class="mobile-nav-group" data-newgroup="foryou-m">
         <p class="mobile-nav-group-label">For You</p>
         <ul class="mobile-nav-links">
           <li><a href="{{ "/for/" | relURL }}" class="mobile-nav-hub">All paths overview</a></li>
+          <li><a href="{{ "/for/engineers/" | relURL }}" data-newkey="for-engineers">Software Engineer<span class="nav-new-badge">New</span></a></li>
           <li><a href="{{ "/for/product-managers/" | relURL }}">Product Manager</a></li>
           <li><a href="{{ "/for/finance-business/" | relURL }}">Finance and Business</a></li>
           <li><a href="{{ "/for/vibe-coders/" | relURL }}">Vibe Coder</a></li>
           <li><a href="{{ "/for/students-switchers/" | relURL }}">Student or Career Switcher</a></li>
           <li><a href="{{ "/for/founders/" | relURL }}">Founder or Entrepreneur</a></li>
           <li><a href="{{ "/for/consultants/" | relURL }}">Consultant or Advisor</a></li>
+          <li><a href="{{ "/for/marketers/" | relURL }}">Marketer</a></li>
+          <li><a href="{{ "/for/hr-teams/" | relURL }}">HR Team</a></li>
+          <li><a href="{{ "/for/gardener/" | relURL }}">Gardener</a></li>
         </ul>
       </div>
 

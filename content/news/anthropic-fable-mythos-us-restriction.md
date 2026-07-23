@@ -13,6 +13,8 @@ related:
   - patterns/ai-governance
 ---
 
+> **Update (July 2026):** These restrictions were lifted. Anthropic announced on 30 June 2026 that it was redeploying Fable 5, with access restored from 1 July 2026. See [US lifts export controls on Fable 5 and Mythos 5](/news/fable-5-export-controls-lifted/). The original account below is preserved for the record, because the risk it exposed outlasts the restriction itself.
+
 For anyone who builds on frontier AI, this is the scenario you plan for and hope never comes: a model you depend on is switched off by government order, for everyone, with no notice. On Friday, June 12, 2026, it happened. A US national security directive ordered Anthropic to cut off foreign access to its two most capable models, Claude Fable 5 and Claude Mythos 5. The scope was not practical to enforce one user at a time, so Anthropic disabled both models for everyone, worldwide. It is widely described as the first time the US has restricted a specific commercial AI model itself, rather than the chips that run it.
 
 ## What happened

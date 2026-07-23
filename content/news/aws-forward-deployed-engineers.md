@@ -68,6 +68,8 @@ The 1 billion US dollar commitment signals that AWS sees embedded, [agentic](/gl
 ## Further reading
 
 - [What is a forward deployed engineer?](/glossary/forward-deployed-engineering/): the embedded engineering role and where it came from
+- [Microsoft's Frontier Company](/news/microsoft-frontier-company/): Microsoft's embedded-engineering business, the same move at scale
+- [Google Cloud builds a forward deployed engineering team](/news/google-forward-deployed-engineering/): the third hyperscaler to adopt the model
 - [AI agents](/glossary/ai-agents/): tools that complete tasks on their own
 - [Agentic loops](/glossary/agentic-loops/): how agents plan, act, and verify in cycles
 - [From zero to production](/guides/from-zero-to-production/): moving an AI project from prototype to a live system

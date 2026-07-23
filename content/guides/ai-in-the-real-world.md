@@ -121,6 +121,7 @@ This page is a living snapshot and will be updated as outcomes change. For the l
 
 ## Further reading
 
+- [Did big tech lay off workers because AI replaced them?](/news/big-tech-ai-layoffs-2026/): what Meta's and Amazon's own statements say, versus the viral version.
 - [How to read technology trends](/guides/reading-technology-trends/): Gartner, the hype cycle, and telling signal from noise.
 - [How technology dies: the service lifecycle](/guides/service-lifecycle-and-deprecation/): why even successful tools fade, and how to plan for it.
 - [Software licensing and vendor lock-in](/guides/software-licensing-and-vendor-lock-in/): the contract risks behind the products in this page.

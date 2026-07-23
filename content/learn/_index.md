@@ -14,7 +14,7 @@ Five ways to enter the wiki. Each is built for a different starting point and go
 
 ---
 
-## Path 1: Start at Zero
+## Path 1: Level Curriculum
 
 **Who it is for:** Someone with no technical background who wants to understand how technology works from the ground up, ending at production AI systems.
 
@@ -22,7 +22,7 @@ Five ways to enter the wiki. Each is built for a different starting point and go
 
 **Time investment:** 8-12 hours total. Each level is 2-4 short articles.
 
-**Start:** [Start at Zero](/levels/)
+**Start:** [Level Curriculum](/levels/)
 
 ---
 

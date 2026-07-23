@@ -12,8 +12,8 @@ Use this guide to find the entry point that best matches your situation. Each pa
 
 | If you are... | Start with... | Why |
 |---------------|---------------|-----|
-| **New to AI and technology entirely** | [Start at Zero](/levels/) | Builds from absolute basics: hardware, code, and systems, before introducing AI concepts. |
-| **Technical but new to AI** | [Foundations](/foundations/) | Covers core engineering principles that apply directly to AI systems without repeating basics you already know. |
+| **New to AI and technology entirely** | [Start at Zero](/basics/) | Builds from absolute basics: hardware, code, and systems, before introducing AI concepts. |
+| **Software engineer, new to AI** | [For Software Engineers](/for/engineers/) | Maps what LLMs actually change for someone who already ships production software: evals, non-determinism, token economics. |
 | **Experienced AI builder** | [Explore](/explore/) | Jump directly to specific topics, patterns, and reference material without introductory content. |
 | **Product Manager** | [For Product Managers](/for/product-managers/) | Learn the vocabulary and concepts needed to evaluate AI proposals and collaborate with technical teams. |
 | **Founder or Executive** | [For Founders](/for/founders/) | Focus on architecture decisions, hiring, vendor evaluation, and strategic considerations. |
@@ -22,6 +22,8 @@ Use this guide to find the entry point that best matches your situation. Each pa
 | **Already building and unsure it is safe** | [The safety check](/guides/vibe-coding-in-public-safety-check/) | Five plain-English checks for your keys, database, and access before real users arrive. |
 | **Student or career switcher** | [For Students and Career Switchers](/for/students-switchers/) | Build a complete mental model from computers to AI, designed for those entering the field. |
 | **Consultant or advisor** | [For Consultants and Advisors](/for/consultants/) | Governance frameworks, strategic tools, and vocabulary for client-facing work. |
+| **Marketer** | [For Marketers](/for/marketers/) | Brief AI tools, judge the output, and see through vendor hype. |
+| **HR professional** | [For HR Teams](/for/hr-teams/) | AI in hiring and people analytics, and which uses count as high-risk under the EU AI Act. |
 
 ## Other Ways to Navigate
 

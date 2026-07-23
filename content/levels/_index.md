@@ -1,8 +1,8 @@
 ---
-title: "Start at Zero"
-description: "Five levels. Two to four articles each. A complete path from how hardware works to building production AI systems. No prior knowledge required at Level 0."
+title: "Level Curriculum"
+description: "Five levels. Two to four articles each. A complete path from how hardware works to building production AI systems. Start at zero: no prior knowledge required at Level 0."
 date: 2026-05-29
-last_updated: 2026-05-30
+last_updated: 2026-07-17
 ---
 
 Five progressive levels. Each builds directly on the last. You can start anywhere, but the sequence is designed so that every concept makes the next one easier.

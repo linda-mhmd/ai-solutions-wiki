@@ -57,5 +57,6 @@ The trade off is the usual managed service one: faster to production and less pl
 
 - [Amazon Bedrock](/tools/amazon-bedrock/): the platform AgentCore sits within.
 - [AgentCore vs Bedrock Agents](/comparisons/agentcore-vs-bedrock-agents/): how the two approaches differ.
+- [AWS consolidates its AI stack](/news/aws-service-deprecations-2026/): the original Bedrock Agents feature is now "Classic" and closed to new customers; AgentCore is the successor.
 - [Getting started with Amazon Bedrock](/guides/getting-started-with-bedrock/): a hands-on entry point.
 - [What are AI agents?](/glossary/ai-agents/): the systems AgentCore runs.

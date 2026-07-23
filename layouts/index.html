@@ -122,8 +122,9 @@
     </div>
     <div class="idx-news-grid">
       {{ range first 4 ($news.ByDate.Reverse) }}
+      {{ $fr := partial "freshness.html" . }}
       <a href="{{ .RelPermalink }}" class="idx-news-card">
-        <span class="idx-news-date">{{ .Date.Format "2 Jan 2006" }}</span>
+        <span class="idx-news-date">{{ .Date.Format "2 Jan 2006" }}{{ if $fr.fresh }} <span class="sl-card-new{{ if $fr.upd }} sl-card-new--upd{{ end }}" data-new-ts="{{ $fr.ts }}">{{ $fr.label }}</span>{{ end }}</span>
         <span class="idx-news-title">{{ .Title }}</span>
         <span class="idx-news-desc">{{ .Description | truncate 120 }}</span>
       </a>
@@ -657,6 +658,15 @@
         </span>
         <span class="idx-role-name">Vibe Coder</span>
         <span class="idx-role-desc">You direct, AI writes. Know enough to debug, deploy, and keep the system running.</span>
+        <span class="idx-role-cta">Start reading →</span>
+      </a>
+
+      <a href="{{ "/for/engineers/" | relURL }}" class="idx-role-card">
+        <span class="idx-role-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
+        </span>
+        <span class="idx-role-name">Software Engineer</span>
+        <span class="idx-role-desc">You ship production software. Map what LLMs change: evals, non-determinism, token economics.</span>
         <span class="idx-role-cta">Start reading →</span>
       </a>
 

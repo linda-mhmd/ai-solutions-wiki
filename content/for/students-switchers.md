@@ -11,7 +11,7 @@ last_updated: 2026-05-30
 
 ---
 
-**Related paths:** This page focuses on building a mental model of how tech concepts connect, with career-switching context and practical outcomes. If you prefer a structured, level-by-level curriculum covering the full technical stack from hardware to production AI, see [Start at Zero](/levels/) instead. Both paths are designed for beginners—choose this one if career context matters, or Start at Zero if you want a pure technical progression.
+**Related paths:** This page focuses on building a mental model of how tech concepts connect, with career-switching context and practical outcomes. If you prefer a structured, level-by-level curriculum covering the full technical stack from hardware to production AI, see the [Level Curriculum](/levels/) instead. Both paths are designed for beginners. Choose this one if career context matters, or the Level Curriculum if you want a pure technical progression.
 
 ---
 

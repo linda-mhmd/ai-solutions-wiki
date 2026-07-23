@@ -168,6 +168,8 @@ If you have wired an agent into a real system with broad access, that is a stron
 - [What is security and auth?](/basics/what-is-security-and-auth/): the plain-English foundations behind Checks 3 and 4.
 - [Production readiness checklist for AI](/guides/production-readiness-checklist-ai/): everything else to confirm before you call something live.
 - [OWASP Top 10 for LLM applications](/guides/owasp-top-10-llm/): the standard reference for prompt injection and giving an AI agent too much power.
+- [Protect the accounts that hold your keys](/guides/protect-your-accounts/): password managers, 2FA, and passkeys for your own GitHub, AI, and cloud accounts.
+- [Set spending limits before you ship](/guides/set-spending-limits-before-you-ship/): the sixth check in practice, so a runaway loop cannot become a runaway bill.
 - [Supabase: Row Level Security](https://supabase.com/docs/guides/database/postgres/row-level-security): the official guide to the database rules in Check 3.
 - [Google Search Central: intro to robots.txt](https://developers.google.com/search/docs/crawling-indexing/robots/intro): Google's own statement that robots.txt is not for hiding or securing pages.
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/): the industry reference for the most common web security risks.
