@@ -1,0 +1,22 @@
+# gitleaks configuration for ai-solutions.wiki
+# Extends the full default ruleset and allowlists a small set of vetted
+# false positives. Real secrets are still detected everywhere else.
+# Run:  make secrets   (or)   gitleaks detect --source . --redact
+
+title = "ai-solutions.wiki secret scan"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Generated /explore galaxy graph data: page slugs, names, and edges only, no credentials"
+paths = ['''data/galaxy_planet\.json''']
+
+[[allowlists]]
+description = "Example Idempotency-Key HTTP header in the API-design tutorial (sample UUID, not a secret)"
+regexTarget = "line"
+regexes = ['''Idempotency-Key:\s*[0-9a-fA-F-]{8,}''']
+
+[[allowlists]]
+description = "Generated build output and caches; their source is scanned instead, and these can be 1GB+"
+paths = ['''public/''', '''resources/''', '''static/pagefind/''']

@@ -12,7 +12,7 @@ PORT ?= 1314
 BIND ?= 0.0.0.0
 
 .DEFAULT_GOAL := help
-.PHONY: help dev serve preview build check search clean version audit
+.PHONY: help dev serve preview build check search clean version audit secrets preflight
 
 help: ## List available targets
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | sort | \
@@ -47,6 +47,14 @@ audit: ## Security-audit every GitHub Actions workflow with zizmor (needs gh + z
 	@tok=$$(gh auth token 2>/dev/null); \
 	if [ -n "$$tok" ]; then GH_TOKEN="$$tok" zizmor .github/workflows/; \
 	else echo "(no gh token found; running offline audit only)"; zizmor .github/workflows/; fi
+
+secrets: ## Scan for leaked secrets with gitleaks (git history + working tree; needs gitleaks)
+	@echo ">> scanning git history..."; gitleaks detect --source . --redact --no-banner
+	@echo ">> scanning working tree (uncommitted + untracked)..."; gitleaks detect --source . --no-git --redact --no-banner
+	@echo ">> no leaks found"
+
+preflight: check audit secrets ## Full pre-push gate: zero-warning build + zizmor + gitleaks
+	@echo ">> preflight passed: build clean, workflows audited, no secrets"
 
 search: build ## Full build plus the Pagefind search index
 	npx pagefind --site public
