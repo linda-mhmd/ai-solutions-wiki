@@ -1,131 +1,295 @@
 ---
 title: "What is Open Source?"
-description: "Open source means the code is publicly available for anyone to read, use, modify, and contribute to. Most of the internet runs on it."
-date: 2026-05-24
+description: "Open source means the code is public and you can use, modify, and share it. But there's more: licenses, communities, governance, and an entire ecosystem of how software gets built."
+date: 2026-07-30
 level: 2
 categories: [Basics]
-tags: [beginner, open-source, community, licensing]
-youtube_id: "Tyd0FO0tko8"
-youtube_title: "What is Open Source Software?"
-youtube_channel: "Intel Software"
-docs: "https://opensource.guide/"
-docs_label: "Open Source Guides, GitHub"
+tags: [open-source, licensing, community, github, collaboration, foss]
 faqs:
-  - question: "Is open source the same as free?"
-    answer: "Open source means the source code is publicly available, not necessarily that it costs nothing. 'Free' in open source refers to freedom (to read, modify, and distribute), not price. Most open source software is also free to use, but companies build commercial products on top of open source code. Red Hat, MongoDB, and Elastic all built major businesses on open source foundations. 'Free software' and 'open source' are related but philosophically distinct terms."
-  - question: "Can I use open source code in a commercial product?"
-    answer: "It depends on the licence. MIT and Apache 2.0 licences allow commercial use, you can build a paid product using MIT-licensed code, as long as you keep the copyright notice. GPL (GNU General Public Licence) requires that if you distribute software using GPL code, your software must also be GPL (open source). This is called 'copyleft'. Check the licence of every dependency you use. choosealicense.com explains the common ones clearly."
-  - question: "How do I find open source projects to contribute to?"
-    answer: "GitHub's 'good first issue' label marks tasks maintainers have identified as appropriate for new contributors. Search GitHub for topics you care about plus 'good first issue'. The First Contributions repository (github.com/firstcontributions/first-contributions) walks you through making your first pull request step by step. Hacktoberfest (October each year) is a global event where you can contribute to projects and earn rewards."
-last_updated: 2026-05-30
+  - question: "Is open source free?"
+    answer: "Free as in freedom, not always free as in beer. You can use most open-source software without paying, but 'open source' really means you have freedom to view, modify, and distribute the code. Some companies build businesses on open-source software through support, hosting, or premium features."
+  - question: "Can I use open source in my commercial product?"
+    answer: "Usually yes, but it depends on the license. MIT and Apache licenses are very permissive—do almost anything. GPL requires you to share your modifications. Always check the license. When in doubt, stick to MIT/Apache licensed dependencies."
+  - question: "Why would anyone give away their code for free?"
+    answer: "Many reasons: building reputation, solving a shared problem, believing in open collaboration, employer sponsors it, building community around a product, or simply enjoying the work. The Linux kernel is maintained by thousands of contributors, many paid by companies that depend on it."
+last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-Open source software is software whose code is publicly available. Anyone can read it, use it, modify it, and distribute it, subject to the terms of the licence. This is how most of the infrastructure of the internet was built: collectively, by thousands of contributors around the world.
+Open source software has publicly available source code that anyone can view, use, modify, and distribute. This isn't just about price—it's about freedom and collaboration. Linux, Python, React, Kubernetes, and most of the internet's infrastructure are open source. A license defines what you can do with the code. A community maintains and evolves it.
 {{< /quickanswer >}}
 
-<figure class="bz-figure">
-  <img src="/img/dark-cherry/data-projection.png" alt="A dark industrial cylinder projecting rows of red light points onto a surface: a single source broadcasting openly to everyone in range." loading="lazy">
-  <figcaption>Open source is code that projects outward. Anyone can read it, copy it, modify it, and send changes back. The original source keeps emitting. The community shapes what reflects back.</figcaption>
-</figure>
+## The core idea
 
-## The idea behind open source
+When you download an app, you usually get compiled code—the machine-readable version. You can run it, but you can't see how it works or change it.
 
-Most commercial software, Microsoft Word, Adobe Photoshop, Salesforce, is **proprietary**. The company keeps the source code private. You can use the software but you cannot see how it works, change it, or build on top of it.
+Open source means:
+- The **source code** is publicly available
+- You can **read** it to understand how it works
+- You can **modify** it for your needs
+- You can **share** your modifications with others
+- A **license** defines exactly what's allowed
 
-Open source inverts this. The code is public. Anyone can:
-- Read it to understand how it works
-- Report bugs and verify they are fixed
-- Modify it for their own needs
-- Contribute improvements back
-- Build new software on top of it
+This transparency enables collaboration at a scale that proprietary software can't match. The Linux kernel has contributions from thousands of developers across competing companies.
 
-The most successful projects attract thousands of contributors from around the world, improving the software faster than any single company could.
+## Why open source matters to you
 
-## Why most of the internet runs on open source
+Even if you never contribute to an open-source project, you use open source constantly:
 
-When you visit almost any website or use almost any app, the underlying infrastructure was built on open source:
+- **Your web browser** (Chromium, Firefox)
+- **Your operating system** (Linux, Android, much of macOS)
+- **Your development tools** (VS Code, Git, npm packages)
+- **The websites you visit** (React, Next.js, Node.js)
+- **The cloud infrastructure** (Kubernetes, Docker, Linux servers)
+- **The AI tools you use** (PyTorch, Hugging Face, many models)
 
-- **Linux**, the operating system running the vast majority of the world's servers, all Android phones, and the foundation of macOS. Free and open since 1991.
-- **PostgreSQL, MySQL**, the relational databases storing enormous amounts of the world's structured data
-- **Python, Node.js, Go, Rust**, the languages that power most modern backend services
-- **React, Vue, Angular**, the frameworks that build the user interfaces of most web apps
-- **Kubernetes, Docker**, the container orchestration and packaging tools used to deploy software at scale
-- **Linux kernel in Android**, every Android device runs Linux at its core
+Understanding open source helps you:
+- Know what you're allowed to do with dependencies
+- Find and evaluate libraries and tools
+- Participate if you want to
+- Understand how modern software is built
 
-Google, Meta, Amazon, and Microsoft all contribute heavily to open source because they benefit from these shared foundations improving collectively. They also release their own tools as open source (TensorFlow, React, Kubernetes, VS Code) to attract developers to their ecosystems.
+## Licenses: what you can actually do
 
-## Open source licences
+A license is the legal document that defines permissions. No license = all rights reserved = you can't legally use it.
 
-Open source does not mean "do whatever you want." Each project has a **licence** that defines the exact terms of use. The most common ones:
+### Permissive licenses (do almost anything)
 
-| Licence | Commercial use | Share alike | Notes |
-|---|---|---|---|
-| **MIT** | Yes | No | Most permissive. Keep copyright notice. Used by React, jQuery, Ruby on Rails. |
-| **Apache 2.0** | Yes | No | Like MIT plus an explicit patent grant. Used by Kubernetes, TensorFlow. |
-| **GPL v3** | Yes | Yes, must open source your code | "Copyleft", your software must also be GPL if distributed. Used by Linux kernel (v2), Git, WordPress. |
-| **LGPL** | Yes | Only the library itself | A weaker copyleft for libraries. Using an LGPL library does not force your whole app to be open. |
-| **AGPL** | Yes | Yes, includes network use | Like GPL but also applies if you run the software as a service (SaaS). MongoDB switched to AGPL. |
-| **BSL / SSPL** | Restricted |, | "Source available" but not truly open source. Used by some companies to prevent cloud providers competing. |
+**MIT License**
+- Use, modify, distribute freely
+- Must include the license text
+- No warranty
+- Used by: React, Vue, jQuery, many npm packages
 
-[choosealicense.com](https://choosealicense.com/) is the clearest guide to picking a licence for your own project and understanding what others' licences mean.
+**Apache 2.0**
+- Similar to MIT, plus patent protection
+- Explicit patent grant protects users
+- Used by: Kubernetes, TensorFlow, Apache projects
 
-## How open source is funded
+**BSD Licenses**
+- Similar to MIT, several variants
+- Used by: FreeBSD, many older projects
 
-Open source software is often assumed to be volunteer work, but there are sustainable funding models:
+**What this means for you**: If a dependency uses MIT or Apache, you can use it in commercial projects without worrying. Just keep the license file.
 
-- **Company-backed projects**: React (Meta), Go (Google), VS Code (Microsoft), Kubernetes (Google/CNCF)
-- **Foundation-sponsored**: Linux (Linux Foundation), Python (PSF), Rust (Rust Foundation), Apache (Apache Software Foundation)
-- **Dual licensing**: The project is open source for open source use, but commercial users pay for a licence (MySQL, GitLab)
-- **Open core**: Core product is open source; enterprise features are proprietary (MongoDB, Elastic)
-- **Sponsorships**: GitHub Sponsors, Open Collective, Patreon, individuals and companies fund maintainers directly
+### Copyleft licenses (share your changes)
 
-Many critical open source projects remain underfunded, maintained by one or two volunteers. The [Log4Shell vulnerability in 2021](https://en.wikipedia.org/wiki/Log4Shell) exposed this: a library maintained by volunteers was embedded in millions of enterprise systems.
+**GPL (GNU General Public License)**
+- Must release your changes under GPL
+- If you distribute modified GPL code, recipients get the same freedoms
+- "Viral" license—derived works must also be GPL
+- Used by: Linux kernel, GCC, WordPress
 
-## How to use open source in your project
+**LGPL (Lesser GPL)**
+- Weaker copyleft—linking is allowed without sharing your code
+- Used by: Many libraries
 
-When you build software, you almost never start from scratch. You use **packages**, bundles of open source code published by others, installed via package managers:
+**AGPL (Affero GPL)**
+- Like GPL, but network use counts as distribution
+- If you run modified AGPL code as a service, you must share source
+- Used by: MongoDB (historically), some privacy-focused projects
 
-```bash
-npm install react            # JavaScript/TypeScript
-pip install fastapi          # Python
-cargo add tokio              # Rust
-go get github.com/gin-gonic/gin  # Go
+**What this means for you**: Be careful using GPL code in proprietary products. AGPL is especially strict—even running it as a SaaS may require sharing your code.
+
+### License compatibility
+
+You can't always combine code with different licenses:
+
+| Combining | MIT + Apache | MIT + GPL | GPL + Apache | GPL + AGPL |
+|-----------|--------------|-----------|--------------|------------|
+| Result | Works fine | Result is GPL | Works (Apache → GPL) | Result is AGPL |
+| Commercial use | Yes | With restrictions | With restrictions | Very restricted |
+
+**Rule of thumb**: Permissive licenses combine freely. Copyleft is contagious. When in doubt, ask or avoid.
+
+## How open source projects work
+
+### The structure
+
+```
+Project
+├── Maintainers (decision-making authority)
+├── Core contributors (regular, trusted contributors)
+├── Contributors (anyone who submits accepted changes)
+├── Users (people who use but don't contribute)
+└── Governance (rules for how decisions are made)
 ```
 
-The package manager downloads the code, records which exact version you are using (in a lock file), and manages updates. The lock file is crucial: it ensures every developer on the team and every server in production runs exactly the same dependency versions.
+### Maintainers
 
-Before using a package, check:
-1. Its **licence**, is commercial use allowed for your project?
-2. Its **maintenance status**, is it actively maintained? When was the last release?
-3. Its **download count**, widely used packages tend to be better maintained
-4. Its **security record**, does it have known vulnerabilities? ([Snyk Advisor](https://snyk.io/advisor/) helps)
+Maintainers have commit access and decide what gets merged. They:
+- Review and approve/reject contributions
+- Set project direction
+- Manage releases
+- Handle security issues
+- Balance competing interests
 
-## How to contribute to open source
+Being a maintainer is often unpaid work. Many open-source maintainers burn out from the demands of supporting widely-used software without compensation.
 
-If you find a bug or want to add a feature to an open source project:
+### Contributing
 
-1. **Read CONTRIBUTING.md**, most projects have guidelines for contributors
-2. **Find an issue**, look for "good first issue" labels for newcomers
-3. **Fork** the repository on GitHub (creates your own copy)
-4. **Clone** your fork locally
-5. **Create a branch** for your change (`fix/issue-42-null-pointer`)
-6. **Make your change** and write a test if applicable
-7. **Open a Pull Request** to the original repository
-8. **Respond to review feedback**, maintainers will suggest changes
-9. **Get merged**, your contribution is now part of the project, used by everyone
+Anyone can contribute to most open-source projects:
 
-[First Contributions](https://firstcontributions.github.io/) walks through this entire flow with a practice repository specifically for first-time contributors.
+1. **Find an issue** labeled "good first issue" or "help wanted"
+2. **Fork the repository** (make your own copy)
+3. **Make changes** in a branch
+4. **Open a pull request** proposing your changes
+5. **Respond to feedback** from maintainers
+6. **Get merged** (or not—rejection is normal)
+
+Contributions aren't just code:
+- Documentation improvements
+- Bug reports with reproduction steps
+- Translations
+- Design work
+- Answering questions in forums
+- Testing and feedback
+
+### Governance models
+
+**BDFL (Benevolent Dictator for Life)**
+- One person makes final decisions
+- Python (Guido van Rossum, now retired)
+- Linux (Linus Torvalds)
+
+**Committee/Foundation**
+- Elected or appointed group decides
+- Apache projects, Kubernetes, Node.js
+
+**Corporate-backed**
+- One company controls direction
+- React (Meta), Angular (Google), Swift (Apple)
+
+**Community-governed**
+- Democratic processes, votes
+- Debian, some Linux distributions
+
+Governance matters because it determines who decides the project's future.
+
+## The economics of open source
+
+### How projects sustain themselves
+
+**Volunteer labor**: Many projects run on donated time. This is fragile—maintainers burn out or move on.
+
+**Corporate sponsorship**: Companies pay developers to work on open source. Google, Microsoft, Red Hat, and others employ many open-source contributors.
+
+**Open-core model**: Core is open source, premium features are proprietary. GitLab, MongoDB (historically), many developer tools.
+
+**Support and services**: Software is free, support is paid. Red Hat's model.
+
+**Cloud hosting**: Offer managed hosting of open-source software. AWS, various SaaS companies.
+
+**Donations**: GitHub Sponsors, Open Collective, Patreon. Often insufficient for full-time work.
+
+### The sustainability problem
+
+Many critical projects are maintained by one or two unpaid volunteers:
+
+- A single maintainer controls packages used by millions
+- Security vulnerabilities go unpatched due to lack of time
+- Maintainers burn out, projects become abandoned
+- Companies extract billions in value from free labor
+
+This is a known problem without a clear solution. Some foundations try to fund critical infrastructure, but gaps remain.
+
+## Upstream and downstream
+
+These terms describe relationships between projects:
+
+**Upstream**: The original project where development happens.
+
+**Downstream**: Projects that use or build on upstream.
+
+```
+Linux kernel (upstream)
+    ↓
+Fedora (downstream of Linux, upstream of RHEL)
+    ↓
+CentOS Stream (midstream)
+    ↓
+Red Hat Enterprise Linux (downstream)
+    ↓
+Your company's servers (downstream)
+```
+
+Why it matters:
+- Bugs should be fixed upstream if possible
+- Downstream projects inherit upstream changes
+- Contributing upstream helps everyone downstream
+- Upstream decisions affect downstream users (sometimes negatively)
+
+## Common open-source foundations
+
+**Linux Foundation**: Linux, Kubernetes, Node.js, many critical projects. Corporate members fund projects.
+
+**Apache Software Foundation**: Apache web server, Kafka, Spark, Hadoop. Focus on governance and sustainability.
+
+**Cloud Native Computing Foundation (CNCF)**: Kubernetes, Prometheus, Envoy. Cloud infrastructure projects.
+
+**Python Software Foundation**: Python language, PyCon conferences.
+
+**Mozilla Foundation**: Firefox, Rust (now separate), privacy advocacy.
+
+**OpenJS Foundation**: jQuery, Node.js, Electron, webpack.
+
+Foundations provide:
+- Legal protection for contributors
+- Governance frameworks
+- Funding mechanisms
+- Trademark management
+- Neutral ground for competing companies
+
+## The culture
+
+Open source has cultural norms:
+
+**Show your work**: Public discussions, transparent decisions, documented reasoning.
+
+**Assume good faith**: Contributors mean well, even when wrong.
+
+**Code speaks**: Working code over arguments. Prove your point with implementation.
+
+**Meritocracy (in theory)**: Ideas judged on merit, not source. (In practice, biases exist.)
+
+**Give credit**: Acknowledge contributors, maintain attribution.
+
+**Respect maintainers' time**: Good bug reports, clear PRs, patience.
+
+Violating these norms gets you ignored or banned. Following them gets your contributions accepted.
+
+## Why companies open source their code
+
+**Build community and ecosystem**: More users, more contributors, more integrations.
+
+**Hiring**: Developers want to work on open-source projects.
+
+**Standard-setting**: Open source can become the industry standard.
+
+**Commoditize complements**: Make competitors' advantages free to reduce their leverage.
+
+**Trust and transparency**: Users can verify security claims.
+
+**Competitive moat**: If your open-source project dominates, competitors build on your foundation.
+
+Not all open source is altruistic. Corporate strategy often drives decisions.
+
+## Red flags in open-source projects
+
+Before depending on a project, check:
+
+- **When was the last commit?** Abandoned projects don't get security fixes.
+- **Who maintains it?** One person? A company? A foundation?
+- **What's the bus factor?** How many maintainers would need to be hit by a bus to kill the project?
+- **What license?** Ensure it's compatible with your use case.
+- **How are issues handled?** Responsive or ignored?
+- **Is there a security policy?** Can vulnerabilities be reported responsibly?
+
+A widely-used library maintained by one volunteer is a risk.
 
 ## Further reading
 
-- [Open Source Guides, GitHub](https://opensource.guide/), how to start a project, build community, and get paid
-- [Choose a Licence](https://choosealicense.com/), plain-language explanations of every common licence
-- [First Contributions](https://firstcontributions.github.io/), your first pull request, step by step
-- [Hacktoberfest](https://hacktoberfest.com/), annual October event, contribute to open source and earn rewards
-- [The Cathedral and the Bazaar (essay)](http://www.catb.org/~esr/writings/cathedral-bazaar/), the foundational essay on how open source development works differently from proprietary development
-- [Roads and Bridges: The Unseen Labor Behind Our Digital Infrastructure (free PDF)](https://www.fordfoundation.org/work/learning/research-reports/roads-and-bridges-the-unseen-labor-behind-our-digital-infrastructure/), on the open source sustainability problem
-
-## What's next
-
-Next: [What is a Server?](/basics/what-is-a-server/), where code actually runs when it is not running on your laptop.
+- [How to contribute to open source](/basics/how-to-contribute-to-open-source/): Getting started as a contributor
+- [Git vs GitHub](/basics/git-vs-github/): Where open source lives
+- [GitHub alternatives](/basics/github-alternatives/): Other platforms for open source
+- [Developer community programs](/basics/developer-community-programs/): Formal programs around open source

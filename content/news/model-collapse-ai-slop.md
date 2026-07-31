@@ -7,6 +7,7 @@ last_updated: 2026-07-30
 categories: [News]
 tags: [model-collapse, ai-slop, training-data, synthetic-data, data-quality]
 related:
+  - glossary/ai-slop
   - news/anthropic-project-panama-book-scanning
   - news/ai-copyright-litigation-2026
   - glossary/synthetic-data
@@ -44,6 +45,7 @@ If you are fine-tuning or building your own models, audit your data sources. If 
 
 ## Further reading
 
+- [AI slop](/glossary/ai-slop/): the glossary definition of AI slop.
 - [Anthropic's Project Panama](/news/anthropic-project-panama-book-scanning/): why labs are buying physical books.
 - [AI copyright litigation in 2026](/news/ai-copyright-litigation-2026/): the legal landscape for training data.
 - [Synthetic data](/glossary/synthetic-data/): when and how to use it safely.

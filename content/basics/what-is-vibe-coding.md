@@ -179,6 +179,8 @@ Beyond the basics, these patterns consistently produce better results:
 
 **Skipping tests entirely.** Ask the AI to write tests for the functions it builds. Automated tests catch when a later change breaks something that was working.
 
+**Installing packages without verification.** AI coding assistants hallucinate package names. Research found 19.7% of LLM-recommended packages do not exist. This enables [slopsquatting]({{< relref "glossary/slopsquatting" >}}), where attackers register hallucinated package names and plant malware. Always verify package names exist on the official registry before installing.
+
 **Trying to build too much at once.** An AI can build a feature. It struggles to build an entire complex application in one go. Work incrementally.
 
 ## When vibe coding reaches its limits

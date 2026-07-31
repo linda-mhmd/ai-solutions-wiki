@@ -111,3 +111,9 @@ The standard pattern: retrieve top 20 chunks via vector similarity, rerank to ge
 - AWS Documentation: Amazon Bedrock Reranking. [https://docs.aws.amazon.com/bedrock/latest/userguide/rerank.html](https://docs.aws.amazon.com/bedrock/latest/userguide/rerank.html)
 - Reimers, N., and Gurevych, I. (2019). "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks." *arXiv:1908.10084*. [https://arxiv.org/abs/1908.10084](https://arxiv.org/abs/1908.10084)
 - MTEB Leaderboard (Massive Text Embedding Benchmark): [https://huggingface.co/spaces/mteb/leaderboard](https://huggingface.co/spaces/mteb/leaderboard)
+
+## Further reading for vibecoders
+
+- [What is a token?](/basics/what-is-a-token/): Chunking strategies are about token counts — understand what tokens are and why they matter for cost.
+- [Hallucination](/glossary/hallucination/): RAG's primary purpose is reducing hallucination by grounding responses in real documents.
+- [What is JSON?](/basics/what-is-json/): RAG APIs return results in JSON format — you'll need to parse retrieval results.

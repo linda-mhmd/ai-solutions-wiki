@@ -10,7 +10,9 @@ related:
   - guides/service-lifecycle-and-deprecation
   - guides/reading-technology-trends
   - guides/software-licensing-and-vendor-lock-in
-last_updated: 2026-06-23
+  - news/deepfake-fraud-epidemic-2026
+  - history/mata-v-avianca-ai-hallucinations-legal
+last_updated: 2026-07-30
 ---
 
 Most AI writing is either a press release or a panic. This guide is neither. It collects the biggest real AI deployments from 2024 to 2026, the wins and the failures, and grades each one by how trustworthy the evidence is. The single most useful habit when reading any AI claim is to ask two questions: who is the source, and was it independently checked? Throughout this page, every number is tagged **(vendor-reported)** when it comes from the company that benefits from it, or **(independently verified)** when it comes from a court, a regulator, a peer-reviewed study, or an audited filing. Treat the second kind as far stronger than the first.
@@ -94,7 +96,7 @@ This is the half of the story your competitors leave out. Each one is a lesson.
 
 **Cruise hid a pedestrian-dragging incident and shut down (independently verified).** After its robotaxi dragged a pedestrian about 20 feet, Cruise filed a misleading report, paid a $500K federal penalty, lost its permits, and was folded into GM, per the [US Department of Justice](https://www.justice.gov/usao-ndca/pr/cruise-admits-submitting-false-report-influence-federal-investigation-and-agrees-pay). Lesson: concealing the failure ended the company, not the crash alone.
 
-**A deepfake video call cost engineering firm Arup about $25.6M (independently reported).** An employee joined a video call where every other participant was an AI deepfake of company executives, then made 15 transfers, per [CNN](https://www.cnn.com/2024/05/16/tech/arup-deepfake-scam-loss-hong-kong-intl-hnk). Lesson: live video and voice are no longer proof of identity. Verify large transfers out of band.
+**A deepfake video call cost engineering firm Arup about $25.6M (independently reported).** An employee joined a video call where every other participant was an AI deepfake of company executives, then made 15 transfers, per [CNN](https://www.cnn.com/2024/05/16/tech/arup-deepfake-scam-loss-hong-kong-intl-hnk). Lesson: live video and voice are no longer proof of identity. Verify large transfers out of band. See [deepfake fraud epidemic 2026](/news/deepfake-fraud-epidemic-2026/) for the broader $3.7 billion problem.
 
 ## The systemic reality: most pilots do not pay off
 
@@ -126,6 +128,8 @@ This page is a living snapshot and will be updated as outcomes change. For the l
 - [How technology dies: the service lifecycle](/guides/service-lifecycle-and-deprecation/): why even successful tools fade, and how to plan for it.
 - [Software licensing and vendor lock-in](/guides/software-licensing-and-vendor-lock-in/): the contract risks behind the products in this page.
 - [The History of IT](/guides/history-of-it/): the full arc of hardware, software, cloud, and AI.
+- [Mata v. Avianca and AI hallucinations in legal filings](/history/mata-v-avianca-ai-hallucinations-legal/): the landmark case and the 1,000+ incidents that followed.
+- [Deepfake fraud epidemic](/news/deepfake-fraud-epidemic-2026/): the $3.7 billion problem.
 - [Stanford HAI AI Index](https://hai.stanford.edu/ai-index/2025-ai-index-report): an independent annual measurement of AI adoption and capability.
 - [MIT report on enterprise GenAI pilots](https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/): the 95% no-P&L-impact finding in context.
 - [METR study on AI and developer productivity](https://arxiv.org/abs/2507.09089): the randomized trial that measured a slowdown.

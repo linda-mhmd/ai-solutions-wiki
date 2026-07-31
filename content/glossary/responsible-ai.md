@@ -5,12 +5,15 @@ date: 2026-03-28
 categories: [Glossary]
 tags: [responsible-ai, ethics, fairness, transparency, accountability, governance, bias]
 related:
-  - glossary/ai-safety
-  - glossary/ai-literacy
-  - glossary/model-card
-  - frameworks/responsible-ai-framework
-  - patterns/ai-governance
-  - guides/responsible-ai-guide
+  - /glossary/ai-safety
+  - /glossary/ai-literacy
+  - /glossary/model-card
+  - /glossary/ai-washing
+  - /glossary/hallucination
+  - /glossary/ai-slop
+  - /frameworks/responsible-ai-framework
+  - /patterns/ai-governance
+  - /guides/responsible-ai-guide
 last_updated: 2026-05-30
 ---
 
@@ -45,3 +48,12 @@ Responsible AI principles are increasingly codified in regulation. The EU AI Act
 - Mitchell, M., et al. (2019). Model cards for model reporting. *FAT* 2019*. (Model cards; standardized AI system documentation for transparency.)
 - National Institute of Standards and Technology. (2023). *AI Risk Management Framework (AI RMF 1.0)*. NIST.
 - European Parliament and Council. (2024). *Regulation (EU) 2024/1689 (EU AI Act)*. (Binding regulation operationalizing responsible AI principles.)
+
+
+## Further reading
+
+- [AI washing](/glossary/ai-washing/): When companies overclaim AI capabilities — the opposite of responsible disclosure.
+- [Model collapse](/glossary/model-collapse/): A sustainability concern — AI training on AI content degrades quality over generations.
+- [AI slop](/glossary/ai-slop/): Low-quality AI content that undermines the information environment.
+- [Hallucination](/glossary/hallucination/): AI-generated misinformation that responsible AI practices aim to mitigate.
+- [Shadow AI](/glossary/shadow-ai/): Unauthorized AI use that bypasses responsible AI governance.

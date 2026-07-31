@@ -50,7 +50,7 @@
       <span class="gl-group-letter">{{ $letter }}</span>
       <ul class="gl-term-list">
         {{ range $terms.ByTitle }}
-        <li class="gl-term">
+        <li class="gl-list-item">
           <a href="{{ .RelPermalink }}" class="gl-term-link">
             <span class="gl-term-name">{{ .Title }}{{ $fr := partial "freshness.html" . }}{{ if $fr.fresh }} <span class="sl-card-new{{ if $fr.upd }} sl-card-new--upd{{ end }}" data-new-ts="{{ $fr.ts }}">{{ $fr.label }}</span>{{ end }}</span>
             {{ with .Description }}

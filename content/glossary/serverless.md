@@ -66,3 +66,10 @@ For AI applications where users notice latency, mitigate cold starts with:
 
 - Jonas, E., et al. (2019). Cloud programming simplified: A Berkeley view on serverless computing. *arXiv:1902.03383*. (Berkeley serverless computing survey; defines characteristics, use cases, and limitations; standard academic reference for the paradigm.)
 - Baldini, I., et al. (2017). Serverless computing: Current trends and open problems. *Research Advances in Cloud Computing*. (Survey of serverless architectures, cold start issues, and latency characteristics.)
+
+## Further reading
+
+- [When do I need a server?](/basics/when-do-i-need-a-server/): A vibecoder's guide to deciding between serverless and traditional servers.
+- [What is hosting?](/basics/what-is-hosting/): Where your code lives on the internet — serverless is one option.
+- [What is a server?](/basics/what-is-a-server/): The underlying concept that serverless abstracts away.
+- [What is scaling?](/basics/what-is-scaling/): Serverless handles scaling automatically — here's what that means.

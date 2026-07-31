@@ -2,12 +2,14 @@
 title: "Meta smart glasses face privacy lawsuits and covert-recording concerns"
 description: "A class action, worker footage review in Kenya, covert filming, and unreleased face-recognition code put Meta's AI camera glasses under privacy scrutiny in 2026."
 date: 2026-07-01
-lastmod: 2026-07-01
+lastmod: 2026-07-30
+last_updated: 2026-07-30
 categories: [News]
 tags: ["privacy", "smart glasses", "meta", "surveillance", "ai-safety", "consent"]
 related:
   - glossary/ai-safety
   - frameworks/eu-ai-act-risk-framework
+  - news/global-ai-governance-2026
 ---
 
 <figure class="bz-figure">
@@ -19,7 +21,11 @@ Meta's AI camera glasses, built with eyewear maker Luxottica, are under scrutiny
 
 The disclosure question grew sharper after a Swedish investigation, reported by newspapers including Svenska Dagbladet and Göteborgs-Posten, found that workers at a Kenya-based subcontractor reviewed footage from customers' glasses. That footage included sensitive content such as nudity, people having sex, and using the toilet. Meta said it blurs faces in images before review, but sources disputed that the blurring worked consistently.
 
-The concerns are not limited to what happens after capture. A BBC investigation found men using smart glasses to covertly film women who did not know they were being recorded. Because the camera sits on the face and blends into ordinary interaction, recording becomes ambient and hard to detect. The UK regulator, the Information Commissioner's Office (ICO), has begun investigating. Separately, security researchers reported by Malwarebytes in June 2026 found unreleased face-recognition code inside the Meta AI companion app that powers the glasses, raising the prospect of identifying strangers at a distance without consent.
+The concerns are not limited to what happens after capture. A BBC investigation found men using smart glasses to covertly film women who did not know they were being recorded. Because the camera sits on the face and blends into ordinary interaction, recording becomes ambient and hard to detect. The UK regulator, the Information Commissioner's Office (ICO), has begun investigating.
+
+In June 2026, WIRED reported that Meta had silently embedded face-recognition code, internally called NameTag, into the Meta AI companion app downloaded to more than 50 million phones. Though not yet enabled, the code was designed to recognize faces in the glasses' field of view and link them to contact information or social media profiles. One day after WIRED's report, Meta removed nearly all traces of the code. Separately, WIRED reported that Meta had been testing face-recognition software built by Rank One Computing, a company that sells surveillance tools to police departments and the US military.
+
+The Electronic Frontier Foundation (EFF) published an analysis in March 2026 warning consumers to "think twice before buying or using Meta's Ray-Bans." The EFF noted that all AI features require feeding footage to Meta, that recorded audio from conversations with Meta AI is saved by default, and that the glasses are "designed to be invisible to those being recorded."
 
 <div class="bz-flow">
   <div class="bz-flow-step">
@@ -69,6 +75,9 @@ Regulators are responding on multiple tracks. The ICO investigation signals that
 
 - [TechCrunch: Meta sued over AI smart glasses privacy concerns after workers reviewed footage (2026-03-05)](https://techcrunch.com/2026/03/05/meta-sued-over-ai-smartglasses-privacy-concerns-after-workers-reviewed-nudity-sex-and-other-footage/)
 - [Fortune: Meta smart glasses, filming, workers, and the lawsuit (2026-03-27)](https://fortune.com/2026/03/27/meta-smart-glasses-filming-watching-workers-lawsuit-privacy/)
+- [WIRED: Meta Silently Added Face-Recognition Code for Its Smart Glasses to Millions of Phones (2026-06-04)](https://www.wired.com/story/meta-smart-glasses-face-recognition-nametag-connections/)
+- [WIRED: Meta Deletes Face-Recognition System From Its Smart Glasses App After WIRED Report (2026-06-05)](https://www.wired.com/story/meta-removes-face-recognition-code-meta-ai-app-smart-glasses/)
+- [WIRED: Meta Tapped a Pentagon Supplier to Prototype Face Recognition for Its Glasses (2026-06-15)](https://www.wired.com/story/meta-rank-one-computing-face-recognition-smart-glasses/)
+- [EFF: Think Twice Before Buying or Using Meta's Ray-Bans (2026-03)](https://www.eff.org/deeplinks/2026/03/think-twice-buying-or-using-metas-ray-bans)
 - [Euronews: Meta faces privacy lawsuit over AI smart glasses (2026-03-06)](https://www.euronews.com/next/2026/03/06/meta-faces-privacy-lawsuit-over-ai-smart-glasses)
-- [Malwarebytes: Meta's face-recognition code raises new concerns about smart glasses (2026-06)](https://www.malwarebytes.com/blog/privacy/2026/06/metas-face-recognition-code-raises-new-concerns-about-smart-glasses)
 - [National Law Review: Smart glasses and privacy - wearable surveillance and disclosure issues](https://natlawreview.com/article/smart-glasses-and-privacy-wearable-surveillance-and-disclosure-issues)

@@ -5,6 +5,7 @@ date: 2026-07-01
 categories: [Glossary]
 tags: ["ai-ml", "intermediate", "sovereignty", "compliance", "infrastructure", "on-premise", "eu-ai-act"]
 related:
+  - news/european-ai-sovereignty-vivatech-2026
   - glossary/data-sovereignty
   - glossary/hyperscaler
   - frameworks/data-sovereignty-framework
@@ -107,6 +108,7 @@ Sovereignty has real costs: you take on operations, capacity planning, and the s
 
 ## Further reading
 
+- [France and Germany push for European AI sovereignty](/news/european-ai-sovereignty-vivatech-2026/): the June 2026 VivaTech announcements and €13 billion French fund.
 - [What is data sovereignty?](/glossary/data-sovereignty/): the narrower concept sovereign AI builds on.
 - [Data sovereignty framework](/frameworks/data-sovereignty-framework/): a structured way to classify and place workloads.
 - [On-premise vs cloud AI](/comparisons/on-premise-vs-cloud-ai/): the core cost and control trade-off.

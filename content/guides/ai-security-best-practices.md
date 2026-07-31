@@ -12,6 +12,10 @@ related:
   - foundations/security
   - glossary/prompt-injection
   - glossary/ai-red-team
+  - glossary/shadow-ai
+  - glossary/slopsquatting
+  - news/ai-agent-security-incidents-2025-2026
+  - news/mcp-security-vulnerabilities-2026
 last_updated: 2026-05-30
 ---
 
@@ -142,3 +146,20 @@ AI systems in regulated industries face additional security requirements:
 **Vendor assessments.** If using third-party AI services, assess their security practices, data handling policies, and compliance certifications.
 
 AI security is not a one-time assessment. It is an ongoing practice that evolves as new attack vectors are discovered and as AI capabilities expand. Build security into your AI development process from the beginning, not as an afterthought.
+
+## 2025-2026: The threat landscape matured
+
+The period from 2025-2026 marked AI security's transition from research to operational crisis:
+
+- **88%** of organizations running AI agents in production experienced at least one security incident ([Axis Intelligence, 2026](https://axis-intelligence.com/agentic-ai-security-statistics/))
+- **1 in 8** enterprise security breaches now involves an agentic system
+- **EchoLeak (CVE-2025-32711)** proved zero-click prompt injection against enterprise AI assistants
+- **40+ CVEs** were disclosed against [MCP (Model Context Protocol)]({{< relref "news/mcp-security-vulnerabilities-2026" >}}) implementations
+
+For the full incident timeline, see [AI Agent Security Incidents 2025-2026]({{< relref "news/ai-agent-security-incidents-2025-2026" >}}).
+
+## Shadow AI: The invisible attack surface
+
+[Shadow AI]({{< relref "glossary/shadow-ai" >}}) refers to AI tools employees use without IT approval. IBM's 2025 Cost of a Data Breach Report found shadow AI was a factor in **20% of all data breaches**, adding an average of **$670,000** to breach costs. 69% of organizations have confirmed or suspected shadow AI usage.
+
+The answer is governed access, not prohibition. Organizations that provide approved AI alternatives see up to 89% reduction in unauthorized use.

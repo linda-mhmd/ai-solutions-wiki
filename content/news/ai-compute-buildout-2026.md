@@ -7,6 +7,7 @@ last_updated: 2026-07-13
 categories: [News]
 tags: [ai-infrastructure, funding, compute, nvidia, data-centers, gpu]
 related:
+  - news/ai-infrastructure-bubble-concerns-2026
   - news/anthropic-series-h
   - news/nvidia-nemotron-3
   - comparisons/gpu-clouds-and-neoclouds
@@ -37,6 +38,7 @@ For where to actually rent this compute, see the [GPU clouds and neoclouds compa
 
 ## Further reading
 
+- [AI infrastructure bubble concerns](/news/ai-infrastructure-bubble-concerns-2026/): the $700B+ question of whether returns justify the spending.
 - [Anthropic raises $65B at a $965B valuation](/news/anthropic-series-h/): the other record raise of the period.
 - [NVIDIA Nemotron 3 open models](/news/nvidia-nemotron-3/): why open weights matter when compute concentrates.
 - [GPU clouds and neoclouds compared](/comparisons/gpu-clouds-and-neoclouds/): where to rent the compute this buildout creates.

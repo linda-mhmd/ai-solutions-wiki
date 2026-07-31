@@ -5077,7 +5077,7 @@ a.td-alt:hover { color: var(--text-primary); border-color: var(--border-strong);
   gap: 6px;
 }
 
-.gl-term { margin: 0; }
+.gl-list-item { margin: 0; }
 
 .gl-term-link {
   display: flex;

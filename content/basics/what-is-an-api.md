@@ -199,6 +199,12 @@ Many APIs publish interactive documentation (Swagger / OpenAPI) where you can ma
 
 ## Further reading
 
+- [What is JSON?](/basics/what-is-json/): The data format APIs use for requests and responses
+- [What is a 404 error?](/basics/what-is-a-404-error/): HTTP status codes and what they mean
+- [What is HTTPS?](/basics/what-is-https/): Why API calls need encryption
+- [What is authentication vs authorization?](/basics/what-is-authentication-vs-authorization/): How APIs verify who you are and what you can do
+- [What is an API key?](/basics/what-is-an-api-key/): The secrets that authenticate your API calls
+- [What is rate limiting?](/basics/what-is-rate-limiting/): Why APIs limit how many requests you can make
 - [Introduction to Web APIs, MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction)
 - [HTTP methods, MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
 - [HTTP status codes, MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)

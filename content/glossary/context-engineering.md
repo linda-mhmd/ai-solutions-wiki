@@ -11,6 +11,7 @@ related:
   - glossary/prompt-engineering
   - glossary/agent-harness
   - glossary/agent-memory
+  - glossary/tokenmaxxing
   - patterns/context-window-management
   - glossary/rag
 ---
@@ -42,8 +43,20 @@ Context engineering is one of the central jobs of an [agent harness]({{< relref 
 
 The term gained prominence in 2025 as practitioners and labs needed a name for the work of managing an agent's full context, not just its prompt. Anthropic's engineering essay on effective context engineering for AI agents became a widely cited reference, framing context as a finite attention budget and codifying techniques like just-in-time retrieval, compaction, and agentic note-taking. LangChain, LlamaIndex, and others adopted the framing through 2025 and 2026.
 
+## Tokenmaxxing and the backlash
+
+As context engineering became established practice, a countertrend emerged: [tokenmaxxing]({{< relref "glossary/tokenmaxxing" >}}), the practice of maximizing AI token consumption as a visible productivity signal. Organizations encouraged developers to "use as much AI as possible" without measuring outcomes, leading to runaway costs and gaming of usage leaderboards.
+
+IBM and Brookings both documented the problem. The backlash reframed context engineering as optimization, not maximization: the goal is to use the smallest set of high-signal tokens that make the desired outcome most likely. More context is not better context, and more tokens is not more intelligence.
+
 ## Sources
 
 1. Anthropic. "Effective context engineering for AI agents." [https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
 2. The Decoder. "Anthropic claims context engineering beats prompt engineering when managing AI agents." [https://the-decoder.com/anthropic-claims-context-engineering-beats-prompt-engineering-when-managing-ai-agents/](https://the-decoder.com/anthropic-claims-context-engineering-beats-prompt-engineering-when-managing-ai-agents/)
 3. Elastic Search Labs. "Context engineering vs prompt engineering." [https://www.elastic.co/search-labs/blog/context-engineering-vs-prompt-engineering](https://www.elastic.co/search-labs/blog/context-engineering-vs-prompt-engineering)
+
+## Further reading for vibecoders
+
+- [What is a token?](/basics/what-is-a-token/): Context engineering is about managing tokens effectively — understand what they are and why they cost money.
+- [What is rate limiting?](/basics/what-is-rate-limiting/): Aggressive context engineering can hit token-per-minute limits — know how to handle 429 errors.
+- [Tokenmaxxing](/glossary/tokenmaxxing/): The anti-pattern of maximizing token usage without measuring outcomes.
