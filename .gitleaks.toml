@@ -20,3 +20,7 @@ regexes = ['''Idempotency-Key:\s*[0-9a-fA-F-]{8,}''']
 [[allowlists]]
 description = "Generated build output and caches; their source is scanned instead, and these can be 1GB+"
 paths = ['''public/''', '''resources/''', '''static/pagefind/''']
+
+[[allowlists]]
+description = "Literal placeholder keys in the beginner tutorials that demonstrate what NOT to do (sk-proj-abc123..., sk_live_abc123realkey, sk_test_abc123). Matched on the abc123 placeholder itself and NOT on a path, so a real key in those same files is still reported."
+regexes = ['''(?i)sk[-_](proj|live|test)?[-_]?abc123[a-z0-9]*''']

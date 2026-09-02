@@ -10,10 +10,33 @@ related:
   - tools/amazon-bedrock
   - patterns/blue-green-deployment
   - glossary/shared-responsibility
-last_updated: 2026-05-30
+  - comparisons/prebuilt-ai-services-vs-foundation-models
+last_updated: 2026-09-02
+lastmod: 2026-09-02
 ---
 
 Cloud deployment models - SaaS, PaaS, IaaS, and Serverless - are typically introduced in the context of business applications. They apply equally to AI systems, but the trade-offs look different when the workload is model inference rather than a web application. This article maps each deployment model to concrete AI use cases, explains when each is appropriate, and covers cost implications.
+
+## Pre-Built AI Services: The Layer Above SaaS
+
+**What it is.** Before the four cloud deployment models begin, there is a layer with no model choice at all: a task-specific AI API. Document text extraction, speech-to-text, object detection, translation, language detection. You send input and receive structured output. There is no model to select, no prompt to write, and no ML expertise required.
+
+**Examples.** Amazon Textract, Transcribe, Rekognition and Comprehend, and the equivalent Azure AI Services and Google Cloud AI APIs.
+
+**When to use it:**
+
+- The task is exactly what the service does, on generic subject matter
+- You need structured output with confidence scores or bounding boxes
+- Volume is high enough that per-token pricing would dominate
+- Latency must be low and predictable
+
+**Limitations:**
+
+- Recognises only what it was trained on. Generic object detection will not identify domain-specific components or a specialised form layout
+- No reasoning. It returns facts, not judgement
+- Pricing is per page, per minute, or per image rather than per token, which makes cost comparison with a foundation model non-obvious
+
+**Why it belongs here.** On the shared responsibility gradient this sits furthest right: the provider owns the model, the data pipeline, the infrastructure, and the accuracy. You own the API call. Teams frequently skip past it to a foundation model because one endpoint covers every task, and pay an order of magnitude more at volume for lower accuracy on constrained input. The trade-off is worked through in [pre-built AI services vs foundation models](/comparisons/prebuilt-ai-services-vs-foundation-models/).
 
 ## SaaS AI: Fully Managed Foundation Models
 

@@ -52,5 +52,5 @@ If you maintain MCP servers, the migration path is straightforward: SDK 2.0 defa
 ## Further reading
 
 - [MCP turns one](/news/mcp-turns-one/): the protocol's first year and earlier milestones.
-- [What is MCP?](/glossary/mcp/): the protocol explained from scratch.
+- [What is MCP?](/glossary/model-context-protocol/): the protocol explained from scratch.
 - [Bedrock AgentCore](/news/bedrock-agentcore-general-availability/): AWS's MCP-compatible agent infrastructure.

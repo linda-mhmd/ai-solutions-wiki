@@ -293,4 +293,4 @@ If your organisation is beginning its AI governance programme, implementing ISO 
 - [EU AI Act risk classification tool (AI Office)](https://artificialintelligenceact.eu/assessment/eu-ai-act-compliance-checker/): interactive tool for classifying your AI systems against the Act's categories
 - [ISO/IEC 42001:2023](https://www.iso.org/standard/81230.html): the AI management system standard; purchase required, but the scope and structure are publicly available
 - [EU AI Act and GDPR interaction (EDPB)](https://www.edpb.europa.eu/): the European Data Protection Board publishes guidance on the intersection of GDPR and AI Act obligations
-- [EU AI Act: frameworks overview](/frameworks/eu-ai-act/): the wiki's deep-dive into the regulation's structure, definitions, and governance model
+- [EU AI Act: frameworks overview](/frameworks/eu-ai-act-risk-framework/): the wiki's deep-dive into the regulation's structure, definitions, and governance model

@@ -133,7 +133,7 @@ The provider of an HR AI tool bears many of these obligations. But you, as the d
 
 - [What is Generative AI?](/basics/what-is-generative-ai/): what the technology does and where it makes mistakes
 - [What is AI Hallucination?](/basics/what-is-ai-hallucination/): why AI-generated HR content needs human review before use
-- [EU AI Act Framework](/frameworks/eu-ai-act/): the four risk tiers and what high-risk classification means for HR tools
+- [EU AI Act Framework](/frameworks/eu-ai-act-risk-framework/): the four risk tiers and what high-risk classification means for HR tools
 - [ISO 42001](/frameworks/iso-42001/): the AI management standard relevant to enterprise HR AI procurement
 - [Prompt Engineering Best Practices](/guides/prompt-engineering-enterprise/): writing prompts that produce consistent, policy-compliant HR content
 - [EU AI Act Compliance Checklist](/guides/eu-ai-act-compliance-checklist/): step-by-step checklist for evaluating any AI tool before deployment

@@ -112,5 +112,5 @@ This path gives you the vocabulary to use AI tools confidently, evaluate vendor 
 - [Perplexity](/tools/perplexity/): AI research tool with cited sources for market and competitor research
 - [ElevenLabs](/tools/elevenlabs/): voice AI for video narration and audio content
 - [Stable Diffusion](/tools/stable-diffusion/): open-source image AI for campaign visuals
-- [EU AI Act Framework](/frameworks/eu-ai-act/): which marketing AI use cases trigger compliance obligations
+- [EU AI Act Framework](/frameworks/eu-ai-act-risk-framework/): which marketing AI use cases trigger compliance obligations
 - [Prompt Engineering Best Practices](/guides/prompt-engineering-enterprise/): how to write prompts that produce consistent brand output
