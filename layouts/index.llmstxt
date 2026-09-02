@@ -12,10 +12,18 @@ Freelancer Automation: https://freelancer-automation.com
 {{ range $priority }}
 {{- $section := $.Site.GetPage . }}
 {{- if $section }}
+{{- /* Landing-page-only sections (no regular pages) would otherwise emit an empty
+       heading, so collect the section's own sub-section index pages as well and
+       skip the heading entirely when there is nothing to list. */ -}}
+{{- $entries := slice }}
+{{- range $section.Sections }}{{ $entries = $entries | append . }}{{ end }}
+{{- range $section.RegularPagesRecursive }}{{ $entries = $entries | append . }}{{ end }}
+{{- if $entries }}
 
 ## {{ $section.Title }}
-{{ range $section.RegularPagesRecursive -}}
+{{ range $entries -}}
 - [{{ .Title }}]({{ .Permalink }}){{ with .Description }}: {{ . }}{{ end }}
 {{ end -}}
+{{- end }}
 {{- end }}
 {{- end }}
