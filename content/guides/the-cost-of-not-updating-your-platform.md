@@ -3,9 +3,9 @@ title: "The Cost of Not Updating Your Platform"
 description: "A developer portal went two years without an update and stopped being able to build at all, silently. What decays while nothing changes, and why the pipeline never reported it."
 date: 2026-09-02
 categories: [Guides]
-tags: ["platform-engineering", "maintenance", "supply-chain", "ci-cd", "backstage", "security"]
+tags: ["platform-engineering", "maintenance", "supply-chain", "ci-cd", "developer-portal", "security"]
 tools: []
-related: ["guides/backstage-as-an-agent-interface", "guides/ai-risk-assessment-guide", "guides/ai-governance-implementation"]
+related: ["guides/proving-a-deployment-landed", "guides/repo-hygiene-with-ai-agents", "guides/when-automation-pays-for-itself"]
 last_updated: 2026-09-02
 ---
 

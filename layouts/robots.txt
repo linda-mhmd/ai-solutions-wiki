@@ -1,0 +1,13 @@
+{{- /* Served at /robots.txt. Hugo renders this because enableRobotsTXT = true. */ -}}
+# AI Solutions Wiki - https://ai-solutions.wiki
+#
+# Everything is open to crawlers, including AI crawlers. That is deliberate:
+# the site exists to be found and cited. To exclude a specific AI crawler,
+# add a User-agent block for it below (e.g. GPTBot, ClaudeBot, PerplexityBot,
+# Google-Extended, CCBot) with `Disallow: /`.
+
+User-agent: *
+Disallow: /search/
+Allow: /
+
+Sitemap: {{ .Site.BaseURL }}sitemap.xml

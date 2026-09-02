@@ -5,7 +5,7 @@ date: 2026-09-02
 categories: [Guides]
 tags: ["automation", "platform-engineering", "decision-making", "maintenance", "developer-experience"]
 tools: []
-related: ["guides/the-cost-of-not-updating-your-platform", "guides/backstage-as-an-agent-interface", "guides/what-your-ai-assistant-can-actually-do"]
+related: ["guides/the-cost-of-not-updating-your-platform", "patterns/fail-early-automation", "guides/proving-a-deployment-landed"]
 last_updated: 2026-09-02
 ---
 
