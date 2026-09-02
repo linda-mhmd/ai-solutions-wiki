@@ -2,18 +2,26 @@
 title: "EU AI Act: What Takes Effect on 2 August 2026"
 description: "On 2 August 2026 the AI Act becomes broadly applicable and GPAI enforcement begins. A Digital Omnibus may defer high-risk deadlines, but it is not yet law."
 date: 2026-05-07
-lastmod: 2026-07-05
-last_updated: 2026-07-05
+lastmod: 2026-09-02
+last_updated: 2026-09-02
 categories: [News]
 tags: [eu-ai-act, gpai, ai-governance, ai-regulation, compliance, foundation-models]
 related:
+  - news/eu-ai-act-enforcement-begins-2026
   - guides/ai-regulatory-compliance-checklist
   - guides/ai-transparency-obligations
   - guides/ai-governance-implementation
   - guides/ai-model-governance
 ---
 
-The EU AI Act reaches a major milestone on 2 August 2026. As the law is currently written, most of the regulation becomes applicable on that date: the rules for high-risk AI systems listed in Annex III, the full governance and enforcement framework, and the penalty regime. It is also the day the European Commission and its AI Office gain the power to enforce the general-purpose AI (GPAI) obligations that have technically been in force since 2 August 2025. A separate "Digital Omnibus" reform would push several high-risk deadlines out by more than a year. The Council gave it a final green light on 29 June 2026, but it has not yet been published in the Official Journal, so the original date still stands as law.
+> **Update (2 September 2026):** the Digital Omnibus was published in the Official Journal as
+> Regulation (EU) 2026/1744 on 24 July 2026 and entered into force on 27 July 2026. The Annex III
+> high-risk deadline moved to **2 December 2027** and the Annex I deadline to **2 August 2028**.
+> The Article 50 transparency duties and GPAI obligations went ahead on 2 August 2026 as written.
+> This article records the position as it stood before that publication; for what is now in force see
+> [EU AI Act enforcement begins](/news/eu-ai-act-enforcement-begins-2026/).
+
+The EU AI Act reaches a major milestone on 2 August 2026. As the law is currently written, most of the regulation becomes applicable on that date: the rules for high-risk AI systems listed in Annex III, the full governance and enforcement framework, and the penalty regime. It is also the day the European Commission and its AI Office gain the power to enforce the general-purpose AI (GPAI) obligations that have technically been in force since 2 August 2025. A separate "Digital Omnibus" reform would push several high-risk deadlines out by more than a year. The Council gave it a final green light on 29 June 2026, and it was subsequently published as Regulation (EU) 2026/1744 on 24 July 2026.
 
 ## What happened
 
@@ -27,7 +35,7 @@ The complication is the Digital Omnibus. EU negotiators from the Commission, Par
 
 Two practical points follow. First, if you provide a GPAI model in the EU market, the soft-launch period ends on 2 August 2026. Transparency documentation, a copyright policy, and (for systemic-risk models) the heavier safety obligations need to be real and demonstrable, because the AI Office can now act and fine. Models placed on the market before 2 August 2025 have until 2 August 2027 to come into full compliance.
 
-Second, if you build or deploy high-risk systems, do not treat the proposed delay as a given. Until the Digital Omnibus is published in the Official Journal, the 2 August 2026 high-risk deadline is the binding text.
+Second, if you build or deploy high-risk systems, the delay is now law: Regulation (EU) 2026/1744 moved the Annex III deadline to 2 December 2027 and the Annex I deadline to 2 August 2028. The requirements themselves did not change, only the date by which you must meet them.
 
 ## What to do
 
@@ -49,6 +57,7 @@ Second, if you build or deploy high-risk systems, do not treat the proposed dela
 
 ## Further reading
 
+- [EU AI Act enforcement begins](/news/eu-ai-act-enforcement-begins-2026/): what actually took effect on 2 August 2026, after the Omnibus.
 - [The US moves to preempt state AI laws](/news/us-ai-policy-preemption-2026/): the contrasting US approach.
 - [Beyond the EU: South Korea and Japan's AI laws](/news/asia-ai-laws-2026/): how other jurisdictions regulate.
 - [The second International AI Safety Report](/news/international-ai-safety-report-2026/): the evidence base behind the rules.

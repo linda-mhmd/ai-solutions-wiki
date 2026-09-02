@@ -210,7 +210,7 @@ The inflection point for most enterprises is three to five AI projects in produc
 - [Amazon Bedrock documentation](https://docs.aws.amazon.com/bedrock/): official reference for the AWS LLM gateway layer, including model access, guardrails, and agents.
 - [Amazon SageMaker MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html): experiment tracking and model registry within SageMaker, the foundation of the model lineage layer.
 - [AWS Lake Formation](https://docs.aws.amazon.com/lake-formation/): data governance, access control, and lineage for the data platform layer.
-- [EU AI Act](/frameworks/eu-ai-act/): the compliance obligations that make the governance layer of an AI factory necessary for European enterprises.
+- [EU AI Act](/frameworks/eu-ai-act-risk-framework/): the compliance obligations that make the governance layer of an AI factory necessary for European enterprises.
 - [Team Topologies by Skelton and Pais](https://teamtopologies.com/book): the organizational framework that underpins the platform team and product team model in an AI factory.
 - [MLOps: Continuous delivery and automation pipelines in machine learning (Google)](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning): foundational reference on MLOps maturity levels, which map to how a factory evolves from ad-hoc to industrialized.
 - [AI Gateway glossary entry](/glossary/ai-gateway/): detailed explanation of the LLM gateway component, including routing, fallback, and cost tracking patterns.

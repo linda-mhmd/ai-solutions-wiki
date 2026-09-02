@@ -241,7 +241,7 @@ print(response.content[0].text)
 
 - [What is Machine Learning?](/basics/what-is-machine-learning/): The training process behind computer vision models
 - [What is a Neural Network?](/basics/what-is-a-neural-network/): CNNs and ViTs are neural networks: understanding the architecture helps
-- [AWS Rekognition](/tools/aws-rekognition/): Deep dive on the AWS managed computer vision service
+- [AWS Rekognition](/tools/amazon-rekognition/): Deep dive on the AWS managed computer vision service
 
 ## Further reading
 

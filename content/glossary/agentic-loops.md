@@ -229,7 +229,7 @@ Each step in that sequence is one iteration of an agentic loop. The agent did no
 
 ## Further reading
 
-- [What is an AI Agent?](/glossary/agents/): definition of agents, how they differ from assistants and automations
+- [What is an AI Agent?](/glossary/ai-agent/): definition of agents, how they differ from assistants and automations
 - [What is Tool Use?](/glossary/tool-use/): how LLMs call external functions and what happens when they do
 - [What is Agentic AI?](/glossary/agentic-ai/): the broader category and how agentic systems differ from single-model pipelines
 - [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629): the original paper formalising the reason-then-act loop pattern
