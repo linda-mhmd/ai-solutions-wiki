@@ -10,7 +10,8 @@ related:
   - guides/ai-for-legacy-modernization
   - guides/software-licensing-and-vendor-lock-in
   - guides/history-of-it
-last_updated: 2026-06-23
+  - news/aws-service-deprecations-2026
+last_updated: 2026-09-03
 ---
 
 The service lifecycle describes how a piece of technology moves from brand new to abandoned. It does not happen overnight. A tool drifts through predictable stages, and at each stage the cost of leaving climbs higher. Understanding this pattern explains why banks still run software written in the 1980s, and why "legacy" makes engineers wince while everyone else shrugs.
@@ -86,6 +87,21 @@ History is full of technologies at every stage. These five show the range, from 
 - **Python 2 (well-planned sunset).** Python 2 reached end of life on 2020-01-01. Migration to Python 3 began back in 2008, so the community had over a decade to move. This is what a calm, signposted death looks like.
 - **Red Hat CentOS (abrupt strategy shift).** On 2020-12-08, Red Hat ended CentOS Linux and pushed users to CentOS Stream. It cut CentOS 8 support from 2029 to the end of 2021, an eight-year jump forward. The backlash spawned two community forks, Rocky Linux and AlmaLinux, built to restore what users lost.
 
+## What's mid-lifecycle right now
+
+The stages above are not just history. As of September 2026, several AI and cloud services are moving through Stage 5 at the same time, all landing within a few days of each other:
+
+| Service | Vendor | Key date | Points to |
+|---|---|---|---|
+| **AWS App Mesh** | AWS | 2026-09-30, full discontinuation | Amazon ECS Service Connect or Amazon VPC Lattice |
+| **Amazon Nova Reel v1:1** (Bedrock) | AWS | 2026-09-30, model end of life | A newer Bedrock video model |
+| **gemini-omni-flash-preview** | Google | 2026-09-30, endpoint shutdown | `gemini-omni-1.1-flash` |
+| **[Azure AI Personalizer](/tools/azure-personalizer/)** | Microsoft | 2026-10-01, service retirement | The open-source `microsoft/learning-loop` project |
+
+App Mesh and Personalizer are full Stage 5 shutdowns: after the date, the console and API stop responding, not merely stop accepting new customers. The two model retirements are the same pattern applied to a model ID instead of a service, once the EOL date passes, a call to that endpoint stops working, exactly like an API losing support. Nova Reel's v1:0 build carries the identical 2026-09-30 end-of-life date, so both versions leave at once. Personalizer's own date is worth treating as provisional: Microsoft's original 2023 announcement and most current documentation say 1 October 2026, but Microsoft's own product-lifecycle tracker page currently lists 26 August 2026 for the same retirement, an unresolved conflict between Microsoft's own properties rather than a settled date.
+
+This wave is not an isolated event. Earlier in 2026, AWS moved a much larger batch of AI services, Kendra, the original Bedrock Agents, Amazon Q Business, into maintenance mode on their own separate timeline; see [AWS consolidates its AI stack](/news/aws-service-deprecations-2026/) for that fuller list and for how "maintenance mode" and "closed to new customers" differ from a hard shutdown like the ones above.
+
 ## How to respond at each stage
 
 You cannot stop the lifecycle, but you can read where a technology sits and act early. The right move depends on the stage.
@@ -115,6 +131,11 @@ The systems that hurt are the ones nobody planned to leave. Watch the stages, ma
 - [Technical debt](/glossary/technical-debt/): why deferred maintenance compounds and pushes systems toward legacy.
 - [AI for legacy modernization](/guides/ai-for-legacy-modernization/): using AI to understand and migrate old systems.
 - [Software licensing and vendor lock-in](/guides/software-licensing-and-vendor-lock-in/): how licensing choices raise the cost of leaving.
+- [AWS consolidates its AI stack](/news/aws-service-deprecations-2026/): a 2026 wave of AI services moved to maintenance mode, and what that term actually means.
 - [Microsoft Windows XP lifecycle](https://learn.microsoft.com/en-us/lifecycle/products/windows-xp): the official support dates for a famous legacy system.
 - [Sunsetting Python 2](https://www.python.org/doc/sunset-python-2/): a model end-of-life announcement with a long migration window.
 - [Don't Panic: Kubernetes and Docker](https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/): the dockershim deprecation, explained calmly and early.
+- [AWS App Mesh end-of-support notice](https://docs.aws.amazon.com/app-mesh/latest/userguide/doc-history.html): the 30 September 2026 discontinuation date, stated directly in the doc history.
+- [Amazon Nova Reel model card](https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-reel.html): Bedrock's own EOL date for the Nova Reel v1:0/v1:1 models.
+- [Gemini API deprecations](https://ai.google.dev/gemini-api/docs/deprecations): Google's list of retiring model endpoints, including `gemini-omni-flash-preview`.
+- [Azure Personalizer product lifecycle](https://learn.microsoft.com/en-us/lifecycle/products/azure-personalizer): Microsoft's own lifecycle tracker, which lists 26 August 2026 as the retirement date, conflicting with the 1 October 2026 date used above and given in the [original 2023 retirement announcement](https://azure.microsoft.com/updates/ai-services-personalizer-will-be-retired-on-1-october-2026/) — an unresolved discrepancy between Microsoft's own sources at the time of writing.

@@ -16,8 +16,8 @@ layer: data
 provider: aws
 pricing_model: payg
 maturity: production
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-03
+lastmod: 2026-09-03
 enhanced_pass: "2026-06"
 ---
 
@@ -27,7 +27,7 @@ Official documentation: https://aws.amazon.com/opensearch-service/
 Pricing: https://aws.amazon.com/opensearch-service/pricing/
 Service quotas: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html
 
-**Azure equivalent:** Azure AI Search (formerly Cognitive Search). **GCP equivalent:** Vertex AI Search.
+**Azure equivalent:** Azure AI Search (formerly Cognitive Search). **GCP equivalent:** Vertex AI Search, part of Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story).
 
 ## Foundations first
 

@@ -10,7 +10,7 @@ related:
   - tools/claude-anthropic
   - tools/amazon-bedrock
   - guides/getting-started-with-bedrock
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Prompt engineering is the practice of designing inputs to language models to reliably produce useful outputs. In enterprise applications, prompts are not one-off experiments - they are code. They need to be versioned, tested, and maintained. These patterns reflect what works at scale.
@@ -83,5 +83,5 @@ Production prompts require a test suite: a set of representative inputs with exp
 
 - [Anthropic Prompt Engineering Guide](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) - Comprehensive guide to prompting Claude models effectively
 - [OpenAI Prompt Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering) - Best practices for prompting GPT models
-- [Google Prompt Engineering Guide](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/prompts/introduction-prompt-design) - Vertex AI prompt design documentation
+- [Google Prompt Engineering Guide](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/prompts/introduction-prompt-design) - Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story) prompt design documentation
 - [Prompting Guide](https://www.promptingguide.ai/) - Community-maintained resource covering prompt engineering techniques and research

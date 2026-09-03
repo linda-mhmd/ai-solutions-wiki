@@ -11,7 +11,7 @@ related:
   - tools/amazon-comprehend
   - tools/vllm
   - tools/ollama
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Hugging Face Transformers is an open-source library that provides a unified API for downloading, using, and fine-tuning state-of-the-art pretrained models across natural language processing, computer vision, audio processing, and multimodal tasks. The library supports models built on PyTorch, TensorFlow, and JAX, and provides a consistent interface regardless of the underlying framework. With access to over 400,000 models on the Hugging Face Hub, Transformers has become the central distribution mechanism for the machine learning research community.
@@ -29,7 +29,7 @@ Transformers has fundamentally changed how the ML community shares and consumes 
 
 ## Cloud Equivalents
 
-Hugging Face Transformers is the open-source alternative to model access in AWS Bedrock, Azure OpenAI Service, and Google Vertex AI Model Garden. Cloud model services provide API-based access to curated models with managed infrastructure, while Transformers provides direct access to a vastly larger model ecosystem with full customization and fine-tuning capabilities.
+Hugging Face Transformers is the open-source alternative to model access in AWS Bedrock, Azure OpenAI Service, and Google Vertex AI Model Garden (Vertex AI was rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story). Cloud model services provide API-based access to curated models with managed infrastructure, while Transformers provides direct access to a vastly larger model ecosystem with full customization and fine-tuning capabilities.
 
 ## Origins and History
 

@@ -8,7 +8,7 @@ related:
   - tools/amazon-textract
   - tools/google-cloud-vision
   - tools/google-vertex-ai
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Google Document AI is a document understanding platform that uses machine learning to automatically classify documents and extract structured data from unstructured and semi-structured content. It goes beyond basic OCR by understanding document layout, tables, forms, and the semantic relationships between fields. Document AI processes PDFs, scanned images, and digital documents, returning structured data that can be fed directly into business workflows, databases, or downstream AI pipelines.
@@ -30,7 +30,7 @@ Document AI is Google Cloud's counterpart to Amazon Textract. Both services extr
 
 ## Origins and History
 
-Google Document AI was announced at Google Cloud Next 2020 in April 2020, consolidating several existing document processing capabilities into a unified platform. The initial launch included the OCR processor, form parser, and several specialized processors. In 2021, Google expanded the processor library significantly, adding lending, procurement, and identity document processors. The Custom Document Extractor launched in 2022, enabling custom model training. Document AI Warehouse was announced at Google Cloud Next 2022. The platform has been progressively integrated with Vertex AI, and Google has continued to expand the pre-trained processor library, with the contract and tax document processors launching in 2023.
+Google Document AI was announced at Google Cloud Next 2020 in April 2020, consolidating several existing document processing capabilities into a unified platform. The initial launch included the OCR processor, form parser, and several specialized processors. In 2021, Google expanded the processor library significantly, adding lending, procurement, and identity document processors. The Custom Document Extractor launched in 2022, enabling custom model training. Document AI Warehouse was announced at Google Cloud Next 2022. The platform has been progressively integrated with Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story), and Google has continued to expand the pre-trained processor library, with the contract and tax document processors launching in 2023.
 
 ## Sources
 

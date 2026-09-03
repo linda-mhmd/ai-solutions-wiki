@@ -17,7 +17,7 @@ faqs:
     answer: "These describe how much the cloud provider manages. IaaS (Infrastructure as a Service): you rent raw computing resources, VMs, storage, networking. You manage the OS, runtime, and app. Example: AWS EC2. PaaS (Platform as a Service): you deploy code; the provider manages servers, OS, scaling. Example: Heroku, Railway, Render. SaaS (Software as a Service): you use finished software through a browser. Example: Salesforce, Notion, GitHub. As you move from IaaS to SaaS, you control less but manage less."
   - question: "What is GDPR and why does my server location matter?"
     answer: "GDPR (General Data Protection Regulation) is EU law governing personal data. If you collect or process personal data about people in the EU (names, emails, location, usage data), you have legal obligations around how it is stored and processed. Storing EU user data on servers in the US without appropriate safeguards can be a violation. Most cloud providers offer EU-based regions (AWS eu-west, GCP europe-west). For apps serving EU users, run them in EU regions. This is not optional if you are serious about compliance."
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 {{< quickanswer >}}
@@ -73,7 +73,7 @@ For building your first app: **PaaS is the right starting point**. Push code fro
 | **Storage** | Store files and large binary data | S3, GCS, Cloudflare R2 |
 | **Databases** | Managed relational and NoSQL databases | RDS (PostgreSQL), DynamoDB, Firestore |
 | **Networking** | Load balancers, CDNs, DNS, firewalls | CloudFront, Cloud CDN |
-| **AI/ML** | Pre-trained models, GPU instances, AI APIs | Bedrock, Vertex AI |
+| **AI/ML** | Pre-trained models, GPU instances, AI APIs | Bedrock, Vertex AI (rebranded [Gemini Enterprise Agent Platform](/tools/google-vertex-ai/) in April 2026) |
 | **Security** | Identity management, secrets, certificates | IAM, KMS, Certificate Manager |
 | **Monitoring** | Logs, metrics, alerts | CloudWatch, Cloud Logging |
 | **Email/SMS** | Transactional messaging | SES, Twilio (not strictly cloud but partner) |

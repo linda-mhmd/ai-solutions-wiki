@@ -10,12 +10,12 @@ related:
   - tools/google-cloud-dataflow
   - tools/google-cloud-dataproc
   - tools/google-vertex-ai
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Google BigQuery is a fully managed, serverless data warehouse designed for large-scale analytics. It can process petabytes of data using ANSI SQL with no infrastructure to manage -- there are no clusters to size, no indexes to tune, and no vacuum operations to schedule. BigQuery separates storage and compute, allowing each to scale independently. This architecture means you pay for data stored (at competitive per-GB rates) and for queries executed (based on bytes scanned), making it economical for both interactive analysis and large batch workloads.
 
-BigQuery is a central component of Google Cloud's AI and analytics ecosystem. It integrates natively with Vertex AI, enabling ML model training directly on warehouse data without extraction. BigQuery ML (BQML) allows data analysts to build and deploy machine learning models using SQL syntax -- including linear regression, logistic regression, k-means clustering, time-series forecasting, and even deep neural networks -- without leaving the BigQuery console. For AI pipeline architectures, BigQuery commonly serves as the structured data store for features, predictions, and analytics derived from upstream ML services.
+BigQuery is a central component of Google Cloud's AI and analytics ecosystem. It integrates natively with Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story), enabling ML model training directly on warehouse data without extraction. BigQuery ML (BQML) allows data analysts to build and deploy machine learning models using SQL syntax -- including linear regression, logistic regression, k-means clustering, time-series forecasting, and even deep neural networks -- without leaving the BigQuery console. For AI pipeline architectures, BigQuery commonly serves as the structured data store for features, predictions, and analytics derived from upstream ML services.
 
 The platform supports real-time analytics through BigQuery Streaming, which ingests hundreds of thousands of rows per second for near-real-time dashboards and alerting. BigQuery also supports external data sources through federated queries, allowing SQL queries against data in Cloud Storage (CSV, JSON, Avro, Parquet, ORC), Cloud Bigtable, Cloud Spanner, and Cloud SQL without loading data into BigQuery. BigQuery BI Engine provides an in-memory analysis service for sub-second interactive queries on Looker and other BI tools. Scheduled queries, data transfer service, and integration with Dataflow and Dataproc round out the platform's data pipeline capabilities.
 

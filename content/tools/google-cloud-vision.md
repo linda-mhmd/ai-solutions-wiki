@@ -9,14 +9,14 @@ related:
   - tools/google-vertex-ai
   - tools/google-document-ai
   - tools/google-automl
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Google Cloud Vision AI is a pre-trained image analysis service that enables developers to understand the content of images through a REST API. It can label images with thousands of predefined categories, detect individual objects and faces, read printed and handwritten text (OCR), identify logos and landmarks, detect explicit content, and extract image metadata. The service processes images stored in Cloud Storage or sent as base64-encoded data, returning structured JSON annotations.
 
 Vision AI is designed for applications that need to analyze images at scale without building custom computer vision models. Common use cases include automated content moderation for user-generated media, product image categorization for e-commerce, digitizing documents and receipts with OCR, visual search engines, and accessibility features that describe image content. The API supports batch processing for high-volume workloads and can process images synchronously for real-time applications.
 
-For organizations with domain-specific visual recognition needs, AutoML Vision extends the platform with custom model training. Teams upload labeled images, and AutoML trains a model tailored to their specific classification or detection task. This is particularly valuable in industries like manufacturing (defect detection), healthcare (medical imaging triage), and retail (product recognition) where pre-trained categories are insufficient. AutoML Vision models can be deployed to Vertex AI endpoints for online prediction or exported to edge devices using TensorFlow Lite for on-device inference.
+For organizations with domain-specific visual recognition needs, AutoML Vision extends the platform with custom model training. Teams upload labeled images, and AutoML trains a model tailored to their specific classification or detection task. This is particularly valuable in industries like manufacturing (defect detection), healthcare (medical imaging triage), and retail (product recognition) where pre-trained categories are insufficient. AutoML Vision models can be deployed to Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story) endpoints for online prediction or exported to edge devices using TensorFlow Lite for on-device inference.
 
 ## Key Capabilities
 

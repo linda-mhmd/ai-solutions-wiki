@@ -10,7 +10,7 @@ related:
   - glossary/mlops
   - patterns/continuous-training-pattern
   - guides/continuous-training-guide
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Continuous training is the practice of automatically retraining machine learning models on fresh data to maintain performance as data distributions and real-world conditions change. Rather than training a model once and deploying it indefinitely, continuous training establishes an automated pipeline that detects when retraining is needed, executes the training process, validates the new model, and promotes it to production.
@@ -37,7 +37,7 @@ Maintain the ability to roll back to the previous model version instantly if the
 
 ## Implementation Considerations
 
-Continuous training pipelines must handle data versioning, compute provisioning, experiment tracking, model validation, and deployment orchestration. Tools like MLflow, SageMaker Pipelines, Kubeflow, and Vertex AI Pipelines provide the infrastructure for building these pipelines. The organizational challenge is often greater than the technical one: establishing clear ownership, approval processes, and monitoring responsibilities for automated model updates.
+Continuous training pipelines must handle data versioning, compute provisioning, experiment tracking, model validation, and deployment orchestration. Tools like MLflow, SageMaker Pipelines, Kubeflow, and Vertex AI Pipelines (Vertex AI was rebranded [Gemini Enterprise Agent Platform](/tools/google-vertex-ai/) in April 2026) provide the infrastructure for building these pipelines. The organizational challenge is often greater than the technical one: establishing clear ownership, approval processes, and monitoring responsibilities for automated model updates.
 
 ## Sources
 

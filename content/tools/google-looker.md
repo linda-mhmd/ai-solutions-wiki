@@ -8,14 +8,14 @@ related:
   - tools/amazon-quicksight
   - tools/google-bigquery
   - tools/google-vertex-ai
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Looker is Google Cloud's enterprise business intelligence (BI) platform. Unlike traditional BI tools that extract data into a separate analytics layer, Looker uses an in-database architecture that pushes SQL queries to the underlying data warehouse (most commonly BigQuery, but also Snowflake, Redshift, and 60+ other databases). This means all users query the same live data with consistent business logic, eliminating the "multiple versions of truth" problem that plagues organizations with extract-based BI tools.
 
 Looker's differentiating feature is LookML, a modeling language that defines business metrics, dimensions, and relationships in code. Data teams write LookML models that translate business concepts ("revenue," "active users," "churn rate") into the exact SQL that produces those metrics. Every dashboard, report, and embedded analytics application references the same LookML definitions, ensuring consistency. LookML models are version-controlled in Git, reviewed through pull requests, and deployed through a CI/CD process -- bringing software engineering practices to analytics. This governed approach is particularly valuable in AI-driven organizations where metrics definitions must be precise for model training and evaluation.
 
-Looker integrates deeply with BigQuery and the broader GCP AI ecosystem. Analysts can explore Vertex AI model predictions stored in BigQuery through Looker dashboards, build monitoring dashboards for ML pipeline performance, and create self-service analytics for business users who consume AI-generated insights. Looker Studio (formerly Google Data Studio), a lighter-weight free visualization tool, complements Looker for simpler reporting needs. Looker also offers embedded analytics, allowing organizations to integrate interactive dashboards and visualizations directly into their own applications through APIs and SDKs.
+Looker integrates deeply with BigQuery and the broader GCP AI ecosystem. Analysts can explore Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story) model predictions stored in BigQuery through Looker dashboards, build monitoring dashboards for ML pipeline performance, and create self-service analytics for business users who consume AI-generated insights. Looker Studio (formerly Google Data Studio), a lighter-weight free visualization tool, complements Looker for simpler reporting needs. Looker also offers embedded analytics, allowing organizations to integrate interactive dashboards and visualizations directly into their own applications through APIs and SDKs.
 
 ## Key Capabilities
 

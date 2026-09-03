@@ -16,7 +16,7 @@ alternatives:
   aws: tools/amazon-bedrock
   azure: tools/azure-openai
   gcp: tools/google-vertex-ai
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Ollama is an open-source tool that makes it easy to run large language models locally on personal computers, workstations, and edge devices. It provides a streamlined experience for downloading, configuring, and running LLMs through a simple command-line interface and a local REST API compatible with the OpenAI API format. Ollama handles model quantization, GPU acceleration (via CUDA, ROCm, and Metal), memory management, and inference optimization transparently, allowing users to run models like Llama 3, Mistral, Gemma, Phi, and dozens of others with a single command.
@@ -34,7 +34,7 @@ Ollama has become one of the most popular tools for local LLM experimentation, w
 
 ## Cloud Equivalents
 
-Ollama is the local-first alternative to AWS Bedrock, Azure OpenAI Service, and Google Vertex AI model endpoints. Cloud inference services offer access to the largest frontier models and scale effortlessly, while Ollama provides zero-cost inference, complete data privacy, offline capability, and low-latency responses for models that fit on local hardware.
+Ollama is the local-first alternative to AWS Bedrock, Azure OpenAI Service, and Google Vertex AI model endpoints (Vertex AI was rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story). Cloud inference services offer access to the largest frontier models and scale effortlessly, while Ollama provides zero-cost inference, complete data privacy, offline capability, and low-latency responses for models that fit on local hardware.
 
 ## Origins and History
 

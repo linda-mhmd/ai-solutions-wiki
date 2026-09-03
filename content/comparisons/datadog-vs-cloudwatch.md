@@ -5,8 +5,8 @@ date: 2026-03-28
 last_verified: 2026-05-30
 categories: [Comparisons]
 tags: [Datadog, CloudWatch, monitoring, observability, MLOps]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-03
+lastmod: 2026-09-03
 ---
 
 Monitoring AI systems requires tracking both infrastructure metrics (latency, throughput, errors) and ML-specific metrics (model accuracy, data drift, prediction distribution). Datadog and CloudWatch approach this from different starting points: CloudWatch is AWS-native with broad service integration, while Datadog is a third-party platform with richer visualization and cross-cloud capability.
@@ -28,7 +28,7 @@ Monitoring AI systems requires tracking both infrastructure metrics (latency, th
 
 **CloudWatch** provides infrastructure metrics for AI services (SageMaker endpoint latency, Bedrock token counts, Lambda duration) but has no built-in ML model monitoring. To monitor model accuracy, data drift, and prediction quality, you must build custom solutions: push custom metrics to CloudWatch, build dashboards manually, and set up alarms on thresholds. (AWS does offer Amazon SageMaker Model Monitor as a separate capability for data drift and model quality, with results that can be surfaced in CloudWatch, but it is not part of CloudWatch itself.)
 
-**Datadog** offers LLM Observability as a product feature (generally available since late 2024 and expanded through 2025 and 2026). It includes LLM monitoring (track token usage, latency, error rates, and costs across LLM providers), end-to-end tracing of prompts, retrieval, and tool calls, built-in and custom evaluations, and quality checks such as hallucination and unsafe-output detection. It instruments models from Anthropic, OpenAI, Google (Gemini and Vertex AI), and Amazon Bedrock, and agent frameworks including LangChain, CrewAI, and Strands Agents. In 2025 Datadog added agentic AI monitoring (AI Agent Monitoring) and offline LLM Experiments for comparing prompts and models. Datadog's anomaly detection can automatically identify unusual patterns in model metrics without manual threshold setting.
+**Datadog** offers LLM Observability as a product feature (generally available since late 2024 and expanded through 2025 and 2026). It includes LLM monitoring (track token usage, latency, error rates, and costs across LLM providers), end-to-end tracing of prompts, retrieval, and tool calls, built-in and custom evaluations, and quality checks such as hallucination and unsafe-output detection. It instruments models from Anthropic, OpenAI, Google (Gemini and Vertex AI — rebranded [Gemini Enterprise Agent Platform](/tools/google-vertex-ai/) in April 2026), and Amazon Bedrock, and agent frameworks including LangChain, CrewAI, and Strands Agents. In 2025 Datadog added agentic AI monitoring (AI Agent Monitoring) and offline LLM Experiments for comparing prompts and models. Datadog's anomaly detection can automatically identify unusual patterns in model metrics without manual threshold setting.
 
 For teams that want out-of-the-box LLM and agent monitoring, Datadog has a significant advantage.
 

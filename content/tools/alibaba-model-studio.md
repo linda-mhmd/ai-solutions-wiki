@@ -118,7 +118,7 @@ Model Studio is available in several regions, including Singapore, US (Virginia)
 
 ## How it compares
 
-Model Studio plays the same role as the managed model platforms from the other hyperscalers: a hosted way to reach many models plus tooling for fine-tuning, retrieval, and agents. The main difference is the model catalog and the cloud you run on.
+Model Studio plays the same role as the managed model platforms from the other hyperscalers: a hosted way to reach many models plus tooling for fine-tuning, retrieval, and agents. The main difference is the model catalog and the cloud you run on. (The table below refers to Google Vertex AI, rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story.)
 
 | | Alibaba Model Studio | [Amazon Bedrock](/tools/amazon-bedrock/) | [Azure OpenAI](/tools/azure-openai/) | Google Vertex AI |
 |---|---|---|---|---|

@@ -9,14 +9,14 @@ related:
   - tools/google-firestore
   - tools/google-cloud-bigtable
   - tools/google-vertex-ai
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Google Cloud Spanner is a fully managed, horizontally scalable, globally distributed relational database service. It is unique among cloud databases in providing the combination of relational semantics (SQL, schemas, ACID transactions, strong consistency) with the horizontal scalability and global distribution typically associated with NoSQL databases. Spanner offers up to 99.999% availability (five nines) with its multi-region configurations, making it one of the most resilient database services available on any cloud platform.
 
 Spanner achieves this combination through TrueTime, a globally synchronized clock system that uses atomic clocks and GPS receivers in Google's data centers. TrueTime enables Spanner to order transactions globally without the performance penalties of traditional two-phase commit protocols, providing external consistency (the strongest form of consistency) across regions. This makes Spanner suitable for applications that need globally consistent reads and writes: financial transaction processing, inventory management across global warehouses, gaming leaderboards, and identity management systems.
 
-In AI and ML architectures, Spanner serves as the transactional data layer for applications that consume AI-generated outputs. While BigQuery handles analytical queries and Bigtable handles high-throughput key-value access, Spanner handles the relational transactional workload -- storing user accounts, orders, inventory, and other business data that AI services enrich. A typical pattern has Vertex AI models generating predictions or classifications that are written to Spanner alongside the business records they relate to, maintaining referential integrity. Spanner also integrates with Vertex AI for in-database ML inference using SQL, allowing prediction queries that combine business data with model outputs without data movement. Spanner supports both GoogleSQL and PostgreSQL dialects, with the PostgreSQL interface lowering migration barriers for organizations moving from PostgreSQL-based systems.
+In AI and ML architectures, Spanner serves as the transactional data layer for applications that consume AI-generated outputs. While BigQuery handles analytical queries and Bigtable handles high-throughput key-value access, Spanner handles the relational transactional workload -- storing user accounts, orders, inventory, and other business data that AI services enrich. A typical pattern has Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story) models generating predictions or classifications that are written to Spanner alongside the business records they relate to, maintaining referential integrity. Spanner also integrates with Vertex AI for in-database ML inference using SQL, allowing prediction queries that combine business data with model outputs without data movement. Spanner supports both GoogleSQL and PostgreSQL dialects, with the PostgreSQL interface lowering migration barriers for organizations moving from PostgreSQL-based systems.
 
 ## Key Capabilities
 

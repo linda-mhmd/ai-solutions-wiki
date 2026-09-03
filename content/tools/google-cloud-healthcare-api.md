@@ -8,12 +8,12 @@ related:
   - tools/amazon-healthlake
   - tools/google-vertex-ai
   - tools/google-bigquery
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Google Cloud Healthcare API is a managed service for storing, processing, and analyzing healthcare data in industry-standard formats. It supports FHIR (Fast Healthcare Interoperability Resources) for clinical data, DICOM (Digital Imaging and Communications in Medicine) for medical imaging, and HL7v2 for healthcare messaging. The API provides a standards-compliant interface that allows healthcare organizations to ingest data from electronic health record (EHR) systems, medical devices, and imaging equipment, then make that data available for analytics, machine learning, and application development.
 
-The Healthcare API is designed to bridge the gap between healthcare data systems and modern cloud analytics. Clinical data stored in FHIR format can be exported to BigQuery for SQL-based analytics, enabling population health analysis, clinical research queries, and operational reporting. DICOM imaging data can be fed into Vertex AI for training medical imaging ML models -- such as pathology slide analysis, radiology screening, or dermatology classification. HL7v2 messages can be routed through Pub/Sub for real-time processing, enabling clinical event-driven architectures. This integration between healthcare data formats and GCP's analytics and AI services is the core value proposition.
+The Healthcare API is designed to bridge the gap between healthcare data systems and modern cloud analytics. Clinical data stored in FHIR format can be exported to BigQuery for SQL-based analytics, enabling population health analysis, clinical research queries, and operational reporting. DICOM imaging data can be fed into Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story) for training medical imaging ML models -- such as pathology slide analysis, radiology screening, or dermatology classification. HL7v2 messages can be routed through Pub/Sub for real-time processing, enabling clinical event-driven architectures. This integration between healthcare data formats and GCP's analytics and AI services is the core value proposition.
 
 The service handles healthcare-specific compliance requirements including HIPAA (with a Business Associate Agreement), HITRUST, and data residency controls. It provides consent management for patient data access, de-identification for research datasets (removing or masking protected health information), and audit logging through Cloud Audit Logs. The FHIR store supports FHIR R4, the current standard version, with full CRUD operations, search, history, and transaction bundles. Healthcare organizations use the API as a clinical data lake, aggregating data from multiple EHR systems into a unified, queryable format.
 

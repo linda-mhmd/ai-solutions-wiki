@@ -4,7 +4,7 @@ description: "A comprehensive reference for every major large language model ava
 date: 2026-06-01
 categories: [Comparisons]
 tags: ["llm", "gpt", "claude", "gemini", "llama", "mistral", "deepseek", "qwen", "grok", "granite", "ibm", "olmo", "falcon", "starcoder", "dbrx", "groq", "together-ai", "fireworks-ai", "ollama", "vllm", "hugging-face", "azure-ai", "vertex-ai", "oci", "open-source", "inference-providers", "comparison", "foundation-models", "model-selection"]
-last_updated: 2026-06-22
+last_updated: 2026-09-03
 related:
   - glossary/llm
   - glossary/foundation-models
@@ -41,23 +41,25 @@ Each model entry covers:
 
 ## OpenAI
 
-OpenAI maintains the largest commercial LLM portfolio, split between general-purpose GPT models and reasoning-optimized o-series models.
+OpenAI's current generally available lineup is the **GPT-5.6** family, organized into three named capability tiers instead of point releases: **Sol** (flagship), **Terra** (balanced), and **Luna** (low-cost, high-volume) — GA since 9 July 2026. **GPT-6 Astra**, OpenAI's newest and most capable model, began rolling out from 1 September 2026 but remains gated at launch for its cybersecurity capabilities, which OpenAI's own Preparedness Framework classifies as crossing a "Critical" threshold (see [Astra crosses the "Critical" cyber threshold](/news/openai-astra-critical-cyber-threshold/)). See [OpenAI API](/tools/openai-api/) for the full current lineup, model IDs, and pricing rather than the point-in-time entries below.
 
-### GPT-4o
+The GPT-4o and o1/o3/o4-mini models profiled next were OpenAI's production lineup through 2024 and into 2025. They are now multiple generations behind GPT-5.6 and GPT-6 Astra and are not what a new integration should default to, but the split they established — a fast general-purpose model alongside a separate reasoning-optimized line — is still useful context for how the current tiers are organized, and comparisons to "GPT-4o" elsewhere in this article (for models released while GPT-4o was current) are left as originally benchmarked.
+
+### GPT-4o (previous generation, superseded by GPT-5.6)
 
 **Released:** May 2024. **Context:** 128,000 tokens. **Output limit:** 16,384 tokens.
 
-GPT-4o ("omni") is OpenAI's flagship general-purpose model. It processes text, images, audio, and video natively in a single model rather than through separate pipelines. The -4o suffix signals the multimodal-first architecture.
+GPT-4o ("omni") was OpenAI's flagship general-purpose model through 2024 and into 2025. It processes text, images, audio, and video natively in a single model rather than through separate pipelines. The -4o suffix signals the multimodal-first architecture.
 
-**Strengths:** Strong general reasoning, excellent instruction following, consistent JSON output, native vision, broad tool use. The most widely tested model in enterprise deployments.
+**Strengths:** Strong general reasoning, excellent instruction following, consistent JSON output, native vision, broad tool use. The most widely tested model in enterprise deployments during its production run.
 
 **Weaknesses:** Hallucination rate is meaningful on factual tasks without RAG. Vision understanding lags specialist models. Context window is large but performance degrades at very long contexts. Cost is high relative to smaller alternatives for simple tasks.
 
-**When to use it:** Default choice for complex reasoning, multi-modal tasks, and cases where you need the broadest tested capability surface. Production RAG with complex queries. Customer-facing applications where quality consistency matters more than cost.
+**When to use it today:** Rarely as a first choice — GPT-5.6 Terra or Sol covers the same ground with more current capability (see [OpenAI API](/tools/openai-api/)). GPT-4o remains relevant for reproducing older evaluations, comparing against legacy production deployments, or where an existing integration is still pinned to it.
 
 **API access:** OpenAI API (`gpt-4o`), Azure OpenAI (`gpt-4o`), Amazon Bedrock.
 
-### GPT-4o mini
+### GPT-4o mini (previous generation, superseded by GPT-5.6 Luna)
 
 **Released:** July 2024. **Context:** 128,000 tokens. **Output limit:** 16,384 tokens.
 
@@ -67,15 +69,15 @@ Smaller, faster, cheaper version of GPT-4o. Matches or exceeds older GPT-4 on ma
 
 **Weaknesses:** Noticeably weaker on multi-step reasoning and complex analysis than GPT-4o. Reduced quality on nuanced writing tasks.
 
-**When to use it:** High-volume classification, entity extraction, simple summarization, chatbot responses where cost-per-call matters. Not for complex reasoning chains.
+**When to use it today:** For new low-cost, high-volume work, start with GPT-5.6 Luna instead (see [OpenAI API](/tools/openai-api/)). This entry is kept for comparison against deployments still running on it.
 
 **API access:** OpenAI API (`gpt-4o-mini`), Azure OpenAI.
 
-### o1, o3, o4-mini (Reasoning Series)
+### o1, o3, o4-mini (Reasoning Series, previous generation)
 
 **o1 released:** September 2024. **o3 released:** December 2024. **o4-mini:** 2025.
 
-The o-series models use chain-of-thought reasoning internally before producing output. They spend compute at inference time thinking through problems, not just generating the most likely next token. This produces measurably better results on tasks requiring multi-step logic, mathematics, and code analysis.
+Extended reasoning now lives in GPT-5.6 Sol and GPT-6 Astra; the entries below describe the o-series that established the pattern. The o-series models use chain-of-thought reasoning internally before producing output. They spend compute at inference time thinking through problems, not just generating the most likely next token. This produces measurably better results on tasks requiring multi-step logic, mathematics, and code analysis.
 
 **o1:** First reasoning model. Strong on graduate-level math and science problems. Slower and more expensive than GPT-4o.
 
@@ -109,7 +111,7 @@ Claude Sonnet 4.6 is Anthropic's current production workhorse. Strong across cod
 
 **When to use it:** Long document processing, legal/financial analysis, complex code tasks, writing that requires nuance. Default choice when instruction-following accuracy matters most.
 
-**API access:** Anthropic API (`claude-sonnet-4-6`), Amazon Bedrock, Google Cloud Vertex AI.
+**API access:** Anthropic API (`claude-sonnet-4-6`), Amazon Bedrock, Google Cloud Vertex AI (rebranded [Gemini Enterprise Agent Platform](/tools/google-vertex-ai/) in April 2026 — see that page for the full story; "Vertex AI" is used throughout this reference for continuity with existing model IDs and docs).
 
 ### Claude 4 Opus (claude-opus-4-8)
 

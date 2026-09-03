@@ -7,7 +7,7 @@ tags: [azure, personalization, reinforcement-learning, recommendations, ai-servi
 related:
   - tools/amazon-personalize
   - tools/azure-cognitive-services
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Azure Personalizer is an Azure AI service that uses reinforcement learning to select the best content, product, layout, or action to present to an individual user in real time. Unlike traditional recommendation systems that rely on collaborative filtering or content-based approaches, Personalizer uses contextual bandit algorithms that continuously learn from user interactions to optimize content selection. The service takes in a set of actions (content options), context features (user attributes, device, time, location), and action features (content metadata), then returns a ranked list of actions. When the application reports a reward signal (click, purchase, time spent), Personalizer updates its model to improve future decisions.
@@ -31,7 +31,7 @@ Azure Personalizer is Azure's counterpart to Amazon Personalize. Both provide ma
 
 ## Origins and History
 
-Azure Personalizer originated from Microsoft Research's contextual bandit research, particularly the Vowpal Wabbit library developed by John Langford's team. The service was announced at Build 2019 in May 2019 and reached general availability on November 4, 2019. Multi-slot personalization, enabling optimization across multiple content positions simultaneously, was added in 2021. Apprentice mode, which learns from existing business logic, was introduced to lower the barrier to adoption. Microsoft announced in September 2023 that Personalizer would be retired as a standalone service in October 2025, with personalization capabilities being integrated into other Azure AI platform services.
+Azure Personalizer originated from Microsoft Research's contextual bandit research, particularly the Vowpal Wabbit library developed by John Langford's team. The service was announced at Build 2019 in May 2019 and reached general availability on November 4, 2019. Multi-slot personalization, enabling optimization across multiple content positions simultaneously, was added in 2021. Apprentice mode, which learns from existing business logic, was introduced to lower the barrier to adoption. Microsoft announced in September 2023 that Personalizer would be retired as a standalone service, with personalization capabilities being integrated into other Azure AI platform services. The original announcement targeted October 2025; the retirement was subsequently pushed back, and as of September 2026 Microsoft's own properties do not fully agree on the exact date — Personalizer's product docs and the Microsoft Lifecycle page both point to late August 2026, while the Azure Advisor retirement tracker groups it with Azure Anomaly Detector and Azure Metrics Advisor at 1 October 2026. Treat 1 October 2026 as the date to plan against, and verify current status directly before relying on this service.
 
 ## Sources
 

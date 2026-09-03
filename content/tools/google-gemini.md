@@ -1,7 +1,7 @@
 ---
 title: "Google Gemini"
 description: "Google's family of frontier multimodal models, available through the Gemini app, the Gemini API, and Google Cloud Vertex AI."
-date: 2026-06-29
+date: 2026-09-03
 tags: ["gemini", "google", "multimodal", "foundation-models", "llm"]
 tool_category: "AI"
 related:
@@ -23,7 +23,7 @@ Gemini is one of the three widely used frontier model families alongside OpenAI'
 
 ## The family
 
-Google ships Gemini as tiers, not a single model. The naming follows a generation number plus a tier label. Google DeepMind currently lists tiers including Flash (frontier performance for agents and coding), Pro (complex tasks and creative work), Deep Think (research, science, and engineering challenges), and Flash-Lite (high-volume, efficiency-first workloads). Google publishes the current model list and version identifiers on its developer and Vertex AI documentation, and it changes often. Always check the official model list before you pin a version in production.
+Google ships Gemini as tiers, not a single model. The naming follows a generation number plus a tier label. Google DeepMind currently lists tiers including Flash (frontier performance for agents and coding), Pro (complex tasks and creative work), Deep Think (research, science, and engineering challenges), and Flash-Lite (high-volume, efficiency-first workloads). Google publishes the current model list and version identifiers on its developer and Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story) documentation, and it changes often. Always check the official model list before you pin a version in production.
 
 <div class="bz-arch">
   <div class="bz-arch-layer">

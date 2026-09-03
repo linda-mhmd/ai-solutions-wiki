@@ -2,8 +2,8 @@
 title: "Google I/O 2026: Gemini Omni, an Agentic Search, and the End of Gemini CLI"
 description: "At I/O on 19 May 2026 Google introduced Gemini Omni for video generation, made Search's AI Mode agentic at 1B+ users, launched the persistent Gemini Spark agent, and began replacing Gemini CLI with an Antigravity CLI."
 date: 2026-05-19
-lastmod: 2026-07-13
-last_updated: 2026-07-13
+lastmod: 2026-09-03
+last_updated: 2026-09-03
 categories: [News]
 tags: [google, gemini, google-io, agentic-ai, search, developer-tools]
 related:
@@ -18,7 +18,7 @@ Google I/O on 19 May 2026 was an agentic release across the board. Google introd
 
 **Gemini Omni** is Google's "any input, any output" generative model, launched starting with video generation and folding Google's world-knowledge and generative-media work into one model; it became the headline video model at I/O, with a developer availability wave (Gemini Omni Flash) following in June. **Search's AI Mode** crossed a billion monthly users, moved to Gemini 3.5 Flash as its default, and gained "information agents" that monitor in the background plus agentic booking that can call businesses on your behalf.
 
-For consumers, **Gemini Spark** is a 24/7 personal agent that runs on Google Cloud, paired with a proactive Daily Brief. For developers, Google announced it is **transitioning the Gemini CLI to an Antigravity CLI**, an agent-first, Go-based terminal tool that orchestrates multiple background agents; the older Gemini CLI and Code Assist extensions stopped serving Pro, Ultra, and free requests on 18 June 2026 (enterprise licenses unaffected). This built on the Gemini Enterprise Agent Platform, the evolution of Vertex AI into a unified agent-lifecycle platform launched at Cloud Next in April.
+For consumers, **Gemini Spark** is a 24/7 personal agent that runs on Google Cloud, paired with a proactive Daily Brief. For developers, Google announced it is **transitioning the Gemini CLI to an Antigravity CLI**, an agent-first, Go-based terminal tool that orchestrates multiple background agents; the older Gemini CLI and Code Assist extensions stopped serving Pro, Ultra, and free requests on 18 June 2026 (enterprise licenses unaffected). This built on the Gemini Enterprise Agent Platform, the evolution of [Vertex AI](/tools/google-vertex-ai/) into a unified agent-lifecycle platform launched at Cloud Next in April.
 
 ## Why it matters for builders
 

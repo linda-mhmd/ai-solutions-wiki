@@ -9,12 +9,12 @@ related:
   - tools/google-cloud-functions
   - tools/google-vertex-ai
   - tools/google-cloud-pub-sub
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Google Cloud Run is a fully managed serverless platform for deploying and running containerized applications. You package your application as a container image, deploy it to Cloud Run, and the platform handles provisioning, scaling (including to zero), load balancing, TLS certificates, and HTTPS endpoint creation. Cloud Run supports any programming language, framework, or binary that can run in a container, giving it more flexibility than Cloud Functions while maintaining serverless operational simplicity.
 
-Cloud Run is increasingly central to AI application architectures on GCP. It provides the compute layer for serving AI-powered APIs, web applications, and microservices. Common patterns include: hosting inference APIs that call Vertex AI models with custom pre/post-processing logic, serving AI chatbots and conversational applications, running document processing services that combine Document AI with custom business logic, and deploying MLOps tools and dashboards. Cloud Run's support for up to 32 GiB memory and 8 vCPUs per instance makes it capable of running moderately sized ML models directly, and GPU support (in preview) enables serving larger models without dedicated infrastructure.
+Cloud Run is increasingly central to AI application architectures on GCP. It provides the compute layer for serving AI-powered APIs, web applications, and microservices. Common patterns include: hosting inference APIs that call Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story) models with custom pre/post-processing logic, serving AI chatbots and conversational applications, running document processing services that combine Document AI with custom business logic, and deploying MLOps tools and dashboards. Cloud Run's support for up to 32 GiB memory and 8 vCPUs per instance makes it capable of running moderately sized ML models directly, and GPU support (in preview) enables serving larger models without dedicated infrastructure.
 
 Cloud Run services respond to HTTPS requests, while Cloud Run jobs execute batch tasks to completion. Services scale based on concurrent requests, with configurable minimum instances (to avoid cold starts) and maximum instances (to control cost). Cloud Run integrates with Eventarc for event-driven processing, Pub/Sub for asynchronous messaging, Cloud SQL and Firestore for data persistence, and Secret Manager for credentials. Cloud Run also supports multi-container deployments (sidecars) for patterns like service mesh proxies, logging agents, and AI model serving alongside application logic. The platform is built on Knative, the open-source Kubernetes-based serverless platform, ensuring portability to any Knative-compatible environment.
 

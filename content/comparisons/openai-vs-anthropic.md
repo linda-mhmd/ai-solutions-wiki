@@ -1,137 +1,190 @@
 ---
-title: "OpenAI vs Anthropic - Platform and Model Comparison"
-description: "A comprehensive comparison of OpenAI and Anthropic as AI providers, covering models, APIs, safety approaches, enterprise features, and pricing."
+title: "OpenAI vs Anthropic: Choosing a Frontier AI Provider"
+description: "Which constraints — resilience, vendor lock-in, cost structure, and legal control — actually decide between OpenAI and Anthropic as an AI provider, with models and platform features compared only for what survives them."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-03
 categories: [Comparisons]
-tags: [OpenAI, Anthropic, LLM, comparison, AI-providers]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+tags: [OpenAI, Anthropic, LLM, comparison, AI-providers, vendor-selection, resilience, vendor-lock-in]
+last_updated: 2026-09-03
+lastmod: 2026-09-03
+related:
+  - guides/constraint-driven-comparisons
+  - guides/preparing-for-ai-provider-restrictions
+  - news/anthropic-fable-mythos-us-restriction
+  - news/openai-astra-critical-cyber-threshold
+  - news/openai-anthropic-google-outages-sept-2026
+  - glossary/cloud-act
+  - guides/software-licensing-and-vendor-lock-in
+  - guides/ai-vendor-selection
+  - comparisons/eu-vs-us-ai-regulation
 ---
 
-OpenAI and Anthropic are the two leading foundation model providers. Both offer frontier AI models through APIs, but they differ in model philosophy, safety approach, enterprise features, and ecosystem. This comparison helps teams evaluate which provider fits their needs.
+A feature table comparing OpenAI and Anthropic produces a familiar shape: rows for context window, tool use, fine-tuning, image generation, a checkmark or a short phrase in each cell, and a closing "choose A if you need X, choose B if you need Y." That framing skips the actual first question, which is not which vendor scores higher but **which constraints a given organization already has, and what those constraints do to the choice before a single model benchmark enters the discussion**. This page follows the wiki's [constraint-driven comparison methodology](/guides/constraint-driven-comparisons/): name the constraints, separate what actually rules an option out from what is a genuine tradeoff, and compare features only for whatever survives.
 
-## Model Lineup
+This particular comparison looks different from most on this wiki, and it is worth saying so plainly rather than forcing a template. OpenAI and Anthropic are both API-first, US-headquartered frontier labs offering broadly similar products — a hosted chat completions or messages endpoint, tool use, prompt caching, a batch API. Neither requires the customer to operate physical infrastructure, so **data gravity** and **internal capability** — decisive categories in [on-premise vs cloud](/comparisons/on-premise-vs-cloud-ai/) — barely differentiate the two here: calling either API takes the same modest in-house skill, and neither vendor's hosted service creates a training-corpus-sized dataset the customer has to move. **Regulatory and jurisdictional exposure** is similarly symmetric in the way that usually matters most: both companies are US entities, so the [US CLOUD Act](/glossary/cloud-act/) reaches both equally, and both carry the same general-purpose-AI-model provider obligations under the EU AI Act once they place a model on the EU market. An organization whose real constraint is *US jurisdiction itself* — the question the [EU vs US AI regulation](/comparisons/eu-vs-us-ai-regulation/) comparison is actually about — does not resolve it by picking between these two; it needs a non-US provider or a sovereign deployment, not a different frontier lab headquartered in the same country. What follows is organized around the categories that do carry real weight for this specific choice: two narrow but genuine gates, and four substantial tradeoffs.
 
-### OpenAI
+## Gates: what can rule an option out before features enter the discussion
 
-OpenAI's current generation is the GPT-5 family, which succeeded the GPT-4 line (GPT-4o, GPT-4 Turbo) and folded the separate "o-series" reasoning models (o1, o3) into a unified set of models with built-in reasoning. The naming and exact version numbers change frequently, so check OpenAI's pricing and models pages for the current set before you commit. The general shape of the lineup is:
+### Cloud procurement vehicle: Google Cloud is Anthropic-only; AWS and Azure now reach both vendors
 
-**Flagship multimodal models.** Current frontier GPT-5 series models. Text and image input, large context windows, and reasoning that "thinks" before responding for complex analysis, math, and coding. Available via the API and ChatGPT.
+This gate is narrower than it was even a few months ago, and it is worth being precise about how, because the wider claim would simply be wrong. As of September 2026, Anthropic's Claude models are billed through the Claude API directly, through **Amazon Bedrock**, through **Google Cloud Vertex AI**, and through **Claude in Microsoft Foundry** on Azure — all three hyperscaler marketplaces, plus Anthropic's own **Claude Platform on AWS**, a dedicated AWS Marketplace listing that bills usage in Claude Consumption Units so the whole spend shows as one line item on an AWS bill [1]. OpenAI's models are reachable through the OpenAI API directly, through **Azure OpenAI Service** (its deepest, first-party home), and — since GPT-5.6 Sol, Terra, and Luna reached general availability on **Amazon Bedrock** on 13 July 2026 — through AWS as well [18]. What OpenAI's frontier models are *not* offered through, as of this writing, is Google Cloud: Vertex AI's Model Garden lists Anthropic's Claude lineup as a partner model family, but the only OpenAI entries there are the open-weight `gpt-oss` models, not GPT-5.6 or GPT-6 Astra [19].
 
-**Mini and nano variants.** Smaller, cheaper, faster models for high-volume or latency-sensitive tasks where the flagship would be overkill. Quality is good for simpler work at a fraction of the cost.
+That leaves one clean, narrow, genuine gate rather than the sweeping one this section used to describe: an organization whose committed-spend agreement or procurement policy is with **Google Cloud** specifically can procure Anthropic through Vertex AI and cannot procure OpenAI's frontier models through Vertex AI at all, regardless of which model would otherwise be the better fit. For an AWS-committed or Azure-committed organization, that gate no longer applies the same way — both vendors are now reachable through either of those two marketplaces, which is a genuine, recent change from the "Claude means AWS, GPT means Azure" framing this page carried in earlier revisions. This is exactly the "contractual and customer-driven requirement" category the [constraint-driven methodology](/guides/constraint-driven-comparisons/) asks to be named as what it is, not folded into a vague "compliance" row — it is just a smaller category than it used to be. See [Bedrock vs Azure OpenAI](/comparisons/bedrock-vs-azure-openai/) for the cloud-platform mechanics in full, including the June 2026 shift that put OpenAI models on Bedrock in the first place.
 
-**Specialized models.** OpenAI also ships dedicated embeddings, image generation, and speech (transcription and text to speech) models alongside its language models. See the platform comparison below.
+### Frontier cyber and bio capability: both vendors gate it behind organizational verification, symmetrically
 
-### Anthropic
+If the specific requirement is access to the most capable available model for offensive or defensive security research — vulnerability discovery, exploit development, biosecurity work — neither vendor makes that tier available by default, and this is the one place the two companies' September 2026 releases line up almost exactly in time and shape. Anthropic restricts **Claude Mythos 5.1**, released 1 September 2026, to "verified organizations" doing cyber and biological research through its Cyber Verification Program and Life Sciences Verification Program, at the same $10/$50 per MTok pricing as its general-availability sibling Claude Fable 5.1, but gated behind an approval process rather than a standard API key [2]. Two days later, OpenAI's own **GPT-6 Astra** launched having crossed the "Critical" cybersecurity capability threshold in OpenAI's Preparedness Framework — during evaluation it chained two previously unknown vulnerabilities into a working exploit without step-by-step human direction — and OpenAI is not opening that capability broadly at launch either: initial access runs through OpenAI's **Daybreak** trusted-access program rather than a standard API key, with wider ChatGPT and API access following in the days after launch [3][20]. Separately from Astra's own launch-day gating, OpenAI maintains a parallel structure for its 5.6-generation models specifically: **Daybreak Blue** is an alias for general-purpose models (GPT-5.6 Sol) configured with additional safeguards for defensive security work, while **Daybreak Red** is an alias for **GPT-5.6 Cyber**, a purpose-trained model restricted to authorized vulnerability research and penetration testing [21]. Neither company will simply sell an unrestricted account with this specific capability profile. For an organization that has that narrow requirement and is not already a verified counterparty at either lab, this is a real gate — but it is not a reason to prefer one vendor over the other, since both apply it, and Anthropic has one realized government-ordered shutdown to OpenAI's zero only because Anthropic's most capable model reached this capability threshold first, back in June — see Resilience, below. It is worth naming precisely because a comparison that only checked "does this vendor offer a cyber-capable model" (yes, both do) would miss that the actual product — unrestricted access to it — is unavailable from either.
 
-Anthropic names its current generation by tier (Opus, Sonnet, Haiku) plus a version number. As of mid-2026 the current lineup is Claude Opus 4.8, Claude Sonnet 4.6, and Claude Haiku 4.5, with Claude Fable 5 sitting above the Opus tier as Anthropic's most capable widely released model. All current models accept text and image input and support tool use.
+## Tradeoffs: what's worth weighing once neither gate applies
 
-**Claude Opus 4.8.** Anthropic's most capable Opus-tier model. Best for complex reasoning, long-horizon agentic coding, and high-autonomy work. 1M token context window.
+### Resilience: single-vendor dependency is not a hypothetical for either lab, and it already happened to one of them
 
-**Claude Sonnet 4.6.** Balanced model for most enterprise tasks. Strong performance at moderate cost, fast enough for real-time applications. 1M token context window.
+On 12 June 2026, a US national security directive ordered Anthropic to cut off foreign access to Claude Fable 5 and Mythos 5. Because a per-user version of the order was not practical to enforce, Anthropic disabled both models for **every user, worldwide**, with almost no notice — Anthropic says it received the order at 5:21pm ET on a Friday [4]. It is widely described as the first time the US government restricted a specific commercial AI model, rather than the export-controlled hardware underneath it. The restriction was reversed roughly three weeks later: Anthropic announced on 30 June 2026 that it was redeploying Fable 5 from 1 July, initially capping usage at 50% of normal limits while demand caught up [5].
 
-**Claude Haiku 4.5.** Fastest and lowest-cost model with near-frontier intelligence. Suitable for classification, extraction, and high-volume processing. 200K token context window.
+The lesson for this comparison is not "Anthropic is less reliable than OpenAI." The mechanism that produced the June order — a US national security authority reaching a specific model at a specific US-headquartered lab — applies with equal legal force to OpenAI, which is also a US company; nothing in OpenAI's structure exempts it, and this wiki is not aware of a *government-ordered restriction* having been issued against an OpenAI model as of this writing. But that asymmetry is a matter of timing, not of durable exposure, and it is worth being precise about why rather than leaving it as reassurance: Anthropic has one realized incident to OpenAI's zero only because Anthropic's most capable model crossed a national-security-relevant capability threshold first — and OpenAI's own most capable model has, as of 1 September 2026, now crossed a comparable threshold too, by OpenAI's own account (see Gates, above). The honest reading is closer to the opposite of a ranking: **any organization whose product is wired to one vendor's specific model, from either lab, carries this tail risk**, and the risk materialized for real, for three weeks, for one of the two vendors compared on this page — and a *different* kind of shared-fate risk materialized for both vendors at once on the very day this page was last verified: OpenAI's and Anthropic's own status pages both confirmed real, multi-hour incidents that overlapped for roughly ninety minutes on the morning of 3 September 2026, OpenAI's from 14:58 to 16:55 UTC and Anthropic's from 13:26 to 16:23 UTC, with no shared root cause established by either company [22]. That is a different failure mode from a government order — an ordinary operational outage rather than a legal restriction — but it is the same underlying constraint category (single-vendor dependency), it hit both vendors compared on this page within the same window, and it happened on the same day this page's other facts were verified, which makes it better evidence for the "carries this tail risk" claim above than a single one-sided anecdote would be. The concrete mitigation is identical regardless of which vendor you pick and regardless of whether the failure mode is a legal order or an ordinary outage — abstract the provider behind an interface, keep a tested fallback model, and treat "which model can I legally serve, to whom, and what happens when it's simply down" as an architecture decision made in advance rather than an incident response made under pressure. See [preparing for AI provider restrictions](/guides/preparing-for-ai-provider-restrictions/) for the concrete pattern, the [original restriction](/news/anthropic-fable-mythos-us-restriction/) and its [reversal](/news/fable-5-export-controls-lifted/) for the full account of the June episode, and [ChatGPT, Claude, and Gemini go down the same morning](/news/openai-anthropic-google-outages-sept-2026/) for the September outage.
 
-**Claude Fable 5.** Anthropic's most capable widely released model, aimed at the most demanding reasoning and long-horizon agentic work. Priced above the Opus tier. 1M token context window.
+One structural aftereffect is visible in how Anthropic ships its September 2026 lineup: Mythos 5.1 launched pre-gated to verified organizations rather than broadly available, the pattern described above under Gates — and, on the evidence of GPT-6 Astra's own Daybreak-gated launch two days later, OpenAI's most capable model shipped the same way. Whether either is a lasting response to a specific episode or simply how each lab would have shipped its most capability-dense model regardless is not something this page can determine.
 
-## API and Platform
+### Cost structure: comparable at the top, genuinely different at the bottom, and one promotional rate has an expiry date
 
-| Feature | OpenAI | Anthropic |
+Pricing below is per million tokens (MTok), current as of September 2026 [1][6][7]. Anthropic's per-token rate is flat across its full context window — a 900,000-token request costs the same per token as a 9,000-token one [1]. OpenAI publishes a separate, higher rate once a request crosses into "long context," though the published pricing does not state the exact token threshold where that boundary sits [7].
+
+| Tier | Anthropic | Price (in / out, short or flat) | Price (in / out, long context) | OpenAI equivalent | Price (in / out, short) | Price (in / out, long context) |
+|---|---|---|---|---|---|---|
+| Frontier-plus | Claude Fable 5.1 | $10 / $50 (flat, full 1M window) | — | GPT-6 Astra | $10 / $50 | $20 / $75 |
+| Flagship | Claude Opus 5 | $5 / $25 (flat) | — | GPT-5.6 Sol | $4 / $20* | $8 / $30 |
+| Mid-tier | Claude Sonnet 5 | $2 / $10 (flat, now permanent) | — | GPT-5.6 Terra | $2 / $12 | $4 / $18 |
+| Budget | Claude Haiku 4.5 | $1 / $5 | — | GPT-5.6 Luna | $0.20 / $1.20 | $0.40 / $1.80 |
+
+\* GPT-5.6 Sol's current input/output rate is promotional pricing, published as available "at least through November 21, 2026" [7]. Anthropic went the other direction on its equivalent tier: Sonnet 5 launched at $2/$10 as an introductory rate through 31 August 2026 with a scheduled rise to $3/$15, and on 10 August 2026 Anthropic cancelled that increase and made $2/$10 the permanent standard price [8]. Neither direction should be assumed to hold for the other vendor's tier — see [Sonnet 5's pricing becoming permanent](/news/claude-sonnet-5-pricing-permanent/) for why an introductory rate is a marketing decision, not a cost floor, in either direction.
+
+Three genuine, vendor-neutral differences follow from this table, not a net winner:
+
+- **At the entry tier, OpenAI is markedly cheaper.** GPT-5.6 Luna's $0.20/$1.20 (short context) undercuts Haiku 4.5's $1/$5 by roughly 5x on input and 4x on output. For a high-volume, low-complexity workload — classification, short extraction, intent detection — that gap compounds directly into the bill.
+- **At long context, Anthropic's flat pricing is structurally cheaper and more predictable.** A workload that regularly pushes past whatever threshold triggers OpenAI's long-context rate pays up to double the short-context price on that vendor; the same workload on Anthropic pays the single published rate regardless of context length. For agentic coding over a large repository, or RAG over long documents, this is a real architectural consideration, not a rounding difference.
+- **Prompt caching is structurally similar but not identical.** Both vendors price a cache read at roughly 10% of the base input rate [1][7]. Anthropic's newest tier goes further: cache reads on Fable 5.1 and Mythos 5.1 are priced at 2.5% of base input, a steeper discount than the 10% multiplier that applies to every other model in Anthropic's lineup and to OpenAI's cached-input pricing generally [1].
+
+Both vendors offer a Batch API at a substantial discount for asynchronous, non-time-sensitive workloads (Anthropic publishes a flat 50% off both input and output tokens across its lineup [1]); check current rates before building a cost model, and re-check the date any promotional or introductory rate expires, per the practice above.
+
+### Vendor lock-in and exit cost: neither API is portable, and the surface area differs in kind
+
+Code written against Anthropic's Messages API and its tool-use schema does not run against OpenAI's Responses API (the interface GPT-6 Astra's tool calling requires [3]) or Chat Completions without a rewrite, and the reverse is equally true — this is the same "proprietary API" lock-in mechanism covered generally in [software licensing and vendor lock-in](/guides/software-licensing-and-vendor-lock-in/), applied to two vendors who are both, in this respect, in the same position relative to a customer. An abstraction layer or LLM gateway reduces but does not eliminate this: server-side tools (Anthropic's web search, code execution, computer use, browser use, and memory tool; OpenAI's web search, file search, and computer use built into the GPT-6 Astra and GPT-5.6 lines) are vendor-specific capabilities a thin routing layer does not make portable.
+
+The two vendors differ in the *shape* of the lock-in they create, which is a real distinction even though neither is more locked-in than the other in the aggregate. OpenAI's platform spans language models, embeddings (`text-embedding-3-small` and `-large`), image generation (GPT-Image-2), video generation (Sora-2), and speech and transcription models [7][9] — a team that consolidates several of these onto one vendor accumulates switching cost across a wider surface than a team using only the chat endpoint. Anthropic's product surface is narrower by design: language models plus agentic tooling, with no first-party embeddings, image, or speech models, so a team needing those must already integrate a second vendor for them regardless of which one it picks for language. Neither shape is categorically safer; one concentrates lock-in in a single, wide relationship, the other spreads it across a language-model vendor plus whatever separately handles embeddings, images, or speech.
+
+Fine-tuning is a specific, real asymmetry rather than a difference in shape: OpenAI offers broader native fine-tuning support across more of its models, while Anthropic's fine-tuning availability remains limited and enterprise-gated, largely unchanged from the position described on this page in earlier revisions. Confirm current fine-tuning availability and terms directly with each vendor before treating this as a deciding factor — it is exactly the kind of narrow, product-surface fact that moves faster than a comparison page can track.
+
+### Trust and legal control: two different corporate structures, neither of which changes the jurisdiction question
+
+Separate from whether either vendor is *legally compellable* — both are, equally, as US entities — is the distinct question of who has structural influence over a vendor's roadmap, pricing, and model-access decisions. The two companies answer it differently.
+
+Anthropic is a Public Benefit Corporation governed by a Board of Directors, with a **Long-Term Benefit Trust** (LTBT) — currently trustees Neil Buddy Shah, Richard Fontaine, and Dr. Ben Bernanke — that participates in electing that board alongside stockholders, structurally intended to weigh long-term mission considerations against short-term shareholder interest [10]. Its investor base, per its May 2026 Series H ($65 billion at a $965 billion post-money valuation), is broad: Amazon, Google, and Microsoft all participate as cloud and compute partners and investors, with Amazon investing an additional $5 billion in that round specifically, but no single entity is disclosed as a controlling shareholder [11].
+
+OpenAI completed a different restructuring on 28 October 2025: a dual structure in which the nonprofit **OpenAI Foundation** holds a 26% stake in the for-profit **OpenAI Group, PBC** and retains the authority to remove the PBC's board members at any time, while Microsoft holds 27% of the equity and remains OpenAI's primary cloud and compute partner and largest single investor [12]. Both companies subsequently filed confidential IPO paperwork with the SEC in June 2026, Anthropic about a week ahead of OpenAI, both reportedly targeting valuations above $1 trillion [13].
+
+Neither structure is a gate, and neither resolves the jurisdiction question above — an LTBT trustee and an OpenAI Foundation board seat are both, in the end, subject to the same US legal process as any other part of either company. What genuinely differs is concentration: OpenAI's single largest external stakeholder (Microsoft, 27% equity, primary cloud partner) has a materially larger and more concentrated position than any single investor in Anthropic's more distributed base. Whether that concentration matters to a given organization is a judgment call this page states as a fact rather than a ranking, consistent with the methodology's instruction not to assert an unsourced verdict.
+
+### Contractual and customer-driven requirements: usually a wash, decided by your specific counterparty, not by this page
+
+Both vendors offer enterprise plans with SSO, admin controls, and a stated default of not training on API or enterprise-plan customer data, and both maintain SOC 2 attestations and enterprise data-processing terms. As [governance thresholds as you scale](/guides/governance-thresholds-as-you-scale/) covers in general, a specific certification requirement is a sales-driven trigger from a specific counterparty's procurement process, not a regulatory one — which means the deciding fact, if there is one, is what your specific customer's specific security questionnaire names by vendor, not a general claim this page can make about either lab. Confirm current certification status, data-processing terms, and any regional data-residency options directly with each vendor's current enterprise documentation before treating either as settled.
+
+## Model lineup, for whatever survives your constraints
+
+Anthropic's current lineup, per its own pricing and model documentation, current as of September 2026 [1][2][14]:
+
+| Model | Positioning | Context | Max output | Price (in / out) | Availability |
+|---|---|---|---|---|---|
+| Claude Fable 5.1 | Demanding reasoning and long-horizon agentic work, above the Opus tier | 1M tokens | 128K | $10 / $50 | GA 1 September 2026 |
+| Claude Mythos 5.1 | Cyber and biological research | 1M tokens | 128K | $10 / $50 | Verified organizations only |
+| Claude Opus 5 | Complex agentic coding and enterprise work; Anthropic's default recommendation for most workloads | 1M tokens | 128K | $5 / $25 | GA 24 July 2026 |
+| Claude Sonnet 5 | Best combination of speed and intelligence | 1M tokens | 128K | $2 / $10 (permanent) | GA 30 June 2026 |
+| Claude Haiku 4.5 | Fastest, near-frontier intelligence | 200K tokens | 64K | $1 / $5 | GA |
+
+Opus 5 succeeded Opus 4.8 (Anthropic's flagship from 28 May to 24 July 2026) as the recommended default; Opus 4.8, along with Opus 4.7, 4.6, and 4.5 and Sonnet 4.6 and 4.5, remain available as legacy models [14]. See [Claude Opus 4.8](/news/claude-opus-4-8/) and [Claude Sonnet 5](/news/claude-sonnet-5/) for the earlier releases in this sequence, and [Claude Fable 5.1 reaches general availability, Mythos 5.1 stays gated](/news/claude-fable-5-1-mythos-5-1-ga/) for this wiki's own coverage of the 1 September launch, including the benchmark gains Anthropic reports over Fable 5.
+
+OpenAI's current lineup, per its own developer documentation, current as of September 2026 [7][3][9]:
+
+| Model | Positioning | Context | Max output | Price (in / out, short / long) | Availability |
+|---|---|---|---|---|---|
+| GPT-6 Astra | "Our most capable model, built for the hardest end-to-end work" | 1.05M tokens | 128K | $10 / $50 — $20 / $75 | Rolling out from 3 September 2026, initial access via Daybreak Trusted Access Program |
+| GPT-5.6 Sol | Complex professional work; frontier of the 5.6 family | 1.05M tokens | 128K | $4 / $20* — $8 / $30 | GA 9 July 2026 |
+| GPT-5.6 Terra | Balances intelligence and cost | 1.05M tokens | 128K | $2 / $12 — $4 / $18 | GA 9 July 2026 |
+| GPT-5.6 Luna | Cost-sensitive, high-volume workloads | 1.05M tokens | 128K | $0.20 / $1.20 — $0.40 / $1.80 | GA 9 July 2026 |
+
+\* Promotional pricing, published as available at least through 21 November 2026 [7]. Specialized security-focused variants (GPT-5.6 Cyber, Daybreak Red/Blue) sit alongside this lineup, gated as described above.
+
+GPT-6 Astra began rolling out on **3 September 2026** — the same day this page was last verified — but "GA" undersells how gated the initial release actually is: OpenAI's own models documentation lists it as "currently rolling out to enterprise Trusted Access Program," and OpenAI has said itself that Astra is the first OpenAI model to cross the "Critical" cybersecurity capability threshold in its Preparedness Framework, which is the reason initial access runs through the Daybreak program rather than a standard signup, with wider ChatGPT and API access following in the following days [20]. Treat its specifics as freshly published rather than battle-tested: it requires OpenAI's Responses API for tool calling (not Chat Completions), does not support a `none` reasoning effort or custom temperature/top_p, and ships with a stated "misalignment monitoring" safety layer [3]. This wiki's own independent coverage of the Critical-threshold announcement is at [Astra becomes the first OpenAI model to cross the "Critical" cyber threshold](/news/openai-astra-critical-cyber-threshold/); the model-documentation facts above come directly from OpenAI's own developer documentation and changelog, fetched this session. See [OpenAI ships GPT-5.5, then GPT-5.6](/news/openai-gpt-5-5-and-5-6/) for the release that preceded it.
+
+## Platform capabilities beyond language models
+
+This is the one place a straightforward feature table earns its keep, because the asymmetry is real and stable rather than a moving target: OpenAI ships a broader platform (embeddings, image and video generation, speech and transcription) alongside its language models; Anthropic does not, and instead ships agentic tooling (server-side web search, code execution, computer and browser use, a memory tool, MCP connector support, and Claude Managed Agents for stateful multi-step sessions) around its language models specifically [1][7][9].
+
+| Capability | OpenAI | Anthropic |
 |---|---|---|
-| API style | REST with streaming | REST with streaming |
-| Context window | Large (frontier models offer up to roughly 1M tokens) | Up to 1M tokens (Opus and Sonnet tiers; Haiku is 200K) |
-| Vision support | Yes (current GPT-5 family) | Yes (all current Claude models) |
-| Tool/function calling | Yes | Yes |
-| Structured output (JSON mode) | Yes | Yes (structured outputs via output_config) |
-| Batch API | Yes | Yes |
-| Prompt caching | Yes | Yes |
-| Fine-tuning | Yes (broad support) | Limited availability |
-| Embeddings | Yes (text-embedding-3 family) | No (use third-party) |
-| Image generation | Yes | No |
-| Speech (STT/TTS) | Yes | No |
+| Embeddings | Yes (`text-embedding-3-small`/`-large`) | No (third-party) |
+| Image generation | Yes (GPT-Image-2) | No |
+| Video generation | Yes (Sora-2) | No |
+| Speech / transcription | Yes (Realtime, Whisper-family) | No |
+| Server-side agentic tools (web search, code execution, computer use) | Yes | Yes |
+| Managed multi-step agent sessions | Multi-agent orchestration (beta) | Claude Managed Agents |
+| Fine-tuning | Broader native support | Limited, enterprise-gated |
+| Cloud marketplaces | Azure OpenAI Service, Amazon Bedrock (GA July 2026) | Amazon Bedrock, Google Cloud Vertex AI, Microsoft Foundry, Claude Platform on AWS |
 
-OpenAI offers a broader platform with embeddings, image generation, and speech services in addition to language models. Anthropic is focused specifically on language models and excels in that area. Anthropic does, however, ship server-side tools (web search, code execution, computer use) and a Managed Agents surface for stateful, multi-step agents.
+If your requirement is confined to language and agentic tasks, this table mostly restates the lock-in-shape point made above rather than adding a new axis. If it genuinely includes embeddings, image, video, or speech, it is the one row set on this page that functions as a near-gate: Anthropic does not offer a first-party answer, so that portion of the requirement goes to OpenAI or a third vendor regardless of how the rest of this comparison resolves.
 
-## Safety and Alignment
+## Safety posture and model philosophy
 
-**OpenAI** uses RLHF (Reinforcement Learning from Human Feedback) and iterative safety testing. Has faced criticism for releasing capabilities quickly. Provides content moderation API and system-level safety features.
+Both companies frame their alignment approach differently in public documentation. OpenAI has historically used reinforcement learning from human feedback shaped by iterative deployment and red-teaming [15]; Anthropic frames its approach around Constitutional AI, RLHF guided by an explicit written set of principles, and has generally published more externally toward safety research and model cards [16][17]. GPT-6 Astra's stated inclusion of "misalignment monitoring" checks [3] and Anthropic's continued system-card practice for each release (including Opus 5 [14]) suggest both labs are converging on more explicit, published safety review per release, whatever the underlying philosophical framing. Neither company's approach is more "safe" in a way this page can rank without asserting a verdict the methodology explicitly warns against; what differs in practice is more often refusal behavior on specific edge cases than a categorical safety gap, and that is a property worth testing against your own workload rather than inferring from either company's marketing.
 
-**Anthropic** emphasizes Constitutional AI (RLHF guided by a set of principles). Generally more conservative on safety. Claude models tend to refuse harmful requests more consistently. Anthropic publishes detailed safety research and model cards.
+## What this comparison cannot resolve
 
-In practice, both providers' models are suitable for enterprise use. Claude models are sometimes perceived as more cautious (refusing edge cases more readily), while GPT models may be more permissive. For enterprise applications, both can be configured with appropriate guardrails.
+- **Your organization's actual negotiated price.** The rates above are public list prices; both vendors negotiate volume and enterprise terms that can shift the comparison materially, and GPT-5.6 Sol's promotional rate specifically has a stated expiry (21 November 2026) that this page cannot predict the replacement rate for.
+- **The exact token threshold where OpenAI's long-context pricing begins.** OpenAI's own published pricing does not state it; confirm directly against current API documentation before modeling a long-context-heavy workload.
+- **Whether your specific enterprise counterparty's security questionnaire or procurement process names one vendor by certification, region, or existing relationship.** That is the counterparty's document, not a fact this page can generalize from.
+- **Current fine-tuning availability and terms at Anthropic specifically**, and any equivalent restrictions at OpenAI — both are the kind of product-surface fact that changes faster than a comparison page updates.
+- **Whether a Fable/Mythos-style *government-ordered* restriction could reach an OpenAI model.** The legal mechanism is available against any US-headquartered lab, and OpenAI's own Astra has now crossed a comparable capability threshold by OpenAI's own account; whether an external order will actually be exercised against an OpenAI model, on what timeline, is not something either company's own documentation can answer.
+- **Whether the 3 September 2026 OpenAI/Anthropic outage overlap shares a root cause.** Neither company's status page, nor any outlet that cross-checked them, established one; treat it as two confirmed, overlapping incidents rather than one confirmed common failure.
+- **How GPT-6 Astra's Daybreak-gated access and pricing settle once the rollout completes.** This page was verified the day of that model's announcement; treat the specifics above as a snapshot of a still-moving release, not a stable fact to build a 2027 budget on.
 
-## Enterprise Features
+## Further reading
 
-**OpenAI** offers ChatGPT Enterprise and Team plans with data privacy guarantees, SSO, admin controls, and no training on customer data. API usage also comes with data privacy by default (API data is not used for training).
+- [Constraint-driven comparisons](/guides/constraint-driven-comparisons/): the methodology this page follows.
+- [Preparing for AI provider restrictions](/guides/preparing-for-ai-provider-restrictions/): the concrete architecture pattern for surviving a Fable/Mythos-style event, or an outage like the one on 3 September, regardless of which vendor it hits.
+- [Why the US restricted Anthropic's Fable 5 and Mythos 5](/news/anthropic-fable-mythos-us-restriction/) and [the restrictions being lifted](/news/fable-5-export-controls-lifted/): the full account behind the resilience section above.
+- [ChatGPT, Claude, and Gemini go down the same morning](/news/openai-anthropic-google-outages-sept-2026/): the 3 September 2026 overlapping OpenAI/Anthropic outage cited in the resilience section above.
+- [Astra becomes the first OpenAI model to cross the "Critical" cyber threshold](/news/openai-astra-critical-cyber-threshold/): the source behind GPT-6 Astra's own Daybreak gating, cited in the gates and resilience sections above.
+- [Claude Fable 5.1 reaches general availability, Mythos 5.1 stays gated](/news/claude-fable-5-1-mythos-5-1-ga/): this wiki's independent coverage of the 1 September 2026 launch.
+- [Anthropic cancels the Sonnet 5 price rise](/news/claude-sonnet-5-pricing-permanent/): why an introductory rate should never be assumed permanent — or temporary — without checking.
+- [OpenAI ships GPT-5.5, then GPT-5.6](/news/openai-gpt-5-5-and-5-6/): the release this page's GPT-5.6 figures build on.
+- [OpenAI's enterprise revenue overtakes consumer](/news/openai-enterprise-revenue-overtakes-consumer/): why enterprise terms now carry more commercial weight at OpenAI specifically.
+- [Software licensing and vendor lock-in](/guides/software-licensing-and-vendor-lock-in/): making an exit-cost claim concrete rather than rhetorical, for the proprietary-API side of the lock-in section above.
+- [The US CLOUD Act](/glossary/cloud-act/): the jurisdictional mechanism that applies symmetrically to both vendors, in full.
+- [EU vs US AI regulation](/comparisons/eu-vs-us-ai-regulation/): where jurisdiction actually is the gate, as opposed to this comparison.
+- [Bedrock vs Azure OpenAI](/comparisons/bedrock-vs-azure-openai/): the cloud-marketplace mechanics behind the procurement-vehicle gate above, including the June 2026 shift that put OpenAI models on Bedrock.
+- [AI vendor selection](/guides/ai-vendor-selection/): the general evaluation framework this page's constraint categories fit into.
+- [Claude and Anthropic](/tools/claude-anthropic/) and [OpenAI API](/tools/openai-api/): platform-level integration details for each.
 
-**Anthropic** provides enterprise API access with similar data privacy guarantees. Claude for Enterprise offers team management and admin features. Available through Amazon Bedrock and Google Cloud Vertex AI for organizations that prefer cloud-managed access.
+## Sources
 
-## Cloud Availability
-
-**OpenAI** models are available through Azure OpenAI Service, providing enterprise-grade deployment within Azure's compliance framework.
-
-**Anthropic** Claude models are available through Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Foundry, making Claude available across all three major cloud platforms. Anthropic also offers Claude Platform on AWS, an Anthropic-operated service that runs on AWS infrastructure (SigV4 auth, IAM access control, AWS Marketplace billing) with same-day feature parity to the first-party API. This multi-cloud availability is an advantage for organizations committed to AWS, GCP, or Azure.
-
-For AWS-centric organizations, Claude on Bedrock (or Claude Platform on AWS) is the more natural choice. For Azure-centric organizations, OpenAI through Azure is the default, though Claude is also reachable via Microsoft Foundry. For GCP organizations, both providers are available through Vertex AI.
-
-Anthropic is independent and privately held. Amazon and Google are both major strategic investors and cloud and compute partners (Amazon is the primary cloud and training partner), but neither owns Anthropic. OpenAI retains its long-standing partnership with Microsoft, which is its primary cloud provider and a major investor.
-
-## Pricing Comparison
-
-Pricing changes frequently; check current rates. General patterns:
-
-**Input tokens:** Anthropic and OpenAI are roughly competitive at each tier. Comparable mid-tier models from each provider tend to be similarly priced. As a reference point, Claude Sonnet 4.6 is $3 per million input tokens and $15 per million output tokens, and Claude Haiku 4.5 is $1 per million input and $5 per million output; check each provider's pricing page for current OpenAI rates.
-
-**Output tokens:** Typically 3-5x more expensive than input tokens for both providers.
-
-**Cost optimization:** Both offer batch APIs at reduced rates. Both support prompt caching to reduce repeated input costs.
-
-## Strengths by Use Case
-
-| Use Case | Advantage |
-|---|---|
-| Complex reasoning and analysis | Both competitive; both now have models with built-in reasoning |
-| Long document processing | Both competitive (both offer large, up to roughly 1M token, context windows on frontier models) |
-| Code generation | Both competitive |
-| Agentic and long-horizon tasks | Anthropic (Claude is positioned heavily around agentic coding; Claude Code and Managed Agents) |
-| Creative writing | Anthropic (Claude tends to produce more natural prose) |
-| Multi-modal (text + image) | Both competitive |
-| Image generation | OpenAI (no Anthropic equivalent) |
-| Speech processing | OpenAI (no Anthropic equivalent) |
-| Embeddings | OpenAI (text-embedding-3 family, no Anthropic equivalent) |
-| Fine-tuning | OpenAI (broader fine-tuning support) |
-| Safety-critical applications | Anthropic (more conservative safety approach) |
-| AWS deployment | Anthropic (native Bedrock integration plus Claude Platform on AWS) |
-| Azure deployment | OpenAI (native Azure OpenAI integration) |
-
-## Recommendation
-
-**Choose OpenAI when** you need a broad AI platform (language, vision, speech, embeddings, image generation), are on Azure, or need fine-tuning capabilities.
-
-**Choose Anthropic when** you prioritize safety, need long context processing, are on AWS, run agentic or long-horizon coding workloads, or need strong analytical and writing capabilities.
-
-**Consider both** for production systems. Multi-provider architectures provide redundancy and allow routing to the best model for each task. Abstract your LLM calls behind an interface that allows switching providers.
-
-## See Also
-
-- [Claude vs ChatGPT](/comparisons/claude-vs-chatgpt/), [GPT-4 vs Claude Enterprise](/comparisons/gpt4-vs-claude-enterprise/)
-- [Bedrock vs Azure OpenAI](/comparisons/bedrock-vs-azure-openai/), [Huggingface vs Bedrock](/comparisons/huggingface-vs-bedrock/)
-- [Function Calling](/glossary/function-calling/), [Tool Use](/glossary/tool-use/), [Model Context Protocol](/glossary/model-context-protocol/)
-- [LLM (glossary)](/glossary/llm/), [Foundation Models](/glossary/foundation-models/)
-- [AI Safety](/glossary/ai-safety/), [Guardrails](/glossary/guardrails/), [Responsible AI](/glossary/responsible-ai/)
-
-## Sources and Further Reading
-
-- OpenAI (2023). *GPT-4 Technical Report.* arXiv:2303.08774. [https://arxiv.org/abs/2303.08774](https://arxiv.org/abs/2303.08774)
-- OpenAI (2024). *Learning to Reason with LLMs (o1 system card).* [https://openai.com/index/learning-to-reason-with-llms/](https://openai.com/index/learning-to-reason-with-llms/)
-- Anthropic. *Constitutional AI: Harmlessness from AI Feedback.* arXiv:2212.08073. [https://arxiv.org/abs/2212.08073](https://arxiv.org/abs/2212.08073)
-- Bai, Y., Kadavath, S., Kundu, S., et al. (2022). *Constitutional AI: Harmlessness from AI Feedback.* arXiv:2212.08073. [https://arxiv.org/abs/2212.08073](https://arxiv.org/abs/2212.08073)
-- Bai, Y., Jones, A., Ndousse, K., et al. (2022). *Training a Helpful and Harmless Assistant with RLHF.* arXiv:2204.05862. [https://arxiv.org/abs/2204.05862](https://arxiv.org/abs/2204.05862)
-- Ouyang, L., Wu, J., Jiang, X., et al. (2022). *Training Language Models to Follow Instructions with Human Feedback.* NeurIPS 2022. arXiv:2203.02155. [https://arxiv.org/abs/2203.02155](https://arxiv.org/abs/2203.02155)
-- Chiang, W.-L., Zheng, L., Sheng, Y., et al. (2024). *Chatbot Arena.* ICML 2024. arXiv:2403.04132. [https://arxiv.org/abs/2403.04132](https://arxiv.org/abs/2403.04132)
-- OpenAI Platform documentation (models and pricing). [https://platform.openai.com/docs/](https://platform.openai.com/docs/)
-- Anthropic Claude API documentation. [https://platform.claude.com/docs/](https://platform.claude.com/docs/)
-- Anthropic. *Models overview* (current model lineup, context windows, pricing). [https://platform.claude.com/docs/en/about-claude/models/overview](https://platform.claude.com/docs/en/about-claude/models/overview)
-- Anthropic. *Building effective agents.* [https://www.anthropic.com/research/building-effective-agents](https://www.anthropic.com/research/building-effective-agents)
-- Anthropic. *Anthropic raises Series H funding* (May 2026; ownership, cloud partnerships, three-cloud availability). [https://www.anthropic.com/news/series-h](https://www.anthropic.com/news/series-h)
+1. Anthropic. *Pricing.* Model pricing, cloud platform pricing, Claude Platform on AWS pricing, and prompt-caching mechanics, fetched 3 September 2026. [https://platform.claude.com/docs/en/about-claude/pricing](https://platform.claude.com/docs/en/about-claude/pricing)
+2. Anthropic. *Models overview.* Current lineup, context windows, and Mythos 5.1 limited-availability status, fetched 3 September 2026. [https://platform.claude.com/docs/en/models/overview](https://platform.claude.com/docs/en/models/overview)
+3. OpenAI Developer Platform. *API changelog*, September 2026 entries (GPT-6 Astra release, Responses API requirement, "misalignment monitoring"), fetched 3 September 2026. [https://developers.openai.com/api/docs/changelog](https://developers.openai.com/api/docs/changelog)
+4. Multiple outlets on the 12 June 2026 restriction, collected in [Why the US restricted Anthropic's Fable 5 and Mythos 5](/news/anthropic-fable-mythos-us-restriction/), including CNBC and TechCrunch, 12 June 2026.
+5. Anthropic. "Redeploying Fable 5." [https://www.anthropic.com/news/redeploying-fable-5](https://www.anthropic.com/news/redeploying-fable-5), cited in [US lifts export controls on Fable 5 and Mythos 5](/news/fable-5-export-controls-lifted/).
+6. Anthropic. *Claude Opus 5 model page* (release date, pricing, comparison table), fetched 3 September 2026. [https://platform.claude.com/docs/en/models/opus-5/overview](https://platform.claude.com/docs/en/models/opus-5/overview)
+7. OpenAI Developer Platform. *Pricing* and *Models* documentation (GPT-6 Astra, GPT-5.6 Sol/Terra/Luna, embeddings, image, video, and audio pricing), fetched 3 September 2026. [https://developers.openai.com/api/docs/pricing](https://developers.openai.com/api/docs/pricing), [https://developers.openai.com/api/docs/models](https://developers.openai.com/api/docs/models)
+8. Anthropic, Claude platform pricing documentation, note on Sonnet 5 introductory pricing becoming permanent (10 August 2026), cited in [Anthropic cancels the Sonnet 5 price rise](/news/claude-sonnet-5-pricing-permanent/).
+9. OpenAI Developer Platform. *Models* documentation, specialized model list (embeddings, GPT-Image-2, Sora-2, Realtime/Whisper audio family, and the Daybreak/GPT-5.6 Cyber cybersecurity category), fetched 3 September 2026. [https://developers.openai.com/api/docs/models](https://developers.openai.com/api/docs/models)
+10. Anthropic. *Company* page — Public Benefit Corporation status, Long-Term Benefit Trust and current trustees, board composition, fetched 3 September 2026. [https://www.anthropic.com/company](https://www.anthropic.com/company)
+11. Anthropic. "Anthropic raises Series H funding" (May 2026; investor base, Amazon's $5B commitment, three-cloud availability). [https://www.anthropic.com/news/series-h](https://www.anthropic.com/news/series-h)
+12. Wikipedia, "OpenAI" — OpenAI Foundation / OpenAI Group PBC dual structure, equity split, and 28 October 2025 restructuring date, accessed 3 September 2026. [https://en.wikipedia.org/wiki/OpenAI](https://en.wikipedia.org/wiki/OpenAI)
+13. [OpenAI and Anthropic file confidential IPO paperwork](/news/openai-anthropic-ipo-filings-2026/): filing dates and valuation targets.
+14. Anthropic. *Claude Opus 5 model page* — release date (24 July 2026), legacy model list, fetched 3 September 2026. [https://platform.claude.com/docs/en/models/opus-5/overview](https://platform.claude.com/docs/en/models/opus-5/overview)
+15. Ouyang, L., Wu, J., Jiang, X., et al. (2022). *Training Language Models to Follow Instructions with Human Feedback.* NeurIPS 2022. arXiv:2203.02155. [https://arxiv.org/abs/2203.02155](https://arxiv.org/abs/2203.02155)
+16. Bai, Y., Kadavath, S., Kundu, S., et al. (2022). *Constitutional AI: Harmlessness from AI Feedback.* arXiv:2212.08073. [https://arxiv.org/abs/2212.08073](https://arxiv.org/abs/2212.08073)
+17. Bai, Y., Jones, A., Ndousse, K., et al. (2022). *Training a Helpful and Harmless Assistant with RLHF.* arXiv:2204.05862. [https://arxiv.org/abs/2204.05862](https://arxiv.org/abs/2204.05862)
+18. AWS. "OpenAI GPT-5.6 Sol, Terra, and Luna are now generally available on Amazon Bedrock" (13 July 2026). [https://aws.amazon.com/blogs/machine-learning/openai-gpt-5-6-sol-terra-and-luna-are-now-generally-available-on-amazon-bedrock/](https://aws.amazon.com/blogs/machine-learning/openai-gpt-5-6-sol-terra-and-luna-are-now-generally-available-on-amazon-bedrock/)
+19. Google Cloud. *Vertex AI — Use partner models* (Model Garden partner-model catalog; Anthropic Claude listed, OpenAI limited to open-weight `gpt-oss` models), fetched 3 September 2026. [https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-partner-models](https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-partner-models)
+20. This wiki, [Astra becomes the first OpenAI model to cross the "Critical" cyber threshold](/news/openai-astra-critical-cyber-threshold/) (1–3 September 2026), sourcing OpenAI's "Path to Astra," CNBC, Fortune, TechCrunch, SecurityWeek, VentureBeat, NBC News, and SiliconAngle.
+21. OpenAI Developer Platform. *Models* documentation, Cybersecurity category (Daybreak Red/Blue aliases, GPT-5.6 Cyber), fetched 3 September 2026. [https://developers.openai.com/api/docs/models](https://developers.openai.com/api/docs/models)
+22. This wiki, [ChatGPT, Claude, and Gemini go down the same morning](/news/openai-anthropic-google-outages-sept-2026/) (3 September 2026), sourcing OpenAI's and Anthropic's own status pages directly.

@@ -8,10 +8,10 @@ related:
   - tools/amazon-personalize
   - tools/google-vertex-ai
   - tools/google-bigquery
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
-Google Recommendations AI is a managed service that generates personalized product and content recommendations using deep learning models. It is part of Google Cloud's Vertex AI Search and Commerce suite (formerly Retail AI) and is designed primarily for retail and e-commerce use cases, though it can serve any content recommendation scenario. The service uses the same recommendation technology that powers personalization on YouTube and Google Shopping, adapted for external organizations to integrate into their own applications.
+Google Recommendations AI is a managed service that generates personalized product and content recommendations using deep learning models. It is part of Google Cloud's Vertex AI Search and Commerce suite (formerly Retail AI; the Vertex AI brand itself was renamed Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story) and is designed primarily for retail and e-commerce use cases, though it can serve any content recommendation scenario. The service uses the same recommendation technology that powers personalization on YouTube and Google Shopping, adapted for external organizations to integrate into their own applications.
 
 Recommendations AI works by ingesting a product catalog, user behavior events (views, clicks, add-to-cart, purchases), and optional user attributes. It then trains deep learning models that learn item-to-item relationships and user preference patterns. The service supports multiple recommendation types: "Recommended for you" (personalized to individual users), "Others you may like" (similar items), "Frequently bought together" (complementary items), and "Recently viewed" (session-based recommendations). Models are retrained automatically as new behavioral data arrives, adapting to changing trends and seasonal patterns without manual intervention.
 

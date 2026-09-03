@@ -97,7 +97,7 @@ A base model only knows what it learned during training. It has never seen your 
 
 ## Layer 5: Inference, the part that writes the answer
 
-This is the engine. [Inference](/glossary/inference/) is the act of running a trained model to produce output. Teams reach it in one of two ways. The most common route is a hosted model API, where a provider runs the hardware and you pay per token of text in and out. The other route is self-hosting, where you rent GPUs and run the model yourself, often with a serving engine such as vLLM. On the major clouds the managed route maps to Amazon Bedrock, Azure AI Foundry, and Google Vertex AI. All three keep pace on the popular models, including Claude, Llama, and Mistral; Azure AI Foundry has the deepest GPT-family integration through the OpenAI partnership.
+This is the engine. [Inference](/glossary/inference/) is the act of running a trained model to produce output. Teams reach it in one of two ways. The most common route is a hosted model API, where a provider runs the hardware and you pay per token of text in and out. The other route is self-hosting, where you rent GPUs and run the model yourself, often with a serving engine such as vLLM. On the major clouds the managed route maps to Amazon Bedrock, Azure AI Foundry, and Google Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story). All three keep pace on the popular models, including Claude, Llama, and Mistral; Azure AI Foundry has the deepest GPT-family integration through the OpenAI partnership.
 
 | | Hosted model API | Self-hosted GPUs |
 |---|---|---|

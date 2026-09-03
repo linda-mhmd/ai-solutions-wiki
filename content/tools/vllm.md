@@ -16,7 +16,7 @@ alternatives:
   aws: tools/amazon-bedrock
   azure: tools/azure-openai
   gcp: tools/google-vertex-ai
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 vLLM is a high-throughput, memory-efficient inference and serving engine for large language models. Its core innovation is PagedAttention, a novel attention algorithm inspired by virtual memory paging in operating systems, which manages the KV (key-value) cache in non-contiguous memory blocks. This approach eliminates the memory waste caused by fragmentation and reservation in traditional LLM serving systems, achieving near-zero waste of KV cache memory and enabling 2-4x higher throughput compared to naive serving implementations.
@@ -34,7 +34,7 @@ vLLM has become the industry standard for production LLM serving, used by compan
 
 ## Cloud Equivalents
 
-vLLM is the open-source alternative to the inference backends powering AWS Bedrock, Azure OpenAI Service, and Google Vertex AI model endpoints. Cloud services abstract away serving infrastructure entirely, while vLLM gives organizations full control over serving optimization, GPU utilization, and cost per token at the expense of managing infrastructure.
+vLLM is the open-source alternative to the inference backends powering AWS Bedrock, Azure OpenAI Service, and Google Vertex AI model endpoints (Vertex AI was rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story). Cloud services abstract away serving infrastructure entirely, while vLLM gives organizations full control over serving optimization, GPU utilization, and cost per token at the expense of managing infrastructure.
 
 ## Origins and History
 

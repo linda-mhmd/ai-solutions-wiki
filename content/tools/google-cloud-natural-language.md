@@ -8,14 +8,14 @@ related:
   - tools/amazon-comprehend
   - tools/google-vertex-ai
   - tools/google-cloud-translation
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Google Cloud Natural Language API is a pre-trained NLP service that extracts insights from unstructured text. It performs sentiment analysis, entity recognition, entity sentiment analysis, syntax analysis, and content classification without requiring any machine learning expertise. The API accepts text in over 10 languages and returns structured annotations that can be integrated into applications, analytics pipelines, and content management systems.
 
 The service is particularly useful when organizations need consistent, scalable text analysis without training custom models. Common use cases include analyzing customer feedback at scale, extracting entities (people, organizations, locations, events) from news articles or documents, classifying support tickets by topic, and monitoring brand sentiment across social media. The API processes text synchronously for real-time applications or asynchronously in batch for large document collections.
 
-Cloud Natural Language also offers AutoML Natural Language, which allows teams to train custom classification and entity extraction models using their own labeled data. This bridges the gap between the pre-trained API (which works out of the box but may not understand domain-specific terminology) and fully custom models built on Vertex AI. AutoML Natural Language is suitable when the pre-trained models do not recognize industry-specific entities or when classification categories are unique to the business. For most general-purpose NLP tasks, the pre-trained API delivers strong results with zero training effort.
+Cloud Natural Language also offers AutoML Natural Language, which allows teams to train custom classification and entity extraction models using their own labeled data. This bridges the gap between the pre-trained API (which works out of the box but may not understand domain-specific terminology) and fully custom models built on Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story). AutoML Natural Language is suitable when the pre-trained models do not recognize industry-specific entities or when classification categories are unique to the business. For most general-purpose NLP tasks, the pre-trained API delivers strong results with zero training effort.
 
 ## Key Capabilities
 

@@ -74,7 +74,7 @@ You reach AI21 models through several paths, depending on how much control over 
   <div class="bz-flow-step">
     <span class="bz-flow-step-tag">Path 1</span>
     <span class="bz-flow-step-name">Hosted API</span>
-    <span class="bz-flow-step-desc">Call Jamba through AI21's own API or a partner cloud catalog such as Azure or Google Cloud Vertex AI.</span>
+    <span class="bz-flow-step-desc">Call Jamba through AI21's own API or a partner cloud catalog such as Azure or Google Cloud Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story).</span>
   </div>
   <div class="bz-flow-arrow">→</div>
   <div class="bz-flow-step">

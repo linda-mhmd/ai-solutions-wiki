@@ -9,12 +9,12 @@ related:
   - tools/google-cloud-run
   - tools/google-cloud-pub-sub
   - tools/google-vertex-ai
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Google Cloud Functions is Google Cloud's serverless, event-driven compute platform. It allows developers to write single-purpose functions that automatically execute in response to cloud events -- such as a file upload to Cloud Storage, a message on Pub/Sub, or an HTTP request -- without provisioning or managing servers. In AI pipelines, Cloud Functions serves the same role as AWS Lambda: it is the glue code that connects data sources to AI services and routes results downstream.
 
-Cloud Functions supports Node.js, Python, Go, Java, .NET, Ruby, and PHP runtimes. The second generation of the service (Cloud Functions 2nd gen), launched in 2022, is built on Cloud Run and Eventarc, bringing longer timeouts (up to 60 minutes), larger instance sizes (up to 16 GiB memory and 4 vCPUs), concurrency within a single instance, and traffic splitting for gradual rollouts. This makes 2nd gen functions suitable for AI workloads that involve calling Vertex AI endpoints or processing large documents, where execution times can exceed the 1st gen limit of 9 minutes.
+Cloud Functions supports Node.js, Python, Go, Java, .NET, Ruby, and PHP runtimes. The second generation of the service (Cloud Functions 2nd gen), launched in 2022, is built on Cloud Run and Eventarc, bringing longer timeouts (up to 60 minutes), larger instance sizes (up to 16 GiB memory and 4 vCPUs), concurrency within a single instance, and traffic splitting for gradual rollouts. This makes 2nd gen functions suitable for AI workloads that involve calling Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story) endpoints or processing large documents, where execution times can exceed the 1st gen limit of 9 minutes.
 
 A typical AI pipeline pattern with Cloud Functions involves triggering a function when a document lands in Cloud Storage. The function extracts text, calls the Vertex AI Gemini API or Document AI for analysis, and writes structured results to Firestore or BigQuery. Cloud Functions integrates natively with Eventarc for event routing, Secret Manager for API keys, and VPC connectors for accessing private resources. For more complex multi-step workflows, Cloud Functions can be orchestrated by Cloud Workflows, analogous to the Lambda-plus-Step-Functions pattern on AWS.
 

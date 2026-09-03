@@ -9,14 +9,14 @@ related:
   - tools/google-firebase
   - tools/google-cloud-bigtable
   - tools/google-vertex-ai
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Google Cloud Firestore is a serverless NoSQL document database that stores data as collections of documents, where each document contains a set of key-value pairs. It provides real-time listeners that push data changes to connected clients instantly, offline data access with automatic synchronization when connectivity returns, and ACID transactions across multiple documents. Firestore is designed for application backends that need flexible data models, real-time updates, and seamless scaling without capacity planning.
 
 Firestore is the evolution of the original Firebase Realtime Database, rebuilt with a more powerful data model and query engine. It operates in two modes: Native mode (the default, with real-time listeners and offline support) and Datastore mode (backward-compatible with the legacy Cloud Datastore API, without real-time features). Native mode is recommended for all new projects. Firestore scales automatically from zero to millions of concurrent connections, and its pricing is based on document reads, writes, deletes, and storage -- there are no provisioned capacity units to manage.
 
-In AI and ML architectures, Firestore is commonly used as the application database that stores AI-generated results for client consumption. A typical pattern has Cloud Functions or Cloud Run processing data through Vertex AI, writing structured results to Firestore, and client applications receiving those results in real time through Firestore listeners. Firestore is also used for storing conversation history in chatbot applications built with Dialogflow or custom LLM integrations, user preferences and personalization data for recommendation systems, and metadata catalogs for document processing pipelines. Its flexible schema and real-time sync make it particularly well-suited for applications where AI results need to be displayed to users immediately upon generation.
+In AI and ML architectures, Firestore is commonly used as the application database that stores AI-generated results for client consumption. A typical pattern has Cloud Functions or Cloud Run processing data through Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story), writing structured results to Firestore, and client applications receiving those results in real time through Firestore listeners. Firestore is also used for storing conversation history in chatbot applications built with Dialogflow or custom LLM integrations, user preferences and personalization data for recommendation systems, and metadata catalogs for document processing pipelines. Its flexible schema and real-time sync make it particularly well-suited for applications where AI results need to be displayed to users immediately upon generation.
 
 ## Key Capabilities
 

@@ -119,6 +119,8 @@ The main alternatives are managed MLOps platforms tied to a single cloud. OpenSh
 | **Serving runtime** | KServe, vLLM | SageMaker endpoints | Managed endpoints | Managed endpoints |
 | **Best for** | Hybrid and regulated estates | AWS-native teams | Azure-native teams | Google-native teams |
 
+*Vertex AI was rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story.*
+
 For a broader view of running AI across providers, see [Amazon Bedrock](/tools/amazon-bedrock/) and [Azure OpenAI](/tools/azure-openai/).
 
 ## When not to use it

@@ -2,8 +2,8 @@
 title: "The US Moves to Preempt State AI Laws in 2026"
 description: "Through the first half of 2026 the US federal government pushed to override the patchwork of state AI laws: Executive Order 14409, a National AI Legislative Framework, an FTC preemption statement, and DOJ intervention against Colorado's AI Act."
 date: 2026-06-02
-lastmod: 2026-07-13
-last_updated: 2026-07-13
+lastmod: 2026-09-03
+last_updated: 2026-09-03
 categories: [News]
 tags: [ai-regulation, us-policy, preemption, ai-governance, executive-order, state-law]
 related:
@@ -21,7 +21,7 @@ The federal effort advanced on four tracks, all building on Executive Order 1436
 - **Executive Order 14409** ("Promoting Advanced Artificial Intelligence Innovation and Security"), signed 2 June 2026, is the marquee action. It directs a Treasury-led AI cybersecurity information clearinghouse, a classified benchmarking process for "covered frontier models," and prioritised DOJ enforcement against criminal misuse of AI. It follows through on the July 2025 AI Action Plan.
 - A **National AI Legislative Framework**, unveiled 20 March 2026, formally asks Congress to codify a uniform federal AI policy that preempts state laws. It is a framework, not enacted law.
 - The **Federal Trade Commission** proposed a policy statement on 1 July 2026 arguing that, under Section 5 of the FTC Act, state laws requiring changes to "truthful outputs of AI models" are impliedly preempted where they conflict with a federal scheme. It is open for comment, not final.
-- The **Department of Justice intervened in xAI v. Colorado** on 24 April 2026, arguing Colorado's AI Act (SB24-205) is preempted and violates the Equal Protection Clause. It is the first concrete court action from the new task force.
+- The **Department of Justice intervened in xAI v. Colorado** on 24 April 2026, arguing Colorado's AI Act (SB24-205) violates the Equal Protection Clause of the Fourteenth Amendment — by requiring companies to prevent unintentional disparate impact based on protected characteristics, and by exempting liability for discrimination framed as advancing "diversity." DOJ's own press release does not raise federal preemption as a legal theory in this intervention; it sits alongside the preemption push described above as part of the same executive-branch campaign, not as a preemption argument itself. It is the first concrete court action from the new task force.
 
 States, meanwhile, kept legislating. Colorado repealed and rewrote its first-in-nation AI Act via **SB26-189** (signed 14 May 2026), resetting the effective date to 1 January 2027. Texas's Responsible AI Governance Act took effect 1 January 2026, and California's SB 53 transparency duties for frontier developers are in force across the period.
 

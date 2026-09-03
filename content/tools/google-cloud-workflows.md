@@ -9,12 +9,12 @@ related:
   - tools/google-cloud-functions
   - tools/google-cloud-run
   - tools/google-cloud-composer
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Google Cloud Workflows is a fully managed orchestration service that executes workflows defined as a sequence of steps. Each step can call an HTTP endpoint, invoke a Cloud Function or Cloud Run service, access GCP APIs, perform conditional logic, or iterate over data. Workflows manages execution state, handles retries and error handling, and ensures that multi-step processes complete reliably even when individual steps fail temporarily. It is serverless -- there is no infrastructure to manage, and you pay only per step executed.
 
-In AI pipelines, Workflows orchestrates the multi-step processing chains that connect data sources to AI services and outputs. A document processing workflow might: (1) receive a Cloud Storage notification, (2) call Document AI to extract text, (3) call Vertex AI Gemini for classification, (4) write results to Firestore, and (5) send a notification via Pub/Sub. Each step is defined declaratively in YAML or JSON, with built-in support for error handling, retry policies with exponential backoff, conditional branching, parallel execution, and sub-workflows. Workflows supports long-running operations that can pause and resume, with a maximum execution duration of one year.
+In AI pipelines, Workflows orchestrates the multi-step processing chains that connect data sources to AI services and outputs. A document processing workflow might: (1) receive a Cloud Storage notification, (2) call Document AI to extract text, (3) call Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story) Gemini for classification, (4) write results to Firestore, and (5) send a notification via Pub/Sub. Each step is defined declaratively in YAML or JSON, with built-in support for error handling, retry policies with exponential backoff, conditional branching, parallel execution, and sub-workflows. Workflows supports long-running operations that can pause and resume, with a maximum execution duration of one year.
 
 Workflows differs from Cloud Composer (managed Airflow) in its scope and complexity. Workflows is lightweight and event-driven, ideal for API orchestration and microservice coordination with execution durations from seconds to hours. Cloud Composer is a heavier platform for complex data pipeline DAGs with scheduling, dependency management, and rich operator libraries. For most AI service orchestration patterns -- calling a sequence of APIs with branching and error handling -- Workflows is the simpler and more cost-effective choice. Cloud Composer is better suited for scheduled batch data pipelines with complex dependencies.
 

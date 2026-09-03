@@ -9,7 +9,7 @@ related:
   - tools/google-vertex-ai
   - tools/mlflow
   - tools/ray
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Kubeflow is an open-source machine learning platform built on Kubernetes that provides a complete toolkit for developing, training, and deploying ML models at scale. Its mission is to make ML workflows on Kubernetes simple, portable, and scalable by providing a standardized set of components that cover the full ML lifecycle: experimentation in notebooks, distributed training, hyperparameter tuning, pipeline orchestration, model serving, and feature management.
@@ -27,7 +27,7 @@ Kubeflow is used by organizations that want to build standardized, cloud-agnosti
 
 ## Cloud Equivalents
 
-Kubeflow is the open-source alternative to AWS SageMaker, Google Vertex AI, and Azure Machine Learning. Managed ML platforms provide tighter integration with cloud-native services and simpler setup, while Kubeflow offers full portability across clouds and on-premises environments at the cost of greater operational complexity.
+Kubeflow is the open-source alternative to AWS SageMaker, Google Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story), and Azure Machine Learning. Managed ML platforms provide tighter integration with cloud-native services and simpler setup, while Kubeflow offers full portability across clouds and on-premises environments at the cost of greater operational complexity.
 
 ## Origins and History
 

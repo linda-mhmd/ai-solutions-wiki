@@ -1,12 +1,12 @@
 ---
 title: "Backstage as an Agent Interface"
-description: "How to let a coding agent create real infrastructure through a Backstage scaffolder template, using a scoped service token instead of a borrowed browser session."
+description: "How to let a coding agent create real infrastructure through a Backstage scaffolder template: a scoped REST token, the official MCP Actions server as an alternative transport, and where each one's sharp edges are."
 date: 2026-09-02
 categories: [Guides]
-tags: ["agents", "backstage", "platform-engineering", "idp", "governance", "aws", "terraform"]
+tags: ["agents", "backstage", "platform-engineering", "idp", "governance", "aws", "terraform", "mcp"]
 tools: []
-related: ["guides/ai-governance-implementation", "glossary/agents", "guides/context-engineering"]
-last_updated: 2026-09-02
+related: ["guides/ai-governance-implementation", "guides/agent-identity-and-authorization", "glossary/model-context-protocol", "news/mcp-security-vulnerabilities-2026"]
+last_updated: 2026-09-03
 ---
 
 An internal developer portal and a coding agent want the same thing: a way to
@@ -92,6 +92,129 @@ It also means the blast radius is bounded by the template rather than by the
 agent's judgement. An agent with a shell can do anything the shell can do. An
 agent with a scaffolder token can do what the template does, with the inputs the
 schema permits.
+
+## An alternative transport: the MCP Actions server
+
+Backstage also ships an official plugin,
+[`@backstage/plugin-mcp-actions-backend`](https://github.com/backstage/backstage/blob/master/docs/ai/mcp-actions.md),
+that exposes registered backend Actions as [MCP](/glossary/model-context-protocol/)
+tools over Streamable HTTP. It lives in the core `backstage/backstage` repository,
+not a community add-on, and is worth understanding as a second way to reach the
+same template — with a different set of trade-offs, not a strictly better one.
+
+**Get the comparison right first.** MCP is not an alternative to the browser. The
+scoped token above already avoids the browser entirely. MCP is an alternative to
+*hand-writing REST calls* against the Scaffolder API and parsing the task-status
+responses yourself. If your agent harness already speaks MCP natively, that
+integration code disappears. If it does not, MCP buys you nothing the token
+approach was not already doing.
+
+### What is actually different
+
+| | Scoped REST token | MCP Actions server |
+|---|---|---|
+| Auth mechanism | `backend.auth.externalAccess`, static token | Same mechanism, or OAuth via Client ID Metadata Documents |
+| What is exposed | Whatever endpoints `accessRestrictions` names | Registered **Actions** — the individual steps a template is built from |
+| Discovery | None; you read the plugin's API docs | Tool listing and input schemas, over the protocol |
+| Granularity | Per plugin (`scaffolder`, `catalog`) | Per action, via named servers with include/exclude filters |
+| Protocol | Plain HTTP, whatever shape the plugin's API has | Streamable HTTP, standard MCP tool-call semantics |
+
+### How to enable it
+
+Install the plugin and add it to the backend, the same way as any other module:
+
+```sh
+yarn --cwd packages/backend add @backstage/plugin-mcp-actions-backend
+```
+
+```ts
+// packages/backend/src/index.ts
+backend.add(import('@backstage/plugin-mcp-actions-backend'));
+```
+
+Authentication reuses the exact block already shown above, pointed at a different
+plugin ID:
+
+```yaml
+backend:
+  auth:
+    externalAccess:
+      - type: static
+        options:
+          token: ${MCP_AGENT_TOKEN}
+          subject: mcp-clients
+        accessRestrictions:
+          - plugin: mcp-actions
+          - plugin: catalog
+```
+
+This is the same lesson as before, one layer up: `accessRestrictions` here scopes
+the token to the MCP endpoint at all, not to which actions the endpoint may then
+expose. Leave it there and the token can invoke **every action ever registered**
+across every plugin in your instance, not only the scaffolder steps you meant to
+allow. Narrow it further with a named, filtered server:
+
+```yaml
+mcpActions:
+  servers:
+    scaffolder:
+      name: 'Scaffolder actions'
+      filter:
+        include:
+          - id: 'publish:github'
+          - id: 'catalog:register'
+```
+
+Check which action IDs actually exist in your instance before writing the filter
+— they are listed at `/create/actions` in development — rather than guessing at
+names.
+
+### What to watch out for
+
+**The "recommended" auth path reopens the exact problem this article opened
+with.** Backstage's own docs mark the static-token route as "a temporary
+workaround until device authentication is completed," and point integrators
+toward OAuth via CIMD instead. But CIMD's flow is a browser-based approval —
+which is precisely the borrowed-human-identity pattern the first section of this
+guide told you to avoid for an unattended agent. For a caller with nobody at a
+keyboard, the static token is currently the only practical option, not a
+stopgap you can casually swap out later. Treat it as such, and do not assume a
+future Backstage upgrade quietly makes device auth available; check the release
+notes before you plan around it.
+
+**Do not follow tutorials that use Dynamic Client Registration.** DCR is
+explicitly deprecated for new deployments in favour of CIMD. Older blog posts
+and Stack Overflow answers predate this and will lead you to a path Backstage
+itself no longer recommends.
+
+**"Action" is narrower than "template," and the two are not fully unified yet.**
+An Action is one step — publish to GitHub, register in the catalog — not an
+entire multi-step scaffolder template. Whether "run this template end-to-end"
+becomes a single invokable tool depends on how its steps are wired into the
+Actions Registry, and Backstage's own issue tracker has an open, unresolved
+report of Actions-registry actions not surfacing in the scaffolder correctly
+([backstage/backstage#31187](https://github.com/backstage/backstage/issues/31187)).
+Do not assume MCP gives you one clean tool call per template without checking
+your instance.
+
+**The MCP endpoint is shared by default.** Every action any plugin registers is
+exposed at the default `/api/mcp-actions/v1` endpoint unless you split it into
+named, filtered servers as above. This is the same failure shape as an
+unrestricted `accessRestrictions` block: a credential that is far broader than
+the one operation you built it for.
+
+**Use the built-in telemetry.** The plugin instruments metrics and tracing for
+tool calls, which gives you exactly what an audit trail through a template
+should have — who called what, with what subject, and when. Wire it into
+whatever already collects your platform's metrics rather than treating it as
+optional; this is the observability the `subject: agent` field in the token was
+already buying you, now visible per tool call rather than only in access logs.
+
+For the wider pattern this all sits inside — why an agent needs an identity of
+its own rather than a borrowed one, and how to scope, rotate, and revoke it —
+see [agent identity and authorization](/guides/agent-identity-and-authorization/).
+For the failure modes MCP servers accumulate once they scale past one team's use,
+see [MCP security vulnerabilities in 2026](/news/mcp-security-vulnerabilities-2026/).
 
 ## Where the token still cannot help
 

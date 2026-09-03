@@ -8,7 +8,7 @@ related:
   - guides/ai-monetization-strategies
   - guides/ai-product-management
   - comparisons/gpu-vs-tpu
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 AI projects consistently exceed their budgets because teams underestimate costs beyond model training. Training compute is visible and dramatic, but data preparation, ongoing inference, monitoring, retraining, and personnel costs often dwarf the initial training investment. This guide provides a framework for estimating the full lifecycle cost of an AI platform.
@@ -73,7 +73,7 @@ Structure the TCO model across three phases:
 
 **Technical debt.** Quick-fix solutions during development (hardcoded thresholds, manual data pipelines, missing monitoring) create ongoing maintenance costs. Budget time for technical debt reduction in every quarter.
 
-**Vendor lock-in.** Using managed ML services (SageMaker, Vertex AI) reduces initial development costs but creates switching costs. Include migration estimates in the TCO if vendor diversification is a strategic goal.
+**Vendor lock-in.** Using managed ML services (SageMaker, Vertex AI — rebranded Gemini Enterprise Agent Platform in April 2026, see [Google Vertex AI](/tools/google-vertex-ai/) for the full story) reduces initial development costs but creates switching costs. Include migration estimates in the TCO if vendor diversification is a strategic goal.
 
 **Knowledge concentration risk.** If one data scientist understands the model and they leave, the cost of rebuilding institutional knowledge is substantial. Documentation and knowledge sharing are investments that reduce this risk.
 

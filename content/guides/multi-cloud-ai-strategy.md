@@ -5,7 +5,7 @@ date: 2026-03-28
 categories: [Guides]
 tags: [multi-cloud, strategy, portability, vendor-lock-in]
 related: [comparisons/aws-vs-azure-ai, comparisons/aws-vs-gcp-ai, tools/kubeflow, tools/mlflow]
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Multi-cloud AI strategies address a real tension: cloud providers offer powerful managed AI services that accelerate development, but deep adoption of any single provider creates lock-in that limits negotiating leverage, increases switching costs, and concentrates risk. A deliberate multi-cloud strategy balances these tradeoffs rather than letting them happen by accident.
@@ -16,7 +16,7 @@ The multi-cloud concept emerged in the early 2010s as enterprises adopted cloud 
 
 ## Why Multi-Cloud for AI
 
-**Avoid vendor lock-in.** SageMaker pipelines do not run on Azure. Vertex AI custom models do not deploy to AWS. Managed services trade portability for convenience. When your AI platform depends entirely on one provider's services, switching costs grow with every model deployed.
+**Avoid vendor lock-in.** SageMaker pipelines do not run on Azure. Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story) custom models do not deploy to AWS. Managed services trade portability for convenience. When your AI platform depends entirely on one provider's services, switching costs grow with every model deployed.
 
 **Best-of-breed selection.** AWS may offer superior GPU instance availability in your region while Azure provides better OpenAI integration. GCP's TPUs offer price-performance advantages for certain training workloads. A multi-cloud approach lets you match workloads to the best provider.
 

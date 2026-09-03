@@ -9,14 +9,14 @@ related:
   - tools/amazon-cognito
   - tools/google-firestore
   - tools/google-vertex-ai
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Firebase is Google's application development platform for building and scaling mobile and web applications. It provides a suite of integrated services including authentication, real-time databases (Firestore and Realtime Database), cloud storage, hosting, serverless functions, analytics, crash reporting, remote configuration, A/B testing, and machine learning. Firebase abstracts backend infrastructure, allowing developers to build full-featured applications using client-side SDKs without managing servers.
 
 Firebase Authentication handles user identity with support for email/password, phone number, and federated providers (Google, Apple, Facebook, Twitter, GitHub, Microsoft, SAML, OIDC). It integrates with Firebase Security Rules to control access to Firestore, Realtime Database, and Cloud Storage at a granular level -- rules can reference the authenticated user's identity, custom claims, and document data. This security model is declarative and enforced server-side, providing a secure path from authentication to data access without writing backend code. Firebase Authentication is comparable to Amazon Cognito, providing user pools, social sign-in, and token-based access control.
 
-For AI-powered applications, Firebase connects the frontend to Google Cloud's ML services. Firebase ML provides on-device ML capabilities (text recognition, image labeling, face detection, barcode scanning) through the ML Kit SDK, running inference locally on mobile devices without network round-trips. For server-side AI, Cloud Functions for Firebase can call Vertex AI APIs, and Firestore provides the real-time database layer for storing and delivering AI-generated content to clients. Firebase Extensions offer pre-built integrations for common patterns, including an extension that processes text through Vertex AI Gemini and stores results in Firestore. The combination of Firebase for the application layer and Vertex AI for intelligence is Google's answer to AWS Amplify plus Bedrock.
+For AI-powered applications, Firebase connects the frontend to Google Cloud's ML services. Firebase ML provides on-device ML capabilities (text recognition, image labeling, face detection, barcode scanning) through the ML Kit SDK, running inference locally on mobile devices without network round-trips. For server-side AI, Cloud Functions for Firebase can call Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story) APIs, and Firestore provides the real-time database layer for storing and delivering AI-generated content to clients. Firebase Extensions offer pre-built integrations for common patterns, including an extension that processes text through Vertex AI Gemini and stores results in Firestore. The combination of Firebase for the application layer and Vertex AI for intelligence is Google's answer to AWS Amplify plus Bedrock.
 
 ## Key Capabilities
 

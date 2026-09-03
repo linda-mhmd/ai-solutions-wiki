@@ -8,12 +8,12 @@ related:
   - tools/aws-iot-core
   - tools/google-cloud-pub-sub
   - tools/google-vertex-ai
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Google Cloud IoT Core was a fully managed service for securely connecting, managing, and ingesting telemetry data from millions of globally dispersed IoT devices. It provided device registration, authentication via public/private key pairs or JSON Web Tokens, and bidirectional communication over MQTT and HTTP protocols. Device telemetry data flowed into Cloud Pub/Sub for downstream processing by Dataflow, Cloud Functions, or BigQuery. IoT Core was Google Cloud's answer to AWS IoT Core, serving as the entry point for IoT data into the GCP analytics and AI ecosystem.
 
-The service supported device registries for organizing devices, device state management for tracking configuration and status, and gateway devices that could relay data from devices that lacked direct internet connectivity. A typical IoT-to-AI architecture used IoT Core for device connectivity, Pub/Sub for message routing, Dataflow for stream processing, BigQuery for analytics, and Vertex AI for predictive maintenance or anomaly detection models trained on sensor data. IoT Core handled the device-to-cloud communication layer, abstracting away the complexity of device authentication, connection management, and protocol handling.
+The service supported device registries for organizing devices, device state management for tracking configuration and status, and gateway devices that could relay data from devices that lacked direct internet connectivity. A typical IoT-to-AI architecture used IoT Core for device connectivity, Pub/Sub for message routing, Dataflow for stream processing, BigQuery for analytics, and Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story) for predictive maintenance or anomaly detection models trained on sensor data. IoT Core handled the device-to-cloud communication layer, abstracting away the complexity of device authentication, connection management, and protocol handling.
 
 Google deprecated Cloud IoT Core on August 16, 2023, giving customers one year to migrate (the service shut down on August 16, 2023, with a migration deadline). Google cited partner ecosystem solutions as alternatives and recommended customers migrate to third-party IoT platforms that integrate with GCP, such as ClearBlade IoT Core (which offers a migration path with API compatibility), or build custom MQTT brokers on GKE or Compute Engine connected to Pub/Sub. The deprecation was notable as one of the first high-profile managed service retirements by a major cloud provider, raising questions about the viability of cloud-specific IoT platforms. Organizations that had built on IoT Core needed to re-architect their device connectivity layer while preserving their downstream GCP analytics and AI pipelines.
 

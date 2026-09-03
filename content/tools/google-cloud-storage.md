@@ -8,12 +8,12 @@ related:
   - tools/aws-s3
   - tools/google-vertex-ai
   - tools/google-bigquery
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Google Cloud Storage (GCS) is Google Cloud's fully managed object storage service for storing unstructured data at any scale. It serves as the foundational storage layer for AI/ML pipelines, analytics workloads, data lakes, and application backends on GCP. Like Amazon S3, GCS organizes data into buckets and objects, providing high durability (eleven nines), low latency access, and native integration with virtually every Google Cloud service.
 
-GCS is particularly well-suited for AI and machine learning workflows because of its tight integration with Vertex AI, BigQuery, Dataflow, and Dataproc. Training datasets, model artifacts, batch prediction inputs, and inference outputs all flow through GCS. Cloud Functions and Eventarc can trigger processing pipelines when objects are created or modified, enabling event-driven architectures. GCS also supports the Apache Hadoop-compatible connector (gcs-connector), making it a drop-in replacement for HDFS in big data workloads.
+GCS is particularly well-suited for AI and machine learning workflows because of its tight integration with Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story), BigQuery, Dataflow, and Dataproc. Training datasets, model artifacts, batch prediction inputs, and inference outputs all flow through GCS. Cloud Functions and Eventarc can trigger processing pipelines when objects are created or modified, enabling event-driven architectures. GCS also supports the Apache Hadoop-compatible connector (gcs-connector), making it a drop-in replacement for HDFS in big data workloads.
 
 GCS offers four storage classes to balance cost and access patterns. Standard storage is for frequently accessed data. Nearline is for data accessed less than once per month, with lower storage costs but a retrieval fee. Coldline targets data accessed less than once per quarter. Archive storage is the cheapest class, designed for data accessed less than once per year, suitable for regulatory archives and disaster recovery. Autoclass automatically transitions objects between classes based on access patterns, similar to S3 Intelligent-Tiering. GCS also provides dual-region and multi-region bucket options for high availability and performance across geographies.
 

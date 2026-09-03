@@ -8,7 +8,7 @@ related:
   - tools/mlflow
   - tools/amazon-sagemaker
   - tools/ray
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Weights & Biases (W&B) is a platform for ML experiment tracking, dataset versioning, hyperparameter optimization, and model evaluation. It provides a hosted dashboard where teams can log, compare, and collaborate on ML experiments in real time. For AI projects, W&B is the go-to choice when team collaboration, visualization quality, and managed infrastructure matter more than self-hosting flexibility.
@@ -52,6 +52,8 @@ W&B's collaboration features are its primary differentiator from self-hosted alt
 ## Integration Ecosystem
 
 W&B integrates with major ML frameworks (PyTorch, TensorFlow, Keras, Hugging Face Transformers, scikit-learn), training platforms (SageMaker, Vertex AI), and orchestration tools (Kubeflow, Airflow). The integration is typically a two-line code change: initialize W&B and pass the callback to the training loop.
+
+*Vertex AI was rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story.*
 
 ## Deployment Options
 

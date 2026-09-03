@@ -10,12 +10,12 @@ related:
   - tools/google-bigquery
   - tools/google-cloud-pub-sub
   - tools/google-cloud-dataproc
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Google Cloud Dataflow is a fully managed service for executing data processing pipelines written using the Apache Beam SDK. It supports both batch and streaming workloads with a unified programming model, meaning the same pipeline code can process bounded (batch) and unbounded (streaming) data sources. Dataflow automatically manages resource provisioning, worker scaling, and optimization of the execution plan, freeing developers to focus on pipeline logic rather than infrastructure.
 
-Dataflow is central to AI and analytics architectures on GCP. In a typical ML pipeline, Dataflow handles the extract-transform-load (ETL) work: reading raw data from Cloud Storage or Pub/Sub, cleaning and transforming it, computing features, and writing results to BigQuery or Vertex AI Feature Store. For streaming use cases, Dataflow processes events from Pub/Sub in real time, enabling applications like real-time anomaly detection, clickstream analysis, and sensor data processing. Dataflow's windowing and watermark semantics handle out-of-order and late-arriving data gracefully, which is critical for production streaming systems.
+Dataflow is central to AI and analytics architectures on GCP. In a typical ML pipeline, Dataflow handles the extract-transform-load (ETL) work: reading raw data from Cloud Storage or Pub/Sub, cleaning and transforming it, computing features, and writing results to BigQuery or Vertex AI Feature Store (Vertex AI was rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story). For streaming use cases, Dataflow processes events from Pub/Sub in real time, enabling applications like real-time anomaly detection, clickstream analysis, and sensor data processing. Dataflow's windowing and watermark semantics handle out-of-order and late-arriving data gracefully, which is critical for production streaming systems.
 
 The service provides Dataflow Templates -- pre-built and parameterized pipelines for common tasks like streaming data from Pub/Sub to BigQuery, bulk loading from Cloud Storage to BigQuery, and data format conversion. These templates enable deployment without writing any code. For custom pipelines, Dataflow supports the Apache Beam SDKs in Java, Python, and Go. Dataflow Prime, the latest execution engine, introduces vertical autoscaling (right-sizing individual workers), horizontal autoscaling, and intelligent scheduling for improved performance and cost efficiency. Dataflow also integrates with Dataflow SQL, allowing users to write streaming SQL queries that execute as Dataflow pipelines.
 

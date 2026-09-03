@@ -71,3 +71,7 @@ nemo-guardrails: nvidia
 tensorrt-llm: nvidia
 tgi: huggingface
 ray-serve: ray
+
+# Platform-engineering tools added for the Backstage/agent-platform coverage
+argo-workflows: argo
+red-hat-developer-hub: redhat

@@ -113,6 +113,8 @@ OCI Generative AI competes with the model platforms from the other major clouds.
 | **Private serving** | Dedicated AI clusters | Provisioned throughput | Provisioned deployments | Dedicated endpoints |
 | **Best for** | Oracle-centric enterprises | AWS-native teams | Microsoft and OpenAI shops | Google Cloud and Gemini users |
 
+*Vertex AI was rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story.*
+
 If your systems of record already live in Oracle, the tight link to that data is the reason to choose it. If they live elsewhere, [Amazon Bedrock](/tools/amazon-bedrock/) or [Azure OpenAI](/tools/azure-openai/) usually fit better. For a wider view of the model market, see the [LLM landscape for 2026](/comparisons/llm-landscape-2026/).
 
 ## When not to use it

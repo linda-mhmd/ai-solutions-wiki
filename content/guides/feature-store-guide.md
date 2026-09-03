@@ -4,7 +4,7 @@ description: "What feature stores are, why they matter, how to choose one, and p
 date: 2026-03-28
 categories: [Guides]
 tags: [feature-store, MLOps, data-engineering, machine-learning, infrastructure]
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 A feature store is a centralized system for managing, serving, and sharing machine learning features. It solves one of the most persistent problems in ML engineering: the gap between how features are computed in training and how they are computed in inference. Without a feature store, teams duplicate feature computation logic, introduce training-serving skew, and spend enormous effort on data engineering that adds no model value.
@@ -69,7 +69,7 @@ The feature pipeline computes features from raw data and writes them to both sto
 
 **Databricks Feature Store.** Integrated with Databricks ML. Features are Delta tables with automatic versioning. Good choice for Databricks-centric organizations.
 
-**Google Vertex AI Feature Store.** Managed service on GCP. Integrates with Vertex AI training pipelines.
+**Google Vertex AI Feature Store.** Managed service on GCP, part of Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story). Integrates with Vertex AI training pipelines.
 
 ### Open Source Options
 

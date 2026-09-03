@@ -9,12 +9,12 @@ related:
   - tools/amazon-managed-grafana
   - tools/google-cloud-run
   - tools/google-vertex-ai
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Google Cloud Monitoring (formerly Stackdriver Monitoring) is a fully managed observability service that collects metrics, creates dashboards, and triggers alerts for GCP resources, hybrid cloud environments, and custom applications. It is part of Google Cloud's Operations suite (formerly Stackdriver), alongside Cloud Logging, Cloud Trace, Cloud Profiler, and Error Reporting. Together, these services provide comprehensive observability for production workloads.
 
-Cloud Monitoring automatically collects over 1,500 metrics from GCP services without any agent installation. Compute Engine VMs, Cloud Functions, Cloud Run, GKE, BigQuery, Vertex AI, and virtually every GCP service emit metrics that are available in Cloud Monitoring within seconds. For AI workloads, this means you can monitor Vertex AI prediction endpoint latency and error rates, Cloud Function execution duration and invocation counts, BigQuery slot utilization and query performance, and Pub/Sub message throughput and acknowledgment latency -- all from a single console. Custom metrics can be written via the Monitoring API or OpenTelemetry for application-specific measurements like model inference accuracy, token usage, or pipeline throughput.
+Cloud Monitoring automatically collects over 1,500 metrics from GCP services without any agent installation. Compute Engine VMs, Cloud Functions, Cloud Run, GKE, BigQuery, Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story), and virtually every GCP service emit metrics that are available in Cloud Monitoring within seconds. For AI workloads, this means you can monitor Vertex AI prediction endpoint latency and error rates, Cloud Function execution duration and invocation counts, BigQuery slot utilization and query performance, and Pub/Sub message throughput and acknowledgment latency -- all from a single console. Custom metrics can be written via the Monitoring API or OpenTelemetry for application-specific measurements like model inference accuracy, token usage, or pipeline throughput.
 
 Alerting policies define conditions that trigger notifications when metrics cross thresholds or exhibit anomalous behavior. Alerts can be sent to email, SMS, PagerDuty, Slack, webhooks, and Pub/Sub. Monitoring Query Language (MQL) provides a powerful query syntax for filtering, aggregating, and transforming metric data. For teams already using Grafana, Cloud Monitoring provides a Grafana data source plugin, and Google Cloud also offers a managed Grafana service. Dashboards can be shared across teams and embedded in internal portals, providing operational visibility for AI pipeline health.
 
