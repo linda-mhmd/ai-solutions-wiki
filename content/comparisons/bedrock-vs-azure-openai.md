@@ -5,17 +5,17 @@ date: 2026-03-24
 last_verified: 2026-06-14
 categories: [Comparisons]
 tags: ["ai-ml", "intermediate", "amazon-bedrock", "azure-openai", "foundation-models", "comparison", "cloud-ai"]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-03
+lastmod: 2026-09-03
 ---
 
 Both Amazon Bedrock and Azure OpenAI Service provide enterprise-grade access to large language models through managed cloud APIs. The right choice depends on your existing cloud footprint, compliance requirements, which models you need, and your integration architecture. This comparison focuses on practical factors that matter at the point of decision.
 
 ## Model Selection
 
-**Azure OpenAI** (now branded **Azure OpenAI in Microsoft Foundry**, the renamed Azure AI Foundry) provides first-party, Azure-hosted access to OpenAI's model family. As of mid 2026 this centres on OpenAI's GPT-5 series (including GPT-5.5 and GPT-5.4), Codex coding models, the o-series reasoning models, and the still-supported GPT-4o and GPT-4 Turbo. If you are building on Microsoft's platform and want OpenAI models billed through your Azure subscription, under Azure service-level agreements and Microsoft support, this is the first-party route.
+**Azure OpenAI** (now branded **Azure OpenAI in Microsoft Foundry**, the renamed Azure AI Foundry) provides first-party, Azure-hosted access to OpenAI's model family. OpenAI's current generally available lineup is the GPT-5.6 family (the Sol, Terra, and Luna tiers, GA since 9 July 2026), with GPT-6 Astra beginning a gated rollout in September 2026 — see [OpenAI API](/tools/openai-api/) for the full current lineup and model IDs, and check Azure's own model catalogue for exact availability, since Azure typically trails first-party OpenAI releases by weeks. Legacy models such as GPT-4o and GPT-4 Turbo remain supported on Azure for existing integrations. If you are building on Microsoft's platform and want OpenAI models billed through your Azure subscription, under Azure service-level agreements and Microsoft support, this is the first-party route.
 
-**Amazon Bedrock** provides model variety: Anthropic Claude (for example Claude Opus 4.7 and the newer Claude Fable 5, the strongest alternatives to OpenAI's frontier models), Meta Llama, Mistral, Cohere, and Amazon Nova (the successor family to Amazon Titan). This multi-provider access is a meaningful advantage when: you want to choose the best model per task, you want pricing leverage, or you have concerns about vendor concentration risk in your AI stack.
+**Amazon Bedrock** provides model variety: Anthropic Claude (including the current flagship Claude Opus 5 and the top-tier Claude Fable 5.1, Anthropic's strongest alternatives to OpenAI's frontier models — see [Claude by Anthropic](/tools/claude-anthropic/) for the full current lineup and check Bedrock's model catalogue for exact availability), Meta Llama, Mistral, Cohere, and Amazon Nova (the successor family to Amazon Titan). This multi-provider access is a meaningful advantage when: you want to choose the best model per task, you want pricing leverage, or you have concerns about vendor concentration risk in your AI stack.
 
 A notable 2025 to 2026 shift: OpenAI models are no longer exclusive to Azure. As of June 2026, Amazon Bedrock offers OpenAI's GPT-5.5 and GPT-5.4 models plus Codex as generally available options, alongside the open-weight GPT-OSS models, so Bedrock is now the platform where you can evaluate OpenAI and Anthropic frontier models side by side in one console. That said, Azure remains the first-party home for OpenAI models, with the deepest and earliest model coverage and the tightest integration into Microsoft 365 and Copilot.
 

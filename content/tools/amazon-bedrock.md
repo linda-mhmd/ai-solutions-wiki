@@ -27,8 +27,8 @@ solutions:
   - solutions/finance/credit-scoring
   - solutions/retail/recommendation-engine
   - solutions/healthcare/medical-imaging
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-03
+lastmod: 2026-09-03
 ---
 
 Amazon Bedrock is AWS's managed service for foundation model access. It provides a single API to call multiple large language models from different providers, alongside managed infrastructure for knowledge bases, agents, and output safety controls. For enterprise teams building on AWS, it is the primary integration point for generative AI capabilities.
@@ -76,7 +76,7 @@ Bedrock provides access to models from several providers. Model availability var
 
 ## Pricing Patterns
 
-Bedrock uses on-demand pricing (per input/output token) for most use cases, with Provisioned Throughput as an option for guaranteed capacity. On-demand pricing ranges from approximately 0.0003 EUR per 1,000 input tokens (Titan Text Lite) to 0.015 EUR per 1,000 input tokens (Claude 3.5 Sonnet) in eu-west-1. Output tokens are priced 3-5x higher than input tokens.
+Bedrock uses on-demand pricing (per input/output token) for most use cases, with Provisioned Throughput as an option for guaranteed capacity. On-demand pricing ranges from approximately 0.0003 EUR per 1,000 input tokens (Titan Text Lite) up to the flagship tier -- currently Claude Opus 5 and Claude Fable 5.1 sit at the top of the price range on Bedrock. Output tokens are priced 3-5x higher than input tokens. Exact per-model rates are set independently by AWS and change often; check [Bedrock pricing](https://aws.amazon.com/bedrock/pricing/) for current numbers before budgeting.
 
 Cross-region inference (where Bedrock routes requests to the most available region) can improve throughput during peak demand without additional configuration.
 

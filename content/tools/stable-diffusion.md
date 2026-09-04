@@ -4,6 +4,7 @@ description: "Open-weight image generation model from Stability AI. Run locally 
 date: 2026-06-22
 tags: ["image-generation", "diffusion-models", "stable-diffusion", "open-source", "fine-tuning", "lora"]
 tool_category: "AI"
+last_updated: 2026-09-03
 ---
 
 <figure class="bz-figure">
@@ -201,7 +202,7 @@ Local inference is free after the one-time cost of a GPU. An NVIDIA RTX 3080 (�
 | **Text in images** | Good (SD 3.5) | Excellent | Good | Excellent |
 | **ControlNet** | Yes (extensive) | No | No | Partial |
 | **API pricing/image** | ~€0.035 | ~€0.040 | N/A (subscription) | ~€0.003 (Replicate) |
-| **Best for** | Custom pipelines, fine-tuning | GPT-4o integration | Aesthetic quality | Speed + quality |
+| **Best for** | Custom pipelines, fine-tuning | OpenAI ecosystem integration | Aesthetic quality | Speed + quality |
 
 ## ControlNet: spatial control over generation
 
@@ -246,6 +247,6 @@ image = pipe(
 - [Hugging Face Diffusers library](https://huggingface.co/docs/diffusers/): Python API reference, tutorials, LoRA training guides
 - [ComfyUI](https://github.com/comfyanonymous/ComfyUI): Node-based visual workflow builder for SD, recommended for non-Python users
 - [Civitai](https://civitai.com): Community library of thousands of free LoRA and checkpoint models
-- [SDXL LoRA training guide on Hugging Face](https://huggingface.co/blog/lora-training): Detailed fine-tuning tutorial for SDXL
+- [SDXL LoRA training guide on Hugging Face](https://huggingface.co/docs/diffusers/en/training/sdxl): Detailed fine-tuning tutorial for SDXL
 - [LLM Landscape 2026](/comparisons/llm-landscape-2026/): How image generation models fit into the broader AI landscape
 - [What is a Machine Learning Model?](/glossary/model/): Foundational concept behind diffusion models

@@ -11,7 +11,7 @@ related:
   - glossary/llm
   - guides/building-rag-systems
   - comparisons/sagemaker-vs-bedrock
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Amazon Bedrock is AWS's fully managed service for accessing large language models and foundation models through a single API. For enterprise teams, it offers a compelling alternative to managing model infrastructure directly: you pay per token consumed, your data stays within your AWS account, and model access is governed through IAM just like any other AWS resource.
@@ -26,8 +26,8 @@ What Bedrock is not: a replacement for fine-tuning workflows (though it supports
 
 Bedrock provides access to models from multiple providers through a unified API:
 
-- **Anthropic Claude** (Claude 3.5, Claude 3 Haiku/Sonnet/Opus) - strongest general reasoning, code, and document analysis
-- **Meta Llama** (Llama 3.1, Llama 3.2) - open-weights models, useful where cost matters and quality requirements are moderate
+- **Anthropic Claude** (Claude 4 family and newer, including Opus 5, Sonnet 5, and Haiku 4.5 -- older Claude 3.x models remain available but are no longer the recommended default) - strongest general reasoning, code, and document analysis. See [Amazon Bedrock](/tools/amazon-bedrock/) for the current tier-by-tier breakdown.
+- **Meta Llama** (Llama 3.1, Llama 3.2, and newer Llama 3.3 and Llama 4 generations) - open-weights models, useful where cost matters and quality requirements are moderate
 - **Amazon Titan** - Amazon's own models, well-integrated with other AWS services, good for embeddings
 - **Mistral AI** - strong European compliance story, competitive performance for document tasks
 - **Cohere** - specialized embedding and re-ranking models, useful in RAG pipelines
@@ -58,6 +58,6 @@ Model availability varies by AWS region. For EU data residency requirements, che
 
 ## Pricing Model
 
-Bedrock pricing is per-token (input and output tokens priced separately) with no minimum commitment. Prices vary by model - Claude 3 Haiku is roughly 10x cheaper than Claude 3.5 Sonnet, making model selection an important cost lever. For high-volume workloads, Provisioned Throughput provides reserved capacity at a fixed hourly rate, which becomes cost-effective at sustained load above roughly 40-50 API calls per minute.
+Bedrock pricing is per-token (input and output tokens priced separately) with no minimum commitment. Prices vary significantly by model - Claude Haiku 4.5 is Anthropic's cheapest tier, roughly 10x cheaper than the flagship Claude Fable 5.1 tier (per Anthropic's first-party rates; Bedrock pricing is partner-set by AWS and can differ), making model selection an important cost lever. For high-volume workloads, Provisioned Throughput provides reserved capacity at a fixed hourly rate, which becomes cost-effective at sustained load above roughly 40-50 API calls per minute.
 
 There is no charge for API calls that return an error, and no charge for the model access request process itself.

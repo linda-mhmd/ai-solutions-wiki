@@ -4,6 +4,11 @@ description: "European LLM provider with open-weight models and a commercial API
 date: 2026-06-22
 tags: ["llm", "mistral", "open-source", "european-ai", "api", "multilingual"]
 tool_category: "AI"
+related:
+  - tools/openai-api
+  - tools/claude-anthropic
+  - tools/google-gemini
+last_updated: 2026-09-03
 ---
 
 <figure class="bz-figure">
@@ -185,25 +190,27 @@ print(response.choices[0].message.content)
 
 ## Comparison with alternatives
 
-| | Mistral Large 2 | GPT-4o | Claude Sonnet 4.6 | Llama 3.3 70B |
+| | Mistral Large 2 | GPT-5.6 | Claude Sonnet 5 | Llama 3.3 70B |
 |---|---|---|---|---|
 | **Data residency** | EU (Paris) | US | US | Self-host or US |
 | **Open weight** | No | No | No | Yes (Apache 2.0) |
 | **Languages** | 12 (strong FR/DE) | 50+ | 10+ | 50+ |
-| **Context window** | 128K | 128K | 200K | 128K |
-| **Price (input/1M)** | €2.00 | ~€4.50 | ~€3.00 | ~€0.80 |
+| **Context window** | 128K | 128K | 1M | 128K |
+| **Price (input/1M)** | €2.00 | ~€4.50 | ~€1.85 | ~€0.80 |
 | **GDPR DPA** | Yes (EU entity) | SCCs required | SCCs required | Self-host |
 | **Best for** | EU-regulated enterprise | General purpose | Long documents | Cost-sensitive |
 
+GPT-5.6 figures above are indicative — check [OpenAI API](/tools/openai-api/) for current context windows and pricing across its Sol/Terra/Luna tiers. Claude Sonnet 5's $2.00/MTok input price is now Anthropic's permanent standard rate (see [Claude Anthropic](/tools/claude-anthropic/) for the full current lineup and pricing table).
+
 ## When not to use Mistral
 
-**Very long documents**: Mistral Large 2 tops out at 128K tokens. If you need 500K+ context, use Gemini 2.0 or Claude claude-opus-4-8 with their 1-2M windows.
+**Very long documents**: Mistral Large 2 tops out at 128K tokens. If you need 500K+ context, use [Gemini](/tools/google-gemini/) or [Claude Opus 5](/tools/claude-anthropic/), both of which support 1M-token context windows.
 
-**Computer vision**: Mistral has no multimodal image input in the current API. Use GPT-4o or Gemini 2.0 Flash for image understanding.
+**Computer vision**: Mistral has no multimodal image input in the current API. Use [GPT-5.6](/tools/openai-api/) or [Gemini](/tools/google-gemini/) for image understanding.
 
 **Highly specific fine-tuning at scale**: Mistral does offer fine-tuning, but Llama 3 gives you more control over training data and infrastructure at volume.
 
-**English-only consumer apps**: If your users are English-only and price is not a primary concern, GPT-4o or Claude have marginally better benchmark results on pure English tasks.
+**English-only consumer apps**: If your users are English-only and price is not a primary concern, [GPT-5.6](/tools/openai-api/) or [Claude](/tools/claude-anthropic/) have marginally better benchmark results on pure English tasks.
 
 ## Further reading
 

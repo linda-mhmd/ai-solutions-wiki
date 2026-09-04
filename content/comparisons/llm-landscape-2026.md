@@ -97,33 +97,35 @@ Extended reasoning now lives in GPT-5.6 Sol and GPT-6 Astra; the entries below d
 
 ## Anthropic: Claude
 
-Anthropic's models are designed around safety, instruction following, and long-document analysis. The Claude 4 family (released 2025) is the current generation.
+Anthropic's models are designed around safety, instruction following, and long-document analysis. Anthropic's current lineup spans four tiers: **Haiku 4.5** (fastest, lowest cost), **Sonnet 5** (balanced, GA 30 June 2026), **Opus 5** (flagship, GA 24 July 2026), and **Fable 5.1** — plus the access-gated **Mythos 5.1** — Anthropic's most capable models, positioned above Opus (both GA 1 September 2026). See [Claude by Anthropic](/tools/claude-anthropic/) for the full current lineup, model IDs, and pricing rather than the point-in-time entries below.
 
-### Claude 4 Sonnet (claude-sonnet-4-6)
+The Claude 4 models profiled next (Sonnet 4.6, Opus 4.8) were Anthropic's production flagship and mid-tier through mid-2026 and are now superseded by Sonnet 5 and Opus 5 respectively; Claude Fable 5, also profiled below, is superseded by Fable 5.1. Claude Haiku 4.5 remains part of the current lineup unchanged, so its entry needs no such caveat.
+
+### Claude 4 Sonnet (claude-sonnet-4-6) (previous generation, superseded by Sonnet 5)
 
 **Context:** 200,000 tokens. **Output limit:** 8,096 tokens (standard), 64,000 (extended thinking).
 
-Claude Sonnet 4.6 is Anthropic's current production workhorse. Strong across coding, analysis, and writing. Supports extended thinking (visible chain-of-thought reasoning mode) for complex tasks.
+Claude Sonnet 4.6 was Anthropic's production workhorse through mid-2026. Strong across coding, analysis, and writing. Supports extended thinking (visible chain-of-thought reasoning mode) for complex tasks.
 
 **Strengths:** Exceptional at long-document analysis and synthesis. Best-in-class instruction following on complex, multi-part prompts. Reliable structured output. Strong code generation and debugging. Extended thinking mode for hard reasoning tasks.
 
 **Weaknesses:** Output token limit per call is lower than some competitors on standard mode. Pricing is higher than smaller alternatives. Vision is solid but not the primary strength.
 
-**When to use it:** Long document processing, legal/financial analysis, complex code tasks, writing that requires nuance. Default choice when instruction-following accuracy matters most.
+**When to use it today:** Rarely as a first choice — Claude Sonnet 5 covers the same ground with more current capability (see [Claude by Anthropic](/tools/claude-anthropic/)). This entry is kept for comparison against deployments still running on it.
 
 **API access:** Anthropic API (`claude-sonnet-4-6`), Amazon Bedrock, Google Cloud Vertex AI (rebranded [Gemini Enterprise Agent Platform](/tools/google-vertex-ai/) in April 2026 — see that page for the full story; "Vertex AI" is used throughout this reference for continuity with existing model IDs and docs).
 
-### Claude 4 Opus (claude-opus-4-8)
+### Claude 4 Opus (claude-opus-4-8) (previous generation, superseded by Opus 5)
 
 **Context:** 200,000 tokens. **Output limit:** 8,096 tokens.
 
-Anthropic's most capable model. Higher accuracy on complex tasks, better long-context comprehension, stronger creative and analytical writing.
+Anthropic's most capable model through mid-2026. Higher accuracy on complex tasks, better long-context comprehension, stronger creative and analytical writing.
 
 **Strengths:** Best overall quality in the Claude family. Handles the most ambiguous, complex prompts reliably. Strong research synthesis over many documents.
 
 **Weaknesses:** Highest cost in the Claude lineup. Slower inference. Not necessary for most workloads that Sonnet handles well.
 
-**When to use it:** Tasks where quality is the constraint and cost is not: deep research synthesis, high-value customer interactions, complex reasoning chains.
+**When to use it today:** Opus 5 (GA 24 July 2026) is Anthropic's current flagship and default recommendation at this tier — see [Claude by Anthropic](/tools/claude-anthropic/). This entry is kept for comparison against deployments still running on it.
 
 **API access:** Anthropic API (`claude-opus-4-8`), Amazon Bedrock.
 
@@ -139,13 +141,13 @@ Anthropic's fastest and most cost-efficient model. Trades some reasoning depth f
 
 **API access:** Anthropic API (`claude-haiku-4-5-20251001`), Amazon Bedrock.
 
-### Claude Fable 5
+### Claude Fable 5 (previous generation, superseded by Fable 5.1)
 
 **Context:** 200,000 tokens.
 
-The most capable model in the Anthropic portfolio as of 2026. Designed for the most demanding enterprise tasks.
+The most capable model in the Anthropic portfolio through August 2026. Designed for the most demanding enterprise tasks.
 
-**When to use it:** Highest-complexity tasks where both quality and context depth are critical.
+**When to use it today:** Claude Fable 5.1 (GA 1 September 2026) supersedes it at the same headline price with cheaper cache reads, and the access-gated Claude Mythos 5.1 sits alongside it for verified cybersecurity and life-sciences use cases — see [Claude by Anthropic](/tools/claude-anthropic/) for the current top-tier lineup. This entry is kept for comparison against deployments still running on it.
 
 **API access:** Anthropic API (`claude-fable-5`).
 
@@ -672,7 +674,7 @@ The major cloud providers wrap multiple models with enterprise controls, complia
 
 ### Azure AI (Microsoft)
 
-**Azure OpenAI Service:** OpenAI GPT-4o, o-series reasoning models, and DALL-E on Azure infrastructure. Enterprise SLA, EU and US data residency options, Azure Active Directory integration, content filtering. The most commonly chosen path when an enterprise already holds a Microsoft Enterprise Agreement.
+**Azure OpenAI Service:** First-party OpenAI models on Azure infrastructure — the GPT-5.6 family (Sol, Terra, Luna) is current, with legacy models like GPT-4o still supported for existing integrations (see [OpenAI API](/tools/openai-api/) for the full current lineup). Enterprise SLA, EU and US data residency options, Azure Active Directory integration, content filtering. The most commonly chosen path when an enterprise already holds a Microsoft Enterprise Agreement.
 
 **Azure AI Foundry (formerly Azure AI Studio):** Development platform for building AI applications. Model catalog includes OpenAI, Meta Llama, Mistral, Cohere, and Phi. Includes prompt flow, RAG pipeline tooling, evaluation, content safety, and fine-tuning.
 
@@ -751,30 +753,30 @@ The major cloud providers wrap multiple models with enterprise controls, complia
 
 | Use Case | Primary Choice | Alternative |
 |---|---|---|
-| Complex reasoning and analysis | Claude 4 Sonnet or Opus | GPT-4o |
-| Long document processing | Gemini 2.0 Pro or Claude 4 | Command R+ |
-| Mathematics and proofs | o3, o4-mini | DeepSeek R1 |
-| Code generation | Claude 4 Sonnet | GPT-4o |
+| Complex reasoning and analysis | Claude Sonnet 5 or Opus 5 | GPT-5.6 Sol |
+| Long document processing | Gemini 2.0 Pro or Claude Sonnet 5 | Command R+ |
+| Mathematics and proofs | GPT-5.6 Sol / GPT-6 Astra (reasoning) | DeepSeek R1 |
+| Code generation | Claude Sonnet 5 | GPT-5.6 Sol |
 | Code completion (IDE) | Codestral | StarCoder2 |
 | Self-hosted: best quality | Llama 3.3 70B | DeepSeek V3 |
 | Self-hosted: on-device | Phi-4 14B | Gemma 3 4B |
 | Truly open source (auditable) | IBM Granite 3.2 | OLMo 2 |
 | Regulated industry, clean data | IBM Granite 3.2 | Mistral 7B |
-| Arabic-language applications | Falcon 2 11B | GPT-4o |
-| Enterprise RAG with citations | Command R+ | Claude 4 |
-| Multilingual (European) | Mistral Large 2 | GPT-4o |
+| Arabic-language applications | Falcon 2 11B | GPT-5.6 Terra |
+| Enterprise RAG with citations | Command R+ | Claude Sonnet 5 |
+| Multilingual (European) | Mistral Large 2 | GPT-5.6 Terra |
 | Chinese language | Qwen 2.5 | DeepSeek V3 |
 | Multimodal with video | Gemini 2.0 Pro | Nova Pro |
-| AWS-native, data residency | Nova Pro | Claude 4 via Bedrock |
+| AWS-native, data residency | Nova Pro | Claude Sonnet 5 via Bedrock |
 | Azure enterprise, OpenAI models | Azure OpenAI Service | Azure AI Foundry |
 | GCP-native, 2M context | Vertex AI + Gemini 2.0 | Vertex AI Search + Gemini |
 | Oracle Database environment | OCI AI Vector Search | OCI Generative AI |
-| Real-time social data | Grok 3 | GPT-4o + search |
+| Real-time social data | Grok 3 | GPT-5.6 + search |
 | Ultra-low latency (Llama 70B) | Groq | Fireworks AI |
 | Many open models, one API | Together AI | Fireworks AI |
 | Local development, zero cost | Ollama | LM Studio |
 | Self-hosted production serving | vLLM | TGI (HuggingFace) |
-| High volume, low cost | GPT-4o mini or Haiku 4 | Gemini 2.0 Flash |
+| High volume, low cost | GPT-5.6 Luna or Haiku 4.5 | Gemini 2.0 Flash |
 
 ---
 

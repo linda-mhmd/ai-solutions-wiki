@@ -7,12 +7,14 @@ tags: ["github-copilot", "ai-coding", "microsoft", "openai", "developer-tools", 
 tool_category: "Frontend"
 related:
   - tools/cursor-ai
+  - tools/openai-api
   - basics/what-is-github
   - basics/what-is-version-control
   - basics/what-is-vibe-coding
+last_updated: 2026-09-03
 ---
 
-GitHub Copilot is Microsoft's AI coding assistant, released publicly in 2022 and now the most widely deployed AI tool in enterprise software development. It is built on OpenAI's GPT-4o and Codex models, integrated directly into the editors and platforms developers already use: VS Code, JetBrains IDEs, Vim, Neovim, and GitHub.com. It generates inline code completions as you type, answers questions about your codebase in a chat sidebar, reviews pull requests, and in its Enterprise tier, understands the full context of your GitHub repositories.
+GitHub Copilot is Microsoft's AI coding assistant, released publicly in 2022 and now the most widely deployed AI tool in enterprise software development. It is built on OpenAI's GPT-5.6 models and Codex-based completion (see [OpenAI API](/tools/openai-api/) for the current lineup), integrated directly into the editors and platforms developers already use: VS Code, JetBrains IDEs, Vim, Neovim, and GitHub.com. It generates inline code completions as you type, answers questions about your codebase in a chat sidebar, reviews pull requests, and in its Enterprise tier, understands the full context of your GitHub repositories.
 
 The problem Copilot solves is friction at the implementation layer. A developer who knows what to build still spends significant time on boilerplate, remembering API signatures, writing tests for obvious cases, and translating intent into working syntax. Copilot compresses that gap by making the next line of code available before you have finished thinking about it.
 
@@ -47,7 +49,7 @@ The problem Copilot solves is friction at the implementation layer. A developer 
   <div class="bz-arch-layer">
     <span class="bz-arch-layer-label">AI Backend</span>
     <div class="bz-arch-layer-content">
-      <span class="bz-arch-chip">GPT-4o (Copilot Chat)</span>
+      <span class="bz-arch-chip">GPT-5.6 (Copilot Chat)</span>
       <span class="bz-arch-chip">Codex-based completion</span>
       <span class="bz-arch-chip">Claude models (configurable in Enterprise)</span>
       <span class="bz-arch-chip">Gemini models (configurable in Enterprise)</span>
@@ -235,7 +237,7 @@ This is the closest Copilot gets to Cursor's Composer feature, but it runs on Gi
 **Copilot Enterprise** is the tier aimed at large organisations on GitHub Enterprise Cloud. Key additions over the Business tier:
 
 - **Repository indexing:** Copilot builds a semantic index of your entire GitHub organisation. Chat questions can draw on code from repos you do not have open locally.
-- **Model choice:** Admins can configure which model powers completions and chat. Options include GPT-4o, Claude Sonnet, and Gemini 1.5 Pro, depending on your organisation's preference or data residency requirements.
+- **Model choice:** Admins can configure which model powers completions and chat. Options include GPT-5.6, Claude Sonnet 5, and Gemini, depending on your organisation's preference or data residency requirements — see [OpenAI API](/tools/openai-api/), [Claude Anthropic](/tools/claude-anthropic/), and [Google Gemini](/tools/google-gemini/) for the current lineups.
 - **Copilot Workspace:** Multi-file task completion starting from a GitHub Issue (described above).
 - **Fine-tuning on private code:** Available for organisations with sufficiently large codebases, allowing completions to reflect internal patterns and naming conventions.
 - **Admin controls:** Usage dashboards show which developers are using Copilot, how frequently, and how many suggestions they accept. Seat assignment and policy management are centralised.
@@ -266,7 +268,7 @@ All prices converted from USD at approximate parity. Check [github.com/features/
 | **Codebase context** | Repo index (Enterprise), open tabs (all) | Full local codebase index (all tiers) | Project-level context (Pro) | Workspace context (limited) |
 | **PR review** | Yes, native GitHub integration | No | No | No |
 | **Enterprise admin controls** | Yes, usage dashboards, seat management | Limited | Yes (Codeium Enterprise) | Yes, AWS IAM integration |
-| **Model choice** | GPT-4o; Claude/Gemini (Enterprise) | GPT-4o, Claude, Gemini (all tiers) | Multiple (Cascade model) | Amazon Q models only |
+| **Model choice** | GPT-5.6; Claude/Gemini (Enterprise) | GPT-5.6, Claude, Gemini (all tiers) | Multiple (Cascade model) | Amazon Q models only |
 | **Price per seat** | Free / €10 / €19 / €39 | Free / €20 / €40 | Free / €15 / custom | Free tier / €19 (Pro) |
 | **Best for** | GitHub-native teams, PR-centric workflows | Multi-file refactors in local IDE | Cost-sensitive teams, JetBrains users | AWS-native teams already on Q Developer |
 
@@ -280,7 +282,7 @@ All prices converted from USD at approximate parity. Check [github.com/features/
 
 **You need to avoid GitHub vendor lock-in.** Copilot's strongest features, PR review, repository indexing, Workspace, are GitHub-specific. If your organisation uses GitLab, Bitbucket, or Azure DevOps as its primary SCM, Copilot's GitHub-native advantages do not apply.
 
-**Model choice flexibility matters more than ecosystem depth.** Copilot's model menu is available only on Enterprise. If you want to switch freely between Claude, Gemini, and GPT-4o at any tier, Cursor gives you that from the Pro plan upward.
+**Model choice flexibility matters more than ecosystem depth.** Copilot's model menu is available only on Enterprise. If you want to switch freely between Claude, Gemini, and GPT-5.6 at any tier, Cursor gives you that from the Pro plan upward.
 
 **You are primarily a solo developer on a tight budget.** The free tier covers light use. But Codeium's free tier has no monthly usage cap and is otherwise comparable for inline completions. Consider Codeium free before paying for Copilot Pro if cost is the primary constraint.
 
@@ -296,3 +298,4 @@ All prices converted from USD at approximate parity. Check [github.com/features/
 - [GitHub Copilot in the CLI](https://docs.github.com/en/copilot/github-copilot-in-the-cli/about-github-copilot-in-the-cli): `gh copilot suggest` and `gh copilot explain` reference
 - [What is vibe coding](/basics/what-is-vibe-coding/): how AI coding tools change the development workflow and what skills still matter
 - [Cursor AI](/tools/cursor-ai/): the main alternative to Copilot for multi-file, locally-indexed AI editing
+- [OpenAI API](/tools/openai-api/): the current GPT-5.6 lineup that powers Copilot Chat

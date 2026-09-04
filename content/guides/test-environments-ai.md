@@ -9,7 +9,7 @@ related:
   - guides/integration-testing-ai-pipelines
   - guides/mocking-ai-services
   - guides/ci-cd-testing-ai
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 AI systems require multiple test environments, each balancing cost, speed, and realism. A developer running tests locally cannot wait for real model API calls or pay for them on every save. A staging environment needs real model behavior to validate quality. Production must be monitored but never used for testing. Getting this layering right is critical for both developer velocity and test confidence.
@@ -121,17 +121,17 @@ Real LLM API calls are expensive. Manage costs deliberately.
 
 **Cost control strategies:**
 
-Use the cheapest model that validates your pipeline. If your production model is GPT-4o, use GPT-4o-mini for staging tests that validate pipeline behavior rather than output quality. Reserve the production model for the final eval suite.
+Use the cheapest model that validates your pipeline. If your production model is Claude Opus 5, use Claude Haiku 4.5 for staging tests that validate pipeline behavior rather than output quality. Reserve the production model for the final eval suite.
 
 ```python
 # Environment-specific model configuration
 MODEL_CONFIG = {
     "local": {"provider": "mock", "model": None},
     "ci": {"provider": "mock", "model": None},
-    "ci_eval": {"provider": "openai", "model": "gpt-4o-mini"},
-    "staging": {"provider": "openai", "model": "gpt-4o-mini"},
-    "staging_eval": {"provider": "openai", "model": "gpt-4o"},
-    "production": {"provider": "openai", "model": "gpt-4o"},
+    "ci_eval": {"provider": "anthropic", "model": "claude-haiku-4-5"},
+    "staging": {"provider": "anthropic", "model": "claude-haiku-4-5"},
+    "staging_eval": {"provider": "anthropic", "model": "claude-opus-5"},
+    "production": {"provider": "anthropic", "model": "claude-opus-5"},
 }
 ```
 
@@ -165,8 +165,8 @@ def get_model_client():
     config = MODEL_CONFIG[ENV]
     if config["provider"] == "mock":
         return MockModelClient()
-    elif config["provider"] == "openai":
-        return OpenAIClient(model=config["model"])
+    elif config["provider"] == "anthropic":
+        return AnthropicClient(model=config["model"])
 
 def get_vector_store():
     url = os.getenv("VECTOR_DB_URL", "memory://")

@@ -8,10 +8,10 @@ related:
   - tools/openai-api
   - tools/amazon-bedrock
   - tools/google-vertex-ai
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
-Azure OpenAI Service provides access to OpenAI's models (GPT-4, GPT-4o, GPT-3.5-turbo, DALL-E, Whisper, embeddings) through Microsoft Azure's enterprise cloud infrastructure. The models are identical to those available through the OpenAI API, but the hosting, compliance, networking, and support are managed by Microsoft. For enterprise teams, Azure OpenAI is often the preferred path to GPT models because it provides data residency guarantees, virtual network integration, and Microsoft enterprise support agreements.
+Azure OpenAI Service provides access to OpenAI's models — including the current GPT-5.6 family (Sol/Terra/Luna tiers), DALL-E, Whisper, and embedding models — through Microsoft Azure's enterprise cloud infrastructure. See [OpenAI API](/tools/openai-api/) for the full current model lineup, including GPT-6 Astra's restricted rollout. The models are identical to those available through the direct OpenAI API, but the hosting, compliance, networking, and support are managed by Microsoft. For enterprise teams, Azure OpenAI is often the preferred path to GPT models because it provides data residency guarantees, virtual network integration, and Microsoft enterprise support agreements.
 
 Official documentation: https://learn.microsoft.com/en-us/azure/ai-services/openai/
 

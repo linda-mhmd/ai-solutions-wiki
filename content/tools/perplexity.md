@@ -8,6 +8,9 @@ related:
   - glossary/rag
   - glossary/llm
   - comparisons/llm-landscape-2026
+  - tools/openai-api
+  - tools/claude-anthropic
+last_updated: 2026-09-03
 ---
 
 <figure class="bz-figure">
@@ -27,7 +30,7 @@ Pricing: https://www.perplexity.ai/pro
 
 Perplexity is a RAG (retrieval-augmented generation) system built on top of live web search. When you submit a query, Perplexity runs a web search, retrieves the top-k most relevant pages, and feeds those pages into an LLM alongside your question. The model synthesizes a response and marks every factual claim with a numbered citation linking to its source.
 
-The default model on the free tier is Sonar Small. The Pro tier adds Sonar Large, Sonar Huge, GPT-4o, and Claude 4. You can switch models per query.
+The default model on the free tier is Sonar Small. The Pro tier adds Sonar Large, Sonar Huge, and OpenAI's and Anthropic's current frontier models — GPT-5.6 and Claude Sonnet 5/Opus 5 as of this writing (see [OpenAI API](/tools/openai-api/) and [Claude Anthropic](/tools/claude-anthropic/) for the full current lineups). You can switch models per query.
 
 This pipeline is distinct from a standard LLM chat session. The model's knowledge cutoff is irrelevant: every response draws on pages retrieved seconds before the answer is written. That makes Perplexity reliable for current pricing, recent product launches, live API documentation, and breaking technical news.
 
@@ -62,8 +65,8 @@ This pipeline is distinct from a standard LLM chat session. The model's knowledg
       <span class="bz-arch-chip">Sonar Small</span>
       <span class="bz-arch-chip">Sonar Large</span>
       <span class="bz-arch-chip">Sonar Huge</span>
-      <span class="bz-arch-chip">GPT-4o (Pro)</span>
-      <span class="bz-arch-chip">Claude 4 (Pro)</span>
+      <span class="bz-arch-chip">GPT-5.6 (Pro)</span>
+      <span class="bz-arch-chip">Claude Sonnet 5 (Pro)</span>
       <span class="bz-arch-chip-note">Pro users select the synthesis model per query.</span>
     </div>
   </div>
@@ -234,7 +237,7 @@ The `response.citations` field returns the list of URLs that the model used to c
 
 **When you need deep analysis, not synthesis**: Perplexity is fast and broad. For nuanced interpretation of a complex topic (for example, a detailed code review or architectural trade-off analysis), a long-context LLM with your own curated context will outperform it.
 
-**When API cost matters for non-search tasks**: Sonar queries the web on every call, which adds latency and cost compared to a standard LLM completion. If your task does not require live web data (classification, summarization of a document you already have, code generation), use Claude or GPT-4o directly. The web search overhead is unnecessary.
+**When API cost matters for non-search tasks**: Sonar queries the web on every call, which adds latency and cost compared to a standard LLM completion. If your task does not require live web data (classification, summarization of a document you already have, code generation), use Claude or GPT-5.6 directly. The web search overhead is unnecessary.
 
 **When you need reproducible outputs**: Web search results change. The same query submitted twice may produce a different answer if the top-k retrieved pages differ. For deterministic pipelines, use a static knowledge base.
 
@@ -250,5 +253,5 @@ The `response.citations` field returns the list of URLs that the model used to c
 - [Perplexity Spaces documentation](https://www.perplexity.ai/hub/faq/what-are-spaces): How to create shared research collections and configure custom system prompts for team use.
 - [What is RAG?](/glossary/rag/): Explains retrieval-augmented generation, the architecture that underlies Perplexity's answer pipeline.
 - [What is an LLM?](/glossary/llm/): Background on large language models, which Perplexity uses for synthesis.
-- [LLM Landscape 2026](/comparisons/llm-landscape-2026/): Model comparison covering the Sonar family alongside GPT-4o, Claude 4, and Gemini.
+- [LLM Landscape 2026](/comparisons/llm-landscape-2026/): Model comparison covering the Sonar family alongside GPT-5.6, Claude, and Gemini.
 - [Perplexity research hub](https://www.perplexity.ai/hub): Blog posts and product announcements from the Perplexity team.

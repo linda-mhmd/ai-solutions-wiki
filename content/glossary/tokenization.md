@@ -4,7 +4,7 @@ description: "What tokens are, how different models tokenize text, why token cou
 date: 2026-03-24
 categories: [Glossary]
 tags: ["ai-ml", "beginner", "tokenization", "tokens", "llm", "nlp", "vocabulary"]
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
 Tokenization is the process of breaking text into units (tokens) that a language model can process. Models do not read text character by character or word by word - they operate on tokens, which are typically word fragments determined by statistical patterns in training data.
@@ -19,7 +19,7 @@ As a rough rule of thumb for English text: 1 token is approximately 4 characters
 
 **Cost** - AI API pricing is per token. Both input tokens (your prompt and context) and output tokens (the model's response) are charged. A call with a 10,000-token input prompt costs 10x more than one with a 1,000-token input prompt, assuming the same model. Understanding token counts is essential for cost estimation and optimization.
 
-**Context window limits** - Models have a maximum context size measured in tokens. Claude 3.5 Sonnet supports up to 200,000 tokens. Documents, conversation histories, and retrieved context must all fit within this limit. Exceeding it requires truncation, summarization, or retrieval-based context management.
+**Context window limits** - Models have a maximum context size measured in tokens. Claude Sonnet 5 supports up to 1 million tokens (Haiku 4.5 tops out at 200,000) -- see [Claude by Anthropic](/tools/claude-anthropic/) for the current lineup and context windows. Documents, conversation histories, and retrieved context must all fit within this limit. Exceeding it requires truncation, summarization, or retrieval-based context management.
 
 **Latency** - Generating more output tokens takes more time. A request for a 2,000-token response takes roughly twice as long to complete as one for a 1,000-token response.
 
@@ -27,7 +27,7 @@ As a rough rule of thumb for English text: 1 token is approximately 4 characters
 
 Different models use different tokenizers, meaning the same text will tokenize to different numbers of tokens. GPT models use a BPE (Byte Pair Encoding) tokenizer called tiktoken. Claude uses a different tokenizer. Comparing token counts between models requires using each model's specific tokenizer.
 
-**Practical implication:** A document that fits in GPT-4's 128,000-token context window may fit differently in Claude's 200,000-token context - not because of the raw limit difference, but because tokenization of the same text may vary by 10-20% between tokenizers.
+**Practical implication:** A document that fits within one provider's context window may fit differently within another's - not because of the raw limit difference, but because tokenization of the same text may vary by 10-20% between tokenizers. Check current context-window sizes for [OpenAI](/tools/openai-api/) and [Claude](/tools/claude-anthropic/) models before assuming a document fits.
 
 ## Counting Tokens Before API Calls
 

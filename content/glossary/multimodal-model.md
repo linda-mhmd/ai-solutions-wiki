@@ -1,6 +1,6 @@
 ---
 title: "Multimodal Model"
-description: "How models like GPT-4o and Gemini process text, images, audio, and video together within a unified architecture."
+description: "How multimodal models like GPT-5.6 and Gemini process text, images, audio, and video together within a unified architecture."
 date: 2026-03-28
 categories: [Glossary]
 tags: [multimodal, GPT-4o, Gemini, vision-language, deep-learning]
@@ -9,10 +9,10 @@ related:
   - glossary/vision-transformer
   - glossary/foundation-models
   - glossary/contrastive-learning
-last_updated: 2026-05-30
+last_updated: 2026-09-03
 ---
 
-A multimodal model is a neural network that can process and reason across multiple data types -- text, images, audio, video, or other modalities -- within a single architecture. Unlike specialized models that handle one input type, multimodal models accept mixed inputs and can generate outputs in one or more modalities. GPT-4o, Gemini, and Claude are prominent examples that understand both text and images, with some supporting audio and video as well.
+A multimodal model is a neural network that can process and reason across multiple data types -- text, images, audio, video, or other modalities -- within a single architecture. Unlike specialized models that handle one input type, multimodal models accept mixed inputs and can generate outputs in one or more modalities. GPT-5.6, Gemini, and Claude are prominent examples that understand both text and images, with some supporting audio and video as well (see [OpenAI API](/tools/openai-api/) and [Claude by Anthropic](/tools/claude-anthropic/) for each provider's current lineup).
 
 ## How It Works
 

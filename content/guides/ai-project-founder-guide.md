@@ -11,6 +11,7 @@ related:
   - tools/amazon-bedrock
   - tools/fastapi
   - tools/railway
+last_updated: 2026-09-03
 ---
 
 <figure class="bz-figure">
@@ -105,20 +106,22 @@ Use this table to pick a starting point. Start with the cheapest model that meet
 
 | Situation | Recommended model | Rough monthly cost at 10k calls/day |
 |---|---|---|
-| Budget under €200/month | GPT-4o mini or Claude Haiku 3.5 | €30 to €80 |
-| Need 200K context window | Claude Sonnet 4 | €150 to €400 |
+| Budget under €200/month | GPT-5.6 Luna or Claude Haiku 4.5 | €30 to €80 |
+| Need a 1M-token context window | Claude Sonnet 5 | €150 to €400 |
 | Need self-hosting | Llama 3.3 70B via Groq or Together AI | €0 (API) or infra cost |
 | Data must stay in AWS | Amazon Bedrock with Nova or Claude | Usage-based, same model pricing |
 | Need open-source with compliance | IBM Granite on Hugging Face | €0 model, infra cost only |
 | Need lowest latency | Groq with Llama or Mixtral | €20 to €60 |
-| **Best for most founders** | **Claude Haiku 3.5 to start, Claude Sonnet 4 when you need it** | **€30 to €150** |
+| **Best for most founders** | **Claude Haiku 4.5 to start, Claude Sonnet 5 when you need it** | **€30 to €150** |
 
 A few rules that hold in almost every case:
 
 - Start with an API model. Do not self-host until you have a cost problem that justifies the operational overhead.
-- Use Claude Haiku 3.5 or GPT-4o mini for high-volume, structured tasks. They cost 10 to 30 times less than frontier models and are fast.
-- Move to Claude Sonnet 4 or GPT-4o when the task requires reasoning, long context, or nuanced generation.
+- Use Claude Haiku 4.5 or GPT-5.6 Luna for high-volume, structured tasks. They cost several times less than frontier models and are fast.
+- Move to Claude Sonnet 5 or GPT-5.6 Terra when the task requires reasoning, long context, or nuanced generation.
 - Use Amazon Bedrock if you are already on AWS and need data residency controls, auditability, or enterprise procurement.
+
+See [OpenAI API](/tools/openai-api/) and [Claude by Anthropic](/tools/claude-anthropic/) for each provider's full current lineup and pricing -- both move fast enough that a table like this ages quickly.
 
 See the [LLM landscape comparison](/comparisons/llm-landscape-2026/) for a full breakdown of models by capability, context window, and pricing.
 
@@ -219,16 +222,15 @@ Tokens per request:   1,500 input + 500 output = 2,000 tokens
 Monthly token volume: 5,000 x 30 x 2,000 = 300,000,000 tokens
 ```
 
-At current pricing (June 2026):
+At current pricing (September 2026), Anthropic's first-party rates are:
 
-| Model | Input price | Output price | Monthly estimate |
+| Model | Input price | Output price | Notes |
 |---|---|---|---|
-| Claude Haiku 3.5 | €0.00075 per 1K tokens | €0.00375 per 1K tokens | ~€75/month |
-| GPT-4o mini | €0.00015 per 1K tokens | €0.0006 per 1K tokens | ~€22/month |
-| Claude Sonnet 4 | €0.0028 per 1K tokens | €0.014 per 1K tokens | ~€315/month |
-| GPT-4o | €0.0023 per 1K tokens | €0.009 per 1K tokens | ~€230/month |
+| Claude Haiku 4.5 | $1.00 per million tokens | $5.00 per million tokens | Cheapest, fastest tier |
+| Claude Sonnet 5 | $2.00 per million tokens | $10.00 per million tokens | Best value for most enterprise tasks |
+| Claude Opus 5 | $5.00 per million tokens | $25.00 per million tokens | Flagship, complex reasoning |
 
-These numbers change. Always check the provider pricing page before committing. But the ratios hold: Haiku and 4o mini are roughly 10 times cheaper than their frontier counterparts.
+OpenAI's current GPT-5.6 family (Luna, Terra, Sol) is priced separately -- see [OpenAI API](/tools/openai-api/) for current per-token rates before budgeting. These numbers change. Always check the provider pricing page before committing. But the ratio holds directionally: a provider's cheapest tier runs roughly 5 to 10 times less than its flagship tier (see [Claude by Anthropic](/tools/claude-anthropic/) for the full current pricing table).
 
 ### Three cost traps to avoid
 
@@ -294,7 +296,7 @@ These are the four mistakes that add the most time and cost to a first AI projec
 
 ### Starting with the most expensive model
 
-The temptation is to start with GPT-4o or Claude Sonnet because they produce the best results in demos. Resist it. Start with GPT-4o mini or Claude Haiku 3.5. If the cheap model cannot do the task at all, moving up to the frontier model is a real decision. If it can do it with a better prompt, you saved €200 per month.
+The temptation is to start with GPT-5.6 Sol or Claude Opus 5 because they produce the best results in demos. Resist it. Start with GPT-5.6 Luna or Claude Haiku 4.5. If the cheap model cannot do the task at all, moving up to the frontier model is a real decision. If it can do it with a better prompt, you saved €200 per month.
 
 ### Not testing with real, messy data
 
@@ -325,4 +327,5 @@ LLM calls take 500 ms to 5 seconds depending on model and output length. If your
 - [FastAPI](/tools/fastapi/): The Python framework used in the prototype stack above. Fast to build, production-ready from day one.
 - [Railway](/tools/railway/): Push-to-deploy hosting for your backend API. Covers the MVP without infrastructure work.
 - [Anthropic API documentation](https://docs.anthropic.com/): Official reference for the Claude API including prompt caching, tool use, and streaming.
-- [OpenAI API documentation](https://platform.openai.com/docs): Official reference for GPT-4o and o-series models with pricing calculator.
+- [OpenAI API documentation](https://platform.openai.com/docs): Official reference for OpenAI's current GPT-5.6 family with pricing calculator.
+- [OpenAI API](/tools/openai-api/) and [Claude by Anthropic](/tools/claude-anthropic/): This wiki's own reference pages for each provider's current model lineup, tiers, and pricing.

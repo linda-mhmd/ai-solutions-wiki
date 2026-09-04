@@ -36,7 +36,7 @@ Anthropic also continues to serve several prior-generation models (Opus 4.8, 4.7
 
 ## Key Strengths
 
-**Long context window** - Sonnet 5, Opus 5, Fable 5.1, and Mythos 5.1 all support context windows up to 1 million tokens (roughly 750,000 words), billed at standard per-token rates across the full window; Haiku 4.5 supports 200K tokens. This means entire books, large codebases, or extensive document sets can be processed in a single call without chunking. For RAG pipelines where traditional chunking limits retrieval quality, Claude's long context can process entire source documents directly.
+**Long context window** - Sonnet 5, Opus 5, Fable 5.1, and Mythos 5.1 all support context windows up to 1 million tokens — roughly 555,000 words on the current tokenizer (introduced with Opus 4.7, which produces about 30% more tokens per unit of text than the previous one) — billed at standard per-token rates across the full window; Haiku 4.5, which still uses the previous tokenizer, supports 200K tokens (roughly 150,000 words). This means entire books, large codebases, or extensive document sets can be processed in a single call without chunking. For RAG pipelines where traditional chunking limits retrieval quality, Claude's long context can process entire source documents directly.
 
 **Instruction following** - Claude reliably follows complex, structured instructions, including multi-part JSON output schemas, tone and style constraints, and conditional logic instructions. This makes it well-suited for applications with strict output format requirements.
 
