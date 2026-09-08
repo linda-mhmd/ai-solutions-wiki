@@ -8,6 +8,7 @@ related:
   - comparisons/eu-vs-us-ai-regulation
   - glossary/nist-ai-rmf-glossary
   - glossary/gdpr
+  - glossary/deepfake
   - frameworks/eu-ai-act-risk-framework
   - frameworks/nist-ai-rmf
 last_updated: 2026-05-30
@@ -29,13 +30,13 @@ The US relies on a sectoral approach with no single comprehensive AI law.
 
 **Executive Order 14110** (October 2023) directed federal agencies to manage AI risks and directed NIST to develop AI safety standards. **NIST AI RMF** provides the primary voluntary framework. Sector regulators apply existing authority: FDA oversees AI in medical devices, SEC monitors AI in financial markets, FTC enforces against deceptive AI practices, and EEOC addresses AI in employment decisions.
 
-**State legislation** is accelerating. Colorado enacted the first comprehensive state AI law. California, Illinois, Texas, and others have proposed or enacted targeted AI legislation covering areas like deepfakes, employment decisions, and consumer protection.
+**State legislation** is accelerating. Colorado enacted the first comprehensive state AI law. California, Illinois, Texas, and others have proposed or enacted targeted AI legislation covering areas like [deepfakes](/glossary/deepfake/), employment decisions, and consumer protection.
 
 ## China
 
 China has moved quickly with binding, technology-specific regulations.
 
-**Algorithmic Recommendation Regulation** (2022) governs recommendation algorithms. **Deep Synthesis Regulation** (2023) covers deepfakes and synthetic content. **Generative AI Regulation** (2023) governs generative AI services offered to the public. **AI Safety Governance Framework** provides broader guidance. China's approach is notable for its speed and specificity, regulating individual AI technologies as they emerge.
+**Algorithmic Recommendation Regulation** (2022) governs recommendation algorithms. **Deep Synthesis Regulation** (2023) covers [deepfakes](/glossary/deepfake/) and synthetic content. **Generative AI Regulation** (2023) governs generative AI services offered to the public. **AI Safety Governance Framework** provides broader guidance. China's approach is notable for its speed and specificity, regulating individual AI technologies as they emerge.
 
 ## United Kingdom
 

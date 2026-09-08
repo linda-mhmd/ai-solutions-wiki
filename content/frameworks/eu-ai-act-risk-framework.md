@@ -10,6 +10,7 @@ related:
   - glossary/conformity-assessment
   - glossary/ce-marking-ai
   - glossary/automated-decision-making
+  - glossary/deepfake
   - frameworks/gdpr-ai-framework
   - frameworks/ai-regulatory-landscape
   - comparisons/gdpr-vs-eu-ai-act
@@ -63,9 +64,9 @@ Providers of high-risk AI systems must comply with Articles 8 through 15 through
 
 ## Risk Tier 3: Limited Risk
 
-Limited-risk AI systems face transparency obligations only. These include AI systems that interact with natural persons (chatbots must disclose they are AI), systems that generate synthetic content (deepfakes, AI-generated images or text must be labeled), and emotion recognition or biometric categorization systems that are not prohibited.
+Limited-risk AI systems face transparency obligations only. These include AI systems that interact with natural persons (chatbots must disclose they are AI), systems that generate synthetic content ([deepfakes](/glossary/deepfake/), AI-generated images or text must be labeled), and emotion recognition or biometric categorization systems that are not prohibited.
 
-Transparency requirements under Article 50 took effect on 2 August 2025. Deployers must ensure users are informed they are interacting with AI, and AI-generated content must be machine-readable as such.
+Transparency requirements under Article 50 took effect on 2 August 2026. Deployers must ensure users are informed they are interacting with AI, and AI-generated content must be machine-readable as such.
 
 ## Risk Tier 4: Minimal Risk
 
@@ -81,7 +82,7 @@ Non-compliance penalties are tiered. Prohibited practices carry fines up to 35 m
 
 ## Enforcement Timeline
 
-February 2025: Prohibitions on unacceptable risk systems in effect. August 2025: Transparency obligations and GPAI rules in effect. February 2026: Commission publishes guidelines on high-risk classification with practical examples. August 2026: Full requirements for Annex III high-risk systems enforceable. August 2027: Requirements for high-risk AI in regulated products enforceable.
+February 2025: Prohibitions on unacceptable risk systems in effect. August 2025: GPAI rules in effect. February 2026: Commission publishes guidelines on high-risk classification with practical examples. August 2026: Article 50 transparency obligations and full requirements for Annex III high-risk systems enforceable. August 2027: Requirements for high-risk AI in regulated products enforceable.
 
 ## Sources
 

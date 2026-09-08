@@ -1,0 +1,100 @@
+---
+title: "Synthetic Media and the EU AI Act's Transparency Rules"
+description: "Article 50 of the EU AI Act splits synthetic image and video transparency into two separate duties on two separate parties — the provider's machine-readable marking duty and the deployer's deepfake-disclosure duty — and this guide works through both in depth."
+date: 2026-09-04
+categories: [Guides]
+tags: [eu-ai-act, article-50, deepfake, synthetic-media, transparency, c2pa, watermarking, compliance, provider-deployer, image-generation, video-generation]
+related:
+  - guides/ai-transparency-obligations
+  - guides/eu-ai-act-compliance-checklist
+  - guides/governance-thresholds-as-you-scale
+  - glossary/deepfake
+  - glossary/ai-watermarking
+  - glossary/conformity-assessment
+  - frameworks/eu-ai-act-risk-framework
+last_verified: 2026-09-04
+last_updated: 2026-09-04
+lastmod: 2026-09-04
+---
+
+[AI Transparency Obligations](/guides/ai-transparency-obligations/) surveys transparency duties across the EU AI Act, GDPR, and adjacent regulation in one pass — chatbot disclosure, high-risk system transparency, GPAI training-data summaries. This guide does one thing that survey only touches in a paragraph: it works through Article 50 of Regulation (EU) 2024/1689 as it applies to generated and manipulated image and video content, in enough depth to actually implement it. The single most consequential thing a shallow reading of Article 50 gets wrong is treating it as one obligation. It is two, on two different parties, and conflating them is the mistake this guide exists to prevent.
+
+## What Article 50 actually requires
+
+Article 50 sits in Chapter IV of the Act, titled "Transparency Obligations for Providers and Deployers of Certain AI Systems." For synthetic image and video content specifically, two paragraphs do the work [1][2]:
+
+**Article 50(2) — the provider's marking duty.** "Providers of AI systems, including general-purpose AI systems, generating synthetic audio, image, video or text content, shall ensure that the outputs of the AI system are marked in a machine-readable format and detectable as artificially generated or manipulated." The technical solution must be "effective, interoperable, robust and reliable as far as this is technically feasible," weighed against the content type, implementation cost, and state of the art. Two exemptions matter in practice: the duty does not apply where a system "performs an assistive function for standard editing" or "does not substantially alter the input data provided by the deployer or the semantics thereof" — so a background-removal tool or color-correction filter is not caught, but a system that generates a photorealistic scene from a text prompt is.
+
+**Article 50(4) — the deployer's deepfake-disclosure duty.** "Deployers of an AI system that generates or manipulates image, audio or video content constituting a deep fake, shall disclose that the content has been artificially generated or manipulated." A separate clause in the same paragraph covers AI-generated or manipulated *text* published to inform the public on matters of public interest — out of scope here, since this guide is about image and video, but worth naming so the text duty is not mistaken for the deepfake duty.
+
+Both provisions took effect on **2 August 2026**, per the Act's phased-application schedule in Article 113 and confirmed by the Commission's own guidance [1][3][4]. One narrow transitional point: the Commission's final Article 50 Guidelines, adopted 20 July 2026, confirm a limited grace period running to **2 December 2026** for the Article 50(2) marking obligation specifically, and only for generative systems already placed on the market before 2 August 2026 — every other Article 50 duty, including the deployer's deepfake-disclosure duty, applies from 2 August 2026 with no such runway [4][5]. Penalties for breach reach €15 million or 3% of worldwide annual turnover, whichever is higher, with a lower-of-the-two cap for SMEs and startups under Article 99(6) rather than the higher-of-the-two figure that applies to larger undertakings [6][7].
+
+| | Article 50(2) — provider | Article 50(4) — deployer |
+|---|---|---|
+| Who it binds | The party that built the generative system and placed it on the market | Whoever uses that system, under their own authority, in a professional context |
+| What it requires | Machine-readable marking on every synthetic output | Disclosure that specific deepfake content is artificially generated or manipulated |
+| Triggered by | Building/operating the generation capability itself | Producing a deepfake with it and putting that output in front of people |
+| Excludes | Assistive editing, non-substantial alteration | Personal, non-professional use (Article 3(4)) |
+
+## Two duties, one output: why the distinction matters
+
+The reason existing wiki coverage under-serves this is that it is genuinely easy to read Article 50 as one transparency rule for "AI-generated content" and stop there. It is not. Article 3 of the Act defines "provider" and "deployer" as different legal roles, and Article 50 attaches a different obligation to each [8]. A single piece of synthetic video can trigger both duties at once, on two different companies, neither of which discharges the other's obligation.
+
+Walk it through concretely. A video-generation vendor — call it the platform — builds a text-to-video model and sells API access. The platform is the **provider**: it must ensure every video its model outputs carries a machine-readable mark identifying it as synthetic, under Article 50(2). This is an engineering obligation baked into the product, and it applies regardless of what any individual customer does with the output.
+
+A marketing agency uses that API to produce a video for a client — say, a product demo showing a person using the product in a realistic setting that never actually happened. The agency is the **deployer**. If that video constitutes a deepfake under the Act's definition (below), Article 50(4) requires the agency — not the platform — to disclose to the people who see it that the content is artificially generated or manipulated. The platform's machine-readable mark on the file does not satisfy this; that mark exists to make the content *detectable* as synthetic to systems and platforms downstream, not to *disclose* it to the human viewer at the point of exposure, which is what Article 50(4) and Article 50(5)'s timing rule ("at the latest at the time of first interaction or exposure") specifically require.
+
+This is the structure to internalize: the provider's duty is about the artifact — mark every output so it is machine-detectable, full stop, independent of use. The deployer's duty is about the act of exposure — when you put a specific deepfake in front of a specific audience, tell them. A large platform that both builds a generation feature and ships it directly to end users, with no intermediary business in between, ends up holding both roles simultaneously and owes both duties itself. A small business calling a third-party API is a deployer only, and can generally rely on the vendor to have handled the provider side — but that reliance does not excuse the business from its own, separate deployer duty when it publishes the output.
+
+## What counts as a "deepfake" under the Act
+
+Article 3(60) defines "deep fake" narrowly and specifically: "AI-generated or manipulated image, audio or video content that resembles existing persons, objects, places, entities or events and would falsely appear to a person to be authentic or truthful" [1][8]. Compare that to how the word is used colloquially, where "deepfake" covers almost any convincing synthetic media, including wholly invented images and even AI-written text. The statutory definition is narrower on both ends: it excludes text entirely (a fabricated AI-written quote is not a "deep fake" under this definition, though the separate public-interest-text clause in Article 50(4) may still apply), and it requires resemblance to something real rather than mere realism in the abstract.
+
+That "resembles existing" clause is doing real legal work, and the Commission's final Article 50 Guidelines (20 July 2026) clarify how far it reaches. The reference point does not have to be one specific, named, identifiable individual or location. It has to be *realistic* — something that exists, once existed, or could exist in the real world. A photorealistic depiction of an invented but entirely plausible person, in an entirely plausible setting, satisfies this; nothing about the definition requires the AI Office to identify who, specifically, is being impersonated. What falls outside is content that violates physical or biological reality: the Guidelines' own example is an AI image of a dragon, or a human flying unaided — content no reasonable viewer could mistake for documentary footage of something real, however polished the rendering [4][9]. The test, in other words, tracks plausibility rather than identity-matching, and "could a reasonable viewer mistake this for a real recording" is closer to the operative question than "does this depict a real, named person."
+
+## The "evidently artistic" exception, and what it does not cover
+
+Article 50(4) carves out a lighter-touch regime: "Where the content forms part of an evidently artistic, creative, satirical, fictional or analogous work or programme, the transparency obligations set out in this paragraph are limited to disclosure of the existence of such generated or manipulated content in an appropriate manner that does not hamper the display or enjoyment of the work" [1][2]. This is not a carve-out from disclosure — it is a carve-out from the *manner* of disclosure. A deepfake political-satire video still has to signal that it is manipulated; it just does not have to do so with an intrusive on-screen watermark that would ruin the joke. A caption, a description field, or a channel-level disclosure that the account produces satirical AI content can satisfy it, where a burned-in disclaimer covering the frame would not be required.
+
+"Evidently" is the load-bearing word, and it sets an objective, audience-facing standard, not a self-declared one. The Commission's Guidelines describe it as requiring the fictional or satirical character to be "clearly recognisable from the format, context and audience expectations" [4][9] — the same reasonably-well-informed-viewer standard that runs through the rest of Article 50, not a label the creator gets to attach unilaterally. A political deepfake posted without context, framing, or audience signal that it is satire does not become "evidently" satirical merely because the creator later claims that intent; if a reasonable viewer, seeing it in the feed where it actually appears, would take it as real, the lighter regime does not apply and full Article 50(4) disclosure is owed. This is exactly the failure mode the exception is designed not to reward: labeling deceptive content "art" after the fact.
+
+## Implementation in practice: machine-readable marking and C2PA
+
+Article 50(2) deliberately does not name a technical standard — it asks for outputs to be "effective, interoperable, robust and reliable," leaving implementation to the market and to the Article 50(7) codes of practice the AI Office is tasked with facilitating. The Commission and the AI Board confirmed the Code of Practice on Transparency of AI-Generated Content as an adequate route to demonstrating Article 50(2) compliance [10]. In practice, the standard multiple major vendors have converged on for machine-readable provenance is C2PA Content Credentials: an open specification, maintained by the Coalition for Content Provenance and Authenticity, whose steering committee includes Adobe, Amazon, Google, Meta, Microsoft, OpenAI, Sony, and others, that attaches cryptographically signed, tamper-evident metadata recording an asset's origin and edit history [11]. See [AI Watermarking](/glossary/ai-watermarking/) for how the underlying embedding techniques (statistical signatures in pixel or latent space) work technically, and [Deepfake](/glossary/deepfake/) for the generation techniques (GANs, diffusion models) that produce the content Article 50 marks and discloses. This guide's concern is the compliance duties layered on top of those mechanisms, not the mechanisms themselves.
+
+## Who this actually applies to
+
+**A small business using a third-party image generator for marketing photos.** This is a deployer, squarely. If the generated image is photorealistic — a plausible-looking person, product, or setting rather than an obviously stylized illustration — the Commission's Guidelines treat it as within the deepfake definition's "resembles existing... persons, objects, places" test, because the test is about plausibility, not whether that specific model or storefront is real [12]. If a reasonable viewer would take the image as an authentic photograph, Article 50(4) obliges the business to disclose that it is AI-generated, in a manner clear and distinguishable at first exposure — typically a visible label on the ad or listing, not buried in terms of service. The business is not the provider (it did not build the generation model) and has no marking-duty obligation of its own, but it cannot rely on the vendor's Article 50(2) machine-readable mark to satisfy its own, separate Article 50(4) disclosure to the humans who will see the ad.
+
+**Someone generating obviously fictional or game-asset content.** A stylized fantasy character, an impossible creature, or clearly cartoonish game art falls outside the deepfake definition on its face — it does not depict something that could exist, so Article 3(60)'s resemblance test is not met, and no Article 50(4) duty attaches regardless of context. Where the content is realistic but situated inside an evidently fictional frame — a film, a game cinematic with clear narrative framing, a labeled parody account — the lighter "evidently artistic" regime in Article 50(4) applies instead of full disclosure, and a credits-style acknowledgment or channel-level note is enough.
+
+**A large platform that builds generation into its own product and ships it directly to end users.** Here the platform is both provider and deployer with respect to its own first-party outputs: it owes the Article 50(2) marking duty as the entity that built the generative capability, and it owes the Article 50(4) deployer duty for any deepfake content it puts in front of its own users with no intermediary business in the chain. Where the platform's API is instead consumed by a third-party deployer (the marketing-agency case above), the platform retains its own Article 50(2) marking duty but the Article 50(4) disclosure duty shifts to whoever actually deploys the specific deepfake.
+
+## Practical compliance step
+
+For a team building anything that generates or displays AI visual content for an EU audience, the concrete first move is to answer one question for each surface in the product: are we the provider here, the deployer, or both — and does that surface's typical output plausibly resemble something real? That answer determines whether the obligation is an engineering task (build machine-readable marking into the generation pipeline, likely via C2PA Content Credentials or an equivalent) or a UX task (add a visible, timely disclosure at the point a human sees the content) or, for a first-party generation feature shipped straight to users, both at once. See [EU AI Act Compliance Checklist](/guides/eu-ai-act-compliance-checklist/) for how this slots into a broader compliance program, and [Governance Thresholds as You Scale](/guides/governance-thresholds-as-you-scale/) for how Article 50 exposure compares to the Act's other, scale-gated obligations.
+
+## Sources
+
+1. Regulation (EU) 2024/1689 (AI Act), Articles 3(60), 50, and 113, EUR-Lex: [https://eur-lex.europa.eu/eli/reg/2024/1689/oj](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
+2. artificialintelligenceact.eu, "Article 50: Transparency Obligations for Providers and Deployers of Certain AI Systems": [https://artificialintelligenceact.eu/article/50/](https://artificialintelligenceact.eu/article/50/)
+3. European Commission, "Quick Facts: Transparency rules for AI systems": [https://digital-strategy.ec.europa.eu/en/factpages/quick-facts-transparency-rules-ai-systems](https://digital-strategy.ec.europa.eu/en/factpages/quick-facts-transparency-rules-ai-systems)
+4. European Commission, "Commission publishes guidelines on transparency obligations for providers and deployers of certain AI systems" (20 July 2026): [https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-transparency-obligations-providers-and-deployers-certain-ai-systems](https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-transparency-obligations-providers-and-deployers-certain-ai-systems)
+5. European Commission, "Transparency obligations under Article 50 of the AI Act" (FAQ): [https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act](https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act)
+6. European Commission, "Safer and more transparent AI" (2 August 2026): [https://commission.europa.eu/news-and-media/news/safer-and-more-transparent-ai-2026-08-02_en](https://commission.europa.eu/news-and-media/news/safer-and-more-transparent-ai-2026-08-02_en)
+7. Regulation (EU) 2024/1689 (AI Act), Article 99(6) (proportionate penalty cap for SMEs and startups), EUR-Lex: [https://eur-lex.europa.eu/eli/reg/2024/1689/oj](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
+8. artificialintelligenceact.eu, "Article 3: Definitions": [https://artificialintelligenceact.eu/article/3/](https://artificialintelligenceact.eu/article/3/)
+9. SRD Rechtsanwälte, "Deepfake labelling under the AI Act: what the new EU guidance clarifies": [https://www.srd-rechtsanwaelte.de/en/blog/deepfake-labelling-under-the-ai-act-what-the-new-eu-guidance-clarifies](https://www.srd-rechtsanwaelte.de/en/blog/deepfake-labelling-under-the-ai-act-what-the-new-eu-guidance-clarifies)
+10. European Commission, "Code of Practice on Transparency of AI-generated Content": [https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content](https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content)
+11. Coalition for Content Provenance and Authenticity (C2PA), official site and steering committee membership: [https://c2pa.org/](https://c2pa.org/)
+12. Plesner, "AI Act: The Commission provides guidance on the transparency obligations under Article 50" (marketing-content example): [https://plesner.com/en/news/ai-act-commission-provides-guidance-transparency-obligations-under-article-50](https://plesner.com/en/news/ai-act-commission-provides-guidance-transparency-obligations-under-article-50)
+
+## Further reading
+
+- [AI Transparency Obligations](/guides/ai-transparency-obligations/): the wider transparency picture — chatbot disclosure, high-risk system transparency, and GPAI training-data summaries — that this focused piece deliberately leaves out.
+- [Deepfake](/glossary/deepfake/): the generation techniques (GANs, diffusion models) behind the content Article 50 regulates, and the statutory definition in full.
+- [AI Watermarking](/glossary/ai-watermarking/): how machine-readable provenance marking actually works at the technical level.
+- [EU AI Act Compliance Checklist](/guides/eu-ai-act-compliance-checklist/): the full risk-tier classification process and obligation checklist.
+- [Governance Thresholds as You Scale](/guides/governance-thresholds-as-you-scale/): how Article 50 exposure compares to the Act's scale-gated obligations.
+- [EU AI Act Risk Classification Framework](/frameworks/eu-ai-act-risk-framework/): where transparency obligations sit among the Act's four risk tiers.
+- [Conformity Assessment](/glossary/conformity-assessment/): the adjacent high-risk-system process that Article 50 transparency duties are separate from.
