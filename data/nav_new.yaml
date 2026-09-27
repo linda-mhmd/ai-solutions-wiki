@@ -1,0 +1,17 @@
+# What the "New" badges and menu dots are allowed to call new.
+#
+# A badge shows only while the thing behind it is genuinely recent: its newest
+# page (for a section or page link) or the date below (for an external link that
+# has no page here) must fall inside `window_days` of the build. Every deploy
+# rebuilds the site, so badges expire on their own; nobody has to remember to
+# take them down.
+#
+# The badge key a reader dismisses includes that date, so when a section gets a
+# new page later, the badge comes back even for readers who clicked the old one.
+
+window_days: 30
+
+# External links only. Internal links take their date from the pages themselves.
+added:
+  nvidia-arcade: 2026-06-25
+  aws-builder-sandbox: 2026-07-14

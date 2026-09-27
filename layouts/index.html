@@ -3,13 +3,11 @@
 {{/* Pre-compute section counts */}}
 {{ $cGuides    := len (where .Site.RegularPages "Section" "guides") }}
 {{ $cTools     := len (where .Site.RegularPages "Section" "tools") }}
-{{ $cPatterns  := len (where .Site.RegularPages "Section" "patterns") }}
 {{ $cCompare   := len (where .Site.RegularPages "Section" "comparisons") }}
-{{ $cFramework := len (where .Site.RegularPages "Section" "frameworks") }}
-{{ $cSolutions := len (where .Site.RegularPages "Section" "solutions") }}
-{{ $cCaseP     := len (where .Site.RegularPages "Section" "case-patterns") }}
 {{ $cGlossary  := len (where .Site.RegularPages "Section" "glossary") }}
 {{ $cAll       := len .Site.RegularPages }}
+{{ $picks      := hugo.Data.homepage_picks }}
+{{ $corr       := hugo.Data.corrections }}
 
 <!-- HERO: cinematic full-bleed crossfade -->
 <section class="idx-hero">
@@ -32,78 +30,114 @@
   </div>
 </section>
 
-<!-- TASK ENTRY POINTS: how people actually arrive (task, not taxonomy) -->
+<!-- FRONT DOOR: under the hero, the two things a returning reader wants:
+     their own reading list (or entry points on a first visit), and what moved. -->
 <style>
-  .idx-tasks { padding: 56px 0 8px; }
-  .idx-tasks-h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text-primary); margin: 6px 0 8px; }
-  .idx-tasks-sub { color: var(--text-secondary); font-size: 1.02rem; line-height: 1.6; max-width: 60ch; margin: 0 0 28px; }
-  .idx-tasks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
-  .idx-task-card { border: 1px solid var(--border-strong); border-radius: 14px; background: var(--surface); padding: 18px 18px 20px; display: flex; flex-direction: column; }
-  .idx-task-tag { display: inline-flex; align-items: center; gap: 7px; font: 700 0.7rem/1 var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
-  .idx-task-tag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
-  .idx-task-links { display: flex; flex-direction: column; gap: 2px; }
-  .idx-task-links a { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 10px; margin: 0 -10px; border-radius: 8px; color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: background .12s, color .12s; }
-  .idx-task-links a:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); color: var(--accent); }
-  .idx-task-links a::after { content: "→"; color: var(--text-muted); font-size: 0.85rem; }
-  .idx-task-links a:hover::after { color: var(--accent); }
-  .idx-task-links .idx-task-more { color: var(--accent); font-weight: 600; font-size: 0.9rem; }
-  .idx-task-news { display: block; text-decoration: none; border: 1px solid var(--border); border-radius: 10px; padding: 14px; margin-bottom: 12px; background: var(--bg); transition: border-color .12s; flex: 1; }
-  .idx-task-news:hover { border-color: var(--accent); }
-  .idx-task-news strong { display: block; color: var(--text-primary); font-size: 0.98rem; line-height: 1.35; margin-bottom: 8px; }
-  .idx-task-news span { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .idx-door { padding: 40px 0 8px; }
+
+  .idx-door-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; align-items: start; }
+  @media (max-width: 940px) { .idx-door-cols { grid-template-columns: 1fr; gap: 34px; } }
+
+  .hd-block { margin-bottom: 26px; }
+  .hd-block:last-child { margin-bottom: 0; }
+  .hd-block-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+  .hd-block-title { font: 700 0.7rem/1 var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin: 0; }
+  .hd-block-head a { color: var(--accent); font-weight: 600; font-size: 0.84rem; text-decoration: none; white-space: nowrap; }
+  .hd-block-head a:hover { text-decoration: underline; }
+  .hd-block-note { color: var(--text-muted); font-size: 0.87rem; line-height: 1.5; margin: 0 0 8px; }
+
+  .hd-list { display: flex; flex-direction: column; }
+  .hd-row { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; align-items: baseline; padding: 9px 10px; margin: 0 -10px; border-radius: 8px; text-decoration: none; border-bottom: 1px solid var(--border); transition: background .12s; }
+  .hd-row:last-child { border-bottom: none; }
+  .hd-row:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); text-decoration: none; }
+  .hd-row-title { color: var(--text-primary); font-weight: 600; font-size: 0.96rem; line-height: 1.35; }
+  .hd-row:hover .hd-row-title { color: var(--accent); }
+  .hd-row-meta { font: 600 0.72rem/1 var(--font-mono); color: var(--text-muted); white-space: nowrap; text-transform: uppercase; letter-spacing: 0.05em; }
+  .hd-meta-accent { color: var(--accent); }
+  .hd-row-sec { grid-column: 1; color: var(--text-muted); font-size: 0.78rem; text-transform: capitalize; }
+  .hd-empty { color: var(--text-muted); font-size: 0.9rem; margin: 4px 0 0; }
+  .hd-priv { color: var(--text-muted); font-size: 0.82rem; line-height: 1.5; margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--border); }
 </style>
-<section class="idx-tasks">
+<section class="idx-door">
   <div class="bz-container">
-    <p class="bz-section-label">Start with what you need</p>
-    <h2 class="idx-tasks-h2">Find it by task, not by category</h2>
-    <p class="idx-tasks-sub">Most people arrive with a question, not a taxonomy. Jump straight in - every link goes into the full reference, and from there into the architecture, patterns, and guides behind it.</p>
-    <div class="idx-tasks-grid">
 
-      <div class="idx-task-card">
-        <span class="idx-task-tag">Trending now</span>
-        <div class="idx-task-links">
-          <a href="{{ "/glossary/model-context-protocol/" | relURL }}">Model Context Protocol (MCP)</a>
-          <a href="{{ "/glossary/ai-agents/" | relURL }}">AI agents</a>
-          <a href="{{ "/glossary/rag/" | relURL }}">RAG</a>
-          <a href="{{ "/glossary/agentic-loops/" | relURL }}">Agentic loops</a>
-          <a href="{{ "/glossary/context-engineering/" | relURL }}">Context engineering</a>
-          <a href="{{ "/glossary/vector-database/" | relURL }}">Vector databases</a>
+    <div class="idx-door-cols">
+
+      {{/* LEFT: personalised if this browser has history here, otherwise the
+           entry points a first-time reader needs. The fallback ships visible
+           and JS swaps it only when there is real data, so a first visit never
+           sees a row of empty boxes. */}}
+      <div>
+        <div id="home-personal" hidden>
+          <div class="hd-block" data-hd-block="hd-reading" hidden>
+            <div class="hd-block-head"><p class="hd-block-title">Carry on reading</p><a href="{{ "/my-library/" | relURL }}">Your library &rarr;</a></div>
+            <div class="hd-list" id="hd-reading"></div>
+          </div>
+          <div class="hd-block" data-hd-block="hd-stale" hidden>
+            <div class="hd-block-head"><p class="hd-block-title">Changed since you read it</p></div>
+            <p class="hd-block-note">These pages were updated after your last visit. In this field that usually means a price, a model name, or a date moved.</p>
+            <div class="hd-list" id="hd-stale"></div>
+          </div>
+          <div class="hd-block" data-hd-block="hd-saved" hidden>
+            <div class="hd-block-head"><p class="hd-block-title">Saved for later</p></div>
+            <div class="hd-list" id="hd-saved"></div>
+          </div>
+          <div class="hd-block" data-hd-block="hd-recent" hidden>
+            <div class="hd-block-head"><p class="hd-block-title">Recently read</p></div>
+            <div class="hd-list" id="hd-recent"></div>
+          </div>
+          <p class="hd-priv">This list is built in your browser from your own reading history. It is never sent anywhere, and clearing your browser data clears it.</p>
+        </div>
+
+        <div id="home-fallback">
+          <div class="hd-block">
+            <div class="hd-block-head"><p class="hd-block-title">Most looked up</p></div>
+            <div class="hd-list">
+              {{ range $picks.most_looked_up }}
+              <a class="hd-row" href="{{ .url | relURL }}"><span class="hd-row-title">{{ .label }}</span></a>
+              {{ end }}
+            </div>
+          </div>
+          <div class="hd-block">
+            <div class="hd-block-head"><p class="hd-block-title">Start here if you are comparing</p><a href="{{ "/comparisons/" | relURL }}">All &rarr;</a></div>
+            <div class="hd-list">
+              {{ range $picks.compare }}
+              <a class="hd-row" href="{{ .url | relURL }}"><span class="hd-row-title">{{ .label }}</span></a>
+              {{ end }}
+            </div>
+          </div>
+          <p class="hd-priv">Come back and this column becomes your own reading list - what you were part-way through, and which of those pages changed since. Built in your browser, never sent anywhere.</p>
         </div>
       </div>
 
-      <div class="idx-task-card">
-        <span class="idx-task-tag">Compare</span>
-        <div class="idx-task-links">
-          <a href="{{ "/comparisons/claude-vs-chatgpt/" | relURL }}">Claude vs ChatGPT</a>
-          <a href="{{ "/comparisons/langchain-vs-llamaindex/" | relURL }}">LangChain vs LlamaIndex</a>
-          <a href="{{ "/comparisons/small-vs-large-language-models/" | relURL }}">Small vs large models</a>
-          <a href="{{ "/comparisons/llm-landscape-2026/" | relURL }}">The 2026 LLM landscape</a>
-          <a href="{{ "/comparisons/" | relURL }}" class="idx-task-more">All comparisons</a>
+      {{/* RIGHT: what moved, for everyone. Two different questions kept apart:
+           what happened in AI, and what changed on this site. */}}
+      <div>
+        {{ $news := where .Site.RegularPages "Section" "news" }}
+        {{ if $news }}
+        <div class="hd-block">
+          <div class="hd-block-head"><p class="hd-block-title">New in AI</p><a href="{{ "/news/" | relURL }}">All news &rarr;</a></div>
+          <div class="hd-list">
+            {{ range first 5 ($news.ByDate.Reverse) }}
+            <a class="hd-row" href="{{ .RelPermalink }}">
+              <span class="hd-row-title">{{ .Title }}</span>
+              <span class="hd-row-meta">{{ .Date.Format "2 Jan" }}</span>
+            </a>
+            {{ end }}
+          </div>
         </div>
-      </div>
-
-      <div class="idx-task-card">
-        <span class="idx-task-tag">Explain it simply</span>
-        <div class="idx-task-links">
-          <a href="{{ "/glossary/rag/" | relURL }}">What is RAG?</a>
-          <a href="{{ "/glossary/ai-agents/" | relURL }}">What is an AI agent?</a>
-          <a href="{{ "/glossary/model-context-protocol/" | relURL }}">What is MCP?</a>
-          <a href="{{ "/glossary/inference/" | relURL }}">What is inference?</a>
-          <a href="{{ "/glossary/context-window/" | relURL }}">What is a context window?</a>
-          <a href="{{ "/glossary/tokenization/" | relURL }}">What is tokenization?</a>
-        </div>
-      </div>
-
-      <div class="idx-task-card">
-        <span class="idx-task-tag">This week in AI</span>
-        {{ with index ((where .Site.RegularPages "Section" "news").ByDate.Reverse) 0 }}
-        <a class="idx-task-news" href="{{ .RelPermalink }}">
-          <strong>{{ .Title }}</strong>
-          <span>Read the latest →</span>
-        </a>
         {{ end }}
-        <div class="idx-task-links">
-          <a href="{{ "/news/" | relURL }}" class="idx-task-more">All news and updates</a>
+        <div class="hd-block">
+          <div class="hd-block-head"><p class="hd-block-title">Changed on this site</p><a href="{{ "/browse/" | relURL }}">Browse all &rarr;</a></div>
+          <div class="hd-list">
+            {{ range first 8 (.Site.RegularPages.ByLastmod.Reverse) }}
+            <a class="hd-row" href="{{ .RelPermalink }}">
+              <span class="hd-row-title">{{ .Title }}</span>
+              <span class="hd-row-meta">{{ .Lastmod.Format "2 Jan" }}</span>
+              <span class="hd-row-sec">{{ .Section | humanize }}</span>
+            </a>
+            {{ end }}
+          </div>
         </div>
       </div>
 
@@ -111,28 +145,129 @@
   </div>
 </section>
 
-<!-- WHAT JUST HAPPENED (news), surfaced near the top so visitors see what is current -->
-{{ $news := where .Site.RegularPages "Section" "news" }}
-{{ if $news }}
-<section class="idx-news">
+<!-- WHAT THE CHECKING FOUND: the verification log, in prose.
+     A badge saying "verified" asserts the work. Showing what it found proves it.
+     This is the only thing on the page that no competitor can copy without
+     doing the work, so it goes first and it gets real sentences, not cards. -->
+<style>
+  .idx-corr { padding: 56px 0 8px; }
+  .idx-corr-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 4px; }
+  .idx-corr-h2 { font-size: clamp(1.55rem, 3.1vw, 2.1rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text-primary); margin: 6px 0 10px; }
+  .idx-corr-intro { color: var(--text-secondary); font-size: 1.02rem; line-height: 1.65; max-width: 68ch; margin: 0 0 30px; }
+  .idx-corr-list { display: flex; flex-direction: column; }
+  .idx-corr-item { display: grid; grid-template-columns: 108px 1fr; gap: 24px; padding: 22px 0; border-top: 1px solid var(--border); }
+  .idx-corr-item:last-child { border-bottom: 1px solid var(--border); }
+  @media (max-width: 680px) { .idx-corr-item { grid-template-columns: 1fr; gap: 8px; } }
+  .idx-corr-date { font: 700 0.7rem/1.5 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); padding-top: 3px; }
+  .idx-corr-headline { font-size: 1.12rem; font-weight: 700; line-height: 1.35; color: var(--text-primary); margin: 0 0 8px; letter-spacing: -0.01em; }
+  .idx-corr-body { color: var(--text-secondary); font-size: 1rem; line-height: 1.68; margin: 0 0 10px; max-width: 74ch; }
+  .idx-corr-src { color: var(--accent); font-weight: 600; font-size: 0.88rem; text-decoration: none; }
+  .idx-corr-src:hover { text-decoration: underline; }
+  .idx-corr-foot { margin-top: 26px; color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; }
+  .idx-corr-foot a { color: var(--accent); font-weight: 600; text-decoration: none; }
+  .idx-corr-foot a:hover { text-decoration: underline; }
+</style>
+{{ $verified := where .Site.RegularPages "Params.last_verified" "!=" nil }}
+{{ if $corr }}
+<section class="idx-corr">
   <div class="bz-container">
-    <div class="idx-news-head">
-      <p class="bz-section-label">What just happened</p>
-      <a href="{{ "/news/" | relURL }}" class="idx-news-all">All news and updates &rarr;</a>
+    <div class="idx-corr-head">
+      <div>
+        <p class="bz-section-label">The verification log</p>
+        <h2 class="idx-corr-h2">What the checking found this month</h2>
+      </div>
     </div>
-    <div class="idx-news-grid">
-      {{ range first 4 ($news.ByDate.Reverse) }}
-      {{ $fr := partial "freshness.html" . }}
-      <a href="{{ .RelPermalink }}" class="idx-news-card">
-        <span class="idx-news-date">{{ .Date.Format "2 Jan 2006" }}{{ if $fr.fresh }} <span class="sl-card-new{{ if $fr.upd }} sl-card-new--upd{{ end }}" data-new-ts="{{ $fr.ts }}">{{ $fr.label }}</span>{{ end }}</span>
-        <span class="idx-news-title">{{ .Title }}</span>
-        <span class="idx-news-desc">{{ .Description | truncate 120 }}</span>
-      </a>
+    <p class="idx-corr-intro">Four things below. Two are corrections to pages on this site. Two are things most of the internet still has wrong. All four were found by opening a page, reading the vendor's current documentation next to it, and noticing they no longer agreed.</p>
+    <div class="idx-corr-list">
+      {{ range first 4 $corr }}
+      <div class="idx-corr-item">
+        <div class="idx-corr-date">{{ dateFormat "2 Jan 2006" .date }}</div>
+        <div>
+          <h3 class="idx-corr-headline">{{ .headline }}</h3>
+          <p class="idx-corr-body">{{ .body }}</p>
+          <a class="idx-corr-src" href="{{ .page | relURL }}">Read the corrected page &rarr;</a>
+        </div>
+      </div>
       {{ end }}
     </div>
+    <p class="idx-corr-foot">{{ len $verified }} of the {{ $cAll }} pages here carry a <code>last_verified</code> date, and it is on the page itself, not in a changelog. If a claim matters to a decision you are making, check when it was last confirmed - and if it is stale, that is visible rather than hidden.</p>
   </div>
 </section>
 {{ end }}
+
+<!-- THE CURRENT FLAGSHIPS: actual content on arrival, not a link to content.
+     Every figure here is lifted from the LLM landscape page and must stay in
+     sync with it. The last column is the point: specs are a commodity, the
+     caveat next to them is the work. -->
+<style>
+  .idx-flag { padding: 56px 0 8px; }
+  .idx-flag-h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text-primary); margin: 6px 0 10px; }
+  .idx-flag-sub { color: var(--text-secondary); font-size: 1.02rem; line-height: 1.65; max-width: 70ch; margin: 0 0 24px; }
+  .idx-flag-scroll { overflow-x: auto; border: 1px solid var(--border-strong); border-radius: 14px; background: var(--surface); }
+  .idx-flag-table { width: 100%; border-collapse: collapse; font-size: 0.94rem; min-width: 780px; }
+  .idx-flag-table th { text-align: left; font: 700 0.68rem/1 var(--font-mono); letter-spacing: 0.09em; text-transform: uppercase; color: var(--text-muted); padding: 14px 16px; border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+  .idx-flag-table td { padding: 15px 16px; border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: top; line-height: 1.55; }
+  .idx-flag-table tr:last-child td { border-bottom: none; }
+  .idx-flag-table a { color: var(--text-primary); font-weight: 650; text-decoration: none; }
+  .idx-flag-table a:hover { color: var(--accent); text-decoration: underline; }
+  .idx-flag-num { font-family: var(--font-mono); font-size: 0.86rem; white-space: nowrap; }
+  .idx-flag-note { color: var(--text-primary); }
+  .idx-flag-foot { margin-top: 18px; color: var(--text-muted); font-size: 0.92rem; }
+  .idx-flag-foot a { color: var(--accent); font-weight: 600; text-decoration: none; }
+  .idx-flag-foot a:hover { text-decoration: underline; }
+</style>
+<section class="idx-flag">
+  <div class="bz-container">
+    <p class="bz-section-label">Where things stand</p>
+    <h2 class="idx-flag-h2">The current flagships, and what their spec sheets leave out</h2>
+    <p class="idx-flag-sub">Context windows and prices are easy to find anywhere. The last column is the part that takes reading the release notes - and the part that changes what you should actually do.</p>
+    <div class="idx-flag-scroll">
+      <table class="idx-flag-table">
+        <thead>
+          <tr><th>Model</th><th>Released</th><th>Context</th><th>$/MTok in&nbsp;/&nbsp;out</th><th>What the specs leave out</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="{{ "/tools/openai-api/" | relURL }}">GPT-6 Astra</a></td>
+            <td class="idx-flag-num">3 Sep 2026</td>
+            <td class="idx-flag-num">1,050,000</td>
+            <td class="idx-flag-num">$10 / $50</td>
+            <td class="idx-flag-note">The first model a lab has classified as crossing its own <a href="{{ "/news/openai-astra-critical-cyber-threshold/" | relURL }}">"Critical" cyber threshold</a>. Prompts over 272k tokens bill at 2x input, 1.5x output.</td>
+          </tr>
+          <tr>
+            <td><a href="{{ "/tools/claude-anthropic/" | relURL }}">Claude Fable 5.1</a></td>
+            <td class="idx-flag-num">1 Sep 2026</td>
+            <td class="idx-flag-num">1,000,000</td>
+            <td class="idx-flag-num">$10 / $50</td>
+            <td class="idx-flag-note">New tokenizer: roughly 30% more tokens for the same text, so 1M tokens is about 555,000 words, not 750,000. Since 22 September, <a href="{{ "/news/claude-opus-5-5/" | relURL }}">Opus 5.5</a> claims roughly Fable-level results at $4 / $20.</td>
+          </tr>
+          <tr>
+            <td><a href="{{ "/tools/meta-llama/" | relURL }}">Muse Spark 1.3</a></td>
+            <td class="idx-flag-num">2 Sep 2026</td>
+            <td class="idx-flag-num">1,000,000</td>
+            <td class="idx-flag-num">$1.25 / $4.25</td>
+            <td class="idx-flag-note">Meta's flagship, and not a Llama. Closed weights. A separate Contributor endpoint drops to $0.10 / $0.20 if you let Meta train on your prompts.</td>
+          </tr>
+          <tr>
+            <td><a href="{{ "/tools/amazon-nova/" | relURL }}">Nova 2 Lite</a></td>
+            <td class="idx-flag-num">2 Dec 2025</td>
+            <td class="idx-flag-num">1,000,000</td>
+            <td class="idx-flag-num">$0.30 / $2.50</td>
+            <td class="idx-flag-note">The only generally available model in the Nova 2 family. Pro and Omni are still preview. That price is US East with global cross-region routing; geo routing costs 10% more, and Frankfurt about 30% more.</td>
+          </tr>
+          <tr>
+            <td><a href="{{ "/tools/mistral-ai/" | relURL }}">Mistral Large 3</a></td>
+            <td class="idx-flag-num">2 Dec 2025</td>
+            <td class="idx-flag-num">256,000</td>
+            <td class="idx-flag-num">$0.50 / $1.50</td>
+            <td class="idx-flag-note">The cheapest frontier-class option here, and the only one whose weights you can download - Apache 2.0, including the flagship. Smallest context window of the five.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="idx-flag-foot">Prices are list rates and move often; every figure is dated on its source page. Full lineups for every vendor, including the open-weight and Chinese labs, in the <a href="{{ "/comparisons/llm-landscape-2026/" | relURL }}">2026 LLM landscape</a>.</p>
+  </div>
+</section>
 
 <!-- INTERACTIVE LEARNING: visual, explorable ways through the wiki (new feature) -->
 <style>
@@ -161,11 +296,12 @@
   (dict "u" "/interactive/timeline/"        "t" "Timeline"        "key" "iv-timeline" "img" "/img/interactive/timeline.jpeg"        "d" "The history of computing, from the abacus to agentic systems, every milestone sourced.")
   (dict "u" "/interactive/knowledge-graph/" "t" "Knowledge Graph" "key" "iv-kg"       "img" "/img/interactive/knowledge-graph.jpeg" "d" "AI concepts and how they connect: what to learn first and what builds on it.")
   (dict "u" "/interactive/list/"            "t" "List"            "key" "iv-list"     "img" "/img/interactive/list.jpeg"            "d" "A flat, searchable list of every concept and article, grouped by domain.") }}
+{{ $ivNew := false }}{{ range $ivs }}{{ if (partial "new-state.html" (dict "key" .key "page" (strings.TrimSuffix "/" .u))).new }}{{ $ivNew = true }}{{ end }}{{ end }}
 <section class="idx-iv">
   <div class="bz-container">
     <div class="idx-iv-head">
       <div>
-        <span class="idx-iv-eyebrow"><span class="idx-iv-tag">New</span> Interactive</span>
+        <span class="idx-iv-eyebrow">{{ if $ivNew }}<span class="idx-iv-tag">New</span> {{ end }}Interactive</span>
         <h2 class="idx-iv-h2">Explore the wiki, visually</h2>
         <p class="idx-iv-sub">A new way to learn: every concept, tool, and milestone as a connected map you can pan, filter, and follow. Pick a view and start exploring.</p>
       </div>
@@ -173,8 +309,9 @@
     </div>
     <div class="idx-iv-grid">
       {{ range $ivs }}
-      <a class="idx-iv-card" href="{{ .u | relURL }}" data-newkey="{{ .key }}">
-        <span class="idx-iv-new">New</span>
+      {{ $ns := partial "new-state.html" (dict "key" .key "page" (strings.TrimSuffix "/" .u)) }}
+      <a class="idx-iv-card" href="{{ .u | relURL }}"{{ if $ns.new }} data-newkey="{{ $ns.key }}"{{ end }}>
+        {{ if $ns.new }}<span class="idx-iv-new">New</span>{{ end }}
         <img class="idx-iv-shot" src="{{ .img | relURL }}" alt="Preview of the {{ .t }} interactive view" loading="lazy" width="1280" height="800">
         <div class="idx-iv-body">
           <div class="idx-iv-t">{{ .t }}</div>
@@ -186,669 +323,16 @@
   </div>
 </section>
 
-<!-- BROWSE: wiki-sections accordion navigator (same as on section pages) -->
+<!-- BROWSE: the single canonical navigator. Same accordion as on section pages,
+     so there is one place to learn the site's shape rather than five. -->
 <section class="idx-browse">
   <div class="bz-container idx-browse-inner">
     <div class="idx-browse-intro">
       <p class="bz-section-label">Browse</p>
       <h2 class="idx-browse-h2">Jump to any section</h2>
-      <p class="idx-browse-sub">Every part of the wiki, grouped. Open a group to see its sections, the same navigator you get on every page.</p>
+      <p class="idx-browse-sub">All {{ $cAll }} pages, grouped: {{ $cGuides }} guides, {{ $cTools }} tool pages, {{ $cCompare }} comparisons, {{ $cGlossary }} glossary entries, and the rest. Open a group to see its sections - the same navigator you get on every page. For how the pieces fit together, see <a href="{{ "/layers/" | relURL }}">the five layers</a>.</p>
     </div>
     {{ partial "wiki-sections.html" . }}
-  </div>
-</section>
-
-<!-- AI SYSTEM STACK DIAGRAM -->
-<section class="idx-stack">
-  <div class="bz-container">
-    <div class="idx-stack-intro">
-      <div>
-        <p class="bz-section-label">The AI Stack</p>
-        <h2 class="idx-stack-h2">Where every article fits.</h2>
-      </div>
-      <p class="idx-stack-sub">Every guide, pattern, and tool review maps to one of these five layers. The wiki covers all of them. Understanding the stack helps you know what to read next and why each layer depends on the one below it.</p>
-    </div>
-
-    <div class="idx-stack-diagram">
-
-      <!-- Layer 05: Applications -->
-      <div class="idx-stack-layer" data-layer="applications">
-        <div class="idx-stack-layer-meta">
-          <span class="idx-stack-layer-num">Layer 05</span>
-          <span class="idx-stack-layer-name">Applications</span>
-          <span class="idx-stack-layer-desc">What users interact with</span>
-        </div>
-        <div class="idx-stack-chips">
-          <div class="idx-stack-chips-head">
-            <span class="idx-stack-desc-right">What users interact with</span>
-            <span class="idx-stack-detail">Interfaces, workflows, and AI-powered products end users see directly. Industry verticals, chatbots, search, and classification pipelines.</span>
-          </div>
-          <div class="idx-stack-chips-row">
-            <a href="{{ "/solutions/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              Industry Solutions
-            </a>
-            <a href="{{ "/case-patterns/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-              Case Patterns
-            </a>
-            <a href="{{ "/search/?q=rag+systems" | relURL }}" rel="nofollow" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-              RAG Search
-            </a>
-            <a href="{{ "/patterns/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2M9 2v2M15 20v2M9 20v2M2 15h2M2 9h2M20 15h2M20 9h2"/></svg>
-              Agent Systems
-            </a>
-            <a href="{{ "/guides/building-ai-chatbots/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
-              Chatbots
-            </a>
-            <a href="{{ "/search/?q=dashboard" | relURL }}" rel="nofollow" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-              Dashboards
-            </a>
-            <a href="{{ "/glossary/supervised-learning/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-              Classification
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Layer 04: Orchestration -->
-      <div class="idx-stack-layer" data-layer="orchestration">
-        <div class="idx-stack-layer-meta">
-          <span class="idx-stack-layer-num">Layer 04</span>
-          <span class="idx-stack-layer-name">Orchestration</span>
-          <span class="idx-stack-layer-desc">How models are directed</span>
-        </div>
-        <div class="idx-stack-chips">
-          <div class="idx-stack-chips-head">
-            <span class="idx-stack-desc-right">How models are directed</span>
-            <span class="idx-stack-detail">Prompt patterns, agentic loops, tool calling, memory, and routing logic that control model behaviour at runtime.</span>
-          </div>
-          <div class="idx-stack-chips-row">
-            <a href="{{ "/patterns/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="16" y1="3" x2="16" y2="21"/><line x1="8" y1="3" x2="8" y2="21"/><line x1="20" y1="9" x2="4" y2="9"/><line x1="20" y1="15" x2="4" y2="15"/></svg>
-              Patterns
-            </a>
-            <a href="{{ "/guides/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-              Guides
-            </a>
-            <a href="{{ "/search/?q=prompt+engineering" | relURL }}" rel="nofollow" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-              Prompt Engineering
-            </a>
-            <a href="{{ "/search/?q=agents" | relURL }}" rel="nofollow" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
-              Agentic Loops
-            </a>
-            <a href="{{ "/glossary/function-calling/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-              Tool Calling
-            </a>
-            <a href="{{ "/glossary/memory-management/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-              Memory
-            </a>
-            <a href="{{ "/glossary/llm-routing/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
-              Routing
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Layer 03: Models -->
-      <div class="idx-stack-layer" data-layer="models">
-        <div class="idx-stack-layer-meta">
-          <span class="idx-stack-layer-num">Layer 03</span>
-          <span class="idx-stack-layer-name">Models</span>
-          <span class="idx-stack-layer-desc">The intelligence layer</span>
-        </div>
-        <div class="idx-stack-chips">
-          <div class="idx-stack-chips-head">
-            <span class="idx-stack-desc-right">The intelligence layer</span>
-            <span class="idx-stack-detail">Foundation models, fine-tuning strategies, embedding techniques, evaluation frameworks, and inference optimisation.</span>
-          </div>
-          <div class="idx-stack-chips-row">
-            <a href="{{ "/tools/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              Tool Reviews
-            </a>
-            <a href="{{ "/comparisons/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-              Comparisons
-            </a>
-            <a href="{{ "/glossary/foundation-models/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-              Foundation Models
-            </a>
-            <a href="{{ "/search/?q=embeddings" | relURL }}" rel="nofollow" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-              Embeddings
-            </a>
-            <a href="{{ "/glossary/fine-tuning/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
-              Fine-tuning
-            </a>
-            <a href="{{ "/glossary/rag-evaluation/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              Evaluation
-            </a>
-            <a href="{{ "/glossary/inference/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              Inference
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Layer 02: Data -->
-      <div class="idx-stack-layer" data-layer="data">
-        <div class="idx-stack-layer-meta">
-          <span class="idx-stack-layer-num">Layer 02</span>
-          <span class="idx-stack-layer-name">Data</span>
-          <span class="idx-stack-layer-desc">What models learn from</span>
-        </div>
-        <div class="idx-stack-chips">
-          <div class="idx-stack-chips-head">
-            <span class="idx-stack-desc-right">What models learn from</span>
-            <span class="idx-stack-detail">Ingestion pipelines, vector stores, feature engineering, preprocessing, and data lineage for AI systems.</span>
-          </div>
-          <div class="idx-stack-chips-row">
-            <a href="{{ "/guides/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-              Guides
-            </a>
-            <a href="{{ "/glossary/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-              Glossary
-            </a>
-            <a href="{{ "/glossary/data-lineage/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
-              Lineage
-            </a>
-            <a href="{{ "/glossary/stream-processing/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-              Pipelines
-            </a>
-            <a href="{{ "/glossary/vector-database/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-              Vector Stores
-            </a>
-            <a href="{{ "/guides/data-preparation-for-ai/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
-              Preprocessing
-            </a>
-            <a href="{{ "/glossary/feature-store/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-              Feature Stores
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Layer 01: Infrastructure -->
-      <div class="idx-stack-layer" data-layer="infrastructure">
-        <div class="idx-stack-layer-meta">
-          <span class="idx-stack-layer-num">Layer 01</span>
-          <span class="idx-stack-layer-name">Infrastructure</span>
-          <span class="idx-stack-layer-desc">Where everything runs</span>
-        </div>
-        <div class="idx-stack-chips">
-          <div class="idx-stack-chips-head">
-            <span class="idx-stack-desc-right">Where everything runs</span>
-            <span class="idx-stack-detail">Cloud providers, deployment frameworks, APIs, security controls, observability, and cost governance for AI workloads.</span>
-          </div>
-          <div class="idx-stack-chips-row">
-            <a href="{{ "/frameworks/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-              Frameworks
-            </a>
-            <a href="{{ "/tools/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-              Tools
-            </a>
-            <a href="{{ "/glossary/vpc/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-              Cloud / AWS
-            </a>
-            <a href="{{ "/glossary/security-pillar/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              Security
-            </a>
-            <a href="{{ "/glossary/prometheus/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-              Monitoring
-            </a>
-            <a href="{{ "/glossary/api/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-              APIs
-            </a>
-            <a href="{{ "/guides/ai-cost-accounting/" | relURL }}" class="idx-stack-chip idx-stack-chip--link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-              Cost Management
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <p class="idx-stack-note">Data flows up. Governance and compliance apply to every layer.</p>
-  </div>
-</section>
-
-<!-- SECTION DIVIDER 01 -->
-<div class="bz-section-divider">
-  <div class="bz-container">
-    <span class="bz-divider-num">01.</span>
-    <span class="bz-divider-name">Browse by section.</span>
-  </div>
-</div>
-
-<!-- SECTION CARDS -->
-<section class="idx-sections">
-  <div class="bz-container">
-    <div class="idx-section-grid">
-
-      <a href="{{ "/guides/" | relURL }}" class="idx-section-card">
-        <div class="idx-section-card-top">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
-          <span class="idx-section-card-count">{{ $cGuides }}</span>
-        </div>
-        <span class="idx-section-card-name">How-to Guides</span>
-        <span class="idx-section-card-desc">Step-by-step tutorials covering AI architecture, testing, MLOps, and production deployment.</span>
-      </a>
-
-      <a href="{{ "/tools/" | relURL }}" class="idx-section-card">
-        <div class="idx-section-card-top">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-          <span class="idx-section-card-count">{{ $cTools }}</span>
-        </div>
-        <span class="idx-section-card-name">Tool Reviews</span>
-        <span class="idx-section-card-desc">Deep dives into AWS AI services, LLM platforms, and developer frameworks.</span>
-      </a>
-
-      <a href="{{ "/patterns/" | relURL }}" class="idx-section-card">
-        <div class="idx-section-card-top">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-          <span class="idx-section-card-count">{{ $cPatterns }}</span>
-        </div>
-        <span class="idx-section-card-name">Patterns</span>
-        <span class="idx-section-card-desc">Reusable technical patterns for RAG, agents, pipelines, and production AI systems.</span>
-      </a>
-
-      <a href="{{ "/comparisons/" | relURL }}" class="idx-section-card">
-        <div class="idx-section-card-top">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-          <span class="idx-section-card-count">{{ $cCompare }}</span>
-        </div>
-        <span class="idx-section-card-name">Comparisons</span>
-        <span class="idx-section-card-desc">Side-by-side analysis to help you choose the right tools and approaches.</span>
-      </a>
-
-      <a href="{{ "/frameworks/" | relURL }}" class="idx-section-card">
-        <div class="idx-section-card-top">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-          <span class="idx-section-card-count">{{ $cFramework }}</span>
-        </div>
-        <span class="idx-section-card-name">Frameworks</span>
-        <span class="idx-section-card-desc">Governance, ethics, regulatory, and methodology frameworks for AI teams.</span>
-      </a>
-
-      <a href="{{ "/glossary/" | relURL }}" class="idx-section-card">
-        <div class="idx-section-card-top">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-          <span class="idx-section-card-count">{{ $cGlossary }}</span>
-        </div>
-        <span class="idx-section-card-name">Glossary</span>
-        <span class="idx-section-card-desc">Plain-English definitions for AI, ML, and cloud engineering terminology.</span>
-      </a>
-
-      <a href="{{ "/case-patterns/" | relURL }}" class="idx-section-card">
-        <div class="idx-section-card-top">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          <span class="idx-section-card-count">{{ $cCaseP }}</span>
-        </div>
-        <span class="idx-section-card-name">Case Patterns</span>
-        <span class="idx-section-card-desc">Real-world AI implementation patterns drawn from production use cases.</span>
-      </a>
-
-      <a href="{{ "/solutions/" | relURL }}" class="idx-section-card">
-        <div class="idx-section-card-top">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-          <span class="idx-section-card-count">{{ $cSolutions }}</span>
-        </div>
-        <span class="idx-section-card-name">Industry Solutions</span>
-        <span class="idx-section-card-desc">AI applications for media, finance, insurance, geospatial, and more.</span>
-      </a>
-
-      <a href="{{ "/layers/" | relURL }}" class="idx-section-card">
-        <div class="idx-section-card-top">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-          <span class="idx-section-card-count"></span>
-        </div>
-        <span class="idx-section-card-name">Layers</span>
-        <span class="idx-section-card-desc">The foundational layers of AI systems, from data and models to orchestration.</span>
-      </a>
-
-      <a href="{{ "/architecture/" | relURL }}" class="idx-section-card">
-        <div class="idx-section-card-top">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          <span class="idx-section-card-count"></span>
-        </div>
-        <span class="idx-section-card-name">Architecture</span>
-        <span class="idx-section-card-desc">System design patterns and reference architectures for scalable AI infrastructure.</span>
-      </a>
-
-      <a href="{{ "/build/" | relURL }}" class="idx-section-card">
-        <div class="idx-section-card-top">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-          <span class="idx-section-card-count"></span>
-        </div>
-        <span class="idx-section-card-name">Build</span>
-        <span class="idx-section-card-desc">Hands-on project guides for building real AI systems from architecture to working code.</span>
-      </a>
-
-      <a href="{{ "/getting-started/" | relURL }}" class="idx-section-card">
-        <div class="idx-section-card-top">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 8 16 12 12 16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-          <span class="idx-section-card-count"></span>
-        </div>
-        <span class="idx-section-card-name">Getting Started</span>
-        <span class="idx-section-card-desc">Core concepts, setup guides, and a clear path from zero to working.</span>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- SECTION DIVIDER 02 -->
-<div class="bz-section-divider">
-  <div class="bz-container">
-    <span class="bz-divider-num">02.</span>
-    <span class="bz-divider-name">Start here.</span>
-  </div>
-</div>
-
-<!-- FEATURED EDITORIAL PICKS -->
-<section class="idx-featured">
-  <div class="bz-container">
-    <p class="bz-section-label">Staff picks</p>
-    <div class="idx-feature-grid">
-
-      <a href="{{ "/guides/building-rag-systems/" | relURL }}" class="idx-feature-card">
-        <img src="/img/dark-cherry/data-projection.png"
-             alt="A cylinder projecting rows of red data points, representing document retrieval and indexing in a RAG pipeline."
-             class="idx-feature-img" loading="lazy">
-        <div class="idx-feature-body">
-          <span class="idx-feature-section">Guide</span>
-          <span class="idx-feature-title">Building RAG Systems</span>
-          <span class="idx-feature-desc">End-to-end retrieval-augmented generation: document ingestion, embedding, vector search, and ranked responses in production.</span>
-          <span class="idx-feature-cta">Read the guide →</span>
-        </div>
-      </a>
-
-      <a href="{{ "/frameworks/eu-ai-act-risk-framework/" | relURL }}" class="idx-feature-card">
-        <img src="/img/dark-cherry/architect-system.png"
-             alt="A silhouette facing a red-lit industrial tower representing regulatory oversight and compliance architecture."
-             class="idx-feature-img" loading="lazy">
-        <div class="idx-feature-body">
-          <span class="idx-feature-section">Framework</span>
-          <span class="idx-feature-title">EU AI Act Risk Framework</span>
-          <span class="idx-feature-desc">Classify your AI system under the EU AI Act. Understand what risk tier applies and which obligations follow from it.</span>
-          <span class="idx-feature-cta">Read the framework →</span>
-        </div>
-      </a>
-
-      <a href="{{ "/guides/capacity-planning-ai/" | relURL }}" class="idx-feature-card">
-        <img src="/img/dark-cherry/gears-mechanism.png"
-             alt="Dark industrial gears under red light representing the mechanics of load planning and system capacity."
-             class="idx-feature-img" loading="lazy">
-        <div class="idx-feature-body">
-          <span class="idx-feature-section">Guide</span>
-          <span class="idx-feature-title">Capacity Planning for AI</span>
-          <span class="idx-feature-desc">GPU, memory, throughput, and cost estimation for LLM workloads. Before you commit to infrastructure.</span>
-          <span class="idx-feature-cta">Read the guide →</span>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- SECTION DIVIDER 03 -->
-<div class="bz-section-divider">
-  <div class="bz-container">
-    <span class="bz-divider-num">03.</span>
-    <span class="bz-divider-name">Find your path.</span>
-  </div>
-</div>
-
-<!-- ROLE-BASED ENTRY PATHS -->
-<section class="idx-roles">
-  <div class="bz-container">
-    <p class="bz-section-label">Who is this for</p>
-    <div class="idx-role-grid">
-
-      <a href="{{ "/for/product-managers/" | relURL }}" class="idx-role-card">
-        <span class="idx-role-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        </span>
-        <span class="idx-role-name">Product Manager</span>
-        <span class="idx-role-desc">Understand what engineers are building, how long it takes, and when the AI approach is wrong.</span>
-        <span class="idx-role-cta">Start reading →</span>
-      </a>
-
-      <a href="{{ "/for/founders/" | relURL }}" class="idx-role-card">
-        <span class="idx-role-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
-        </span>
-        <span class="idx-role-name">Founder</span>
-        <span class="idx-role-desc">Decide what to build, who to hire, and whether the approach your team proposes will work.</span>
-        <span class="idx-role-cta">Start reading →</span>
-      </a>
-
-      <a href="{{ "/for/vibe-coders/" | relURL }}" class="idx-role-card">
-        <span class="idx-role-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        </span>
-        <span class="idx-role-name">Vibe Coder</span>
-        <span class="idx-role-desc">You direct, AI writes. Know enough to debug, deploy, and keep the system running.</span>
-        <span class="idx-role-cta">Start reading →</span>
-      </a>
-
-      <a href="{{ "/for/engineers/" | relURL }}" class="idx-role-card">
-        <span class="idx-role-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
-        </span>
-        <span class="idx-role-name">Software Engineer</span>
-        <span class="idx-role-desc">You ship production software. Map what LLMs change: evals, non-determinism, token economics.</span>
-        <span class="idx-role-cta">Start reading →</span>
-      </a>
-
-      <a href="{{ "/for/consultants/" | relURL }}" class="idx-role-card">
-        <span class="idx-role-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>
-        </span>
-        <span class="idx-role-name">Consultant</span>
-        <span class="idx-role-desc">Speak AI fluently: governance vocabulary, risk frameworks, and architecture evaluation.</span>
-        <span class="idx-role-cta">Start reading →</span>
-      </a>
-
-      <a href="{{ "/for/finance-business/" | relURL }}" class="idx-role-card">
-        <span class="idx-role-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        </span>
-        <span class="idx-role-name">Finance and Business</span>
-        <span class="idx-role-desc">Evaluate proposals, build a business case, and understand the regulatory obligations that apply.</span>
-        <span class="idx-role-cta">Start reading →</span>
-      </a>
-
-      <a href="{{ "/for/students-switchers/" | relURL }}" class="idx-role-card">
-        <span class="idx-role-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-        </span>
-        <span class="idx-role-name">Student or Switcher</span>
-        <span class="idx-role-desc">Start from zero. Computers, internet, code, then AI in a sequence that actually makes sense.</span>
-        <span class="idx-role-cta">Start reading →</span>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- LEARNING PROGRESSION -->
-<section class="idx-pathway">
-  <div class="bz-container">
-    <div class="idx-pathway-intro">
-      <div>
-        <p class="bz-section-label">The learning path</p>
-        <h2 class="idx-pathway-h2">Five levels, one clear direction.</h2>
-      </div>
-      <p class="idx-pathway-sub">Every article is assigned a level. You always know what comes before it and what comes next. Level 0 assumes no technical background. Level 4 covers production AI systems at scale.</p>
-    </div>
-
-    <div class="bz-flow">
-      <div class="bz-flow-step">
-        <span class="bz-flow-step-tag">Level 0</span>
-        <span class="bz-flow-step-name">Computers and the Internet</span>
-        <span class="bz-flow-step-desc">How hardware, networks, and the web actually work. No prior knowledge assumed.</span>
-      </div>
-      <div class="bz-flow-arrow">→</div>
-      <div class="bz-flow-step">
-        <span class="bz-flow-step-tag">Level 1 and 2</span>
-        <span class="bz-flow-step-name">Code and Collaboration</span>
-        <span class="bz-flow-step-desc">Terminals, logic, Git, APIs, and version control.</span>
-      </div>
-      <div class="bz-flow-arrow">→</div>
-      <div class="bz-flow-step">
-        <span class="bz-flow-step-tag">Level 3</span>
-        <span class="bz-flow-step-name">Cloud and Infrastructure</span>
-        <span class="bz-flow-step-desc">Databases, cloud services, APIs, and scalable system design.</span>
-      </div>
-      <div class="bz-flow-arrow">→</div>
-      <div class="bz-flow-step">
-        <span class="bz-flow-step-tag">Level 4</span>
-        <span class="bz-flow-step-name">AI and Production Systems</span>
-        <span class="bz-flow-step-desc">LLMs, RAG, agents, MLOps, and shipping AI to production.</span>
-      </div>
-    </div>
-
-    <div class="idx-pathway-actions">
-      <a href="{{ "/basics/" | relURL }}" class="bz-btn-primary">Start at Level 0</a>
-      <a href="{{ "/learn/" | relURL }}" class="idx-pathway-link">
-        View all learning paths
-        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-
-<!-- SECTION DIVIDER 04 -->
-<div class="bz-section-divider">
-  <div class="bz-container">
-    <span class="bz-divider-num">04.</span>
-    <span class="bz-divider-name">Recently added.</span>
-  </div>
-</div>
-
-<!-- LATEST ARTICLES -->
-<section class="idx-latest">
-  <div class="bz-container">
-    <div class="idx-latest-inner">
-
-      <div class="idx-latest-main">
-        <p class="bz-section-label">From the wiki</p>
-        <div class="idx-article-list">
-          {{ range first 12 (.Site.RegularPages.ByLastmod.Reverse) }}
-          <a href="{{ .RelPermalink }}" class="idx-article-row">
-            <span class="idx-article-section">{{ .Section | humanize | title }}</span>
-            <span class="idx-article-title">{{ .Title }}</span>
-            <span class="idx-article-date">{{ .Date.Format "Jan 2006" }}</span>
-          </a>
-          {{ end }}
-        </div>
-      </div>
-
-      <div class="idx-latest-sidebar">
-        <p class="bz-section-label">Quick access</p>
-        <div class="idx-quick-cards">
-          <a href="{{ "/basics/" | relURL }}" class="idx-quick-card">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-            <div>
-              <span class="idx-quick-card-title">Start at Zero</span>
-              <span class="idx-quick-card-desc">No coding background needed</span>
-            </div>
-          </a>
-          <a href="{{ "/glossary/" | relURL }}" class="idx-quick-card">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-            <div>
-              <span class="idx-quick-card-title">Look up a term</span>
-              <span class="idx-quick-card-desc">{{ $cGlossary }} plain-English definitions</span>
-            </div>
-          </a>
-          <a href="{{ "/comparisons/" | relURL }}" class="idx-quick-card">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-            <div>
-              <span class="idx-quick-card-title">Compare tools</span>
-              <span class="idx-quick-card-desc">{{ $cCompare }} side-by-side breakdowns</span>
-            </div>
-          </a>
-          <a href="{{ "/for/" | relURL }}" class="idx-quick-card">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            <div>
-              <span class="idx-quick-card-title">Your learning path</span>
-              <span class="idx-quick-card-desc">Guides tailored to your role</span>
-            </div>
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- TOPIC CLOUD -->
-<section class="idx-topics">
-  <div class="bz-container">
-    <div class="idx-topics-header">
-      <p class="bz-section-label">Browse by topic</p>
-      <a href="{{ "/explore/" | relURL }}" class="idx-pathway-link">
-        Full library
-        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-      </a>
-    </div>
-    <div class="idx-topic-cloud">
-      <a href="{{ "/search/?q=rag" | relURL }}" rel="nofollow" class="idx-topic-tag idx-topic-tag--primary">RAG</a>
-      <a href="{{ "/search/?q=llm" | relURL }}" rel="nofollow" class="idx-topic-tag idx-topic-tag--primary">LLMs</a>
-      <a href="{{ "/search/?q=agents" | relURL }}" rel="nofollow" class="idx-topic-tag idx-topic-tag--primary">AI Agents</a>
-      <a href="{{ "/search/?q=mlops" | relURL }}" rel="nofollow" class="idx-topic-tag idx-topic-tag--primary">MLOps</a>
-      <a href="{{ "/search/?q=aws" | relURL }}" rel="nofollow" class="idx-topic-tag idx-topic-tag--primary">AWS</a>
-      <a href="{{ "/search/?q=vector+database" | relURL }}" rel="nofollow" class="idx-topic-tag">Vector Databases</a>
-      <a href="{{ "/search/?q=embeddings" | relURL }}" rel="nofollow" class="idx-topic-tag">Embeddings</a>
-      <a href="{{ "/search/?q=prompt+engineering" | relURL }}" rel="nofollow" class="idx-topic-tag">Prompt Engineering</a>
-      <a href="{{ "/search/?q=fine+tuning" | relURL }}" rel="nofollow" class="idx-topic-tag">Fine-tuning</a>
-      <a href="{{ "/search/?q=eu+ai+act" | relURL }}" rel="nofollow" class="idx-topic-tag">EU AI Act</a>
-      <a href="{{ "/search/?q=data+pipeline" | relURL }}" rel="nofollow" class="idx-topic-tag">Data Pipelines</a>
-      <a href="{{ "/search/?q=monitoring" | relURL }}" rel="nofollow" class="idx-topic-tag">Monitoring</a>
-      <a href="{{ "/search/?q=fastapi" | relURL }}" rel="nofollow" class="idx-topic-tag">FastAPI</a>
-      <a href="{{ "/search/?q=bedrock" | relURL }}" rel="nofollow" class="idx-topic-tag">AWS Bedrock</a>
-      <a href="{{ "/search/?q=claude" | relURL }}" rel="nofollow" class="idx-topic-tag">Claude</a>
-      <a href="{{ "/search/?q=testing" | relURL }}" rel="nofollow" class="idx-topic-tag">Testing</a>
-      <a href="{{ "/search/?q=security" | relURL }}" rel="nofollow" class="idx-topic-tag">Security</a>
-      <a href="{{ "/search/?q=iso+42001" | relURL }}" rel="nofollow" class="idx-topic-tag">ISO 42001</a>
-      <a href="{{ "/search/?q=langchain" | relURL }}" rel="nofollow" class="idx-topic-tag">LangChain</a>
-      <a href="{{ "/search/?q=kubernetes" | relURL }}" rel="nofollow" class="idx-topic-tag">Kubernetes</a>
-      <a href="{{ "/search/?q=transformer" | relURL }}" rel="nofollow" class="idx-topic-tag">Transformers</a>
-      <a href="{{ "/search/?q=inference" | relURL }}" rel="nofollow" class="idx-topic-tag">Inference</a>
-      <a href="{{ "/search/?q=cost" | relURL }}" rel="nofollow" class="idx-topic-tag">Cost Optimisation</a>
-      <a href="{{ "/search/?q=architecture" | relURL }}" rel="nofollow" class="idx-topic-tag">Architecture</a>
-    </div>
   </div>
 </section>
 

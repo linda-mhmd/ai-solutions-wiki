@@ -17,7 +17,9 @@ authors:
     website: "https://www.lindamohamed.com"
 url: "https://ai-solutions.wiki"
 repository-code: "https://github.com/linda-mhmd/ai-solutions-wiki"
-license: CC-BY-4.0
+license:
+  - CC-BY-NC-SA-4.0
+  - AGPL-3.0-or-later
 date-released: "2026-03-24"
 keywords:
   - artificial-intelligence

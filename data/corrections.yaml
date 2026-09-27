@@ -1,0 +1,70 @@
+# The verification log, in public.
+#
+# Every entry is something this wiki got wrong, or something the rest of the
+# internet still has wrong, found by checking a page against primary sources.
+# The homepage shows the most recent few.
+#
+# This is deliberately the first thing on the page. A badge saying "verified"
+# asserts the work; showing what the work found proves it. Keep the entries
+# specific enough that a reader can check them.
+#
+# `date` is when the correction landed. `page` must resolve to a real page.
+
+- date: 2026-09-25
+  page: /tools/deepseek/
+  headline: DeepSeek V4-Pro was never being folded into the new Flash model
+  body: >
+    Early reports of DeepSeek's September release said V4-Pro requests would be
+    routed to the new V4.1-Flash. We repeated that. DeepSeek's own changelog says
+    the opposite: V4-Pro stays, at unchanged prices. It was the old V4-Flash
+    names that got rerouted. The claim came from a secondary source, and the
+    primary one was a single click away.
+
+- date: 2026-09-25
+  page: /tools/azure-openai/
+  headline: GPT-6 Astra does have an EU Data Zone on Azure
+  body: >
+    Two pages here said GPT-6 Astra had no EU Data Zone deployment on Microsoft
+    Foundry, which would rule it out for many EU data-residency requirements.
+    Microsoft's 22 September GA post lists Astra, Sol and Luna in both the US and
+    EU Data Zones. The restriction was true at preview and stopped being true at
+    general availability.
+
+- date: 2026-09-09
+  page: /tools/meta-llama/
+  headline: Llama is no longer Meta's open-weight line either
+  body: >
+    Everyone knows Meta's frontier work went closed with Muse Spark. The part
+    that gets missed: Llama is not the open-weight line anymore either. That is
+    Muse Glimmer, 30B and Apache 2.0, since August 2026 - a more permissive
+    licence than Llama ever had. Meta shipped no new Llama model in 2026, and
+    retired its own hosted Llama API in July.
+
+- date: 2026-09-09
+  page: /tools/amazon-nova/
+  headline: Most of Amazon's Nova 2 family never actually shipped
+  body: >
+    Nova 2 was announced at re:Invent in December 2025 with four models. Nine
+    months later, Nova 2 Lite is the only one generally available. Pro and Omni
+    are still marked "(Preview)" on AWS's own Bedrock pricing page, with access
+    via a Nova Forge contract or an account-team request. Meanwhile Nova 1's
+    image and video models retire this month with no first-party replacement.
+
+- date: 2026-09-04
+  page: /frameworks/eu-ai-act-risk-framework/
+  headline: Two pages here disagreed on when the AI Act's transparency rules bite
+  body: >
+    One page said Article 50 took effect 2 August 2025, another said 2026. The
+    regulation's own phased schedule settles it: 2026. Wrong by a year, on the
+    obligation that governs labelling AI-generated content - which is the rule
+    most readers of this site actually have to comply with.
+
+- date: 2026-09-03
+  page: /tools/claude-anthropic/
+  headline: "\"1M tokens is about 750,000 words\" stopped being true"
+  body: >
+    Current-generation Claude models use a tokenizer that produces roughly 30%
+    more tokens for the same text. A million tokens is now closer to 555,000
+    words. Every context-window estimate built on the old ratio is optimistic by
+    a third - including the ones still published in plenty of places. Haiku 4.5
+    still uses the old tokenizer, so both numbers are live at once.

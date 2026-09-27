@@ -26,8 +26,9 @@
   <p class="iov-lead">{{ .Description }}</p>
   <div class="iov-grid">
     {{ range $views }}
-    <a class="iov-card" href="{{ .u | relURL }}" data-newkey="{{ .key }}">
-      <span class="iov-new">New</span>
+    {{ $ns := partial "new-state.html" (dict "key" .key "page" (strings.TrimSuffix "/" .u)) }}
+    <a class="iov-card" href="{{ .u | relURL }}"{{ if $ns.new }} data-newkey="{{ $ns.key }}"{{ end }}>
+      {{ if $ns.new }}<span class="iov-new">New</span>{{ end }}
       <img class="iov-shot" src="{{ .img | relURL }}" alt="Preview of the {{ .t }} view" loading="lazy" width="1280" height="720">
       <div class="iov-body">
         <div class="iov-card-t">{{ .t }}</div>

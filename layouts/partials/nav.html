@@ -1,3 +1,12 @@
+{{/* "New" badges are date-driven: see data/nav_new.yaml and partials/new-state.html */}}
+{{ $new_for_engineers := partial "new-state.html" (dict "key" "for-engineers" "page" "/for/engineers") }}
+{{ $new_playgrounds_hub := partial "new-state.html" (dict "key" "playgrounds-hub" "page" "/playgrounds") }}
+{{ $new_nvidia_arcade := partial "new-state.html" (dict "key" "nvidia-arcade" ) }}
+{{ $new_aws_builder_sandbox := partial "new-state.html" (dict "key" "aws-builder-sandbox" ) }}
+{{ $new_interactive := partial "new-state.html" (dict "key" "interactive" "section" "interactive") }}
+{{ $new_history := partial "new-state.html" (dict "key" "history" "section" "history") }}
+{{ $new_blog_notes := partial "new-state.html" (dict "key" "blog-notes" "section" "blog") }}
+{{ $new_news := partial "new-state.html" (dict "key" "news" "section" "news") }}
 <header class="site-header">
   <nav class="nav-container">
     <div class="nav-left">
@@ -12,7 +21,7 @@
       {{ $g_for := slice "for" }}
       {{ $g_learn := slice "learn" "levels" "foundations" "layers" "through" }}
       {{ $g_build := slice "build" "architecture" "software-engineering" }}
-      {{ $g_explore := slice "explore" "tools" "glossary" "comparisons" "frameworks" "guides" "solutions" "patterns" "case-patterns" "ideas" "news" }}
+      {{ $g_explore := slice "explore" "tools" "glossary" "comparisons" "frameworks" "guides" "solutions" "patterns" "case-patterns" "ideas" "news" "blog" }}
       {{ $g_basics := slice "basics" }}
       {{/* Persona pages build to root URLs (/vibe-coders/), so .Section is not "for".
            Detect them by the `path:` frontmatter that only the 6 personas carry. */}}
@@ -35,8 +44,8 @@
               <a href="{{ "/for/" | relURL }}" class="nav-mega-view-all">See all paths →</a>
             </div>
             <div class="nav-mega-grid" data-newgroup="foryou">
-              <a href="{{ "/for/engineers/" | relURL }}" class="nav-mega-card" role="menuitem" data-newkey="for-engineers">
-                <span class="nav-mega-card-title">Software Engineer<span class="nav-new-badge">New</span></span>
+              <a href="{{ "/for/engineers/" | relURL }}" class="nav-mega-card" role="menuitem" {{ if $new_for_engineers.new }}data-newkey="{{ $new_for_engineers.key }}"{{ end }}>
+                <span class="nav-mega-card-title">Software Engineer{{ if $new_for_engineers.new }}<span class="nav-new-badge">New</span>{{ end }}</span>
                 <span class="nav-mega-card-desc">You ship production systems. Map what LLMs actually change: evals, non-determinism, token economics.</span>
               </a>
               <a href="{{ "/for/product-managers/" | relURL }}" class="nav-mega-card" role="menuitem">
@@ -113,17 +122,17 @@
                 <a href="{{ "/build/" | relURL }}" role="menuitem">Build guides</a>
                 <a href="{{ "/architecture/" | relURL }}" role="menuitem">Architecture</a>
                 <a href="{{ "/guides/working-with-multiple-environments/" | relURL }}" role="menuitem">Cheap environments</a>
-                <a href="{{ "/playgrounds/" | relURL }}" role="menuitem" data-newkey="playgrounds-hub">Playgrounds<span class="nav-new-badge">New</span></a>
+                <a href="{{ "/playgrounds/" | relURL }}" role="menuitem" {{ if $new_playgrounds_hub.new }}data-newkey="{{ $new_playgrounds_hub.key }}"{{ end }}>Playgrounds{{ if $new_playgrounds_hub.new }}<span class="nav-new-badge">New</span>{{ end }}</a>
               </div>
               <div class="nav-mega-col">
                 <span class="nav-mega-col-label">Free playgrounds and tiers</span>
-                <a href="https://build.nvidia.com/" target="_blank" rel="noopener" role="menuitem" data-newkey="nvidia-arcade">NVIDIA Arcade<span class="nav-new-badge">New</span><svg class="nav-ext-icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="opens in new tab"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg></a>
+                <a href="https://build.nvidia.com/" target="_blank" rel="noopener" role="menuitem" {{ if $new_nvidia_arcade.new }}data-newkey="{{ $new_nvidia_arcade.key }}"{{ end }}>NVIDIA Arcade{{ if $new_nvidia_arcade.new }}<span class="nav-new-badge">New</span>{{ end }}<svg class="nav-ext-icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="opens in new tab"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg></a>
                 <a href="https://colab.research.google.com/" target="_blank" rel="noopener" role="menuitem">Google Colab<svg class="nav-ext-icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="opens in new tab"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg></a>
                 <a href="https://www.kaggle.com/code" target="_blank" rel="noopener" role="menuitem">Kaggle Notebooks<svg class="nav-ext-icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="opens in new tab"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg></a>
                 <a href="https://huggingface.co/spaces" target="_blank" rel="noopener" role="menuitem">Hugging Face Spaces<svg class="nav-ext-icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="opens in new tab"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg></a>
                 <a href="https://github.com/codespaces" target="_blank" rel="noopener" role="menuitem">GitHub Codespaces<svg class="nav-ext-icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="opens in new tab"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg></a>
                 <a href="https://partyrock.aws/" target="_blank" rel="noopener" role="menuitem">AWS PartyRock<svg class="nav-ext-icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="opens in new tab"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg></a>
-                <a href="https://builder.aws.com/" target="_blank" rel="noopener" role="menuitem" data-newkey="aws-builder-sandbox">AWS Builder Sandbox<span class="nav-new-badge">New</span><svg class="nav-ext-icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="opens in new tab"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg></a>
+                <a href="https://builder.aws.com/" target="_blank" rel="noopener" role="menuitem" {{ if $new_aws_builder_sandbox.new }}data-newkey="{{ $new_aws_builder_sandbox.key }}"{{ end }}>AWS Builder Sandbox{{ if $new_aws_builder_sandbox.new }}<span class="nav-new-badge">New</span>{{ end }}<svg class="nav-ext-icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="opens in new tab"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg></a>
               </div>
             </div>
           </div>
@@ -143,7 +152,7 @@
             <div class="nav-mega-3col" data-newgroup="explore">
               <div class="nav-mega-col">
                 <span class="nav-mega-col-label">Interactive</span>
-                <a href="{{ "/interactive/" | relURL }}" role="menuitem" data-newkey="interactive">Overview<span class="nav-new-badge">New</span></a>
+                <a href="{{ "/interactive/" | relURL }}" role="menuitem" {{ if $new_interactive.new }}data-newkey="{{ $new_interactive.key }}"{{ end }}>Overview{{ if $new_interactive.new }}<span class="nav-new-badge">New</span>{{ end }}</a>
                 <a href="{{ "/interactive/galaxy/" | relURL }}" role="menuitem">Galaxy</a>
                 <a href="{{ "/interactive/timeline/" | relURL }}" role="menuitem">Timeline</a>
                 <a href="{{ "/interactive/knowledge-graph/" | relURL }}" role="menuitem">Knowledge Graph</a>
@@ -155,7 +164,7 @@
                 <a href="{{ "/glossary/" | relURL }}" role="menuitem">Glossary</a>
                 <a href="{{ "/comparisons/" | relURL }}" role="menuitem">Comparisons</a>
                 <a href="{{ "/frameworks/" | relURL }}" role="menuitem">Frameworks</a>
-                <a href="{{ "/history/" | relURL }}" role="menuitem" data-newkey="history">History<span class="nav-new-badge">New</span></a>
+                <a href="{{ "/history/" | relURL }}" role="menuitem" {{ if $new_history.new }}data-newkey="{{ $new_history.key }}"{{ end }}>History{{ if $new_history.new }}<span class="nav-new-badge">New</span>{{ end }}</a>
               </div>
               <div class="nav-mega-col">
                 <span class="nav-mega-col-label">In Depth</span>
@@ -163,6 +172,8 @@
                 <a href="{{ "/solutions/" | relURL }}" role="menuitem">Solutions</a>
                 <a href="{{ "/patterns/" | relURL }}" role="menuitem">Patterns</a>
                 <a href="{{ "/case-patterns/" | relURL }}" role="menuitem">Case Patterns</a>
+                <a href="{{ "/news/" | relURL }}" role="menuitem" {{ if $new_news.new }}data-newkey="{{ $new_news.key }}"{{ end }}>News{{ if $new_news.new }}<span class="nav-new-badge">New</span>{{ end }}</a>
+                <a href="{{ "/blog/" | relURL }}" role="menuitem" {{ if $new_blog_notes.new }}data-newkey="{{ $new_blog_notes.key }}"{{ end }}>Notes{{ if $new_blog_notes.new }}<span class="nav-new-badge">New</span>{{ end }}</a>
               </div>
             </div>
           </div>
@@ -215,7 +226,7 @@
         <p class="mobile-nav-group-label">For You</p>
         <ul class="mobile-nav-links">
           <li><a href="{{ "/for/" | relURL }}" class="mobile-nav-hub">All paths overview</a></li>
-          <li><a href="{{ "/for/engineers/" | relURL }}" data-newkey="for-engineers">Software Engineer<span class="nav-new-badge">New</span></a></li>
+          <li><a href="{{ "/for/engineers/" | relURL }}" {{ if $new_for_engineers.new }}data-newkey="{{ $new_for_engineers.key }}"{{ end }}>Software Engineer{{ if $new_for_engineers.new }}<span class="nav-new-badge">New</span>{{ end }}</a></li>
           <li><a href="{{ "/for/product-managers/" | relURL }}">Product Manager</a></li>
           <li><a href="{{ "/for/finance-business/" | relURL }}">Finance and Business</a></li>
           <li><a href="{{ "/for/vibe-coders/" | relURL }}">Vibe Coder</a></li>
@@ -245,19 +256,19 @@
           <li><a href="{{ "/build/" | relURL }}" class="mobile-nav-hub">All build guides</a></li>
           <li><a href="{{ "/architecture/" | relURL }}">Architecture</a></li>
           <li><a href="{{ "/guides/working-with-multiple-environments/" | relURL }}">Cheap environments</a></li>
-          <li><a href="{{ "/playgrounds/" | relURL }}" data-newkey="playgrounds-hub">Playgrounds<span class="nav-new-badge">New</span></a></li>
-          <li><a href="https://build.nvidia.com/" target="_blank" rel="noopener" data-newkey="nvidia-arcade">NVIDIA Arcade<span class="nav-new-badge">New</span></a></li>
+          <li><a href="{{ "/playgrounds/" | relURL }}" {{ if $new_playgrounds_hub.new }}data-newkey="{{ $new_playgrounds_hub.key }}"{{ end }}>Playgrounds{{ if $new_playgrounds_hub.new }}<span class="nav-new-badge">New</span>{{ end }}</a></li>
+          <li><a href="https://build.nvidia.com/" target="_blank" rel="noopener" {{ if $new_nvidia_arcade.new }}data-newkey="{{ $new_nvidia_arcade.key }}"{{ end }}>NVIDIA Arcade{{ if $new_nvidia_arcade.new }}<span class="nav-new-badge">New</span>{{ end }}</a></li>
           <li><a href="https://colab.research.google.com/" target="_blank" rel="noopener">Google Colab</a></li>
           <li><a href="https://huggingface.co/spaces" target="_blank" rel="noopener">Hugging Face Spaces</a></li>
           <li><a href="https://partyrock.aws/" target="_blank" rel="noopener">AWS PartyRock</a></li>
-          <li><a href="https://builder.aws.com/" target="_blank" rel="noopener" data-newkey="aws-builder-sandbox">AWS Builder Sandbox<span class="nav-new-badge">New</span></a></li>
+          <li><a href="https://builder.aws.com/" target="_blank" rel="noopener" {{ if $new_aws_builder_sandbox.new }}data-newkey="{{ $new_aws_builder_sandbox.key }}"{{ end }}>AWS Builder Sandbox{{ if $new_aws_builder_sandbox.new }}<span class="nav-new-badge">New</span>{{ end }}</a></li>
         </ul>
       </div>
 
       <div class="mobile-nav-group">
         <p class="mobile-nav-group-label">Interactive</p>
         <ul class="mobile-nav-links">
-          <li><a href="{{ "/interactive/" | relURL }}" class="mobile-nav-hub" data-newkey="interactive">Overview<span class="nav-new-badge">New</span></a></li>
+          <li><a href="{{ "/interactive/" | relURL }}" class="mobile-nav-hub" {{ if $new_interactive.new }}data-newkey="{{ $new_interactive.key }}"{{ end }}>Overview{{ if $new_interactive.new }}<span class="nav-new-badge">New</span>{{ end }}</a></li>
           <li><a href="{{ "/interactive/galaxy/" | relURL }}">Galaxy</a></li>
           <li><a href="{{ "/interactive/timeline/" | relURL }}">Timeline</a></li>
           <li><a href="{{ "/interactive/knowledge-graph/" | relURL }}">Knowledge Graph</a></li>
@@ -276,7 +287,9 @@
           <li><a href="{{ "/frameworks/" | relURL }}">Frameworks</a></li>
           <li><a href="{{ "/glossary/" | relURL }}">Glossary</a></li>
           <li><a href="{{ "/solutions/" | relURL }}">Solutions</a></li>
-          <li><a href="{{ "/history/" | relURL }}" data-newkey="history">History<span class="nav-new-badge">New</span></a></li>
+          <li><a href="{{ "/history/" | relURL }}" {{ if $new_history.new }}data-newkey="{{ $new_history.key }}"{{ end }}>History{{ if $new_history.new }}<span class="nav-new-badge">New</span>{{ end }}</a></li>
+          <li><a href="{{ "/news/" | relURL }}" {{ if $new_news.new }}data-newkey="{{ $new_news.key }}"{{ end }}>News{{ if $new_news.new }}<span class="nav-new-badge">New</span>{{ end }}</a></li>
+          <li><a href="{{ "/blog/" | relURL }}" {{ if $new_blog_notes.new }}data-newkey="{{ $new_blog_notes.key }}"{{ end }}>Notes{{ if $new_blog_notes.new }}<span class="nav-new-badge">New</span>{{ end }}</a></li>
         </ul>
       </div>
 

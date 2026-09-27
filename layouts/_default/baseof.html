@@ -18,11 +18,23 @@
   {{ $gl := resources.Get "js/glossary-link.js" | fingerprint }}
   <script src="{{ $gl.RelPermalink }}" defer></script>
   {{ partial "asset-js.html" "visited.js" }}
+  {{/* Homepage only: reads the two stores written above (visited.js, wiki-library.js)
+       to turn the front door into a reading list. Ships nowhere else. */}}
+  {{ if .IsHome }}{{ partial "asset-js.html" "home-dashboard.js" }}{{ end }}
   {{ partial "asset-js.html" "learn-modes.js" }}
   <script src="{{ "pagefind/pagefind-ui.js" | relURL }}"></script>
   <script>
     if (document.getElementById('hero-search')) {
       window.addEventListener('DOMContentLoaded', function() {
+        // The Pagefind index is generated at deploy time and is absent on a plain
+        // `make dev`, so fall back to a form that hands the query to /search/.
+        if (typeof PagefindUI === 'undefined') {
+          document.getElementById('hero-search').innerHTML =
+            '<form class="pagefind-ui" action="{{ "search/" | relURL }}" method="get" role="search">' +
+            '<input class="pagefind-ui__search-input" type="text" name="q" placeholder="Search" aria-label="Search">' +
+            '</form>';
+          return;
+        }
         new PagefindUI({
           element: "#hero-search",
           showSubResults: false,

@@ -1,0 +1,50 @@
+# Curated homepage entry points.
+#
+# These are hand-picked, not measured. The homepage labels them "Most looked up"
+# and "Start here" rather than "Trending", because nothing here is derived from
+# traffic data — claiming otherwise would be a label the page cannot back up.
+#
+# If you ever want real trending, the options are a Plausible API call at build
+# time (needs an API key as a repo secret plus a fallback for build failures)
+# or a computed most-linked-to ranking. Until then: edit this file.
+#
+# Every url must resolve to a real page. The homepage does not validate them,
+# but `make preflight` will fail the build if the target does not exist.
+
+most_looked_up:
+  - url: /glossary/model-context-protocol/
+    label: Model Context Protocol (MCP)
+  - url: /glossary/ai-agents/
+    label: AI agents
+  - url: /glossary/rag/
+    label: RAG
+  - url: /glossary/agentic-loops/
+    label: Agentic loops
+  - url: /glossary/context-engineering/
+    label: Context engineering
+  - url: /glossary/vector-database/
+    label: Vector databases
+
+compare:
+  - url: /comparisons/claude-vs-chatgpt/
+    label: Claude vs ChatGPT
+  - url: /comparisons/chatgpt-vs-gemini-vs-claude/
+    label: ChatGPT vs Gemini vs Claude
+  - url: /comparisons/llm-landscape-2026/
+    label: The 2026 LLM landscape
+  - url: /guides/constraint-driven-comparisons/
+    label: How these comparisons are built
+
+explain_simply:
+  - url: /glossary/rag/
+    label: What is RAG?
+  - url: /glossary/ai-agents/
+    label: What is an AI agent?
+  - url: /glossary/model-context-protocol/
+    label: What is MCP?
+  - url: /glossary/inference/
+    label: What is inference?
+  - url: /glossary/context-window/
+    label: What is a context window?
+  - url: /glossary/tokenization/
+    label: What is tokenization?

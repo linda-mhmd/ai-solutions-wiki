@@ -106,6 +106,10 @@ buildFuture = true
     url = "/news/"
     weight = 10
   [[menu.main]]
+    name = "Notes"
+    url = "/blog/"
+    weight = 11
+  [[menu.main]]
     name = "Build"
     url = "/build/"
     weight = 12

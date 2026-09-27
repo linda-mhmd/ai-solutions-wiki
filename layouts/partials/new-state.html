@@ -1,0 +1,29 @@
+{{/* Is this nav or card target genuinely new? See data/nav_new.yaml.
+
+     Input (dict), one date source:
+       "key"      badge key (always)
+       "section"  newest page date in that content section
+       "page"     date of that single page (e.g. "/for/engineers")
+       otherwise  data/nav_new.yaml `added` date for "key" (external links)
+
+     Returns (dict "new" bool "key" string). The key carries the date, so a
+     reader who dismissed an older badge still sees the next one. */}}
+{{ $cfg := hugo.Data.nav_new }}
+{{ $cutoff := now.AddDate 0 0 (mul -1 ($cfg.window_days | default 30)) }}
+{{ $latest := false }}
+{{ with .section }}
+  {{ with (where site.RegularPages "Section" .).ByDate.Reverse }}{{ $latest = (index . 0).Date }}{{ end }}
+{{ else }}
+  {{ with .page }}
+    {{ with site.GetPage . }}{{ $latest = .Date }}{{ end }}
+  {{ else }}
+    {{ with index ($cfg.added | default dict) $.key }}{{ $latest = time.AsTime . }}{{ end }}
+  {{ end }}
+{{ end }}
+{{ $isNew := false }}
+{{ $stamp := "none" }}
+{{ if $latest }}
+  {{ $isNew = $latest.After $cutoff }}
+  {{ $stamp = $latest.Format "2006-01-02" }}
+{{ end }}
+{{ return dict "new" $isNew "key" (printf "%s@%s" .key $stamp) }}

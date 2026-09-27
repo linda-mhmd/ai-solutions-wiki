@@ -10,6 +10,7 @@
       "description" .Description
       "tags"        .Params.tags
       "date"        (.Date.Format "2006-01-02")
+      "lastmod"     (.Lastmod.Format "2006-01-02")
     ) -}}
   {{- end -}}
 {{- end -}}
