@@ -8,7 +8,9 @@ related:
   - guides/ai-product-management
   - guides/ai-total-cost-ownership
   - guides/ai-go-to-market
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Monetizing AI products is harder than monetizing traditional software because the cost structure is different. Each API call, each inference, and each training run consumes compute resources that scale with usage. A pricing model that ignores this creates a business where the highest-usage customers are the least profitable. This guide covers monetization strategies that align revenue with cost.
@@ -77,7 +79,7 @@ Charge based on the value delivered: per fraud case detected, per document proce
 
 **Cost-plus vs value-based.** Cost-plus pricing (compute cost + margin) is safe but leaves money on the table. Value-based pricing (charge a percentage of the value delivered) captures more value but requires understanding the customer's economics.
 
-**Transparent vs opaque pricing.** AI API providers increasingly publish pricing (e.g., per 1K tokens). Transparent pricing builds trust and reduces sales friction. Opaque pricing (custom quotes) works for enterprise deals but slows adoption.
+**Transparent vs opaque pricing.** AI API providers publish per-token pricing, now almost always quoted per million tokens. Transparent pricing builds trust and reduces sales friction. Opaque pricing (custom quotes) works for enterprise deals but slows adoption.
 
 **Tiered plans.** Most AI products benefit from 3-4 tiers: Free (adoption), Pro (individual power users), Team (collaboration features), Enterprise (custom SLAs, dedicated infrastructure, volume discounts). Each tier should have a clear value driver that justifies the price increase.
 

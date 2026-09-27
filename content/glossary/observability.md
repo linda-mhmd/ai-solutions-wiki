@@ -6,7 +6,7 @@ categories: [Glossary]
 tags: ["devops", "intermediate", "observability", "monitoring", "logging", "tracing", "metrics"]
 related:
   - patterns/observability-ai
-  - tools/aws-cloudwatch
+  - tools/amazon-cloudwatch
   - glossary/drift-detection
   - guides/ci-cd-ai-detailed
 last_updated: 2026-05-30

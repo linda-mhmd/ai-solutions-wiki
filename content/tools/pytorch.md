@@ -11,6 +11,8 @@ related:
   - glossary/transformer-architecture
   - guides/fine-tuning-llms-guide
   - comparisons/gpu-vs-tpu
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -77,14 +79,14 @@ Generate the exact command for your hardware from the official selector, since t
 # CPU only
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
 
-# NVIDIA GPU (CUDA 12.8 build)
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
+# NVIDIA GPU (CUDA 13.0 build; 2.14 also ships cu126 and cu132)
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu130
 
 # Apple Silicon and default builds
 pip install torch torchvision torchaudio
 ```
 
-PyTorch follows a roughly quarterly release cadence on the 2.x line (2.12 as of mid-2026). On Apple Silicon the default build enables Metal (MPS) acceleration automatically.
+PyTorch now ships a new 2.x minor release roughly every two months (2.12 in May 2026, 2.13 in July, 2.14 on 2 September 2026). CUDA build variants change between releases (2.14 dropped the cu128 wheels), so always copy the index URL from the selector. On Apple Silicon the default build enables Metal (MPS) acceleration automatically.
 
 ## A real training loop
 
@@ -225,3 +227,5 @@ PyTorch and TensorFlow are both eager-first with optional graph compilation. JAX
 - PyTorch Foundation expands to an umbrella foundation (2025). https://pytorch.org/blog/pt-foundation-expands/
 - PyTorch. Introducing ExecuTorch 1.0 (2025). https://pytorch.org/blog/introducing-executorch-1-0/
 - PyTorch releases. https://github.com/pytorch/pytorch/releases
+- torch on PyPI (release history; 2.14.0 on 2 September 2026). https://pypi.org/project/torch/
+- PyTorch wheel index (torch 2.14.0 builds: cpu, cu126, cu130, cu132, rocm7, xpu). https://download.pytorch.org/whl/torch/

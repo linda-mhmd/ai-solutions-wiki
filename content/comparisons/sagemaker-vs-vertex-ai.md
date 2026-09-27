@@ -2,11 +2,11 @@
 title: "Amazon SageMaker vs Google Vertex AI"
 description: "A service-by-service comparison of Amazon SageMaker AI and Google Vertex AI for ML platform capabilities, covering training, deployment, MLOps, and pricing."
 date: 2026-03-28
-last_verified: 2026-09-03
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [SageMaker, Vertex-AI, AWS, GCP, ML-platform, Gemini-Enterprise]
-last_updated: 2026-09-03
-lastmod: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 SageMaker and Vertex AI are the flagship ML platforms of AWS and Google Cloud respectively. Both provide end-to-end ML capabilities from data preparation through deployment and monitoring. This comparison maps their services and highlights where each platform excels.
@@ -70,7 +70,7 @@ On the Google side, as the note above describes, Vertex AI is now branded the **
 
 ## Foundation Models
 
-**Amazon Bedrock** (separate from SageMaker AI) provides API access to foundation models from Amazon (Nova and Titan), Anthropic (Claude), Meta (Llama), Mistral AI, Cohere, AI21 Labs, Stability AI, OpenAI, DeepSeek, Qwen, Writer, Luma AI, and TwelveLabs. Managed RAG (Knowledge Bases), Guardrails, and agents are included.
+**Amazon Bedrock** (separate from SageMaker AI) provides API access to foundation models from Amazon (Nova and Titan), Anthropic (Claude), Meta (Llama), Mistral AI, Cohere, AI21 Labs, Stability AI, OpenAI, DeepSeek, Qwen, Writer, Luma AI, and TwelveLabs. Managed RAG (Knowledge Bases) and Guardrails are included. For agents, note that the original Bedrock Agents feature was renamed Bedrock Agents Classic and closed to new customers on July 30, 2026; AWS now points new agent builds to [Amazon Bedrock AgentCore](/tools/bedrock-agentcore/), whose next-generation Runtime became generally available on September 18, 2026.
 
 **Vertex AI Model Garden** provides access to over 200 models, including Google's Gemini family, Anthropic's Claude models, Meta's Llama and Google's open Gemma models, plus many open weight and partner models. It is now part of the Gemini Enterprise Agent Platform, and select proprietary partner models can be self-deployed inside your own VPC.
 
@@ -119,5 +119,7 @@ Cost differences between platforms are usually smaller than cost differences fro
 - Google Cloud. *Gemini Enterprise Agent Platform (formerly Vertex AI) — product page.* [https://cloud.google.com/products/gemini-enterprise-agent-platform](https://cloud.google.com/products/gemini-enterprise-agent-platform)
 - Google Cloud Blog (Apr 22, 2026). *Introducing Gemini Enterprise Agent Platform.* [https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform](https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform)
 - AWS. *SageMaker AI service availability updates (Ground Truth, Model Monitor, Clarify, Debugger, and others close to new customers July 30, 2026).* [https://aws.amazon.com/about-aws/whats-new/2026/06/aws-service-availability/](https://aws.amazon.com/about-aws/whats-new/2026/06/aws-service-availability/)
+- AWS. *Amazon Bedrock Agents Classic maintenance mode.* [https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html)
+- AWS (Sep 18, 2026). *New Amazon Bedrock AgentCore Runtime generally available.* [https://aws.amazon.com/about-aws/whats-new/2026/09/new-agentcore-runtime-generally-available](https://aws.amazon.com/about-aws/whats-new/2026/09/new-agentcore-runtime-generally-available)
 - AWS. *Training data labeling using humans with Amazon SageMaker Ground Truth (availability notice).* [https://docs.aws.amazon.com/sagemaker/latest/dg/sms.html](https://docs.aws.amazon.com/sagemaker/latest/dg/sms.html)
 - AWS. *Using the Amazon Mechanical Turk Workforce (permanent closure notice: Mechanical Turk closes September 30, 2026).* [https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html)

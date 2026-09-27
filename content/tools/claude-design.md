@@ -5,8 +5,9 @@ date: 2026-06-25
 categories: [Tools]
 tags: ["ai-ml", "claude", "claude-design", "design", "prototyping", "anthropic-labs"]
 tool_category: "AI"
-last_updated: 2026-06-25
-lastmod: 2026-06-25
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -14,11 +15,13 @@ lastmod: 2026-06-25
   <figcaption>Claude Design produces a working blueprint you can edit and ship, not a flat picture of one.</figcaption>
 </figure>
 
-Claude Design is a tool from Anthropic Labs for creating visual work by talking to Claude. You describe what you want and it produces designs, prototypes, slides, and one-pagers. The important distinction: the output is not a static image. It is an interactive prototype built from HTML and CSS that you refine through conversation, then export or hand to engineering. Claude Design was launched on 17 April 2026 and is powered by Claude Opus 4.7, Anthropic's vision-capable model.
+Claude Design is a tool from Anthropic Labs for creating visual work by talking to Claude. You describe what you want and it produces designs, prototypes, slides, and one-pagers. The important distinction: the output is not a static image. It is an interactive prototype built from HTML and CSS that you refine through conversation, then export or hand to engineering. Claude Design was launched as a research preview on 17 April 2026, powered at launch by Claude Opus 4.7, then Anthropic's most capable vision model.
+
+**Update, 16 September 2026:** Claude Design now also works inside ordinary Claude conversations, alongside two new beta companions, **Claude Docs** and **Claude Slides**; anything made with them lives at one shareable link and slides can be downloaded as PowerPoint or PDF. Anthropic says the standalone Claude Design keeps working as before.
 
 ## Where it lives
 
-Claude Design runs inside [claude.ai](/tools/claude-anthropic/), under the Anthropic Labs section of the product. There is nothing to install. You open it in the browser as part of your Claude subscription.
+Claude Design runs inside [claude.ai](/tools/claude-anthropic/), originally under the Anthropic Labs section of the product and, since September 2026, also from within any conversation. There is nothing to install. You open it in the browser as part of your Claude subscription.
 
 ## What it is for
 
@@ -44,7 +47,7 @@ This is the most common confusion, so it is worth stating plainly. Claude Design
 
 ## Which subscription you need
 
-Claude Design is available to paying Claude subscribers.
+Claude Design is included in all paid Claude plans. Usage counts toward your plan's limits, and a full design or deck uses more of the limit than a typical message.
 
 - **Pro** (about 19 EUR per month, listed at 20 US dollars) and **Max** (about 92 or 185 EUR per month, listed at 100 or 200 US dollars): full access in claude.ai.
 - **Team**: available to members.
@@ -58,7 +61,7 @@ Claude Design is one of several products built on the same models. They differ m
 |---|---|---|---|
 | **[Claude Code](/tools/claude-code/)** | Terminal and IDEs | Editing, running, and shipping code | Pro, Max, Team Premium, or API |
 | **[Claude Design](/tools/claude-design/)** | claude.ai (Anthropic Labs) | Designing UI and documents as HTML | Pro, Max, Team, Enterprise |
-| **[Claude Cowork](/tools/claude-cowork/)** | Claude Desktop app | Autonomous multi-step knowledge work | Any paid plan |
+| **[Claude Cowork](/tools/claude-cowork/)** | Claude app (desktop, and since September 2026 web and mobile) | Autonomous multi-step knowledge work | Paid plans (Pro and Max first for the merged app) |
 | **[Claude apps and API](/tools/claude-anthropic/)** | Web, mobile, desktop, API | Chat, analysis, building on the model | Free and up |
 
 ## When not to use it
@@ -75,3 +78,5 @@ Claude Design is one of several products built on the same models. They differ m
 - [Claude vs ChatGPT](/comparisons/claude-vs-chatgpt/): why Claude Design is not the same as image generation
 - [Stable Diffusion](/tools/stable-diffusion/): an open-weight model for generating actual images
 - [Introducing Claude Design (Anthropic Labs)](https://www.anthropic.com/news/claude-design-anthropic-labs): the official launch announcement and feature list
+- [Claude blog, 16 September 2026, "Claude Cowork and chat are now one Claude"](https://claude.com/blog/cowork-is-now-claude): Claude Design inside conversations; Claude Docs and Slides in beta
+- [Claude Design product page](https://claude.com/product/claude-design): plan availability and usage limits

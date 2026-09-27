@@ -2,6 +2,8 @@
 title: "What is an AI Agent?"
 description: "An AI agent is software that uses an LLM to plan and take actions autonomously, not just answer questions. Plain-English explanation with real examples."
 date: 2026-06-22
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 1
 categories: [Basics]
 tags: ["beginner", "ai-agents", "agentic-ai", "llm", "automation", "ai-basics"]
@@ -150,12 +152,14 @@ The LLM decides each step. It interprets search results, realises when it needs 
 
 | Framework | Language | Best for |
 |---|---|---|
-| **Claude claude-code** | Any | Coding tasks, file operations |
+| **Claude Code / Claude Agent SDK** | Any (SDK: Python, TypeScript) | Coding tasks, file operations |
 | **LangGraph** | Python | Complex stateful agent workflows |
 | **CrewAI** | Python | Multi-agent collaboration |
-| **AutoGen** | Python | Research and code agents |
-| **Strands** | Python | AWS-native agent workflows |
-| **AWS Bedrock Agents** | Any | Fully managed, enterprise-scale |
+| **[Microsoft Agent Framework](/tools/microsoft-agent-framework/)** | Python, .NET | Multi-agent workflows (successor to AutoGen, which is now in maintenance mode) |
+| **[Strands Agents](/tools/strands-agents/)** | Python, TypeScript | AWS-native agent workflows |
+| **[Amazon Bedrock AgentCore](/tools/bedrock-agentcore/)** | Any | Managed runtime, memory, identity and tool gateway for agents at enterprise scale |
+
+The older **Amazon Bedrock Agents** service was renamed Bedrock Agents Classic and closed to new customers on 30 July 2026 (maintenance mode); AWS recommends AgentCore for new builds.
 
 ## Risks and design principles
 
@@ -165,7 +169,7 @@ The LLM decides each step. It interprets search results, realises when it needs 
 
 **Scope creep**: Agents given broad goals may take unintended actions. Constrain the action space: define exactly which tools are available and what they can do.
 
-**Cost**: Each tool call and LLM inference costs money. A 50-step agent run on GPT-4o might cost €0.50-5. Profile before deploying at scale.
+**Cost**: Each tool call and LLM inference costs money. A 50-step agent run on a mid-tier model (at the time of writing, September 2026, for example GPT-6 Sol or Claude Sonnet 5) might cost €0.50-5. Profile before deploying at scale.
 
 ## What's next
 
@@ -178,4 +182,5 @@ The LLM decides each step. It interprets search results, realises when it needs 
 - [Anthropic: Agents Overview](https://docs.anthropic.com/en/docs/agents-overview): Technical documentation with code examples
 - [LangGraph documentation](https://langchain-ai.github.io/langgraph/): Python framework for building stateful agent workflows
 - [CrewAI documentation](https://docs.crewai.com): Multi-agent framework with role-based agent design
+- [AWS: Amazon Bedrock Agents Classic maintenance mode](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html): Why AWS points new agent builds to AgentCore (checked 25 September 2026)
 - [Agentic Loops (Glossary)](/glossary/agentic-loops/): Technical definition of the core agent execution pattern

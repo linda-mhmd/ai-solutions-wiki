@@ -10,7 +10,9 @@ related:
   - glossary/ci-cd
   - patterns/blue-green-deployment
   - patterns/canary-deployment
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 GitHub Actions is GitHub's built-in CI/CD platform. Workflows are defined as YAML files in `.github/workflows/` and triggered by repository events (push, pull request, tag, schedule). Each workflow consists of jobs, each job consists of steps, and steps run shell commands or call reusable actions from the GitHub Actions marketplace.
@@ -37,10 +39,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
@@ -56,7 +58,7 @@ Key concepts:
 - `env:` sets environment variables available to all jobs
 - `jobs:` defines parallel or sequential job groups
 - `steps:` are sequential within a job
-- `uses:` calls a reusable action (e.g. `actions/checkout@v4`)
+- `uses:` calls a reusable action (e.g. `actions/checkout@v7`). Action major versions in the examples on this page were checked against each action's GitHub releases on 25 September 2026; pin to the current major (or a commit SHA) in your own workflows.
 - `run:` executes shell commands
 
 ## Hugo Deployment Pattern
@@ -76,7 +78,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           submodules: recursive  # required for Hugo themes as git submodules
           fetch-depth: 0          # full history for .Lastmod to work
@@ -100,7 +102,7 @@ jobs:
 For S3 deployment (when hosting on AWS CloudFront):
 ```yaml
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v6
         with:
           role-to-assume: arn:aws:iam::${{ vars.AWS_ACCOUNT_ID }}:role/github-deploy
           aws-region: ${{ env.AWS_REGION }}
@@ -132,9 +134,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
           cache: 'pip'
@@ -154,7 +156,7 @@ jobs:
         run: pytest tests/unit/ -v --cov=src --cov-report=xml
 
       - name: Upload coverage
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v7
         with:
           files: ./coverage.xml
 ```
@@ -171,10 +173,10 @@ Integration tests (calling real AWS services) run only on merges to main, gated 
       contents: read
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Configure AWS credentials (OIDC)
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v6
         with:
           role-to-assume: arn:aws:iam::${{ vars.AWS_ACCOUNT_ID }}:role/github-integration-test
           aws-region: eu-west-1
@@ -182,7 +184,7 @@ Integration tests (calling real AWS services) run only on merges to main, gated 
       - name: Integration tests
         run: pytest tests/integration/ -v -m integration
         env:
-          BEDROCK_MODEL_ID: anthropic.claude-haiku-4-5-20251001
+          BEDROCK_MODEL_ID: us.anthropic.claude-haiku-4-5-20251001-v1:0
           ENVIRONMENT: test
 ```
 
@@ -195,10 +197,10 @@ For SageMaker inference containers or ECS deployments:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v6
         with:
           role-to-assume: arn:aws:iam::${{ vars.AWS_ACCOUNT_ID }}:role/github-ecr-push
           aws-region: eu-west-1
@@ -230,11 +232,11 @@ Infrastructure changes require plan review before apply. The standard pattern ru
     if: github.event_name == 'pull_request'
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: hashicorp/setup-terraform@v3
+      - uses: hashicorp/setup-terraform@v4
         with:
-          terraform_version: '1.10.0'
+          terraform_version: '1.16.4'
 
       - name: Terraform init
         run: terraform -chdir=infra/environments/staging init
@@ -248,7 +250,7 @@ Infrastructure changes require plan review before apply. The standard pattern ru
             -no-color 2>&1 | tee plan-output.txt
 
       - name: Comment plan on PR
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const fs = require('fs');
@@ -272,10 +274,10 @@ Include model evaluation in the pipeline to catch quality regressions before dep
     if: github.ref == 'refs/heads/main'
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v6
         with:
           role-to-assume: arn:aws:iam::${{ vars.AWS_ACCOUNT_ID }}:role/github-bedrock-eval
           aws-region: eu-west-1
@@ -284,7 +286,7 @@ Include model evaluation in the pipeline to catch quality regressions before dep
         run: |
           python scripts/evaluate_model.py \
             --test-cases data/evaluation-cases.json \
-            --model-id anthropic.claude-sonnet-4-5-20251001-v2:0 \
+            --model-id us.anthropic.claude-sonnet-5 \
             --prompt-template prompts/rag-prompt-template.txt \
             --output evaluation-results.json
 
@@ -295,7 +297,7 @@ Include model evaluation in the pipeline to catch quality regressions before dep
             --min-accuracy 0.80
 
       - name: Upload evaluation results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: evaluation-results-${{ github.sha }}
           path: evaluation-results.json
@@ -320,3 +322,5 @@ Between the beta and general availability, GitHub made a significant design chan
 7. AWS Documentation: Configuring OpenID Connect in Amazon Web Services. [https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)
 8. peaceiris/actions-hugo. [https://github.com/peaceiris/actions-hugo](https://github.com/peaceiris/actions-hugo)
 9. aws-actions/configure-aws-credentials. [https://github.com/aws-actions/configure-aws-credentials](https://github.com/aws-actions/configure-aws-credentials)
+10. Latest releases checked 25 September 2026: [actions/checkout](https://github.com/actions/checkout/releases) (v7), [actions/setup-python](https://github.com/actions/setup-python/releases) (v7), [actions/upload-artifact](https://github.com/actions/upload-artifact/releases) (v7), [actions/github-script](https://github.com/actions/github-script/releases) (v9), [codecov/codecov-action](https://github.com/codecov/codecov-action/releases) (v7), [aws-actions/configure-aws-credentials](https://github.com/aws-actions/configure-aws-credentials/releases) (v6), [hashicorp/setup-terraform](https://github.com/hashicorp/setup-terraform/releases) (v4), [Terraform](https://github.com/hashicorp/terraform/releases) (1.16.4).
+11. Amazon Bedrock model cards for Claude Sonnet 5 and Claude Haiku 4.5 (both are called on demand through geo or global inference profiles, e.g. `us.anthropic.claude-sonnet-5` and `us.anthropic.claude-haiku-4-5-20251001-v1:0`). [https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards.html](https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards.html)

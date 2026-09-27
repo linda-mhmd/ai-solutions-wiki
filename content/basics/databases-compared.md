@@ -12,7 +12,9 @@ faqs:
     answer: "NoSQL shines for: document storage with varying schemas, caching (Redis), real-time subscriptions, and when your data doesn't have relationships. For most apps with users, orders, products—SQL is simpler."
   - question: "Is SQLite good enough for production?"
     answer: "Yes, for many apps. SQLite handles thousands of concurrent users on a single server. It's used by Pieter Levels for apps with millions of users. Consider it for read-heavy apps or when simplicity matters."
-last_updated: 2026-07-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 {{< quickanswer >}}
@@ -90,10 +92,10 @@ WHERE posts.published = true;
 | Service | Free tier | Starting price | Notes |
 |---------|-----------|----------------|-------|
 | **Supabase** | 500MB | $25/mo | Includes auth, realtime, storage |
-| **Neon** | 512MB | $19/mo | Serverless, branches |
+| **Neon** | 0.5GB | Usage-based (~$15/mo typical) | Serverless, branches |
 | **Railway** | $5 credit | ~$5/mo | Simple, per-use pricing |
-| **Render** | 90 days | $7/mo | Good value |
-| **AWS RDS** | 12 months | ~$15/mo | Enterprise-ready |
+| **Render** | 1GB, expires after 30 days | $7/mo | Good value |
+| **AWS RDS** | Up to $200 credits for 6 months (new accounts) | ~$15/mo | Enterprise-ready |
 
 ---
 
@@ -144,9 +146,9 @@ ON DUPLICATE KEY UPDATE name = VALUES(name);
 
 | Service | Free tier | Starting price | Notes |
 |---------|-----------|----------------|-------|
-| **PlanetScale** | 5GB | $29/mo | Serverless, branching |
+| **PlanetScale** | None | $5/mo (single node) | Serverless MySQL (Vitess) or Postgres, branching |
 | **Railway** | $5 credit | ~$5/mo | Simple setup |
-| **AWS RDS** | 12 months | ~$15/mo | Enterprise-ready |
+| **AWS RDS** | Up to $200 credits for 6 months (new accounts) | ~$15/mo | Enterprise-ready |
 
 ### MySQL vs PostgreSQL
 
@@ -211,7 +213,7 @@ const user = await db.collection('users').findOne({
 
 ### Weaknesses
 - **No joins** (traditionally): Must denormalize or use $lookup
-- **Consistency tradeoffs**: Not ACID by default (improved recently)
+- **Consistency tradeoffs**: Single-document writes are atomic; multi-document ACID transactions exist (since MongoDB 4.0, 2018) but add overhead and are less idiomatic than in SQL databases
 - **Query limitations**: Some queries are awkward
 - **Overused**: Often chosen when SQL would be simpler
 
@@ -219,7 +221,7 @@ const user = await db.collection('users').findOne({
 
 | Service | Free tier | Starting price | Notes |
 |---------|-----------|----------------|-------|
-| **MongoDB Atlas** | 512MB | ~$9/mo | Official, excellent |
+| **MongoDB Atlas** | 512MB | ~$8-30/mo (Flex, usage-based) | Official, excellent |
 | **Railway** | $5 credit | ~$5/mo | Simple setup |
 
 ### When NOT to use MongoDB
@@ -493,8 +495,8 @@ try {
 - **Edge-ready**: Low-latency globally
 
 ### Weaknesses
-- **No foreign keys**: Disabled for scaling reasons
-- **MySQL only**: No PostgreSQL option
+- **Foreign keys off by default**: Constraint support must be enabled per database, and PlanetScale warns it costs performance under high concurrency
+- **Two products**: Vitess (MySQL) and PlanetScale Postgres are separate offerings; branching and scaling features differ between them
 - **Pricing**: Can get expensive at scale
 - **Learning curve**: Branching workflow is new
 
@@ -502,9 +504,11 @@ try {
 
 | Tier | Cost | Storage | Notes |
 |------|------|---------|-------|
-| Hobby | Free | 5GB | Development only |
-| Scaler | $29/mo | 10GB | Production-ready |
+| Single node | From $5/mo | Varies | Development and low-traffic production (no free tier since 2024) |
+| Metal | From $50/mo | Local NVMe | High-performance production |
 | Enterprise | Custom | Unlimited | SLA, support |
+
+Check [PlanetScale pricing](https://planetscale.com/pricing) for current cluster sizes (checked 25 September 2026).
 
 ---
 
@@ -554,10 +558,10 @@ Not sure?
 |--------|--------------|----------|
 | Supabase Free | $0 | 500MB Postgres + auth |
 | Railway Postgres | ~$5 | Usage-based |
-| Neon Free | $0 | 512MB, serverless |
-| PlanetScale Hobby | $0 | 5GB MySQL |
+| Neon Free | $0 | 0.5GB, serverless |
+| PlanetScale single node | ~$5 | MySQL (Vitess) or Postgres |
 | MongoDB Atlas Free | $0 | 512MB |
-| Turso Free | $0 | 8GB SQLite |
+| Turso Free | $0 | 5GB SQLite |
 
 ## The honest take
 

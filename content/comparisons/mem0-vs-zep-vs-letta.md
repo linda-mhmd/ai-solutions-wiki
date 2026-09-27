@@ -2,8 +2,9 @@
 title: "Mem0 vs Zep vs Letta - Choosing an AI Agent Memory Framework"
 description: "A practical comparison of the three leading AI agent memory tools: Mem0's drop-in vector memory, Zep's temporal knowledge graph, and Letta's memory-native runtime, and when to pick each."
 date: 2026-06-14
-lastmod: 2026-06-14
-last_updated: 2026-06-14
+lastmod: 2026-09-25
+last_updated: 2026-09-25
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: ["ai-agents", "intermediate", "agent-memory", "mem0", "zep", "letta", "comparison"]
 related:
@@ -25,7 +26,7 @@ Mem0, Zep, and Letta all solve the same core problem, giving an AI agent memory 
 | Integration | A layer you add to an existing app | A service or library you query | The runtime your agent lives in |
 | Strongest at | Personalization, fast setup | Temporal and relational reasoning | Long-running, stateful agents |
 | Trade-off | Weak on time and relationships | More to build and operate | Heavier and more opinionated |
-| Lineage | Open-source, large community | Open-source graph engine, Graphiti | Grew out of MemGPT research |
+| Lineage | Open-source, large community | Managed Zep Cloud; open-source graph engine Graphiti (self-hosted Community Edition no longer maintained) | Grew out of MemGPT research |
 
 ## Pick Mem0 if
 
@@ -33,7 +34,7 @@ Your goal is personalization and continuity, and you want the fastest path from 
 
 ## Pick Zep if
 
-Facts in your domain change over time and those changes matter, status, ownership, account state, evolving preferences, or you need to reason over relationships between entities rather than recall isolated snippets. Zep's temporal knowledge graph records when each fact was true and what superseded it, which a similarity-only vector memory cannot do. It is more to operate, so choose it when temporal or relational reasoning is a real requirement, not a nice-to-have.
+Facts in your domain change over time and those changes matter, status, ownership, account state, evolving preferences, or you need to reason over relationships between entities rather than recall isolated snippets. Zep's temporal knowledge graph records when each fact was true and what superseded it, which a similarity-only vector memory cannot do. It is more to operate, so choose it when temporal or relational reasoning is a real requirement, not a nice-to-have. Note the deployment split: Zep itself is now a commercial cloud service, since Zep stopped maintaining the self-hosted Zep Community Edition in 2025; if you need to self-host, you build on the open-source [Graphiti](https://github.com/getzep/graphiti) framework that powers it, which is a library rather than a ready-made memory service.
 
 ## Pick Letta if
 
@@ -52,3 +53,4 @@ Many teams also combine approaches, for example using a vector or graph memory f
 1. Atlan. "Best AI agent memory frameworks 2026." [https://atlan.com/know/best-ai-agent-memory-frameworks-2026/](https://atlan.com/know/best-ai-agent-memory-frameworks-2026/)
 2. "AI agent memory in 2026: Mem0 vs Zep vs Letta vs Cognee, a practical guide." [https://dev.to/agdex_ai/ai-agent-memory-in-2026-mem0-vs-zep-vs-letta-vs-cognee-a-practical-guide-cfa](https://dev.to/agdex_ai/ai-agent-memory-in-2026-mem0-vs-zep-vs-letta-vs-cognee-a-practical-guide-cfa)
 3. Mem0. "Graph memory solutions for AI agents." [https://mem0.ai/blog/graph-memory-solutions-ai-agents](https://mem0.ai/blog/graph-memory-solutions-ai-agents)
+4. Zep. "Announcing a New Direction for Zep's Open Source Strategy" (Zep Community Edition discontinued; open-source focus moves to Graphiti). [https://blog.getzep.com/announcing-a-new-direction-for-zeps-open-source-strategy/](https://blog.getzep.com/announcing-a-new-direction-for-zeps-open-source-strategy/)

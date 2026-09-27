@@ -5,10 +5,12 @@ date: 2026-03-24
 categories: [Patterns]
 tags: ["ai-ml", "intermediate", "context-window", "prompt-management", "llm", "chunking", "memory"]
 tools: [amazon-bedrock]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
-Every language model has a context window - the maximum amount of text it can process in a single call. Claude 3.5 Sonnet supports 200,000 tokens; GPT-4o supports 128,000. These are large, but real-world applications regularly exceed them: long documents, extended conversations, large codebases, multi-document research. Context window management is the set of patterns for handling content that does not fit.
+Every language model has a context window - the maximum amount of text it can process in a single call. Limits change with each model generation: at the time of writing (September 2026), Claude Opus 5.5 and Claude Sonnet 5 accept 1 million tokens, GPT-6 Sol about 1.05 million, and smaller models such as Claude Haiku 4.5 200,000 (see the [LLM landscape](/comparisons/llm-landscape-2026/) for current figures). These are large, but real-world applications still regularly exceed them, and cost and latency grow with every token you send: long documents, extended conversations, large codebases, multi-document research. Context window management is the set of patterns for handling content that does not fit.
 
 ## Summarization Pattern
 
@@ -63,3 +65,8 @@ Maintain different levels of granularity simultaneously. A high-level summary in
 ## Token Budget Management
 
 Regardless of which pattern you use, track token consumption explicitly. Cost per call scales with input token count; unexpected context growth causes cost spikes. Set hard limits at the application layer and log any cases that approach or exceed them. Context management bugs - where the context grows unboundedly rather than being managed - are one of the most common causes of AI cost overruns in production.
+
+## Sources
+
+1. [Models overview](https://platform.claude.com/docs/en/about-claude/models/overview) - Anthropic, context windows of current Claude models (accessed 25 September 2026)
+2. [GPT-6 Sol model page](https://developers.openai.com/api/docs/models/gpt-6-sol) - OpenAI, 1,050,000-token context window (accessed 25 September 2026)

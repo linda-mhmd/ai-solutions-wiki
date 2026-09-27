@@ -8,14 +8,16 @@ related:
   - tools/amazon-kendra
   - tools/amazon-opensearch
   - tools/azure-openai
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Azure AI Search (formerly Azure Cognitive Search) is Microsoft's fully managed cloud search service that provides AI-enriched indexing, full-text search, vector search, and hybrid retrieval over enterprise content. It is the primary retrieval component in Azure-based retrieval-augmented generation (RAG) architectures, where it indexes enterprise documents and serves relevant passages to Azure OpenAI for grounded answer generation. The service combines traditional information retrieval techniques (BM25 text ranking) with modern vector similarity search and AI-powered enrichment in a single managed platform.
 
 The indexing pipeline supports built-in AI enrichment through skillsets -- configurable processing steps that extract text from images via OCR, detect entities, extract key phrases, translate content, and generate vector embeddings during ingestion. Data sources include Azure Blob Storage, Azure SQL Database, Cosmos DB, Azure Table Storage, and any data accessible via custom connectors. The integrated vectorizer capability can automatically generate embeddings during both indexing and querying using Azure OpenAI or other embedding models, eliminating the need for external embedding generation pipelines.
 
-Hybrid search, which combines keyword matching with vector similarity in a single query using Reciprocal Rank Fusion (RRF), consistently outperforms either approach alone for RAG scenarios. Semantic ranker, a Microsoft-trained deep learning model, provides an additional re-ranking layer that improves result relevance. The "On Your Data" feature in Azure OpenAI connects directly to Azure AI Search indexes, providing a turnkey RAG experience with minimal code. For production deployments, the service supports role-based access control, managed identity authentication, private endpoints, and customer-managed encryption keys.
+Hybrid search, which combines keyword matching with vector similarity in a single query using Reciprocal Rank Fusion (RRF), consistently outperforms either approach alone for RAG scenarios. Semantic ranker, a Microsoft-trained deep learning model, provides an additional re-ranking layer that improves result relevance. The "On Your Data" feature in Azure OpenAI, which connected directly to Azure AI Search indexes as a turnkey RAG option, is deprecated and retires on 14 October 2026; Microsoft recommends migrating to Foundry Agent Service with a Foundry IQ knowledge base, which also retrieves from Azure AI Search. For production deployments, the service supports role-based access control, managed identity authentication, private endpoints, and customer-managed encryption keys.
 
 Official documentation: https://learn.microsoft.com/en-us/azure/search/
 
@@ -28,7 +30,7 @@ Official documentation: https://learn.microsoft.com/en-us/azure/search/
 
 ## AWS Equivalent
 
-Azure AI Search combines capabilities found in Amazon Kendra (AI-powered enterprise search) and Amazon OpenSearch Service (customizable search and analytics). Azure AI Search's tight integration with Azure OpenAI for RAG scenarios and its built-in semantic ranker differentiate it, while Kendra provides deeper integration with AWS data sources and OpenSearch offers more flexibility for custom search and analytics workloads.
+Azure AI Search combines capabilities found in Amazon Kendra (AI-powered enterprise search) and Amazon OpenSearch Service (customizable search and analytics). Kendra, however, went into maintenance mode on 30 June 2026 and has been closed to new customers since 30 July 2026; AWS points new RAG builds to Amazon Bedrock Knowledge Bases, typically backed by OpenSearch Serverless or S3 Vectors. Azure AI Search's tight integration with Azure OpenAI for RAG scenarios and its built-in semantic ranker differentiate it, while OpenSearch offers more flexibility for custom search and analytics workloads.
 
 ## Origins and History
 
@@ -38,3 +40,5 @@ The service launched as Azure Search in general availability in March 2015, prov
 
 1. Microsoft Learn. "What is Azure AI Search?" https://learn.microsoft.com/en-us/azure/search/search-what-is-azure-search
 2. Microsoft Azure Blog. "Announcing vector search in Azure Cognitive Search." May 2023. https://azure.microsoft.com/en-us/blog/announcing-vector-search-in-azure-cognitive-search/
+3. Microsoft Learn. "Azure OpenAI On Your Data" (deprecation notice, retirement 14 October 2026), accessed 25 September 2026. https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/use-your-data
+4. AWS. "Amazon Kendra availability change." Accessed 25 September 2026. https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html

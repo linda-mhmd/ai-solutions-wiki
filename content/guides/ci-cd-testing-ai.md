@@ -9,7 +9,9 @@ related:
   - guides/test-environments-ai
   - guides/integration-testing-ai-pipelines
   - glossary/ci-cd
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 AI systems need a tiered CI/CD testing strategy because different tests have vastly different costs and execution times. Running a full evaluation suite with real model API calls on every pull request is expensive and slow. Running only unit tests on merge to main misses quality regressions. The right approach runs the right tests at the right time.
@@ -68,7 +70,7 @@ jobs:
       - run: pytest tests/eval/ -v --tb=long
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          MODEL_NAME: gpt-4o-mini  # Use cheaper model for merge checks
+          MODEL_NAME: gpt-6-luna  # Use cheaper model for merge checks
       - uses: actions/upload-artifact@v4
         with:
           name: eval-results
@@ -102,7 +104,7 @@ jobs:
       - run: pytest tests/eval/ tests/regression/ -v --tb=long
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          MODEL_NAME: gpt-4o  # Production model for full eval
+          MODEL_NAME: gpt-6-sol  # Production model for full eval
       - name: Check for quality drift
         run: python scripts/check_quality_drift.py --baseline eval_baseline.json --results eval_results/latest.json
       - name: Alert on regression

@@ -41,7 +41,7 @@ Lambda and Fargate are both serverless compute options on AWS, but they differ s
 
 ### Fargate for Inference
 
-**Works well for:** Running model serving containers (TGI, vLLM, Triton). Longer-running inference pipelines. Workloads that need more memory than Lambda provides. Applications that need persistent connections (WebSocket, gRPC).
+**Works well for:** Running model serving containers (vLLM, SGLang, Triton). Longer-running inference pipelines. Workloads that need more memory than Lambda provides. Applications that need persistent connections (WebSocket, gRPC).
 
 **Example:** A Fargate task runs a FastAPI container with a scikit-learn or small transformer model loaded in memory. An Application Load Balancer routes inference requests to the container.
 

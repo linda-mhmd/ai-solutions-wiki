@@ -8,8 +8,8 @@ categories: [News]
 tags: [mcp, model-context-protocol, agentic-ai, developer-tools, protocol]
 related:
   - news/mcp-turns-one
-  - tools/mcp
-  - glossary/mcp
+  - tools/mcp-protocol
+  - glossary/model-context-protocol
 ---
 
 The Model Context Protocol released its 2026-07-28 specification on 28 July 2026, the largest revision since the protocol launched. The headline change: MCP is now stateless by default. The initialize handshake and session IDs are gone. Every request is self-contained, so any server instance can handle any request without sticky routing or session synchronization. For tools that need user input mid-call, a new mechanism called Multi Round-Trip Requests replaces the old server-initiated pattern.

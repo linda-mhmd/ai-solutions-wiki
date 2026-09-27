@@ -10,10 +10,12 @@ related:
   - comparisons/iso-27001-vs-nis2
   - glossary/supply-chain-security
   - frameworks/nis2-compliance-framework
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
-The NIS2 Directive (Directive (EU) 2022/2555) is the European Union's updated cybersecurity legislation, replacing the original NIS Directive from 2016. It entered into force in January 2023 with member states required to transpose it into national law by October 2024. NIS2 significantly expands the scope of entities covered, strengthens security requirements, and introduces stricter enforcement with personal liability for management.
+The NIS2 Directive (Directive (EU) 2022/2555) is the European Union's updated cybersecurity legislation, replacing the original NIS Directive from 2016. It entered into force in January 2023 with member states required to transpose it into national law by 17 October 2024. Many missed that deadline; on 8 July 2026 the European Commission referred the four that still had not notified full transposition (Ireland, Spain, France, and the Netherlands) to the Court of Justice of the EU, asking for financial penalties. Because NIS2 is a directive, exact obligations depend on each member state's implementing law (see [NIS2 vs DORA](/comparisons/nis2-vs-dora/)). NIS2 significantly expands the scope of entities covered, strengthens security requirements, and introduces stricter enforcement with personal liability for management.
 
 ## Scope and Covered Entities
 
@@ -36,3 +38,4 @@ Maximum fines reach 10 million euros or 2% of global turnover for essential enti
 - European Parliament and Council. (2022). *Directive (EU) 2022/2555 on measures for a high common level of cybersecurity across the Union (NIS2 Directive)*. Official Journal of the European Union, L 333/80. (The directive itself; all obligations derive from this primary source.)
 - European Union Agency for Cybersecurity (ENISA). (2023). *ENISA threat landscape 2023*. ENISA. (Annual threat intelligence informing NIS2 risk management requirements.)
 - European Commission. (2022). *Proposal for NIS2: Impact Assessment*. SWD(2020) 345 final. (Legislative history and rationale for scope expansion and strengthened enforcement.)
+- European Commission. (2026). *Commission refers Ireland, Spain, France and the Netherlands to the Court of Justice for failing to transpose the rules on cybersecurity* (8 July 2026). [https://digital-strategy.ec.europa.eu/en/news/commission-refers-ireland-spain-france-and-netherlands-court-justice-failing-transpose-rules](https://digital-strategy.ec.europa.eu/en/news/commission-refers-ireland-spain-france-and-netherlands-court-justice-failing-transpose-rules)

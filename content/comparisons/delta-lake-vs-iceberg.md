@@ -2,20 +2,20 @@
 title: "Delta Lake vs Apache Iceberg for Lakehouse Architecture"
 description: "Comparing Delta Lake and Apache Iceberg as open table formats for lakehouse architectures supporting AI/ML workloads."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [Delta-Lake, Iceberg, lakehouse, data-engineering, storage]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 Open table formats bring database-like capabilities (ACID transactions, schema evolution, time travel) to data lake storage. Delta Lake and Apache Iceberg are the two leading formats, and the choice affects ML data pipelines, feature engineering, and training data management. This comparison covers the differences relevant to AI/ML teams building lakehouse architectures.
 
 ## Format Overview
 
-**Delta Lake** (2019, Databricks, now a Linux Foundation project) stores data in Parquet files with a JSON-based transaction log (`_delta_log/`). The transaction log records every change to the table, enabling ACID transactions, time travel, and schema enforcement. Delta Lake is tightly integrated with the Databricks ecosystem and Apache Spark. Delta Lake 4.0 (June 2025) builds on Apache Spark 4.0 and added the Variant type for semi-structured data, Coordinated Commits for safe cross-engine writes, and Delta Connect for Spark Connect. Delta Lake 4.1 (March 2026) moved to Spark 4.1, brought production support for catalog-managed tables, and now requires Java 17 or newer.
+**Delta Lake** (2019, Databricks, now a Linux Foundation project) stores data in Parquet files with a JSON-based transaction log (`_delta_log/`). The transaction log records every change to the table, enabling ACID transactions, time travel, and schema enforcement. Delta Lake is tightly integrated with the Databricks ecosystem and Apache Spark. Delta Lake 4.0 (June 2025) builds on Apache Spark 4.0 and added the Variant type for semi-structured data, Coordinated Commits for safe cross-engine writes, and Delta Connect for Spark Connect. Delta Lake 4.1 (March 2026) moved to Spark 4.1, brought production support for catalog-managed tables, and now requires Java 17 or newer. Releases have since continued roughly every two months: 4.2 (April 2026), 4.3 (June 2026, with Unity Catalog Delta API integration and UniForm support), and 4.4 (August 20, 2026), which uses Apache Spark 4.2 by default and adds identity and generated columns in DDL.
 
-**Apache Iceberg** (2018, Netflix, now Apache) stores data in Parquet (or ORC/Avro) files with a metadata layer consisting of manifest files and manifest lists. Iceberg's architecture separates the catalog (where tables live), metadata (schema, partitioning, snapshots), and data (files). Iceberg is engine-agnostic by design. The Iceberg v3 table specification reached broad availability in 2026 (generally available on Snowflake in May 2026, public preview on Databricks) and adds deletion vectors, row lineage, the Variant type, geometry and geography types, nanosecond timestamps, and default column values. The latest Iceberg library release is 1.11.0 (May 2026).
+**Apache Iceberg** (2018, Netflix, now Apache) stores data in Parquet (or ORC/Avro) files with a metadata layer consisting of manifest files and manifest lists. Iceberg's architecture separates the catalog (where tables live), metadata (schema, partitioning, snapshots), and data (files). Iceberg is engine-agnostic by design. The Iceberg v3 table specification reached broad availability in 2026 (generally available on Snowflake in May 2026, with full support in AWS Glue 6.0 from August 2026, public preview on Databricks) and adds deletion vectors, row lineage, the Variant type, geometry and geography types, nanosecond timestamps, and default column values. The latest Iceberg library release is 1.11.0 (May 2026).
 
 ## Feature Comparison
 
@@ -97,6 +97,9 @@ Both communities are active and well-funded, so the practical decision increasin
 
 - [Delta Lake 4.0 release notes](https://delta.io/blog/2025-09-25-delta-lake-40/) - Delta Lake (official blog)
 - [Delta Lake 4.1.0 released](https://delta.io/blog/2026-03-01-delta-lake-4-1-0-released/) - Delta Lake (official blog)
+- [Delta 4.3 release](https://delta.io/blog/2026-06-22-delta-4-3-release) - Delta Lake (official blog)
+- [delta-spark release history (4.4.0, August 20, 2026)](https://pypi.org/project/delta-spark/#history) - PyPI
+- [AWS Glue 6.0 delivers 30% price reduction and Iceberg v3 support](https://aws.amazon.com/about-aws/whats-new/2026/08/aws-glue-6-0-price-reduction-iceberg-v3) - AWS What's New (August 21, 2026)
 - [Apache Iceberg releases](https://iceberg.apache.org/releases/) - Apache Iceberg (official)
 - [Announcing Apache Iceberg v3 Support on Snowflake](https://www.snowflake.com/en/blog/apache-iceberg-v3-support/) - Snowflake
 - [Databricks + Tabular](https://www.databricks.com/blog/databricks-tabular) - Databricks

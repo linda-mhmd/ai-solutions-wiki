@@ -2,11 +2,11 @@
 title: "Milvus vs OpenSearch for Vector Search"
 description: "Comparing Milvus and OpenSearch for large-scale vector search, covering architecture, scalability, performance, and operational considerations."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [Milvus, OpenSearch, vector-search, database, comparison]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 Milvus is a purpose-built vector database designed for billion-scale similarity search. OpenSearch is a search and analytics engine with vector search capabilities. When choosing between them, the decision often comes down to scale requirements and whether you need capabilities beyond vector search.
@@ -40,7 +40,7 @@ Milvus has a clear advantage at very large scale. DiskANN enables billion-scale 
 | Schema enforcement | Yes (typed fields) | Flexible (dynamic mapping) |
 | Multi-vector | Yes (multiple vector fields per entity) | Yes (multiple k-NN fields) |
 | Partitioning | Yes (by partition key) | Yes (by index/shard) |
-| Time travel queries | Yes (query historical state) | No |
+| Point-in-time state | Collection snapshots (Milvus 3.0); the older Time Travel query feature was deprecated in Milvus 2.3 | Index snapshots (backup/restore), no historical-state queries |
 
 OpenSearch provides significantly broader functionality beyond vector search. If you need log analytics, dashboards, or aggregations alongside vector search, OpenSearch is the more complete platform. The full-text search gap has closed somewhat: Milvus 2.5 added native full-text search and Milvus 2.6 added BM25 scoring, so basic keyword plus vector hybrid search no longer requires a separate engine. OpenSearch remains far stronger for general-purpose text relevance, analytics, and observability.
 
@@ -50,7 +50,7 @@ OpenSearch provides significantly broader functionality beyond vector search. If
 
 **Milvus Lite** is an embedded mode for development and small-scale use. It simplifies getting started but is not suitable for production at scale.
 
-**Amazon OpenSearch Service** on AWS is fully managed. AWS handles provisioning, patching, backups, and scaling. The service tracks the open-source releases closely and supports OpenSearch up to version 3.3 as of late 2025. The operational burden is moderate and well-documented.
+**Amazon OpenSearch Service** on AWS is fully managed. AWS handles provisioning, patching, backups, and scaling. The service tracks the open-source releases closely: it added OpenSearch 3.7 on 30 July 2026 (with 1-bit scalar quantization for Faiss and Lucene vectors), while the upstream project had reached 3.8 by August 2026. The operational burden is moderate and well-documented.
 
 For teams without dedicated infrastructure engineers, OpenSearch Service is significantly easier to operate than self-hosted Milvus.
 
@@ -86,7 +86,7 @@ For pure vector search at moderate scale, the costs are comparable. At very larg
 - Scale requirements are under 100 million vectors
 - Need dashboards and visualization alongside vector search
 
-For most enterprise AI applications, OpenSearch provides sufficient vector search capability alongside valuable additional features. Milvus is the right choice when vector search at massive scale is the primary requirement and the operational investment is justified. Both projects are evolving quickly (Milvus 3.0 is in beta and OpenSearch has shipped 3.x with GPU vector search), so benchmark against current versions rather than older comparisons.
+For most enterprise AI applications, OpenSearch provides sufficient vector search capability alongside valuable additional features. Milvus is the right choice when vector search at massive scale is the primary requirement and the operational investment is justified. Both projects are evolving quickly (Milvus 3.0 reached general availability on 29 July 2026 with lake-native External Collections, online schema changes and Woodpecker as a standalone service, and OpenSearch is on 3.8 with GPU vector search), so benchmark against current versions rather than older comparisons.
 
 ## Sources
 
@@ -95,3 +95,7 @@ For most enterprise AI applications, OpenSearch provides sufficient vector searc
 - [OpenSearch 3.0 release notes (opensearch-project on GitHub)](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-3.0.0.md)
 - [Disk-based vector search (OpenSearch Documentation)](https://docs.opensearch.org/latest/vector-search/optimizing-storage/disk-based-vector-search/)
 - [Amazon OpenSearch Service now supports OpenSearch version 3.3 (AWS)](https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-opensearch-service-opensearch-version-3-3)
+- [Milvus v3.0.0 release notes, 29 July 2026 (milvus-io/milvus on GitHub)](https://github.com/milvus-io/milvus/releases/tag/v3.0.0)
+- [Milvus 2.3 release notes: Time Travel feature deprecated (milvus-docs)](https://github.com/milvus-io/milvus-docs/blob/v2.3.x/site/en/release_notes.md)
+- [Amazon OpenSearch Service now supports OpenSearch version 3.7 (AWS, 30 July 2026)](https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-opensearch-service/)
+- [OpenSearch 3.8.0 release (opensearch-project on GitHub, 5 August 2026)](https://github.com/opensearch-project/OpenSearch/releases/tag/3.8.0)

@@ -2,11 +2,11 @@
 title: "Datadog vs CloudWatch for AI System Monitoring"
 description: "Comparing Datadog and Amazon CloudWatch for monitoring AI and ML systems in production, covering metrics, alerting, dashboards, and ML-specific capabilities."
 date: 2026-03-28
-last_verified: 2026-05-30
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [Datadog, CloudWatch, monitoring, observability, MLOps]
-last_updated: 2026-09-03
-lastmod: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 Monitoring AI systems requires tracking both infrastructure metrics (latency, throughput, errors) and ML-specific metrics (model accuracy, data drift, prediction distribution). Datadog and CloudWatch approach this from different starting points: CloudWatch is AWS-native with broad service integration, while Datadog is a third-party platform with richer visualization and cross-cloud capability.
@@ -21,16 +21,16 @@ Monitoring AI systems requires tracking both infrastructure metrics (latency, th
 | Alerting | CloudWatch Alarms | Monitors with ML-based anomaly detection |
 | Log management | CloudWatch Logs | Datadog Logs |
 | Tracing | X-Ray plus Application Signals (CloudWatch APM) | APM (integrated) |
-| ML monitoring | No native ML/LLM monitoring | LLM Observability product |
-| Cross-cloud | No (AWS only) | Yes (AWS, GCP, Azure, on-premise) |
+| ML monitoring | GenAI observability for Bedrock and AgentCore agents; CloudWatch Omni agent observability and evaluations (GA 23 Sep 2026); no built-in classic-ML drift monitoring | LLM Observability product |
+| Cross-cloud | Mostly AWS; CloudWatch Omni (GA 23 Sep 2026) adds other clouds, including Azure, via OpenTelemetry | Yes (AWS, GCP, Azure, on-premise) |
 
 ## ML-Specific Monitoring
 
-**CloudWatch** provides infrastructure metrics for AI services (SageMaker endpoint latency, Bedrock token counts, Lambda duration) but has no built-in ML model monitoring. To monitor model accuracy, data drift, and prediction quality, you must build custom solutions: push custom metrics to CloudWatch, build dashboards manually, and set up alarms on thresholds. (AWS does offer Amazon SageMaker Model Monitor as a separate capability for data drift and model quality, with results that can be surfaced in CloudWatch, but it is not part of CloudWatch itself.)
+**CloudWatch** provides infrastructure metrics for AI services (SageMaker endpoint latency, Bedrock token counts, Lambda duration), and for LLM and agent workloads it now goes further than it used to. Its generative AI observability console traces Bedrock model calls and AgentCore agents, and since December 2025 it surfaces AgentCore Evaluations quality scores (helpfulness, tool selection, response accuracy, plus custom evaluators) alongside the traces. On 23 September 2026 AWS made **Amazon CloudWatch Omni** generally available (initially in US East (N. Virginia), US West (Oregon) and Europe (Ireland)): an OpenTelemetry-based observability experience with a dedicated agent-observability view and evaluation-driven workflow for agents built with LangGraph, CrewAI, OpenAI Agents SDK, Vercel AI SDK and Strands, natural-language investigation, and telemetry from other clouds including Azure. What CloudWatch still does not do natively is classic-ML model monitoring: for accuracy, data drift, and prediction quality on your own models you push custom metrics or use Amazon SageMaker Model Monitor, a separate capability whose results can be surfaced in CloudWatch.
 
 **Datadog** offers LLM Observability as a product feature (generally available since late 2024 and expanded through 2025 and 2026). It includes LLM monitoring (track token usage, latency, error rates, and costs across LLM providers), end-to-end tracing of prompts, retrieval, and tool calls, built-in and custom evaluations, and quality checks such as hallucination and unsafe-output detection. It instruments models from Anthropic, OpenAI, Google (Gemini and Vertex AI — rebranded [Gemini Enterprise Agent Platform](/tools/google-vertex-ai/) in April 2026), and Amazon Bedrock, and agent frameworks including LangChain, CrewAI, and Strands Agents. In 2025 Datadog added agentic AI monitoring (AI Agent Monitoring) and offline LLM Experiments for comparing prompts and models. Datadog's anomaly detection can automatically identify unusual patterns in model metrics without manual threshold setting.
 
-For teams that want out-of-the-box LLM and agent monitoring, Datadog has a significant advantage.
+Datadog's LLM monitoring is the more mature and provider-neutral of the two, and it has a clear lead for teams calling many model providers or running outside AWS. For agents built on Bedrock and AgentCore, CloudWatch's own GenAI observability and CloudWatch Omni have narrowed the gap, so compare the two on your actual stack rather than assuming CloudWatch has nothing here.
 
 ## Dashboard and Visualization
 
@@ -54,7 +54,7 @@ For AI monitoring, where "normal" behavior changes as models are updated and dat
 
 **Datadog:** Infrastructure (Pro) starts at $15/host/month billed annually. APM: $31/host/month. Log management: $0.10/GB ingested (plus $1.70/million log events indexed). LLM Observability and the AI features are priced separately (Datadog meters them through an AI Credits plan), so they add cost on top. For a moderate AI system, Datadog costs $200-1000/month. Note that Datadog bills the high-water mark of hourly host counts, so spend can climb quickly as workloads scale.
 
-Datadog is 3-10x more expensive than CloudWatch for comparable monitoring coverage. The premium buys better visualization, ML-specific features, and cross-cloud capability.
+Datadog is 3-10x more expensive than CloudWatch for comparable monitoring coverage. The premium buys better visualization, broader provider-neutral LLM features, and mature cross-cloud capability. CloudWatch Omni has its own pricing page, so include it if you plan to use it.
 
 ## Integration with AI Services
 
@@ -76,13 +76,13 @@ No configuration needed. Metrics appear automatically. For request tracing, Clou
 
 - Tight budget and the monitoring investment must be minimal
 - All infrastructure is on AWS
-- Standard infrastructure monitoring is the primary need
+- Standard infrastructure monitoring is the primary need, or your LLM workloads run mainly on Bedrock and AgentCore, where CloudWatch GenAI observability and CloudWatch Omni cover traces and evaluations
 - Team is comfortable building custom dashboards and metrics
 - Organization policy requires AWS-native services
 
 ## When to Choose Datadog
 
-- Need ML-specific monitoring out of the box
+- Need ML- and LLM-specific monitoring out of the box across many model providers
 - Multi-cloud or hybrid infrastructure
 - Rich dashboards and visualization are important for stakeholder reporting
 - Want ML-powered anomaly detection for alerting
@@ -100,3 +100,5 @@ Many teams use both: CloudWatch for AWS-native metrics and alarms (free, automat
 - [Datadog Agent and LLM Observability (Datadog)](https://www.datadoghq.com/product/llm-observability/)
 - [Datadog expands LLM Observability for agentic AI (Datadog press release)](https://www.datadoghq.com/about/latest-news/press-releases/datadog-expands-llm-observability-with-new-capabilities-to-monitor-agentic-ai-accelerate-development-and-improve-model-performance/)
 - [CloudWatch integration with X-Ray and OpenTelemetry (AWS docs)](https://docs.aws.amazon.com/xray/latest/devguide/xray-services-cloudwatch.html)
+- [Amazon CloudWatch Omni: AI-first observability for agents and applications (AWS What's New, 23 September 2026)](https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-cloudwatch-omni-ai/)
+- [Amazon CloudWatch GenAI observability now supports Amazon AgentCore Evaluations (AWS What's New, 2 December 2025)](https://aws.amazon.com/about-aws/whats-new/2025/12/cloudwatch-genai-observability-agentcore-evaluations/)

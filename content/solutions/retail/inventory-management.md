@@ -6,7 +6,9 @@ categories: [Solutions]
 tags: [inventory, replenishment, allocation, supply-chain, stock-optimization]
 industries: [retail, logistics]
 tools: [amazon-sagemaker, amazon-forecast, amazon-redshift]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Inventory is the largest asset on most retailers' balance sheets and the largest source of working capital consumption. Carrying too much inventory ties up capital and leads to markdowns; carrying too little causes stockouts and lost sales. AI inventory management optimizes the balance across thousands of SKU-location combinations, achieving service level targets at minimum inventory investment.
@@ -19,7 +21,7 @@ The result is a chronic imbalance: popular items are under-stocked in high-deman
 
 ## AI Approach
 
-**Probabilistic demand forecasting** - Amazon Forecast generates demand distributions (not just point forecasts) for each SKU-location. The probability distribution captures demand uncertainty, which is the key input for safety stock calculations. Higher demand uncertainty requires higher safety stock to achieve the same service level.
+**Probabilistic demand forecasting** - Time-series models (SageMaker Canvas or custom SageMaker models) generate demand distributions (not just point forecasts) for each SKU-location. The probability distribution captures demand uncertainty, which is the key input for safety stock calculations. Higher demand uncertainty requires higher safety stock to achieve the same service level.
 
 **Dynamic safety stock optimization** - SageMaker models calculate optimal safety stock levels that achieve target service levels at minimum inventory cost. Unlike fixed safety stock rules, the model adjusts for demand variability, lead time variability, and review period frequency. Safety stock is recalculated weekly as demand patterns evolve.
 
@@ -29,7 +31,7 @@ The result is a chronic imbalance: popular items are under-stocked in high-deman
 
 ## Architecture
 
-Sales data, inventory positions, and supply chain parameters flow from the retail ERP into Redshift. Amazon Forecast generates probabilistic demand forecasts. SageMaker models calculate replenishment recommendations (what to order, where, and when). Recommendations are pushed to the ERP's purchasing and allocation modules via API. CloudWatch monitors key metrics: service level achievement, inventory turns, and days of supply.
+Sales data, inventory positions, and supply chain parameters flow from the retail ERP into Redshift. SageMaker Canvas time-series models generate probabilistic demand forecasts. Amazon Forecast, often used for this in the past, has been [closed to new customers since 29 July 2024](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/); AWS recommends SageMaker Canvas time-series forecasting for new builds. SageMaker models calculate replenishment recommendations (what to order, where, and when). Recommendations are pushed to the ERP's purchasing and allocation modules via API. CloudWatch monitors key metrics: service level achievement, inventory turns, and days of supply.
 
 ## Key Considerations
 

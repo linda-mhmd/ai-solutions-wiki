@@ -4,6 +4,8 @@ description: "AI-powered full-stack web app builder. Describe a product in plain
 date: 2026-06-22
 tags: ["vibe-coding", "ai-builder", "react", "supabase", "no-code", "full-stack", "prototyping"]
 tool_category: "Frontend"
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -123,16 +125,18 @@ The visual editor (Select mode) lets you click any element on the live preview a
   </div>
 </div>
 
-## Pricing (as of June 2026)
+## Pricing (as of September 2026)
 
-| Plan | Monthly | Messages included | GitHub sync |
+Lovable prices plans by **credits**, not per seat or per message: workspaces have unlimited members sharing one credit pool.
+
+| Plan | Monthly (monthly billing) | Credits | Git sync |
 |---|---|---|---|
-| **Free** | €0 | 5/day | No |
-| **Starter** | €20 | 100/month | Yes |
-| **Launch** | €50 | 250/month | Yes |
-| **Scale** | €100 | 1,000/month | Yes |
+| **Free** | $0 | 5 build credits per day, capped at 30 per month | Yes |
+| **Pro** | From $25 (100 credits) up to $294 (1,200 credits) | Monthly credits plus 5 daily build credits | Yes |
+| **Business** | From $50 (100 credits) up to $588 (1,200 credits) | As Pro, plus governance controls such as workspace-only publishing and training opt-out by default | Yes |
+| **Enterprise** | Custom, volume-based | Contracted | Yes |
 
-One "message" is a single prompt interaction, including any code generation and live preview update. Iterative prototyping typically uses 10-30 messages per feature.
+Annual billing lowers the effective monthly rate (for example $250 per year for Pro at 100 credits). All plans also include small monthly grants for Lovable Cloud hosting and for AI features inside deployed apps; custom domains need a paid plan. Credit cost per message varies: a Plan mode message costs 1 credit plus any subagent research, while Build mode is usage-based (Lovable's own examples range from about 0.5 credits for a small style change to about 1.7 for a landing page with generated images). Git sync now covers GitHub, GitLab, and Bitbucket.
 
 ## Comparison with alternatives
 
@@ -179,6 +183,7 @@ Line item quantities must be positive integers.
 ## Further reading
 
 - [Lovable documentation](https://docs.lovable.dev): Feature reference, integrations, Supabase setup guide
+- [Lovable subscription plans](https://docs.lovable.dev/introduction/subscription-plans) and [credits and usage](https://docs.lovable.dev/introduction/plans-and-credits): source for the pricing table above (checked 25 September 2026)
 - [Lovable GitHub integration](https://docs.lovable.dev/integrations/git-integration): How the GitHub sync works and how to edit code locally
 - [Supabase](/tools/supabase/): Deep dive into the database, auth, and edge functions that Lovable generates
 - [What is Vibe Coding?](/basics/what-is-vibe-coding/): The broader context for AI-driven development workflows

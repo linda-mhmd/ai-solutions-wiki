@@ -2,6 +2,8 @@
 title: "What is Authentication vs. Authorization?"
 description: "Authentication is proving who you are (logging in). Authorization is checking what you're allowed to do (permissions). Both are essential—and confusing them breaks security."
 date: 2026-07-30
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 2
 categories: [Basics]
 tags: [beginner, authentication, authorization, security, login, permissions, auth]
@@ -12,7 +14,7 @@ faqs:
     answer: "API keys are simple: one key, one identity, often all-or-nothing access. OAuth is a protocol where users grant limited permissions to apps without sharing passwords. OAuth is for 'let this app access my Google Drive' scenarios."
   - question: "Should I build my own auth system?"
     answer: "No, unless you have a very good reason. Auth is hard to get right, and mistakes are security breaches. Use services like Clerk, Auth0, Firebase Auth, or Supabase Auth. They handle the hard parts (password hashing, session management, OAuth) correctly."
-last_updated: 2026-07-30
+last_updated: 2026-09-25
 ---
 
 {{< quickanswer >}}
@@ -194,10 +196,10 @@ Services like Clerk, Auth0, Firebase Auth, or Supabase Auth handle:
 
 ```javascript
 // With Clerk in Next.js
-import { auth } from '@clerk/nextjs';
+import { auth } from '@clerk/nextjs/server';
 
 export async function POST(request) {
-  const { userId } = auth();
+  const { userId } = await auth();
   
   if (!userId) {
     return new Response('Unauthorized', { status: 401 });

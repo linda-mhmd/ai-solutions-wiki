@@ -2,11 +2,11 @@
 title: "Hugging Face vs Amazon Bedrock - Choosing by Constraint, Not Catalog Size"
 description: "Hugging Face and Amazon Bedrock aren't really separated by how many models each offers. They're separated by who can self-host, who stays inside or outside US CLOUD Act jurisdiction, and who can absorb the operational burden — the gates and tradeoffs that decide the question before any feature list does."
 date: 2026-03-28
-last_verified: 2026-09-03
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [Hugging-Face, Amazon-Bedrock, models, deployment, comparison, vendor-lock-in, cloud-act, constraint-driven-comparison]
-last_updated: 2026-09-03
-lastmod: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 related:
   - guides/constraint-driven-comparisons
   - glossary/cloud-act
@@ -22,7 +22,7 @@ A feature-by-feature reading of Hugging Face against Amazon Bedrock produces an 
 
 **Hugging Face** is an open platform and community for sharing ML models, datasets, and applications — the Transformers library for running models locally, Inference Endpoints for managed hosting, and the Hub for discovery. As of its Summer 2026 report, public model repositories on the Hub had grown to roughly 2.96 million, up from 2.43 million at the start of the year [1]. That figure is worth reading with its own caveat attached: the same report puts roughly 85.6% of Hub models at fewer than 200 lifetime downloads [1] — the catalog is enormous, but "on the Hub" and "vetted and actively maintained" are not the same claim. You can take any model whose license permits it, fine-tune it, and run it on infrastructure you choose, including Hugging Face's own managed Inference Endpoints, SageMaker, or hardware you operate yourself.
 
-**Amazon Bedrock** is a fully managed AWS service providing unified API access to a curated set of foundation models. AWS's own documentation now lists 100+ models from providers including Amazon (Nova), Anthropic, DeepSeek, Moonshot AI (Kimi), MiniMax, OpenAI, and xAI, "from industry-leading providers" [2] — a list that has shifted since early 2026: OpenAI's presence on Bedrock, for instance, has expanded beyond the open-weight gpt-oss models to include hosted proprietary models (GPT-5.6 Sol, Terra, and Luna) served through Bedrock's Responses API [2]. AWS handles the infrastructure; you call an API and pay, in most cases, per token. Bedrock also bundles managed RAG (**Knowledge Bases**) and managed agent orchestration, most recently **AgentCore**, generally available since October 13, 2025, adding a runtime, gateway, memory, and identity services for production agents [4].
+**Amazon Bedrock** is a fully managed AWS service providing unified API access to a curated set of foundation models. AWS's own documentation now lists 100+ models from providers including Amazon (Nova), Anthropic, DeepSeek, Moonshot AI (Kimi), MiniMax, OpenAI, and xAI, "from industry-leading providers" [2] — a list that has shifted since early 2026: OpenAI's presence on Bedrock, for instance, has expanded beyond the open-weight gpt-oss models to include hosted proprietary models (GPT-5.6 Sol, Terra, and Luna, and since September 2026 GPT-6 Astra, Sol, and Luna) served through Bedrock's Responses API [2][11]. AWS handles the infrastructure; you call an API and pay, in most cases, per token. Bedrock also bundles managed RAG (**Knowledge Bases**) and managed agent orchestration, most recently **AgentCore**, generally available since October 13, 2025, adding a runtime, gateway, memory, and identity services for production agents [4].
 
 ## Start here: what rules an option out entirely
 
@@ -46,7 +46,7 @@ If none of the three gates above apply, the choice comes down to a handful of tr
 
 **Hugging Face, Inference Endpoints.** Managed hosting, billed hourly, on infrastructure Hugging Face operates across **three clouds** — AWS, Azure, and GCP — not one. Current published rates start around $0.033/hour for the smallest AWS CPU instance and $0.5/hour for the smallest GPU instance (an AWS T4), scaling up to $40+/hour for 8×H200 configurations; Azure and GCP instances are priced separately and are not identical to AWS's rates for the same class of hardware [5].
 
-**Amazon Bedrock.** Per-token pricing. Claude Sonnet 4.5, for example, is $3 per million input tokens and $15 per million output tokens in us-east-1, with batch inference available at a 50% discount and prompt caching cutting cached-input cost by up to 90% [3].
+**Amazon Bedrock.** Per-token pricing. The previous-generation Claude Sonnet 4.5, for example, is $3 per million input tokens and $15 per million output tokens in us-east-1, with batch inference available at a 50% discount and prompt caching cutting cached-input cost by up to 90% [3]. Its successor, Claude Sonnet 5, lists at $2/$10 on Anthropic's own price list as of September 2026 [10]; confirm the Bedrock regional rate on the pricing page before budgeting.
 
 The break-even between paying per token and paying for standing capacity is a real, calculable line, not a vague "it depends" — and this wiki has already worked out the general form of that calculation in more depth than belongs here: see [managed vs. reserved vs. self-hosted inference](/comparisons/managed-vs-reserved-vs-self-hosted-inference/) for the utilization formula that applies whether the "reserved" side is Bedrock Provisioned Throughput or a self-hosted GPU. The short version: at low or spiky volume, per-token Bedrock pricing wins because idle capacity costs nothing; at high, sustained volume, self-hosted open models can be markedly cheaper, because the marginal cost of one more token approaches the cost of electricity once the hardware is paid for.
 
@@ -97,6 +97,8 @@ If neither gate applies to you and you've weighed the tradeoffs above, the remai
 7. Hugging Face, Inc. "Terms of Service" — legal entity ("a Delaware corporation"), governing law (New York), and dispute jurisdiction (New York courts). [https://huggingface.co/terms-of-service](https://huggingface.co/terms-of-service)
 8. AWS. "AWS Customer Agreement" — legal entity (Amazon Web Services, Inc., Seattle, WA) and governing law (Washington State). [https://aws.amazon.com/agreement/](https://aws.amazon.com/agreement/)
 9. Vantage. "g5.xlarge pricing and specs" — current on-demand hourly rate and GPU specification for AWS EC2 g5.xlarge in us-east-1. [https://instances.vantage.sh/aws/ec2/g5.xlarge](https://instances.vantage.sh/aws/ec2/g5.xlarge)
+10. Anthropic. "Pricing" — Claude Sonnet 5 at $2/$10 per million input/output tokens as the standard price, fetched 25 September 2026. [https://platform.claude.com/docs/en/about-claude/pricing](https://platform.claude.com/docs/en/about-claude/pricing)
+11. AWS What's New. "OpenAI GPT-6 Astra is now generally available on Amazon Bedrock" (8 September 2026) and "OpenAI GPT-6 Sol and GPT-6 Luna are now generally available on Amazon Bedrock" (22 September 2026). [https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-astra-on-amazon-bedrock/](https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-astra-on-amazon-bedrock/), [https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-sol-luna-on-amazon-bedrock/](https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-sol-luna-on-amazon-bedrock/)
 
 ## Further reading
 

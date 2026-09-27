@@ -4,7 +4,9 @@ description: "How to build voice-enabled AI applications, covering speech-to-tex
 date: 2026-03-28
 categories: [Guides]
 tags: [voice-AI, speech, NLP, conversational-AI, AI-development]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Voice AI adds a natural language interface to applications through speech recognition (speech-to-text), speech synthesis (text-to-speech), and conversational understanding. Building voice AI involves coordinating multiple components with strict latency requirements - users expect voice interactions to feel conversational, which means end-to-end latency under two seconds.
@@ -22,6 +24,10 @@ A voice AI system has four core stages:
 **4. Text-to-Speech (TTS).** Convert the text response into spoken audio. This is the output stage.
 
 Total latency is the sum of all four stages plus network overhead. Each stage must be optimized for speed.
+
+### Speech-to-speech models: the alternative to the four-stage cascade
+
+Native audio-to-audio models collapse STT, response generation, and TTS into one real-time session, which removes the hand-offs between stages and handles interruptions natively. As of September 2026 two are generally available: OpenAI's **GPT-Live 1** (`gpt-live-1`, GA 10 September 2026 on the `v1/live/sessions` endpoint; full duplex, delegates reasoning and tool use to a backend model or your own agent; $0.05 per minute billed per second, plus backend model usage) [1] and Google's **Gemini 3.8 Live** (`gemini-3.8-live`, GA 15 September 2026 on the Live API, with a `gemini-3.8-live-extended-thinking` variant for heavier background reasoning) [2]. The cascade in this guide is still the better fit when you need a specific STT or TTS vendor, custom vocabulary, per-stage logging for compliance, or SSML-level control over the voice; speech-to-speech is the faster path to natural turn-taking.
 
 ## Speech-to-Text Options
 
@@ -118,3 +124,8 @@ Voice AI over phone systems requires additional considerations:
 **Accent and dialect coverage.** Test with speakers representing the expected user population. Many STT systems perform worse on non-standard accents.
 
 Voice AI is technically complex but produces highly natural user experiences when done well. Start with a simple use case (FAQ answering over voice), optimize the latency, and expand capabilities incrementally.
+
+## Sources
+
+1. OpenAI. "GPT-Live 1" model page and API changelog (10 September 2026). https://developers.openai.com/api/docs/models/gpt-live-1 ; https://developers.openai.com/api/docs/changelog
+2. Google. Gemini API changelog, "Gemini 3.8 Live and Gemini 3.8 Live Extended Thinking generally available" (15 September 2026). https://ai.google.dev/gemini-api/docs/changelog

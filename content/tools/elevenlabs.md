@@ -1,9 +1,11 @@
 ---
 title: "ElevenLabs"
-description: "AI voice synthesis API with natural-sounding text-to-speech, voice cloning, and real-time audio generation across 32 languages."
+description: "AI voice synthesis API with natural-sounding text-to-speech, voice cloning, and real-time audio generation in 70+ languages (Eleven v3)."
 date: 2026-06-22
 tags: ["voice-ai", "text-to-speech", "voice-cloning", "audio", "api", "speech"]
 tool_category: "AI"
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -11,7 +13,7 @@ tool_category: "AI"
   <figcaption>ElevenLabs turns text into speech the same way an arc converts electricity into visible energy: a transformation that looks simple but requires precise tuning at every frequency.</figcaption>
 </figure>
 
-ElevenLabs is a voice AI company founded in 2022 that provides an API for text-to-speech, voice cloning, speech-to-speech conversion, and audio dubbing. Its models produce speech that is consistently ranked as the most natural-sounding available commercially. The API covers 32 languages with accent-aware output and supports real-time streaming for latency-sensitive applications like conversational AI, interactive assistants, and podcast narration.
+ElevenLabs is a voice AI company founded in 2022 that provides an API for text-to-speech, voice cloning, speech-to-speech conversion, and audio dubbing. Its models produce speech that is consistently ranked as the most natural-sounding available commercially. The API covers 70+ languages with Eleven v3 (29 with Multilingual v2 and 32 with the low-latency Flash and Turbo v2.5 models), with accent-aware output and supports real-time streaming for latency-sensitive applications like conversational AI, interactive assistants, and podcast narration.
 
 <div class="bz-arch">
   <div class="bz-arch-layer">
@@ -80,7 +82,7 @@ with open("output.mp3", "wb") as f:
 
 ## Streaming for real-time applications
 
-Use the WebSocket streaming API when integrating with a conversational agent and need audio to start playing before the full response is generated.
+Use the streaming endpoint (or the WebSocket API for input streamed token by token) when integrating with a conversational agent and need audio to start playing before the full response is generated.
 
 ```python
 from elevenlabs.client import ElevenLabs
@@ -88,7 +90,7 @@ from elevenlabs import stream
 
 client = ElevenLabs(api_key="YOUR_ELEVENLABS_API_KEY")
 
-audio_stream = client.text_to_speech.convert_as_stream(
+audio_stream = client.text_to_speech.stream(
     voice_id="JBFqnCBsd6RMkjVDRZzb",
     model_id="eleven_flash_v2_5",  # optimised for low latency
     text="Your order has been confirmed. Delivery is scheduled for Thursday.",
@@ -103,22 +105,20 @@ stream(audio_stream)
 Instant voice cloning accepts audio files of 30 seconds to 5 minutes. The clone is available immediately via the API.
 
 ```python
-from pathlib import Path
 from elevenlabs.client import ElevenLabs
 
 client = ElevenLabs(api_key="YOUR_ELEVENLABS_API_KEY")
 
-with open("speaker_sample.mp3", "rb") as f:
-    cloned_voice = client.clone(
-        name="Customer Service Rep - AT",
-        description="Austrian German accent, professional tone",
-        files=[f],
-    )
+cloned_voice = client.voices.ivc.create(
+    name="Customer Service Rep - AT",
+    description="Austrian German accent, professional tone",
+    files=["speaker_sample.mp3"],
+)
 
-audio = client.generate(
+audio = client.text_to_speech.convert(
+    voice_id=cloned_voice.voice_id,
+    model_id="eleven_multilingual_v2",
     text="Guten Tag, wie kann ich Ihnen helfen?",
-    voice=cloned_voice,
-    model="eleven_multilingual_v2",
 )
 ```
 
@@ -132,7 +132,7 @@ audio = client.generate(
   <div class="bz-flow-step">
     <span class="bz-flow-step-tag">Step 2</span>
     <span class="bz-flow-step-name">Select model</span>
-    <span class="bz-flow-step-desc">Flash for real-time latency under 100ms. Turbo for balanced quality and speed. Multilingual v2 for highest naturalness, all languages.</span>
+    <span class="bz-flow-step-desc">Flash for real-time latency (~75ms). v3 Conversational for low-latency expressive speech. Multilingual v2 for stable long-form audio. Eleven v3 for the most expressive delivery and the widest language coverage (70+).</span>
   </div>
   <div class="bz-flow-arrow">→</div>
   <div class="bz-flow-step">
@@ -148,15 +148,21 @@ audio = client.generate(
   </div>
 </div>
 
-## Pricing (as of June 2026)
+## Pricing (as of September 2026)
 
-| Plan | Monthly | Characters included | Overage |
-|---|---|---|---|
-| **Free** | €0 | 10,000 | Not available |
-| **Starter** | €5 | 30,000 | €0.30/1k chars |
-| **Creator** | €22 | 100,000 | €0.30/1k chars |
-| **Pro** | €99 | 500,000 | €0.24/1k chars |
-| **Scale** | €330 | 2,000,000 | €0.20/1k chars |
+Subscriptions are sold in USD and measured in credits. All ElevenLabs products draw on one shared monthly credit pool; for Multilingual v2, one text character costs one credit, and other models use different rates.
+
+| Plan | Monthly | Credits per month |
+|---|---|---|
+| **Free** | $0 | 10,000 |
+| **Starter** | $6 | 30,000 (adds a commercial licence) |
+| **Creator** | $22 ($11 first month) | 121,000 (adds Professional Voice Cloning) |
+| **Pro** | $99 | 600,000 |
+| **Scale** | $299 | 1,800,000 |
+| **Business** | $990 | 6,000,000 |
+| **Enterprise** | Custom | Custom |
+
+Annual billing charges ten months for twelve, and unused credits roll over for up to two months. For pay-as-you-go API use, ElevenLabs lists text-to-speech at **$0.10 per 1K characters** for Eleven v3 and Multilingual v2 and **$0.05 per 1K** for Flash/Turbo and v3 Conversational.
 
 A typical spoken minute of audio is roughly 750-900 characters. 100,000 characters equals approximately 110-130 minutes of audio.
 
@@ -165,17 +171,17 @@ A typical spoken minute of audio is roughly 750-900 characters. 100,000 characte
 | | ElevenLabs | OpenAI TTS | Google Cloud TTS | Amazon Polly |
 |---|---|---|---|---|
 | **Voice quality** | Best-in-class | High | Good | Moderate |
-| **Languages** | 32 | 57 | 40+ | 30+ |
+| **Languages** | 70+ (v3); 32 (Flash) | 57 | 40+ | 30+ |
 | **Voice cloning** | Yes (instant + pro) | No | No | No |
 | **Latency (streaming)** | ~75ms (Flash) | ~300ms | ~200ms | ~150ms |
-| **Price per 1M chars** | €3,300 (Creator) | ~€15 | ~€16 | ~€4 |
+| **Price per 1M chars** | $50-$100 (API list price) | ~€15 | ~€16 | ~€4 |
 | **Best for** | Natural voice, cloning | GPT integration | Google Workspace | AWS integration |
 
 ## When not to use ElevenLabs
 
 **Very high volume, cost is primary concern**: At scale (hundreds of millions of characters per month), Google Cloud TTS or Amazon Polly costs roughly 5-10x less. The quality gap matters less for automated notifications or IVR systems.
 
-**Real-time phone telephony**: ElevenLabs does not provide a SIP/PSTN integration. For direct voice calls, Twilio's Voice Intelligence or Vonage AI Studio connect more directly to telephony infrastructure.
+**Real-time phone telephony at carrier scale**: ElevenLabs Agents now supports phone numbers and SIP trunking to connect an existing PBX or SIP provider, so telephony is possible. If you need a full contact-centre platform (routing, queues, compliance recording) rather than a voice agent, Twilio, Vonage or your CCaaS vendor remains the better base, with ElevenLabs as the voice layer.
 
 **Purely German or Austrian government output**: EU procurement rules may require GDPR-compliant EU-resident processing. Confirm ElevenLabs' current DPA terms before using voice data from EU citizens.
 
@@ -186,6 +192,13 @@ A typical spoken minute of audio is roughly 750-900 characters. 100,000 characte
 - [ElevenLabs API documentation](https://elevenlabs.io/docs/api-reference/getting-started): REST and WebSocket reference, model IDs, voice IDs
 - [ElevenLabs Python SDK](https://github.com/elevenlabs/elevenlabs-python): Full source, examples, changelog
 - [Voice Library](https://elevenlabs.io/voice-library): Premade voices browsable by accent, age, language, use case
-- [Conversational AI API](https://elevenlabs.io/docs/conversational-ai/overview): Real-time agent integration with turn detection and interruption handling
+- [ElevenLabs Agents](https://elevenlabs.io/docs/eleven-agents/overview): Real-time voice agent platform (formerly Conversational AI) with turn detection, interruption handling, phone numbers and SIP trunking
 - [What is an API?](/basics/what-is-an-api/): Foundational explanation of APIs and how to call them
 - [Multi-Agent Systems](/guides/multi-agent-systems-101/): Integrating voice output with agentic workflows
+
+## Sources
+
+1. ElevenLabs Python SDK README (models `eleven_v3`, `eleven_multilingual_v2`, `eleven_flash_v2_5`; `text_to_speech.stream`, `voices.ivc.create`), checked 26 September 2026. https://github.com/elevenlabs/elevenlabs-python
+2. ElevenLabs pricing (subscription plans and credits), checked 26 September 2026. https://elevenlabs.io/pricing
+3. ElevenLabs API pricing (per-1K-character rates, language counts per model), checked 26 September 2026. https://elevenlabs.io/pricing/api
+4. ElevenLabs docs, "SIP trunking" (ElevenLabs Agents). https://elevenlabs.io/docs/eleven-agents/phone-numbers/sip-trunking

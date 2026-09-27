@@ -2,6 +2,8 @@
 title: "How DNS and Domains Work"
 description: "How typing a URL turns into connecting to a server. Domain names, DNS records, nameservers, and why changes take time to propagate."
 date: 2026-07-30
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 1
 categories: [Basics]
 tags: [beginner, dns, domains, networking, web, infrastructure]
@@ -9,10 +11,10 @@ faqs:
   - question: "Why do DNS changes take so long?"
     answer: "Caching. DNS responses are cached at multiple levels—your browser, your OS, your ISP, and DNS resolvers worldwide. Each cache has a TTL (time to live) before it refreshes. Lowering TTL before making changes can help, but some caches ignore it."
   - question: "What's the difference between a domain registrar and DNS hosting?"
-    answer: "A registrar is where you buy the domain (Namecheap, Google Domains, GoDaddy). DNS hosting is where your DNS records live. They can be the same company or different. Many people buy domains at a registrar but point nameservers to Cloudflare or their hosting provider for DNS."
+    answer: "A registrar is where you buy the domain (Namecheap, Porkbun, Cloudflare, GoDaddy). DNS hosting is where your DNS records live. They can be the same company or different. Many people buy domains at a registrar but point nameservers to Cloudflare or their hosting provider for DNS."
   - question: "Do I need to understand DNS to deploy an app?"
     answer: "For platforms like Vercel, Railway, or Netlify—barely. They handle most of it. You just need to add a CNAME or A record and maybe change nameservers. But when something breaks, understanding DNS helps you debug why your site isn't loading."
-last_updated: 2026-07-30
+last_updated: 2026-09-25
 ---
 
 {{< quickanswer >}}
@@ -183,7 +185,7 @@ Once you add it and they can query it, ownership is verified.
 ## Where to manage DNS
 
 ### Domain registrar
-Where you bought the domain: Namecheap, Google Domains, GoDaddy, Cloudflare.
+Where you bought the domain: Namecheap, Porkbun, GoDaddy, Cloudflare. (Google Domains no longer exists; Squarespace took over its customers in 2023.)
 
 Most registrars include basic DNS hosting. You can manage records there.
 

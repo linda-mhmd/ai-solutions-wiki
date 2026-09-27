@@ -2,7 +2,8 @@
 title: "Temperature and Sampling"
 description: "The parameters that control how an LLM picks its next token: temperature scales the probability distribution, top_p and top_k trim it. Low values favour consistency, high values favour variety."
 date: 2026-07-17
-lastmod: 2026-07-17
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 categories: [Glossary]
 tags: ["ai-ml", "beginner", "llm", "inference", "api"]
 related:
@@ -37,12 +38,14 @@ Temperature 0 makes output more repeatable, not guaranteed identical. Providers 
 
 ## Where you set it
 
-Both major APIs accept these as top-level request parameters, documented in the [Anthropic Messages API reference](https://docs.anthropic.com/en/api/messages) and the [OpenAI API reference](https://platform.openai.com/docs/api-reference/chat). If you do not set them, the provider's defaults apply, which are tuned for general chat rather than for your task.
+Both major APIs accept these as top-level request parameters, documented in the [Anthropic Messages API reference](https://platform.claude.com/docs/en/api/messages) and the [OpenAI API reference](https://developers.openai.com/api/reference/resources/chat). If you do not set them, the provider's defaults apply, which are tuned for general chat rather than for your task.
+
+Reasoning models are the main exception. They often restrict or ignore sampling parameters, because the provider tunes sampling for the hidden reasoning phase. For example, OpenAI's GPT-6 models reject `temperature`, `top_p`, and `top_logprobs` whenever reasoning effort is set above `none` ([OpenAI GPT-6 guide](https://developers.openai.com/api/docs/guides/latest-model)). On those models, steer output through the prompt, the reasoning-effort setting, and structured output instead, and check each model's documentation before relying on temperature.
 
 ## Further reading
 
 - [Your First LLM API Call](/guides/your-first-llm-api-call/): see the parameters in a real request.
 - [From Deterministic Code to LLM Systems](/guides/llm-mental-model-for-engineers/): why sampling changes how you test.
 - [Prompt Engineering](/glossary/prompt-engineering/): the other half of controlling output quality.
-- [Anthropic Messages API reference](https://docs.anthropic.com/en/api/messages): official parameter documentation.
-- [OpenAI API reference](https://platform.openai.com/docs/api-reference/chat): the same parameters on the OpenAI side.
+- [Anthropic Messages API reference](https://platform.claude.com/docs/en/api/messages): official parameter documentation.
+- [OpenAI API reference](https://developers.openai.com/api/reference/resources/chat): the same parameters on the OpenAI side.

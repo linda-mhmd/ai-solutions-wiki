@@ -84,7 +84,7 @@ These questions do not require code knowledge. They require understanding that A
 
 **RAG (Retrieval-Augmented Generation):** A pattern where a language model is given relevant documents before generating a response. Most "AI-powered search" or "AI assistant" features use some version of this.
 
-**Foundation model:** A large pre-trained model (like GPT-4 or Claude) that your product is built on top of. You pay per use. You do not train it yourself.
+**Foundation model:** A large pre-trained model (like OpenAI's GPT-6, Anthropic's Claude, or Google's Gemini) that your product is built on top of. You pay per use. You do not train it yourself.
 
 **Latency:** How long a response takes. AI features are often slower than traditional features. Users notice.
 

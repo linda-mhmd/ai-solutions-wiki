@@ -5,12 +5,14 @@ date: 2026-06-22
 categories: [Guides]
 tags: ["eu-ai-act", "compliance", "ai-governance", "regulation", "risk-classification", "enterprise-ai", "gdpr", "austria", "europe"]
 related:
-  - frameworks/eu-ai-act
+  - frameworks/eu-ai-act-risk-framework
   - frameworks/iso-42001
   - glossary/ai-safety
-  - glossary/bias
-  - glossary/data-governance
+  - glossary/responsible-ai
+  - guides/ai-data-strategy
   - comparisons/eu-vs-us-ai-regulation
+lastmod: 2026-09-26
+last_verified: 2026-09-26
 ---
 
 <figure class="bz-figure">
@@ -68,7 +70,7 @@ The Act classifies AI systems into four tiers. Your obligations depend entirely 
 
 ### Unacceptable risk: prohibited systems
 
-These systems are banned in the EU with no exceptions. Deploying them after the February 2025 prohibition date is a criminal matter, not a compliance gap.
+These systems are banned in the EU with no exceptions. Deploying them after the February 2025 prohibition date exposes you to the Act's highest fine tier (up to €35 million or 7% of global annual turnover), not a routine compliance gap.
 
 Prohibited systems include:
 - Social scoring by governments or public authorities: ranking citizens on the basis of behaviour, social characteristics, or personal attributes
@@ -77,6 +79,7 @@ Prohibited systems include:
 - AI that exploits vulnerabilities of specific groups (children, people with disabilities) to distort behaviour
 - Emotion recognition systems in workplace and educational settings
 - Biometric categorisation systems that infer sensitive characteristics such as race, political opinion, or sexual orientation
+- AI systems for generating non-consensual intimate imagery or child sexual abuse material (added by the Digital Omnibus, Regulation (EU) 2026/1744, with a grace period to 2 December 2026 for technical safeguards)
 
 If any system in your inventory matches these categories, the only compliant action is to decommission it.
 
@@ -101,10 +104,10 @@ If your AI system makes or materially influences decisions in any of these domai
 
 ### Limited risk: transparency obligations
 
-Limited-risk systems face a single core obligation: tell users they are interacting with AI. Examples:
+Limited-risk systems face transparency obligations under Article 50: tell users they are interacting with AI, and label AI-generated content. These duties have been enforceable since **2 August 2026**. Examples:
 
 - Chatbots and virtual assistants: users must know they are not talking to a human
-- AI-generated content presented as real: deepfakes and synthetic media must be labelled
+- AI-generated content presented as real: deepfakes and synthetic media must be labelled, with machine-readable marking as well as a visible label
 - Emotion recognition systems used outside prohibited contexts: users must be informed
 
 The required disclosure is explicit. A small footer note or buried terms-of-service reference does not satisfy the obligation.
@@ -229,20 +232,22 @@ The Act introduces obligations in stages. Missing a deadline is not a minor proc
 | **1 August 2024** | Act enters into force |
 | **2 February 2025** | Prohibited AI systems banned; AI literacy obligations apply |
 | **2 August 2025** | GPAI model obligations apply (transparency, copyright compliance, systemic risk controls) |
-| **2 August 2026** | High-risk AI system obligations fully apply |
-| **2 August 2027** | High-risk AI systems already regulated under Annex I sectoral law come into scope |
+| **27 July 2026** | Digital Omnibus (Regulation (EU) 2026/1744) enters into force, deferring the high-risk deadlines |
+| **2 August 2026** | Article 50 transparency obligations enforceable; AI Office gains GPAI enforcement powers |
+| **2 December 2027** | Annex III (stand-alone) high-risk AI system obligations apply (originally 2 August 2026) |
+| **2 August 2028** | High-risk AI in products regulated under Annex I sectoral law comes into scope (originally 2 August 2027) |
 
-The August 2026 deadline is the one most enterprises are preparing for now. That gives you until then to complete technical documentation, conformity assessments, and EU database registration for every high-risk system in your portfolio. That timeline is tighter than it looks once you account for legal review, technical remediation, and procurement processes for third-party systems.
+For most enterprises the next hard deadline is **2 December 2027**, when the Annex III high-risk obligations apply after the Digital Omnibus moved them from 2 August 2026. The requirements themselves did not change, only the date. That gives you until then to complete technical documentation, conformity assessments, and EU database registration for every high-risk system in your portfolio, and the timeline is tighter than it looks once you account for legal review, technical remediation, and procurement processes for third-party systems. Transparency obligations for chatbots and generated content are already enforceable. See [EU AI Act enforcement begins](/news/eu-ai-act-enforcement-begins-2026/) for what changed.
 
 ## GPAI models and LLM providers
 
-General Purpose AI (GPAI) models, the foundation models and large language models that power most enterprise AI, face a separate set of obligations that apply from August 2025.
+General Purpose AI (GPAI) models, the foundation models and large language models that power most enterprise AI, face a separate set of obligations that have applied since 2 August 2025 and have been enforceable by the AI Office since 2 August 2026.
 
 **If you use a commercial LLM API** (such as those from Anthropic, OpenAI, or Google), the GPAI model obligations fall primarily on the API provider. Your obligation is to use the model in a way consistent with its intended purpose and the provider's documentation.
 
 **If you fine-tune a foundation model** on your own data and deploy it internally or to customers, you become the GPAI provider for that fine-tuned model. The fine-tuning obligation applies even if the base model came from a third party.
 
-**Systemic risk threshold**: models trained with more than 10^25 floating point operations (FLOPs) face additional obligations, including adversarial testing, incident reporting to the European AI Office, and cybersecurity measures. GPT-4 scale models and above are likely to meet this threshold. If you are training at this scale, engage the European AI Office proactively.
+**Systemic risk threshold**: models trained with more than 10^25 floating point operations (FLOPs) face additional obligations, including adversarial testing, incident reporting to the European AI Office, and cybersecurity measures. GPT-4-scale models (2023) were estimated to exceed this threshold, and current frontier models from the major providers do as well. If you are training at this scale, engage the European AI Office proactively.
 
 All GPAI providers must:
 
@@ -253,7 +258,7 @@ All GPAI providers must:
 
 ## What Austria-based companies need to know
 
-Austria has designated the Datenschutzbehörde (DSB) as the national AI supervisory authority, coordinating with the European AI Office in Brussels. The DSB already handles GDPR enforcement in Austria and will apply the same data protection principles to AI Act compliance.
+As of September 2026, Austria has not yet designated its general market surveillance authority under the AI Act; the Datenschutzbehörde (DSB) states on its own site that this is still open. Until then, the **RTR KI-Servicestelle** is the national contact and information point for AI Act questions ([RTR KI-Servicestelle FAQ](https://www.rtr.at/rtr/service/ki-servicestelle/faq/FAQ.de.html)). The DSB covers the GDPR side of any AI system that processes personal data, and under Article 74(8) of the AI Act it is already the market surveillance authority for high-risk AI used in law enforcement, border control, justice and democratic processes ([DSB: KI & Datenschutz](https://dsb.gv.at/kuenstlichebrintelligenz/kuenstliche-intelligenz-datenschutz)).
 
 **GDPR and AI Act overlap**: any AI system that processes personal data faces obligations under both regulations simultaneously. In practice, this means:
 
@@ -289,8 +294,11 @@ If your organisation is beginning its AI governance programme, implementing ISO 
 - [EU AI Act full text (EUR-Lex)](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689): the official regulation text, including Annexes I to XIII which define prohibited and high-risk system categories
 - [European AI Office](https://digital-strategy.ec.europa.eu/en/policies/european-ai-office): the central EU body overseeing GPAI models and coordinating national supervisory authorities
 - [EU AI Act compliance guidance (AI Office)](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai): official guidance documents, technical standards references, and the GPAI Code of Practice
-- [Austrian Datenschutzbehörde (DSB)](https://www.dsb.gv.at/): Austria's national data protection and AI supervisory authority; publishes guidance in German and English
+- [Austrian Datenschutzbehörde (DSB)](https://www.dsb.gv.at/): Austria's data protection authority, and the AI Act market surveillance authority for high-risk AI in law enforcement, border control, justice and democratic processes; publishes guidance in German and English
+- [RTR KI-Servicestelle](https://www.rtr.at/rtr/service/ki-servicestelle/): Austria's contact and information point for the AI Act while the general market surveillance authority is still to be designated
 - [EU AI Act risk classification tool (AI Office)](https://artificialintelligenceact.eu/assessment/eu-ai-act-compliance-checker/): interactive tool for classifying your AI systems against the Act's categories
 - [ISO/IEC 42001:2023](https://www.iso.org/standard/81230.html): the AI management system standard; purchase required, but the scope and structure are publicly available
 - [EU AI Act and GDPR interaction (EDPB)](https://www.edpb.europa.eu/): the European Data Protection Board publishes guidance on the intersection of GDPR and AI Act obligations
+- [Regulation (EU) 2026/1744 (Digital Omnibus on AI), EUR-Lex](https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng): the amending regulation that deferred the high-risk deadlines
+- [European Commission, "Commission starts enforcing AI Act rules and new transparency requirements" (31 July 2026)](https://ec.europa.eu/commission/presscorner/detail/en/ip_26_1714)
 - [EU AI Act: frameworks overview](/frameworks/eu-ai-act-risk-framework/): the wiki's deep-dive into the regulation's structure, definitions, and governance model

@@ -12,7 +12,9 @@ faqs:
     answer: "Yes, but it gets harder over time. Containerized apps (Docker) are most portable. Platforms with proprietary features (Vercel edge functions, Netlify functions) create some lock-in."
   - question: "Do I need to understand DevOps?"
     answer: "Not for PaaS platforms like Vercel, Railway, or Render. They handle infrastructure. For AWS/GCP/Azure, you need more knowledge or should use managed services."
-last_updated: 2026-07-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 {{< quickanswer >}}
@@ -41,13 +43,13 @@ The Next.js company's platform. Optimized for frontend frameworks.
 - Serverless functions and edge runtime
 - Git-based deployments
 
-### Pricing (2024)
+### Pricing (checked September 2026)
 
 | Tier | Cost | Limits |
 |------|------|--------|
-| Hobby | Free | 100GB bandwidth, 100 hours serverless |
-| Pro | $20/user/mo | 1TB bandwidth, 1000 hours serverless |
-| Enterprise | Custom | Unlimited, SLAs |
+| Hobby | Free | Personal, non-commercial projects; fixed monthly usage limits |
+| Pro | $20/mo per developer seat | Includes $20 of usage credit, then usage-based |
+| Enterprise | Custom | Custom limits, SLAs |
 
 ### Strengths
 - **Next.js integration**: Unmatched, features work automatically
@@ -60,7 +62,7 @@ The Next.js company's platform. Optimized for frontend frameworks.
 - **Expensive at scale**: Costs grow quickly
 - **Database limitations**: No built-in database (use external)
 - **Vendor lock-in**: Some features are Vercel-only
-- **Function limits**: 10s timeout on hobby, cold starts
+- **Function limits**: 5-minute maximum duration on Hobby (longer on Pro), cold starts
 - **Not for backends**: API-only apps don't fit well
 
 ### Best for
@@ -97,12 +99,13 @@ Modern PaaS for full-stack applications. "Heroku done right."
 
 | Resource | Cost |
 |----------|------|
-| Compute | $0.000463/vCPU/min |
-| Memory | $0.000231/GB/min |
-| Storage | $0.25/GB/month |
-| Bandwidth | $0.10/GB |
-| **Trial** | $5 free credit |
-| **Minimum** | ~$5/mo for small app + DB |
+| Compute | ~$20/vCPU/month ($0.00000772/vCPU/s) |
+| Memory | ~$10/GB/month ($0.00000386/GB/s) |
+| Volume storage | ~$0.15/GB/month |
+| Egress | $0.05/GB |
+| **Trial** | 30 days with $5 credit, no card needed |
+| **Hobby plan** | $5/mo, includes $5 of usage |
+| **Pro plan** | $20/mo, includes $20 of usage |
 
 ### Strengths
 - **Full-stack friendly**: Backend + database in one place
@@ -112,7 +115,7 @@ Modern PaaS for full-stack applications. "Heroku done right."
 - **Private networking**: Services talk securely
 
 ### Weaknesses
-- **No free tier**: Trial credits run out
+- **Limited free option**: After the trial, the Free plan is very small; real apps need Hobby or Pro
 - **Newer platform**: Less battle-tested
 - **Scaling limits**: Not for massive scale
 - **Edge features**: Limited edge/CDN options
@@ -156,7 +159,7 @@ Heroku alternative with better pricing and modern features.
 |---------|-----------|------|
 | Static sites | Unlimited | - |
 | Web services | 750 hours/mo | From $7/mo |
-| Postgres | 90 days | From $7/mo |
+| Postgres | 1GB, expires after 30 days | From $7/mo |
 | Redis | 25MB | From $7/mo |
 
 ### Strengths
@@ -207,7 +210,7 @@ Edge deployment platform. Run apps close to users globally.
 ### What it is
 - Run Docker containers on edge servers
 - Global deployment by default
-- Built-in Postgres (LiteFS, distributed SQLite)
+- Managed Postgres, plus LiteFS for distributed SQLite
 - Machines API for fine control
 
 ### Pricing
@@ -219,7 +222,7 @@ Edge deployment platform. Run apps close to users globally.
 | Memory | $0.00000193/MB/s |
 | Storage | $0.15/GB/mo |
 | Bandwidth | $0.02/GB (after free) |
-| **Free allowance** | 3 shared VMs, 3GB storage |
+| **Free trial** | 2 VM hours or 7 days, then a credit card is required (no ongoing free allowance) |
 
 ### Strengths
 - **Global by default**: Apps run worldwide
@@ -271,9 +274,11 @@ The original JAMstack platform. Static sites and serverless functions.
 
 | Tier | Cost | Limits |
 |------|------|--------|
-| Free | $0 | 100GB bandwidth, 300 build min |
-| Pro | $19/user/mo | 1TB bandwidth, 1000 build min |
-| Business | $99/user/mo | More features, support |
+| Free | $0 | 300 credits/month |
+| Personal | $9/mo | 1,000 credits/month |
+| Pro | From $20/mo | 3,000+ credits/month, team features |
+
+Netlify moved to credit-based pricing: deploys, compute, bandwidth, and requests all draw from your monthly credits (checked September 2026).
 
 ### Strengths
 - **Static sites**: Perfect for marketing, docs, blogs
@@ -318,6 +323,7 @@ The original PaaS. Simple but expensive now.
 - Salesforce-owned
 - Add-ons marketplace
 - Deprecated free tier (ended 2022)
+- Moved to a "Sustaining Engineering" model in 2026: focus on stability and security rather than major new features
 
 ### Pricing
 
@@ -337,7 +343,7 @@ The original PaaS. Simple but expensive now.
 ### Weaknesses
 - **Expensive**: Much pricier than alternatives
 - **No free tier**: Minimum $5/mo for anything
-- **Slow innovation**: Platform feels dated
+- **Slow innovation**: Platform feels dated; Salesforce has put Heroku in sustaining-engineering mode
 - **Cold starts**: Eco dynos sleep
 
 ### Best for
@@ -363,7 +369,7 @@ The everything platform. Maximum power, maximum complexity.
 | Service | What it does | Complexity |
 |---------|--------------|------------|
 | **Amplify** | Frontend hosting | Low |
-| **App Runner** | Container PaaS | Low |
+| **ECS Express Mode** | Container PaaS (successor to App Runner) | Low |
 | **Elastic Beanstalk** | Traditional PaaS | Medium |
 | **ECS/Fargate** | Container orchestration | High |
 | **Lambda** | Serverless functions | Medium |
@@ -393,7 +399,7 @@ The everything platform. Maximum power, maximum complexity.
 ### Simpler AWS options
 If you want AWS without the complexity:
 - **AWS Amplify**: Vercel-like frontend hosting
-- **AWS App Runner**: Railway-like container hosting
+- **Amazon ECS Express Mode**: Railway-like container hosting from a single container image (AWS App Runner, the previous option, is closed to new customers)
 - **AWS Lightsail**: Simple VPS hosting
 
 ---
@@ -402,11 +408,11 @@ If you want AWS without the complexity:
 
 | Platform | Free tier | Min paid | Best for | Complexity |
 |----------|-----------|----------|----------|------------|
-| Vercel | Yes | $20/user | Next.js, frontend | Low |
-| Railway | $5 credit | ~$5/mo | Full-stack | Low |
+| Vercel | Yes (non-commercial) | $20/seat | Next.js, frontend | Low |
+| Railway | Trial ($5 credit) | $5/mo | Full-stack | Low |
 | Render | Yes | $7/mo | Production apps | Low |
-| Fly.io | Yes | ~$2/mo | Global apps | Medium |
-| Netlify | Yes | $19/user | Static sites | Low |
+| Fly.io | Trial only | ~$2/mo | Global apps | Medium |
+| Netlify | Yes | $9/mo | Static sites | Low |
 | Heroku | No | $5/mo | Legacy, add-ons | Low |
 | AWS | Yes (limited) | Varies | Everything | High |
 
@@ -420,7 +426,7 @@ Small app: API + Postgres + Redis
 | Render | $21+ ($7 x 3 services) |
 | Fly.io | $10-15 |
 | Heroku | $35+ |
-| AWS (App Runner + RDS) | $25-50 |
+| AWS (ECS Express Mode + RDS) | $40-80 |
 
 *Costs vary significantly based on usage, regions, and specific requirements.*
 
@@ -468,16 +474,17 @@ Just starting out?
 **For most vibecoders**:
 - **Frontend only**: Vercel or Netlify
 - **Full-stack**: Railway or Render
-- **Need to be cheap**: Render free tier or Fly.io
+- **Need to be cheap**: Render free tier (web services; free Postgres expires after 30 days) or Railway Hobby
 
 **Don't start with AWS** unless you have specific requirements. PaaS platforms are simpler and often cheaper for small-medium apps.
 
-**Pricing changes**: Platforms adjust pricing frequently. Always check current rates before committing.
+**Pricing changes**: Platforms adjust pricing frequently (for example, Netlify moved new accounts to credit-based plans on 4 September 2025). Always check current rates before committing. Prices on this page were checked on 25 September 2026 against [Vercel](https://vercel.com/pricing), [Railway](https://railway.com/pricing), [Render](https://render.com/docs/free), [Fly.io](https://fly.io/docs/about/pricing/), [Netlify](https://www.netlify.com/pricing/) and [Heroku](https://www.heroku.com/pricing/).
 
 **Vendor lock-in is real**: Use Docker and standard databases to stay portable. Avoid platform-specific features unless the value is clear.
 
 ## Further reading
 
+- [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html): App Runner is closed to new customers; AWS recommends ECS Express Mode (checked 25 September 2026)
 - [Choosing where to deploy](/basics/choosing-where-to-deploy/): Matching workloads to platforms
 - [What is deployment?](/basics/what-is-deployment/): Deployment fundamentals
 - [What is hosting?](/basics/what-is-hosting/): Hosting basics

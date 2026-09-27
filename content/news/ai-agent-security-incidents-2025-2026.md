@@ -7,9 +7,9 @@ categories: [News]
 tags: [AI security, agents, prompt injection, CVE, MCP, breaches]
 related:
   - /glossary/prompt-injection
-  - /glossary/prompt-injection-defense
-  - /glossary/owasp-top-10-llm
-  - /glossary/ai-security-best-practices
+  - patterns/prompt-injection-defense
+  - guides/owasp-top-10-llm
+  - guides/ai-security-best-practices
 ---
 
 2025 and 2026 marked the transition of AI agent security from research curiosity to enterprise crisis. Prompt injection received its first CVEs in shipped products, AI agents were used to breach government agencies, and security researchers documented that nearly 9 in 10 organizations running AI agents in production have experienced at least one security incident.

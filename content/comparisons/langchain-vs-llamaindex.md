@@ -2,16 +2,16 @@
 title: "LangChain vs LlamaIndex - LLM Framework Comparison"
 description: "Compare LangChain and LlamaIndex for building LLM apps: architecture, use cases, developer experience, and when to choose each in 2026."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [LangChain, LlamaIndex, LLM, frameworks, RAG]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 LangChain and LlamaIndex are the two most popular frameworks for building LLM-powered applications. Despite frequent comparison, they solve different primary problems: LangChain is a general-purpose LLM application framework, while LlamaIndex is specialized for data retrieval and RAG. Understanding this distinction prevents choosing the wrong tool.
 
-Both frameworks reached major milestones recently. LangChain and LangGraph hit their stable 1.0 releases on October 22, 2025, with a public commitment to no breaking changes until 2.0. LlamaIndex raised a Series A and brought its managed LlamaCloud platform (including LlamaParse) to general availability in March 2025. Both have shifted their centre of gravity toward agentic, stateful workflows rather than the simpler chain and query-engine patterns they were originally known for.
+Both frameworks have matured since 2025. LangChain and LangGraph hit their stable 1.0 releases on October 22, 2025, with a public commitment to no breaking changes until 2.0; as of September 2026 they are on the 1.4.x and 1.2.x lines respectively, still without a 2.0. LlamaIndex (0.14.x as of September 2026) has not declared a 1.0. LlamaIndex raised a Series A and brought its managed LlamaCloud platform (including LlamaParse) to general availability in March 2025. Both have shifted their centre of gravity toward agentic, stateful workflows rather than the simpler chain and query-engine patterns they were originally known for.
 
 ## Core Focus
 
@@ -119,3 +119,4 @@ For simple applications (single LLM call, basic RAG), consider using the LLM pro
 - LlamaIndex documentation. [https://docs.llamaindex.ai/](https://docs.llamaindex.ai/)
 - LlamaIndex. *Series A Funding and LlamaCloud General Availability.* (March 4, 2025). [https://www.llamaindex.ai/blog/announcing-our-series-a-and-llamacloud-general-availability](https://www.llamaindex.ai/blog/announcing-our-series-a-and-llamacloud-general-availability)
 - AWS. *Amazon Bedrock Knowledge Bases.* [https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html)
+- PyPI. *langchain*, *langgraph* and *llama-index* release histories (langchain 1.4.2, 18 September 2026; langgraph 1.2.12, 21 September 2026; llama-index 0.14.25, 21 September 2026). [https://pypi.org/project/langchain/](https://pypi.org/project/langchain/), [https://pypi.org/project/langgraph/](https://pypi.org/project/langgraph/), [https://pypi.org/project/llama-index/](https://pypi.org/project/llama-index/)

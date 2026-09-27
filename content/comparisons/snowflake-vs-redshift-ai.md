@@ -2,11 +2,11 @@
 title: "Snowflake vs Redshift for AI Workloads"
 description: "Comparing Snowflake and Amazon Redshift for AI and ML data storage, feature engineering, and analytics workloads."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [Snowflake, Redshift, data-warehouse, analytics, AI-infrastructure]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 Snowflake and Amazon Redshift are cloud data warehouses used to store and analyze data that feeds AI systems. For AI workloads, they serve as the foundation for feature engineering, training data preparation, and analytics on model outputs. The choice affects data architecture, cost, and integration with ML tools.
@@ -15,7 +15,7 @@ Snowflake and Amazon Redshift are cloud data warehouses used to store and analyz
 
 **Snowflake** separates compute from storage completely. Virtual warehouses (compute) can be started, stopped, and scaled independently. Multiple compute clusters can query the same data simultaneously. Storage is managed automatically with transparent micro-partitioning.
 
-**Redshift** traditionally coupled compute and storage in node clusters. Redshift Serverless now offers compute-storage separation. RA3 nodes also separate compute from managed storage. Traditional DC2 nodes use local SSD with fixed capacity.
+**Redshift** traditionally coupled compute and storage in node clusters. Redshift Serverless now offers compute-storage separation. RA3 nodes also separate compute from managed storage, as do the Graviton-based RG nodes that became generally available in May 2026 (AWS cites up to 2.2x RA3 performance for warehouse workloads and 30% lower price per vCPU). Traditional DC2 nodes use local SSD with fixed capacity.
 
 Snowflake's architecture is more flexible for variable workloads. Redshift Serverless closes the gap but is newer.
 
@@ -25,7 +25,7 @@ Snowflake's architecture is more flexible for variable workloads. Redshift Serve
 |---|---|---|
 | ML integration | Snowpark ML, Cortex AI | Redshift ML (Amazon SageMaker AI, Amazon Bedrock) |
 | In-database ML | Snowflake Cortex (AISQL functions, LLM and ML functions) | Redshift ML (CREATE MODEL, CREATE EXTERNAL MODEL) |
-| Python UDFs | Snowpark Python | Lambda UDFs (native Python UDFs deprecated, end of support June 30, 2026) |
+| Python UDFs | Snowpark Python | Lambda UDFs (native Python UDFs reached end of support after June 30, 2026; AWS is enforcing this in phases) |
 | Vector data type | VECTOR type (generally available) | No native VECTOR type |
 | Data sharing | Secure Data Sharing (cross-account, cross-cloud) | Redshift data sharing (cross-cluster) |
 | External tables | Yes (S3, Azure Blob, GCS) | Yes (Redshift Spectrum on S3) |
@@ -45,7 +45,7 @@ Both platforms are used for SQL-based feature engineering:
 **Redshift** advantages:
 - Tight integration with Amazon SageMaker AI for end-to-end ML workflows, now unified through Amazon SageMaker Lakehouse and SageMaker Unified Studio, which expose S3 and Redshift data through a single Apache Iceberg compatible lakehouse
 - Zero-ETL integrations pull data from operational databases and SaaS applications into Redshift and the lakehouse in near real time, reducing pipeline code for feature pipelines
-- Redshift Spectrum queries data directly in S3 without loading
+- Redshift Spectrum queries data directly in S3 without loading; on RG nodes, a built-in data lake engine queries Iceberg and Parquet on the cluster itself, without Spectrum's separate per-terabyte charges
 - Materialized views with automatic refresh for pre-computed features
 - Familiar PostgreSQL based SQL dialect
 
@@ -53,7 +53,7 @@ Both platforms are used for SQL-based feature engineering:
 
 **Snowflake** handles variable workloads well. Auto-scaling can spin up additional compute clusters during peak feature engineering jobs and shut them down after. No capacity planning needed. Performance scales linearly with warehouse size.
 
-**Redshift** with RA3 nodes or Serverless handles large datasets well. Concurrency scaling adds transient compute for burst workloads. AQUA (Advanced Query Accelerator) acceleration is now applied automatically by Redshift rather than configured per cluster, as the manual AQUA configuration controls have been retired. Manual cluster resizing is available for RA3.
+**Redshift** with RA3 or RG nodes or Serverless handles large datasets well. Concurrency scaling adds transient compute for burst workloads. AQUA (Advanced Query Accelerator) acceleration is now applied automatically by Redshift rather than configured per cluster, as the manual AQUA configuration controls have been retired. Manual cluster resizing is available for RA3 and RG.
 
 For unpredictable ML workloads (batch feature engineering that runs intensively for hours then sits idle), Snowflake's auto-scaling and per-second billing provide better cost efficiency.
 
@@ -103,4 +103,6 @@ For related comparisons, see {{< relref "comparisons/athena-vs-redshift" >}}, {{
 - [Amazon Redshift Python UDFs end of support after June 30, 2026](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) - AWS Big Data Blog deprecation notice
 - [Snowflake VECTOR data type and vector similarity functions, general availability (May 16, 2024)](https://docs.snowflake.com/en/release-notes/2024/other/2024-05-16-vector-data-type-ga) - Snowflake release notes
 - [Snowflake Cortex AI Functions, general availability (Nov 4, 2025)](https://docs.snowflake.com/en/release-notes/2025/other/2025-11-04-cortex-aisql-operators-ga) - Snowflake release notes
+- [Amazon Redshift RG instances powered by AWS Graviton (May 12, 2026)](https://aws.amazon.com/about-aws/whats-new/2026/05/amazon-redshift-rg-instances-powered-by-graviton/) - AWS What's New
+- [Python language support for UDFs](https://docs.aws.amazon.com/redshift/latest/dg/udf-python-language-support.html) - AWS documentation, Python UDF end-of-support notice (checked September 25, 2026)
 - [Amazon SageMaker Lakehouse](https://aws.amazon.com/sagemaker/lakehouse/) - AWS unified lakehouse over S3 and Redshift

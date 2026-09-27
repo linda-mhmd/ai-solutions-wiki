@@ -6,8 +6,8 @@ categories: [Patterns]
 tags: ["data-engineering", "intermediate", "data-pipeline", "etl", "streaming", "batch-processing", "orchestration"]
 related:
   - glossary/event-driven-architecture
-  - tools/aws-eventbridge
-  - tools/amazon-step-functions
+  - tools/amazon-eventbridge
+  - tools/aws-step-functions
   - tools/aws-s3
   - tools/amazon-sagemaker
 last_updated: 2026-05-30

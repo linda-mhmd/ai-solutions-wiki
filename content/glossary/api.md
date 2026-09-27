@@ -7,7 +7,7 @@ tags: ["software-engineering", "beginner", "api", "rest", "integration", "http",
 related:
   - guides/programming-languages-for-ai
   - glossary/hardware-constraints
-  - guides/aws-bedrock-101
+  - guides/getting-started-with-bedrock
 last_updated: 2026-05-30
 ---
 

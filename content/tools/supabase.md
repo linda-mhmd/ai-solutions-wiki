@@ -8,7 +8,9 @@ related:
   - tools/aws-amplify
   - tools/amazon-cognito
   - tools/keycloak
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Supabase is an open-source backend-as-a-service (BaaS) platform that provides developers with a suite of tools for building modern applications without managing backend infrastructure. Often described as an open-source alternative to Firebase, Supabase differentiates itself by building on PostgreSQL rather than a proprietary NoSQL database, giving developers the full power of relational SQL, ACID transactions, and the PostgreSQL extension ecosystem (including PostGIS for geospatial, pgvector for AI embeddings, and pg_cron for scheduling).
@@ -30,9 +32,10 @@ Supabase is the open-source alternative to Firebase (Google), AWS Amplify + Cogn
 
 ## Origins and History
 
-Supabase was founded in January 2020 by Paul Copplestone and Ant Wilson. The project launched publicly after participating in Y Combinator (S20). Supabase's core components are licensed under the Apache License 2.0 and MIT License. The company has raised over $116 million in venture funding. Supabase reached general availability in April 2024. Rather than building a monolithic platform, Supabase integrates existing open-source tools (PostgREST, GoTrue, Realtime) and contributes back to those projects.
+Supabase was founded in January 2020 by Paul Copplestone and Ant Wilson. The project launched publicly after participating in Y Combinator (S20). Supabase's core components are licensed under the Apache License 2.0 and MIT License. The company's most recent round was a $500 million Series F announced on 4 June 2026, led by GIC at a $10 billion pre-money valuation. Supabase reached general availability in April 2024. Rather than building a monolithic platform, Supabase integrates existing open-source tools (PostgREST, GoTrue, Realtime) and contributes back to those projects.
 
 ## Sources
 
 1. https://supabase.com/
 2. https://github.com/supabase/supabase
+3. Supabase, "Supabase Series F" (4 June 2026): https://supabase.com/blog/supabase-series-f

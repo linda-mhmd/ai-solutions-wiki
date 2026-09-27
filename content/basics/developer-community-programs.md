@@ -2,6 +2,8 @@
 title: "Developer Community Programs"
 description: "AWS Community Builders, GitHub Stars, Google Developer Experts, Microsoft MVPs—what these programs are, why they exist, and how to join them."
 date: 2026-07-30
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 2
 categories: [Basics]
 tags: [community, aws, google, microsoft, github, developer-relations, advocacy]
@@ -12,7 +14,7 @@ faqs:
     answer: "Most programs want demonstrated, public activity: blog posts, talks, open-source contributions, community leadership. Build a track record first, then apply. Quality matters more than quantity. Applications without evidence of community involvement rarely succeed."
   - question: "Is it worth the time commitment?"
     answer: "Depends on your goals. For career visibility, networking, and access to resources, these programs offer real value. The time commitment is usually a few hours per month of activity you'd often do anyway (writing, speaking, helping others). If that aligns with your interests, yes."
-last_updated: 2026-07-30
+last_updated: 2026-09-25
 ---
 
 {{< quickanswer >}}
@@ -63,7 +65,7 @@ You create content and build community around their technology. They give you re
 
 **Commitment**: Publish content, participate in community, provide feedback. Light commitment.
 
-**Website**: [aws.amazon.com/developer/community/community-builders](https://aws.amazon.com/developer/community/community-builders/)
+**Website**: [builder.aws.com/community/community-builders](https://builder.aws.com/community/community-builders) (the old aws.amazon.com/developer/community URL now redirects to the AWS Builder Center)
 
 ### AWS Heroes
 
@@ -77,7 +79,7 @@ You create content and build community around their technology. They give you re
 
 **Who gets in**: By invitation only. Years of sustained, high-impact community contribution. Think authors of major AWS books, leaders of large user groups, prolific speakers.
 
-**Website**: [aws.amazon.com/developer/community/heroes](https://aws.amazon.com/developer/community/heroes/)
+**Website**: [builder.aws.com/community/heroes](https://builder.aws.com/community/heroes)
 
 ### Google Developer Experts (GDE)
 

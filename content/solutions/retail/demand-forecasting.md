@@ -6,7 +6,9 @@ categories: [Solutions]
 tags: [demand-forecasting, retail-analytics, inventory, time-series, supply-chain]
 industries: [retail, logistics]
 tools: [amazon-forecast, amazon-sagemaker, amazon-redshift]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Demand forecasting underpins nearly every retail operational decision: how much to order, where to allocate inventory, when to mark down, and how many staff to schedule. Traditional forecasting methods (moving averages, exponential smoothing) work adequately for stable, high-volume products but fail on the long tail of products that represent 60-80% of a typical retailer's catalog. AI-based forecasting captures complex patterns that statistical methods miss.
@@ -19,7 +21,7 @@ The long-tail problem is particularly acute: products with sparse sales history 
 
 ## AI Approach
 
-**Multi-signal time-series models** - Amazon Forecast builds probabilistic forecasting models that incorporate multiple related time series (sales, price, promotions, web traffic) along with metadata (product category, store type, region). The probabilistic output provides prediction intervals, not just point forecasts, enabling inventory decisions that balance stockout risk against overstock cost.
+**Multi-signal time-series models** - SageMaker Canvas time-series forecasting (or custom SageMaker models) builds probabilistic forecasting models that incorporate multiple related time series (sales, price, promotions, web traffic) along with metadata (product category, store type, region). The probabilistic output provides prediction intervals, not just point forecasts, enabling inventory decisions that balance stockout risk against overstock cost.
 
 **Feature engineering** - SageMaker pipelines generate features from external data sources: weather forecasts, event calendars, social media trend indicators, and economic indices. These features are joined with internal sales data in Redshift to create the training dataset. Feature importance analysis identifies which external factors drive forecast accuracy for specific product categories.
 
@@ -29,7 +31,7 @@ The long-tail problem is particularly acute: products with sparse sales history 
 
 ## Architecture
 
-Historical sales data and product metadata flow from the retail data warehouse (Redshift) to the forecasting pipeline. Amazon Forecast or SageMaker models generate forecasts on a daily or weekly cadence. Forecasts are written back to Redshift and consumed by downstream systems: replenishment planning, allocation optimization, and markdown management. CloudWatch monitors forecast accuracy metrics and triggers retraining when performance degrades.
+Historical sales data and product metadata flow from the retail data warehouse (Redshift) to the forecasting pipeline. SageMaker Canvas or custom SageMaker models generate forecasts on a daily or weekly cadence. Amazon Forecast, often used for this in the past, has been [closed to new customers since 29 July 2024](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/); AWS recommends SageMaker Canvas time-series forecasting for new builds. Forecasts are written back to Redshift and consumed by downstream systems: replenishment planning, allocation optimization, and markdown management. CloudWatch monitors forecast accuracy metrics and triggers retraining when performance degrades.
 
 ## Key Considerations
 

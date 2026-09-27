@@ -8,7 +8,9 @@ related:
   - tools/ffmpeg
   - glossary/programmatic-video
   - glossary/virtual-dom
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Remotion is an open-source framework that enables developers to create videos programmatically using React. Rather than editing video in a timeline-based tool, developers write JSX components that render frame by frame, producing MP4 files from code. Remotion was created by Jonny Burger and publicly announced on February 8, 2021, via Twitter and Product Hunt, with the tagline "Create videos programmatically in React."
@@ -33,7 +35,7 @@ Remotion Lambda, introduced subsequently, distributes the rendering workload acr
 
 ## Ecosystem and Licensing
 
-Remotion is source-available under the Remotion License. Individual use and companies with fewer than a defined revenue threshold can use it for free, while larger companies require a paid license. The project has accumulated over 21,000 GitHub stars and spawned an ecosystem of templates, components, and integrations. Several startups and products have been built on top of Remotion for automated video production workflows.
+Remotion is source-available under the Remotion License. Individuals, for-profit companies with up to three employees, and non-profits can use it for free, including commercially, while larger for-profit organizations require a paid company license. The project has accumulated over 60,000 GitHub stars (September 2026) and spawned an ecosystem of templates, components, and integrations. Several startups and products have been built on top of Remotion for automated video production workflows.
 
 ## Sources
 
@@ -41,3 +43,4 @@ Remotion is source-available under the Remotion License. Individual use and comp
 2. Remotion GitHub Repository. [https://github.com/remotion-dev/remotion](https://github.com/remotion-dev/remotion)
 3. Remotion Documentation. [https://www.remotion.dev/docs](https://www.remotion.dev/docs)
 4. Remotion on Product Hunt. [https://www.producthunt.com/products/remotion](https://www.producthunt.com/products/remotion)
+5. Remotion. "Remotion License" (accessed 25 September 2026). [https://github.com/remotion-dev/remotion/blob/main/LICENSE.md](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md)

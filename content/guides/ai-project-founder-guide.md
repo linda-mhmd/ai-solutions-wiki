@@ -11,7 +11,9 @@ related:
   - tools/amazon-bedrock
   - tools/fastapi
   - tools/railway
-last_updated: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -106,19 +108,19 @@ Use this table to pick a starting point. Start with the cheapest model that meet
 
 | Situation | Recommended model | Rough monthly cost at 10k calls/day |
 |---|---|---|
-| Budget under €200/month | GPT-5.6 Luna or Claude Haiku 4.5 | €30 to €80 |
+| Budget under €200/month | GPT-6 Luna or Claude Haiku 4.5 | €30 to €80 |
 | Need a 1M-token context window | Claude Sonnet 5 | €150 to €400 |
-| Need self-hosting | Llama 3.3 70B via Groq or Together AI | €0 (API) or infra cost |
+| Need self-hosting | An open-weight model such as gpt-oss-120b or Qwen3.8 (try it first via Groq or Together AI) | €0 (API) or infra cost |
 | Data must stay in AWS | Amazon Bedrock with Nova or Claude | Usage-based, same model pricing |
 | Need open-source with compliance | IBM Granite on Hugging Face | €0 model, infra cost only |
-| Need lowest latency | Groq with Llama or Mixtral | €20 to €60 |
+| Need lowest latency | Groq with gpt-oss or Qwen3.8 | €20 to €60 |
 | **Best for most founders** | **Claude Haiku 4.5 to start, Claude Sonnet 5 when you need it** | **€30 to €150** |
 
 A few rules that hold in almost every case:
 
 - Start with an API model. Do not self-host until you have a cost problem that justifies the operational overhead.
-- Use Claude Haiku 4.5 or GPT-5.6 Luna for high-volume, structured tasks. They cost several times less than frontier models and are fast.
-- Move to Claude Sonnet 5 or GPT-5.6 Terra when the task requires reasoning, long context, or nuanced generation.
+- Use Claude Haiku 4.5 or GPT-6 Luna for high-volume, structured tasks. They cost several times less than frontier models and are fast.
+- Move to Claude Sonnet 5 or GPT-6 Sol when the task requires reasoning, long context, or nuanced generation.
 - Use Amazon Bedrock if you are already on AWS and need data residency controls, auditability, or enterprise procurement.
 
 See [OpenAI API](/tools/openai-api/) and [Claude by Anthropic](/tools/claude-anthropic/) for each provider's full current lineup and pricing -- both move fast enough that a table like this ages quickly.
@@ -228,9 +230,9 @@ At current pricing (September 2026), Anthropic's first-party rates are:
 |---|---|---|---|
 | Claude Haiku 4.5 | $1.00 per million tokens | $5.00 per million tokens | Cheapest, fastest tier |
 | Claude Sonnet 5 | $2.00 per million tokens | $10.00 per million tokens | Best value for most enterprise tasks |
-| Claude Opus 5 | $5.00 per million tokens | $25.00 per million tokens | Flagship, complex reasoning |
+| Claude Opus 5.5 | $4.00 per million tokens | $20.00 per million tokens | Flagship, complex reasoning (released 22 September 2026) |
 
-OpenAI's current GPT-5.6 family (Luna, Terra, Sol) is priced separately -- see [OpenAI API](/tools/openai-api/) for current per-token rates before budgeting. These numbers change. Always check the provider pricing page before committing. But the ratio holds directionally: a provider's cheapest tier runs roughly 5 to 10 times less than its flagship tier (see [Claude by Anthropic](/tools/claude-anthropic/) for the full current pricing table).
+OpenAI's current GPT-6 family lists at $0.10 / $0.50 per million input/output tokens for GPT-6 Luna and $2 / $10 for GPT-6 Sol (22 September 2026), with GPT-6 Astra above them and the GPT-5.6 family (Luna, Terra, Sol) still available -- see [OpenAI API](/tools/openai-api/) for current per-token rates before budgeting. These numbers change. Always check the provider pricing page before committing. But the ratio holds directionally: a provider's cheapest tier runs roughly 5 to 10 times less than its flagship tier (see [Claude by Anthropic](/tools/claude-anthropic/) for the full current pricing table).
 
 ### Three cost traps to avoid
 
@@ -296,7 +298,7 @@ These are the four mistakes that add the most time and cost to a first AI projec
 
 ### Starting with the most expensive model
 
-The temptation is to start with GPT-5.6 Sol or Claude Opus 5 because they produce the best results in demos. Resist it. Start with GPT-5.6 Luna or Claude Haiku 4.5. If the cheap model cannot do the task at all, moving up to the frontier model is a real decision. If it can do it with a better prompt, you saved €200 per month.
+The temptation is to start with GPT-6 Astra or Claude Opus 5.5 because they produce the best results in demos. Resist it. Start with GPT-6 Luna or Claude Haiku 4.5. If the cheap model cannot do the task at all, moving up to the frontier model is a real decision. If it can do it with a better prompt, you saved €200 per month.
 
 ### Not testing with real, messy data
 
@@ -326,6 +328,9 @@ LLM calls take 500 ms to 5 seconds depending on model and output length. If your
 - [Amazon Bedrock](/tools/amazon-bedrock/): AWS-native LLM gateway supporting Claude, Nova, and other models with enterprise data controls.
 - [FastAPI](/tools/fastapi/): The Python framework used in the prototype stack above. Fast to build, production-ready from day one.
 - [Railway](/tools/railway/): Push-to-deploy hosting for your backend API. Covers the MVP without infrastructure work.
-- [Anthropic API documentation](https://docs.anthropic.com/): Official reference for the Claude API including prompt caching, tool use, and streaming.
-- [OpenAI API documentation](https://platform.openai.com/docs): Official reference for OpenAI's current GPT-5.6 family with pricing calculator.
+- [Anthropic API documentation](https://platform.claude.com/docs/): Official reference for the Claude API including prompt caching, tool use, and streaming.
+- [Claude pricing](https://platform.claude.com/docs/en/about-claude/pricing): Anthropic's per-model rates, including Claude Opus 5.5 at $4 / $20 per million tokens (checked 25 September 2026).
+- [GPT-6 Luna model page](https://developers.openai.com/api/docs/models/gpt-6-luna): model ID, context window, and $0.10 / $0.50 pricing (checked 25 September 2026).
+- [Groq supported models](https://console.groq.com/docs/models): Groq's current public catalog; as of 25 September 2026 Llama 3.3 70B is enterprise-only there and Mixtral is no longer listed.
+- [OpenAI API documentation](https://platform.openai.com/docs): Official reference for OpenAI's current GPT-6 and GPT-5.6 families with pricing calculator.
 - [OpenAI API](/tools/openai-api/) and [Claude by Anthropic](/tools/claude-anthropic/): This wiki's own reference pages for each provider's current model lineup, tiers, and pricing.

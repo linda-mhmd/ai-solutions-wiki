@@ -6,7 +6,9 @@ categories: [Solutions]
 tags: [outage-prediction, grid-resilience, utilities, predictive-analytics, reliability]
 industries: [energy]
 tools: [amazon-sagemaker, amazon-forecast, amazon-kinesis]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Power outages cause significant economic and social disruption. Weather-related outages, equipment failures, and vegetation contact are the primary causes. AI outage prediction enables utilities to anticipate where and when outages are most likely, deploy resources proactively, and communicate with customers before events occur rather than after.
@@ -29,7 +31,7 @@ Storm preparation is based on general weather forecasts and historical vulnerabi
 
 ## Architecture
 
-Weather forecast data, SCADA readings, and smart meter data (which detect outages at the customer level) flow into the prediction pipeline through Kinesis. SageMaker models generate outage probability maps by circuit for the forecast horizon. Amazon Forecast provides time-series predictions for resource demand planning. Predictions feed into the outage management system (OMS) and customer communication platforms. Post-event, actual outage data feeds back into model retraining.
+Weather forecast data, SCADA readings, and smart meter data (which detect outages at the customer level) flow into the prediction pipeline through Kinesis. SageMaker models generate outage probability maps by circuit for the forecast horizon. SageMaker Canvas time-series models provide predictions for resource demand planning. Amazon Forecast, often used for this in the past, has been [closed to new customers since 29 July 2024](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/); AWS recommends SageMaker Canvas time-series forecasting for new builds. Predictions feed into the outage management system (OMS) and customer communication platforms. Post-event, actual outage data feeds back into model retraining.
 
 ## Key Considerations
 

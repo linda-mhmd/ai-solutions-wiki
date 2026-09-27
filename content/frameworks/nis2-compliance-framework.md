@@ -13,7 +13,9 @@ related:
   - comparisons/iso-27001-vs-nis2
   - frameworks/dora-framework
   - frameworks/cyber-resilience-act
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 The NIS2 Directive (Directive 2022/2555) is the EU's updated cybersecurity legislation that replaced the original NIS Directive. It establishes a unified legal framework for cybersecurity across 18 critical sectors and applies to essential and important entities operating in the EU. Member states were required to transpose NIS2 into national law by 17 October 2024, and enforcement is now active across the EU.
@@ -58,7 +60,7 @@ Essential entities face fines of up to 10 million euros or 2% of global annual t
 
 Most EU member states have now transposed NIS2 into national law. Germany passed the NIS2 Implementation and Cybersecurity Act in November 2025. In January 2026, the European Commission proposed targeted amendments to NIS2 to increase legal clarity and simplify compliance, particularly for smaller entities. The basic structure of NIS2 remains unchanged, but obligations will be more easily verifiable through EU cybersecurity certifications and established standards.
 
-Essential entities face a major deadline on 30 June 2026 to complete their first formal compliance audit. Organizations should have registered on their national portals and established baseline cybersecurity measures well before this date.
+Deadlines for registration and for essential entities' first formal audits or certifications are set nationally and vary by member state; several fell in the first half of 2026. Organizations should confirm the dates in their national transposition law and, if they have not yet registered on their national portal and established baseline cybersecurity measures, treat that as overdue.
 
 ## Intersection with AI Systems
 

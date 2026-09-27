@@ -3,6 +3,8 @@ title: "Claude Code vs Cursor vs Codex"
 description: "A neutral 2026 comparison of three AI coding tools: Anthropic's Claude Code, the Cursor IDE, and OpenAI Codex, covering interface, models, pricing, and best use."
 date: 2026-06-25
 tags: ["comparison", "ai-coding", "claude-code", "cursor", "codex", "developer-tools"]
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -14,9 +16,9 @@ Claude Code, Cursor, and OpenAI Codex are three of the most widely used AI codin
 
 ## What each tool is
 
-**Claude Code** is Anthropic's agentic coding tool. It started as a command-line program that runs in your terminal, reads your codebase, edits files, and runs shell commands. It now also ships as a Visual Studio Code extension, a desktop app, and a browser surface, all built on the same underlying engine. Claude Code uses Anthropic's Claude models and supports the Model Context Protocol, subagents, and hooks for extending its behaviour.
+**Claude Code** is Anthropic's agentic coding tool. It started as a command-line program that runs in your terminal, reads your codebase, edits files, and runs shell commands. It now also ships as a Visual Studio Code extension, a desktop app, and a browser surface that runs sessions in Anthropic-hosted cloud environments, all built on the same underlying engine. On 17 September 2026 Anthropic relaunched Claude Code projects in beta for selected Pro and Max users: a coordinator splits a goal into parallel threads, each a full cloud session on its own branch (see [Claude Code relaunches projects as parallel cloud threads](/news/claude-code-projects-cloud-threads/)). Claude Code uses Anthropic's Claude models and supports the Model Context Protocol, subagents, and hooks for extending its behaviour.
 
-**Cursor** is an AI-native code editor built by Anysphere as a fork of Visual Studio Code. You write and edit code inside the editor itself, and the AI features sit alongside the file tree, the diff view, and the integrated terminal. Cursor does not lock you to one model. It can route a request to Anthropic, OpenAI, or Google models, and it also ships its own in-house model, Composer, tuned for low-latency edits and codebase-wide search.
+**Cursor** is an AI-native code editor built by Anysphere as a fork of Visual Studio Code. You write and edit code inside the editor itself, and the AI features sit alongside the file tree, the diff view, and the integrated terminal. Cursor does not lock you to one model. It can route a request to Anthropic, OpenAI, Google, SpaceXAI, or Meta models, and it also offers its own models: Composer (currently Composer 2.5), tuned for low-latency edits and codebase-wide search, and Grok 4.7, which Cursor says it trained jointly with SpaceXAI. As of September 2026 these "Cursor Models" draw on a separate, larger usage pool than third-party models.
 
 **OpenAI Codex** is OpenAI's coding agent. It is an umbrella over several surfaces that share one account and one underlying model: a terminal CLI (open source, Apache-2.0 licensed), extensions for VS Code and JetBrains IDEs, a cloud agent inside ChatGPT, a macOS desktop app, and a GitHub bot. The cloud agent provisions a sandboxed environment, clones your repository, and works a task while you do other things.
 
@@ -42,8 +44,8 @@ Claude Code runs this loop locally against your working directory, with the term
 |---|---|---|---|
 | **What it is** | Agentic coding tool from Anthropic | AI-native code editor from Anysphere | Coding agent from OpenAI |
 | **Interface** | Terminal CLI, VS Code extension, desktop, browser | Full code editor (VS Code fork) | CLI, IDE extension, cloud agent, desktop app, GitHub bot |
-| **Where work runs** | Local working directory | Local editor | Local or cloud sandbox |
-| **Model support** | Anthropic Claude models | Multiple: Claude, GPT, Gemini, own Composer model | OpenAI GPT models |
+| **Where work runs** | Local working directory, or Anthropic cloud sessions | Local editor, or Cursor Cloud Agents | Local or cloud sandbox |
+| **Model support** | Anthropic Claude models | Multiple: Claude, GPT, Gemini, Grok, Muse Spark, own Composer model | OpenAI GPT models |
 | **Extensibility** | Model Context Protocol, subagents, hooks | MCP, model switching per request | MCP, structured agent commands |
 | **Pricing model** | Flat Claude subscription or pay-as-you-go API | Flat subscription with credit pool, or API | Included with ChatGPT plan, or pay-as-you-go API |
 | **Entry price** | Pro at €20 (about $20) per month | Free Hobby tier; Pro at €20 (about $20) per month | Bundled with ChatGPT Plus from €20 (about $20) per month |
@@ -55,7 +57,7 @@ Prices are converted from US dollar list prices and rounded. Check each vendor's
 
 **Claude Code** is billed through your Claude plan or an API account. The Pro plan is about $20 per month and suits a few hours of use per day. Max plans are $100 per month (5x Pro usage) and $200 per month (20x Pro usage). Plans use a token budget that refills on a fixed window with a weekly cap. Heavy teams can instead pay per token through the Anthropic API.
 
-**Cursor** has six tiers. Hobby is free with limited completions and agent requests. Pro is about $20 per month and includes a monthly credit pool, frontier model access, and cloud agents. Pro+ is about $60 per month with more credits, and Ultra is about $200 per month for the heaviest individual use. Teams is about $40 per user per month with central billing and admin controls, and Enterprise is custom-priced.
+**Cursor** has six main tiers, plus a lower-priced Start plan for developers in India. Hobby is free with limited completions and agent requests. Pro is about $20 per month and includes two monthly usage pools (a larger one for Cursor's own Composer and Grok models, and one for third-party models billed at their API price), frontier model access, and cloud agents. Pro+ is about $60 per month with more credits, and Ultra is about $200 per month for the heaviest individual use. Teams is about $40 per user per month with central billing and admin controls, and Enterprise is custom-priced.
 
 **Codex** has no separate price for the assistant. Access is bundled with ChatGPT plans (Free, Plus, Pro, Business, Enterprise), with usage limits that scale by tier. The open-source Codex CLI can also authenticate against an API key, in which case you pay standard GPT token rates. OpenAI has indicated that heavy Codex use can average roughly $100 to $200 per developer per month, with wide variance by workload.
 
@@ -63,17 +65,19 @@ Prices are converted from US dollar list prices and rounded. Check each vendor's
 
 **Claude Code.** Strengths: strong performance on multi-file reasoning, full and reliable use of its large context window, and deep terminal control with scripting, subagents, and hooks. It is the natural fit for engineers who live in the command line. Weaknesses: it is tied to Anthropic models, so you cannot switch providers, and the terminal-first design has a steeper learning curve than a graphical editor for newcomers.
 
-**Cursor.** Strengths: a familiar editor experience, model flexibility (you can pick Claude, GPT, Gemini, or Composer per request), and codebase-wide semantic search built in. It lowers the barrier for developers who want AI inside an IDE they already know. Weaknesses: the credit-pool pricing can make heavy agent use expensive and harder to predict, and routing across many models means behaviour can vary depending on which model you select.
+**Cursor.** Strengths: a familiar editor experience, model flexibility (you can pick Claude, GPT, Gemini, Grok, or Composer per request), and codebase-wide semantic search built in. It lowers the barrier for developers who want AI inside an IDE they already know. Weaknesses: the credit-pool pricing can make heavy agent use expensive and harder to predict, and routing across many models means behaviour can vary depending on which model you select.
 
 **Codex.** Strengths: multiple surfaces under one account, an open-source CLI, and a cloud agent that runs long tasks and parallel work without tying up your machine. Token efficiency on equivalent tasks can keep API bills lower. Weaknesses: it is limited to OpenAI models, and the spread of surfaces (CLI, IDE, cloud, app, GitHub) can be confusing until you settle on one workflow.
 
 ## When to use which
 
-Choose **Claude Code** when your work is deep, multi-file editing and you are comfortable in the terminal. It rewards engineers who want to script the agent, isolate context with subagents, and keep the whole loop on their own machine.
+Choose **Claude Code** when your work is deep, multi-file editing and you are comfortable in the terminal. It rewards engineers who want to script the agent, isolate context with subagents, and keep the whole loop on their own machine, with cloud sessions available when you want to hand work off.
 
 Choose **Cursor** when you want AI assistance inside a full editor and value the ability to switch between models. It suits day-to-day coding where you stay in one window and want autocomplete, refactors, and an agent in the same view.
 
 Choose **Codex** when you want to delegate work to a cloud agent or run several tasks in parallel, especially if your team already pays for ChatGPT. It fits background tasks, automated pull requests, and workflows that hand off between local and cloud surfaces.
+
+Whichever you pick, treat plugins and extensions as code you are choosing to run. In September 2026 researchers disclosed Plugin4Shell, a zero-click flaw in how Claude Code, Codex, GitHub Copilot and Gemini CLI handled marketplace-pinned plugin commits; Anthropic and OpenAI patched their tools (see [Plugin4Shell](/news/plugin4shell-coding-agents-rce/)).
 
 Many teams use more than one. A common pattern is Cursor for interactive editing, a terminal agent for heavy refactors, and a cloud agent for queued background tasks. All three are [AI agents](/glossary/ai-agents/) that run [agentic loops](/glossary/agentic-loops/) over your code, so the underlying mechanics are similar even when the surfaces differ.
 
@@ -92,7 +96,7 @@ Many teams use more than one. A common pattern is Cursor for interactive editing
 - [Claude Code product page, Anthropic](https://claude.com/product/claude-code)
 - [Plans and pricing, Anthropic](https://claude.com/pricing)
 - [What is the Max plan, Anthropic Help Center](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
-- [Models and pricing, Cursor Docs](https://cursor.com/docs/models-and-pricing)
+- [Models and pricing, Cursor Docs (usage pools, Composer 2.5, Grok 4.7), checked 25 September 2026](https://cursor.com/docs/models-and-pricing)
 - [Codex, OpenAI](https://openai.com/codex/)
 - [Introducing the Codex app, OpenAI](https://openai.com/index/introducing-the-codex-app/)
 - [Codex CLI repository, OpenAI on GitHub](https://github.com/openai/codex)

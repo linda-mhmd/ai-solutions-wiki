@@ -9,10 +9,12 @@ related:
   - tools/amazon-connect
   - tools/google-vertex-ai
   - tools/google-cloud-speech
-last_updated: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
-Dialogflow is Google Cloud's conversational AI platform for building chatbots, voice bots, IVR systems, and multi-modal conversational interfaces. It provides natural language understanding (NLU) to interpret user intent from text or speech input, manage conversation context across multiple turns, and generate appropriate responses. Dialogflow powers conversational experiences across channels including web chat, mobile apps, telephony, Google Assistant, Facebook Messenger, Slack, and custom integrations.
+Dialogflow is Google Cloud's conversational AI platform for building chatbots, voice bots, IVR systems, and multi-modal conversational interfaces. It provides natural language understanding (NLU) to interpret user intent from text or speech input, manage conversation context across multiple turns, and generate appropriate responses. Dialogflow powers conversational experiences across channels including web chat, mobile apps, telephony, Facebook Messenger, Slack, and custom integrations. (Google Assistant Conversational Actions, once a common Dialogflow channel, were shut down by Google in June 2023.) Google's documentation now presents Dialogflow CX inside the **Conversational Agents** console, notes that "some products and features are in the process of being renamed", and is consolidating generative playbooks and flows into one console.
 
 Dialogflow offers two editions. Dialogflow CX (Customer Experience) is the advanced edition for large, complex conversational agents. It uses a visual flow-based builder where conversations are modeled as state machines with pages, flows, and transitions. CX supports multiple conversation paths, reusable flows, advanced versioning, and built-in testing tools. It is designed for enterprise contact center applications with complex routing logic, multi-turn conversations, and handoff to human agents. Dialogflow ES (Essentials) is the simpler, intent-based edition suitable for smaller chatbots and FAQ bots, where conversations follow a flatter structure with intents, entities, and contexts.
 
@@ -21,7 +23,7 @@ For AI-powered contact centers, Dialogflow CX integrates with Google Cloud's Con
 ## Key Capabilities
 
 - **Visual Flow Builder (CX)** - Design complex conversation flows with a drag-and-drop interface, modeling conversations as state machines with pages, transitions, and event handlers.
-- **Omnichannel Deployment** - Deploy the same agent to web chat, telephony, Google Assistant, messaging platforms, and custom channels through one-click integrations.
+- **Omnichannel Deployment** - Deploy the same agent to web chat, telephony, messaging platforms, and custom channels through one-click integrations.
 - **Generative AI Features** - LLM-powered generative fallback, data store agents, and conversation summarization augment the structured conversation design.
 - **Built-In Analytics and Testing** - Conversation history, flow visualization, test cases, and coverage analysis help optimize agent performance before and after deployment.
 
@@ -37,3 +39,4 @@ Dialogflow originated as API.AI, a conversational AI startup founded in 2010 by 
 
 1. Google Cloud Documentation. "Dialogflow CX documentation." https://cloud.google.com/dialogflow/cx/docs
 2. Google Cloud Blog. "Dialogflow CX is now generally available." March 2021. https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-dialogflow-cx-is-generally-available
+3. Google Cloud Documentation. "Dialogflow CX documentation" (Conversational Agents console; products being renamed), checked 25 September 2026. https://cloud.google.com/dialogflow/cx/docs

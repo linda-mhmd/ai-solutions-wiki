@@ -6,7 +6,9 @@ categories: [Solutions]
 tags: [public-safety, predictive-analytics, crime-analysis, resource-allocation, emergency-response]
 industries: [government]
 tools: [amazon-sagemaker, amazon-redshift, amazon-quicksight]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Public safety agencies operate with constrained resources and increasing demand. AI analytics help these agencies make better decisions about where to deploy resources, how to respond to emerging threats, and how to allocate limited budgets for maximum community safety impact. The goal is smarter resource allocation, not surveillance - using data to ensure patrols, emergency services, and prevention programs are directed where they can do the most good.
@@ -23,13 +25,13 @@ Emergency services face similar challenges: ambulance positioning, fire station 
 
 **Resource optimization** - Given demand predictions, optimization models determine the optimal allocation of resources: patrol districts, ambulance staging locations, fire coverage areas, and prevention program targeting. The optimization balances response time objectives, geographic coverage, and workload equity across units.
 
-**Emergency demand forecasting** - Amazon Forecast predicts call volumes for emergency services by area and time period. This enables proactive ambulance positioning (staging ambulances in areas of predicted demand rather than at fixed stations) and dynamic staffing that matches crew levels to expected workload.
+**Emergency demand forecasting** - Time-series models (SageMaker Canvas or custom SageMaker models) predict call volumes for emergency services by area and time period. This enables proactive ambulance positioning (staging ambulances in areas of predicted demand rather than at fixed stations) and dynamic staffing that matches crew levels to expected workload.
 
 **Incident trend monitoring** - Real-time monitoring of incident reports, social media, and community feedback detects emerging patterns that may not yet appear in statistical analysis. QuickSight dashboards provide commanders with real-time operational awareness and trend visualization.
 
 ## Architecture
 
-Incident data from CAD (Computer-Aided Dispatch) systems, records management systems, and external sources flows into Redshift. SageMaker models produce demand predictions and resource optimization recommendations. Amazon Forecast provides call volume projections. QuickSight dashboards deliver operational intelligence to commanders and analysts. Integration with dispatch systems enables direct implementation of optimized resource positions.
+Incident data from CAD (Computer-Aided Dispatch) systems, records management systems, and external sources flows into Redshift. SageMaker models produce demand predictions and resource optimization recommendations. SageMaker Canvas time-series models provide call volume projections. Amazon Forecast, often used for this in the past, has been [closed to new customers since 29 July 2024](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/); AWS recommends SageMaker Canvas time-series forecasting for new builds. QuickSight dashboards deliver operational intelligence to commanders and analysts. Integration with dispatch systems enables direct implementation of optimized resource positions.
 
 ## Key Considerations
 

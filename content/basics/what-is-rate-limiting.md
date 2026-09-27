@@ -2,6 +2,8 @@
 title: "What is Rate Limiting?"
 description: "Rate limiting is why the AI stops responding with '429 Too Many Requests.' It's how services protect themselves from being overwhelmed—and why you need to build your app to handle it gracefully."
 date: 2026-07-30
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 2
 categories: [Basics]
 tags: [beginner, rate-limiting, api, errors, throttling]
@@ -60,13 +62,15 @@ This isn't a bug in your code. It's the API saying "you've asked for too much, t
 
 ## AI API rate limits (examples)
 
-| Service | Free tier | Paid tier |
-|---|---|---|
-| OpenAI GPT-4o | 3 RPM, 200 RPD | 500 RPM, 10,000 RPD |
-| Claude Sonnet | 5 RPM | 50 RPM (scales with spend) |
-| Gemini | 15 RPM | 1,000 RPM |
+AI providers put every account in a **usage tier**. Your tier sets your limits per model, and you move up automatically as you spend more. At the time of writing (September 2026):
 
-These vary by model and your usage history. Check current docs—limits change often.
+| Provider | Tiers | Example |
+|---|---|---|
+| [OpenAI](https://developers.openai.com/api/docs/guides/rate-limits) | Free, then Tier 1 to Tier 5 (Tier 1 after $5 paid, Tier 5 after $1,000 paid) | Your exact per-model limits are shown on the limits page of your account settings |
+| [Anthropic (Claude)](https://platform.claude.com/docs/en/api/rate-limits) | Start, Build, Scale, Custom | Claude Sonnet 5: 1,000 RPM on Start, 5,000 RPM on Build, 10,000 RPM on Scale |
+| [Google Gemini](https://ai.google.dev/gemini-api/docs/rate-limits) | Free, then Tier 1 to Tier 3 (based on billing and spend) | Your active limits are shown in Google AI Studio |
+
+These vary by model, tier, and usage history, and providers change them often. Always check the provider's rate-limit docs (linked in the table, checked 25 September 2026) and your own account's limits page.
 
 ## How to handle rate limits
 

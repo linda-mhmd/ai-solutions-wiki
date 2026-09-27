@@ -13,8 +13,9 @@ related:
 status: deprecated
 status_detail: "Hugging Face put TGI into maintenance mode and archived its GitHub repository (read-only) on 21 March 2026. It now accepts only minor bug fixes, and Hugging Face directs new self-hosted deployments to vLLM, SGLang, llama.cpp, or MLX."
 status_source: "https://github.com/huggingface/text-generation-inference"
-last_updated: 2026-07-05
-lastmod: 2026-07-05
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -22,9 +23,11 @@ lastmod: 2026-07-05
   <figcaption>TGI is the junction box between your GPUs and your users: it turns raw model weights into a fast, batched, streaming API.</figcaption>
 </figure>
 
-Text Generation Inference (TGI) is Hugging Face's open-source toolkit for deploying and serving large language models. It takes an open model such as Llama, Falcon, StarCoder, or BLOOM and exposes it as a fast HTTP service with token streaming and an API that matches the OpenAI Chat Completions format. TGI solves the gap between a model that runs in a notebook and a model that serves thousands of concurrent users without falling over. It is released under the Apache-2.0 license and powers production systems at Hugging Face, including Hugging Chat and the Inference API.
+Text Generation Inference (TGI) is Hugging Face's open-source toolkit for deploying and serving large language models. It takes an open model such as Llama, Falcon, StarCoder, or BLOOM and exposes it as a fast HTTP service with token streaming and an API that matches the OpenAI Chat Completions format. TGI solves the gap between a model that runs in a notebook and a model that serves thousands of concurrent users without falling over. It is released under the Apache-2.0 license and powered production systems at Hugging Face, including Hugging Chat and the Inference API.
 
-TGI sits at the [inference](/glossary/inference/) layer of a self-hosted stack. You bring the GPUs and the model weights; TGI handles batching, memory, streaming, and the request interface. This makes it a common choice when you want to run open models on your own hardware or in your own cloud account instead of calling a hosted API.
+**Status (September 2026):** TGI is no longer developed. Hugging Face put it into maintenance mode and archived the GitHub repository (read-only) on 21 March 2026; the final release is v3.3.7 (19 December 2025). Existing deployments keep working, but Hugging Face directs new self-hosted deployments to [vLLM](/tools/vllm/), [SGLang](/tools/sglang/), llama.cpp, or MLX. The rest of this page describes TGI as it stands for teams still running it.
+
+TGI sits at the [inference](/glossary/inference/) layer of a self-hosted stack. You bring the GPUs and the model weights; TGI handles batching, memory, streaming, and the request interface. This made it a common choice when you wanted to run open models on your own hardware or in your own cloud account instead of calling a hosted API.
 
 ## Where TGI sits in the stack
 
@@ -75,7 +78,7 @@ TGI ships as a container. You start it, point it at a model on the Hugging Face 
 ```bash
 docker run --gpus all --shm-size 1g -p 8080:80 \
   -v $PWD/data:/data \
-  ghcr.io/huggingface/text-generation-inference:3.3.5 \
+  ghcr.io/huggingface/text-generation-inference:3.3.7 \
   --model-id HuggingFaceH4/zephyr-7b-beta
 ```
 
@@ -138,12 +141,12 @@ TGI is one of several open serving engines. The choice usually comes down to har
 | **Hardware focus** | Broad: NVIDIA, AMD, Inferentia, Gaudi, TPU | Broad, NVIDIA-first | NVIDIA only | NVIDIA-first |
 | **Best for** | Hugging Face stack, quick open-model deploys | General self-hosting, high throughput | Peak NVIDIA performance | Structured output, complex prompts |
 
-vLLM and [SGLang](/tools/sglang/) grew out of the same wave of batched serving engines, and Hugging Face now recommends them for new work. [TensorRT-LLM](/tools/tensorrt-llm/) targets peak performance on NVIDIA hardware at the cost of a heavier build and compilation step. TGI keeps the widest hardware coverage and the tightest fit with the Hugging Face Hub.
+vLLM and [SGLang](/tools/sglang/) grew out of the same wave of batched serving engines, and Hugging Face now recommends them for new work. [TensorRT-LLM](/tools/tensorrt-llm/) targets peak performance on NVIDIA hardware at the cost of a heavier build and compilation step. TGI had the widest hardware coverage and the tightest fit with the Hugging Face Hub, but as an archived project it no longer tracks new models or hardware.
 
 ## When not to use it
 
 - **You do not want to run GPUs.** If self-hosting is not your goal, a hosted API such as [Together AI](/tools/together-ai/) or a managed endpoint removes the operational burden entirely.
-- **You need the newest engine features first.** As of 2026 TGI is in maintenance mode. Hugging Face accepts bug fixes and documentation changes but points new work toward vLLM and SGLang, which ship new optimizations faster.
+- **You are starting a new deployment.** TGI's repository has been archived (read-only) since 21 March 2026, so it will not gain support for new model architectures or receive further fixes. Hugging Face points new work toward vLLM and SGLang.
 - **You are locked to peak NVIDIA throughput.** If squeezing maximum tokens per second on NVIDIA hardware is the whole point, TensorRT-LLM's compiled kernels may serve you better than a general engine.
 - **You only serve one user at low volume.** Continuous batching pays off under concurrency. For a single-user local tool, a lighter runtime such as llama.cpp is enough.
 
@@ -158,5 +161,5 @@ vLLM and [SGLang](/tools/sglang/) grew out of the same wave of batched serving e
 
 ## Sources
 
-- [Text Generation Inference, GitHub repository](https://github.com/huggingface/text-generation-inference): features, supported hardware, Docker usage, and Apache-2.0 license.
+- [Text Generation Inference, GitHub repository](https://github.com/huggingface/text-generation-inference): features, supported hardware, Docker usage, Apache-2.0 license; archived 21 March 2026, latest release v3.3.7 (19 December 2025), checked 25 September 2026.
 - [Text Generation Inference documentation](https://huggingface.co/docs/text-generation-inference): feature list, supported models, maintenance-mode notice, and production users.

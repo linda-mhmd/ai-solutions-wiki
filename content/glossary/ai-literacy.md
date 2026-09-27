@@ -9,7 +9,9 @@ related:
   - glossary/ai-safety
   - frameworks/eu-ai-act-risk-framework
   - guides/ai-change-management
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 AI literacy is the ability to understand what AI systems can and cannot do, how they produce their outputs, and what risks and limitations they carry. It encompasses both the conceptual understanding needed to make informed decisions about AI adoption and the practical skills needed to use AI tools effectively and responsibly.
@@ -18,7 +20,7 @@ AI literacy is the ability to understand what AI systems can and cannot do, how 
 
 Organizations deploying AI systems need AI literacy at every level. Executives need enough understanding to make sound investment and governance decisions. Product managers need to know what is technically feasible and what tradeoffs exist. End users need to understand when to trust AI outputs and when to verify them. Compliance teams need to evaluate whether AI systems meet regulatory requirements.
 
-The EU AI Act explicitly requires AI literacy. Article 4 mandates that providers and deployers of AI systems ensure their staff have a sufficient level of AI literacy, taking into account the technical knowledge, experience, education, and training of the persons involved. This makes AI literacy a regulatory compliance requirement, not just a nice-to-have.
+The EU AI Act explicitly addresses AI literacy. As originally adopted, Article 4 required providers and deployers of AI systems to take measures to ensure, to their best extent, a sufficient level of AI literacy among their staff, and it has applied since 2 February 2025. The Digital Omnibus (Regulation (EU) 2026/1744) amended Article 4: according to the AI Act Explorer's consolidated text, providers and deployers must now take measures to support the development of AI literacy of their staff and others operating AI systems on their behalf, taking into account their technical knowledge, experience, education and training and the context of use, without having to guarantee any specific level. The Commission and Member States must support these efforts, particularly for SMEs, and the Commission publishes practical compliance examples. AI literacy therefore remains a regulatory duty, not just a nice-to-have, even though the bar has been softened. See [EU AI Act enforcement begins](/news/eu-ai-act-enforcement-begins-2026/) for the wider Omnibus changes.
 
 ## Core Competencies
 
@@ -39,5 +41,6 @@ Literacy programs should be ongoing, not one-time events. AI capabilities evolve
 ## Sources
 
 - European Parliament and Council. (2024). *Regulation (EU) 2024/1689 (EU AI Act)*, Article 4: AI Literacy. Official Journal of the European Union. (Primary legal source; establishes AI literacy as a mandatory requirement for providers and deployers of AI systems.)
+- AI Act Explorer (Future of Life Institute). *Article 4: AI literacy* (consolidated text showing the amended paragraph 1 and new paragraphs 2 and 3; accessed 25 September 2026). [https://artificialintelligenceact.eu/article/4/](https://artificialintelligenceact.eu/article/4/)
 - Long, D., & Magerko, B. (2020). What is AI literacy? Competencies and design considerations. *CHI 2020*. (First systematic framework for defining AI literacy competencies; basis for most subsequent educational programs.)
 - Ng, D. T. K., et al. (2021). Conceptualizing AI literacy: An exploratory review. *Computers and Education: Artificial Intelligence, 2*, 100041. (Comprehensive review synthesizing AI literacy frameworks across 30+ papers.)

@@ -7,7 +7,7 @@ tags: ["cs-fundamentals", "intermediate", "hardware-constraints", "memory", "cpu
 related:
   - glossary/floating-point
   - glossary/binary-system
-  - guides/aws-bedrock-101
+  - guides/getting-started-with-bedrock
 last_updated: 2026-05-30
 ---
 

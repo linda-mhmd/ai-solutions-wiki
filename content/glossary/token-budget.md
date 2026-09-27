@@ -10,22 +10,24 @@ related:
   - guides/llm-cost-optimization
   - patterns/token-optimization
   - patterns/context-window-management
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 A token budget is the maximum number of tokens allocated to a specific LLM request, conversation turn, agent step, or overall workflow. It serves as a control mechanism to manage costs (since LLM API pricing is per-token), bound latency (more tokens means longer generation time), and prevent context window overflow (exceeding the model's maximum context length).
 
 ## Why Token Budgets Matter
 
-LLM costs scale directly with token consumption. A single GPT-4 class model call with a full 128K context window can cost several dollars. In production systems handling thousands of requests per hour, uncontrolled token usage leads to unpredictable costs. Token budgets establish predictable spending by capping consumption at the request, user, team, or application level.
+LLM costs scale directly with token consumption. Context windows now commonly reach 1 million tokens: at September 2026 list prices, a single request that fills 900K tokens of context on Claude Opus 5.5 ($4 per million input tokens) costs about $3.60 in input alone, before output and thinking tokens, and some providers charge higher rates above a length threshold (OpenAI doubles the input price for GPT-6 Sol and Luna prompts above 272K tokens). See the [LLM landscape](/comparisons/llm-landscape-2026/) for current prices. In production systems handling thousands of requests per hour, uncontrolled token usage leads to unpredictable costs. Token budgets establish predictable spending by capping consumption at the request, user, team, or application level.
 
 ## Types of Token Budgets
 
-**Input token budgets** limit how much context is sent to the model. This is particularly important for RAG systems where retrieved documents can fill the context window. Strategies include limiting the number of retrieved chunks, summarizing long documents before inclusion, and truncating conversation history. **Output token budgets** cap the length of generated responses using the max_tokens parameter. **Workflow budgets** limit total token consumption across a multi-step agent workflow, preventing runaway loops where an agent keeps calling the model indefinitely.
+**Input token budgets** limit how much context is sent to the model. This is particularly important for RAG systems where retrieved documents can fill the context window. Strategies include limiting the number of retrieved chunks, summarizing long documents before inclusion, and truncating conversation history. **Output token budgets** cap the length of generated responses using the provider's output limit parameter (`max_tokens` in Anthropic's API; `max_completion_tokens` or `max_output_tokens` for OpenAI reasoning models, where the cap also covers hidden reasoning tokens). **Workflow budgets** limit total token consumption across a multi-step agent workflow, preventing runaway loops where an agent keeps calling the model indefinitely.
 
 ## Implementation
 
-Token budgets are enforced at multiple levels. The model API's max_tokens parameter provides a hard cap on output. AI gateways and proxy layers can enforce per-request, per-user, and per-application budgets. Orchestration frameworks can track cumulative token usage across agent steps and terminate workflows that exceed their budget. Monitoring dashboards track token consumption against budgets in real time.
+Token budgets are enforced at multiple levels. The model API's output limit parameter provides a hard cap on output. AI gateways and proxy layers can enforce per-request, per-user, and per-application budgets. Orchestration frameworks can track cumulative token usage across agent steps and terminate workflows that exceed their budget. Monitoring dashboards track token consumption against budgets in real time.
 
 ## Optimization Strategies
 
@@ -35,6 +37,8 @@ Setting appropriate token budgets requires understanding the tradeoff between re
 
 ## Sources
 
+- Anthropic. *Pricing* (accessed 25 September 2026). [https://platform.claude.com/docs/en/about-claude/pricing](https://platform.claude.com/docs/en/about-claude/pricing)
+- OpenAI. *GPT-6 Sol model documentation* (accessed 25 September 2026). [https://developers.openai.com/api/docs/models/gpt-6-sol](https://developers.openai.com/api/docs/models/gpt-6-sol)
 - Vaswani, A., et al. (2017). Attention is all you need. *NeurIPS 2017*. (Transformer architecture; the quadratic attention cost with sequence length is the fundamental reason context window management and token budgets matter.)
 - Liu, N., et al. (2024). Lost in the middle: How language models use long contexts. *Transactions of the Association for Computational Linguistics, 12*, 157–173. (Demonstrated that LLM performance degrades for information in the middle of long contexts; informs token budget design for RAG.)
 - Ge, T., et al. (2023). In-context autoencoder for context compression in a large language model. *ICLR 2024*. (Prompt compression research; context for input token reduction strategies.)

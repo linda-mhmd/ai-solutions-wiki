@@ -8,7 +8,9 @@ related:
   - tools/amazon-timestream
   - tools/azure-monitor
   - tools/azure-synapse-analytics
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Azure Data Explorer (ADX), also known as Kusto, is a fully managed big data analytics platform optimized for near-real-time analysis of large volumes of streaming data, time series data, and log data. The service ingests data at high throughput from event sources (Event Hubs, IoT Hub, Blob Storage, Kafka), indexes it automatically, and makes it queryable within seconds using Kusto Query Language (KQL). For AI workloads, ADX serves as the analytics engine for real-time feature computation, IoT telemetry analysis, model monitoring metric aggregation, and exploratory data analysis on high-velocity datasets where traditional databases or data warehouses cannot deliver sub-second query performance.
@@ -28,13 +30,15 @@ Official documentation: https://learn.microsoft.com/en-us/azure/data-explorer/
 
 ## AWS Equivalent
 
-Azure Data Explorer is Azure's counterpart to Amazon Timestream. Both are optimized for time series and telemetry data, but ADX is a significantly broader analytics platform supporting ad-hoc exploration, free-text search, and inline ML, while Timestream focuses specifically on time series storage and querying with a simpler, time-series-specific query model. ADX handles a wider range of analytics use cases; Timestream provides a more focused and cost-effective pure time series store.
+Azure Data Explorer is Azure's counterpart to Amazon Timestream. Both are optimized for time series and telemetry data, but ADX is a significantly broader analytics platform supporting ad-hoc exploration, free-text search, and inline ML, while Timestream focuses specifically on time series storage and querying. Note that Timestream for LiveAnalytics has been closed to new customers since 20 June 2025; new AWS deployments use Timestream for InfluxDB, or Amazon OpenSearch Service for log-style exploration closer to ADX.
 
 ## Origins and History
 
-Azure Data Explorer originated as an internal Microsoft service called Kusto, built to analyze telemetry from Azure, Office 365, Windows, and Xbox services. It was made available as a public Azure service in general availability on February 7, 2019. The technology also powers Azure Monitor Logs (Log Analytics) and Azure Sentinel (Microsoft Sentinel), giving it one of the largest production deployments of any analytics engine. Free cluster offerings for development and learning were introduced in 2020. The Synapse Data Explorer pool, integrating ADX capabilities within Synapse Analytics workspaces, launched in 2022. Continuous enhancements have added features including materialized views, follower databases, and enhanced Python plugin capabilities.
+Azure Data Explorer originated as an internal Microsoft service called Kusto, built to analyze telemetry from Azure, Office 365, Windows, and Xbox services. It was made available as a public Azure service in general availability on February 7, 2019. The technology also powers Azure Monitor Logs (Log Analytics) and Azure Sentinel (Microsoft Sentinel), giving it one of the largest production deployments of any analytics engine. Free cluster offerings for development and learning were introduced in 2020. The Synapse Data Explorer pool, integrating ADX capabilities within Synapse Analytics workspaces, launched in preview in 2022 and was retired on 7 October 2025, with Microsoft directing users to Eventhouse in Microsoft Fabric Real-Time Intelligence, which runs the same Kusto engine. Continuous enhancements have added features including materialized views, follower databases, and enhanced Python plugin capabilities.
 
 ## Sources
 
 1. Microsoft Learn. "What is Azure Data Explorer?" https://learn.microsoft.com/en-us/azure/data-explorer/data-explorer-overview
 2. Microsoft Azure Blog. "Azure Data Explorer is now generally available." February 7, 2019. https://azure.microsoft.com/en-us/blog/azure-data-explorer-technology-101/
+3. Microsoft Learn. "What is Azure Synapse Data Explorer?" (retirement notice, 7 October 2025), accessed 25 September 2026. https://learn.microsoft.com/en-us/azure/synapse-analytics/data-explorer/data-explorer-overview
+4. AWS General Reference. "Services in maintenance" (Amazon Timestream for LiveAnalytics), accessed 25 September 2026. https://docs.aws.amazon.com/general/latest/gr/maintenance_services.html

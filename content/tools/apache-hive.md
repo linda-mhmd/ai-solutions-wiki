@@ -7,10 +7,12 @@ tags: [apache-hive, open-source, hadoop, data-warehouse, sql, big-data]
 related:
   - tools/apache-hadoop
   - tools/apache-spark
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
-Apache Hive is an open-source data warehouse system built on top of Apache Hadoop that enables reading, writing, and managing large datasets stored in distributed storage using SQL-like syntax called HiveQL. Hive translates SQL queries into MapReduce, Tez, or Spark execution plans, allowing analysts and data engineers familiar with SQL to query petabyte-scale datasets without writing low-level MapReduce code. For AI workloads, Hive serves as a data preparation and feature extraction layer, enabling SQL-based transformations over large historical datasets that feed into machine learning training pipelines.
+Apache Hive is an open-source data warehouse system built on top of Apache Hadoop that enables reading, writing, and managing large datasets stored in distributed storage using SQL-like syntax called HiveQL. Hive translates SQL queries into distributed execution plans (Apache Tez in current releases; older versions also ran on MapReduce or Spark), allowing analysts and data engineers familiar with SQL to query petabyte-scale datasets without writing low-level MapReduce code. For AI workloads, Hive serves as a data preparation and feature extraction layer, enabling SQL-based transformations over large historical datasets that feed into machine learning training pipelines.
 
 Official documentation: https://hive.apache.org/
 
@@ -19,7 +21,7 @@ Official documentation: https://hive.apache.org/
 - **SQL-Like Query Language (HiveQL)** - Provides a familiar SQL interface for querying data stored in HDFS, S3, and other Hadoop-compatible file systems, lowering the barrier for analysts working with big data
 - **Schema-on-Read** - Data is stored in raw form and schema is applied at query time, allowing flexible exploration of semi-structured and evolving datasets without upfront schema migration
 - **Partitioning and Bucketing** - Table partitioning by date, region, or other columns enables query pruning that dramatically reduces scan times on large datasets
-- **Multiple Execution Engines** - Queries can execute on MapReduce, Apache Tez (optimized DAG execution), or Apache Spark, with Tez being the default for interactive query performance
+- **Execution Engines** - Apache Tez (optimized DAG execution) is the default and primary engine. Hive on Spark was removed in Hive 4.0 (March 2024), and the older MapReduce engine is deprecated
 
 ## AWS/Cloud Equivalent
 
@@ -33,3 +35,5 @@ Apache Hive was created at Facebook in 2007 by Jeff Hammerbacher and a team of e
 
 1. Apache Software Foundation. "Apache Hive." https://hive.apache.org/
 2. Thusoo, A. et al. "Hive: A Warehousing Solution Over a Map-Reduce Framework." VLDB, 2009.
+3. Apache Hive downloads and release news (4.0.0 on 29 March 2024). https://hive.apache.org/general/downloads/
+4. HIVE-26134, "Remove Hive on Spark from the main branch" (Apache JIRA). https://issues.apache.org/jira/browse/HIVE-26134

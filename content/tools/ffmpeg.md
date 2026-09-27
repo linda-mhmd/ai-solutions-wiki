@@ -4,7 +4,9 @@ description: "Using FFmpeg in AWS Lambda layers and EC2 for video processing in 
 date: 2026-03-24
 categories: [Tools]
 tags: ["media-processing", "beginner", "ffmpeg", "video-processing", "audio", "transcoding", "cli"]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 FFmpeg is a command-line tool and library collection for video, audio, and media processing. It handles format conversion, trimming, concatenation, frame extraction, thumbnail generation, codec transcoding, and hundreds of other operations. In AI pipelines it is the standard tool for video manipulation before and after AI analysis steps.
@@ -13,9 +15,9 @@ Official documentation: https://ffmpeg.org/
 
 ## FFmpeg on AWS Lambda
 
-Lambda has a 250 MB deployment package limit (unzipped) and no system-level FFmpeg installation. The solution is a **Lambda layer** - a separate ZIP containing the FFmpeg binary compiled for the Lambda execution environment (Amazon Linux 2, ARM64 or x86_64).
+Lambda has a 250 MB deployment package limit (unzipped) and no system-level FFmpeg installation. The solution is a **Lambda layer** - a separate ZIP containing the FFmpeg binary compiled for the Lambda execution environment (Amazon Linux 2023 for current runtimes such as Python 3.12+ and Node.js 22+, ARM64 or x86_64).
 
-A maintained public layer ARN works for most cases. For custom builds (specific codecs, HEVC support), compile FFmpeg from source in an Amazon Linux 2 container and package the binary. The layer attaches to Lambda functions via ARN reference in Terraform or CloudFormation.
+A maintained public layer ARN works for most cases. For custom builds (specific codecs, HEVC support), compile FFmpeg from source in an Amazon Linux 2023 container matching your runtime and package the binary. The layer attaches to Lambda functions via ARN reference in Terraform or CloudFormation.
 
 Lambda limitations for FFmpeg:
 - 15-minute execution timeout limits processing of long files
@@ -74,7 +76,7 @@ FFmpeg was created by French programmer Fabrice Bellard, initially publishing un
 
 Bellard's use of a pseudonym was likely a precaution against patent litigation, which was a serious risk for anyone working on multimedia codec implementations at the time. In 2003, Bellard departed the project, and Michael Niedermayer assumed the role of lead maintainer, a position he held until 2015. Bellard went on to create other foundational projects including QEMU and the Tiny C Compiler.
 
-As of 2026, the FFmpeg repository has over 57,000 GitHub stars, 1.5 million lines of code, and contributions from over 2,400 developers across eight major versions.
+As of September 2026, the FFmpeg GitHub mirror has over 64,000 stars, 1.5 million lines of code, and contributions from over 2,400 developers across eight major versions.
 
 ## Sources
 
@@ -82,6 +84,8 @@ As of 2026, the FFmpeg repository has over 57,000 GitHub stars, 1.5 million line
 2. FFmpeg - Wikipedia. [https://en.wikipedia.org/wiki/FFmpeg](https://en.wikipedia.org/wiki/FFmpeg)
 3. Bellard, F. Home Page. [https://bellard.org/](https://bellard.org/)
 4. FFmpeg Official Site. [https://ffmpeg.org/](https://ffmpeg.org/)
+5. FFmpeg GitHub mirror (64,500 stars, checked 25 September 2026). [https://github.com/FFmpeg/FFmpeg](https://github.com/FFmpeg/FFmpeg)
+6. AWS Lambda runtimes (Amazon Linux 2023-based runtimes). [https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html)
 
 ## Related Articles
 

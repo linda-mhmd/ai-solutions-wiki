@@ -2,6 +2,8 @@
 title: "What is HTTPS?"
 description: "HTTPS is HTTP with encryption—it means the connection between your browser and the server is secure. The padlock icon means your data can't be intercepted."
 date: 2026-07-30
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 1
 categories: [Basics]
 tags: [beginner, https, ssl, tls, security, certificates, encryption]
@@ -131,7 +133,7 @@ const response = await fetch('https://api.openai.com/v1/chat/completions', {
     'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,  // Encrypted!
     'Content-Type': 'application/json'
   },
-  body: JSON.stringify({ model: 'gpt-4', messages: [...] })  // Encrypted!
+  body: JSON.stringify({ model: 'gpt-6-luna', messages: [...] })  // Encrypted!
 });
 ```
 

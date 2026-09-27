@@ -8,12 +8,16 @@ related:
   - tools/amazon-sagemaker
   - tools/amazon-emr
   - tools/mlflow
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Ray is an open-source framework for scaling Python applications across clusters of machines. It provides a simple API for distributing any Python function across multiple CPUs and GPUs, plus specialized libraries for ML training (Ray Train), hyperparameter tuning (Ray Tune), model serving (Ray Serve), reinforcement learning (RLlib), and data processing (Ray Data). For AI projects, Ray solves the scaling problem: when a training job does not fit on one GPU, when inference needs to scale beyond one server, or when data processing exceeds single-machine capacity.
 
 Official documentation: https://docs.ray.io/
+
+Ray was created at UC Berkeley's RISELab and commercialised by Anyscale; since 22 October 2025 it has been a hosted project of the PyTorch Foundation (Linux Foundation), alongside PyTorch and vLLM. The 2.x line is current (2.58.0, August 2026).
 
 ## Core Concepts
 
@@ -30,6 +34,7 @@ Ray Train scales ML training from one GPU to hundreds. It wraps existing trainin
 For LLM fine-tuning, Ray Train with DeepSpeed or FSDP distributes model parameters and gradients across multiple GPUs. A training script that runs on one GPU can scale to a multi-node GPU cluster with minimal code changes:
 
 ```python
+from ray.train import ScalingConfig
 from ray.train.torch import TorchTrainer
 
 trainer = TorchTrainer(
@@ -65,8 +70,14 @@ This is particularly valuable for large training datasets that do not fit in mem
 
 **EC2** - Launch Ray clusters directly on EC2 instances using the Ray cluster launcher. Supports spot instances with automatic fault tolerance (failed workers are replaced and tasks are retried).
 
-**Anyscale** - The managed Ray platform from the creators of Ray. Provides a fully managed Ray environment with autoscaling, job management, and enterprise support.
+**Anyscale** - The managed Ray platform from the company founded by Ray's creators. Provides a fully managed Ray environment with autoscaling, job management, and enterprise support.
 
 ## Pricing
 
 Ray is open-source (Apache 2.0 license) and free. Infrastructure costs depend on the deployment target (EC2, EKS, SageMaker). Anyscale charges for managed platform features on top of infrastructure costs. The primary cost driver is GPU hours consumed during training and inference.
+
+## Sources
+
+1. Ray documentation: https://docs.ray.io/
+2. PyTorch Foundation, "PyTorch Foundation Welcomes Ray to Deliver a Unified Open Source AI Compute Stack" (22 October 2025): https://pytorch.org/blog/pytorch-foundation-welcomes-ray-to-deliver-a-unified-open-source-ai-compute-stack/
+3. Ray releases (ray-2.58.0, 23 August 2026): https://github.com/ray-project/ray/releases

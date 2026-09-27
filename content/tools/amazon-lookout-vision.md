@@ -16,8 +16,9 @@ maturity: production
 status: discontinued
 status_detail: "AWS closed Amazon Lookout for Vision to new customers on 10 October 2024 and ended support on 31 October 2025. After that date the console, APIs, and existing resources stopped working. AWS recommends Amazon SageMaker AI (with built-in computer vision algorithms and SageMaker JumpStart) or Amazon Bedrock as replacements."
 status_source: "https://aws.amazon.com/blogs/machine-learning/exploring-alternatives-and-seamlessly-migrating-data-from-amazon-lookout-for-vision/"
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 enhanced_pass: "2026-06"
 ---
 
@@ -47,7 +48,7 @@ AWS recommends three migration paths, in its own migration guidance:
 - **Amazon Bedrock** - for use cases without strict low-latency requirements, foundation models can describe images and help flag visual issues, and can generate code to build a detection pipeline. See {{< relref "tools/amazon-bedrock" >}}.
 - **AWS Partner solutions** - pre-built SaaS and managed services for visual quality inspection, listed in the AWS Solutions Library under "Computer Vision for Quality Insights".
 
-Amazon Lookout for Vision is part of a wider AWS Lookout family wind-down: Amazon Lookout for Metrics also reached end of support in 2025 (see its own transition guidance). Lookout for Equipment was a separate product. The sections below describe how Lookout for Vision worked, for readers maintaining or migrating an existing deployment.
+Amazon Lookout for Vision is part of a wider AWS Lookout family wind-down: Amazon Lookout for Metrics also reached end of support in 2025 (see its own transition guidance). Lookout for Equipment, a separate product for industrial sensor data, is also being retired: AWS lists its end of support as 7 October 2026. The sections below describe how Lookout for Vision worked, for readers maintaining or migrating an existing deployment.
 
 ## Core Concepts
 
@@ -105,3 +106,4 @@ For visual inspection on AWS today, use the AWS Well-Architected Machine Learnin
 - AWS Press release, "AWS Announces General Availability of Amazon Lookout for Vision" (24 February 2021, launch context): https://press.aboutamazon.com/news-releases/news-release-details/aws-announces-general-availability-amazon-lookout-vision
 - Amazon SageMaker AI (recommended replacement for custom vision models): https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html
 - AWS Well-Architected Machine Learning Lens (design guidance for a replacement workload): https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html
+- AWS Services in Sunset (Amazon Lookout for Equipment: announced 7 October 2025, end of support 7 October 2026; fetched 25 September 2026): https://docs.aws.amazon.com/general/latest/gr/sunset_services.html

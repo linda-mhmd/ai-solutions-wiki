@@ -72,7 +72,7 @@ Models retrain automatically when new data arrives or when drift is detected. Th
 
 **Key requirements:**
 - Hyperparameter configuration externalized (YAML, config files)
-- Experiment tracking (log parameters, metrics, and artifacts to MLflow, Weights & Biases, or SageMaker Experiments)
+- Experiment tracking (log parameters, metrics, and artifacts to MLflow, Weights & Biases, or managed MLflow on SageMaker AI)
 - Checkpointing (save intermediate state for long training runs)
 - Resource management (request appropriate compute, release when done)
 

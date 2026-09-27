@@ -9,7 +9,9 @@ related:
   - patterns/statistical-assertion
   - glossary/flaky-test
   - guides/testing-llm-applications
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 The core challenge of testing AI systems is non-determinism. The same prompt sent to the same model with the same parameters can produce different outputs on different runs. Temperature, sampling, and internal model state all contribute to output variation. This does not make testing impossible. It means replacing exact-match assertions with statistical assertions that validate distributions and properties.
@@ -162,15 +164,21 @@ Some test flakiness is inherent when testing non-deterministic systems. Manage i
 
 ## Temperature and Seed Control
 
-When testing, set temperature to 0 and use a seed (if the API supports it) to reduce variability. This does not make outputs fully deterministic (API providers do not guarantee determinism even with seed), but it reduces variation significantly.
+When testing, set temperature to 0 and use a seed (if the API supports it) to reduce variability. This does not make outputs fully deterministic (API providers do not guarantee determinism even with seed), but it reduces variation significantly. Two caveats for current models: reasoning models often reject sampling parameters (OpenAI's GPT-6 Sol and Luna accept `temperature` only with `reasoning_effort` set to `none`, and GPT-6 Astra not at all), and OpenAI's API reference now marks `seed` as a deprecated beta parameter.
 
 ```python
 response = client.chat.completions.create(
-    model="gpt-4o",
+    model="gpt-6-luna",
+    reasoning_effort="none",  # sampling parameters are only accepted with reasoning off
     messages=[{"role": "user", "content": prompt}],
     temperature=0,
-    seed=42
 )
 ```
 
 Do not rely on this for exact-match assertions. Even with temperature 0 and a seed, outputs can vary across API versions and infrastructure changes. Use it to reduce noise, not eliminate it.
+
+## Sources
+
+- OpenAI. "Using GPT-6" migration guide (remove `temperature` and `top_p` when reasoning effort is not `none`; Sol and Luna support `none`, Astra does not). https://developers.openai.com/api/docs/guides/latest-model
+- OpenAI. "Create chat completion" API reference (`seed` marked deprecated, beta). https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create
+- OpenAI. API changelog (GPT-6 Astra does not support custom `temperature` or `top_p`). https://developers.openai.com/api/docs/changelog

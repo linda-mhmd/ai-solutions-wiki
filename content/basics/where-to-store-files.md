@@ -12,7 +12,9 @@ faqs:
     answer: "Works for small projects, but has problems: files are gone if the server dies, you can't easily scale to multiple servers, and serving large files ties up your server. Cloud storage solves these problems for very little cost."
   - question: "How do I handle file uploads from users?"
     answer: "Two approaches: (1) Upload to your server, then transfer to cloud storage—simpler to implement. (2) Get a signed URL from your backend, upload directly from browser to cloud storage—more scalable. For starting out, approach 1 is fine."
-last_updated: 2026-07-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 {{< quickanswer >}}
@@ -309,9 +311,9 @@ Storage is cheap. Egress (downloads) can be expensive.
 |---------|---------|--------|
 | S3 | ~$0.023/GB/month | ~$0.09/GB |
 | R2 | ~$0.015/GB/month | **Free** |
-| Supabase | 1GB free, then $0.021/GB | Included |
+| Supabase | 1GB free (100GB on Pro), then ~$0.021/GB | Plan quota included (5GB free, 250GB on Pro), then ~$0.09/GB |
 
-If your app serves lots of images to users, Cloudflare R2's free egress is significant.
+If your app serves lots of images to users, Cloudflare R2's free egress is significant. Prices as of September 2026; check [Supabase pricing](https://supabase.com/pricing), [R2 pricing](https://developers.cloudflare.com/r2/pricing/) and [S3 pricing](https://aws.amazon.com/s3/pricing/) before you plan around them.
 
 For most vibecoders:
 - Storage costs: $1-10/month

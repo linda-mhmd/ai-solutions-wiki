@@ -9,7 +9,9 @@ related:
   - comparisons/playwright-vs-cypress
   - glossary/playwright
   - glossary/end-to-end-testing
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Playwright is a browser automation framework from Microsoft that supports Chromium, Firefox, and WebKit. For AI applications, Playwright's network interception, streaming response handling, and async-first design make it the strongest choice for end-to-end testing. This guide covers setup through CI integration with patterns specific to AI-powered UIs.
@@ -194,22 +196,29 @@ def test_streaming_tokens_appear_incrementally(page: Page):
 
 Catch layout regressions caused by unexpected AI output lengths or formats.
 
-```python
-def test_chat_layout_snapshot(page: Page):
-    page.route("**/api/chat", lambda route: route.fulfill(
-        status=200,
-        body='{"response": "A concise test response for visual comparison."}'
-    ))
+Screenshot assertions (`toHaveScreenshot`) are part of the Node.js Playwright Test runner; the Python `expect` API does not include them, so Python suites typically compare `page.screenshot()` output with a plugin or their own image diff.
 
-    chat = ChatPage(page).goto()
-    chat.send_message("Test")
-    chat.wait_for_response()
+```typescript
+// tests/e2e/chat-layout.spec.ts
+import { test, expect } from "@playwright/test";
 
-    # Compare against stored screenshot
-    expect(page).to_have_screenshot("chat-response.png", max_diff_pixel_ratio=0.01)
+test("chat layout snapshot", async ({ page }) => {
+  await page.route("**/api/chat", (route) =>
+    route.fulfill({
+      status: 200,
+      body: '{"response": "A concise test response for visual comparison."}',
+    })
+  );
+  await page.goto("http://localhost:3000/chat");
+  await page.getByPlaceholder("Type your message").fill("Test");
+  await page.getByRole("button", { name: "Send" }).click();
+
+  // Compare against stored screenshot
+  await expect(page).toHaveScreenshot("chat-response.png", { maxDiffPixelRatio: 0.01 });
+});
 ```
 
-Update screenshots with `pytest --update-snapshots` when intentional UI changes occur.
+Update screenshots with `npx playwright test --update-snapshots` when intentional UI changes occur.
 
 ## Parallel Execution
 
@@ -238,15 +247,15 @@ jobs:
   e2e:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 24
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: npm run build && npm start &
       - run: npx playwright test
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: playwright-report
@@ -258,7 +267,11 @@ Upload the Playwright HTML report as a CI artifact on failure. It includes scree
 ## Configuration
 
 ```python
-# playwright.config.py (or conftest.py for pytest-playwright)
+# conftest.py (pytest-playwright)
+import os
+
+import pytest
+
 @pytest.fixture(scope="session")
 def browser_type_launch_args():
     return {"headless": True}

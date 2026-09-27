@@ -8,7 +8,7 @@ related:
   - patterns/canary-deployment
   - patterns/blue-green-deployment
   - guides/ci-cd-ai-detailed
-  - tools/amazon-lambda
+  - tools/aws-lambda
   - glossary/observability
 last_updated: 2026-05-30
 ---

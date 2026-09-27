@@ -11,7 +11,9 @@ related:
   - comparisons/crewai-vs-strands
   - patterns/agentic-workflows
   - guides/multi-agent-systems-101
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 CrewAI is a Python framework for building multi-agent AI systems. It models agent collaboration using a crew metaphor: agents have defined roles, goals, and backstories; tasks are assigned to agents; crews execute tasks in sequence or in parallel to achieve a broader objective.
@@ -26,6 +28,8 @@ The framework is designed to make multi-agent coordination accessible without re
 
 **Crew** - A collection of agents and tasks, with a process defining how they execute: sequential (tasks complete one by one in order) or hierarchical (a manager agent delegates and reviews work from subordinate agents).
 
+**Flow** - An event-driven workflow layer for precise, code-level control: Flows combine single LLM calls, ordinary Python steps and whole Crews, with state and branching you define explicitly. CrewAI positions Crews for autonomous collaboration and Flows for deterministic orchestration.
+
 **Tools** - Functions that agents can call to interact with the environment: web search, database query, file operations, API calls. CrewAI integrates with LangChain tools and supports custom tool definitions.
 
 ## When CrewAI Makes Sense
@@ -39,11 +43,11 @@ CrewAI is a good fit when:
 CrewAI is less suited for:
 - High-throughput production systems requiring precise latency control (the agent coordination adds unpredictable overhead)
 - Simple single-agent workflows (a direct LLM call is simpler and cheaper)
-- Workflows where every step needs deterministic, testable behavior (the LLM-driven coordination introduces variability)
+- Workflows where every step needs deterministic, testable behavior (the LLM-driven coordination of a Crew introduces variability; CrewAI's Flows reduce this but you still need to test LLM steps)
 
 ## LLM Backend Integration
 
-CrewAI supports multiple LLM backends through LangChain's model abstractions: OpenAI, Anthropic Claude, AWS Bedrock, Azure OpenAI, and local models via Ollama. For enterprise use cases with data residency requirements, Bedrock-backed CrewAI deployments keep all LLM calls within AWS infrastructure.
+CrewAI supports multiple LLM backends through the providers' native SDKs, configured with a `provider/model-id` string (for example `anthropic/claude-sonnet-5` or `bedrock/...`): OpenAI, Anthropic Claude, Google Gemini, AWS Bedrock, Azure OpenAI, and local models via Ollama, among others. For enterprise use cases with data residency requirements, Bedrock-backed CrewAI deployments keep all LLM calls within AWS infrastructure.
 
 Configure the backend at the agent level - different agents in the same crew can use different models (e.g., a research agent using a cheaper Haiku model, a synthesis agent using Sonnet).
 
@@ -63,7 +67,7 @@ Install with `pip install crewai crewai-tools`. The quickstart pattern - define 
 
 Joao Moura built the initial prototype of CrewAI while experimenting with a small agent to help him write LinkedIn posts more efficiently. That experiment revealed a broader insight: the barrier to building and deploying multi-agent systems was unnecessarily high. Moura finished building the framework in October 2023 and quietly released it as an open-source project on GitHub the following month. The project gained rapid traction, accumulating tens of thousands of GitHub stars within months.
 
-In January 2024, CrewAI incorporated as a company with Moura as CEO and Rob Bailey as COO. The company attracted 150 enterprise customers within its first six months and raised funding from investors who were themselves CrewAI users. By 2025, CrewAI reported powering over 1.4 billion agentic automations across enterprise customers including PwC, IBM, Capgemini, and NVIDIA.
+In January 2024, CrewAI incorporated as a company with Moura as CEO and Rob Bailey as COO. The company attracted 150 enterprise customers within its first six months and raised funding from investors who were themselves CrewAI users. In 2025, CrewAI reported powering over 1.4 billion agentic automations across enterprise customers including PwC, IBM, Capgemini, and NVIDIA. The open-source framework reached version 1.x (1.15.22 on PyPI as of 25 September 2026), and the company sells a commercial control plane, CrewAI AMP, for managed deployment, observability and governance.
 
 ## Sources
 
@@ -71,3 +75,5 @@ In January 2024, CrewAI incorporated as a company with Moura as CEO and Rob Bail
 2. CrewAI GitHub Repository. [https://github.com/crewAIInc/crewAI](https://github.com/crewAIInc/crewAI)
 3. Insight Partners (2025). "How CrewAI is orchestrating the next generation of AI Agents." [https://www.insightpartners.com/ideas/crewai-scaleup-ai-story/](https://www.insightpartners.com/ideas/crewai-scaleup-ai-story/)
 4. IBM. "What is CrewAI?" [https://www.ibm.com/think/topics/crew-ai](https://www.ibm.com/think/topics/crew-ai)
+5. CrewAI documentation. "LLMs" (native provider SDKs, `provider/model-id` configuration). https://docs.crewai.com/en/concepts/llms
+6. crewai on PyPI (version 1.15.22, 25 September 2026). https://pypi.org/project/crewai/

@@ -10,7 +10,9 @@ related:
   - tools/amazon-opensearch
   - patterns/rag-implementation
   - guides/building-rag-systems
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 A vector database stores and retrieves high-dimensional vectors - numerical representations of data - using similarity search rather than exact matching. In AI applications, vectors represent the semantic meaning of text (or images, or audio) as computed by embedding models. A vector database answers the question: "what content is most similar in meaning to this query?"
@@ -25,7 +27,7 @@ Vector databases solve this with approximate nearest neighbor (ANN) search algor
 
 To use a vector database for semantic search:
 
-1. Text is passed through an embedding model (e.g., Amazon Titan Embeddings, OpenAI text-embedding-3, Cohere Embed)
+1. Text is passed through an embedding model (e.g., Amazon Titan Text Embeddings V2, Amazon Nova Multimodal Embeddings, OpenAI text-embedding-3, Cohere Embed)
 2. The embedding model outputs a vector of 768, 1,536, or more dimensions that represents the text's meaning
 3. The vector is stored in the vector database alongside the original text
 4. At query time, the query is embedded using the same model
@@ -44,9 +46,11 @@ Text about "motor vehicle accident" and "car crash" will have similar vectors, s
 
 **pgvector** - PostgreSQL extension that adds vector storage and ANN search to standard Postgres. Best choice when you already use PostgreSQL and your scale does not justify a dedicated vector database. Up to 10-50 million vectors works well; above that, dedicated vector databases outperform.
 
-**Amazon OpenSearch with vector engine** - Adds ANN search to OpenSearch. Good for AWS-native deployments, especially where hybrid search (combining keyword and semantic) is needed. Used as the backend for Amazon Bedrock Knowledge Bases.
+**Amazon OpenSearch with vector engine** - Adds ANN search to OpenSearch. Good for AWS-native deployments, especially where hybrid search (combining keyword and semantic) is needed. A common backend for Amazon Bedrock Knowledge Bases.
 
 **Amazon Aurora (pgvector)** - Managed PostgreSQL on AWS with pgvector support. Appropriate for moderate-scale RAG implementations that already use Aurora.
+
+**Amazon S3 Vectors** - Vector storage and similarity search built into Amazon S3 through dedicated vector buckets and indexes, generally available since 2 December 2025. Trades some query latency (subsecond for infrequent queries, as low as 100 ms for frequent ones) for much lower storage cost, so it suits large, less latency-sensitive collections. Also supported as a Bedrock Knowledge Bases store.
 
 ## When to Use a Vector Database
 
@@ -61,4 +65,6 @@ For small-scale RAG (under a few hundred documents), loading all content directl
 
 - Johnson, J., Douze, M., & Jégou, H. (2019). Billion-scale similarity search with GPUs. *IEEE Transactions on Big Data, 7*(3), 535–547. (FAISS; foundational ANN search library powering most vector databases.)
 - Malkov, Y.A., & Yashunin, D.A. (2020). Efficient and robust approximate nearest neighbor search using hierarchical navigable small world graphs. *IEEE TPAMI, 42*(4), 824–836. (HNSW; the primary indexing algorithm used in Pinecone, Weaviate, Qdrant, and pgvector.)
+- AWS. *Working with S3 Vectors and vector buckets*, Amazon S3 User Guide (accessed 25 September 2026). [https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html)
+- AWS. "Amazon S3 Vectors is now generally available" (2 December 2025). [https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-s3-vectors-generally-available/](https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-s3-vectors-generally-available/)
 - Lewis, P., et al. (2020). Retrieval-augmented generation for knowledge-intensive NLP tasks. *NeurIPS 2020*. (RAG; established vector retrieval as the standard approach for grounding LLM responses.)

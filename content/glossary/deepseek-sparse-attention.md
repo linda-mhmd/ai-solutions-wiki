@@ -2,8 +2,9 @@
 title: "DeepSeek Sparse Attention (DSA)"
 description: "A trainable sparse-attention mechanism that scores query-key relevance and attends only to the most relevant tokens, reducing core attention cost from quadratic toward near-linear in sequence length."
 date: 2026-07-06
-lastmod: 2026-07-06
-last_updated: 2026-07-06
+lastmod: 2026-09-25
+last_updated: 2026-09-25
+last_verified: 2026-09-25
 categories: [Glossary]
 tags: ["ai-ml", "advanced", "attention", "llm"]
 related:
@@ -27,6 +28,9 @@ The quadratic cost of dense attention is the main obstacle to efficient {{< relr
 ## Origins and History
 DeepSeek Sparse Attention was introduced by DeepSeek-AI in the DeepSeek-V3.2-Exp technical report in 2025, accompanying the model's release in late September 2025. The report frames DSA as an experimental step toward more efficient long-context computation, with the lightning indexer and top-K token selection as its defining components.
 
+DeepSeek kept building on the indexer-plus-top-K idea in later models. DeepSeek-V4.1-Flash, released on 10 September 2026, uses Compressed Sparse Attention 2 (CSA2), in which layers share the main KV and indexer keys and reuse top-K sparse-attention indices, with a hierarchical sparse indexer narrowing the candidate pool in later layers. DSA in V3.2-Exp is best read as the first public step in that line. See [DeepSeek V4.1-Flash](/news/deepseek-v4-1-flash/).
+
 ## Sources
 
 1. DeepSeek-AI. "DeepSeek-V3.2-Exp: Boosting Long-Context Efficiency with DeepSeek Sparse Attention" (technical report, 2025). [https://github.com/deepseek-ai/DeepSeek-V3.2-Exp](https://github.com/deepseek-ai/DeepSeek-V3.2-Exp)
+2. DeepSeek-AI. "DeepSeek-V4.1-Flash" model card (Hugging Face, 10 September 2026). [https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash)

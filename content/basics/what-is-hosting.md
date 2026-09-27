@@ -2,6 +2,8 @@
 title: "What is Hosting?"
 description: "Hosting is where your code actually runs when people visit your site. Your laptop is not a server. You need somewhere on the internet to put your app."
 date: 2026-07-30
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 1
 categories: [Basics]
 tags: [beginner, hosting, deployment, servers, cloud]
@@ -12,7 +14,7 @@ faqs:
     answer: "Vercel is like a car with automatic transmission—it handles everything for you. AWS is like building a car from parts—maximum control, maximum complexity. For most vibecoders, start with Vercel/Netlify/Railway. Move to AWS when you have a specific reason."
   - question: "Do I need my own server?"
     answer: "Probably not. Running your own server means you're responsible for security updates, scaling, backups, and uptime. Platforms like Vercel handle all of that. Only get your own server when you have requirements those platforms can't meet."
-last_updated: 2026-07-30
+last_updated: 2026-09-25
 ---
 
 {{< quickanswer >}}
@@ -90,7 +92,7 @@ Serverless trade-offs:
 
 ## The cost reality
 
-**Free tier gets you far**: A personal project or early startup can run on Vercel's free tier indefinitely.
+**Free tier gets you far**: A personal project can run on Vercel's free Hobby plan indefinitely. Hobby is for non-commercial use, so a startup earning money needs the paid Pro plan.
 
 **Databases cost money**: The app itself might be free, but a PostgreSQL database starts at $5-15/month.
 

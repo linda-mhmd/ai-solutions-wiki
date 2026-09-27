@@ -8,12 +8,16 @@ related:
   - tools/mlflow
   - tools/amazon-sagemaker
   - tools/ray
-last_updated: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Weights & Biases (W&B) is a platform for ML experiment tracking, dataset versioning, hyperparameter optimization, and model evaluation. It provides a hosted dashboard where teams can log, compare, and collaborate on ML experiments in real time. For AI projects, W&B is the go-to choice when team collaboration, visualization quality, and managed infrastructure matter more than self-hosting flexibility.
 
 Official documentation: https://docs.wandb.ai/
+
+**Ownership:** CoreWeave, the GPU cloud provider, completed its acquisition of Weights & Biases in May 2025. W&B continues to operate as a product line inside CoreWeave, and the platform remains usable with any cloud or on-premises compute.
 
 ## Core Products
 
@@ -65,4 +69,11 @@ W&B integrates with major ML frameworks (PyTorch, TensorFlow, Keras, Hugging Fac
 
 ## Pricing
 
-W&B offers a free tier for individuals and small teams (limited tracked hours and storage). Team and Enterprise tiers charge per user with increased limits on tracked hours, storage, and administrative features. The Enterprise tier includes SSO, audit logs, and priority support. Self-hosted (Server) licensing is priced per seat.
+W&B's cloud-hosted plans are **Free** ($0, for personal development), **Pro** (from $60/month, with team access controls, service accounts, CI/CD automations, and alerts; aimed at early-stage teams under 50 employees), and **Enterprise** (custom pricing, adding single-tenant hosting with region choice, a HIPAA-compliant option, customer-managed encryption keys, SSO, audit logs, and custom roles). For privately hosted deployments there is a free Personal licence (no corporate use) and enterprise licensing for W&B Server.
+
+## Sources
+
+1. W&B documentation: https://docs.wandb.ai/
+2. Weights & Biases, "About us" ("In May 2025, Weights & Biases was acquired by CoreWeave"): https://wandb.ai/site/company/about-us/
+3. CoreWeave, "CoreWeave Completes Acquisition of Weights & Biases": https://www.coreweave.com/blog/coreweave-completes-acquisition-of-weights-biases
+4. W&B pricing (Free, Pro from $60/month, Enterprise; accessed 25 September 2026): https://wandb.ai/site/pricing/

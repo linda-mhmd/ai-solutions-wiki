@@ -39,7 +39,7 @@ The distinction from batch processing is fundamental: batch operates on bounded 
 
 **Apache Spark Structured Streaming** - Micro-batch processing on the Spark engine. Processes data in small batches (as low as 100ms intervals). Good when you already have a Spark investment and can tolerate micro-batch latency.
 
-**Amazon Kinesis Data Analytics** - Managed Flink service on AWS. No cluster management. Integrates with Kinesis streams, S3, and other AWS services.
+**Amazon Managed Service for Apache Flink** (formerly Kinesis Data Analytics) - Managed Flink service on AWS. No cluster management. Integrates with Kinesis streams, S3, and other AWS services.
 
 ## Stream Processing for AI
 

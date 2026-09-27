@@ -119,7 +119,7 @@ Infrastructure drift (where production differs from what the code specifies beca
 
 AI systems introduce several dimensions of change that classical CI/CD does not handle by default: model versions, prompt versions, evaluation results, and external API dependencies are all moving parts with their own deployment and rollback concerns.
 
-**Model versioning in the pipeline.** When a new model version becomes available (GPT-4o, Claude Sonnet 3.7, Llama 4), deploying it requires the same rigor as deploying new application code. The pipeline should include an evaluation stage that runs the new model version against a golden dataset and compares results to the previous version. A regression in evaluation scores blocks the deployment, just as a failing unit test blocks a code deployment.
+**Model versioning in the pipeline.** When a new model version becomes available (for example GPT-6 Sol, Claude Opus 5.5, or Gemini 3.8 Flash in September 2026), deploying it requires the same rigor as deploying new application code. The pipeline should include an evaluation stage that runs the new model version against a golden dataset and compares results to the previous version. A regression in evaluation scores blocks the deployment, just as a failing unit test blocks a code deployment.
 
 **Prompt deployment pipelines.** Prompts are code. A change to a system prompt should trigger the pipeline, run evaluation tests, and require a passing evaluation gate before the change reaches production. This is not how most teams manage prompts today - prompts are often edited in production without version control - but it is how they should be managed in systems where prompt quality matters.
 

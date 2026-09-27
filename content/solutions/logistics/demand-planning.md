@@ -6,7 +6,9 @@ categories: [Solutions]
 tags: [demand-planning, forecasting, capacity-planning, logistics-ai, resource-planning]
 industries: [logistics]
 tools: [amazon-forecast, amazon-sagemaker, amazon-redshift]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Logistics demand planning forecasts the volume of goods that will flow through the distribution network, driving decisions about capacity, staffing, equipment, and carrier procurement. Unlike retail demand forecasting (which predicts end-consumer demand), logistics demand planning focuses on shipment volumes, handling requirements, and network capacity at each node and lane.
@@ -19,7 +21,7 @@ The challenge is compounded by the bullwhip effect: small demand fluctuations at
 
 ## AI Approach
 
-**Multi-level volume forecasting** - Amazon Forecast generates demand projections at multiple granularities: lane level (origin-destination pair), facility level (total inbound and outbound), and service level (express, standard, freight). Hierarchical reconciliation ensures consistency across levels. The model incorporates seasonal patterns, economic indicators, customer order pipeline data, and historical promotional impacts.
+**Multi-level volume forecasting** - Time-series models (SageMaker Canvas or custom SageMaker models) generate demand projections at multiple granularities: lane level (origin-destination pair), facility level (total inbound and outbound), and service level (express, standard, freight). Hierarchical reconciliation ensures consistency across levels. The model incorporates seasonal patterns, economic indicators, customer order pipeline data, and historical promotional impacts.
 
 **Capacity planning** - SageMaker models convert volume forecasts into capacity requirements: warehouse labor hours, vehicle requirements by type, dock door utilization, and handling equipment needs. The conversion accounts for productivity rates, vehicle capacity utilization, and facility constraints. Gap analysis identifies periods where forecasted demand exceeds available capacity.
 
@@ -29,7 +31,7 @@ The challenge is compounded by the bullwhip effect: small demand fluctuations at
 
 ## Architecture
 
-Shipment history, customer data, and economic indicators flow into Redshift. Amazon Forecast generates volume projections across the network. SageMaker models convert volumes to capacity requirements. Scenario analysis results are presented through QuickSight dashboards. Capacity plans are exported to operational planning systems for execution.
+Shipment history, customer data, and economic indicators flow into Redshift. SageMaker Canvas time-series models generate volume projections across the network. Amazon Forecast, often used for this in the past, has been [closed to new customers since 29 July 2024](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/); AWS recommends SageMaker Canvas time-series forecasting for new builds. SageMaker models convert volumes to capacity requirements. Scenario analysis results are presented through QuickSight dashboards. Capacity plans are exported to operational planning systems for execution.
 
 ## Key Considerations
 

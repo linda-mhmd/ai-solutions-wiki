@@ -2,11 +2,11 @@
 title: "RAG vs Long Context Windows for Knowledge Access"
 description: "Comparing retrieval-augmented generation and long context windows as strategies for giving LLMs access to external knowledge."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [RAG, long-context, LLM, knowledge-management, comparison]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 related:
   - comparisons/rag-vs-fine-tuning
   - comparisons/context-engineering-vs-prompt-engineering
@@ -39,13 +39,13 @@ Long context approaches load the entire relevant knowledge base into the prompt.
 
 RAG's retrieval step is both its strength and weakness. Good retrieval surfaces the most relevant information efficiently. Bad retrieval misses critical chunks, leading to incomplete or incorrect answers. Retrieval quality depends on chunking strategy, embedding model quality, query formulation, and hybrid search configuration. Building a high-quality retrieval pipeline requires significant engineering effort.
 
-Long context avoids retrieval errors entirely - everything is in the context. However, advertised context windows do not equal usable context. Models can exhibit "lost in the middle" behavior where information in the center of very long contexts gets less attention than information at the beginning or end. More broadly, "context rot" describes how reliability tends to decline as input length grows, even well below the stated window limit and even on simple tasks. Chroma's 2025 study tested 18 production models (including GPT-4.1, Claude 4, Gemini 2.5, and Qwen3) and found that performance degraded as input length increased across all of them, with the effect worsening when distractors are present or when the relevant passage is less semantically similar to the query. The takeaway is that filling a 1M token window is not the same as the model reliably using all of it.
+Long context avoids retrieval errors entirely - everything is in the context. However, advertised context windows do not equal usable context. Models can exhibit "lost in the middle" behavior where information in the center of very long contexts gets less attention than information at the beginning or end. More broadly, "context rot" describes how reliability tends to decline as input length grows, even well below the stated window limit and even on simple tasks. Chroma's July 2025 study tested 18 then-current production models (including GPT-4.1, Claude 4, Gemini 2.5, and Qwen3, all since superseded) and found that performance degraded as input length increased across all of them, with the effect worsening when distractors are present or when the relevant passage is less semantically similar to the query. The takeaway is that filling a 1M token window is not the same as the model reliably using all of it.
 
 ## Cost and Latency
 
 RAG is more cost-effective per query. A typical RAG prompt includes 1-5K tokens of retrieved context. Long context prompts can be 100K-1M+ tokens. At current per-token pricing, the cost difference is orders of magnitude for large knowledge bases.
 
-Prompt caching narrows this gap when the same large context is reused across many requests. Anthropic prices cache reads at 0.1x the base input price (a 90% discount) with a 5-minute default cache lifetime (a 1-hour option is available), Google Gemini offers context caching billed by stored token-hours, and OpenAI applies automatic caching to repeated prompt prefixes. Caching only helps when the bulk of the context is stable between calls, so it favors long context over a fixed corpus, not RAG where the retrieved chunks change every query.
+Prompt caching narrows this gap when the same large context is reused across many requests. Anthropic prices cache reads at 0.1x the base input price (a 90% discount) on most models, and lower on its newest ones (0.05x on Claude Opus 5.5, 0.025x on Claude Fable 5.1), with a 5-minute default cache lifetime (a 1-hour option is available at a higher write price); Google Gemini offers context caching billed by stored token-hours; and OpenAI applies automatic caching to repeated prompt prefixes, with optional explicit cache breakpoints and cache writes billed at 1.25x the input rate on GPT-5.6 and later models (reads at 0.1x). Caching only helps when the bulk of the context is stable between calls, so it favors long context over a fixed corpus, not RAG where the retrieved chunks change every query.
 
 Latency profiles differ. RAG adds retrieval latency (typically tens to low hundreds of milliseconds for vector search) but has lower model latency due to shorter prompts. Long context eliminates retrieval latency but increases time-to-first-token roughly in proportion to context length, unless the prefix is served from cache. For very large uncached contexts, the model processing time can be substantial.
 
@@ -71,6 +71,7 @@ RAG and long context are not mutually exclusive, and in 2026 the dominant patter
 
 - Liu, N. F., Lin, K., Hewitt, J., et al. (2023). *Lost in the Middle: How Language Models Use Long Contexts.* arXiv:2307.03172. [https://arxiv.org/abs/2307.03172](https://arxiv.org/abs/2307.03172)
 - Chroma Research. *Context Rot: How Increasing Input Tokens Impacts LLM Performance* (July 14, 2025). [https://research.trychroma.com/context-rot](https://research.trychroma.com/context-rot)
-- Anthropic. *Prompt caching.* [https://platform.claude.com/docs/en/docs/build-with-claude/prompt-caching](https://platform.claude.com/docs/en/docs/build-with-claude/prompt-caching)
+- Anthropic. *Prompt caching* (pricing table and per-model cache-read multipliers, checked 25 September 2026). [https://platform.claude.com/docs/en/docs/build-with-claude/prompt-caching](https://platform.claude.com/docs/en/docs/build-with-claude/prompt-caching)
+- OpenAI. *Prompt caching* guide (cache breakpoints, explicit mode, and cache-write pricing for GPT-5.6 and later), checked 25 September 2026. [https://developers.openai.com/api/docs/guides/prompt-caching](https://developers.openai.com/api/docs/guides/prompt-caching)
 - Google. *Long context.* Gemini API documentation. [https://ai.google.dev/gemini-api/docs/long-context](https://ai.google.dev/gemini-api/docs/long-context)
 - Lewis, P., Perez, E., Piktus, A., et al. (2020). *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.* NeurIPS 2020. arXiv:2005.11401. [https://arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401)

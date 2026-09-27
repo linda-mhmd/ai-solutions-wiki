@@ -2,6 +2,8 @@
 title: "What is Fine-tuning?"
 description: "Fine-tuning adapts a pre-trained AI model to a specific task or domain using your own data. When it makes sense, what it costs, and when prompt engineering is better."
 date: 2026-06-22
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 2
 categories: [Basics]
 tags: ["fine-tuning", "lora", "llm", "model-training", "custom-model", "ai-basics"]
@@ -13,11 +15,11 @@ faqs:
   - question: "How much data do I need to fine-tune a model?"
     answer: "For instruction fine-tuning of a large model, 100-1,000 high-quality examples often produce meaningful improvement. For domain adaptation (teaching the model a technical domain), you may need 10,000+ examples. For fine-tuning a small model from scratch for a narrow task, 50-200 well-curated examples can be enough. Data quality matters far more than quantity: 100 perfect examples beat 10,000 noisy ones."
   - question: "How expensive is fine-tuning?"
-    answer: "API fine-tuning (e.g., OpenAI): typically €0.008-€0.025 per 1,000 training tokens, so fine-tuning on 100,000 tokens costs roughly €1-3. LoRA fine-tuning on a rented A100 GPU (€2-4/hour): a 1-hour training run costs about €2-4. Full fine-tuning of a 70B model on 8 A100s for 24 hours: roughly €400-800. The main cost is often not training but the data preparation: labelling 1,000 examples takes significant human time."
+    answer: "Managed API fine-tuning: typically €0.008-€0.025 per 1,000 training tokens, so fine-tuning on 100,000 tokens costs roughly €1-3. LoRA fine-tuning on a rented A100 GPU (€2-4/hour): a 1-hour training run costs about €2-4. Full fine-tuning of a 70B model on 8 A100s for 24 hours: roughly €400-800. The main cost is often not training but the data preparation: labelling 1,000 examples takes significant human time."
   - question: "What is LoRA and why does everyone use it?"
     answer: "LoRA (Low-Rank Adaptation) trains only a small set of additional parameters rather than updating all of the original model's billions of weights. This makes fine-tuning 10-100x cheaper and faster while achieving comparable results. A LoRA adapter is a small file (a few hundred MB) that you apply on top of a base model at inference time. Multiple LoRA adapters can be trained for different tasks and swapped without reloading the full model."
   - question: "Can I fine-tune ChatGPT or Claude?"
-    answer: "You can fine-tune some OpenAI models (GPT-4o mini, GPT-3.5 Turbo) via their API. Anthropic does not currently offer public fine-tuning for Claude models (as of June 2026). For open-weight models (Llama 3, Mistral, Phi-3), you can fine-tune on your own infrastructure or via cloud providers including AWS Bedrock and Hugging Face."
+    answer: "Mostly not any more, for new users. OpenAI is winding down its self-serve fine-tuning platform: since 7 May 2026 organisations that have never run fine-tuning cannot start, and existing customers lose the ability to create new jobs on 6 January 2027 (the remaining trainable base models are the GPT-4.1 family). Anthropic does not offer fine-tuning through its own API; Amazon Bedrock still lists fine-tuning only for the older Claude 3 Haiku. For open-weight models (Llama, Mistral, Qwen, Gemma, Phi), you can fine-tune on your own infrastructure or via cloud providers including Amazon Bedrock and Hugging Face."
 ---
 
 {{< quickanswer >}}
@@ -31,7 +33,7 @@ Fine-tuning is the process of taking a pre-trained AI model and continuing to tr
 
 ## The problem fine-tuning solves
 
-A pre-trained model like GPT-4o or Llama 3 is trained on general internet data. It can write in many styles, discuss many topics, and answer many types of questions. But it does not know:
+A pre-trained model like GPT or Llama is trained on general internet data. It can write in many styles, discuss many topics, and answer many types of questions. But it does not know:
 
 - Your company's internal terminology
 - The exact output format your system expects
@@ -125,6 +127,8 @@ Fine-tuning bakes the knowledge or behaviour into the model itself, so you do no
 
 ## Fine-tuning with the OpenAI API
 
+**Note (September 2026):** OpenAI is winding down its self-serve fine-tuning platform. Since 7 May 2026 it is closed to organisations that have not fine-tuned before; since 2 July 2026 organisations that have not used a fine-tuned model in the past 60 days cannot create new jobs either; and from 6 January 2027 no one can create new jobs; already fine-tuned models keep working until their base model is retired. The example below shows the general shape of an API fine-tuning workflow; for new projects, LoRA on an open-weight model (next section) or a cloud provider's managed fine-tuning is the realistic route.
+
 ```bash
 pip install openai
 ```
@@ -160,14 +164,14 @@ with open("training.jsonl", "rb") as f:
 # Start fine-tuning job
 job = client.fine_tuning.jobs.create(
     training_file=file_id,
-    model="gpt-4o-mini",
+    model="gpt-4.1-mini-2025-04-14",
 )
 print(f"Fine-tuning job created: {job.id}")
 ```
 
 ## LoRA fine-tuning with Hugging Face
 
-For open-weight models (Llama 3, Mistral), LoRA is the standard approach:
+For open-weight models (Llama, Mistral, Qwen, Gemma), LoRA is the standard approach:
 
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -214,6 +218,7 @@ The LoRA adapter saves as a small file. Apply it to the base model at inference 
 
 ## Further reading
 
-- [OpenAI Fine-tuning Guide](https://platform.openai.com/docs/guides/fine-tuning): Step-by-step with data format specs and pricing
+- [OpenAI Supervised Fine-tuning Guide](https://developers.openai.com/api/docs/guides/supervised-fine-tuning): Data format specs, supported base models and the wind-down notice
+- [OpenAI Deprecations: self-serve fine-tuning](https://developers.openai.com/api/docs/deprecations): Timeline for the fine-tuning wind-down (checked 25 September 2026)
 - [Hugging Face PEFT documentation](https://huggingface.co/docs/peft): LoRA, prefix tuning, and other parameter-efficient methods
-- [AWS Bedrock Fine-tuning](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html): Managed fine-tuning for Titan, Llama 3, and Mistral models
+- [Amazon Bedrock fine-tuning](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-model-fine-tuning.html): Managed fine-tuning for Amazon Nova, Titan, Llama 3.1/3.2 and Claude 3 Haiku models

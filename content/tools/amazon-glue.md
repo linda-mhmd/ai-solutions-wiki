@@ -18,8 +18,9 @@ layer: data
 provider: aws
 pricing_model: payg
 maturity: production
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 enhanced_pass: "2026-06"
 ---
 
@@ -64,9 +65,9 @@ Glue is well-suited for data preparation tasks up to moderate scale (tens of GB 
 
 ## Glue versions and engines
 
-The Glue version you select for a job determines the Apache Spark and Python runtime. As of June 2026, AWS Glue 5.1 (released 26 November 2025) is the latest and the default for new Spark jobs. It runs Apache Spark 3.5.6, Python 3.11, and Java 17. AWS Glue 5.0 (December 2024) introduced Spark 3.5.x and Python 3.11. Older versions are reaching end of life: AWS Glue 2.0, 1.0, and 0.9 ended support on 1 April 2026, so existing jobs on those versions should be migrated to 5.x. Always confirm the current default and supported versions in the release notes before pinning a version.
+The Glue version you select for a job determines the Apache Spark and Python runtime. As of September 2026 the newest version is AWS Glue 6.0 (added 12 August 2026), which moves to Apache Spark 4.1.1, Scala 2.13, Python 3.13, and Java 17, adds Iceberg format version 3, Spark Declarative Pipelines and a real-time streaming mode, and removes EMRFS (S3A is the only S3 connector) and the AWS SDK for Java v1. Because Spark 4 is a major upgrade, AWS Glue 5.1 (released 26 November 2025; Spark 3.5.6, Python 3.11, Java 17) remains the default for jobs created without an explicit version. AWS Glue 5.0 (December 2024) introduced Spark 3.5.x and Python 3.11. Older versions are reaching end of life: AWS Glue 2.0, 1.0, and 0.9 ended support on 1 April 2026, so existing jobs on those versions should be migrated to 5.x or 6.0. Always confirm the current default and supported versions in the release notes before pinning a version.
 
-AWS Glue for Ray (a Python-native engine for distributed compute) will no longer be open to new customers from 30 April 2026. Existing users can continue, but AWS recommends Amazon Elastic Kubernetes Service (EKS) with the open-source KubeRay operator for new Ray workloads. Spark and Python shell jobs are unaffected.
+AWS Glue for Ray (a Python-native engine for distributed compute) has been closed to new customers since 30 April 2026. Existing users can continue, but AWS recommends Amazon Elastic Kubernetes Service (EKS) with the open-source KubeRay operator for new Ray workloads. Spark and Python shell jobs are unaffected.
 
 ## Glue DataBrew
 
@@ -106,6 +107,7 @@ Glue is the data integration layer of an analytics platform, so apply the data a
 - AWS Glue version support policy: https://docs.aws.amazon.com/glue/latest/dg/glue-version-support-policy.html
 - AWS Glue pricing: https://aws.amazon.com/glue/pricing/
 - AWS Glue components overview: https://docs.aws.amazon.com/glue/latest/dg/components-overview.html
+- Migrating AWS Glue jobs to AWS Glue version 6.0 (Glue 6.0 added 12 August 2026 per the documentation history): https://docs.aws.amazon.com/glue/latest/dg/migrating-version-60.html
 - AWS Glue for Ray end of support: https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html
 - Generative AI upgrades for Apache Spark in AWS Glue: https://aws.amazon.com/about-aws/whats-new/2024/11/generative-ai-upgrades-apache-spark-glue-preview
 - AWS Glue zero-ETL integrations: https://docs.aws.amazon.com/glue/latest/dg/zero-etl-using.html

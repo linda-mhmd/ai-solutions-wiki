@@ -10,7 +10,9 @@ related:
   - tools/google-cloud-dataflow
   - tools/google-cloud-dataproc
   - tools/google-vertex-ai
-last_updated: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Google BigQuery is a fully managed, serverless data warehouse designed for large-scale analytics. It can process petabytes of data using ANSI SQL with no infrastructure to manage -- there are no clusters to size, no indexes to tune, and no vacuum operations to schedule. BigQuery separates storage and compute, allowing each to scale independently. This architecture means you pay for data stored (at competitive per-GB rates) and for queries executed (based on bytes scanned), making it economical for both interactive analysis and large batch workloads.
@@ -22,7 +24,7 @@ The platform supports real-time analytics through BigQuery Streaming, which inge
 ## Key Capabilities
 
 - **BigQuery ML (BQML)** - Train and deploy ML models using SQL, including classification, regression, clustering, time-series, and imported TensorFlow/ONNX models.
-- **Serverless Architecture** - No cluster management, automatic scaling, separation of storage and compute, with on-demand and flat-rate pricing options.
+- **Serverless Architecture** - No cluster management, automatic scaling, separation of storage and compute, with on-demand (per-byte) pricing or capacity pricing through BigQuery editions (Standard, Enterprise, Enterprise Plus), which replaced flat-rate pricing in 2023.
 - **Real-Time Streaming** - Ingest streaming data at hundreds of thousands of rows per second with data available for query within seconds of arrival.
 - **Federated Queries** - Query external data sources (Cloud Storage, Bigtable, Spanner, Cloud SQL) directly without data movement.
 
@@ -38,3 +40,4 @@ BigQuery was announced at Google I/O in May 2010 as an external version of Googl
 
 1. Google Cloud Documentation. "BigQuery overview." https://cloud.google.com/bigquery/docs/introduction
 2. Melnik, S. et al. "Dremel: Interactive Analysis of Web-Scale Datasets." Proc. VLDB Endowment, 2010. https://research.google/pubs/dremel-interactive-analysis-of-web-scale-datasets/
+3. Google Cloud Documentation. "Understand BigQuery editions." https://cloud.google.com/bigquery/docs/editions-intro

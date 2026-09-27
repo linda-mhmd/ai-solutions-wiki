@@ -12,8 +12,9 @@ related:
   - tools/amazon-bedrock
   - tools/amazon-opensearch
   - tools/aws-s3
-last_updated: 2026-07-17
-lastmod: 2026-07-17
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 enhanced_pass: "2026-06"
 status: deprecated
 status_detail: "AWS placed Amazon Kendra into maintenance mode effective 30 June 2026: no new features, and closed to new customers from 30 July 2026. Existing customers keep full support, with no shutdown date announced. AWS recommends new retrieval work move to Amazon Bedrock Managed Knowledge Bases. See the 2026 AWS lifecycle wave: /news/aws-service-deprecations-2026/."
@@ -59,7 +60,7 @@ OpenSearch is a general-purpose search and analytics engine that requires you to
 
 Kendra integrates directly with Amazon Bedrock Knowledge Bases as a retrieval source. This pattern is particularly effective because Kendra's ML-based retrieval combines keyword and vector (hybrid) search, which often surfaces more relevant passages than pure vector similarity search alone. The integration works as follows: a user query hits Bedrock, Bedrock calls Kendra to retrieve relevant document passages, and the foundation model generates a response grounded in those passages.
 
-The recommended path is the GenAI Enterprise Edition index, which can be attached to a Bedrock knowledge base as a managed retriever and used with Bedrock agents and prompt flows. Its retrieval pipeline uses hybrid search, semantic embeddings, and re-ranker models tuned for RAG accuracy. The Kendra Retrieve API returns passages with confidence scores and source attribution, which the generative model can use to produce cited answers.
+The recommended path is the GenAI Enterprise Edition index, which can be attached to a Bedrock knowledge base as a managed retriever and used with Bedrock Flows and agent frameworks (the original Bedrock Agents feature is now Bedrock Agents Classic, closed to new customers since 30 July 2026, with AWS pointing new agent builds to [AgentCore](/tools/bedrock-agentcore/)). Its retrieval pipeline uses hybrid search, semantic embeddings, and re-ranker models tuned for RAG accuracy. The Kendra Retrieve API returns passages with confidence scores and source attribution, which the generative model can use to produce cited answers.
 
 A practical advantage of the GenAI Index is data mobility: you index your content once and reuse the same index across AWS generative AI services, including Amazon Bedrock Knowledge Bases and Amazon Q Business, without rebuilding it. For teams already using Kendra for enterprise search, adding a generative AI layer requires minimal additional infrastructure.
 
@@ -105,3 +106,4 @@ Two operational habits matter most for Kendra cost and quality: delete idle inde
 - Introducing Amazon Kendra GenAI Index, enhanced semantic search and retrieval (AWS ML Blog): https://aws.amazon.com/blogs/machine-learning/introducing-amazon-kendra-genai-index-enhanced-semantic-search-and-retrieval-capabilities/
 - Amazon Kendra GenAI Index now available in Europe (Ireland) and Asia Pacific (Sydney) (AWS What's New, April 2025): https://aws.amazon.com/about-aws/whats-new/2025/04/amazon-kendra-genai-index-ireland-sydney-regions/
 - Create a knowledge base with an Amazon Kendra GenAI index (Amazon Bedrock docs): https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-kendra-genai-index-create.html
+- Amazon Bedrock Agents Classic maintenance mode (closed to new customers 30 July 2026; AWS docs, fetched 25 September 2026): https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html

@@ -4,7 +4,9 @@ description: "How to deploy AI models on edge devices, covering hardware selecti
 date: 2026-03-28
 categories: [Guides]
 tags: [edge-AI, deployment, IoT, model-optimization, AI-infrastructure]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Edge AI runs machine learning models on devices close to the data source - factory floors, retail stores, vehicles, cameras, and mobile devices - rather than in the cloud. This eliminates network latency, reduces bandwidth costs, and enables AI in environments with limited or no connectivity. The tradeoff: edge devices have constrained compute, memory, and storage compared to cloud infrastructure.
@@ -39,7 +41,7 @@ Edge AI runs machine learning models on devices close to the data source - facto
 
 **Google Coral (Edge TPU).** Purpose-built for edge inference. Very low power consumption. Limited to models compiled with the Edge TPU compiler (TensorFlow Lite models).
 
-**AWS Inferentia (via Panorama).** AWS Panorama appliance includes Inferentia chips for edge computer vision. Managed deployment from the cloud.
+**AWS Panorama (discontinued).** AWS's managed edge computer-vision appliance reached end of support on 31 May 2026, and its console and resources are no longer accessible. On AWS, the usual replacement is AWS IoT Greengrass deploying models to your own edge hardware (for example an NVIDIA Jetson device).
 
 **Hailo.** AI accelerator chips designed for edge deployment. High efficiency for vision workloads.
 
@@ -114,3 +116,7 @@ Use AWS IoT Core, Azure IoT Hub, or similar platforms for device management at s
 **Debugging.** When a model misbehaves on a remote edge device, debugging is harder than in the cloud. Implement comprehensive logging and the ability to capture and replay inputs remotely.
 
 Edge AI is the right choice when latency, bandwidth, connectivity, or privacy requirements make cloud inference impractical. Start with a single device type and use case, optimize the model for that hardware, and then scale to more devices and use cases incrementally.
+
+## Sources
+
+1. AWS Documentation, "What is AWS Panorama?" (end of support notice, 31 May 2026): [https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html](https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html)

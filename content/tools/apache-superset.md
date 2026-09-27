@@ -9,7 +9,9 @@ related:
   - tools/metabase
   - tools/grafana
   - tools/clickhouse
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Apache Superset is a modern, enterprise-ready business intelligence web application that enables data exploration and visualization. It provides an intuitive, no-code interface for creating charts and dashboards, as well as a powerful SQL IDE (SQL Lab) for ad hoc querying. Superset supports over 40 database backends through SQLAlchemy, including PostgreSQL, MySQL, ClickHouse, Snowflake, BigQuery, Redshift, Trino, and Apache Druid, making it a versatile front-end for virtually any analytical data store.
@@ -27,7 +29,7 @@ Superset has been adopted by thousands of organizations as a cost-effective alte
 
 ## Cloud Equivalents
 
-Apache Superset is the open-source alternative to AWS QuickSight, Microsoft Power BI, and Google Looker. Commercial BI tools offer deeper integrations with their respective cloud ecosystems and more polished end-user experiences, while Superset provides unlimited users at no license cost and full customization.
+Apache Superset is the open-source alternative to Amazon Quick Sight (formerly Amazon QuickSight, now part of Amazon Quick), Microsoft Power BI, and Google Looker. Commercial BI tools offer deeper integrations with their respective cloud ecosystems and more polished end-user experiences, while Superset provides unlimited users at no license cost and full customization.
 
 ## Origins and History
 
@@ -37,3 +39,4 @@ Apache Superset was created by Maxime Beauchemin at Airbnb in 2015 (originally n
 
 1. https://superset.apache.org/
 2. https://github.com/apache/superset
+3. AWS Documentation. "What is Amazon Quick?" (QuickSight continues as Amazon Quick Sight). https://docs.aws.amazon.com/quick/latest/userguide/what-is.html

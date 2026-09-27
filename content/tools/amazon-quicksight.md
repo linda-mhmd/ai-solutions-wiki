@@ -12,12 +12,16 @@ related:
   - tools/google-looker
   - tools/apache-superset
   - tools/metabase
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Amazon QuickSight is a serverless business intelligence service that provides interactive dashboards, ML-powered insights, and natural language querying. Unlike traditional BI tools that require dedicated server infrastructure, QuickSight is fully managed and scales to thousands of users without capacity planning. For AI projects, QuickSight serves as the presentation layer that makes model outputs, pipeline metrics, and business KPIs accessible to stakeholders who do not interact with technical tools.
 
-Official documentation: https://docs.aws.amazon.com/quicksight/
+> **Name change:** On 9 October 2025 AWS launched Amazon Quick (marketed as Amazon Quick Suite), an agentic workspace that absorbed QuickSight. The BI service now continues as **Amazon Quick Sight**, one feature of Quick alongside Quick Flows, Quick Automate, Quick Index and Quick Research. AWS states that all existing QuickSight APIs, SDKs and integrations keep working unchanged, and the API namespace is still `quicksight`. This page uses the familiar QuickSight name.
+
+Official documentation: https://docs.aws.amazon.com/quick/latest/userguide/what-is.html
 
 ## Core Concepts
 
@@ -35,13 +39,13 @@ QuickSight includes several ML features that require no model building:
 
 **Anomaly detection** - QuickSight automatically identifies anomalies in time series data using ML. Anomalies appear as highlighted points on charts with explanations of which dimensions contributed to the deviation. This runs automatically on any time series visualization without configuration.
 
-**Forecasting** - Built-in forecasting adds projected values to time series charts. QuickSight uses ML to generate point estimates and confidence intervals. Useful for quick directional forecasts, though not a replacement for Amazon Forecast for production forecasting.
+**Forecasting** - Built-in forecasting adds projected values to time series charts. QuickSight uses ML to generate point estimates and confidence intervals. Useful for quick directional forecasts, though not a replacement for a dedicated forecasting model (Amazon Forecast is closed to new customers; AWS points production forecasting to SageMaker Canvas).
 
 **Auto-narratives** - QuickSight generates natural language summaries of chart data. A bar chart showing regional sales automatically produces text like "North region leads with $2.3M, 15% above average." These narratives are useful in email reports and executive dashboards.
 
-## QuickSight Q (Natural Language Queries)
+## Natural language Q&A (formerly QuickSight Q)
 
-QuickSight Q enables users to ask questions in natural language and receive visualizations as answers. "What were total sales by region last quarter?" returns a bar chart without the user building it manually. Q uses ML to map natural language to dataset columns and appropriate chart types.
+The natural language feature, launched as QuickSight Q and later branded Amazon Q in QuickSight, is now documented as Generative BI Q&A in Quick Sight. It enables users to ask questions in natural language and receive visualizations as answers. "What were total sales by region last quarter?" returns a bar chart without the user building it manually. Q uses ML to map natural language to dataset columns and appropriate chart types.
 
 Q requires topic configuration: you define which datasets are searchable and provide synonyms for column names (mapping business terminology like "revenue" to column names like "total_amount"). The initial setup takes effort but dramatically reduces the barrier for non-technical users to get answers from data.
 
@@ -61,4 +65,11 @@ The embedding API generates a signed URL with configurable session duration and 
 
 ## Pricing
 
-QuickSight offers per-user pricing in two tiers: Author (creates dashboards) and Reader (views dashboards). Reader pricing can be per-session (pay only when they log in) or per-month. SPICE storage is charged per GB. For organizations with many casual viewers, the per-session Reader pricing is cost-effective because users who do not log in incur no cost.
+Pricing was restructured with the move to Amazon Quick. Quick Sight dashboards and analytics are available only on Enterprise accounts provisioned through the AWS console or API, which as of September 2026 list two per-user tiers: Professional ($20 per user per month) and Enterprise ($40 per user per month, required for authoring custom dashboards), each plus a $250 per-account monthly infrastructure fee. The standalone Free, Plus and Max plans at aws.com/quick do not include Quick Sight dashboards. The older Author/Reader model with per-session Reader pricing belonged to QuickSight before the change; confirm what applies to an existing account on the [Quick pricing page](https://aws.amazon.com/quicksuite/pricing/).
+
+## Sources
+
+- AWS News Blog. "Announcing Amazon Quick Suite: your agentic teammate for answering questions and taking action." 9 October 2025. https://aws.amazon.com/blogs/aws/reimagine-the-way-you-work-with-ai-agents-in-amazon-quick-suite/
+- AWS Documentation. "What is Amazon Quick?" (QuickSight continues as Amazon Quick Sight; existing APIs unchanged; fetched 25 September 2026). https://docs.aws.amazon.com/quick/latest/userguide/what-is.html
+- AWS Documentation. "Amazon Quick plans and pricing" (Quick Sight dashboards limited to Enterprise accounts). https://docs.aws.amazon.com/quick/latest/userguide/standalone-plans.html
+- AWS. "Amazon Quick pricing" (Professional and Enterprise tiers, fetched 25 September 2026). https://aws.amazon.com/quicksuite/pricing/

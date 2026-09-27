@@ -2,11 +2,11 @@
 title: "Amazon Lex vs Amazon Connect for Conversational AI"
 description: "Comparing Amazon Lex and Amazon Connect for building conversational AI experiences, covering use cases, NLU capabilities, and integration patterns."
 date: 2026-03-28
-lastmod: 2026-06-14
-last_verified: 2026-06-14
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [Amazon-Lex, Amazon-Connect, conversational-AI, chatbot, AWS, comparison]
-last_updated: 2026-06-14
+last_updated: 2026-09-25
 ---
 
 Amazon Lex and Amazon Connect are complementary services that often confuse teams evaluating conversational AI on AWS. Lex is a conversational AI engine for building chatbots and voice bots. Connect is a cloud contact center platform that can use Lex as its NLU layer. Understanding where each service fits is essential for the right architecture.
@@ -43,7 +43,7 @@ Use Lex without Connect when building chatbots for websites, mobile apps, Slack,
 
 Lex V2 supports multiple languages, streaming conversations, and integration with Amazon Bedrock for generative AI responses. The AMAZON.QnAIntent allows Lex to answer questions directly from a knowledge store using a Bedrock foundation model, adding generative capabilities without custom Lambda code. The supported knowledge stores are an Amazon Bedrock knowledge base, an Amazon Kendra index, or an Amazon OpenSearch Service database (see {{< relref "comparisons/kendra-vs-opensearch-rag" >}} for how those two retrieval backends differ). The QnA intent also recognizes follow-up questions from conversation history, and it can apply Bedrock Guardrails for safer responses.
 
-Recent Lex V2 generative AI additions go beyond QnA. Assisted NLU uses large language models to improve intent classification and slot resolution while staying within the intents and slots you have defined, rather than answering freely. The AMAZON.BedrockAgentIntent built-in intent connects a Lex bot directly to Amazon Bedrock Agents and knowledge bases. A descriptive bot builder can scaffold a full bot from a natural language prompt, and assisted slot resolution and utterance generation speed up authoring.
+Recent Lex V2 generative AI additions go beyond QnA. Assisted NLU uses large language models to improve intent classification and slot resolution while staying within the intents and slots you have defined, rather than answering freely. The AMAZON.BedrockAgentIntent built-in intent connects a Lex bot directly to Amazon Bedrock Agents and knowledge bases. Bedrock Agents has since been renamed **Bedrock Agents Classic** and closed to new customers on 30 July 2026 (maintenance mode, AWS points new agent builds to Amazon Bedrock AgentCore), so for a new bot the knowledge-base option of this intent, or a Lambda fulfillment hook calling an [AgentCore](/tools/bedrock-agentcore/) agent, is the safer path. A descriptive bot builder can scaffold a full bot from a natural language prompt, and assisted slot resolution and utterance generation speed up authoring.
 
 ## When to Use Connect Alone
 
@@ -71,3 +71,4 @@ Most organizations evaluating conversational AI on AWS should start with Lex for
 - AWS. *Amazon Lex pricing (per request for speech and text).* [https://aws.amazon.com/lex/pricing/](https://aws.amazon.com/lex/pricing/)
 - Amazon (2026). *Amazon Connect expands into four agentic AI solutions and the contact center product becomes Amazon Connect Customer (announced April 28, 2026).* [https://www.aboutamazon.com/news/aws/amazon-connect-ai-business-set](https://www.aboutamazon.com/news/aws/amazon-connect-ai-business-set)
 - AWS (2025). *Amazon Q in Connect now supports selecting LLMs directly in the Connect web UI.* [https://aws.amazon.com/about-aws/whats-new/2025/09/amazon-q-connect-selecting-llms-connect-web-ui/](https://aws.amazon.com/about-aws/whats-new/2025/09/amazon-q-connect-selecting-llms-connect-web-ui/)
+- AWS. *Amazon Bedrock Agents Classic maintenance mode* (closed to new customers from July 30, 2026). [https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html)

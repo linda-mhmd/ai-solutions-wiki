@@ -4,14 +4,16 @@ description: "Using Amazon Translate for real-time and batch document translatio
 date: 2026-03-25
 categories: [Tools]
 tags: ["ai-ml", "beginner", "amazon-translate", "translation", "nlp", "aws", "multilingual", "aws-service"]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Amazon Translate is a neural machine translation service that converts text between languages. It supports 75+ languages and language pairs, handles real-time translation via API, and processes large document batches asynchronously. For AI applications serving international users or processing multilingual content, it removes the need to integrate third-party translation vendors.
 
 Official documentation: https://aws.amazon.com/translate/
 
-**Azure equivalent:** Azure Translator (Cognitive Services). **GCP equivalent:** Google Cloud Translation API.
+**Azure equivalent:** Azure AI Translator (formerly sold under the Cognitive Services brand). **GCP equivalent:** Google Cloud Translation API.
 
 ## Translation Modes
 
@@ -39,11 +41,16 @@ For domain-specific content where the base model underperforms (legal, medical, 
 
 ## Pricing
 
-Translate charges per character translated. The first 2 million characters per month are free under the AWS Free Tier. Real-time and batch translation have the same per-character rate. Custom terminology does not add per-character cost.
+Translate charges per character translated. Accounts on the legacy 12-month AWS Free Tier get the first 2 million characters per month free; accounts created under AWS's newer credit-based Free Tier (up to $200 in credits over six months) draw on those credits instead. Real-time and batch translation have the same per-character rate. Custom terminology does not add per-character cost.
 
 ## Cross-Cloud Comparison
 
 Azure Translator and GCP Cloud Translation offer comparable language coverage and neural quality. Azure differentiates with deep Office 365 integration. GCP's Translation API has a more developer-friendly SDK for web applications. Amazon Translate's advantage is native integration with S3, Lambda, and Step Functions in existing AWS pipelines.
+
+## Sources
+
+- Amazon Translate pricing: https://aws.amazon.com/translate/pricing/
+- AWS Documentation, "Explore AWS services with AWS Free Tier" (credit-based Free and Paid account plans): https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier.html
 
 ## Related Articles
 

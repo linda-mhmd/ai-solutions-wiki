@@ -8,7 +8,9 @@ related:
   - guides/everything-as-code
   - software-engineering/version-control-fundamentals
   - software-engineering/gitignore-patterns
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Video is one of the most persuasive media formats for communicating a software system's value. A two-minute demo can convey what a thirty-page technical document cannot. Yet most engineering teams treat video production as a creative task, something handed off to a designer with a subscription to Premiere Pro, disconnected from the codebase and the development workflow. This guide argues for a different approach: video as a software artifact, authored in code, stored in version control, and rendered on demand like any other build output.
@@ -189,16 +191,17 @@ export const TitleScene: React.FC = () => {
 
 **Counter animations** count a numeric value from a start to an end over a given number of frames, useful for displaying statistics or metrics. `Math.round(interpolate(frame, [0, duration], [startValue, endValue]))` is the complete implementation.
 
-**Background video integration** uses Remotion's `<Video>` component with the `startFrom` prop to seek to a specific frame of a source clip. The `<Freeze>` component holds a specific frame of a video source as a still, which is useful for creating freeze-frame effects with data overlays.
+**Background video integration** uses the `<Video>` component from `@remotion/media` (Remotion's recommended video component for new code) with the `trimBefore` prop to start playback at a specific frame of a source clip. `trimBefore` replaced the older `startFrom` prop in Remotion 4.0.319; `startFrom` still works but is deprecated. The `<Freeze>` component holds a specific frame of a video source as a still, which is useful for creating freeze-frame effects with data overlays.
 
 **Overlay patterns** use absolute positioning layers stacked over a background. A bounding box overlay, for example, is a `<div>` with `position: absolute`, `border: 2px solid accent`, and `width`/`height`/`top`/`left` values that interpolate into position as the overlay "appears" on screen.
 
 ## Audio and Voiceover
 
-Add background music with the `<Audio>` component and keep the volume low enough not to compete with visual content:
+Add background music with the `<Audio>` component from `@remotion/media` (install it at exactly the same version as `remotion`, since all Remotion packages must stay in lockstep; the older `<Audio>` in the core `remotion` package is now called `<Html5Audio>`) and keep the volume low enough not to compete with visual content:
 
 ```tsx
-import { Audio } from "remotion";
+import { staticFile } from "remotion";
+import { Audio } from "@remotion/media";
 
 // Inside your composition
 <Audio src={staticFile("music/background.mp3")} volume={0.12} />
@@ -274,3 +277,8 @@ With the Remotion foundation in place, several directions become available. The 
 Future topics in this section will cover data-driven video generation (rendering parameterised compositions with external data sources), advanced Remotion patterns (custom hooks for complex animations, shared component libraries across video projects), and automated rendering pipelines (CI/CD integration with GitHub Actions, render farm configuration for long-running compositions).
 
 The core principle carries through all of it: video is software. It can be reviewed, versioned, tested, and deployed. The same discipline that produces reliable software produces reliable video.
+
+## Sources
+
+1. Remotion, `@remotion/media` documentation: [https://www.remotion.dev/docs/media](https://www.remotion.dev/docs/media)
+2. Remotion, `<OffthreadVideo>` props (`trimBefore` replaces `startFrom` in v4.0.319): [https://www.remotion.dev/docs/offthreadvideo](https://www.remotion.dev/docs/offthreadvideo)

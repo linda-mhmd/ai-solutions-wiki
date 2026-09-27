@@ -9,7 +9,9 @@ related:
   - patterns/multi-provider-llm-failover
   - patterns/rate-limiting-ai
   - patterns/semantic-caching
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 As organizations scale their use of large language models, direct point-to-point integrations between application services and model providers become unmanageable. An LLM gateway is a centralized access layer that sits between all consuming applications and all LLM providers, consolidating cross-cutting concerns into a single infrastructure component.
@@ -42,8 +44,12 @@ The concept of an API gateway predates LLMs by over a decade. Early API manageme
 
 Place the gateway close to your application infrastructure to minimize added latency. Use asynchronous logging to avoid blocking request processing. Encrypt API keys at rest and rotate them through the gateway rather than distributing them to individual services. Implement circuit breakers so that a failing provider triggers automatic failover rather than cascading errors.
 
+Treat the gateway as critical, internet-facing infrastructure, because it holds every provider key your organisation has. In September 2026 CISA added two LiteLLM flaws to its Known Exploited Vulnerabilities catalog: an MCP endpoint authentication bypass (CVE-2026-59822) and CVE-2026-42271, which can be chained with a Starlette request-smuggling bug (CVE-2026-48710) to bypass authentication and execute code [4]. Separately, Wiz found that 294 of 3,074 internet-facing LiteLLM gateways it scanned accepted `sk-1234`, the example admin key from LiteLLM's own setup guide [5]. Patch the gateway promptly, never ship example credentials, and keep the admin interface off the public internet.
+
 ## Sources
 
 1. LiteLLM documentation and GitHub repository (2023). Open-source LLM proxy supporting 100+ providers.
 2. Portkey documentation (2023). Managed AI gateway with observability and reliability features.
 3. Richardson, C. *Microservices Patterns* (2018). Foundational API gateway patterns that informed LLM gateway design.
+4. The Hacker News, "CISA Adds Seven Exploited Flaws..." (3 September 2026): https://thehackernews.com/2026/09/cisa-adds-seven-exploited-flaws-as.html
+5. The Hacker News, "Nearly 1 in 10 Exposed LiteLLM Gateways Accepted the Example 'sk-1234' Admin Key" (10 September 2026): https://thehackernews.com/2026/09/nearly-1-in-10-exposed-litellm-gateways.html

@@ -2,6 +2,8 @@
 title: "Oracle OCI Generative AI"
 description: "Oracle's managed service for running, customizing, and fine-tuning large language models inside Oracle Cloud Infrastructure, close to enterprise data."
 date: 2026-06-29
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 tags: ["oracle", "oci", "generative-ai", "foundation-models", "enterprise-ai"]
 tool_category: "AI"
 related:
@@ -48,7 +50,7 @@ The problem it solves is enterprise plumbing. Most teams do not want to procure 
       <span class="bz-arch-chip">Cohere Command A</span>
       <span class="bz-arch-chip">Meta Llama 4</span>
       <span class="bz-arch-chip">Google Gemini 2.5</span>
-      <span class="bz-arch-chip">xAI Grok</span>
+      <span class="bz-arch-chip">xAI Grok 4.7</span>
       <span class="bz-arch-chip">OpenAI gpt-oss</span>
     </div>
   </div>
@@ -66,8 +68,8 @@ The problem it solves is enterprise plumbing. Most teams do not want to procure 
 
 OCI Generative AI exposes several capabilities through one managed service. You reach them from the OCI console, the SDKs, or a REST API, and you pay per use for shared models or reserve capacity for dedicated ones.
 
-- **Chat models.** The service hosts several model families, including Cohere Command A, Meta Llama 4 Maverick and Scout, Google Gemini 2.5, xAI Grok, and OpenAI gpt-oss models. You send a prompt and receive a conversational response, with support for tool use and agentic workflows on the newer models.
-- **Embeddings and reranking.** Cohere Embed and Rerank models turn text and images into vectors and score document relevance. These power search and retrieval pipelines.
+- **Chat models.** The service hosts several model families. As of 25 September 2026, Oracle's catalog lists Cohere Command A (plus Command A Reasoning and Command A Vision), Meta Llama 4 Maverick and Scout and Llama 3.3 70B, Google Gemini 2.5 Pro, Flash and Flash-Lite, xAI Grok 4.7, 4.6, 4.3 and 4.20 (including Grok 4.20 Multi-Agent), and OpenAI gpt-oss-120b and gpt-oss-20b. You send a prompt and receive a conversational response, with support for tool use and agentic workflows on the newer models. These are not always the newest versions each vendor sells directly: Google's current Gemini API models, for example, are the Gemini 3.x family, while OCI's Gemini offering is still 2.5. Check the catalog page for your region before you design around a model.
+- **Embeddings and reranking.** Cohere Embed 4 and Rerank 4 turn text and images into vectors and score document relevance; the Embed 3 and Rerank 3.5 models are marked deprecated. These power search and retrieval pipelines.
 - **Fine-tuning.** You can [fine-tune](/glossary/fine-tuning/) supported models, such as Meta Llama 3.3, on your own data to specialise them for your domain. Tuning runs on a dedicated AI cluster.
 - **Dedicated AI clusters.** These host foundation models on GPUs private to your tenancy, giving stable throughput for production and keeping data inside your OCI environment with role-based access control.
 - **Generative AI Agents.** A managed retrieval-augmented generation service that combines LLMs with enterprise search, so answers draw on your own documents rather than the model's training data alone.
@@ -137,6 +139,6 @@ If your systems of record already live in Oracle, the tight link to that data is
 ## Sources
 
 - Oracle: OCI Generative AI product page. https://www.oracle.com/artificial-intelligence/generative-ai/
-- Oracle Docs: Offered Pretrained Foundational Models in Generative AI. https://docs.oracle.com/en-us/iaas/Content/generative-ai/pretrained-models.htm
+- Oracle Docs: Offered Pretrained Foundational Models in Generative AI (fetched 25 September 2026). https://docs.oracle.com/en-us/iaas/Content/generative-ai/pretrained-models.htm
 - Oracle Docs: Creating a Dedicated AI Cluster for Fine-Tuning Custom Models. https://docs.oracle.com/en-us/iaas/Content/generative-ai/create-ai-cluster-fine-tuning.htm
 - Oracle Blog: General availability of OCI Generative AI. https://blogs.oracle.com/ai-and-datascience/post/ga-oci-generative-ai

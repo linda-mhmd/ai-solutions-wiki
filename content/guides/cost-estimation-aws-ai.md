@@ -4,7 +4,9 @@ description: "How to estimate and manage costs for AI workloads on AWS, covering
 date: 2026-03-28
 categories: [Guides]
 tags: [AWS, cost-optimization, budgeting, cloud, AI-infrastructure]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 AWS AI service costs are notoriously hard to predict. Pricing models vary by service (per-token, per-hour, per-request), costs scale non-linearly with usage, and hidden charges (data transfer, storage, logging) add up quickly. This guide covers how to estimate costs accurately and avoid budget surprises.
@@ -15,7 +17,7 @@ AWS AI service costs are notoriously hard to predict. Pricing models vary by ser
 
 Bedrock pricing is per-token for on-demand usage:
 
-**Input tokens** are charged at one rate, **output tokens** at a higher rate. For Claude models on Bedrock, input tokens cost roughly $3-$15 per million tokens and output tokens $15-$75 per million tokens, depending on the model variant. Pricing changes frequently, so always check current rates.
+**Input tokens** are charged at one rate, **output tokens** at a higher rate. For the current Claude models on Bedrock (Claude Haiku 4.5 through Claude Fable 5.1, as of September 2026), Anthropic's list prices run from $1 to $10 per million input tokens and $5 to $50 per million output tokens, depending on the model ([Claude pricing](https://platform.claude.com/docs/en/about-claude/pricing)). Pricing changes frequently and can vary by Region and endpoint type, so always check the [Amazon Bedrock pricing page](https://aws.amazon.com/bedrock/pricing/) for current rates.
 
 **Estimation approach:**
 1. Estimate average input size (tokens per request)
@@ -23,10 +25,10 @@ Bedrock pricing is per-token for on-demand usage:
 3. Estimate daily request volume
 4. Calculate: (input_tokens x input_price + output_tokens x output_price) x daily_volume x 30
 
-**Example:** 1,000 requests/day, average 500 input tokens and 200 output tokens, using Claude Sonnet:
-- Monthly input cost: 500 x 1,000 x 30 x $3/1M = $45
-- Monthly output cost: 200 x 1,000 x 30 x $15/1M = $90
-- Total: ~$135/month
+**Example:** 1,000 requests/day, average 500 input tokens and 200 output tokens, using Claude Sonnet 5 at $2/$10 per million tokens:
+- Monthly input cost: 500 x 1,000 x 30 x $2/1M = $30
+- Monthly output cost: 200 x 1,000 x 30 x $10/1M = $60
+- Total: ~$90/month
 
 For higher volumes, Provisioned Throughput offers predictable pricing but requires commitment.
 

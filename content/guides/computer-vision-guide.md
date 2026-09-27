@@ -4,7 +4,9 @@ description: "A practical guide to implementing computer vision in enterprise se
 date: 2026-03-28
 categories: [Guides]
 tags: [computer-vision, image-processing, deep-learning, models, AI-development]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Computer vision enables machines to extract meaningful information from images and video. Enterprise applications range from document processing and quality inspection to security monitoring and inventory management. This guide covers practical implementation of computer vision systems.
@@ -45,7 +47,7 @@ Use cloud AI services for common tasks that do not require custom training:
 
 **Amazon Rekognition.** Object detection, face analysis, text detection, content moderation. Pay-per-image pricing. Good for prototyping and moderate-volume applications.
 
-**Azure AI Vision.** Similar capabilities to Rekognition with additional spatial analysis features. Strong OCR capabilities.
+**Azure Vision in Foundry Tools** (formerly Azure AI Vision). Similar capabilities to Rekognition, with strong OCR through the Read API. Note that its Image Analysis 4.0 service is deprecated and retires on 25 September 2028, so check Microsoft's migration guide before building on it ([Microsoft Learn](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview), checked 25 September 2026).
 
 **Google Cloud Vision.** Object detection, OCR, landmark detection. Strong product search capabilities.
 

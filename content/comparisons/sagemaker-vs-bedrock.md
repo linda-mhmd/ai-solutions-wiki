@@ -2,7 +2,7 @@
 title: "Amazon SageMaker vs Bedrock - Build vs Buy"
 description: "When to use SageMaker for custom ML versus Bedrock for managed foundation models - a practical comparison for enterprise AI teams."
 date: 2026-03-24
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: ["ai-ml", "intermediate", "amazon-sagemaker", "amazon-bedrock", "comparison", "aws", "model-deployment"]
 related:
@@ -11,8 +11,8 @@ related:
   - comparisons/bedrock-vs-azure-openai
   - guides/getting-started-with-bedrock
   - glossary/foundation-models
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 SageMaker and Bedrock are both AWS AI services but they serve fundamentally different purposes. Choosing between them - or deciding to use both - is one of the first architecture decisions in any enterprise AI project on AWS.
@@ -37,7 +37,7 @@ Bedrock is appropriate when:
 
 Most enterprise AI use cases today are in this category. The majority of projects that start with "we need to train a custom model" discover that a well-prompted foundation model with RAG meets requirements at a fraction of the cost and timeline.
 
-By 2026 Bedrock had also matured well beyond a plain inference API. It now offers a large model catalog spanning Anthropic Claude, Amazon Nova, Meta Llama, Mistral AI, DeepSeek, Qwen, and other open weight models, plus managed building blocks for production systems: Knowledge Bases for RAG, Guardrails for content and safety filtering, and Amazon Bedrock AgentCore (generally available since October 13, 2025) for building, deploying, and operating agents at scale. These raise the ceiling on what you can ship without ever touching training infrastructure.
+By 2026 Bedrock had also matured well beyond a plain inference API. It now offers a large model catalog spanning Anthropic Claude (including Claude Opus 5.5 from 22 September 2026), OpenAI (GPT-5.6 since July 2026, GPT-6 Sol and Luna since 22 September 2026), Amazon Nova, Meta Llama, Mistral AI, DeepSeek, Qwen, Kimi, and other open weight models, plus managed building blocks for production systems: Knowledge Bases for RAG, Guardrails for content and safety filtering, and Amazon Bedrock AgentCore (generally available since October 13, 2025) for building, deploying, and operating agents at scale. AgentCore is also AWS's recommended path for new agent builds: the original Bedrock Agents feature (now "Bedrock Agents Classic") closed to new customers on 30 July 2026 and is in maintenance mode. These raise the ceiling on what you can ship without ever touching training infrastructure.
 
 ## When SageMaker Is the Right Choice
 
@@ -75,4 +75,6 @@ Start with Bedrock. If quality requirements cannot be met with prompting and RAG
 - AWS. *Amazon SageMaker Unified Studio is now generally available.* [https://aws.amazon.com/about-aws/whats-new/2025/03/amazon-sagemaker-unified-studio-generally-available/](https://aws.amazon.com/about-aws/whats-new/2025/03/amazon-sagemaker-unified-studio-generally-available/)
 - AWS. *Amazon Bedrock pricing* (service tiers and per-token rates) [https://aws.amazon.com/bedrock/pricing/](https://aws.amazon.com/bedrock/pricing/)
 - AWS. *Amazon Bedrock AgentCore is now generally available.* [https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available/](https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available/)
+- AWS. *Bedrock Agents Classic maintenance mode* (closed to new customers 30 July 2026; AgentCore recommended). [https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html)
+- AWS. *OpenAI GPT-6 Sol and GPT-6 Luna are now generally available on Amazon Bedrock* (22 September 2026) [https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-sol-luna-on-amazon-bedrock/](https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-sol-luna-on-amazon-bedrock/) and *Claude Opus 5.5 on AWS* (22 September 2026) [https://aws.amazon.com/about-aws/whats-new/2026/09/claude-opus-5-5-aws/](https://aws.amazon.com/about-aws/whats-new/2026/09/claude-opus-5-5-aws/)
 - AWS. *Amazon Bedrock security, privacy, and responsible AI.* [https://aws.amazon.com/bedrock/security-privacy-responsible-ai/](https://aws.amazon.com/bedrock/security-privacy-responsible-ai/)

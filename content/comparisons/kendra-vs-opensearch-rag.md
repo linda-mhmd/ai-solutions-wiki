@@ -2,11 +2,11 @@
 title: "Amazon Kendra vs OpenSearch for RAG Retrieval"
 description: "Comparing Amazon Kendra and OpenSearch as the retrieval layer for RAG architectures, covering relevance, connectors, and cost."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [Kendra, OpenSearch, RAG, retrieval, AWS, comparison]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 RAG architectures need a retrieval layer that finds relevant documents to ground LLM responses. On AWS, two primary options are Amazon Kendra (an intelligent search service) and Amazon OpenSearch (a search and analytics engine with vector capabilities). They approach retrieval differently and suit different use cases.
@@ -47,7 +47,7 @@ OpenSearch pricing is instance-based (or consumption-based with Serverless). For
 
 Both integrate with Amazon Bedrock for RAG, but the integration paths differ. Bedrock Knowledge Bases handle automated chunking, embedding, and indexing, and now support a range of vector stores: Amazon OpenSearch Serverless, Amazon OpenSearch Managed Cluster (added March 2025), Amazon S3 Vectors, Amazon Aurora PostgreSQL with pgvector, Amazon Neptune Analytics for GraphRAG, Pinecone, MongoDB Atlas, and Redis Enterprise Cloud. OpenSearch Serverless remains a common quick-create choice, and is one of the few options that supports binary vector embeddings.
 
-Kendra integrates with Bedrock in two ways. The classic editions are queried through the Retrieve API, which can be called from Bedrock Agents or custom orchestration and preserves Kendra's ACL-aware retrieval, valuable for enterprise use cases where different users should see different documents. The GenAI Enterprise Edition index goes further and acts as a managed retriever inside a Bedrock knowledge base, so you can reuse the same index across Bedrock Agents, Prompt Flows, and Amazon Q Business without rebuilding it.
+Kendra integrates with Bedrock in two ways. The classic editions are queried through the Retrieve API, which can be called from an agent or custom orchestration and preserves Kendra's ACL-aware retrieval, valuable for enterprise use cases where different users should see different documents. The GenAI Enterprise Edition index goes further and acts as a managed retriever inside a Bedrock knowledge base, so you can reuse the same index across agents, Prompt Flows, and Amazon Q Business without rebuilding it. Note that Amazon Bedrock Agents is now **Bedrock Agents Classic**, closed to new customers since 30 July 2026 and in maintenance mode; AWS recommends [Amazon Bedrock AgentCore](/tools/bedrock-agentcore/) for new agents, which reaches knowledge bases through its gateway. Knowledge Bases themselves are unaffected.
 
 ## When to Choose Kendra
 
@@ -73,3 +73,4 @@ For deeper dives on related choices, see {{< relref "comparisons/pinecone-vs-ope
 - AWS. *Prerequisites for using a vector store you created for a knowledge base* (supported vector stores for Amazon Bedrock Knowledge Bases). [https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html)
 - AWS. *Amazon S3 Vectors is now generally available* (December 2, 2025). [https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-s3-vectors-generally-available/](https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-s3-vectors-generally-available/)
 - AWS. *Amazon OpenSearch Service now supports OpenSearch version 3.3* (November 24, 2025). [https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-opensearch-service-opensearch-version-3-3/](https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-opensearch-service-opensearch-version-3-3/)
+- AWS. *Amazon Bedrock Agents Classic maintenance mode* (closed to new customers from July 30, 2026; migration to AgentCore). [https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html)

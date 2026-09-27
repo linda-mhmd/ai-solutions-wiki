@@ -5,8 +5,10 @@ date: 2026-03-28
 categories: [Solutions]
 tags: [warehouse, automation, slotting, pick-optimization, robotics]
 industries: [logistics, retail]
-tools: [amazon-sagemaker, amazon-forecast, aws-robomaker]
-last_updated: 2026-05-30
+tools: [amazon-sagemaker, amazon-forecast]
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Warehouses are the operational heart of supply chains, and labor is their largest cost - typically 50-65% of total warehouse operating expense. AI optimizes warehouse operations at multiple levels: where to store products (slotting), how to sequence picks (path optimization), how many workers to schedule (labor planning), and how to coordinate human workers with automated systems (robotic orchestration).
@@ -23,13 +25,13 @@ E-commerce has intensified these challenges. Order profiles have shifted from pa
 
 **Pick path optimization** - Given a batch of orders, the system groups orders into efficient pick waves and generates optimal pick paths that minimize travel distance. The optimization considers aisle layout, picker capacity (cart size, weight limits), and order priority. For goods-to-person systems, the optimization determines which storage units to retrieve and in what sequence.
 
-**Demand-based labor scheduling** - Amazon Forecast predicts hourly workload by warehouse function (receiving, putaway, picking, packing, shipping). SageMaker models convert workload forecasts into staffing requirements by role and skill level. Schedules are generated 2 weeks in advance for permanent staff and adjusted daily for temporary labor.
+**Demand-based labor scheduling** - Time-series models (SageMaker Canvas or custom SageMaker models) predict hourly workload by warehouse function (receiving, putaway, picking, packing, shipping). SageMaker models convert workload forecasts into staffing requirements by role and skill level. Schedules are generated 2 weeks in advance for permanent staff and adjusted daily for temporary labor.
 
-**Robotic coordination** - AWS RoboMaker supports autonomous mobile robots (AMRs) that assist pickers by transporting totes or delivering products. AI coordination assigns tasks to robots, manages traffic in aisle intersections, and balances workload across the robot fleet. Human-robot collaboration models determine which tasks are best performed by humans, robots, or combinations.
+**Robotic coordination** - Autonomous mobile robots (AMRs) assist pickers by transporting totes or delivering products. (AWS RoboMaker, once the AWS option for robot simulation and fleet tooling, [reached end of support on 10 September 2025](https://web.archive.org/web/20250505032411/https://docs.aws.amazon.com/robomaker/latest/dg/chapter-welcome.html); fleet management now sits with the AMR vendor's software.) AI coordination assigns tasks to robots, manages traffic in aisle intersections, and balances workload across the robot fleet. Human-robot collaboration models determine which tasks are best performed by humans, robots, or combinations.
 
 ## Architecture
 
-Order data, inventory positions, and warehouse layout data flow from the WMS (Warehouse Management System) into the optimization pipeline. SageMaker runs slotting optimization weekly, pick path optimization per wave, and labor forecasting daily. Forecast provides the demand predictions that drive labor scheduling. RoboMaker manages the robot fleet. Optimized instructions are pushed to WMS, handheld devices, and robot controllers.
+Order data, inventory positions, and warehouse layout data flow from the WMS (Warehouse Management System) into the optimization pipeline. SageMaker runs slotting optimization weekly, pick path optimization per wave, and labor forecasting daily. SageMaker time-series models provide the demand predictions that drive labor scheduling. Amazon Forecast, often used for this in the past, has been [closed to new customers since 29 July 2024](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/); AWS recommends SageMaker Canvas time-series forecasting for new builds. The robot fleet is managed by the AMR vendor's fleet-management software, integrated through APIs. Optimized instructions are pushed to WMS, handheld devices, and robot controllers.
 
 ## Key Considerations
 

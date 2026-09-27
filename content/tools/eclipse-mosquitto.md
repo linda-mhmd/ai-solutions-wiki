@@ -7,7 +7,9 @@ tags: [open-source, mqtt, iot, messaging, broker, embedded-systems, edge-computi
 related:
   - tools/aws-iot-core
   - tools/apache-kafka
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Eclipse Mosquitto is an open-source message broker that implements the MQTT (Message Queuing Telemetry Transport) protocol versions 5.0, 3.1.1, and 3.1. MQTT is a lightweight publish/subscribe messaging protocol designed for constrained devices and low-bandwidth, high-latency, or unreliable networks, making it the dominant protocol for Internet of Things (IoT) communication. Mosquitto provides a compact, efficient broker implementation suitable for everything from single-board computers (Raspberry Pi) to full-scale server deployments.
@@ -34,4 +36,4 @@ Eclipse Mosquitto was created by Roger Light in 2009 and became part of the Ecli
 ## Sources
 
 1. https://mosquitto.org/
-2. https://github.com/eclipse/mosquitto
+2. https://github.com/eclipse-mosquitto/mosquitto (moved from github.com/eclipse/mosquitto, which now redirects)

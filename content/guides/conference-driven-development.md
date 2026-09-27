@@ -8,7 +8,7 @@ related:
   - guides/ai-documentation-guide
   - guides/open-practice-library
   - guides/ai-poc-to-production
-  - glossary/developer-relations
+  - basics/developer-community-programs
   - guides/agile-for-ai-projects
 last_updated: 2026-05-30
 ---

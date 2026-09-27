@@ -9,7 +9,9 @@ related:
   - tools/prefect
   - tools/temporal
   - tools/apache-spark
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Apache Airflow is a platform for programmatically authoring, scheduling, and monitoring workflows. Workflows are defined as Directed Acyclic Graphs (DAGs) of tasks using Python code, which gives developers the full power of a programming language for dynamic pipeline generation, branching logic, and parameterization. Airflow's web-based UI provides rich visualization of pipelines, monitoring of running tasks, and management of workflow execution history.
@@ -31,9 +33,10 @@ Apache Airflow is the open-source alternative to AWS Step Functions, Google Clou
 
 ## Origins and History
 
-Apache Airflow was created by Maxime Beauchemin at Airbnb in October 2014 and open-sourced in June 2015. It entered the Apache Incubator in March 2016 and became a top-level Apache project in January 2019. Airflow is licensed under the Apache License 2.0. Beauchemin later founded Preset (focused on Apache Superset) and contributed to the broader data tooling ecosystem. Airflow 2.0, released in December 2020, introduced a major architectural overhaul with a new scheduler, TaskFlow API, and improved scalability.
+Apache Airflow was created by Maxime Beauchemin at Airbnb in October 2014 and open-sourced in June 2015. It entered the Apache Incubator in March 2016 and became a top-level Apache project in January 2019. Airflow is licensed under the Apache License 2.0. Beauchemin later founded Preset (focused on Apache Superset) and contributed to the broader data tooling ecosystem. Airflow 2.0, released in December 2020, introduced a major architectural overhaul with a new scheduler, TaskFlow API, and improved scalability. Airflow 3.0, released on 22 April 2025, was the next major version, adding a redesigned UI, DAG versioning, event-driven (asset-based) scheduling, and the Task SDK with a task execution API that lets tasks run remotely.
 
 ## Sources
 
 1. https://airflow.apache.org/
 2. https://github.com/apache/airflow
+3. apache-airflow on PyPI (release history: 3.0.0 on 22 April 2025): https://pypi.org/project/apache-airflow/

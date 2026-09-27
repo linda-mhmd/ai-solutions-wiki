@@ -7,7 +7,9 @@ tags: [azure, communication, voice, video, sms, chat]
 related:
   - tools/amazon-pinpoint
   - tools/amazon-connect
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Azure Communication Services (ACS) is a fully managed cloud communication platform that provides APIs and SDKs for embedding voice calling, video calling, SMS messaging, email, and real-time chat into custom applications. It uses the same reliable and secure infrastructure that powers Microsoft Teams, enabling developers to build communication experiences at enterprise scale. In AI solution architectures, ACS provides the communication channels through which AI-powered interactions reach end users -- delivering AI-generated notifications via SMS or email, enabling voice-based AI assistants through calling APIs, and supporting real-time chat interfaces for conversational AI applications.
@@ -27,7 +29,7 @@ Official documentation: https://learn.microsoft.com/en-us/azure/communication-se
 
 ## AWS Equivalent
 
-Azure Communication Services combines capabilities found in Amazon Pinpoint (SMS, email messaging) and Amazon Connect (voice calling, contact center). ACS provides a unified communication platform with calling, messaging, and chat in a single service, while AWS separates these into Pinpoint for messaging campaigns and Connect for contact center voice. ACS's Teams interoperability is a unique differentiator with no AWS equivalent.
+Azure Communication Services combines capabilities that AWS spreads across AWS End User Messaging (SMS, voice, push), Amazon SES (email), and Amazon Connect (voice calling, contact center). Amazon Pinpoint used to cover messaging campaigns, but it reaches end of support on 30 October 2026 and its channels have moved to AWS End User Messaging. ACS provides calling, messaging, and chat in a single service. ACS's Teams interoperability is a unique differentiator with no AWS equivalent.
 
 ## Origins and History
 
@@ -37,3 +39,4 @@ Azure Communication Services was announced at Ignite 2020 in September 2020 and 
 
 1. Microsoft Learn. "What is Azure Communication Services?" https://learn.microsoft.com/en-us/azure/communication-services/overview
 2. Microsoft Azure Blog. "Azure Communication Services is now generally available." March 2021. https://azure.microsoft.com/en-us/blog/azure-communication-services-is-now-generally-available/
+3. AWS General Reference. "Services in sunset" (Amazon Pinpoint, end of support 30 October 2026), accessed 25 September 2026. https://docs.aws.amazon.com/general/latest/gr/sunset_services.html

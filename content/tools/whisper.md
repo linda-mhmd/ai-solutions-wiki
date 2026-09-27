@@ -8,12 +8,16 @@ related:
   - tools/amazon-transcribe
   - tools/openai-api
   - tools/huggingface-transformers
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Whisper is an automatic speech recognition (ASR) system developed by OpenAI that approaches human-level robustness and accuracy across a wide range of audio conditions. Trained on 680,000 hours of multilingual and multitask supervised data collected from the web, Whisper demonstrates strong generalization to diverse accents, background noise, technical language, and multiple languages without the need for fine-tuning. The model performs transcription in 99 languages and can translate from any of these languages into English.
 
 Whisper uses a transformer encoder-decoder architecture. Audio is converted to a log-Mel spectrogram, processed by the encoder, and decoded autoregressively into text tokens. The model comes in multiple sizes (tiny, base, small, medium, large, turbo) ranging from 39 million to 1.55 billion parameters, allowing users to choose the appropriate trade-off between speed and accuracy for their use case. The large-v3 model achieves word error rates competitive with or better than commercial speech recognition services on standard benchmarks. Whisper can also perform voice activity detection, language identification, and timestamp-level alignment.
+
+The open-source Whisper models are separate from OpenAI's hosted `whisper-1` API model, which OpenAI has scheduled for shutdown on 26 February 2027 (along with `gpt-4o-transcribe` and its variants), with `gpt-transcribe` and `gpt-live-transcribe` as the replacements. The MIT-licensed weights and code on GitHub are unaffected and remain free to run yourself.
 
 Whisper has been widely adopted for podcast transcription, meeting notes, subtitle generation, accessibility tools, and as a speech input component in voice-enabled applications. The open-source release has spawned an ecosystem of optimized implementations including faster-whisper (CTranslate2-based), whisper.cpp (C++ port for CPU and edge devices), and WhisperX (with word-level alignment). These community variants significantly improve inference speed, making real-time transcription feasible on consumer hardware.
 
@@ -35,4 +39,5 @@ Whisper was developed at OpenAI and released in September 2022 by Alec Radford, 
 ## Sources
 
 1. https://github.com/openai/whisper
-2. Radford, A. et al. "Robust Speech Recognition via Large-Scale Weak Supervision." arXiv:2212.04356, 2022.
+2. OpenAI, Deprecations (`whisper-1` API shutdown 26 February 2027): https://developers.openai.com/api/docs/deprecations
+3. Radford, A. et al. "Robust Speech Recognition via Large-Scale Weak Supervision." arXiv:2212.04356, 2022.

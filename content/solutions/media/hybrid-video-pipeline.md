@@ -10,7 +10,9 @@ related:
   - solutions/media/video-pipeline-architecture
   - glossary/hybrid-cloud
   - patterns/cost-optimization
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Media companies face a persistent tension: their valuable video archives live on-premises on enterprise NAS systems, but the most powerful AI analysis tools live in the cloud. Migrating hundreds of terabytes of content to S3 is expensive, disruptive to existing workflows, and often blocked by compliance requirements. Amazon FSx for NetApp ONTAP (FSxN) resolves this tension by acting as a hybrid bridge - native NFS and SMB access for on-premises editing tools on one side, tight AWS integration and automatic S3 tiering on the other.
@@ -85,7 +87,7 @@ The orchestration layer uses a Step Functions Express Workflow for throughput an
 For broadcast content, the most valuable Rekognition features are:
 
 - **Label detection** with confidence threshold at 70% or above to avoid noise
-- **Content moderation** with human review integration via Augmented AI (A2I) for borderline results
+- **Content moderation** with a human review queue for borderline results (Amazon Augmented AI (A2I) served this role but is [no longer open to new customers](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-use-augmented-ai-a2i-human-review-loops.html); new builds typically route low-confidence results to a Step Functions task or a custom review UI)
 - **Face detection** with emotion analysis for audience engagement scoring
 - **Technical cue detection** for identifying scene changes and shot boundaries
 
@@ -108,3 +110,4 @@ FSxN tiering ensures that only active content carries SSD storage costs. The maj
 - Amazon FSx for NetApp ONTAP: https://aws.amazon.com/fsx/netapp-ontap/
 - Amazon Rekognition Video documentation: https://docs.aws.amazon.com/rekognition/latest/dg/video.html
 - NetApp ONTAP data management: https://www.netapp.com/data-management/ontap-data-management-software/
+- Amazon Augmented AI (A2I) availability note (checked 25 September 2026): https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-use-augmented-ai-a2i-human-review-loops.html

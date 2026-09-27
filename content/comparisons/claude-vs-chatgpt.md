@@ -2,11 +2,11 @@
 title: "Claude vs ChatGPT: Constraints Before Features"
 description: "Claude (Anthropic) and ChatGPT (OpenAI) compared by what actually rules an option out first — jurisdiction, restricted-access model tiers, single-vendor resilience, exit cost, and cloud contracts — before the feature and pricing differences that only matter once both clear your constraints."
 date: 2026-03-24
-last_verified: 2026-09-03
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: ["ai-ml", "claude", "chatgpt", "gpt", "comparison", "llm", "foundation-models", "image-generation", "claude-design", "vendor-lock-in", "resilience", "constraint-driven", "cloud-strategy"]
-last_updated: 2026-09-03
-lastmod: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 related:
   - guides/constraint-driven-comparisons
   - comparisons/openai-vs-anthropic
@@ -68,13 +68,13 @@ What remains sticky is everything each vendor built on top of the shared model l
 
 This used to be close to a gate: Claude effectively meant AWS, GPT effectively meant Azure. That framing is now out of date on both sides, and it is worth being precise about how, because a lot of secondary material (including older passes of this page) has not caught up.
 
-**Claude** is available directly from Anthropic, and also through Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Foundry — three-cloud availability that removes the old "Claude is AWS-only" assumption entirely. **GPT** models are available directly from OpenAI and through Microsoft Foundry as before, but as of June 2026, OpenAI's frontier models — GPT-5.4, GPT-5.5, and from July 2026 the GPT-5.6 Sol/Terra/Luna family, plus Codex — also reached general availability on **Amazon Bedrock**, at the same pricing as OpenAI's direct API. That is a genuine change: the AWS-vs-Azure axis that used to steer this decision toward Claude for AWS shops and GPT for Microsoft shops no longer maps cleanly to vendor choice at all, because both model families now sit on both clouds' managed platforms (plus GCP, for Claude).
+**Claude** is available directly from Anthropic, and also through Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Foundry — three-cloud availability that removes the old "Claude is AWS-only" assumption entirely. **GPT** models are available directly from OpenAI and through Microsoft Foundry as before, but as of June 2026, OpenAI's frontier models — GPT-5.4, GPT-5.5, from July 2026 the GPT-5.6 Sol/Terra/Luna family, from 8 September 2026 GPT-6 Astra, and from 22 September 2026 GPT-6 Sol and GPT-6 Luna, plus Codex — also reached general availability on **Amazon Bedrock**, at the same pricing as OpenAI's direct API [21][23][24]. That is a genuine change: the AWS-vs-Azure axis that used to steer this decision toward Claude for AWS shops and GPT for Microsoft shops no longer maps cleanly to vendor choice at all, because both model families now sit on both clouds' managed platforms (plus GCP, for Claude).
 
 What this leaves as the actual, still-real constraint is narrower and more mundane than "which cloud do you use": which specific vendor relationship, data processing agreement, and security review has your organization already completed. A signed Azure Enterprise Agreement or AWS Enterprise Discount Program commitment, and the compliance review that goes with it, is a genuine source of friction and cost when adding a net-new vendor — but it is friction on the *contracting relationship*, not a technical wall that keeps one model family off your cloud of choice. For a team already deep into one cloud's IAM, logging, and billing, staying inside a model that's reachable through that same managed platform (whichever model that turns out to be) is usually still the lower-friction path — just note that this is now a statement about contracting and integration effort, not about which models are technically reachable from which cloud.
 
 ## Tradeoff: cost, in current numbers
 
-Both providers publish exact per-token rates, so this is worth a real table rather than the "roughly comparable" hand-waving a feature comparison usually settles for. All figures below were verified against each provider's own pricing documentation this session and are current as of 3 September 2026; both providers change pricing without much notice, so treat these as a snapshot, not a standing fact.
+Both providers publish exact per-token rates, so this is worth a real table rather than the "roughly comparable" hand-waving a feature comparison usually settles for. All figures below were verified against each provider's own pricing documentation this session and are current as of 25 September 2026; both providers change pricing without much notice, so treat these as a snapshot, not a standing fact.
 
 **Claude (Anthropic), per million tokens:**
 
@@ -82,21 +82,27 @@ Both providers publish exact per-token rates, so this is worth a real table rath
 |---|---|---|---|---|
 | Haiku 4.5 | $1 | $5 | $0.10 | 200K |
 | Sonnet 5 | $2 | $10 | $0.20 | 1M |
-| Opus 5 | $5 | $25 | $0.50 | 1M |
+| Opus 5.5 | $4 | $20 | $0.20 | 1M |
+| Opus 5 *(previous generation, superseded by Opus 5.5)* | $5 | $25 | $0.50 | 1M |
 | Fable 5.1 | $10 | $50 | $0.25 | 1M |
 | Mythos 5.1 *(verified orgs only)* | $10 | $50 | $0.25 | 1M |
 
-Sonnet 5's $2/$10 rate was introductory pricing scheduled to rise 50% to $3/$15 on 1 September 2026; Anthropic cancelled that increase on 10 August 2026 and made $2/$10 the permanent standard rate — see [Anthropic cancels the Sonnet 5 price rise](/news/claude-sonnet-5-pricing-permanent/). Opus 5 reached general availability on 24 July 2026, succeeding Opus 4.8 as the strongest model in the Opus family (and the default on Claude Max) at unchanged pricing — the table above reflects the current flagship, not the 4.8 generation. Fable 5.1 and Mythos 5.1 also carry a sharper prompt-caching discount than the rest of the lineup (a cache read costs 2.5% of the base input rate, versus the standard 10% multiplier), which matters disproportionately for the long-context, tool-heavy workloads these tiers target.
+Sonnet 5's $2/$10 rate was introductory pricing scheduled to rise 50% to $3/$15 on 1 September 2026; Anthropic cancelled that increase on 10 August 2026 and made $2/$10 the permanent standard rate — see [Anthropic cancels the Sonnet 5 price rise](/news/claude-sonnet-5-pricing-permanent/). **Claude Opus 5.5** reached general availability on 22 September 2026 as the first model of the Claude 5.5 family, at $4/$20 — below Opus 5's $5/$25 — with a 1M-token context window and 128K max output; Anthropic says it delivers roughly Fable 5.1-level performance at about 40% lower cost to run than Opus 5, and it is now the model Anthropic's documentation recommends starting with for most workloads [21][22]. Opus 5 (GA 24 July 2026, which had succeeded Opus 4.8) remains available as a legacy model. Sonnet 5.5 and Haiku 5.5 have been announced for "the coming weeks" but were not released as of 25 September 2026 [22]. Fable 5.1 and Mythos 5.1 also carry a sharper prompt-caching discount than the rest of the lineup (a cache read costs 2.5% of the base input rate, and 5% on Opus 5.5, versus the standard 10% multiplier), which matters disproportionately for the long-context, tool-heavy workloads these tiers target.
 
 **GPT (OpenAI), per million tokens:**
 
 | Model | Input (short / long context) | Output (short / long) | Context |
 |---|---|---|---|
-| GPT-5.6 Luna | $0.20 / $0.40 | $1.20 / $1.80 | ~1.05M |
-| GPT-5.6 Terra | $2 / $4 | $12 / $18 | ~1.05M |
-| GPT-5.6 Sol | $4 *(promo, to 21 Nov 2026)* / $8 | $20 / $30 | ~1.05M |
+| GPT-6 Luna | $0.10 / $0.20 | $0.50 / $0.75 | ~1.05M |
+| GPT-6 Sol | $2 / $4 | $10 / $15 | ~1.05M |
+| GPT-6 Astra | $10 / $20 | $50 / $75 | ~1.05M |
+| GPT-5.6 Luna *(previous generation, superseded by GPT-6 Luna)* | $0.20 / $0.40 | $1.20 / $1.80 | ~1.05M |
+| GPT-5.6 Terra *(no GPT-6 successor)* | $2 / $4 | $12 / $18 | ~1.05M |
+| GPT-5.6 Sol *(previous generation, superseded by GPT-6 Sol)* | $4 *(promo, to 21 Nov 2026)* / $8 | $20 / $30 | ~1.05M |
 
-GPT-5.6 replaced the earlier point-release naming (GPT-5.5) with these three named tiers — Sol for the hardest work, Terra for balanced production use, Luna for high-volume cost-sensitive work — generally available 9 July 2026; see [OpenAI ships GPT-5.5, then GPT-5.6](/news/openai-gpt-5-5-and-5-6/) for how the transition happened. Sol's standard rate is $5/$30; OpenAI cut it to a $4/$20 promotional rate on 24 August 2026, currently scheduled to run through 21 November 2026 — the same caution that applies to any introductory rate applies here (see the Sonnet 5 note above: budget to the standard rate and track the expiry date). GPT-6 Astra, released 3 September 2026, is not in this table because its general pricing was not fully public at the time this page was last verified; OpenAI's own pricing documentation lists API rates of $10/$50 (short context) and $20/$75 (long context) per million tokens, while OpenAI's launch materials describe initial ChatGPT usage as covered within existing subscription allowances — both can be true at once, but neither should be treated as settled two days after launch.
+**GPT-6 Sol and GPT-6 Luna** were released on 22 September 2026 as the mid and budget tiers of the GPT-6 family, below GPT-6 Astra: reasoning models with text and image input, available through the Responses API, Chat Completions, and Batch. "Long context" for the GPT-6 models means a prompt of more than 272K input tokens, which is billed at 2x input and 1.5x output for the whole request [23]. There is no GPT-6 Terra; GPT-5.6 Terra remains available at the same input price as GPT-6 Sol.
+
+GPT-5.6 replaced the earlier point-release naming (GPT-5.5) with these three named tiers — Sol for the hardest work, Terra for balanced production use, Luna for high-volume cost-sensitive work — generally available 9 July 2026; see [OpenAI ships GPT-5.5, then GPT-5.6](/news/openai-gpt-5-5-and-5-6/) for how the transition happened. Sol's standard rate is $5/$30; OpenAI cut it to a $4/$20 promotional rate on 24 August 2026, currently scheduled to run through 21 November 2026 — the same caution that applies to any introductory rate applies here (see the Sonnet 5 note above: budget to the standard rate and track the expiry date). GPT-6 Astra, released 3 September 2026, is listed at the API rates OpenAI's pricing documentation publishes ($10/$50 short context, $20/$75 long context) [23]; OpenAI's launch materials described initial ChatGPT usage as covered within existing subscription allowances.
 
 Both providers offer roughly 50% off standard rates through batch processing, and both apply a premium (around 1.1–2x) for requests that push well past the low hundreds of thousands of input tokens, so a large context window is not free just because the sticker price looks flat. For consumer seat pricing (ChatGPT Plus/Pro vs Claude Pro/Max) rather than API rates, see [AI subscription pricing 2026](/comparisons/ai-subscription-pricing-2026/), which tracks that separately.
 
@@ -111,7 +117,7 @@ If none of the gates above eliminate an option for your situation, and the trade
 <div class="bz-flow"><div class="bz-flow-step"><span class="bz-flow-step-tag">Need</span><span class="bz-flow-step-name">A photo or artwork</span><span class="bz-flow-step-desc">Photorealistic images, illustrations, or social graphics from a text prompt.</span></div><div class="bz-flow-arrow">&rarr;</div><div class="bz-flow-step"><span class="bz-flow-step-tag">Use</span><span class="bz-flow-step-name">ChatGPT or Stable Diffusion</span><span class="bz-flow-step-desc">Native image generation. Claude cannot do this.</span></div></div>
 <div class="bz-flow"><div class="bz-flow-step"><span class="bz-flow-step-tag">Need</span><span class="bz-flow-step-name">A UI or document layout</span><span class="bz-flow-step-desc">An interface mockup, slide deck, or one-pager you can edit and ship.</span></div><div class="bz-flow-arrow">&rarr;</div><div class="bz-flow-step"><span class="bz-flow-step-tag">Use</span><span class="bz-flow-step-name">Claude Design or ChatGPT Canvas</span><span class="bz-flow-step-desc">Structured, editable output. Claude Design exports HTML, PDF, and PPTX.</span></div></div>
 
-**General capability differences are narrower than the tier gaps within each family.** The gap between Haiku, Sonnet, and Opus/Fable within Claude, or between Luna, Terra, and Sol within GPT-5.6, is larger than the gap between comparably-priced tiers across the two families. Where a consistent pattern still shows up: Claude tends to hold an edge on long, structured instruction-following and whole-codebase or long-document analysis; GPT's ecosystem tooling (fine-tuning breadth, first-party embeddings and speech models, Microsoft 365 Copilot integration) is broader than Claude's, which stays deliberately focused on the model layer plus coding and agent tooling. Benchmark your own workload before trusting either generalization — both change with every release.
+**General capability differences are narrower than the tier gaps within each family.** The gap between Haiku, Sonnet, and Opus/Fable within Claude, or between Luna, Sol, and Astra within GPT-6, is larger than the gap between comparably-priced tiers across the two families. Where a consistent pattern still shows up: Claude tends to hold an edge on long, structured instruction-following and whole-codebase or long-document analysis; GPT's ecosystem tooling (fine-tuning breadth, first-party embeddings and speech models, Microsoft 365 Copilot integration) is broader than Claude's, which stays deliberately focused on the model layer plus coding and agent tooling. Benchmark your own workload before trusting either generalization — both change with every release.
 
 | | Claude | GPT |
 |---|---|---|
@@ -130,7 +136,7 @@ A few things genuinely require your own review rather than a general comparison:
 - **Whether your specific use case triggers EU AI Act obligations, and at which tier.** That depends on what you built, not which model sits behind it, and the Digital Omnibus changed several deadlines in mid-2026 — verify current status directly rather than relying on this page's date.
 - **Whether your organization would qualify for CVP/LSVP-verified access to Mythos 5.1, or for Daybreak Blue access to GPT-6 Astra's full cyber capability**, and on what timeline. Both are vendor-discretionary verification processes that were, at the time of writing, still being extended to new applicants.
 - **The exact terms of your own procurement relationship** with AWS, Azure, or GCP, and what switching or adding a vendor actually costs given your specific discount agreements — those are negotiated per-customer and not something a general comparison can price.
-- **How GPT-6 Astra's capabilities, pricing, and access restrictions settle once the rollout completes.** This page was verified two days after that model's announcement; treat everything above about it as a snapshot of a still-moving release, not a stable fact to build a 2027 budget on.
+- **How the GPT-6 and Claude 5.5 lineups settle.** GPT-6 Sol and Luna and Claude Opus 5.5 were released three days before this page was last verified, and Sonnet 5.5 and Haiku 5.5 are announced but not yet released; treat the tier pairings above as a snapshot of a still-moving lineup, not a stable fact to build a 2027 budget on.
 
 ## Further Reading
 
@@ -142,6 +148,7 @@ A few things genuinely require your own review rather than a general comparison:
 - [Why the US restricted Fable 5 and Mythos 5](/news/anthropic-fable-mythos-us-restriction/), [the restrictions being lifted](/news/fable-5-export-controls-lifted/), and [Fable 5.1 reaching GA while Mythos 5.1 stays gated](/news/claude-fable-5-1-mythos-5-1-ga/): the resilience case study in full, start to finish.
 - [Astra becomes the first OpenAI model to cross the "Critical" cyber threshold](/news/openai-astra-critical-cyber-threshold/): the full account of GPT-6 Astra's Preparedness Framework classification and the Daybreak Blue access model, summarized above.
 - [Anthropic cancels the Sonnet 5 price rise](/news/claude-sonnet-5-pricing-permanent/) and [OpenAI ships GPT-5.5, then GPT-5.6](/news/openai-gpt-5-5-and-5-6/): the pricing history behind the current-numbers table above.
+- [Claude Opus 5.5 launches at $4/$20](/news/claude-opus-5-5/) and [OpenAI ships GPT-6 Sol and GPT-6 Luna](/news/gpt-6-sol-and-luna/): the 22 September 2026 releases reflected in the tables above.
 - [EU AI Act enforcement begins](/news/eu-ai-act-enforcement-begins-2026/): what actually binds a generative-AI deployer in the EU right now, independent of model choice.
 - [Model Context Protocol](/glossary/model-context-protocol/), [Tool Use](/glossary/tool-use/), [Function Calling](/glossary/function-calling/): the standardization that lowers switching cost.
 - [AI subscription pricing 2026](/comparisons/ai-subscription-pricing-2026/): consumer seat pricing, tracked separately from the API rates above.
@@ -172,3 +179,7 @@ A few things genuinely require your own review rather than a general comparison:
 18. Chiang, W.-L., Zheng, L., Sheng, Y., et al. (2024). *Chatbot Arena: An Open Platform for Evaluating LLMs by Human Preference.* ICML 2024. arXiv:2403.04132. [https://arxiv.org/abs/2403.04132](https://arxiv.org/abs/2403.04132)
 19. Anthropic API documentation. [https://platform.claude.com/docs/](https://platform.claude.com/docs/)
 20. OpenAI Platform documentation. [https://platform.openai.com/docs/](https://platform.openai.com/docs/)
+21. Anthropic, *Models overview* (Opus 5.5 as the recommended starting model, pricing, context, cache-read multipliers, legacy list), fetched 25 September 2026: [https://platform.claude.com/docs/en/about-claude/models/overview](https://platform.claude.com/docs/en/about-claude/models/overview); AWS, "Claude Opus 5.5 is now available on AWS" (22 September 2026): [https://aws.amazon.com/about-aws/whats-new/2026/09/claude-opus-5-5-aws/](https://aws.amazon.com/about-aws/whats-new/2026/09/claude-opus-5-5-aws/)
+22. Anthropic, "Claude Opus 5.5" (22 September 2026): [https://www.anthropic.com/claude-opus-5-5](https://www.anthropic.com/claude-opus-5-5)
+23. OpenAI, API changelog (22 September 2026 GPT-6 Sol and Luna entry) and developer pricing documentation (GPT-6 Astra/Sol/Luna rates, 272K long-context threshold), fetched 25 September 2026: [https://developers.openai.com/api/docs/changelog](https://developers.openai.com/api/docs/changelog), [https://developers.openai.com/api/docs/pricing](https://developers.openai.com/api/docs/pricing); AWS, "OpenAI GPT-6 Sol and GPT-6 Luna are now generally available on Amazon Bedrock" (22 September 2026): [https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-sol-luna-on-amazon-bedrock/](https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-sol-luna-on-amazon-bedrock/)
+24. AWS, "OpenAI GPT-6 Astra is now generally available on Amazon Bedrock" (8 September 2026): [https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-astra-on-amazon-bedrock/](https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-astra-on-amazon-bedrock/); "OpenAI GPT-6 Sol and GPT-6 Luna are now generally available on Amazon Bedrock" (22 September 2026): [https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-sol-luna-on-amazon-bedrock/](https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-sol-luna-on-amazon-bedrock/)

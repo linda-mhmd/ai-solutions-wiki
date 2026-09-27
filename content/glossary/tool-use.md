@@ -2,7 +2,8 @@
 title: "Tool Use (in Language Models)"
 description: "The capability of a language model to invoke external tools: APIs, code execution, retrieval, computation: and incorporate their results into subsequent reasoning. Foundational mechanism behind agents, function calling, and MCP."
 date: 2026-05-08
-lastmod: 2026-05-08
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 categories: [Glossary]
 tags: ["ai-ml", "intermediate", "agents", "llm", "tool-use", "function-calling"]
 related:
@@ -11,7 +12,7 @@ related:
   - glossary/ai-agent
   - glossary/agentic-rag
   - glossary/llm
-last_updated: 2026-05-30
+last_updated: 2026-09-25
 ---
 
 Tool use is the umbrella capability of a language model to invoke external systems, APIs, code execution sandboxes, retrieval indices, calculators, browsers, databases, and condition its subsequent generation on the returned results. It is the broadest level of abstraction; specific mechanisms include [function calling](/glossary/function-calling/), the [Model Context Protocol](/glossary/model-context-protocol/), code interpreters, and bespoke prompted tool grammars. Tool use is what turns a language model from a static text generator into an actor in a software environment, and is the foundational primitive of [AI agents](/glossary/ai-agent/).
@@ -68,10 +69,10 @@ A practical engineering rule for whether to wire a capability as a tool or rely 
 ## Frameworks Implementing Tool Use
 
 - **OpenAI**: function calling, structured outputs, Code Interpreter
-- **Anthropic**: tool use, computer use, code execution beta
+- **Anthropic**: tool use (with strict schema validation), computer use, code execution tool
 - **Google**: Gemini function calling, code execution
 - **AWS**: Bedrock Converse `toolUse`, AgentCore (Runtime, Gateway, Code Interpreter, Browser)
-- **Open frameworks**: LangGraph, CrewAI, LlamaIndex, AWS Strands, AutoGen, smolagents, DSPy
+- **Open frameworks**: LangGraph, CrewAI, LlamaIndex, AWS Strands, Microsoft Agent Framework (successor to AutoGen), smolagents, DSPy
 - **Cross-host protocol**: Model Context Protocol ([MCP](/glossary/model-context-protocol/))
 
 See [CrewAI vs LangGraph](/comparisons/crewai-vs-langgraph/), [LangChain vs LlamaIndex](/comparisons/langchain-vs-llamaindex/), and [LangChain vs DSPy](/comparisons/langchain-vs-dspy/) for framework-level comparisons.
@@ -97,6 +98,7 @@ See [CrewAI vs LangGraph](/comparisons/crewai-vs-langgraph/), [LangChain vs Llam
 - Gao, L., Madaan, A., Zhou, S., et al. (2023). *PAL: Program-Aided Language Models.* ICML 2023. arXiv:2211.10435. [https://arxiv.org/abs/2211.10435](https://arxiv.org/abs/2211.10435)
 - Willard, B. T., Louf, R. (2023). *Efficient Guided Generation for Large Language Models.* arXiv:2307.09702. [https://arxiv.org/abs/2307.09702](https://arxiv.org/abs/2307.09702)
 - Berkeley Function Calling Leaderboard. [https://gorilla.cs.berkeley.edu/leaderboard.html](https://gorilla.cs.berkeley.edu/leaderboard.html)
-- Anthropic. *Tool use overview.* [https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview)
+- Anthropic. *Tool use overview.* [https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview)
+- Anthropic. *Code execution tool* (accessed 25 September 2026). [https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool)
 - OpenAI. *Function calling guide.* [https://platform.openai.com/docs/guides/function-calling](https://platform.openai.com/docs/guides/function-calling)
 - AWS. *Amazon Bedrock Converse API: tool use.* [https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-call.html](https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-call.html)

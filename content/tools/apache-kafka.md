@@ -16,7 +16,9 @@ alternatives:
 solutions:
   - solutions/finance/fraud-detection
   - solutions/finance/anti-money-laundering
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Apache Kafka is a distributed event streaming platform capable of handling trillions of events per day. Originally conceived as a messaging queue, Kafka has evolved into a full event streaming platform used for building real-time data pipelines and streaming applications. It combines messaging, storage, and stream processing to allow organizations to publish, subscribe to, store, and process streams of records in real time and at scale.
@@ -34,13 +36,15 @@ Kafka has become the backbone of event-driven architectures at organizations of 
 
 ## Cloud Equivalents
 
-Apache Kafka is the open-source foundation behind AWS MSK (Managed Streaming for Apache Kafka), Azure Event Hubs (Kafka-compatible), and Confluent Cloud. Managed services reduce operational burden of broker management and ZooKeeper/KRaft coordination, but self-hosted Kafka provides full control over configuration, retention policies, and multi-datacenter topologies.
+Apache Kafka is the open-source foundation behind AWS MSK (Managed Streaming for Apache Kafka), Azure Event Hubs (Kafka-compatible), and Confluent Cloud. Managed services reduce the operational burden of broker management and KRaft controller coordination, but self-hosted Kafka provides full control over configuration, retention policies, and multi-datacenter topologies.
 
 ## Origins and History
 
-Apache Kafka was created at LinkedIn by Jay Kreps, Neha Narkhede, and Jun Rao in 2011. It was open-sourced and donated to the Apache Software Foundation, becoming a top-level project in 2012. Kafka is licensed under the Apache License 2.0. Kreps, Narkhede, and Rao founded Confluent in 2014 to provide commercial support. A landmark architectural change came with KIP-500, which replaced the ZooKeeper dependency with an internal Raft-based consensus protocol called KRaft, production-ready as of Kafka 3.3 (2022).
+Apache Kafka was created at LinkedIn by Jay Kreps, Neha Narkhede, and Jun Rao in 2011. It was open-sourced and donated to the Apache Software Foundation, becoming a top-level project in 2012. Kafka is licensed under the Apache License 2.0. Kreps, Narkhede, and Rao founded Confluent in 2014 to provide commercial support. A landmark architectural change came with KIP-500, which replaced the ZooKeeper dependency with an internal Raft-based consensus protocol called KRaft, production-ready as of Kafka 3.3 (2022). Kafka 4.0, released on 18 March 2025, removed ZooKeeper support entirely, so every cluster on 4.x runs in KRaft mode; clusters still on ZooKeeper must migrate to KRaft on a 3.x release before upgrading.
 
 ## Sources
 
 1. https://kafka.apache.org/
 2. Kreps, J., Narkhede, N., and Rao, J. "Kafka: a Distributed Messaging System for Log Processing." NetDB Workshop, 2011.
+3. Apache Kafka downloads (release date for 4.0.0): https://kafka.apache.org/community/downloads/
+4. Apache Kafka 4.0 upgrade notes (ZooKeeper removal): https://kafka.apache.org/40/documentation/upgrade

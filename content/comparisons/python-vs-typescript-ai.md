@@ -2,11 +2,11 @@
 title: "Python vs TypeScript for AI Development"
 description: "Comparing Python and TypeScript for AI application development, covering ML libraries, LLM frameworks, deployment, and when to use each."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [Python, TypeScript, programming-languages, AI-development, comparison]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 Python dominates AI and machine learning. TypeScript dominates web application development. AI applications increasingly live at the intersection, creating a genuine choice between languages. This comparison covers where each excels for AI work.
@@ -40,7 +40,7 @@ Python dominates AI and machine learning. TypeScript dominates web application d
 
 **Web application frontends.** React, Next.js, and modern web frameworks are TypeScript. If your AI application has a web frontend, the frontend is TypeScript regardless of the backend language.
 
-**Full-stack AI web apps.** When the AI application is primarily a web app that calls LLM APIs (chatbot, document analyzer, search), TypeScript enables a single-language stack. The Vercel AI SDK, LangChain.js, and similar tools make this practical. The TypeScript AI tooling matured significantly across late 2025 and 2026: Vercel AI SDK 6 (released December 2025) added a first-class agent loop, human-in-the-loop tool approval, and stable Model Context Protocol (MCP) support, while LangChain.js reached v1 (October 2025) with LangGraph as the canonical pattern for building stateful agents. LlamaIndex.TS continues to offer its event-driven Workflows for orchestration. The gap between Python and TypeScript for API-driven, agentic applications is now small.
+**Full-stack AI web apps.** When the AI application is primarily a web app that calls LLM APIs (chatbot, document analyzer, search), TypeScript enables a single-language stack. The Vercel AI SDK, LangChain.js, and similar tools make this practical. The TypeScript AI tooling matured significantly across late 2025 and 2026: Vercel AI SDK 6 (released December 2025) added a first-class agent loop, human-in-the-loop tool approval, and stable Model Context Protocol (MCP) support, and AI SDK 7 (25 June 2026) followed with a provider-neutral reasoning-effort option, durable workflow agents, sandbox support, adapters for agent harnesses such as Codex and Claude Code, and real-time voice, while LangChain.js reached v1 (October 2025) with LangGraph as the canonical pattern for building stateful agents. LlamaIndex.TS continues to offer its event-driven Workflows for orchestration. The gap between Python and TypeScript for API-driven, agentic applications is now small.
 
 **Type safety.** TypeScript's type system catches errors at compile time. For complex AI applications with many data types, structured outputs, and API contracts, TypeScript's type safety reduces runtime errors.
 
@@ -93,6 +93,7 @@ The "Python vs TypeScript for AI" debate is less about which is better and more 
 ## Sources
 
 - [AI SDK 6 (Vercel)](https://vercel.com/blog/ai-sdk-6) - the December 2025 release introducing the agent loop, tool execution approval, and stable MCP support.
+- [AI SDK 7 is now available (Vercel, 25 June 2026)](https://vercel.com/blog/ai-sdk-7) - reasoning control, durable WorkflowAgent, sandbox support, agent-harness integration, and real-time voice.
 - [LangChain releases changelog (JavaScript)](https://docs.langchain.com/oss/javascript/releases/changelog) - LangChain.js v1 (October 2025) and LangGraph version history.
 - [uv (Astral, GitHub)](https://github.com/astral-sh/uv) - the Rust-based Python package and project manager that replaces pip, Poetry, pyenv, and virtualenv.
 - [OpenAI to acquire Astral (OpenAI)](https://openai.com/index/openai-to-acquire-astral/) - the March 2026 announcement of OpenAI's intent to acquire Astral, makers of uv, Ruff, and ty.

@@ -12,7 +12,9 @@ faqs:
     answer: "Paper and pen for speed. Excalidraw or Figma for digital. The tool matters less than the habit. Start with whatever removes friction."
   - question: "When should I skip wireframing?"
     answer: "When the interface is obvious (standard CRUD forms, copying an existing pattern exactly) or when you're exploring through code (rapid prototypes you'll throw away). But even then, a 30-second sketch helps."
-last_updated: 2026-07-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 {{< quickanswer >}}
@@ -71,7 +73,7 @@ More detail. Real labels, approximate sizing, basic layout.
 
 **Time**: 15-30 minutes per screen.
 
-**Tools**: Figma, Sketch, Adobe XD.
+**Tools**: Figma, Sketch, Penpot.
 
 ### High-fidelity (hi-fi)
 
@@ -81,7 +83,7 @@ Looks like the real thing. Real colors, typography, images.
 
 **Time**: 1-4 hours per screen.
 
-**Tools**: Figma, Sketch, Adobe XD.
+**Tools**: Figma, Sketch, Penpot. (Adobe XD, once a common choice here, stopped being sold as a standalone product in June 2023 and is not a good starting point for new work.)
 
 ---
 
@@ -216,7 +218,7 @@ AI has clear direction. Results match intent.
 - **Limitation**: Learning curve
 
 ### Balsamiq
-- **Cost**: Paid ($9/mo)
+- **Cost**: Paid, from $16 per editor per month billed annually (14-day free trial) as of September 2026 ([Balsamiq pricing](https://balsamiq.com/buy/))
 - **Speed**: Fast
 - **Best for**: Lo-fi wireframes that look intentionally rough
 - **Limitation**: Limited for hi-fi

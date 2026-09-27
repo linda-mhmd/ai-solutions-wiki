@@ -10,7 +10,9 @@ related:
   - guides/experiment-tracking-guide
   - guides/ai-governance-implementation
   - glossary/model-card
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 A model registry is a versioned store for trained ML models and their metadata. It answers questions that every production ML team eventually faces: which model is currently deployed, what data was it trained on, who approved it, and how does it compare to the previous version. Without a registry, this information lives in spreadsheets, Slack messages, and individual memory.
@@ -39,7 +41,7 @@ A model registry is a versioned store for trained ML models and their metadata. 
 
 ## Implementation Options
 
-**MLflow Model Registry** is the most widely adopted open-source option. It integrates with MLflow tracking, supports stage transitions, and provides a UI and API for model management. It works well for teams already using MLflow for experiment tracking.
+**MLflow Model Registry** is the most widely adopted open-source option. It integrates with MLflow tracking and provides a UI and API for model management. Its built-in model stages (Staging, Production, Archived) have been deprecated since MLflow 2.9 and will be removed in a future major release; current MLflow (3.x) uses model version aliases such as `@champion` and tags to mark which version is deployed, so implement the lifecycle stages described above with aliases and tags rather than `transition_model_version_stage`. It works well for teams already using MLflow for experiment tracking.
 
 **SageMaker Model Registry** integrates tightly with the AWS ML ecosystem. It supports approval workflows, model groups, and direct deployment to SageMaker endpoints.
 
@@ -58,3 +60,8 @@ A model registry is a versioned store for trained ML models and their metadata. 
 **Tag models meaningfully.** Beyond stage labels, use tags for the use case, team, regulatory classification, and deployment target. Tags make the registry searchable as it grows.
 
 **Monitor after deployment.** The registry should link to production monitoring dashboards for each deployed model. When drift is detected, the alert should reference the specific model version and its lineage.
+
+## Sources
+
+1. MLflow, "Model Registry Workflows" ("As of MLflow 2.9.0, Model Stages have been deprecated"; fetched 25 September 2026): [https://mlflow.org/docs/latest/ml/model-registry/workflow/](https://mlflow.org/docs/latest/ml/model-registry/workflow/)
+2. MLflow, "MLflow Model Registry" (model aliases): [https://mlflow.org/docs/latest/ml/model-registry/](https://mlflow.org/docs/latest/ml/model-registry/)

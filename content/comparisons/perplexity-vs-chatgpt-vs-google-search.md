@@ -12,9 +12,9 @@ related:
   - guides/ai-search-and-geo-vs-seo
   - basics/what-is-chatgpt
   - glossary/rag
-last_verified: 2026-09-04
-last_updated: 2026-09-04
-lastmod: 2026-09-04
+last_verified: 2026-09-26
+last_updated: 2026-09-26
+lastmod: 2026-09-26
 ---
 
 <figure class="bz-figure">
@@ -54,13 +54,13 @@ Google Search sits slightly outside this comparison because AI Overviews summari
 
 | | Free | Mid tier | Top tier |
 |---|---|---|---|
-| **Perplexity** | $0 — capped Pro searches, citations included, basic models | **Pro**: $20/mo — unlimited Pro Search, model picker (GPT, Claude, Gemini), file upload, Spaces | **Max**: $200/mo — highest limits, frontier models, priority access to new features |
-| **ChatGPT** | $0 — GPT-5.6 Luna, web search included, limited Deep Research | **Plus**: $20/mo — GPT-5.6 Sol, Advanced Voice, 25 Deep Research queries/mo, Agent mode, Canvas | **Pro**: $100–$200/mo — up to 20x Plus limits, 1M-token context, unlimited Sora |
+| **Perplexity** | $0 — capped Pro searches, citations included, basic models | **Pro**: $17/mo billed annually (checked 26 September 2026) — unlimited Pro Search, model picker (GPT, Claude, Gemini), file upload, Spaces | **Max**: $167/mo billed annually — highest limits, frontier models, priority access to new features |
+| **ChatGPT** | $0 — GPT-5.6 Luna, web search included, limited Deep Research | **Plus**: $20/mo — GPT-5.6 Sol/Terra plus the GPT-6 family (Astra, Sol, Luna), Advanced Voice, ~25 Deep Research queries/mo, Agent mode, Canvas | **Pro**: $100–$200/mo — up to 20x Plus limits, Pro reasoning powered by GPT-6 Astra (Sora is no longer included: the app closed 26 April 2026) |
 | **Google Search** | $0 — AI Overviews and AI Mode are part of Search itself, no subscription | *(Gemini app subscriptions exist separately — see [AI subscription pricing 2026](/comparisons/ai-subscription-pricing-2026/) — but Search's AI features don't require one)* | — |
 
 </div>
 
-Two things worth underlining. First, **Google Search's AI features are free and always have been** — there's no tier to compare, because Google Search's business model has never been subscriptions. That makes it structurally cheaper for the "quick answer" use case than either paid competitor, full stop. Second, **Perplexity's $20 Pro tier and ChatGPT's $20 Plus tier are nearly identical in price and cover overlapping ground** (both give you a model picker, higher limits, and file upload), so price alone won't decide between those two — fit will. Perplexity's Max tier is a genuinely different price point ($200/mo) aimed at people running heavy, continuous research work, not casual users; check current figures directly, since both companies revise pricing and tier contents more often than this page updates (see [Perplexity's pricing page](https://www.perplexity.ai/hub/pricing) and [OpenAI's pricing page](https://openai.com/chatgpt/pricing/) for the live numbers).
+Two things worth underlining. First, **Google Search's AI features are free and always have been** — there's no tier to compare, because Google Search's business model has never been subscriptions. That makes it structurally cheaper for the "quick answer" use case than either paid competitor, full stop. Second, **Perplexity's Pro tier ($17/month billed annually) and ChatGPT's $20 Plus tier are nearly identical in price and cover overlapping ground** (both give you a model picker, higher limits, and file upload), so price alone won't decide between those two — fit will. Perplexity's Max tier is a genuinely different price point ($167/month billed annually, checked 26 September 2026) aimed at people running heavy, continuous research work, not casual users; check current figures directly, since both companies revise pricing and tier contents more often than this page updates (see [Perplexity's pricing page](https://www.perplexity.ai/hub/pricing) and [OpenAI's pricing page](https://openai.com/chatgpt/pricing/) for the live numbers).
 
 ## Which one for which job
 
@@ -111,7 +111,7 @@ For a single fact, use Google Search — it's free, it's fast, and you probably 
 2. Search Engine Land, reporting on SparkToro's zero-click search data for January–April 2026 (9 June 2026): [https://searchengineland.com/google-zero-click-searches-2026-study-479717](https://searchengineland.com/google-zero-click-searches-2026-study-479717)
 3. Perplexity, official pricing page, fetched 4 September 2026: [https://www.perplexity.ai/hub/pricing](https://www.perplexity.ai/hub/pricing)
 4. Perplexity Help Center, "Perplexity Max": [https://www.perplexity.ai/help-center/en/articles/11680686-perplexity-max](https://www.perplexity.ai/help-center/en/articles/11680686-perplexity-max)
-5. OpenAI, ChatGPT pricing page, fetched 4 September 2026: [https://openai.com/chatgpt/pricing/](https://openai.com/chatgpt/pricing/)
+5. OpenAI, ChatGPT pricing page, fetched 4 September 2026 and rechecked 25 September 2026 (GPT-6 models on Plus and Pro; no Sora or video generation on any plan): [https://openai.com/chatgpt/pricing/](https://openai.com/chatgpt/pricing/); see this wiki's [ChatGPT Free vs Plus vs Pro](/comparisons/chatgpt-free-vs-plus-vs-pro/) for the tier-by-tier detail
 6. OpenAI Help Center, "Searching the web with ChatGPT": [https://help.openai.com/en/articles/9237897-chatgpt-search](https://help.openai.com/en/articles/9237897-chatgpt-search)
 7. OpenAI, "Introducing ChatGPT agent: bridging research and action" (29 July 2026): [https://openai.com/index/introducing-chatgpt-agent/](https://openai.com/index/introducing-chatgpt-agent/)
 8. Google, "Search at I/O 2026" (19 May 2026), on AI Mode crossing 1B+ monthly users and gaining agentic features: [https://blog.google/products-and-platforms/products/search/search-io-2026/](https://blog.google/products-and-platforms/products/search/search-io-2026/)

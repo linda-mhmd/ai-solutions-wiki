@@ -8,7 +8,9 @@ related:
   - tools/amazon-lookout-vision
   - tools/azure-computer-vision
   - tools/azure-cognitive-services
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Azure Custom Vision is an Azure AI service that enables building custom image classification and object detection models using transfer learning, requiring only a small number of labeled training images. The service provides both a web-based portal for no-code model building and REST APIs/SDKs for programmatic access, making it accessible to domain experts without machine learning backgrounds while also supporting developer-driven automation. Custom Vision handles the model architecture selection, training, evaluation, and deployment, allowing teams to focus on labeling domain-specific images rather than managing ML infrastructure.
@@ -28,7 +30,7 @@ Official documentation: https://learn.microsoft.com/en-us/azure/ai-services/cust
 
 ## AWS Equivalent
 
-Azure Custom Vision is Azure's counterpart to Amazon Lookout for Vision (for defect detection) and Amazon Rekognition Custom Labels (for custom image classification). Custom Vision covers both classification and object detection in a single service with edge export capabilities, while AWS splits these across Lookout for Vision (anomaly/defect detection) and Rekognition Custom Labels (custom classification). Custom Vision's edge export support is more comprehensive.
+Azure Custom Vision is Azure's counterpart to Amazon Rekognition Custom Labels (custom classification and object detection). AWS previously also offered Amazon Lookout for Vision for industrial defect detection, but that service was shut down on 31 October 2025. Custom Vision covers both classification and object detection in a single service, and its edge export support is more comprehensive.
 
 ## Origins and History
 
@@ -38,3 +40,4 @@ Azure Custom Vision launched in general availability in May 2018 as part of Azur
 
 1. Microsoft Learn. "What is Azure AI Custom Vision?" https://learn.microsoft.com/en-us/azure/ai-services/custom-vision-service/overview
 2. Microsoft Azure Blog. "Custom Vision Service general availability." May 2018. https://azure.microsoft.com/en-us/blog/custom-vision-service-is-now-generally-available/
+3. AWS General Reference. "Services in full shutdown" (Amazon Lookout for Vision, 31 October 2025), accessed 25 September 2026. https://docs.aws.amazon.com/general/latest/gr/full_shutdown_services.html

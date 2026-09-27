@@ -15,7 +15,9 @@ related:
   - frameworks/ai-regulatory-landscape
   - comparisons/gdpr-vs-eu-ai-act
   - comparisons/eu-vs-us-ai-regulation
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 The EU AI Act (Regulation 2024/1689) is the first comprehensive AI regulation worldwide. It classifies AI systems into four risk tiers and scales compliance requirements accordingly. The Act applies to any organization that develops, deploys, or distributes AI systems in the EU market, regardless of where the organization is headquartered. This framework document details the risk classification system, requirements per tier, and implementation timeline.
@@ -32,13 +34,13 @@ Article 5 bans AI systems that pose an unacceptable risk to fundamental rights. 
 
 ## Risk Tier 2: High Risk
 
-High-risk AI systems face the most detailed compliance burden. Requirements become enforceable on 2 August 2026 for Annex III systems and 2 August 2027 for systems embedded in regulated products.
+High-risk AI systems face the most detailed compliance burden. The Act originally set 2 August 2026 for Annex III systems and 2 August 2027 for systems embedded in regulated products. The Digital Omnibus (Regulation (EU) 2026/1744, published 24 July 2026, in force 27 July 2026) deferred these to **2 December 2027** for Annex III systems and **2 August 2028** for Annex I regulated products. The requirements themselves did not change (see [EU AI Act enforcement begins](/news/eu-ai-act-enforcement-begins-2026/)).
 
 ### High-Risk Use Cases (Annex III)
 
 High-risk domains include biometrics (remote biometric identification, emotion recognition where not banned, biometric categorization), critical infrastructure (AI systems used as safety components in management and operation of road traffic, water, gas, heating, and electricity supply), education and vocational training (systems determining access to education, evaluating learning outcomes, monitoring cheating), employment and worker management (recruitment, screening, hiring decisions, task allocation, performance monitoring, termination), access to essential services (credit scoring, insurance pricing, emergency services dispatching), law enforcement (individual risk assessment, polygraphs, evidence evaluation, crime prediction), migration and border control (risk assessment, document authentication, asylum application processing), and administration of justice (legal research, sentencing, dispute resolution).
 
-Any AI system that performs profiling of individuals is automatically classified as high-risk.
+An Annex III system that performs profiling of individuals is always classified as high-risk; the Article 6(3) exemption for narrow or preparatory tasks does not apply.
 
 ### Compliance Requirements for High-Risk Systems
 
@@ -66,7 +68,7 @@ Providers of high-risk AI systems must comply with Articles 8 through 15 through
 
 Limited-risk AI systems face transparency obligations only. These include AI systems that interact with natural persons (chatbots must disclose they are AI), systems that generate synthetic content ([deepfakes](/glossary/deepfake/), AI-generated images or text must be labeled), and emotion recognition or biometric categorization systems that are not prohibited.
 
-Transparency requirements under Article 50 took effect on 2 August 2026. Deployers must ensure users are informed they are interacting with AI, and AI-generated content must be machine-readable as such.
+Transparency requirements under Article 50 took effect on 2 August 2026 and were not deferred by the Omnibus. Deployers must ensure users are informed they are interacting with AI, and AI-generated content must be machine-readable as such.
 
 ## Risk Tier 4: Minimal Risk
 
@@ -82,10 +84,11 @@ Non-compliance penalties are tiered. Prohibited practices carry fines up to 35 m
 
 ## Enforcement Timeline
 
-February 2025: Prohibitions on unacceptable risk systems in effect. August 2025: GPAI rules in effect. February 2026: Commission publishes guidelines on high-risk classification with practical examples. August 2026: Article 50 transparency obligations and full requirements for Annex III high-risk systems enforceable. August 2027: Requirements for high-risk AI in regulated products enforceable.
+February 2025: Prohibitions on unacceptable risk systems and AI literacy duty in effect. August 2025: GPAI rules in effect. February 2026: Deadline for Commission guidelines on high-risk classification (Article 6). July 2026: Digital Omnibus (Regulation (EU) 2026/1744) enters into force. August 2026: Article 50 transparency obligations, penalties, and Commission enforcement of GPAI rules apply. December 2026: Grace period ends for technical safeguards under the Omnibus's two new Article 5 prohibitions (non-consensual intimate imagery and CSAM). August 2027: Deadline for GPAI models placed on the market before August 2025. December 2027: Requirements for Annex III high-risk systems enforceable. August 2028: Requirements for high-risk AI in regulated products (Annex I) enforceable.
 
 ## Sources
 
 1. European Parliament and Council. "Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)." *Official Journal of the European Union* L Series, 12 July 2024. [https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202401689](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202401689), The primary legal text.
 2. European Commission. "AI Act Explorer." [https://artificialintelligenceact.eu/](https://artificialintelligenceact.eu/), Article-by-article annotated reference maintained by the Future of Life Institute.
-3. European Commission. "High-Level Expert Group on Artificial Intelligence: Ethics Guidelines for Trustworthy AI." April 2019., The precursor guidelines that shaped the Act's risk classification principles.
+3. European Parliament and Council. "Regulation (EU) 2026/1744 (Digital Omnibus on AI)." *Official Journal of the European Union*, 24 July 2026. [https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng](https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng), Amends the AI Act and defers high-risk deadlines.
+4. European Commission. "High-Level Expert Group on Artificial Intelligence: Ethics Guidelines for Trustworthy AI." April 2019., The precursor guidelines that shaped the Act's risk classification principles.

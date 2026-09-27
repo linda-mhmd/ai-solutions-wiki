@@ -11,9 +11,9 @@ related:
   - guides/ai-for-small-business
   - tools/stable-diffusion
   - basics/what-is-generative-ai
-last_verified: 2026-09-04
-last_updated: 2026-09-04
-lastmod: 2026-09-04
+last_verified: 2026-09-25
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -48,7 +48,7 @@ Canva's current plans, verified directly against Canva's own pricing page [1]:
 
 Two things worth knowing before you assume otherwise. First, **there is no separate "Teams" plan anymore** — Canva's team tier is now called Business, and Teams is no longer open to new signups [1]; if you've seen "Canva Teams" referenced elsewhere, that's the older name for what's now Business. Second, Canva doesn't gate individual Magic Studio tools behind specific plans the way you might expect — there's no "Background Remover is Pro-only" wall anymore. Instead, every Magic Studio feature (Magic Design, Background Remover, Magic Eraser, Magic Media, all of it) draws from one shared monthly pool of "Standard AI" and "Premium AI" uses, and the free tier gets a real but small allowance of both, not a locked demo. Burn through Free's 20 Premium uses generating text-to-image results in one afternoon and you'll hit the wall fast; that's the actual free-tier constraint, not a features list.
 
-Canva also has genuine third-party AI image generation apps bundled into its editor — specifically **DALL-E by OpenAI** and **Imagen by Google Cloud**, listed as separate "AI image generation apps" you can add to a design, on top of the native Magic Media tool [2]. OpenAI has publicly cited Canva as a partner, noting Magic Studio's AI features had been used more than 5 billion times as of its case study [3]. That's a real number worth having in mind for scale — this is not a niche feature.
+Canva also has genuine third-party AI image generation apps bundled into its editor — specifically **DALL-E by OpenAI** and **Imagen by Google Cloud**, listed as separate "AI image generation apps" you can add to a design, on top of the native Magic Media tool [2]. Treat those names as app labels rather than a guide to the model underneath: OpenAI retired the DALL-E 2 and DALL-E 3 API models on 12 May 2026 (its image generation now runs on GPT Image), and Google shut down Imagen 4 in the Gemini API on 17 August 2026, and Canva's help page does not say which models the apps now call [13][14]. OpenAI has publicly cited Canva as a partner, noting Magic Studio's AI features had been used more than 5 billion times as of its case study [3]. That's a real number worth having in mind for scale — this is not a niche feature.
 
 ## Adobe's pricing: three separate ladders, and why that's confusing
 
@@ -132,3 +132,5 @@ Credit consumption per action (how many credits one background removal or one te
 10. Adobe, "Experiment with leading AI models in Adobe Firefly" (Firefly's own partner-model program: Google Gemini/Nano Banana Pro, OpenAI GPT Image, Flux, Runway), fetched September 2026: [https://www.adobe.com/products/firefly/partner-models.html](https://www.adobe.com/products/firefly/partner-models.html)
 11. PetaPixel, "Adobe Is Coming for Canva With Expanded ChatGPT Integration" (7 August 2026), on the expanded "Adobe for ChatGPT" rollout to 70+ tools including Firefly, and its explicit framing as targeting Canva's audience: [https://petapixel.com/2026/08/07/adobe-is-coming-for-canva-with-expanded-chatgpt-integration/](https://petapixel.com/2026/08/07/adobe-is-coming-for-canva-with-expanded-chatgpt-integration/)
 12. DPReview, "Adobe's flagship software is now available in ChatGPT's conversational interface" (10 December 2025), on the initial, narrower launch limited to Photoshop, Adobe Express, and Acrobat, with a Firefly AI Assistant previewed as upcoming rather than included at that time: [https://www.dpreview.com/news/2977630672/adobes-flagship-software-is-now-available-in-chatgpt-s-conversational-interface/](https://www.dpreview.com/news/2977630672/adobes-flagship-software-is-now-available-in-chatgpt-s-conversational-interface/)
+13. OpenAI API, "Deprecations" (DALL-E 2 and DALL-E 3 shut down 12 May 2026): [https://developers.openai.com/api/docs/deprecations](https://developers.openai.com/api/docs/deprecations)
+14. Google AI for Developers, "Gemini API changelog" (Imagen 4 shut down 17 August 2026): [https://ai.google.dev/gemini-api/docs/changelog](https://ai.google.dev/gemini-api/docs/changelog)

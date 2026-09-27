@@ -8,18 +8,20 @@ related:
   - glossary/kafka
   - glossary/message-queue
   - glossary/event-driven-architecture
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Amazon Kinesis is a managed platform for collecting, processing, and analyzing streaming data in real time. It enables continuous ingestion of data from thousands of sources (application logs, IoT sensors, clickstreams, video feeds) and processing within seconds of arrival.
 
 ## Kinesis Services
 
-**Kinesis Data Streams** is the core streaming service. Producers write records to shards; consumers read and process records in order. Data is retained for 24 hours (extendable to 365 days). You manage shard count to control throughput.
+**Kinesis Data Streams** is the core streaming service. Producers write records to shards; consumers read and process records in order. Data is retained for 24 hours (extendable to 365 days). In provisioned mode you manage shard count to control throughput; on-demand mode scales capacity automatically.
 
-**Kinesis Data Firehose** is the simplest way to load streaming data into destinations (S3, Redshift, OpenSearch, HTTP endpoints). It handles batching, compression, and delivery without writing consumer code. Use Firehose when you need to land streaming data in a destination with minimal code.
+**Amazon Data Firehose** (formerly Kinesis Data Firehose) is the simplest way to load streaming data into destinations (S3, Redshift, OpenSearch, HTTP endpoints). It handles batching, compression, and delivery without writing consumer code. Use Firehose when you need to land streaming data in a destination with minimal code.
 
-**Kinesis Data Analytics** runs SQL or Apache Flink applications on streaming data for real-time analytics, transformations, and anomaly detection.
+**Amazon Managed Service for Apache Flink** (formerly Kinesis Data Analytics) runs Apache Flink applications, written in Java, Scala, Python, or SQL, on streaming data for real-time analytics, transformations, and anomaly detection. The older Kinesis Data Analytics for SQL applications was discontinued: new applications could not be created from 15 October 2025, and AWS began deleting remaining applications on 27 January 2026.
 
 ## Why It Matters for AI
 
@@ -39,4 +41,7 @@ Size shards based on your expected throughput (1 MB/s write, 2 MB/s read per sha
 
 - Akidau, T., Baldacci, A., Balikov, K., Čuklev, D., Perry, J., Whittle, S., Lam, W., Malone, B., Nathan, D., & Saecker, M. (2013). MillWheel: Fault-tolerant stream processing at internet scale. *Proceedings of the VLDB Endowment*, 6(11), 1033–1044. (Stream processing foundations at scale; watermarks, exactly-once semantics, and out-of-order data handling underlying Kinesis design.)
 - Zaharia, M., Das, T., Li, H., Hunter, T., Shenker, S., & Stoica, I. (2013). Discretized streams: Fault-tolerant streaming computation at scale. *Proceedings of ACM SOSP*, 423–438. (Streaming computation at scale; fault tolerance via micro-batching, the theoretical basis for streaming data pipelines like Kinesis.)
+- AWS. *Amazon Kinesis Data Analytics for SQL Applications: discontinuation notice* (accessed 25 September 2026). [https://docs.aws.amazon.com/kinesisanalytics/latest/dev/what-is.html](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/what-is.html)
+- AWS. *What is Amazon Managed Service for Apache Flink?* [https://docs.aws.amazon.com/managed-flink/latest/java/what-is.html](https://docs.aws.amazon.com/managed-flink/latest/java/what-is.html)
+- AWS. *What is Amazon Data Firehose?* [https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html](https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html)
 - AWS. (2024). *Amazon Kinesis Data Streams Developer Guide*. Amazon Web Services. (Shards, enhanced fan-out, iterator types, and the Kinesis Client Library architecture.)

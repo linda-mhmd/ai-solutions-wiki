@@ -1,6 +1,6 @@
 ---
 title: "Cursor - AI Code Editor"
-description: "Cursor is an AI-first code editor built on VS Code. It uses Claude and OpenAI's GPT-5.6 models to autocomplete, explain, refactor, and generate code across your entire codebase. The default choice for developers building AI applications."
+description: "Cursor is an AI-first code editor built on VS Code. It uses Claude, OpenAI GPT-5.6, Gemini, and Grok models, plus its own Composer model, to autocomplete, explain, refactor, and generate code across your entire codebase. The default choice for developers building AI applications."
 date: 2026-06-22
 tags: ["cursor", "ai-coding", "code-editor", "vibe-coding", "developer-tools", "ide", "claude", "gpt"]
 tool_category: "Frontend"
@@ -9,7 +9,9 @@ related:
   - tools/claude-anthropic
   - tools/openai-api
   - comparisons/context-engineering-vs-prompt-engineering
-last_updated: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -17,13 +19,21 @@ last_updated: 2026-09-03
   <figcaption>Cursor turns the editor into a conversation. You describe the destination, the model traces the route.</figcaption>
 </figure>
 
-Cursor is an AI-first code editor, built as a fork of VS Code and developed by Anysphere. It embeds Claude and OpenAI's GPT-5.6 models directly into the editing experience so that autocomplete, multi-file edits, and codebase-wide queries happen inside a single tool rather than across a browser tab and an IDE. For developers building AI applications, Cursor removes the context-switching that slows down every cycle of the coding loop.
+Cursor is an AI-first code editor, built as a fork of VS Code and developed by Anysphere. It embeds frontier models from Anthropic, OpenAI, Google and SpaceXAI, plus its own Composer model, directly into the editing experience so that autocomplete, multi-file edits, and codebase-wide queries happen inside a single tool rather than across a browser tab and an IDE. For developers building AI applications, Cursor removes the context-switching that slows down every cycle of the coding loop.
 
 Official site: https://cursor.com  
 Documentation: https://docs.cursor.com  
 Changelog: https://cursor.com/changelog
 
 ---
+
+## Current models (September 2026)
+
+Cursor's documentation, checked on 25 September 2026, lists these as its current models: **Claude Opus 5.5, Claude Sonnet 5, Claude Fable 5.1, Gemini 3.1 Pro, Gemini 3.8 Flash, Muse Spark 1.3, GPT-5.6 Sol, Terra and Luna, Grok 4.7, 4.6 and 4.5, and Composer 2.5.** Three details matter when you pick one:
+
+- **Claude Opus 5.5** is listed at $4 input / $20 output per 1M tokens with $0.20 cache reads, 20% below Claude Opus 5, with a 300K default and 1M maximum context. Claude Opus 5 is still listed but hidden by default. See [Claude Opus 5.5](/news/claude-opus-5-5/).
+- **Grok 4.7** is described by Cursor as "jointly trained by Cursor and SpaceXAI". It sits in Cursor's own "Cursor Models" usage pool with Grok 4.6, Grok 4.5 and Composer 2.5, which carries significantly more included usage than the third-party pool. Its standard window in Cursor is 256K, extendable to 500K at 2x rates. **Grok 4.7 Fast**, the same model at 2x price, is available only in Cursor and SpaceXAI's Grok Build, not on the public xAI API, and Cursor makes Fast the default speed tier on Pro and higher plans. See [Grok 4.7](/news/grok-4-7/).
+- **GPT-6 is not listed yet.** OpenAI released GPT-6 Astra (3 September) and GPT-6 Sol and Luna (22 September), and GitHub Copilot added all three, but Cursor's model list and pricing page still stopped at GPT-5.6 on 25 September 2026. Check the Cursor changelog before assuming GPT-6 access.
 
 ## How Cursor fits into the stack
 
@@ -53,10 +63,12 @@ Changelog: https://cursor.com/changelog
   <div class="bz-arch-layer">
     <span class="bz-arch-layer-label">AI Models</span>
     <div class="bz-arch-layer-content">
-      <span class="bz-arch-chip">Claude Sonnet 5 (default)</span>
-      <span class="bz-arch-chip">Claude Opus 5</span>
-      <span class="bz-arch-chip">GPT-5.6</span>
-      <span class="bz-arch-chip-note">Switch models per session; Opus and GPT-5.6 for complex reasoning, Sonnet for speed — see the current lineups on the <a href="/tools/claude-anthropic/">Claude</a> and <a href="/tools/openai-api/">OpenAI API</a> pages</span>
+      <span class="bz-arch-chip">Claude Opus 5.5 / Sonnet 5 / Fable 5.1</span>
+      <span class="bz-arch-chip">GPT-5.6 Sol / Terra / Luna</span>
+      <span class="bz-arch-chip">Grok 4.7 (and 4.7 Fast)</span>
+      <span class="bz-arch-chip">Gemini 3.8 Flash / 3.1 Pro</span>
+      <span class="bz-arch-chip">Composer 2.5</span>
+      <span class="bz-arch-chip-note">Switch models per session, or let Auto route per request. See the current lineups on the <a href="/tools/claude-anthropic/">Claude</a>, <a href="/tools/openai-api/">OpenAI API</a> and <a href="/tools/xai-grok/">xAI Grok</a> pages</span>
     </div>
   </div>
   <div class="bz-arch-layer">
@@ -265,33 +277,40 @@ Background agents are useful for long-running tasks (test suites, database migra
 
 ## Cursor vs alternatives
 
-| | Cursor | GitHub Copilot | Windsurf | Codeium |
-|---|---|---|---|---|
-| **Base editor** | VS Code fork | Plugin for any editor | VS Code fork | Plugin for any editor |
-| **Multi-file editing** | Yes (Composer) | Limited (Edits, preview) | Yes (Cascade) | Limited |
-| **Context window** | Up to 1M tokens (Claude) | 64K tokens | Up to 200K tokens | 16K tokens |
-| **Models available** | Claude, GPT-5.6 | GPT-5.6 | Claude, GPT-5.6 | Codeium custom model |
-| **Codebase indexing** | Yes, semantic | Yes, basic | Yes, semantic | Yes, basic |
-| **Rules / conventions** | `.cursor/rules/` | Custom instructions | Workspace rules | `.codeium/` config |
-| **Terminal integration** | Yes (Agent mode) | No | Yes | No |
-| **Background agents** | Yes | No | Limited | No |
-| **Price per month** | Free / €19 Pro / €38 Business | Free / €10 Individual / €19 Business | Free / €15 Pro | Free / €12 Pro |
+| | Cursor | GitHub Copilot | Devin Desktop (formerly Windsurf) |
+|---|---|---|---|
+| **Base editor** | VS Code fork | Plugin for any editor | VS Code fork |
+| **Multi-file editing** | Yes (Composer, Agent) | Yes (agent mode) | Yes (Cascade) |
+| **Context window** | Up to 1M tokens (Claude) | Model-dependent | Up to 200K tokens |
+| **Models available** | Claude, GPT-5.6, Gemini, Grok, Composer | GPT-6, GPT-5.6, Claude, Gemini, Grok, MAI | OpenAI, Claude, Gemini, SpaceXAI, open models, SWE-2 |
+| **Codebase indexing** | Yes, semantic | Yes, basic | Yes, semantic |
+| **Rules / conventions** | `.cursor/rules/` | Custom instructions | Workspace rules |
+| **Terminal integration** | Yes (Agent mode) | Yes (agent mode, Copilot CLI) | Yes |
+| **Background agents** | Yes (cloud agents) | Yes (Copilot cloud agent) | Yes (Devin Cloud) |
+| **Price per month (USD)** | Free / $20 Pro / $60 Pro+ / $200 Ultra / $40 per Teams seat | Free / $10 Pro / $39 Pro+ / $100 Max / $19 Business / $39 Enterprise | Free / $20 Pro / $200 Max / Teams $80 + $40 per seat |
 
-**Key differentiator:** Cursor's combination of Claude's long context window, semantic codebase indexing, and multi-file Composer puts it ahead of plugin-based tools for complex refactors and greenfield feature development. Windsurf is the closest alternative and is worth evaluating if you prefer a different pricing model. GitHub Copilot remains the default choice for teams already inside the GitHub Enterprise ecosystem where SSO and audit logging are pre-configured.
+Windsurf, which had itself absorbed the Codeium brand, is now part of Cognition: as of 26 September 2026, windsurf.com redirects to Cognition's **Devin Desktop**, and its pricing page lists Devin plans.
+
+**Key differentiator:** Cursor's combination of Claude's long context window, semantic codebase indexing, and multi-file Composer puts it ahead of plugin-based tools for complex refactors and greenfield feature development. Devin Desktop (formerly Windsurf) is the closest alternative and is worth evaluating if you prefer a different pricing model. GitHub Copilot remains the default choice for teams already inside the GitHub Enterprise ecosystem where SSO and audit logging are pre-configured.
 
 ---
 
 ## Pricing
 
-| Plan | Price | What is included |
+| Plan | Price (USD) | What is included |
 |------|-------|-----------------|
-| **Free** | €0/month | 2,000 completions/month, 50 slow premium requests, access to basic models |
-| **Pro** | €19/month | Unlimited completions, 500 fast premium requests, all models including Opus and GPT-5.6, background agents |
-| **Business** | €38/seat/month | Everything in Pro, SSO, audit logs, admin dashboard, privacy controls, centralized billing |
+| **Hobby** | Free | No credit card required, limited Agent requests, access to Composer |
+| **Pro** | $20/month | Extended Agent limits, frontier models, MCPs, skills and hooks, cloud agents, Bugbot on usage-based billing |
+| **Pro+** | $60/month | Pro with higher included usage; Cursor recommends it for daily agent users |
+| **Ultra** | $200/month | Pro with the highest individual usage; for agent power users |
+| **Teams** | $40/user/month (Standard; Premium also offered) | Centralised billing, team marketplace for rules, skills and plugins, shared cloud agents, Bugbot reviews, usage analytics, team-wide privacy mode, SAML/OIDC SSO |
+| **Enterprise** | Custom | Pooled usage, invoice billing, SCIM, model and MCP access controls, audit logs, AI code tracking API |
 
-The Free tier is enough to evaluate Cursor for a single project. Pro is the practical minimum for professional use. Business is required for teams that need compliance logging or want to disable training data sharing at the organizational level.
+Prices from [cursor.com/pricing](https://cursor.com/pricing), checked 25 September 2026, exclusive of tax. Every plan includes a set amount of model usage, drawn from **two monthly usage pools**: "Cursor Models" (Grok 4.7/4.6/4.5 and Composer 2.5) and "Other Models" (third-party models at the provider's API price plus a Cursor Token Rate). Once the included amount is used, on-demand usage is billed in arrears. See [Cursor's models and pricing page](https://cursor.com/docs/models-and-pricing) for per-model rates.
 
-Fast premium requests use Claude Sonnet 5 or GPT-5.6 at full speed. Slow requests use the same models at reduced priority. The 500 fast requests on Pro reset monthly; heavy Composer sessions can exhaust this in a week on complex projects.
+The Hobby tier is enough to evaluate Cursor for a single project. Pro is the practical minimum for professional use. Teams is required for teams that need SSO, centralised billing or an organisation-wide privacy mode.
+
+Heavy Agent and Composer sessions on premium third-party models draw down the "Other Models" pool quickly; check the usage dashboard before assuming a flat fee covers a month of intensive work.
 
 ---
 
@@ -301,7 +320,7 @@ Fast premium requests use Claude Sonnet 5 or GPT-5.6 at full speed. Slow request
 
 **Your project requires an air-gapped or offline environment.** Cursor sends code to external model APIs. There is no fully offline mode. For classified projects, regulated environments with strict data residency, or networks without outbound internet access, Cursor is not suitable. Look at GitHub Copilot with a self-hosted Azure OpenAI endpoint, or JetBrains AI with a local model.
 
-**Context window costs are a concern at scale.** Each Composer session sends tens of thousands of tokens to the model API. At Pro tier, this is included in the flat fee. If you run Cursor on behalf of a team under Business tier, or integrate it into automated pipelines, model usage can scale beyond the included allocation. Monitor usage per seat before rolling out to large teams.
+**Context window costs are a concern at scale.** Each Composer session sends tens of thousands of tokens to the model API. Each plan includes a fixed usage allowance, with on-demand usage billed beyond it. If you run Cursor on behalf of a team under the Teams plan, or integrate it into automated pipelines, model usage can scale beyond the included allocation. Monitor usage per seat before rolling out to large teams.
 
 **You need deterministic, reproducible builds in CI.** Cursor is an interactive editor, not a pipeline tool. For automated code generation in CI/CD, use the Anthropic API or OpenAI API directly with version-pinned models.
 
@@ -312,8 +331,20 @@ Fast premium requests use Claude Sonnet 5 or GPT-5.6 at full speed. Slow request
 - [Cursor documentation](https://docs.cursor.com): official reference for all features, keybindings, and configuration options
 - [Cursor rules community repository](https://github.com/PatrickJS/awesome-cursorrules): community-maintained collection of `.cursor/rules/` files for common frameworks and languages
 - [What is vibe coding?](/basics/what-is-vibe-coding/): foundational explainer for the AI-assisted development workflow that Cursor is built around
-- [Claude Anthropic](/tools/claude-anthropic/): the model powering Cursor's default completions and Composer sessions
+- [Claude Anthropic](/tools/claude-anthropic/): the Claude models (Opus 5.5, Sonnet 5, Fable 5.1) available in Cursor
 - [OpenAI API](/tools/openai-api/): the current GPT-5.6 lineup available as Cursor's OpenAI model option
 - [Anthropic model documentation](https://docs.anthropic.com/en/docs/about-claude/models): current Claude model IDs, context windows, and pricing
 - [Context engineering vs prompt engineering](/comparisons/context-engineering-vs-prompt-engineering/): why what you include in the context window matters more than how you phrase the instruction
 - [Cursor changelog](https://cursor.com/changelog): weekly release notes; Cursor ships updates at a pace that makes the changelog more useful than any third-party summary
+
+## Sources
+
+1. Cursor, Models & Pricing (usage pools, per-model rates, Claude Opus 5.5, Grok 4.7 and Grok 4.7 Fast rows), checked 25 September 2026: [https://cursor.com/docs/models-and-pricing](https://cursor.com/docs/models-and-pricing)
+2. Cursor, Grok 4.7 model page (256K/500K context, effort levels, Fast default on Pro and higher): [https://cursor.com/docs/models/grok-4-7](https://cursor.com/docs/models/grok-4-7)
+3. Cursor, Models documentation (current model list and context windows): [https://cursor.com/docs/models](https://cursor.com/docs/models)
+4. xAI, Grok 4.7 overview ("Grok 4.7 Fast ... available only in Cursor and Grok Build"): [https://docs.x.ai/developers/grok-4-7](https://docs.x.ai/developers/grok-4-7)
+5. This wiki, "Grok 4.7": [/news/grok-4-7/](/news/grok-4-7/)
+6. This wiki, "Claude Opus 5.5": [/news/claude-opus-5-5/](/news/claude-opus-5-5/)
+7. Cursor, Pricing (Hobby, Pro $20, Pro+ $60, Ultra $200, Teams $40/user, Enterprise), checked 25 September 2026: [https://cursor.com/pricing](https://cursor.com/pricing)
+8. GitHub Docs, "Plans for GitHub Copilot" (Free, Pro $10, Pro+ $39, Max $100, Business $19, Enterprise $39), checked 25 September 2026: [https://docs.github.com/en/copilot/get-started/plans](https://docs.github.com/en/copilot/get-started/plans)
+9. Devin Desktop (windsurf.com redirects here) and Devin plans and pricing, checked 26 September 2026: [https://devin.ai/desktop](https://devin.ai/desktop), [https://windsurf.com/pricing](https://windsurf.com/pricing)

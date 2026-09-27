@@ -11,10 +11,17 @@ related:
   - tools/azure-data-explorer
   - tools/timescaledb
   - tools/influxdb
-last_updated: 2026-05-30
+status: deprecated
+status_detail: "Timestream for LiveAnalytics (the serverless engine described on this page) closed to new customers on 20 June 2025. Existing customers keep full use, and AWS continues security, availability, and performance updates. AWS recommends new customers use Amazon Timestream for InfluxDB, which remains open."
+status_source: "https://docs.aws.amazon.com/timestream/latest/developerguide/AmazonTimestreamForLiveAnalytics-availability-change.html"
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Amazon Timestream is a serverless time series database designed for storing and analyzing trillions of time series events per day. It automatically manages data lifecycle, moving recent data from a high-performance memory store to a cost-optimized magnetic store based on retention policies you define. For AI projects involving IoT telemetry, operational metrics, or any time-stamped measurement data, Timestream provides fast ingestion and purpose-built query functions at a fraction of the cost of running a general-purpose database.
+
+> **Status: closed to new customers.** Amazon Timestream now has two engines. The serverless engine this page describes, **Timestream for LiveAnalytics** (memory store, magnetic store, scheduled queries), closed to new customers on 20 June 2025. Existing customers can keep using it and add users and linked accounts under the same payer account, but new accounts cannot adopt it. For new projects AWS recommends **Amazon Timestream for InfluxDB**, a managed InfluxDB (2.x open-source API) engine with single-digit millisecond queries; AWS publishes a migration guide from LiveAnalytics.
 
 Official documentation: https://docs.aws.amazon.com/timestream/
 
@@ -50,10 +57,17 @@ Timestream has a native data source plugin for Amazon Managed Grafana. This enab
 
 ## ML and Anomaly Detection
 
-Timestream data feeds into ML workflows through several paths. Export to S3 (via scheduled queries or UNLOAD) for SageMaker training. Use Lookout for Metrics to detect anomalies in Timestream-stored metrics. Or query Timestream directly from Lambda-based inference pipelines for real-time feature retrieval.
+Timestream data feeds into ML workflows through several paths. Export to S3 (via scheduled queries or UNLOAD) for SageMaker training. For anomaly detection, train a model in SageMaker AI on exported data or use CloudWatch anomaly detection on the metrics you publish (Amazon Lookout for Metrics, once the managed option here, reached end of support on 10 October 2025). Or query Timestream directly from Lambda-based inference pipelines for real-time feature retrieval.
 
 For predictive maintenance use cases, the pattern is: store sensor telemetry in Timestream, train failure prediction models in SageMaker using exported historical data, and run inference against real-time Timestream queries to predict which equipment needs maintenance.
 
 ## Pricing
 
 Timestream charges separately for writes, memory store, magnetic store, and queries. Write costs scale with the number of records ingested. Memory store costs more per GB than magnetic store but provides faster query performance. Query costs are based on data scanned, so well-structured data (effective use of dimensions and time ranges in queries) significantly reduces costs. Multi-measure records reduce both storage and query costs compared to single-measure records.
+
+## Sources
+
+- AWS Documentation. "Amazon Timestream for LiveAnalytics availability change" (closed to new customers 20 June 2025; fetched 25 September 2026). https://docs.aws.amazon.com/timestream/latest/developerguide/AmazonTimestreamForLiveAnalytics-availability-change.html
+- AWS Documentation. "What is Timestream for InfluxDB?" https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html
+- AWS Documentation. "Services in maintenance" (lists Timestream for LiveAnalytics, announced 20 June 2025). https://docs.aws.amazon.com/general/latest/gr/maintenance_services.html
+- AWS Machine Learning Blog. "Transitioning off Amazon Lookout for Metrics." https://aws.amazon.com/blogs/machine-learning/transitioning-off-amazon-lookout-for-metrics/

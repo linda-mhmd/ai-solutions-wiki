@@ -2,6 +2,8 @@
 title: "Baseten"
 description: "A production inference platform for deploying, serving, and autoscaling machine-learning models, built around the open-source Truss packaging format."
 date: 2026-06-29
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 tags: ["inference", "model-serving", "mlops", "gpu", "infrastructure"]
 tool_category: "Infrastructure"
 related:
@@ -120,10 +122,10 @@ Baseten fits teams that own a model and need it served reliably in production. I
 
 - **You only need a hosted open model behind an API.** If you never bring your own weights, a model-API provider such as [Fireworks AI](/tools/fireworks-ai/) or a low-latency provider like [Groq](/tools/groq/) may be simpler and cheaper.
 - **You want raw compute, not a serving layer.** If your team already has its own serving stack and wants cheap GPUs, a bare GPU cloud gives more control.
-- **The workload is not inference.** Long-running training jobs and general batch compute are not the platform's focus.
+- **The workload is not inference.** Baseten has added post-training (Baseten Training and the Loops SDK for fine-tuning), but large pre-training runs and general batch compute are not the platform's focus.
 - **Cost sensitivity at very low volume.** A managed platform carries overhead that can outweigh its value for occasional, low-traffic calls.
 
-Baseten has scaled quickly alongside demand for inference. It raised a 300 million US dollar Series E in January 2026, and reporting in June 2026 described a 1.5 billion US dollar round at a valuation of up to 13 billion US dollars. Treat those figures as reported, not as pricing.
+Baseten has scaled quickly alongside demand for inference. It raised a 300 million US dollar Series E in January 2026, then announced a **1.5 billion US dollar Series F at a 13 billion US dollar valuation on 22 June 2026**, led by Altimeter Capital, Conviction Partners, and Spark Capital. On 10 September 2026 Baseten announced it had **acquired Blaxel**, a provider of microVM sandboxes and stateful execution infrastructure for agents, to extend the platform from model serving into agent infrastructure.
 
 ## Further reading
 
@@ -142,3 +144,6 @@ Baseten has scaled quickly alongside demand for inference. It raised a 300 milli
 - [Fortune, September 2025](https://fortune.com/2025/09/05/exclusive-baseten-ai-inference-unicorn-raises-150-million-at-2-15-billion-valuation/): reporting on the Series D round and valuation.
 - [Baseten blog, Series E announcement](https://www.baseten.co/blog/announcing-baseten-s-300m-series-e/): the 300 million US dollar Series E.
 - [PYMNTS, 2026](https://www.pymnts.com/news/investment-tracker/2026/baseten-nears-1-5-billion-funding-round-as-inference-demand-surges/): reporting on the 1.5 billion US dollar round.
+- [Baseten blog, 22 June 2026, "Announcing our Series F"](https://www.baseten.co/blog/announcing-our-series-f/): the 1.5 billion US dollar Series F at a 13 billion US dollar valuation.
+- [Baseten blog, 10 September 2026, "Blaxel is joining Baseten"](https://www.baseten.co/blog/blaxel-is-joining-baseten-to-build-the-future-of-agentic-cloud/): the Blaxel acquisition.
+- [Baseten blog, "Introducing the Baseten Loops SDK"](https://www.baseten.co/blog/introducing-the-baseten-loops-sdk/): the post-training SDK.

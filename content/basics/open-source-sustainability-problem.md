@@ -2,6 +2,8 @@
 title: "The Open Source Sustainability Problem"
 description: "Critical software maintained by unpaid volunteers, burnout, corporate extraction, and the challenge of funding work everyone depends on but nobody pays for."
 date: 2026-07-30
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 3
 categories: [Basics]
 tags: [open-source, sustainability, burnout, funding, maintainer, community]
@@ -12,7 +14,7 @@ faqs:
     answer: "Yes. Studies and surveys consistently show high rates of burnout. Maintaining popular software means constant demands (issues, PRs, security reports) with often zero compensation. Many maintainers step back or abandon projects."
   - question: "What can I do to help?"
     answer: "Sponsor maintainers on GitHub Sponsors or Open Collective. Contribute (code, docs, issue triage). Advocate for your company to fund dependencies. Be respectful and patient in issues. Don't demand free labor."
-last_updated: 2026-07-30
+last_updated: 2026-09-25
 ---
 
 {{< quickanswer >}}
@@ -138,7 +140,7 @@ Transparent budgets for projects. Companies and individuals contribute. Project 
 
 ### Tidelift
 
-Companies pay Tidelift to ensure their dependencies are maintained. Tidelift pays maintainers. Attempts to make funding transactional. Growing but not dominant.
+Companies paid Tidelift to ensure their dependencies were maintained, and Tidelift paid maintainers: an attempt to make funding transactional. Tidelift has since been absorbed by the code-quality company Sonar; as of September 2026, tidelift.com redirects to Sonar's website, so check the current offer before relying on it.
 
 ### Company sponsorship
 
@@ -181,7 +183,7 @@ If everyone thinks this, no one funds it. Classic collective action problem.
 - **Set boundaries**: It's okay to not respond to every issue
 - **Document policies**: "No, we don't support X" in CONTRIBUTING.md
 - **Build a team**: Distribute burden, reduce single point of failure
-- **Consider funding**: GitHub Sponsors, Open Collective, Tidelift
+- **Consider funding**: GitHub Sponsors, Open Collective, or commercial support contracts
 - **Take breaks**: Burnout is real, projects survive pauses
 
 ### For companies

@@ -9,7 +9,9 @@ related:
   - tools/google-firestore
   - tools/google-cloud-bigtable
   - tools/google-vertex-ai
-last_updated: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Google Cloud Spanner is a fully managed, horizontally scalable, globally distributed relational database service. It is unique among cloud databases in providing the combination of relational semantics (SQL, schemas, ACID transactions, strong consistency) with the horizontal scalability and global distribution typically associated with NoSQL databases. Spanner offers up to 99.999% availability (five nines) with its multi-region configurations, making it one of the most resilient database services available on any cloud platform.
@@ -31,9 +33,10 @@ Cloud Spanner has no direct AWS equivalent that matches its globally distributed
 
 ## Origins and History
 
-Spanner originated as an internal Google system described in the 2012 paper "Spanner: Google's Globally-Distributed Database" by Corbett et al., published at OSDI 2012. The internal system has powered Google services including Google Ads, Google Play, and Google Photos. Cloud Spanner was launched as a public service in February 2017, making the technology available externally for the first time. The PostgreSQL interface was announced in 2022, broadening compatibility. In 2022, Google also introduced Spanner Graph for graph queries and Spanner change streams for CDC (change data capture). Spanner's pricing was reduced by approximately 65% in 2023 with the introduction of granular instance configurations, making it more accessible for smaller workloads. Vertex AI integration for in-database ML was added in 2023.
+Spanner originated as an internal Google system described in the 2012 paper "Spanner: Google's Globally-Distributed Database" by Corbett et al., published at OSDI 2012. The internal system has powered Google services including Google Ads, Google Play, and Google Photos. Cloud Spanner was launched as a public service in February 2017, making the technology available externally for the first time. The PostgreSQL interface was announced in 2022, broadening compatibility. In 2022, Google also introduced Spanner change streams for CDC (change data capture), and in August 2024 it launched Spanner Graph (in preview at launch), adding graph queries using the ISO Graph Query Language (GQL). Spanner's pricing was reduced by approximately 65% in 2023 with the introduction of granular instance configurations, making it more accessible for smaller workloads. Vertex AI integration for in-database ML was added in 2023.
 
 ## Sources
 
 1. Google Cloud Documentation. "Cloud Spanner overview." https://cloud.google.com/spanner/docs/overview
 2. Corbett, J.C. et al. "Spanner: Google's Globally-Distributed Database." OSDI 2012. https://research.google/pubs/spanner-googles-globally-distributed-database/
+3. Google Cloud Documentation. "Spanner release notes" (Spanner Graph in Preview, 1 August 2024). https://cloud.google.com/spanner/docs/release-notes

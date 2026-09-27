@@ -5,7 +5,7 @@ date: 2026-09-02
 categories: [Guides]
 tags: ["agents", "tooling", "governance", "developer-experience", "llm"]
 tools: []
-related: ["guides/backstage-as-an-agent-interface", "guides/ai-governance-implementation", "glossary/agents"]
+related: ["guides/backstage-as-an-agent-interface", "guides/ai-governance-implementation", "glossary/ai-agents"]
 last_updated: 2026-09-02
 ---
 

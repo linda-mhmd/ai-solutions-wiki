@@ -7,7 +7,9 @@ tags: [azure, big-data, spark, hadoop, open-source, analytics]
 related:
   - tools/amazon-emr
   - tools/azure-synapse-analytics
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Azure HDInsight is Microsoft Azure's fully managed cloud service for provisioning and running open-source big data analytics frameworks. It supports Apache Spark, Apache Hadoop, Apache Hive, Apache HBase, Apache Kafka, and Apache Interactive Query (Hive LLAP) as managed cluster types. For AI and machine learning workloads, HDInsight provides the distributed computing infrastructure needed to process massive datasets for feature engineering, run large-scale Spark MLlib training jobs, and perform exploratory data analysis on petabyte-scale data stored in Azure Data Lake Storage or Blob Storage.
@@ -31,9 +33,10 @@ Azure HDInsight is Azure's counterpart to Amazon EMR (Elastic MapReduce). Both p
 
 ## Origins and History
 
-Azure HDInsight launched in general availability on February 3, 2015, making it one of the first managed Hadoop services in a major cloud platform. It was developed in partnership with Hortonworks, which provided the Hortonworks Data Platform (HDP) distribution that powered HDInsight clusters. After Hortonworks merged with Cloudera in January 2019, HDInsight continued on the HDP-based platform. Spark cluster support was added in 2015, Kafka in 2017, and the Enterprise Security Package in 2018. In 2023, Microsoft announced HDInsight on AKS (Azure Kubernetes Service), a next-generation architecture that runs open-source analytics workloads on Kubernetes for improved resource efficiency and faster cluster provisioning.
+Azure HDInsight launched in general availability on February 3, 2015, making it one of the first managed Hadoop services in a major cloud platform. It was developed in partnership with Hortonworks, which provided the Hortonworks Data Platform (HDP) distribution that powered HDInsight clusters. After Hortonworks merged with Cloudera in January 2019, HDInsight continued on the HDP-based platform. Spark cluster support was added in 2015, Kafka in 2017, and the Enterprise Security Package in 2018. In 2023, Microsoft announced HDInsight on AKS (Azure Kubernetes Service), a next-generation architecture that ran open-source analytics workloads on Kubernetes. It was short-lived: HDInsight on AKS was retired on 31 January 2025, and classic HDInsight clusters remain the supported offering. For new Spark-based AI and data engineering work, Microsoft's investment has shifted to Azure Databricks and Microsoft Fabric.
 
 ## Sources
 
 1. Microsoft Learn. "What is Azure HDInsight?" https://learn.microsoft.com/en-us/azure/hdinsight/hdinsight-overview
 2. Microsoft Azure Blog. "Azure HDInsight general availability." February 2015. https://azure.microsoft.com/en-us/blog/general-availability-of-hdinsight/
+3. Microsoft Learn. "What is HDInsight on AKS?" (retirement notice, 31 January 2025), accessed 25 September 2026. https://learn.microsoft.com/en-us/azure/hdinsight-aks/overview

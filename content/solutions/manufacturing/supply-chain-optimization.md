@@ -6,7 +6,9 @@ categories: [Solutions]
 tags: [supply-chain, optimization, demand-sensing, supplier-risk, logistics]
 industries: [manufacturing, logistics]
 tools: [amazon-sagemaker, amazon-forecast, amazon-redshift]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Manufacturing supply chains are complex networks of suppliers, production facilities, warehouses, and distribution channels. Optimizing these networks requires balancing competing objectives: cost, speed, reliability, and resilience. AI supply chain optimization makes these trade-offs systematically across thousands of decision variables, achieving results that manual planning cannot replicate.
@@ -19,7 +21,7 @@ Even in stable conditions, manual planning struggles with the combinatorial comp
 
 ## AI Approach
 
-**Demand sensing** - Amazon Forecast or SageMaker models generate demand forecasts that incorporate real-time signals: point-of-sale data, customer order pipeline, economic indicators, and market intelligence. Demand sensing provides 2-4 weeks of forward visibility that traditional forecasting methods lack, enabling proactive supply chain adjustments.
+**Demand sensing** - SageMaker models (including SageMaker Canvas time-series forecasting) generate demand forecasts that incorporate real-time signals: point-of-sale data, customer order pipeline, economic indicators, and market intelligence. Demand sensing provides 2-4 weeks of forward visibility that traditional forecasting methods lack, enabling proactive supply chain adjustments.
 
 **Supplier risk monitoring** - SageMaker models assess supplier risk across multiple dimensions: financial health (from public filings and credit data), operational risk (delivery performance, quality metrics), geographic risk (exposure to natural disasters, geopolitical instability), and concentration risk (dependency on single suppliers). Bedrock monitors news and regulatory filings for events that affect supplier risk scores.
 
@@ -29,7 +31,7 @@ Even in stable conditions, manual planning struggles with the combinatorial comp
 
 ## Architecture
 
-Supply chain data from ERP, procurement, logistics, and demand systems flows into Redshift. Amazon Forecast generates demand projections. SageMaker models run supplier risk scoring, inventory optimization, and network design scenarios. Results feed back into ERP planning modules via API. QuickSight dashboards provide supply chain visibility: order status, inventory positions, supplier performance, and risk alerts.
+Supply chain data from ERP, procurement, logistics, and demand systems flows into Redshift. SageMaker Canvas time-series models generate demand projections. Amazon Forecast, often used for this in the past, has been [closed to new customers since 29 July 2024](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/); AWS recommends SageMaker Canvas time-series forecasting for new builds. SageMaker models run supplier risk scoring, inventory optimization, and network design scenarios. Results feed back into ERP planning modules via API. QuickSight dashboards provide supply chain visibility: order status, inventory positions, supplier performance, and risk alerts.
 
 ## Key Considerations
 

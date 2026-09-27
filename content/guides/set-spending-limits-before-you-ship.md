@@ -9,6 +9,8 @@ related:
   - guides/ai-cost-accounting
   - guides/ai-total-cost-ownership
   - basics/what-is-the-cloud
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -102,30 +104,30 @@ monthly cost = requests per day x 30
                + output tokens x output price per token )
 ```
 
-A worked example. Assume a small chat app: 1,000 requests per day, each sending 1,500 input tokens and receiving 400 output tokens. On Claude Sonnet 5, Anthropic lists $3 (about EUR 2.70) per million input tokens and $15 (about EUR 13.50) per million output tokens.
+A worked example. Assume a small chat app: 1,000 requests per day, each sending 1,500 input tokens and receiving 400 output tokens. On Claude Sonnet 5, Anthropic lists $2 (about EUR 1.80) per million input tokens and $10 (about EUR 9) per million output tokens.
 
 ```text
-Input:  1,000 x 1,500 = 1.5M tokens/day x  $3/M  =  $4.50/day
-Output: 1,000 x   400 = 0.4M tokens/day x $15/M  =  $6.00/day
+Input:  1,000 x 1,500 = 1.5M tokens/day x  $2/M  =  $3.00/day
+Output: 1,000 x   400 = 0.4M tokens/day x $10/M  =  $4.00/day
 
-Per day:    $10.50
-Per month:  $315   (about EUR 284)
+Per day:    $7.00
+Per month:  $210   (about EUR 189)
 ```
 
-That is not a EUR 5 hobby bill. The same app on Claude Haiku 4.5, listed at $1 (about EUR 0.90) input and $5 (about EUR 4.50) output per million tokens, costs $3.50 per day, about EUR 95 per month. Model choice is a 3x lever before you optimise anything else.
+That is not a EUR 5 hobby bill. The same app on Claude Haiku 4.5, listed at $1 (about EUR 0.90) input and $5 (about EUR 4.50) output per million tokens, costs $3.50 per day, about EUR 95 per month. Model choice is a 2x lever before you optimise anything else, and a bigger one against flagship models: Claude Opus 5.5 lists at $4/$20, double Sonnet 5.
 
 Now the runaway case. A retry loop with no delay fires 2 requests per second. Left alone for one 6-hour afternoon, that is 43,200 requests:
 
 ```text
-Input:  43,200 x 1,500 = 64.8M tokens x  $3/M = $194.40
-Output: 43,200 x   400 = 17.3M tokens x $15/M = $259.20
+Input:  43,200 x 1,500 = 64.8M tokens x  $2/M = $129.60
+Output: 43,200 x   400 = 17.3M tokens x $10/M = $172.80
 
-One afternoon: about $454   (about EUR 408)
+One afternoon: about $302   (about EUR 272)
 ```
 
-One bug, one afternoon, EUR 408. This is why the next three sections exist. If you have not made an API call yet, start with [your first LLM API call](/guides/your-first-llm-api-call/) to see where these token counts come from.
+One bug, one afternoon, EUR 272. This is why the next three sections exist. If you have not made an API call yet, start with [your first LLM API call](/guides/your-first-llm-api-call/) to see where these token counts come from.
 
-Note on pricing: model prices change. Anthropic's [models overview](https://platform.claude.com/docs/en/about-claude/models/overview) is the source for the numbers above, including an introductory Sonnet 5 rate of $2/$10 per million tokens through 2026-08-31. Re-check prices on the provider's own page before you budget.
+Note on pricing: model prices change. Anthropic's [models overview](https://platform.claude.com/docs/en/about-claude/models/overview) and [pricing page](https://platform.claude.com/docs/en/about-claude/pricing) are the source for the numbers above. Sonnet 5 launched with $2/$10 as an introductory rate through 2026-08-31; Anthropic has since made it the standard price and cancelled the scheduled increase to $3/$15. Re-check prices on the provider's own page before you budget.
 
 ## Set hard limits on the AI provider
 
@@ -218,6 +220,7 @@ Two safe positions exist. The first is a platform that cannot charge you, like a
 
 - [Anthropic: rate limits and spend limits](https://platform.claude.com/docs/en/api/rate-limits): spend caps per usage tier; usage pauses at the cap until the next month
 - [Anthropic: models overview and pricing](https://platform.claude.com/docs/en/about-claude/models/overview): per-million-token prices used in the worked example
+- [Anthropic: pricing](https://platform.claude.com/docs/en/about-claude/pricing): Sonnet 5's $2/$10 rate made standard, with the 1 September 2026 increase to $3/$15 cancelled
 - [OpenAI: managing projects and budgets](https://help.openai.com/en/articles/9186755-managing-your-work-in-the-api-platform-with-projects): monthly budgets alert only; requests continue processing
 - [OpenAI: what is prepaid billing](https://help.openai.com/en/articles/8264778-what-is-prepaid-billing): credit balance, auto-recharge, and usage halting at zero balance
 - [AWS: managing costs with AWS Budgets](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html): alert behaviour, update frequency, and notification delay

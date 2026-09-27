@@ -2,6 +2,8 @@
 title: "What is JSON?"
 description: "JSON is the universal language for sending data between apps. When you call an AI API, the response comes back as JSON. Here's what it actually is and how to use it."
 date: 2026-07-30
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 1
 categories: [Basics]
 tags: [beginner, json, api, data, javascript, parsing]
@@ -45,7 +47,7 @@ Every API you'll ever use speaks JSON:
 
 ```json
 {
-  "model": "claude-sonnet-4-20250514",
+  "model": "claude-sonnet-5",
   "max_tokens": 1024,
   "messages": [
     {"role": "user", "content": "Explain webhooks"}
@@ -91,7 +93,7 @@ When you call Claude's API, you get back something like:
       "text": "Hello! How can I help you today?"
     }
   ],
-  "model": "claude-sonnet-4-20250514",
+  "model": "claude-sonnet-5",
   "stop_reason": "end_turn",
   "usage": {
     "input_tokens": 12,
@@ -212,7 +214,7 @@ Here's how you'd structure a request to an AI API:
 
 ```javascript
 const requestBody = {
-  model: "claude-sonnet-4-20250514",
+  model: "claude-sonnet-5",
   max_tokens: 1024,
   messages: [
     {

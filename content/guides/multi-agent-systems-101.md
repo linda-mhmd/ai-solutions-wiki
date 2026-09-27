@@ -11,7 +11,9 @@ related:
   - tools/crewai
   - patterns/agentic-workflows
   - comparisons/crewai-vs-strands
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Most AI use cases can be handled by a single model call with a well-constructed prompt. But as workflows grow in complexity - involving multiple tools, conditional logic, long chains of reasoning, or specialized domain tasks - single-model architectures start to show limits. Multi-agent systems address this by coordinating multiple AI models, each focused on a specific part of the problem.
@@ -44,9 +46,9 @@ The coordination layer - which agent runs next, how outputs are passed, how erro
 
 **CrewAI** - Role-based multi-agent framework where you define a "crew" of agents with human-readable roles and a shared goal. Lower implementation overhead than LangGraph for straightforward collaborative workflows. Good starting point for teams new to multi-agent systems.
 
-**AWS AgentCore** - Amazon's managed runtime for AI agents. Handles the infrastructure concerns (memory, session management, tool routing) so you can focus on agent logic. Tightly integrated with Bedrock models and AWS tool ecosystem. Suitable for production workloads where operational reliability matters.
+**Amazon Bedrock AgentCore** - Amazon's managed runtime for AI agents, and AWS's recommended path for new agent builds now that the older Bedrock Agents ("Bedrock Agents Classic") closed to new customers on 30 July 2026. Handles the infrastructure concerns (runtime, memory, session management, tool gateway, identity) so you can focus on agent logic. Works with agents built in any framework, including LangGraph and CrewAI, and integrates with Bedrock models and AWS services. Suitable for production workloads where operational reliability matters. See [Bedrock AgentCore](/tools/bedrock-agentcore/).
 
-**AutoGen (Microsoft)** - Conversation-based multi-agent framework. Agents communicate through structured chat. Well-suited for coding and analysis workflows.
+**Microsoft Agent Framework** - Microsoft's production multi-agent framework (1.0, with stable APIs), which succeeds both AutoGen and Semantic Kernel and supports multiple model providers plus A2A and MCP. AutoGen, its conversation-based predecessor where agents communicate through structured chat, is now in maintenance mode: it receives no new features, and Microsoft directs new users to Agent Framework. See [Microsoft Agent Framework](/tools/microsoft-agent-framework/).
 
 ## Architecture Patterns
 
@@ -61,3 +63,9 @@ The coordination layer - which agent runs next, how outputs are passed, how erro
 Start with the simplest architecture that solves the problem. A two-agent system (one to retrieve, one to synthesize) is dramatically simpler to debug than a six-agent system. Add agents only when a specific limitation - quality, latency, context length - makes a single agent clearly insufficient. Most enterprise AI use cases run effectively with two to four agents.
 
 Observability is not optional. Every agent action, tool call, and handoff should be logged. When a multi-agent system produces an incorrect output, you need a trace to understand where the reasoning went wrong.
+
+## Sources
+
+1. Microsoft, AutoGen README (maintenance-mode notice; fetched 25 September 2026): [https://github.com/microsoft/autogen](https://github.com/microsoft/autogen)
+2. Microsoft, Agent Framework repository: [https://github.com/microsoft/agent-framework](https://github.com/microsoft/agent-framework)
+3. AWS Documentation, "Amazon Bedrock Agents Classic maintenance mode": [https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html)

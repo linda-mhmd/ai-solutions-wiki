@@ -4,7 +4,9 @@ description: "What Rekognition does, which features work well in enterprise appl
 date: 2026-03-24
 categories: [Tools]
 tags: ["ai-ml", "intermediate", "computer-vision", "image-analysis", "video-analysis", "aws", "object-detection", "aws-service"]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Amazon Rekognition is AWS's managed computer vision service. It provides pre-trained models for object detection, scene analysis, text detection, facial analysis, and content moderation - accessible through an API without requiring ML expertise to deploy or operate.
@@ -28,7 +30,7 @@ The garden way to picture it: computer vision is the garden's extra sense. It se
 
 **Content moderation** - Classifies images and video frames by content type, flagging nudity, violence, drugs, hate symbols, and gambling content. Confidence thresholds are configurable. Common in user-generated content moderation workflows.
 
-**Video analysis** - All features above apply to video, either as stored video files (S3) or via Kinesis Video Streams for real-time analysis. Video analysis runs asynchronously; you poll for job completion or receive an SNS notification.
+**Video analysis** - All features above apply to video, either as stored video files (S3) or via Kinesis Video Streams for real-time analysis. Video analysis runs asynchronously; you poll for job completion or receive an SNS notification. Note that the Streaming Video features (stream processors on Kinesis Video Streams) and Bulk Image Analysis (the asynchronous `StartMediaAnalysisJob` batch API) closed to new customers on 30 April 2026; accounts that used them in the previous 12 months keep access. For new real-time work, AWS suggests sampling frames and sending them to the Rekognition Image API instead. Stored-video analysis and the other image features are unaffected.
 
 **Custom labels** - Train a custom object detection model using your own labeled images. Useful when the pre-trained object categories do not match your specific use case (e.g., detecting specific product types, equipment models, or damage types). Requires 50-250 labeled training images per class.
 
@@ -50,6 +52,13 @@ Always validate accuracy on representative samples from your actual production d
 
 ## Pricing
 
-Rekognition is priced per image analyzed (for image features) or per minute of video analyzed (for video features). Custom Labels has separate training and inference pricing. Free tier covers 5,000 images/month for the first 12 months.
+Rekognition is priced per image analyzed (for image features) or per minute of video analyzed (for video features). Custom Labels has separate training and inference pricing. Accounts that still have the legacy 12-month AWS Free Tier get 5,000 images per month; newer accounts instead receive AWS Free Tier credits (up to $200 over six months) that apply across services, so check which model your account is on.
 
 At high volume, per-image costs add up quickly. For workloads processing millions of images monthly, evaluate whether SageMaker hosting of open-source vision models (YOLO, ViT) offers a better cost profile at the expense of operational overhead.
+
+## Sources
+
+- AWS Documentation. "Amazon Rekognition feature availability changes" (Streaming Video and Bulk Image Analysis closed to new customers 30 April 2026; fetched 25 September 2026). https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html
+- AWS Documentation. "Services in maintenance" (lists the Rekognition streaming and batch moderation features, announced 31 March 2026). https://docs.aws.amazon.com/general/latest/gr/maintenance_services.html
+- AWS Documentation. "Explore AWS services with AWS Free Tier" (credit-based Free and Paid account plans). https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier.html
+- Amazon Rekognition pricing. https://aws.amazon.com/rekognition/pricing/

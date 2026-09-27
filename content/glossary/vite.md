@@ -9,10 +9,12 @@ related:
   - glossary/nextjs
   - glossary/typescript
   - glossary/nodejs
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
-Vite (French for "fast," pronounced /vit/) is a frontend build tool that provides a dramatically faster development experience by serving source code over native ES modules during development and using Rollup for optimized production builds. Created by Evan You, the creator of Vue.js, Vite replaced Webpack as the preferred dev server for a growing number of frameworks.
+Vite (French for "fast," pronounced /vit/) is a frontend build tool that provides a dramatically faster development experience by serving source code over native ES modules during development and bundling for optimized production builds (with Rollup through Vite 7, and with the Rust-based Rolldown since Vite 8). Created by Evan You, the creator of Vue.js, Vite replaced Webpack as the preferred dev server for a growing number of frameworks.
 
 ## Origins and History
 
@@ -26,11 +28,11 @@ The initial prototype was Vue-specific, but community feedback pushed You to red
 
 **Native ES modules in development.** Modern browsers support `import` and `export` natively. Vite serves each module as an individual file via the browser's native module system. When you start the dev server, Vite does not bundle your application. Instead, it transforms and serves modules on demand as the browser requests them. This means dev server startup time is essentially constant regardless of application size.
 
-**Dependency pre-bundling.** Third-party dependencies (from `node_modules`) are pre-bundled using esbuild, a Go-based bundler that is 10-100x faster than JavaScript-based alternatives. This step converts CommonJS and UMD modules to ESM and collapses deep import chains into single modules to avoid excessive HTTP requests.
+**Dependency pre-bundling.** Third-party dependencies (from `node_modules`) are pre-bundled with a native-speed bundler: esbuild (written in Go) through Vite 7, and Rolldown (written in Rust) from Vite 8. This step converts CommonJS and UMD modules to ESM and collapses deep import chains into single modules to avoid excessive HTTP requests.
 
 **Hot module replacement (HMR).** When a file changes, Vite determines the precise module boundary affected and pushes only that module to the browser over WebSocket. Because only the changed module is replaced (not the entire dependency graph), HMR remains fast regardless of project size.
 
-**Production builds with Rollup.** For production, Vite uses Rollup to produce optimized, tree-shaken bundles with code splitting. The development and production pipelines are separate --- native ESM for speed during development, full bundling for optimization in production.
+**Production builds.** For production, Vite uses Rollup (Vite 7 and earlier) or Rolldown (Vite 8 and later) to produce optimized, tree-shaken bundles with code splitting. The development and production pipelines are separate --- native ESM for speed during development, full bundling for optimization in production.
 
 ## Why It Replaced Webpack for Development
 
@@ -40,7 +42,7 @@ This architecture shift produced measurable results: dev server cold start times
 
 ## Ecosystem Adoption
 
-By 2024, Vite had surpassed 13 million weekly npm downloads. Major frameworks adopted Vite as their default build tool, including Angular, Astro, Nuxt, Remix, SolidStart, SvelteKit, and Qwik. Evan You founded VoidZero in 2024 to build a unified JavaScript toolchain around Vite, with Rolldown (a Rust-based Rollup replacement) as the next-generation bundler.
+By 2024, Vite had surpassed 13 million weekly npm downloads. Major frameworks adopted Vite as their default build tool, including Angular, Astro, Nuxt, Remix, SolidStart, SvelteKit, and Qwik. Evan You founded VoidZero in 2024 to build a unified JavaScript toolchain around Vite, with Rolldown (a Rust-based Rollup replacement) as the next-generation bundler. Vite 8, released on 12 March 2026, replaced the esbuild-plus-Rollup pairing with Rolldown as its single bundler for both development and production; at that release the Vite team reported 65 million weekly downloads [5].
 
 ## Sources
 
@@ -48,3 +50,4 @@ By 2024, Vite had surpassed 13 million weekly npm downloads. Major frameworks ad
 2. You, E. (2020). Vite initial announcement tweet, April 20, 2020. https://twitter.com/youyuxi/status/1252173663199277058
 3. You, E. (2021). "Announcing Vite 2.0." Vite Blog, February 16, 2021. https://vitejs.dev/blog/announcing-vite2.html
 4. Vite Documentation. https://vitejs.dev/
+5. Vite Team. (2026). "Vite 8.0 is out!" Vite Blog, March 12, 2026. https://vite.dev/blog/announcing-vite8

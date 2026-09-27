@@ -2,6 +2,8 @@
 title: "Pinecone vs Weaviate: Vector Database Comparison 2026"
 description: "Pinecone vs Weaviate: architecture, pricing, performance, and when to choose each for production RAG systems. Covers managed vs self-hosted, filtering, hybrid search, and multimodal support."
 date: 2026-06-22
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: ["vector-database", "pinecone", "weaviate", "rag", "embeddings", "semantic-search", "comparison"]
 related:
@@ -35,7 +37,7 @@ Pinecone and Weaviate both store and search high-dimensional vectors for semanti
     <span class="bz-arch-layer-label">Embedding</span>
     <div class="bz-arch-layer-content">
       <span class="bz-arch-chip">OpenAI text-embedding-3</span>
-      <span class="bz-arch-chip">Cohere Embed v3</span>
+      <span class="bz-arch-chip">Cohere Embed v4</span>
       <span class="bz-arch-chip">BGE-M3</span>
       <span class="bz-arch-chip-note">Pinecone: bring your own vectors. Weaviate: optionally integrates vectorizer modules</span>
     </div>
@@ -60,9 +62,9 @@ Pinecone and Weaviate both store and search high-dimensional vectors for semanti
   <div class="bz-arch-layer">
     <span class="bz-arch-layer-label">Generation</span>
     <div class="bz-arch-layer-content">
-      <span class="bz-arch-chip">GPT-4o</span>
-      <span class="bz-arch-chip">Claude 4</span>
-      <span class="bz-arch-chip">Gemini 2.0</span>
+      <span class="bz-arch-chip">GPT-6 Sol</span>
+      <span class="bz-arch-chip">Claude Opus 5.5</span>
+      <span class="bz-arch-chip">Gemini 3.8 Flash</span>
       <span class="bz-arch-chip-note">Retrieved context injected into the LLM prompt</span>
     </div>
   </div>
@@ -78,13 +80,13 @@ Two deployment tiers are available:
 
 **Serverless:** Index storage and compute are decoupled. You pay per query and per GB of vectors stored. Cold-start latency exists when an index has not been queried recently, but the trade-off is that you pay nothing during idle periods. This is the default for new users and suitable for variable or unpredictable workloads.
 
-**Pod-based:** Dedicated compute pods with predictable, consistent latency. You choose pod type (s1 for storage-optimized, p1/p2 for performance) and reserve capacity up front. This tier suits high-query production systems where tail latency matters.
+**Pod-based (legacy):** Dedicated compute pods with predictable, consistent latency. You choose pod type (s1 for storage-optimized, p1/p2 for performance) and reserve capacity up front. Customers who signed up for a Standard or Enterprise plan on or after 18 August 2025 cannot create pod-based indexes; Pinecone points large, high-query workloads to serverless indexes with **dedicated read nodes** instead.
 
 Pinecone uses a proprietary index format. The internal algorithm is undisclosed, but Pinecone states that it is ANNS (approximate nearest neighbor search) based and tuned for cloud-scale horizontal distribution. You interact through the Pinecone SDK or REST API. There is no access to the underlying system.
 
 Pinecone stores vector IDs, vectors, and metadata (key-value pairs). It does not store full document text. You retrieve IDs and use them to fetch full content from your primary database or object store.
 
-As of 2026, Pinecone supports namespaces for logical data isolation within a single index, sparse-dense hybrid search via its own sparse vector type, and a Pinecone Inference API that embeds text directly before insertion or search.
+As of 2026, Pinecone supports namespaces for logical data isolation within a single index, sparse-dense hybrid search via its own sparse vector type, lexical (full-text) search, a Pinecone Inference API that embeds text directly before insertion or search, and a Pinecone MCP server that lets agents manage indexes, upsert, and query.
 
 ### Weaviate
 
@@ -94,14 +96,14 @@ Weaviate uses HNSW (Hierarchical Navigable Small World) as its primary index. It
 
 Vectorizer modules plug into Weaviate at the schema level. When you insert an object, Weaviate can call an external model API (OpenAI, Cohere, Hugging Face) to generate the vector automatically. You can also supply pre-computed vectors directly.
 
-As of v1.37 (April 2026), Weaviate ships a built-in Model Context Protocol (MCP) server at `/v1/mcp`. AI agents and IDEs can query and write to the database without a custom integration layer.
+Since v1.37 (April 2026), Weaviate ships a built-in Model Context Protocol (MCP) server at `/v1/mcp`; the latest release as of September 2026 is v1.39.x. AI agents and IDEs can query and write to the database without a custom integration layer.
 
 Weaviate exposes REST, GraphQL, and gRPC APIs. The gRPC path is the high-performance route for batch imports and high-throughput search.
 
 Deployment options:
 
 - **Self-hosted:** Docker Compose for single-node development. Kubernetes Helm chart for production clusters with replication and horizontal scaling.
-- **Weaviate Cloud:** Managed service with Sandbox (free, limited), Flex (usage-based, starting around €40/month), and enterprise tiers with dedicated infrastructure and stronger SLAs.
+- **Weaviate Cloud:** Managed service with an always-free tier (one cluster, 100,000 objects), Flex (pay-as-you-go, $45/month minimum), and Premium (prepaid contract, shared or dedicated, from $400/month) with stronger SLAs.
 
 ## Setup and code examples
 
@@ -212,7 +214,7 @@ client.close()
 |---|---|---|
 | **Hosting** | Managed SaaS only | Self-hosted or Weaviate Cloud |
 | **License** | Proprietary | Apache 2.0 (core) |
-| **Serverless tier** | Yes (pay-per-query) | No (Weaviate Cloud is pod-based) |
+| **Serverless tier** | Yes (pay-per-query) | No (Weaviate Cloud runs shared or dedicated clusters billed by vector dimensions stored) |
 | **Hybrid search** | Yes (sparse-dense, native) | Yes (BM25 + vector, native) |
 | **Multi-tenancy** | Namespaces (logical isolation within index) | First-class multi-tenancy (separate HNSW graphs per tenant) |
 | **Max vector dimensions** | 20,000 | No hard limit (practical limit: model output dimensions) |
@@ -220,9 +222,9 @@ client.close()
 | **Built-in vectorizer** | Yes (Pinecone Inference API) | Yes (module system: OpenAI, Cohere, Hugging Face, and others) |
 | **Full text storage** | No (IDs and metadata only) | Yes (full object with all properties) |
 | **Backups** | Managed by Pinecone (serverless); manual collections export (pod) | Self-hosted: manual snapshots; Weaviate Cloud: automated backups |
-| **Free tier** | Free Serverless tier (up to 2GB storage, limited pods) | Weaviate Cloud Sandbox (14-day trial, limited objects) |
+| **Free tier** | Starter plan (up to 2GB storage, serverless only) | Weaviate Cloud Free (always free, 100,000 objects, 1 collection) |
 | **gRPC API** | No | Yes (v1.23 onward) |
-| **MCP server** | No | Yes (v1.37 onward, at /v1/mcp) |
+| **MCP server** | Yes (Pinecone MCP server, plus per-Assistant MCP servers) | Yes (built in from v1.37, at /v1/mcp) |
 
 ## RAG retrieval flow
 
@@ -260,7 +262,7 @@ client.close()
   <div class="bz-flow-step">
     <span class="bz-flow-step-tag">Step 6</span>
     <span class="bz-flow-step-name">Context assembly</span>
-    <span class="bz-flow-step-desc">Concatenate the top chunks into the LLM prompt. Send to GPT-4o, Claude 4, or Gemini 2.0 to generate the final answer.</span>
+    <span class="bz-flow-step-desc">Concatenate the top chunks into the LLM prompt. Send to an LLM such as GPT-6 Sol, Claude Opus 5.5, or Gemini 3.8 Flash (September 2026; see the <a href="/comparisons/llm-landscape-2026/">LLM landscape</a> for current options) to generate the final answer.</span>
   </div>
 </div>
 
@@ -284,13 +286,13 @@ Multi-tenancy is important for SaaS applications where each customer's data must
 
 ## Pricing model
 
-**Pinecone Serverless:** Charged per query (read units) and per GB of vectors stored (write units). Low-traffic projects stay inexpensive. High-traffic projects can become expensive quickly because each query incurs a cost. A free Starter tier provides 2GB storage and limited query throughput with no credit card required.
+**Pinecone Serverless:** Charged for reads (read units), writes (write units), and storage (per GB per month); on the Standard plan, roughly $16–18 per million read units, $4–4.50 per million write units, and $0.33/GB/month, with a $50/month minimum. Low-traffic projects stay inexpensive. High-traffic projects can become expensive quickly because each query incurs a cost. A free Starter tier provides 2GB storage and limited query throughput with no credit card required.
 
-**Pinecone Pod-based:** Reserved capacity at a fixed hourly rate per pod. Predictable cost but you pay for idle capacity. Pricing starts around $0.096/hour per p1 pod (verify current rates on the Pinecone pricing page).
+**Pinecone Pod-based (legacy):** Reserved capacity at a fixed hourly rate per pod. Predictable cost but you pay for idle capacity. Only available to accounts that predate 18 August 2025 on Standard or Enterprise; newer accounts use serverless, with dedicated read nodes for sustained high query rates.
 
 **Weaviate self-hosted:** Infrastructure cost only. A three-node production Kubernetes cluster on AWS EC2 (r6g.large) costs roughly €120-180/month at 2026 EU on-demand rates, depending on storage and data transfer. You absorb the operational burden.
 
-**Weaviate Cloud Flex:** Usage-based billing driven by vector dimensions stored, object storage, and backup storage. Estimated starting cost for a small RAG system (1 million objects at 1536 dimensions) is around €40-60/month. Enterprise tiers with dedicated infrastructure add SLA guarantees and support.
+**Weaviate Cloud Flex:** Usage-based billing driven by vector dimensions stored, object storage, and backup storage, with a $45/month minimum that covers the baseline cluster; compression (such as RQ) lowers the per-dimension rate. Weaviate updated its price book from 1 September 2026 (new RQ-4 compression rate, corrected per-GiB backup rates). Premium contracts start from $400/month and add dedicated deployment options, SLA guarantees, and support.
 
 ## When to use Pinecone
 
@@ -304,7 +306,7 @@ Multi-tenancy is important for SaaS applications where each customer's data must
 - You need self-hosting for data residency, compliance, or cost reasons. Weaviate runs entirely on your infrastructure.
 - You are building a SaaS product with hundreds or thousands of tenants. Weaviate's per-tenant HNSW isolation is purpose-built for this pattern.
 - You want to store full document text alongside vectors and avoid a second database lookup after retrieval.
-- You are building AI agents that need to interact with the vector store via MCP. Weaviate's built-in MCP server (v1.37 onward) removes integration boilerplate.
+- You want an MCP endpoint that runs inside the database itself, including on self-hosted clusters. Weaviate's built-in MCP server (v1.37 onward) removes integration boilerplate; Pinecone's MCP server is a separate component that calls its hosted API.
 - You need a built-in vectorizer pipeline. Weaviate's module system calls embedding APIs automatically, which simplifies your ingestion code.
 
 ## When to use neither
@@ -323,5 +325,7 @@ Multi-tenancy is important for SaaS applications where each customer's data must
 - [Weaviate multi-tenancy guide](https://weaviate.io/developers/weaviate/manage-data/multi-tenancy): tenant isolation model, activation/deactivation, and SaaS patterns
 - [Weaviate hybrid search documentation](https://weaviate.io/developers/weaviate/search/hybrid): BM25 plus vector search, alpha weighting, and fusion algorithms
 - [Weaviate v1.37 release notes](https://weaviate.io/blog/weaviate-1-37-release): MCP server, ACORN-optimized filtered HNSW, and other updates from April 2026
+- [Weaviate pricing](https://weaviate.io/pricing): Free, Flex, and Premium plans and the September 2026 price-book update (checked 25 September 2026)
+- [Pinecone pricing](https://www.pinecone.io/pricing/), [Understanding pod-based indexes](https://docs.pinecone.io/guides/indexes/pods/understanding-pod-based-indexes), and [Use the Pinecone MCP server](https://docs.pinecone.io/guides/operations/mcp-server) (checked 25 September 2026)
 - [Building RAG systems](/guides/building-rag-systems/): end-to-end guide covering chunking, embedding, retrieval, and generation patterns applicable to both Pinecone and Weaviate
 - [Weaviate vs pgvector](/comparisons/weaviate-vs-pgvector/): when to use a dedicated vector database versus adding pgvector to your existing PostgreSQL setup

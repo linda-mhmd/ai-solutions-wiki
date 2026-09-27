@@ -15,7 +15,9 @@ related:
   - glossary/ai-benchmark
   - glossary/agent-as-a-judge
   - glossary/llm-as-a-judge
-last_updated: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Evaluating LLMs is one of the hardest problems in AI. Traditional ML has clear metrics: accuracy, precision, recall. LLM outputs are open-ended text where "correct" is subjective, context-dependent, and multidimensional. A response can be factually accurate but poorly written, or fluent but hallucinated. Effective LLM evaluation requires combining multiple approaches, none of which is sufficient alone.
@@ -58,7 +60,7 @@ Use a strong LLM to evaluate outputs from the model being tested:
 
 **Pairwise comparison.** Present two answers to the same question and ask the judge which is better. More reliable than absolute scoring because relative comparison is easier.
 
-**Implementation:** Use a structured prompt that defines the evaluation criteria clearly. Request scores and explanations. Use a strong model (GPT-4, Claude) as the judge.
+**Implementation:** Use a structured prompt that defines the evaluation criteria clearly. Request scores and explanations. Use a strong current model as the judge (at the time of writing, September 2026, for example Claude Opus 5.5 or GPT-6 Sol; see the [LLM landscape](/comparisons/llm-landscape-2026/)), ideally from a different model family than the system under test to limit self-preference bias.
 
 **Limitations:** LLM judges have biases (preferring longer responses, preferring their own style, position bias in pairwise comparison). Mitigate by randomizing order in pairwise comparison and calibrating against human judgments.
 

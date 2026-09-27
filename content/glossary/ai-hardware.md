@@ -9,18 +9,20 @@ related:
   - glossary/quantization
   - glossary/flash-attention
   - glossary/edge-computing
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 AI hardware refers to specialized processors designed to accelerate the matrix multiplications and tensor operations that dominate machine learning workloads. The choice of hardware directly impacts training time, inference latency, throughput, and cost per query. The market spans general-purpose GPUs, Google's TPUs, and purpose-built ASICs from companies like Groq and Cerebras.
 
 ## How It Works
 
-**NVIDIA GPUs** dominate AI training and inference. The H100 and B200 GPUs provide thousands of CUDA and Tensor Cores optimized for mixed-precision matrix operations. NVIDIA's ecosystem advantage (CUDA, cuDNN, TensorRT) means virtually all ML frameworks are optimized for their hardware first. NVLink and NVSwitch enable multi-GPU communication at high bandwidth for distributed training.
+**NVIDIA GPUs** dominate AI training and inference. The Blackwell generation (B200 and GB200, plus the Blackwell Ultra B300 and GB300 refresh) and the still widely deployed Hopper generation (H100 and H200) provide thousands of CUDA and Tensor Cores optimized for mixed-precision matrix operations. NVIDIA's next platform, Vera Rubin, was launched at GTC in March 2026 and entered production during 2026. NVIDIA's ecosystem advantage (CUDA, cuDNN, TensorRT) means virtually all ML frameworks are optimized for their hardware first. NVLink and NVSwitch enable multi-GPU communication at high bandwidth for distributed training.
 
-**Google TPUs** (Tensor Processing Units) are custom ASICs designed specifically for neural network computation. TPU v5p and Trillium pods provide high-bandwidth interconnects for large-scale training. TPUs are available through Google Cloud and power Google's own models. Their systolic array architecture excels at the large matrix multiplications in transformer models.
+**Google TPUs** (Tensor Processing Units) are custom ASICs designed specifically for neural network computation. The current seventh-generation Ironwood (TPU7x), generally available since late 2025, scales to pods of 9,216 chips; the prior Trillium (TPU v6e) generation remains available. TPUs are available through Google Cloud and power Google's own models. Their systolic array architecture excels at the large matrix multiplications in transformer models.
 
-**Groq** uses a deterministic architecture called the Language Processing Unit (LPU) that eliminates the scheduling overhead of GPUs. By executing computations in a precisely timed pipeline, Groq achieves extremely low latency inference, delivering hundreds of tokens per second for LLMs. **Cerebras** takes a different approach with its wafer-scale engine (WSE), a single chip the size of an entire silicon wafer containing hundreds of thousands of cores, eliminating the inter-chip communication overhead that limits multi-GPU training.
+**Groq** uses a deterministic architecture called the Language Processing Unit (LPU) that eliminates the scheduling overhead of GPUs. By executing computations in a precisely timed pipeline, Groq achieves extremely low latency inference, delivering hundreds of tokens per second for LLMs. In December 2025 Groq signed a non-exclusive licensing agreement with NVIDIA for this inference technology, and several Groq leaders joined NVIDIA; Groq continues as an independent inference cloud (GroqCloud). **Cerebras** takes a different approach with its wafer-scale engine (WSE), a single chip the size of an entire silicon wafer containing hundreds of thousands of cores, eliminating the inter-chip communication overhead that limits multi-GPU training.
 
 ## Why It Matters
 
@@ -36,3 +38,8 @@ For most organizations, NVIDIA GPUs offer the safest choice due to ecosystem mat
 - Dally, W., Turakhia, Y., & Han, S. (2020). Domain-specific hardware accelerators. *Communications of the ACM, 63*(7), 48–57. (Survey explaining why custom hardware beats general-purpose CPUs/GPUs for neural network workloads.)
 - Reuther, A., et al. (2020). Survey of machine learning accelerators. *IEEE High Performance Extreme Computing Conference (HPEC)*. (Comprehensive landscape survey of GPU, TPU, and ASIC alternatives for ML.)
 - Patterson, D., et al. (2022). The carbon footprint of machine learning training will plateau, then shrink. *Computer, 55*(7), 18–28. (Analysis of hardware efficiency gains; informs sustainability and cost-per-FLOP decisions.)
+- Google. *Ironwood: The first Google TPU for the age of inference.* [https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/ironwood-tpu-age-of-inference/](https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/ironwood-tpu-age-of-inference/)
+- NVIDIA. *NVIDIA Vera Rubin platform* (GTC 2026, 16 March 2026). [https://nvidianews.nvidia.com/news/nvidia-vera-rubin-platform](https://nvidianews.nvidia.com/news/nvidia-vera-rubin-platform)
+- Groq. *Groq and Nvidia Enter Non-Exclusive Inference Technology Licensing Agreement* (24 December 2025). [https://groq.com/newsroom/groq-and-nvidia-enter-non-exclusive-inference-technology-licensing-agreement-to-accelerate-ai-inference-at-global-scale](https://groq.com/newsroom/groq-and-nvidia-enter-non-exclusive-inference-technology-licensing-agreement-to-accelerate-ai-inference-at-global-scale)
+
+See also [GPU vs TPU](/comparisons/gpu-vs-tpu/) and [Groq](/tools/groq/) for more detail.

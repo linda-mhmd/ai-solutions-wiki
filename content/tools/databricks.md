@@ -10,6 +10,8 @@ related:
   - glossary/mlops
   - tools/amazon-bedrock
   - guides/how-ai-models-are-evaluated
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -27,8 +29,8 @@ The core problem it solves is fragmentation. Most organisations keep raw data in
   <div class="bz-arch-layer">
     <span class="bz-arch-layer-label">AI and apps</span>
     <div class="bz-arch-layer-content">
-      <span class="bz-arch-chip">Mosaic AI model serving</span>
-      <span class="bz-arch-chip">Vector Search</span>
+      <span class="bz-arch-chip">Model serving</span>
+      <span class="bz-arch-chip">AI Search</span>
       <span class="bz-arch-chip">AI agents</span>
       <span class="bz-arch-chip-note">RAG, fine-tuning, agent evaluation on your own data</span>
     </div>
@@ -108,7 +110,7 @@ Databricks runs as a managed service on AWS, Microsoft Azure, and Google Cloud. 
   </div>
 </div>
 
-For generative AI, Databricks groups its tooling under Mosaic AI. Vector Search builds managed indexes for [retrieval-augmented generation](/glossary/rag/), letting an agent pull relevant text from your own documents at query time. Model serving exposes foundation models and your own models through governed APIs. The platform also supports [fine-tuning](/glossary/fine-tuning/) models on proprietary data, and MLflow provides experiment tracking and tracing so you can measure agent quality. Because model training and serving live next to the data, you keep [MLOps](/glossary/mlops/) practices, lineage, and access control consistent across the whole lifecycle. When you build agents this way, treat evaluation as a first-class step rather than an afterthought; see our guide on [how AI models are evaluated](/guides/how-ai-models-are-evaluated/).
+For generative AI, Databricks used to group its tooling under the Mosaic AI brand; its current documentation presents it simply as building agents on Databricks, with Agent Bricks features such as Knowledge Assistant and Supervisor Agent alongside custom Python agents. **AI Search** (formerly Databricks Vector Search) builds managed indexes for [retrieval-augmented generation](/glossary/rag/), letting an agent pull relevant text from your own documents at query time. Model serving exposes foundation models and your own models through governed APIs, with Unity Gateway adding usage tracking, payload logging and access controls. The platform also supports [fine-tuning](/glossary/fine-tuning/) models on proprietary data, and MLflow provides experiment tracking and tracing so you can measure agent quality. Because model training and serving live next to the data, you keep [MLOps](/glossary/mlops/) practices, lineage, and access control consistent across the whole lifecycle. When you build agents this way, treat evaluation as a first-class step rather than an afterthought; see our guide on [how AI models are evaluated](/guides/how-ai-models-are-evaluated/).
 
 ## How it compares
 
@@ -116,7 +118,7 @@ For generative AI, Databricks groups its tooling under Mosaic AI. Vector Search 
 |---|---|---|---|---|
 | **Core model** | Lakehouse on open storage | Cloud data warehouse | Managed warehouse | Assembled from parts |
 | **Storage format** | Open (Delta Lake) | Managed tables | Often proprietary | Open, your choice |
-| **AI and ML** | Built in (Mosaic AI, MLflow) | Growing AI features | Add-on or external | You wire it up |
+| **AI and ML** | Built in (Agent Bricks, MLflow) | Growing AI features | Add-on or external | You wire it up |
 | **Governance** | Unity Catalog | Native governance | Warehouse controls | Self-built |
 | **Best for** | Unified data and AI teams | SQL analytics teams | BI-first workloads | Full control, high effort |
 
@@ -135,8 +137,8 @@ Match the platform to the workload. Databricks earns its complexity when unifyin
 
 ## Further reading
 
-- [What is RAG?](/glossary/rag/): how retrieval grounds a model in your own data, the pattern behind Vector Search.
-- [What is fine-tuning?](/glossary/fine-tuning/): adapting a model to proprietary data, supported inside Mosaic AI.
+- [What is RAG?](/glossary/rag/): how retrieval grounds a model in your own data, the pattern behind AI Search.
+- [What is fine-tuning?](/glossary/fine-tuning/): adapting a model to proprietary data, supported on the Databricks platform.
 - [What is MLOps?](/glossary/mlops/): the operational practices Databricks builds around with MLflow and Unity Catalog.
 - [Amazon Bedrock](/tools/amazon-bedrock/): a managed model service that sits at the model layer rather than the data layer.
 - [How AI models are evaluated](/guides/how-ai-models-are-evaluated/): why evaluation is a first-class step when shipping agents.
@@ -149,3 +151,4 @@ Match the platform to the workload. Databricks earns its complexity when unifyin
 - Databricks lakehouse architecture documentation: https://docs.databricks.com/aws/en/lakehouse/
 - Databricks generative AI documentation: https://docs.databricks.com/aws/en/generative-ai/guide/introduction-generative-ai-apps
 - Delta Lake: https://delta.io/
+- Databricks, "Build agents on Databricks" (AI Search formerly Databricks Vector Search; Knowledge Assistant, Supervisor Agent, Unity Gateway), last updated 15 September 2026: https://docs.databricks.com/aws/en/agents

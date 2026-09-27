@@ -2,11 +2,11 @@
 title: "REST vs GraphQL for AI Application APIs"
 description: "Comparing REST and GraphQL API designs for AI applications, covering streaming support, query patterns, caching, and practical recommendations."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [REST, GraphQL, API-design, architecture, AI-apps]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 AI applications expose APIs for model inference, data retrieval, and system management. REST and GraphQL represent different approaches to API design. For AI workloads, the choice is influenced by streaming requirements, query complexity, and client diversity.
@@ -128,7 +128,7 @@ Many AI applications use both: REST for inference APIs (streaming, simple reques
 
 REST and GraphQL are designed for clients that know in advance which endpoints or fields to call. AI agents are different: the model itself decides at runtime which capability to invoke. For that pattern, the Model Context Protocol (MCP) has become a common standard.
 
-**MCP** - an open protocol introduced by Anthropic in November 2024 that lets an LLM application discover and call tools, resources, and prompts exposed by a server. It uses JSON-RPC 2.0 messages over transports such as stdio or streamable HTTP, with a single connection rather than many resource endpoints. The specification is versioned by date (the 2025-11-25 revision is the current release as of this writing) and is now stewarded as an open project with broad adoption across LLM providers and tools.
+**MCP** - an open protocol introduced by Anthropic in November 2024 that lets an LLM application discover and call tools, resources, and prompts exposed by a server. It uses JSON-RPC 2.0 messages over transports such as stdio or streamable HTTP, with a single endpoint rather than many resource endpoints. The specification is versioned by date: the current release as of September 2026 is the 2026-07-28 revision, which made MCP stateless by default (no initialize handshake or session IDs; every request is self-contained), so a remote MCP server now scales behind a load balancer much like an ordinary REST service ([MCP goes stateless](/news/mcp-2026-07-28-stateless/)). MCP is stewarded under the Linux Foundation's Agentic AI Foundation, with broad adoption across LLM providers and tools.
 
 MCP does not replace REST or GraphQL for human-built clients. A mobile app or dashboard still calls your inference and management APIs directly. MCP sits alongside them: it is the interface you expose when you want an AI agent to use your service as a tool. Many teams wrap existing REST endpoints in an MCP server so that agents get a discoverable, schema-described tool surface while human clients keep the underlying REST or GraphQL API.
 
@@ -140,4 +140,5 @@ For low-latency service-to-service calls where neither REST overhead nor agent t
 - [Streaming API responses (OpenAI API docs)](https://developers.openai.com/api/docs/guides/streaming-responses)
 - [Announcing the September 2025 Edition of the GraphQL Specification (GraphQL Foundation)](https://graphql.org/blog/2025-09-08-september-edition/)
 - [GraphQL subscriptions (graphql.org)](https://graphql.org/learn/subscriptions/)
-- [Model Context Protocol specification (uses JSON-RPC 2.0)](https://modelcontextprotocol.io/specification)
+- [Model Context Protocol specification, 2026-07-28 revision (uses JSON-RPC 2.0)](https://modelcontextprotocol.io/specification/2026-07-28)
+- [Donating the Model Context Protocol and establishing the Agentic AI Foundation (Anthropic, December 2025)](https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation)

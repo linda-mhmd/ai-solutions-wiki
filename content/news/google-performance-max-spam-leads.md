@@ -7,7 +7,6 @@ last_updated: 2026-07-30
 categories: [News]
 tags: [google-ads, performance-max, ad-fraud, ai-advertising, lead-generation]
 related:
-  - news/ai-search-and-geo-vs-seo
   - guides/ai-search-and-geo-vs-seo
   - glossary/ai-gateway
 ---

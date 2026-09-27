@@ -11,7 +11,8 @@ related:
   - patterns/gpu-pooling
   - glossary/kubernetes
   - glossary/cpu-scheduling
-last_verified: 2026-07-02
+last_verified: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -68,7 +69,7 @@ Most GPU clusters run one of two schedulers, from two different traditions.
 | **Strength** | Large batch training, fair-share queues | Mixed training and serving, ecosystem |
 | **Best for** | Research and HPC clusters | Platform teams running many workloads |
 
-**Slurm** comes from supercomputing and is still the default for large training clusters. It models GPUs as generic resources (GRES), supports partitions, fair-share accounting, and backfill scheduling that slots small jobs into gaps without delaying big ones. A job asks for GPUs directly:
+**Slurm** comes from supercomputing and is still the default for large training clusters. Its main developer, SchedMD, is now part of NVIDIA. It models GPUs as generic resources (GRES), supports partitions, fair-share accounting, and backfill scheduling that slots small jobs into gaps without delaying big ones. A job asks for GPUs directly:
 
 ```bash
 #!/bin/bash
@@ -87,7 +88,7 @@ resources:
     nvidia.com/gpu: 2        # this pod gets 2 whole GPUs
 ```
 
-The catch is gang scheduling. The default Kubernetes scheduler places pods one at a time, so a distributed job can get half its workers and deadlock. Batch systems layered on top, Kueue (the Kubernetes-native option) or Volcano, add all-or-nothing gang scheduling, queues, and quotas. On the operations side, the NVIDIA GPU Operator automates the driver, container toolkit, and device-plugin install so nodes are ready to serve GPUs without manual setup.
+The catch is gang scheduling. The default Kubernetes scheduler places pods one at a time, so a distributed job can get half its workers and deadlock. Batch systems layered on top, Kueue (the Kubernetes-native option) or Volcano, add all-or-nothing gang scheduling, queues, and quotas. On the operations side, the NVIDIA GPU Operator automates the driver, container toolkit, and device-plugin install so nodes are ready to serve GPUs without manual setup. Newer clusters can also use Dynamic Resource Allocation (DRA), whose core APIs reached general availability in Kubernetes 1.34 (released August 2025): instead of a flat GPU count, a pod claims devices through a ResourceClaim that can select by attributes such as GPU model or memory, and vendor DRA drivers expose the devices. The device-plugin model above still works and remains the most common setup.
 
 ## Sharing one GPU
 
@@ -140,4 +141,6 @@ Beyond placement, a few practices decide whether an expensive cluster earns its 
 - NVIDIA. "GPU Operator Documentation." https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html. Automated driver, toolkit, and device-plugin management, plus time-slicing and MPS.
 - Kubernetes. "Schedule GPUs." https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/. The device-plugin model and requesting GPUs in pods.
 - Kubernetes. "Kueue: Kubernetes-native Job Queueing." https://kueue.sigs.k8s.io/. Gang scheduling, quotas, and queues for batch workloads.
+- Kubernetes. "Kubernetes v1.34: DRA has graduated to GA" (1 September 2025). https://kubernetes.io/blog/2025/09/01/kubernetes-v1-34-dra-updates/. Dynamic Resource Allocation for GPUs and other devices.
+- SchedMD homepage ("SchedMD is now a part of NVIDIA", fetched 25 September 2026). https://www.schedmd.com/
 - SchedMD. "Slurm Generic Resource (GRES) Scheduling." https://slurm.schedmd.com/gres.html. Requesting and scheduling GPUs in Slurm.

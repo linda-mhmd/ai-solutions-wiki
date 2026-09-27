@@ -8,12 +8,14 @@ related:
   - tools/langchain
   - tools/instructor
   - tools/amazon-bedrock
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 DSPy (Declarative Self-improving Python) is a framework from Stanford NLP that replaces hand-written prompts with declarative modules that are compiled (optimized) automatically. Instead of crafting prompt text manually, you define the input-output behavior you want, provide a few examples, and DSPy's optimizers find the prompt instructions, few-shot examples, and even fine-tuning configurations that maximize a metric you define. For AI projects, DSPy addresses the fragility of prompt engineering by making LLM pipelines systematic, reproducible, and automatically optimizable.
 
-Official documentation: https://dspy-docs.vercel.app/
+Official documentation: https://dspy.ai/ (the older dspy-docs.vercel.app address redirects there)
 
 ## Core Concepts
 
@@ -21,7 +23,7 @@ Official documentation: https://dspy-docs.vercel.app/
 
 **Module** - A composable building block. Built-in modules include Predict (basic LLM call), ChainOfThought (adds reasoning before answering), ReAct (reasoning with tool use), and ProgramOfThought (generates and executes code). You compose modules into pipelines by calling them within a Python class.
 
-**Teleprompter (Optimizer)** - The component that compiles a program by finding optimal prompts or fine-tuning data. Optimizers include BootstrapFewShot (selects effective few-shot examples), BootstrapFewShotWithRandomSearch (searches example combinations), MIPRO (multi-prompt instruction proposal and optimization), and COPRO (collaborative prompt optimization). Each optimizer tries different configurations and keeps what maximizes your metric.
+**Teleprompter (Optimizer)** - The component that compiles a program by finding optimal prompts or fine-tuning data. Optimizers include BootstrapFewShot (selects effective few-shot examples), BootstrapFewShotWithRandomSearch (searches example combinations), MIPROv2 (instruction and few-shot proposal with Bayesian search), COPRO (coordinate-ascent instruction optimization), SIMBA, GEPA (reflective prompt evolution), and BootstrapFinetune (distils a program into fine-tuned weights). DSPy's docs now mostly say "optimizer"; the classes still live in the `dspy.teleprompt` module. Each optimizer tries different configurations and keeps what maximizes your metric.
 
 **Metric** - A function that scores the quality of a module's output. Metrics can be simple (exact match, F1 score) or complex (LLM-as-judge evaluation). The metric drives the optimization: the teleprompter tries different prompt configurations and keeps the ones that score highest on your development examples.
 
@@ -69,4 +71,10 @@ DSPy supports multiple LLM backends: OpenAI, Anthropic, Bedrock, and local model
 
 ## Pricing
 
-DSPy is open-source (MIT license) and free. The optimization process consumes LLM API calls (potentially hundreds to thousands during compilation), so factor API costs into the development budget. The trade-off is one-time optimization cost versus ongoing savings from higher-quality, more reliable outputs.
+DSPy is open-source (MIT license) and free; the current release line is DSPy 3.x (3.4.0 on PyPI as of 25 September 2026). The optimization process consumes LLM API calls (potentially hundreds to thousands during compilation), so factor API costs into the development budget. The trade-off is one-time optimization cost versus ongoing savings from higher-quality, more reliable outputs.
+
+## Sources
+
+1. DSPy documentation. https://dspy.ai/
+2. DSPy GitHub repository (MIT; optimizers in `dspy/teleprompt`, including MIPROv2, GEPA, SIMBA, BootstrapFinetune). https://github.com/stanfordnlp/dspy
+3. dspy on PyPI (version 3.4.0, 25 September 2026). https://pypi.org/project/dspy/

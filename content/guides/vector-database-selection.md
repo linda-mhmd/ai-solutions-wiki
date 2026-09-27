@@ -9,9 +9,11 @@ related:
   - guides/building-rag-systems
   - tools/amazon-opensearch
   - glossary/embeddings
-  - glossary/approximate-nearest-neighbor
-  - comparisons/vector-databases
-last_updated: 2026-05-30
+  - patterns/vector-search-optimization
+  - comparisons/pinecone-vs-weaviate
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Vector databases store and search high-dimensional embeddings, enabling similarity search for RAG systems, recommendation engines, and semantic search. The vector database market has exploded with options, making selection confusing. This guide provides a structured approach to choosing the right one for your use case.
@@ -65,6 +67,8 @@ You may not need a dedicated vector database if your dataset is small (under 100
 **PostgreSQL + pgvector.** Add vector search to your existing PostgreSQL database. No new infrastructure. Performance is adequate for small to medium datasets. Scaling requires PostgreSQL scaling expertise.
 
 **Amazon OpenSearch.** k-NN plugin supports vector search alongside traditional search. Good choice if you already use OpenSearch for logging or search.
+
+**Amazon S3 Vectors.** Vector buckets and indexes inside S3, with no infrastructure to provision and pay-per-use pricing. AWS quotes subsecond latency for infrequent queries and as low as 100ms for frequent ones, so it suits large, cost-sensitive collections rather than sub-10ms interactive search.
 
 **Redis.** Vector search module adds similarity search to Redis. Extremely fast for datasets that fit in memory.
 
@@ -123,3 +127,7 @@ Compare total cost of ownership including:
 - Migration cost if you outgrow the solution
 
 The right vector database is the one that meets your performance and operational requirements at acceptable cost. For most teams starting out, the simplest option that meets requirements is the best choice - you can migrate later if needs change.
+
+## Sources
+
+- AWS Documentation. "Working with S3 Vectors and vector buckets." Amazon S3 User Guide, accessed 25 September 2026. https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html

@@ -8,7 +8,9 @@ related:
   - glossary/cdn
   - glossary/serverless
   - glossary/inference
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Edge computing processes data near its source - at the network edge, on devices, or in local facilities - rather than sending all data to a centralized cloud data center. This reduces latency, conserves bandwidth, and enables operation when network connectivity is unreliable or unavailable.
@@ -17,7 +19,7 @@ Edge computing processes data near its source - at the network edge, on devices,
 
 Instead of sending raw data to the cloud for processing, edge computing deploys compute resources close to where data is generated. These edge resources run inference models, filter data, make real-time decisions, and send only relevant results or aggregated data to the cloud.
 
-**AWS edge services** span a spectrum from CDN-based compute (CloudFront Functions, Lambda@Edge) to local hardware (AWS Outposts, Snow Family devices, IoT Greengrass). The choice depends on how close to the data source you need processing and how much compute is required.
+**AWS edge services** span a spectrum from CDN-based compute (CloudFront Functions, Lambda@Edge) to local hardware (AWS Outposts, IoT Greengrass, and the Snowball Edge devices, for which AWS ends support in commercial Regions on 31 December 2026). The choice depends on how close to the data source you need processing and how much compute is required.
 
 ## Why It Matters for AI
 
@@ -40,3 +42,4 @@ The common pattern is a hybrid architecture: lightweight models run at the edge 
 - Satyanarayanan, M. (2017). The emergence of edge computing. *Computer, 50*(1), 30–39. (Foundational paper defining edge computing and its relationship to cloud; coined "cloudlet" architecture.)
 - Shi, W., et al. (2016). Edge computing: Vision and challenges. *IEEE Internet of Things Journal, 3*(5), 637–646. (Widely cited survey establishing edge computing terminology and architecture principles.)
 - Li, H., Ota, K., & Dong, M. (2018). Learning IoT in edge: Deep learning for the Internet of Things with edge computing. *IEEE Network, 32*(1), 96–101. (Edge AI inference patterns; how deep learning is adapted for resource-constrained edge deployment.)
+- AWS. *AWS Snow Family* (end-of-support notice, accessed 25 September 2026). [https://aws.amazon.com/snow/](https://aws.amazon.com/snow/)

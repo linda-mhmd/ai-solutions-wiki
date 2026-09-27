@@ -9,7 +9,9 @@ related:
   - tools/apache-spark
   - tools/duckdb
   - tools/timescaledb
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 ClickHouse is an open-source column-oriented database management system that enables real-time analytical query processing on billions of rows with sub-second latency. It uses a column-oriented storage format with aggressive data compression, vectorized query execution exploiting SIMD instructions, and a massively parallel processing architecture to achieve query performance that frequently surpasses commercial data warehouses on equivalent hardware.
@@ -31,7 +33,7 @@ ClickHouse is the open-source alternative to AWS Redshift, Google BigQuery, and 
 
 ## Origins and History
 
-ClickHouse was created by Alexey Milovidov at Yandex in 2009 for the Yandex.Metrica web analytics service, which needed to process over 20 billion events per day. It was open-sourced under the Apache License 2.0 in June 2016. ClickHouse, Inc. was founded in 2021 by Alexey Milovidov and Yury Izrailevsky, with significant venture funding to build ClickHouse Cloud. The project has accumulated over 35,000 GitHub stars and has one of the most active contributor communities among open-source databases.
+ClickHouse was created by Alexey Milovidov at Yandex in 2009 for the Yandex.Metrica web analytics service, which needed to process over 20 billion events per day. It was open-sourced under the Apache License 2.0 in June 2016. ClickHouse, Inc. was founded in 2021 by Alexey Milovidov and Yury Izrailevsky, with significant venture funding to build ClickHouse Cloud. The project has accumulated over 50,000 GitHub stars (as of September 2026) and has one of the most active contributor communities among open-source databases.
 
 ## Sources
 

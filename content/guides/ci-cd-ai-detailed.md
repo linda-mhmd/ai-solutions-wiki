@@ -11,7 +11,9 @@ related:
   - patterns/canary-deployment
   - tools/github-actions
   - patterns/model-versioning
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Continuous integration and continuous deployment (CI/CD) for AI projects extends the standard software pipeline with model-specific stages: model evaluation, artifact versioning, and drift detection. A team that skips these stages ships model updates without knowing whether the new version is better than the old one. This article describes a complete CI/CD pipeline for an AI project, covering each stage with concrete examples.
@@ -28,7 +30,7 @@ An AI project has more versioned artefacts than a standard application. Source c
 
 **Configuration:**
 - Model ID and version pins (never float to "latest" in production)
-- Bedrock agent configuration (instruction text, knowledge base IDs)
+- Agent configuration (instruction text, tool definitions, knowledge base IDs), whether for an Amazon Bedrock AgentCore agent or an existing Bedrock Agents Classic agent (Bedrock Agents was closed to new customers on 30 July 2026; AWS points new builds to [AgentCore](/tools/bedrock-agentcore/))
 - Infrastructure as code (Terraform modules or CDK stacks)
 - Deployment environment configuration (dev/staging/prod parameter files)
 
@@ -223,6 +225,7 @@ resource "aws_s3_bucket_versioning" "model_artifacts" {
 ## Sources and Further Reading
 
 - GitHub Documentation: GitHub Actions workflow syntax. [https://docs.github.com/en/actions](https://docs.github.com/en/actions)
+- AWS Documentation: Amazon Bedrock Agents Classic maintenance mode. [https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html)
 - AWS Documentation: Amazon SageMaker Model Registry. [https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry.html](https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry.html)
 - AWS Documentation: SageMaker Model Monitor. [https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html)
 - Humble, J. and Farley, D. (2010). *Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation*. Addison-Wesley.

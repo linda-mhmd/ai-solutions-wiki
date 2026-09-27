@@ -6,7 +6,9 @@ categories: [Solutions]
 tags: [workforce-planning, headcount-forecasting, talent-supply, scenario-modeling, hr-analytics]
 industries: [hr]
 tools: [amazon-sagemaker, amazon-forecast, amazon-redshift]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Workforce planning aligns an organization's talent supply with its business demand. Hiring too few people constrains growth and overworks existing staff. Hiring too many creates unnecessary costs and eventual layoffs. AI workforce planning replaces spreadsheet-based headcount projections with models that integrate business demand signals, attrition predictions, internal mobility, and labor market dynamics.
@@ -19,7 +21,7 @@ The result is a persistent gap between planned and actual headcount. Positions t
 
 ## AI Approach
 
-**Demand forecasting** - Amazon Forecast models predict workforce demand based on business drivers: revenue projections, customer volumes, project pipelines, seasonal patterns, and strategic initiatives. Different functions have different demand drivers: sales headcount tracks pipeline growth, support headcount tracks customer base, and engineering headcount tracks product roadmap.
+**Demand forecasting** - Time-series models (SageMaker Canvas or custom SageMaker models) predict workforce demand based on business drivers: revenue projections, customer volumes, project pipelines, seasonal patterns, and strategic initiatives. Different functions have different demand drivers: sales headcount tracks pipeline growth, support headcount tracks customer base, and engineering headcount tracks product roadmap.
 
 **Supply modeling** - SageMaker models project workforce supply accounting for predicted attrition (from the retention model), planned retirements, internal mobility (promotions, transfers), and historical fill rates for open positions. The supply model answers: given current workforce and expected dynamics, what will the workforce look like in 3, 6, 12 months without intervention?
 
@@ -29,7 +31,7 @@ The result is a persistent gap between planned and actual headcount. Positions t
 
 ## Architecture
 
-Business planning data, HR data, and financial data flow into Redshift. Amazon Forecast generates demand projections by function. SageMaker models produce supply projections and gap analysis. QuickSight dashboards present workforce plans with scenario comparison capabilities. Plans are integrated with the ATS (Applicant Tracking System) for recruitment pipeline management.
+Business planning data, HR data, and financial data flow into Redshift. SageMaker Canvas time-series models generate demand projections by function. Amazon Forecast, often used for this in the past, has been [closed to new customers since 29 July 2024](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/); AWS recommends SageMaker Canvas time-series forecasting for new builds. SageMaker models produce supply projections and gap analysis. QuickSight dashboards present workforce plans with scenario comparison capabilities. Plans are integrated with the ATS (Applicant Tracking System) for recruitment pipeline management.
 
 ## Key Considerations
 

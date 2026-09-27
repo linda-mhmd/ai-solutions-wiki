@@ -4,7 +4,9 @@ description: "What Infrastructure as Code is, and how Terraform, AWS CDK, and Cl
 date: 2026-03-24
 categories: [Glossary]
 tags: ["devops", "beginner", "infrastructure-as-code", "iac", "terraform", "automation", "provisioning"]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Infrastructure as Code (IaC) is the practice of managing and provisioning cloud infrastructure through machine-readable configuration files rather than manual console operations. With IaC, your infrastructure has the same version history, code review process, and deployment automation as your application code.
@@ -26,7 +28,7 @@ IaC makes infrastructure reproducible, reviewable, and deployable in CI/CD pipel
 
 ## Terraform
 
-Terraform (by HashiCorp) is the most widely used IaC tool. It uses HCL (HashiCorp Configuration Language), a declarative format describing desired state. Terraform supports every major cloud provider and thousands of third-party services through its provider ecosystem.
+Terraform (by HashiCorp, an IBM company since IBM completed its acquisition on 27 February 2025) is the most widely used IaC tool. Since HashiCorp's August 2023 licence change (effective from version 1.6) it has been released under the Business Source License rather than an open-source license; OpenTofu, a fork of the last open-source release, is a CNCF Sandbox project (accepted 23 April 2025) and a largely drop-in alternative. It uses HCL (HashiCorp Configuration Language), a declarative format describing desired state. Terraform supports every major cloud provider and thousands of third-party services through its provider ecosystem.
 
 Advantages: multi-cloud (same workflow for AWS, Azure, GCP), large community, mature module ecosystem on the Terraform Registry.
 
@@ -80,5 +82,7 @@ The IAM layer is where IaC provides the most value for AI projects - precisely d
 ## Sources
 
 - Morris, K. (2016). *Infrastructure as Code: Managing Servers in the Cloud*. O'Reilly Media. (First book to comprehensively define IaC practices; established the principles of dynamic infrastructure management.)
+- IBM Newsroom. (27 February 2025). IBM Completes Acquisition of HashiCorp. [https://newsroom.ibm.com/2025-02-27-IBM-Completes-Acquisition-of-HashiCorp,-Creates-Comprehensive,-End-to-End-Hybrid-Cloud-Platform](https://newsroom.ibm.com/2025-02-27-IBM-Completes-Acquisition-of-HashiCorp,-Creates-Comprehensive,-End-to-End-Hybrid-Cloud-Platform)
+- CNCF. OpenTofu project page (accepted to CNCF at Sandbox level on 23 April 2025). [https://www.cncf.io/projects/opentofu/](https://www.cncf.io/projects/opentofu/)
 - Hashimoto, M. (2014). Terraform: A tool for building, changing, and versioning infrastructure safely and efficiently. *HashiCorp*. (Terraform introduction; the most widely adopted IaC tool for multi-cloud infrastructure.)
 - Humble, J., & Farley, D. (2010). *Continuous Delivery*. Addison-Wesley. Chapter 11: Managing Infrastructure and Environments. (Established treating infrastructure as code as a prerequisite for continuous delivery.)

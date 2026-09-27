@@ -65,7 +65,7 @@ Same base model, same parameter count — distilling from a stronger teacher's o
 - **vLLM**: pass `--reasoning-parser deepseek_r1` at server start (`vllm serve deepseek-ai/DeepSeek-R1-Distill-Qwen-7B --reasoning-parser deepseek_r1`); the OpenAI-compatible response then separates a `reasoning` field from `content`. This field was called `reasoning_content` in older vLLM releases — vLLM's own docs warn that client code still reading the old field name will silently see an empty value once you upgrade, so update both the server flag usage and any client parsing together.⁶
 - **SGLang**: the equivalent flag is `--reasoning-parser deepseek-r1`, covering R1, R1-0528, and the R1-Distill family.⁷
 - **Ollama**: handled differently — a top-level `think` field on the chat/generate API request (`true`/`false`, or an effort level on models that support it) tells Ollama whether to strip reasoning into a separate field or suppress it, rather than requiring a server-launch flag.⁸
-- **TGI**: officially supports the DeepSeek-R1-Distill family as deployable models via Hugging Face Inference Endpoints and Docker containers; check current TGI release notes for native reasoning-content separation versus parsing `<think>` tags client-side.⁹
+- **TGI**: supported the DeepSeek-R1-Distill family via Hugging Face Inference Endpoints and Docker containers, but Hugging Face archived TGI in March 2026 and no longer develops it, so prefer vLLM or SGLang for new deployments.⁹
 
 Get this wrong and the failure mode is silent: the model still answers correctly, but every response is 5-20x longer than expected and any downstream JSON parsing, guardrail, or moderation step is now running against reasoning text it was never designed to see.
 
@@ -108,7 +108,7 @@ A distilled model's license is not automatically the teacher's license, the base
 |---|---|---|
 | [Ollama](/tools/ollama/) | Simplest path for single-GPU/CPU serving of small distills; native `think` API field separates reasoning from answer without a launch flag; watch the default-tag trap above | docs.ollama.com/capabilities/thinking |
 | [vLLM](/tools/vllm/) | Production-throughput serving; `--reasoning-parser deepseek_r1` required for clean reasoning/answer separation on R1-family distills | docs.vllm.ai/en/latest/features/reasoning_outputs/ |
-| [TGI](/tools/tgi/) | Hugging Face's serving stack; DeepSeek-R1-Distill family officially supported via Docker/Inference Endpoints | huggingface.co (Inference Endpoints) |
+| [TGI](/tools/tgi/) | Hugging Face's former serving stack (archived March 2026); DeepSeek-R1-Distill family was supported via Docker/Inference Endpoints | huggingface.co (Inference Endpoints) |
 | [SGLang](/tools/sglang/) | `--reasoning-parser deepseek-r1` covers R1, R1-0528, and the full R1-Distill family | docs.sglang.io/docs/advanced_features/separate_reasoning |
 
 None of these tools change the model's underlying capability — pick based on your throughput, hardware, and operational requirements per the [hardware and economics guide](/guides/self-hosting-llms-hardware-and-economics/); the distinction that matters for distilled reasoning models specifically is whether the tool's reasoning-parser support matches the model you're actually serving.

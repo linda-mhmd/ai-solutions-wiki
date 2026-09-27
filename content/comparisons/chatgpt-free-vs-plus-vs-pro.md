@@ -12,9 +12,9 @@ related:
   - basics/what-is-chatgpt
   - news/chatgpt-ads-europe
   - news/openai-astra-critical-cyber-threshold
-last_verified: 2026-09-04
-last_updated: 2026-09-04
-lastmod: 2026-09-04
+last_verified: 2026-09-26
+last_updated: 2026-09-25
+lastmod: 2026-09-26
 ---
 
 <figure class="bz-figure">
@@ -22,17 +22,19 @@ lastmod: 2026-09-04
   <figcaption>Six ChatGPT plans, one underlying model family. The differences are almost entirely about how much of it you get, and how fast.</figcaption>
 </figure>
 
-OpenAI sells ChatGPT six ways: Free, Go, Plus, Pro, Business, and Enterprise (plus a near-twin of Enterprise for schools, ChatGPT Edu). Every one runs on the same GPT-5.6 model family, with GPT-6 Astra now rolling in at the top. What actually separates the tiers is price, how much of each model you're allowed to use before you hit a cap, and which extras — voice, video generation, an autonomous research agent, admin controls — are switched on. This page covers what each tier costs and unlocks as of early September 2026, and closes with direct buying guidance. The numbers move often; every one below is dated and sourced so you can tell at a glance whether it's still current.
+OpenAI sells ChatGPT six ways: Free, Go, Plus, Pro, Business, and Enterprise (plus a near-twin of Enterprise for schools, ChatGPT Edu). Every one runs on the GPT-5.6 model family, and the paid tiers now add the GPT-6 family (Astra, Sol, and Luna) on top. What actually separates the tiers is price, how much of each model you're allowed to use before you hit a cap, and which extras — voice, an autonomous research agent, ChatGPT Work, admin controls — are switched on. This page covers what each tier costs and unlocks as of September 2026 (model access re-checked 25 September 2026), and closes with direct buying guidance. The numbers move often; every one below is dated and sourced so you can tell at a glance whether it's still current.
 
 ## The consumer tiers at a glance
 
 | Plan | Price | Model access | What's capped |
 |---|---|---|---|
-| **Free** | $0 | GPT-5.6 Luna (default, with a "Think" toggle for slower answers) | Unlimited text chat; images, uploads, voice, Deep Research, and Agent Mode are limited or unavailable; shows unpersonalized ads |
-| **Go** | $8/mo | Same Luna-based model as Free, with roughly 10x the caps | Still no Advanced Voice, Sora, Deep Research, or Agent Mode; ad-supported |
-| **Plus** | $20/mo | GPT-5.6 Terra/Sol via a reasoning-effort picker (Instant/Medium/High/Extra High) | Sora ~50 generations/month; Deep Research ~25 runs/month; ad-free |
-| **Pro ($100)** | $100/mo | Same GPT-5.6 Sol Pro / incoming GPT-6 Pro (Astra) access as the $200 tier | ~5x Plus's limits, sized around heavy Codex/coding sessions rather than general use; Deep Research and Sora capped well below the $200 tier |
-| **Pro ($200)** | $200/mo | Same model access as Pro ($100) | ~20x Plus's limits across the board; Deep Research ~250 runs/month; Sora and Advanced Voice effectively unmetered |
+| **Free** | $0 | GPT-5.6 Luna (default, with a "Think" toggle for slower answers); limited ChatGPT Work access on desktop | Unlimited text chat; images, uploads, voice, and Deep Research are limited; shows unpersonalized ads |
+| **Go** | $8/mo | Same Luna-based model as Free, with roughly 10x the caps | Still no Advanced Voice or Agent Mode; Deep Research limited; ad-supported |
+| **Plus** | $20/mo | GPT-5.6 Terra/Sol via a reasoning-effort picker (Instant/Medium/High/Extra High); GPT-6 Astra, Sol, and Luna | Deep Research ~25 runs/month; ad-free |
+| **Pro ($100)** | $100/mo | Same model access as the $200 tier: GPT-5.6 Sol Pro, "Pro reasoning powered by GPT-6 Astra," expanded GPT-6 use | ~5x Plus's limits, sized around heavy Codex/coding sessions rather than general use; Deep Research capped well below the $200 tier |
+| **Pro ($200)** | $200/mo | Same model access as Pro ($100) | ~20x Plus's limits across the board; Deep Research ~250 runs/month; Advanced Voice effectively unmetered |
+
+Sora is no longer part of any ChatGPT plan: OpenAI closed the Sora app on 26 April 2026 and shut down the Sora API on 24 September 2026, and ChatGPT's pricing page no longer lists video generation on any tier [20][23]. See [Sora vs Runway vs Veo](/comparisons/sora-vs-runway-vs-veo/) for the alternatives.
 
 Sources for this table and everything below are numbered at the end of the page. Treat the specific numbers — 10x, 50, 25, 250 — as the current snapshot, not a permanent spec: OpenAI has changed exactly this kind of limit twice already in 2026. Note there are genuinely two Pro tiers, not one — see the Pro section below.
 
@@ -44,23 +46,25 @@ This changes how to read the rest of this page. The caps that still separate the
 
 ## Free and Go: the entry tiers
 
-**Free** gets you GPT-5.6 Luna — the fastest, least expensive model in OpenAI's current lineup — with unlimited text, but noticeably tight caps on images, file uploads, and voice, and no access at all to Deep Research or Agent Mode, which OpenAI reserves for paid plans [3]. Free and Go also carry unpersonalized advertising: a US pilot expanded to 31 European markets on 24 August 2026, launching without personalization specifically to satisfy GDPR — see [ChatGPT ads reach 31 European markets](/news/chatgpt-ads-europe/) [4]. Plus, Pro, Business, Enterprise, and Edu all stay ad-free.
+**Free** gets you GPT-5.6 Luna — the fastest, least expensive model in OpenAI's current lineup — with unlimited text, but noticeably tight caps on images, file uploads, and voice, and no Agent Mode; Deep Research is available only in a limited allowance [3][20]. Free and Go also carry unpersonalized advertising: a US pilot expanded to 31 European markets on 24 August 2026, launching without personalization specifically to satisfy GDPR — see [ChatGPT ads reach 31 European markets](/news/chatgpt-ads-europe/) [4]. Plus, Pro, Business, Enterprise, and Edu all stay ad-free.
 
-**Go**, at $8/month, is the plan most people don't know exists because it launched regionally first — in India in 2025 at a lower local price — before rolling out worldwide on 16 January 2026 [5]. It runs the same Luna-based model as Free but with roughly 10x the message, upload, and image headroom, plus expanded memory and Custom GPT access. It's still ad-supported and still skips Advanced Voice, Sora, Deep Research, and Agent Mode — think "Free with the caps loosened," not a lighter Plus.
+**Go**, at $8/month, is the plan most people don't know exists because it launched regionally first — in India in 2025 at a lower local price — before rolling out worldwide on 16 January 2026 [5]. It runs the same Luna-based model as Free but with roughly 10x the message, upload, and image headroom, plus expanded memory and Custom GPT access. It's still ad-supported and still skips Advanced Voice and Agent Mode, with only limited Deep Research — think "Free with the caps loosened," not a lighter Plus.
 
 ## Plus: where the actual product unlocks
 
-Plus, at $20/month, is where ChatGPT stops being a chat window with limits and becomes the fuller product: Advanced Voice Mode, Sora video (roughly 50 generations a month), Deep Research (roughly 25 runs a month), Agent Mode for browser-driven multi-step tasks, Projects and Canvas, Tasks for scheduled follow-ups, Custom GPT creation, and a starter Codex allotment for coding [6][7]. In the app, Plus users pick a reasoning effort — Instant, Medium, High, Extra High — rather than a model name; underneath, that maps to the GPT-5.6 Terra and Sol models, with the picker abstracting the exact model away [8].
+Plus, at $20/month, is where ChatGPT stops being a chat window with limits and becomes the fuller product: Advanced Voice Mode, Deep Research (roughly 25 runs a month), Agent Mode for browser-driven multi-step tasks, Projects and Canvas, Tasks for scheduled follow-ups, Custom GPT creation, and a starter Codex allotment for coding [6][7]. In the app, Plus users pick a reasoning effort — Instant, Medium, High, Extra High — rather than a model name; underneath, that maps to the GPT-5.6 Terra and Sol models, with the picker abstracting the exact model away [8]. As of 25 September 2026, ChatGPT's pricing page also lists **GPT-6 Astra, GPT-6 Sol, and GPT-6 Luna** as included on Plus, with "expanded" use on Pro, and "Advanced reasoning models with GPT-6" as a Plus feature [20]. There is a catch in where they appear: when GPT-6 Sol and Luna launched on 22 September, TechCrunch reported them available in **ChatGPT Work and Codex** for most paid accounts, and TechRadar reported that the GPT-6 models show up in Work and Codex rather than in the ordinary Chat model picker [21][22]. If you're paying for Plus to get GPT-6, expect to switch to Work to use it.
 
-The honest limitation is that every one of those features sits meaningfully below Pro's ceiling, and the numbers move without much notice — the 25 and 50 above are current-as-of-writing figures, not published guarantees. If you lean hard on any one of them — Deep Research constantly, video daily — check your actual usage against the current limit before assuming Plus covers it.
+The honest limitation is that every one of those features sits meaningfully below Pro's ceiling, and the numbers move without much notice — the 25 above is a current-as-of-writing figure, not published guarantees. If you lean hard on any one of them — Deep Research constantly, voice daily — check your actual usage against the current limit before assuming Plus covers it.
 
 ## Pro: two tiers, $100 and $200 a month, and what each is actually for
+
+**Availability note (26 September 2026):** viewed from Austria, the pricing page shows the 5x Pro tier at 114 €/month and lists the 20x tier as "temporarily unavailable for purchase". Plus is 23 €/month, and Business seats cost 21 € (annual) or 26 € (monthly), with premium seats at 105 € or 130 €. The plan cards no longer name specific models, only "Advanced models" on Plus and a "Frontier Pro model" on Pro ([chatgpt.com/pricing](https://chatgpt.com/pricing)).
 
 "ChatGPT Pro" is not one plan. OpenAI added a second, cheaper Pro tier on 9 April 2026, so the name now covers $100/month and $200/month, and the split is about usage headroom, not which features you get — both include the same Pro-specific reasoning modes on top of GPT-5.6 Sol, and both give unlimited access to the Instant and Thinking reasoning modes [9][11].
 
 Pro at $100/month is aimed squarely at heavy Codex/coding use: roughly 5x Plus's usage ceiling, with OpenAI pitching it for "longer, high-effort Codex sessions," and a launch promotion that doubled Codex headroom to 10x Plus through 31 May 2026 [11]. It's easy to miss because OpenAI markets the $200 tier as the headline "Pro" experience — if you only skim the pricing page, it's easy to walk away thinking Pro means $200.
 
-Pro at $200/month is the broader ceiling-lifter: roughly 20x Plus's usage across text, images, and voice, plus a materially higher Deep Research allowance (around 250 runs a month, versus Plus's ~25) and effectively unmetered Sora within fair-use limits [9]. As GPT-6 Astra rolls out from 3 September 2026, OpenAI's help documentation describes it appearing in the model picker as "GPT-6 Pro," on both Pro tiers plus Business and Enterprise specifically [10]. That detail is a day old at the time of writing and already inconsistent: OpenAI's broader Astra launch announcement said the rollout reaches Plus too, while the in-app help documentation excludes Plus. Confirm current model-picker access directly in the app rather than trusting either source.
+Pro at $200/month is the broader ceiling-lifter: roughly 20x Plus's usage across text, images, and voice, plus a materially higher Deep Research allowance (around 250 runs a month, versus Plus's ~25) [9]. When GPT-6 Astra began rolling out on 3 September 2026, OpenAI's help documentation described it appearing in the model picker as "GPT-6 Pro," on both Pro tiers plus Business and Enterprise specifically, while OpenAI's launch announcement said the rollout reached Plus too [10]. By 25 September 2026 the pricing page settles the plan question in the announcement's favour: GPT-6 Astra is listed as included on Plus, with expanded use and "Pro reasoning powered by GPT-6 Astra" on Pro [20].
 
 Neither Pro tier gets a regional discount the way Plus and Go sometimes do — expect the same $100/$200 pricing in markets like India as in the US [12].
 
@@ -84,9 +88,9 @@ Enterprise has no published list price — OpenAI negotiates it per account [16]
 
 The six-tier shape — a free entry point, two budget-to-mainstream individual tiers, one high-ceiling individual tier, and a two-step business/enterprise ladder — has held for over a year and is a reasonable thing to plan around. What genuinely doesn't hold still, and what you should re-check before making a decision based on this page:
 
-- **Every specific usage number.** Message caps got removed entirely in August 2026; Deep Research, Sora, and voice limits have moved before and will again.
+- **Every specific usage number.** Message caps got removed entirely in August 2026; Deep Research and voice limits have moved before and will again, and Sora disappeared from the lineup entirely in 2026.
 - **Which model powers which tier.** Free ran GPT-4o-class models, then GPT-5.5, now GPT-5.6 Luna, in under two years. Expect the underlying model to keep changing while the tier names mostly don't.
-- **What's exclusive to Pro.** GPT-6 Astra's rollout into the ChatGPT app was a day old at the time of writing and already had two OpenAI-sourced descriptions of who gets it that didn't fully match.
+- **What's exclusive to Pro, and where each model lives.** GPT-6 Astra, Sol, and Luna are now listed on Plus and Pro, but reporting at launch put them in ChatGPT Work and Codex rather than the Chat model picker, and TechCrunch reported GPT-6 Luna reaching Free and Go users in the desktop app even though the pricing page's model table does not list it for those plans [20][21][22].
 - **Enterprise's actual negotiated price**, which was never published to begin with.
 
 ## Who should actually pay for which tier
@@ -95,9 +99,9 @@ The six-tier shape — a free entry point, two budget-to-mainstream individual t
 
 **You're price-sensitive but use it daily, and you're outside the US/EU markets where Go is priced closer to local income.** Go's $8/month buys meaningfully more image, upload, and voice headroom than Free for not much money, without stepping up to Plus's full feature set.
 
-**You use voice, generate images or short videos regularly, or want Deep Research and Agent Mode as standing tools rather than occasional novelties.** Plus is the tier built for this, and for most individual professionals it's also where the value genuinely lands — the jump from Plus to either Pro tier is a 5x to 10x price increase for extra headroom most people never touch.
+**You use voice, generate images regularly, or want Deep Research and Agent Mode as standing tools rather than occasional novelties.** Plus is the tier built for this, and for most individual professionals it's also where the value genuinely lands — the jump from Plus to either Pro tier is a 5x to 10x price increase for extra headroom most people never touch.
 
-**You hit Plus's Deep Research, Sora, or voice caps on a normal week, not an unusual one.** That's the actual Pro use case — not "I'd like more," but "I specifically ran out." If you can't name which limit you hit, you probably don't need it yet. And if the limit you're hitting is specifically Codex on coding sessions, look at the $100 Pro tier before jumping to $200 — it's built for exactly that and costs half as much.
+**You hit Plus's Deep Research, Codex, or voice caps on a normal week, not an unusual one.** That's the actual Pro use case — not "I'd like more," but "I specifically ran out." If you can't name which limit you hit, you probably don't need it yet. And if the limit you're hitting is specifically Codex on coding sessions, look at the $100 Pro tier before jumping to $200 — it's built for exactly that and costs half as much.
 
 **You're buying for more than one person and need shared billing, admin controls, and a default of not training on your data.** Business (the plan formerly called Team) is the floor for that, starting at a two-seat Standard subscription; add Premium seats only for the specific people whose usage actually exceeds Standard's cap.
 
@@ -112,7 +116,7 @@ If the decision in front of you is ChatGPT versus a different assistant entirely
 - [The 2026 LLM landscape](/comparisons/llm-landscape-2026/): where GPT-5.6 and GPT-6 Astra sit relative to every other current model family.
 - [What is ChatGPT?](/basics/what-is-chatgpt/): a beginner-level introduction if you're evaluating ChatGPT for the first time.
 - [ChatGPT ads reach 31 European markets](/news/chatgpt-ads-europe/): the advertising change on Free and Go tiers, and why it launched unpersonalized.
-- [Astra becomes the first OpenAI model to cross the "Critical" cyber threshold](/news/openai-astra-critical-cyber-threshold/): the model now rolling into Pro/Business/Enterprise as "GPT-6 Pro," and why OpenAI is gating it carefully.
+- [Astra becomes the first OpenAI model to cross the "Critical" cyber threshold](/news/openai-astra-critical-cyber-threshold/): the model behind Pro's "Pro reasoning," and why OpenAI gated its launch carefully.
 - [OpenAI API](/tools/openai-api/): the developer-facing, pay-per-token side of OpenAI's pricing, for anyone calling these models from code instead of the ChatGPT app.
 
 ## Sources
@@ -136,3 +140,7 @@ If the decision in front of you is ChatGPT versus a different assistant entirely
 17. Third-party Enterprise pricing estimates (seat floor and per-seat range), cross-checked across multiple independent trackers as of September 2026; treat as market estimation, not an OpenAI-published figure.
 18. OpenAI Help Center, "ChatGPT Enterprise & Edu — Release Notes," fetched September 2026: [https://help.openai.com/en/articles/10128477-chatgpt-enterprise-edu-release-notes](https://help.openai.com/en/articles/10128477-chatgpt-enterprise-edu-release-notes)
 19. This wiki, [OpenAI API](/tools/openai-api/): the underlying GPT-5.6/GPT-6 Astra model lineup and per-token API pricing that sits behind these subscription tiers.
+20. OpenAI, ChatGPT pricing page — individual plans and "Compare features across plans" model table (GPT-6 Astra/Sol/Luna on Plus and Pro; ChatGPT Work access by plan; no Sora or video generation listed), fetched 25 September 2026: [https://chatgpt.com/pricing](https://chatgpt.com/pricing)
+21. TechCrunch, "OpenAI launches GPT-6 Sol and Luna, boasting lower cost and fewer mistakes" (22 September 2026): [https://techcrunch.com/2026/09/22/openai-launches-gpt-6-sol-and-luna/](https://techcrunch.com/2026/09/22/openai-launches-gpt-6-sol-and-luna/)
+22. TechRadar, "ChatGPT got GPT-6, but you can't use it in Chat — confused? It's time we talked about the difference between Chat and Work" (23 September 2026): [https://www.techradar.com/ai-platforms-assistants/chatgpt/chatgpt-got-gpt-6-but-you-cant-use-it-in-chat-confused-its-time-we-talked-about-the-difference-between-chat-and-work](https://www.techradar.com/ai-platforms-assistants/chatgpt/chatgpt-got-gpt-6-but-you-cant-use-it-in-chat-confused-its-time-we-talked-about-the-difference-between-chat-and-work)
+23. OpenAI Developer Platform, *Deprecations* (Videos API, `sora-2`, `sora-2-pro` removed 24 September 2026), fetched 25 September 2026: [https://developers.openai.com/api/docs/deprecations](https://developers.openai.com/api/docs/deprecations); for the 26 April 2026 app closure, see this wiki's [Sora vs Runway vs Veo](/comparisons/sora-vs-runway-vs-veo/)

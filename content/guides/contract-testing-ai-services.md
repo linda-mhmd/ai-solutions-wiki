@@ -8,7 +8,9 @@ related:
   - guides/integration-testing-ai-pipelines
   - guides/testing-ai-systems
   - glossary/integration-testing
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 When an AI system is composed of microservices, each service boundary is a potential failure point. The embedding service changes its output dimension. The retrieval service adds a new field to its response. The inference service updates its model and the output format shifts. Contract testing catches these breaks before they reach production by defining and verifying the agreements between services.
@@ -105,7 +107,7 @@ MODEL_API_CONTRACT = {
 
 def test_response_matches_provider_contract():
     response = model_client.chat(
-        model="gpt-4o",
+        model="gpt-6-luna",
         messages=[{"role": "user", "content": "Hello"}]
     )
     # Verify response matches the provider's contract

@@ -12,7 +12,9 @@ faqs:
     answer: "Not necessarily. Cloud-native solves problems of scale, complexity, and team size. For small projects, it's overkill. A well-designed monolith on a simple host is often better than a poorly-designed microservices mess on Kubernetes."
   - question: "What's the CNCF?"
     answer: "The Cloud Native Computing Foundation hosts Kubernetes, Prometheus, and many other projects. It's part of the Linux Foundation and provides neutral governance so projects aren't controlled by any single company. It also defines what 'cloud-native' means."
-last_updated: 2026-07-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 {{< quickanswer >}}
@@ -238,7 +240,7 @@ Get the basics right first.
 
 1. Containerize one application
 2. Run it in development
-3. Deploy to a simple container platform (Cloud Run, App Runner)
+3. Deploy to a simple container platform (Cloud Run, Amazon ECS Express Mode, Azure Container Apps)
 4. Learn the patterns before adding orchestration
 
 ### Graduate to orchestration if needed

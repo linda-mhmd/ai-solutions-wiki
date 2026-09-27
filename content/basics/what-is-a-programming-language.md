@@ -2,6 +2,8 @@
 title: "What is a Programming Language?"
 description: "A plain-English explanation of programming languages, compilers, interpreters, and just-in-time compilation for complete beginners building with AI."
 date: 2026-06-23
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 1
 categories: [Basics]
 tags: ["beginner", "programming-language", "compiler", "interpreter", "python", "javascript", "jit", "java", "php", "oop", "functional-programming", "assembly", "frontend", "backend"]
@@ -182,9 +184,9 @@ PHP 8.0.0, released on 26 November 2020, went a step further and added a **JIT c
 
 The bytecode-plus-JIT pattern is everywhere in modern languages. A few more examples, in brief:
 
-- **JavaScript (Google's V8 engine)**: V8 powers Chrome and Node.js. It uses tiered JIT compilation. Ignition is an interpreter that turns source into bytecode. Sparkplug is a baseline compiler that quickly turns that bytecode into machine code. TurboFan is an optimizing compiler that produces highly optimized machine code for the hottest functions.
+- **JavaScript (Google's V8 engine)**: V8 powers Chrome and Node.js. It uses tiered JIT compilation. Ignition is an interpreter that turns source into bytecode. Sparkplug is a baseline compiler that quickly turns that bytecode into machine code. Maglev (added in 2023) is a mid-tier optimizing compiler for warm code. TurboFan is the top-tier optimizing compiler that produces highly optimized machine code for the hottest functions.
 - **C# and .NET**: a compiler turns your C# into **Common Intermediate Language (CIL)** bytecode. At runtime, the **Common Language Runtime (CLR)** JIT-compiles the CIL to native code. Each method is JIT-compiled the first time it is called, then reused.
-- **Python (CPython)**: CPython compiles your source to bytecode, which it caches in `.pyc` files, and runs that bytecode in the CPython virtual machine. Python 3.13, released on 7 October 2024, added an experimental JIT compiler. It is disabled by default for now.
+- **Python (CPython)**: CPython compiles your source to bytecode, which it caches in `.pyc` files, and runs that bytecode in the CPython virtual machine. Python 3.13, released on 7 October 2024, added an experimental JIT compiler. It was still experimental and disabled by default in Python 3.14 (October 2025).
 
 The shared lesson: the line between compiled and interpreted is blurry today. Most languages you meet sit on the middle path.
 

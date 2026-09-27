@@ -4,6 +4,8 @@ description: "Groq builds the LPU, a custom inference chip, and GroqCloud, a fas
 date: 2026-06-29
 tags: ["inference", "hardware", "llm", "cloud"]
 tool_category: "AI"
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 related:
   - glossary/inference
   - glossary/foundation-models
@@ -20,6 +22,8 @@ related:
 Groq is a hardware and cloud company built around one job: running models that already exist, not training them. It designs the LPU (Language Processing Unit), a chip purpose-built for [inference](/glossary/inference/), and offers GroqCloud, an API for calling open [foundation models](/glossary/foundation-models/) at high speed. The problem it solves is latency. Most inference runs on GPUs designed for training, where memory movement and unpredictable scheduling add delay. Groq rearranges the hardware so tokens come back fast and at a predictable rate.
 
 Jonathan Ross, who earlier worked on Google's Tensor Processing Unit, founded Groq in 2016. The company frames the LPU with the line "Designed for inference. Not adapted for it."
+
+**Ownership and strategy changed in 2026.** On 24 December 2025 Groq signed a non-exclusive licensing agreement with NVIDIA for its inference technology; founder Jonathan Ross, president Sunny Madra, and other Groq staff joined NVIDIA, while Groq continued as an independent company under new CEO Simon Edwards and GroqCloud kept running. NVIDIA later announced its LPX platform incorporating Groq's inference technology. Groq has since repositioned itself as an AI inference cloud ("neocloud"): it raised $650 million in June 2026 and a $350 million Series A at a $3.5 billion valuation on 17 August 2026 (led by Disruptive, with planned NVIDIA participation), joined the NVIDIA Cloud Partner program on 12 August 2026, and is fitting out its 13 data centers with NVIDIA systems, including LPX, alongside its existing LPUs.
 
 ## Where it sits in the stack
 
@@ -45,7 +49,7 @@ Jonathan Ross, who earlier worked on Google's Tensor Processing Unit, founded Gr
     <span class="bz-arch-layer-label">Model layer</span>
     <div class="bz-arch-layer-content">
       <span class="bz-arch-chip">Open-weight LLMs</span>
-      <span class="bz-arch-chip">Llama family</span>
+      <span class="bz-arch-chip">GPT-OSS, Llama, Whisper</span>
       <span class="bz-arch-chip-note">Hosted open models, not Groq's own model</span>
     </div>
   </div>
@@ -55,7 +59,7 @@ Jonathan Ross, who earlier worked on Google's Tensor Processing Unit, founded Gr
       <span class="bz-arch-chip">LPU</span>
       <span class="bz-arch-chip">On-chip SRAM</span>
       <span class="bz-arch-chip">Deterministic compiler</span>
-      <span class="bz-arch-chip-note">Custom silicon instead of GPUs</span>
+      <span class="bz-arch-chip-note">Custom silicon; NVIDIA systems being added from 2026</span>
     </div>
   </div>
 </div>
@@ -85,7 +89,7 @@ You do not buy an LPU. You call GroqCloud, a hosted API. GroqCloud is OpenAI-com
   <div class="bz-flow-step">
     <span class="bz-flow-step-tag">Step 2</span>
     <span class="bz-flow-step-name">Pick a model</span>
-    <span class="bz-flow-step-desc">Choose a hosted open model, such as a Llama variant, from the model list.</span>
+    <span class="bz-flow-step-desc">Choose a hosted open model, such as OpenAI's gpt-oss-120b, from the model list.</span>
   </div>
   <div class="bz-flow-arrow">→</div>
   <div class="bz-flow-step">
@@ -101,7 +105,7 @@ You do not buy an LPU. You call GroqCloud, a hosted API. GroqCloud is OpenAI-com
   </div>
 </div>
 
-Groq reports that roughly three million developers and teams use its platform, and names customers including Vercel, Canva, and Robinhood. The typical use is any workload where response speed matters: live chat, voice interfaces, and agent loops that make many model calls in sequence.
+Groq reports that more than six million developers use GroqCloud (August 2026), and names customers including Vercel, Canva, and Robinhood. The typical use is any workload where response speed matters: live chat, voice interfaces, and agent loops that make many model calls in sequence.
 
 ## How it compares
 
@@ -109,7 +113,7 @@ Groq competes with other providers that host open models behind fast APIs. The m
 
 | | Groq | [Fireworks AI](/tools/fireworks-ai/) | [Together AI](/tools/together-ai/) | Major GPU clouds |
 |---|---|---|---|---|
-| **Hardware** | Custom LPU | GPU | GPU | GPU |
+| **Hardware** | Custom LPU, adding NVIDIA systems (LPX) from 2026 | GPU | GPU | GPU |
 | **Main pitch** | Very fast, predictable inference | Fast open-model serving | Broad open-model catalog | General compute and inference |
 | **Own model** | No, hosts open models | No, hosts open models | No, hosts open models | Varies |
 | **API style** | OpenAI-compatible | OpenAI-compatible | OpenAI-compatible | Varies by provider |
@@ -134,6 +138,11 @@ Groq competes with other providers that host open models behind fast APIs. The m
 ## Sources
 
 - [Groq homepage](https://groq.com/)
+- [GroqCloud supported models](https://console.groq.com/docs/models) (September 2026: GPT-OSS 120B/20B and Whisper on self-serve pricing; Llama 3.1 8B and 3.3 70B enterprise-only)
 - [LPU architecture](https://groq.com/lpu-architecture)
 - [What is a Language Processing Unit?](https://groq.com/blog/the-groq-lpu-explained)
 - [Inside the LPU: Deconstructing Groq's Speed](https://groq.com/blog/inside-the-lpu-deconstructing-groq-speed)
+- [Groq and Nvidia Enter Non-Exclusive Inference Technology Licensing Agreement](https://groq.com/newsroom/groq-and-nvidia-enter-non-exclusive-inference-technology-licensing-agreement-to-accelerate-ai-inference-at-global-scale), 24 December 2025
+- [Groq Raises $650M to Scale Its AI Inference Cloud Business](https://groq.com/newsroom/groq-raises-usd650m-to-scale-its-ai-inference-cloud-business), 22 June 2026
+- [Groq Becomes an NVIDIA Cloud Partner](https://groq.com/newsroom/groq-becomes-an-nvidia-cloud-partner), 12 August 2026
+- [Groq Closes $350 million Series A](https://groq.com/newsroom/groq-closes-usd350-million-series-a-building-the-world-s-leading-ai-inference-cloud), 17 August 2026

@@ -2,8 +2,8 @@
 title: "E2B"
 description: "E2B is an open-source runtime that gives AI agents secure, isolated sandboxes for running model-generated code."
 date: 2026-07-06
-lastmod: 2026-07-06
-last_updated: 2026-07-06
+lastmod: 2026-09-25
+last_updated: 2026-09-25
 tags: ["ai-agents", "sandbox", "code-execution", "firecracker", "infrastructure"]
 tool_category: "Infrastructure"
 related:
@@ -11,6 +11,7 @@ related:
   - tools/modal
   - glossary/ai-agent
   - glossary/agent-harness
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -162,9 +163,9 @@ Several products give agents somewhere safe to run code. E2B's focus is fast, di
 
 | | E2B | [Daytona](/tools/daytona/) | [Modal](/tools/modal/) | Plain container |
 |---|---|---|---|---|
-| **Isolation** | Firecracker microVM | microVM sandbox | gVisor sandbox | Namespace only |
+| **Isolation** | Firecracker microVM | Container by default; VM sandbox class available | gVisor sandbox | Namespace only |
 | **Primary use** | Agent code execution | Agent code execution | Serverless functions | General workloads |
-| **Cold start** | Sub-second | About 27 ms | Sub-second | Varies |
+| **Cold start** | Sub-second | Under 90 ms (vendor figure) | Sub-second | Varies |
 | **Open source** | Yes | Yes | No | Yes |
 | **Best for** | Code interpreters | Regulated enterprises | Batch and GPU jobs | Full manual control |
 
@@ -193,3 +194,4 @@ E2B is not the right tool in every case.
 - [E2B docs - running commands](https://e2b.dev/docs/commands)
 - [E2B official site](https://e2b.dev/)
 - [E2B GitHub organization](https://github.com/e2b-dev)
+- [Daytona isolation docs](https://www.daytona.io/docs/en/isolation/) and [documentation home](https://www.daytona.io/docs/en/) (comparison-table figures), checked 26 September 2026

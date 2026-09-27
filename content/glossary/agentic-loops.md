@@ -2,13 +2,15 @@
 title: "Agentic Loops"
 description: "An agentic loop is the core execution pattern of an AI agent: the model observes its environment, reasons about what to do, takes an action, observes the result, and repeats until the task is complete."
 date: 2026-06-22
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 categories: [Glossary]
 tags: ["agents", "agentic-ai", "agentic-loops", "react", "tool-use", "multi-agent", "ai-architecture"]
 related:
-  - glossary/agents
+  - glossary/ai-agents
   - glossary/agentic-ai
   - glossary/tool-use
-  - patterns/react
+  - patterns/react-pattern-ai
   - guides/multi-agent-systems-101
 ---
 
@@ -21,7 +23,7 @@ An **agentic loop** is the repeating execution pattern that turns a language mod
 
 The word "loop" is precise. Each iteration feeds the result of the previous action back into the model's input, giving the model new information to reason about. This feedback mechanism is what separates an agent from a standard LLM call. A single call is a one-shot question-and-answer exchange. A loop is a process that evolves based on what the model learns at each step.
 
-This pattern appears across almost every agent framework in production today: ReAct (Reason + Act), OpenAI Assistants, LangGraph, AutoGen, Claude's tool-use API, and custom agentic systems. The implementation details vary, but the underlying loop is the same.
+This pattern appears across almost every agent framework in production today: ReAct (Reason + Act), the OpenAI Responses API and Agents API (public beta since 10 September 2026), LangGraph, AutoGen, Claude's tool-use API, and custom agentic systems. (OpenAI's older Assistants API, once a common hosted example, was shut down on 26 August 2026; OpenAI points developers to the Responses API and Conversations API instead.) The implementation details vary, but the underlying loop is the same.
 
 ---
 
@@ -65,7 +67,7 @@ State is everything the agent knows right now. In practice, state is the content
 
 ### Reasoning
 
-Reasoning is the LLM's decision step. The model reads the current state and determines what action to take next. In chain-of-thought models (such as Claude or OpenAI's o-series), the reasoning step is a visible scratchpad before the tool call or final answer. In standard completions, the reasoning is internal. Either way, the quality of the reasoning step determines the quality of the loop.
+Reasoning is the LLM's decision step. The model reads the current state and determines what action to take next. In reasoning models (at the time of writing, September 2026, most current Claude, GPT and Gemini models), the model thinks through the problem before the tool call or final answer; some providers return that reasoning or a summary of it, others keep it hidden or encrypted. In non-reasoning models, the reasoning happens implicitly in the answer itself. Either way, the quality of the reasoning step determines the quality of the loop.
 
 ### Action
 
@@ -147,9 +149,10 @@ Loops without a stopping condition run forever and exhaust your budget. Always d
   <div class="bz-arch-layer">
     <span class="bz-arch-layer-label">LLM</span>
     <div class="bz-arch-layer-content">
-      <span class="bz-arch-chip">GPT-4o</span>
-      <span class="bz-arch-chip">Claude 4</span>
-      <span class="bz-arch-chip">Llama 3</span>
+      <span class="bz-arch-chip">GPT-6 Sol</span>
+      <span class="bz-arch-chip">Claude Opus 5.5</span>
+      <span class="bz-arch-chip">Gemini 3.8 Flash</span>
+      <span class="bz-arch-chip">Open-weight models</span>
       <span class="bz-arch-chip-note">Reasoning and tool selection happen here. The model outputs either a tool call or a final answer.</span>
     </div>
   </div>
@@ -234,6 +237,6 @@ Each step in that sequence is one iteration of an agentic loop. The agent did no
 - [What is Agentic AI?](/glossary/agentic-ai/): the broader category and how agentic systems differ from single-model pipelines
 - [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629): the original paper formalising the reason-then-act loop pattern
 - [LangGraph documentation](https://langchain-ai.github.io/langgraph/): graph-based framework for building stateful, multi-actor agentic loops
-- [OpenAI Assistants API](https://platform.openai.com/docs/assistants/overview): hosted implementation of agentic loops with built-in tool execution and thread management
+- [OpenAI Responses API](https://developers.openai.com/api/reference/resources/responses/methods/create): OpenAI's current API for agentic loops with built-in tools; it replaced the Assistants API, which shut down on 26 August 2026 ([OpenAI deprecations](https://developers.openai.com/api/docs/deprecations))
 - [Anthropic tool use documentation](https://docs.anthropic.com/en/docs/build-with-claude/tool-use): how Claude implements the action step of an agentic loop using structured tool calls
 - [AutoGen documentation](https://microsoft.github.io/autogen/): Microsoft's framework for multi-agent loops, including critique and hierarchical patterns

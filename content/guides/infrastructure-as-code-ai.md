@@ -1,6 +1,6 @@
 ---
 title: "Infrastructure as Code for AI Projects"
-description: "Why IaC matters for AI reproducibility, multi-environment consistency, and cost tracking. Terraform and CDK patterns for Bedrock agents, Lambda, Step Functions, and Amplify AI apps."
+description: "Why IaC matters for AI reproducibility, multi-environment consistency, and cost tracking. Terraform and CDK patterns for Bedrock AgentCore agents and knowledge bases, Lambda, Step Functions, and Amplify AI apps."
 date: 2026-03-25
 categories: [Guides]
 tags: ["devops", "intermediate", "infrastructure-as-code", "terraform", "aws-cdk", "automation", "provisioning"]
@@ -9,7 +9,9 @@ related:
   - guides/deployment-models-ai
   - patterns/blue-green-deployment
   - tools/github-actions
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Infrastructure as Code (IaC) is the practice of defining cloud resources in version-controlled configuration files rather than through the console or ad-hoc API calls. For AI projects, IaC is not optional overhead - it is the mechanism that makes your environments reproducible, your costs auditable, and your deployments consistent across dev, staging, and production.
@@ -28,16 +30,31 @@ Infrastructure as Code (IaC) is the practice of defining cloud resources in vers
 
 Terraform is the most widely used IaC tool for AWS. It uses a declarative language (HCL) and maintains state to track the difference between desired and actual infrastructure.
 
-### Bedrock Agent with Knowledge Base
+### Bedrock AgentCore Agent with Knowledge Base
+
+New agent builds on AWS should target Amazon Bedrock AgentCore. The original Bedrock Agents feature (`aws_bedrockagent_agent`), now called Bedrock Agents Classic, closed to new customers on 30 July 2026 and is in maintenance mode; existing agents keep working, and Bedrock Knowledge Bases are unaffected. With AgentCore Runtime you package the agent (built with any framework) as a container image, and Terraform deploys it:
 
 ```hcl
 # modules/bedrock-agent/main.tf
 
-resource "aws_bedrockagent_agent" "main" {
-  agent_name              = "${var.project_name}-agent-${var.environment}"
-  agent_resource_role_arn = aws_iam_role.bedrock_agent.arn
-  foundation_model        = var.model_id
-  instruction             = file("${path.module}/instructions/${var.environment}.txt")
+resource "aws_bedrockagentcore_agent_runtime" "main" {
+  agent_runtime_name = "${var.project_name}_agent_${var.environment}"
+  role_arn           = aws_iam_role.agentcore_runtime.arn
+
+  agent_runtime_artifact {
+    container_configuration {
+      container_uri = "${aws_ecr_repository.agent.repository_url}:${var.agent_image_tag}"
+    }
+  }
+
+  network_configuration {
+    network_mode = "PUBLIC"
+  }
+
+  environment_variables = {
+    MODEL_ID          = var.model_id
+    KNOWLEDGE_BASE_ID = aws_bedrockagent_knowledge_base.main.id
+  }
 
   tags = {
     Project     = var.project_name
@@ -53,7 +70,7 @@ resource "aws_bedrockagent_knowledge_base" "main" {
   knowledge_base_configuration {
     type = "VECTOR"
     vector_knowledge_base_configuration {
-      embedding_model_arn = "arn:aws:bedrock:eu-west-1::foundation-model/amazon.titan-embed-text-v1"
+      embedding_model_arn = "arn:aws:bedrock:eu-west-1::foundation-model/amazon.titan-embed-text-v2:0"
     }
   }
 
@@ -89,8 +106,7 @@ resource "aws_lambda_function" "ai_handler" {
 
   environment {
     variables = {
-      BEDROCK_AGENT_ID    = aws_bedrockagent_agent.main.agent_id
-      BEDROCK_ALIAS_ID    = aws_bedrockagent_agent_alias.main.agent_alias_id
+      AGENT_RUNTIME_ARN   = aws_bedrockagentcore_agent_runtime.main.agent_runtime_arn
       ENVIRONMENT         = var.environment
       LOG_LEVEL           = var.environment == "production" ? "INFO" : "DEBUG"
     }
@@ -113,7 +129,7 @@ resource "aws_sfn_state_machine" "ai_pipeline" {
 
   definition = templatefile("${path.module}/state-machine.json.tpl", {
     lambda_arn           = aws_lambda_function.ai_handler.arn
-    bedrock_agent_id     = aws_bedrockagent_agent.main.agent_id
+    agent_runtime_arn    = aws_bedrockagentcore_agent_runtime.main.agent_runtime_arn
     s3_output_bucket     = aws_s3_bucket.outputs.arn
   })
 }
@@ -128,6 +144,7 @@ AWS CDK (Cloud Development Kit) lets you define infrastructure in TypeScript or 
 import * as cdk from 'aws-cdk-lib';
 import * as amplify from '@aws-cdk/aws-amplify-alpha';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
+import * as iam from 'aws-cdk-lib/aws-iam';
 
 export class AiSolutionsStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props: cdk.StackProps) {
@@ -140,7 +157,7 @@ export class AiSolutionsStack extends cdk.Stack {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(30),
       environment: {
-        MODEL_ID: 'anthropic.claude-sonnet-4-5',
+        MODEL_ID: 'us.anthropic.claude-sonnet-5',  // geo inference profile; required for on-demand Sonnet 5
       },
     });
 
@@ -160,7 +177,7 @@ Structure Terraform as modules, not a flat file. Each module corresponds to a lo
 ```
 infra/
   modules/
-    bedrock-agent/     # Agent + knowledge base + aliases
+    bedrock-agent/     # AgentCore runtime + knowledge base + ECR repository
     lambda-handler/    # Lambda + API Gateway + IAM role
     step-functions/    # Workflow definition + IAM
     storage/           # S3 buckets + lifecycle rules
@@ -179,16 +196,17 @@ Each environment directory calls the same modules with different variable values
 
 ## State Management
 
-Terraform tracks deployed infrastructure in a state file. For team environments, store state in S3 with DynamoDB locking:
+Terraform tracks deployed infrastructure in a state file. For team environments, store state in S3 with S3-native state locking (`use_lockfile`). The older DynamoDB-based locking (`dynamodb_table`) is deprecated in current Terraform releases. A backend block cannot reference variables, so give each environment directory its own literal `key` (or pass it with `-backend-config`):
 
 ```hcl
+# infra/environments/staging/backend.tf
 terraform {
   backend "s3" {
-    bucket         = "terraform-state-ai-solutions"
-    key            = "ai-project/${var.environment}/terraform.tfstate"
-    region         = "eu-west-1"
-    encrypt        = true
-    dynamodb_table = "terraform-locks"
+    bucket       = "terraform-state-ai-solutions"
+    key          = "ai-project/staging/terraform.tfstate"
+    region       = "eu-west-1"
+    encrypt      = true
+    use_lockfile = true
   }
 }
 ```
@@ -219,5 +237,9 @@ In a GitHub Actions pipeline:
 - Terraform Documentation: Getting started with Terraform. [https://www.terraform.io/docs](https://www.terraform.io/docs)
 - AWS Documentation: AWS CDK v2 Developer Guide. [https://docs.aws.amazon.com/cdk/v2/guide/home.html](https://docs.aws.amazon.com/cdk/v2/guide/home.html)
 - AWS Documentation: Amazon Bedrock Terraform provider resources. [https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/bedrockagent_agent](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/bedrockagent_agent)
+- Terraform AWS provider: `aws_bedrockagentcore_agent_runtime` resource. [https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/bedrockagentcore_agent_runtime](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/bedrockagentcore_agent_runtime)
+- AWS Documentation: Amazon Bedrock Agents Classic maintenance mode. [https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html)
+- AWS Documentation: Claude Sonnet 5 model card (on-demand calls use a geo or global inference profile such as `us.anthropic.claude-sonnet-5`). [https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-sonnet-5.html](https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-sonnet-5.html)
+- HashiCorp: Terraform S3 backend (S3-native locking with `use_lockfile`; DynamoDB locking deprecated). [https://developer.hashicorp.com/terraform/language/backend/s3](https://developer.hashicorp.com/terraform/language/backend/s3)
 - HashiCorp: Terraform best practices. [https://developer.hashicorp.com/terraform/language/style](https://developer.hashicorp.com/terraform/language/style)
 - Mohamed, L. (2026). "Infrastructure as Code for AI Projects." AI Solutions Wiki. Linda Mohamed, AI & Cloud Consultant.

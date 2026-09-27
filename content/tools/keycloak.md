@@ -7,7 +7,9 @@ tags: [open-source, identity, authentication, authorization, sso, oidc, saml]
 related:
   - tools/amazon-cognito
   - tools/supabase
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Keycloak is an open-source Identity and Access Management (IAM) solution that provides authentication, authorization, and user management for applications and services. It implements standard protocols including OpenID Connect (OIDC), OAuth 2.0, and SAML 2.0, enabling single sign-on (SSO) across multiple applications without requiring each application to implement its own authentication logic. Keycloak handles the complexity of identity management so that application developers can focus on business logic.
@@ -29,9 +31,10 @@ Keycloak is the open-source alternative to AWS Cognito, Azure AD B2C (now Entra 
 
 ## Origins and History
 
-Keycloak was created by Bill Burke and Stian Thorgersen at Red Hat and first released in September 2014. The project was built on Red Hat's experience with JBoss and PicketLink identity frameworks. Keycloak is licensed under the Apache License 2.0. It was donated to the Cloud Native Computing Foundation (CNCF) in April 2023 as an incubating project. Keycloak migrated from the WildFly application server to Quarkus as its runtime in version 20 (2022), significantly reducing startup time and memory footprint.
+Keycloak was created by Bill Burke and Stian Thorgersen at Red Hat and first released in September 2014. The project was built on Red Hat's experience with JBoss and PicketLink identity frameworks. Keycloak is licensed under the Apache License 2.0. It was accepted into the Cloud Native Computing Foundation (CNCF) on 10 April 2023 as an incubating project, and remains at that level as of September 2026 (current release line: 26.x). Keycloak migrated from the WildFly application server to Quarkus as its runtime in version 20 (2022), significantly reducing startup time and memory footprint.
 
 ## Sources
 
 1. https://www.keycloak.org/
 2. https://github.com/keycloak/keycloak
+3. CNCF. Keycloak project page. https://www.cncf.io/projects/keycloak/

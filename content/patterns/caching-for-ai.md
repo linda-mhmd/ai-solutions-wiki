@@ -9,7 +9,9 @@ related:
   - patterns/rag-implementation
   - glossary/embeddings
   - guides/getting-started-with-bedrock
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Model inference is expensive and slow compared to returning a cached result. In AI applications, the decision of what to cache and how to cache it has a larger impact on cost and performance than almost any other architectural choice. This article covers the four main caching patterns for production AI systems.
@@ -77,9 +79,9 @@ This is especially valuable when:
 - A long document is included in every query (RAG document context, reference material)
 - A large set of few-shot examples is repeated across many calls
 
-Cost savings from prompt caching are significant: Anthropic charges approximately 90% less for cached input tokens compared to uncached input tokens (write price is slightly higher than standard, but read price is much lower). For applications with large, repeated prompts, this can reduce per-call costs by 60% to 80%.
+Cost savings from prompt caching are significant: Anthropic charges at least 90% less for cached input tokens than for uncached ones: cache reads cost 10% of the base input price, and less on some newer models (5% on Claude Opus 5.5 at the time of writing). The cache write price is higher than the standard input price. For applications with large, repeated prompts, this can reduce per-call costs by 60% to 80%.
 
-To use prompt caching, mark the cacheable portion of the prompt with a cache control breakpoint. The first request with a given prefix processes and caches it. Subsequent requests within the cache TTL (5 minutes for default caching) reuse the cache.
+To use prompt caching, mark the cacheable portion of the prompt with a cache control breakpoint. The first request with a given prefix processes and caches it. Subsequent requests within the cache TTL (5 minutes by default, with a longer 1-hour option at a higher write price) reuse the cache.
 
 This type of caching is handled entirely by the model provider - there is no application-side infrastructure to manage.
 
@@ -104,5 +106,6 @@ Each layer reduces the fraction of requests that reach the model. In practice, e
 
 ## Sources
 
-- Anthropic Prompt Caching documentation: https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching
+- Anthropic Prompt Caching documentation: https://platform.claude.com/docs/en/build-with-claude/prompt-caching
+- Anthropic pricing (cache read and write multipliers, accessed 25 September 2026): https://platform.claude.com/docs/en/about-claude/pricing
 - Amazon ElastiCache: https://aws.amazon.com/elasticache/

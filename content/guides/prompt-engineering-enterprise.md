@@ -9,7 +9,9 @@ related:
   - patterns/prompt-engineering-patterns
   - glossary/prompt-engineering
   - guides/testing-ai-systems
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Prompt engineering is the practice of constructing inputs to language models that reliably produce the outputs your application needs. In a prototype, a prompt is often a string written in an afternoon. In production, a prompt is a versioned artifact with a test suite, a deployment process, and a change history. This guide covers the techniques and operational practices that make the difference.
@@ -45,7 +47,7 @@ The number of examples matters less than their quality. Two precise, representat
 
 Chain-of-thought (CoT) prompting instructs the model to reason step by step before producing a final answer. For complex tasks - multi-step calculations, legal analysis, diagnostic reasoning - CoT substantially improves accuracy.
 
-The simplest implementation adds "Think through this step by step before answering" to the user message. More controlled implementations use a structured scratchpad format: the model emits its reasoning in a `<thinking>` block, then produces the final answer separately. The application can discard the thinking block before displaying output to users.
+The simplest implementation adds "Think through this step by step before answering" to the user message. More controlled implementations use a structured scratchpad format: the model emits its reasoning in a `<thinking>` block, then produces the final answer separately. The application can discard the thinking block before displaying output to users. Current reasoning models (Claude with adaptive thinking, OpenAI's GPT-6 models, Gemini with thinking) reason internally before answering; with those, control depth through the API's effort or thinking settings rather than prompting for step-by-step text.
 
 Use CoT for tasks where the quality of the reasoning matters or where errors in intermediate steps would corrupt the final answer. For straightforward classification or extraction tasks, CoT adds latency and tokens without improving quality.
 
@@ -56,7 +58,7 @@ Production systems need deterministic output formats that downstream code can pa
 1. Specify the schema explicitly in the system prompt, including field names, types, and descriptions
 2. Provide a complete example of a valid response in the system prompt
 3. Instruct the model to output only the JSON object, with no preamble or explanation
-4. For Anthropic models, use the Prefill feature to start the assistant turn with `{` - this constrains the model to begin immediately with JSON
+4. Where the API offers native structured outputs, use them: Claude's structured outputs (`output_config.format` with a JSON schema, or `strict: true` on tool definitions) and OpenAI's JSON-schema response format constrain the response to your schema. Do not rely on prefilling the assistant turn with `{`: starting with Claude 4.6 models, a prefilled last assistant turn returns a 400 error, and Anthropic recommends structured outputs instead
 
 Even with these techniques, validate all model output before passing it to downstream systems. Use a JSON schema validator and catch parse errors. Design error handling to either retry with a clarifying message or fall back to a default value.
 
@@ -104,5 +106,7 @@ Amazon Bedrock Prompt Management supports prompt variants natively. Pair it with
 
 ## Sources
 
-- Anthropic Prompt Engineering documentation: https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering
+- Anthropic Prompt Engineering documentation: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview
+- Anthropic, "Prompting best practices: Migrating away from prefilled responses": https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices
+- Anthropic, "Structured outputs": https://platform.claude.com/docs/en/build-with-claude/structured-outputs
 - AWS Bedrock Prompt Management: https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html

@@ -1,6 +1,7 @@
 ---
 title: "Building an AI Video Pipeline on AWS"
 description: "Architecture guide for an end-to-end AI video pipeline: S3 ingest, Lambda trigger, Rekognition analysis, Bedrock processing, FFmpeg editing, and Step Functions orchestration."
+aliases: ["/solutions/media/how-i-built-an-ai-film-crew/"]
 date: 2026-03-24
 categories: [Solutions]
 tags: ["media-processing", "advanced", "video-pipeline", "media", "architecture", "transcoding", "aws"]

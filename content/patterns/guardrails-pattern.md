@@ -9,7 +9,9 @@ related:
   - patterns/structured-output
   - patterns/fallback-chain
   - frameworks/responsible-ai-framework
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Guardrails are validation and filtering layers placed before and after model calls to ensure AI outputs meet safety, quality, and compliance requirements. Input guardrails prevent harmful or malicious prompts from reaching the model. Output guardrails catch problematic content before it reaches the user. Together, they create a safety envelope around the model that reduces risk without requiring changes to the model itself.
@@ -60,7 +62,7 @@ Build a test suite of adversarial inputs and expected outputs. Include known pro
 
 ## Sources and Further Reading
 
-- [Anthropic Safety Documentation](https://docs.anthropic.com/en/docs/build-with-claude/develop-tests#evaluate-your-prompts) - Official guidance on testing and evaluating AI safety
-- [NVIDIA NeMo Guardrails](https://github.com/NVIDIA/NeMo-Guardrails) - Open-source toolkit for adding programmable guardrails to LLM applications
-- [Guardrails AI Documentation](https://docs.guardrailsai.com/) - Framework for adding validation and safety checks to LLM outputs
+- [Anthropic Safety Documentation](https://platform.claude.com/docs/en/test-and-evaluate/develop-tests) - Official guidance on testing and evaluating AI safety
+- [NVIDIA NeMo Guardrails](https://github.com/NVIDIA-NeMo/Guardrails) - Open-source toolkit for adding programmable guardrails to LLM applications
+- [Guardrails AI Documentation](https://guardrailsai.com/guardrails/docs) - Framework for adding validation and safety checks to LLM outputs
 - [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/) - Security risks and mitigations for LLM applications

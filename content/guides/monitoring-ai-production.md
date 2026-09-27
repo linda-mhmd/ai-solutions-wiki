@@ -9,7 +9,7 @@ related:
   - guides/mlops-getting-started
   - glossary/mlops
   - glossary/data-drift
-  - glossary/model-degradation
+  - glossary/model-drift
   - tools/amazon-cloudwatch
   - tools/grafana
   - tools/prometheus

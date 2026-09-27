@@ -8,7 +8,7 @@ tags: [beginner, vibe-coding, ai, claude, cursor, prompting]
 youtube_id: "5zR1ZE5aqho"
 youtube_title: "Cursor Crash Course & AI Coding For Beginners"
 youtube_channel: "Traversy Media"
-docs: "https://docs.anthropic.com/en/docs/claude-code/overview"
+docs: "https://code.claude.com/docs/en/overview"
 docs_label: "Claude Code Overview, Anthropic"
 faqs:
   - question: "Do I need to learn to code to vibe code effectively?"
@@ -16,8 +16,10 @@ faqs:
   - question: "How do I know if AI-generated code is good or safe?"
     answer: "You cannot fully evaluate code you do not understand. For production software, always have a developer review AI-generated code before it handles real users or real money. For prototypes and internal tools, the risk tolerance is different. Concretely: ask the AI to explain what the code does and why. Ask if there are security considerations. Always use version control so you can revert. Never commit API keys or passwords. Be especially careful with authentication, payment handling, and anything that accesses user data."
   - question: "What is the best vibe coding tool for a complete beginner?"
-    answer: "For a complete beginner with no local setup: start with Claude.ai (claude.ai) for planning and explaining, and v0.dev (v0.dev) for generating UI from descriptions without any code editor required. Once you have a project and want to work in files: Cursor (cursor.com) is the most powerful tool for vibe coding with an existing codebase, it reads your entire project context. Claude Code (the CLI) is for developers comfortable in the terminal. Bolt.new generates full working apps from a single prompt with no setup."
-last_updated: 2026-05-30
+    answer: "For a complete beginner with no local setup: start with Claude.ai (claude.ai) for planning and explaining, and v0 (v0.app, formerly v0.dev) for generating UI from descriptions without any code editor required. Once you have a project and want to work in files: Cursor (cursor.com) is the most powerful tool for vibe coding with an existing codebase, it reads your entire project context. Claude Code (the CLI) is for developers comfortable in the terminal. Bolt.new generates full working apps from a single prompt with no setup."
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 {{< quickanswer >}}
@@ -84,7 +86,7 @@ The quality of what you get depends entirely on the quality of your description.
 - Bad: "Make a budgeting app"
 - Good: "I want a single-page web app where a user can enter expense items (description and amount), see a running total, and delete individual items. It should store everything in the browser's localStorage so it persists on refresh. No backend needed."
 
-Specificity is everything. The AI cannot read your mind. [More: Prompt engineering guide, Anthropic](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
+Specificity is everything. The AI cannot read your mind. [More: Prompt engineering guide, Anthropic](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview)
 
 **2. Start with architecture, not code**
 
@@ -133,10 +135,10 @@ Commit before every AI session. Commit after every working addition. [More: What
 |---|---|---|---|
 | **[Claude.ai](https://claude.ai)** | Chat-based AI assistant | Planning, explaining, designing, drafting | Anyone |
 | **[Cursor](https://cursor.com/)** | AI-powered VS Code fork | Working with existing codebases | When you have a project |
-| **[v0.dev](https://v0.dev/)** | Generates React UI from descriptions | Frontend components and pages | UI prototyping |
+| **[v0](https://v0.app/)** (formerly v0.dev) | Generates React UI from descriptions | Frontend components and pages | UI prototyping |
 | **[Bolt.new](https://bolt.new/)** | Full app from a prompt, runs in browser | Very fast first prototypes | Zero-setup start |
 | **[GitHub Copilot](https://github.com/features/copilot)** | AI autocomplete in VS Code / JetBrains | Writing code alongside AI | VS Code users |
-| **[Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview)** | AI in your terminal, edits files directly | Full projects with full context | Terminal-comfortable users |
+| **[Claude Code](https://code.claude.com/docs/en/overview)** | AI in your terminal, edits files directly | Full projects with full context | Terminal-comfortable users |
 | **[Replit](https://replit.com/)** | Browser-based coding with AI | Starting without local setup | No-install start |
 
 For someone starting today with zero setup: **Bolt.new** for a quick prototype, then **Cursor** or **Claude Code** when you want to iterate seriously.
@@ -200,12 +202,12 @@ When your project does grow, two short guides help you stay safe and know when t
 
 ## Further reading
 
-- [Claude Code documentation](https://docs.anthropic.com/en/docs/claude-code/overview), complete guide to using Claude as a coding tool
-- [Cursor documentation](https://docs.cursor.com/), Cursor's full feature set
-- [Prompt engineering guide, Anthropic](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview), how to write prompts that produce better results
+- [Claude Code documentation](https://code.claude.com/docs/en/overview), complete guide to using Claude as a coding tool
+- [Cursor documentation](https://cursor.com/docs), Cursor's full feature set
+- [Prompt engineering guide, Anthropic](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview), how to write prompts that produce better results
 - [Simon Willison's blog](https://simonwillison.net/), one of the most thoughtful writers on AI tools and their practical use
 - [Andrej Karpathy on vibe coding](https://x.com/karpathy/status/1886192184808149177), the original tweet that named the practice
-- [v0.dev documentation](https://v0.dev/docs), generating UI with Vercel's AI tool
+- [v0 documentation](https://v0.app/docs), generating UI with Vercel's AI tool
 - [Building in Public, Indie Hackers](https://www.indiehackers.com/topics/building-in-public), community of people building projects publicly and sharing what they learn
 
 ## You made it

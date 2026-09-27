@@ -12,7 +12,9 @@ related:
   - tools/knative
   - tools/openfaas
   - comparisons/lambda-vs-fargate-ai
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 AWS Lambda is the glue that connects AI services in event-driven pipelines. It is not an AI service itself - it is a serverless compute environment where you run the orchestration logic, pre-processing, and post-processing code that sits between your data and your AI services. For many AI architectures, Lambda is the cheapest and simplest way to build event-driven processing.
@@ -48,7 +50,8 @@ bedrock = boto3.client('bedrock-runtime', region_name='eu-west-1')
 
 def lambda_handler(event, context):
     response = bedrock.invoke_model(
-        modelId='anthropic.claude-3-5-sonnet-20241022-v2:0',
+        # Claude Sonnet 5 on bedrock-runtime needs a geo or global inference profile ID
+        modelId='eu.anthropic.claude-sonnet-5',
         body=json.dumps({
             'anthropic_version': 'bedrock-2023-05-31',
             'max_tokens': 1000,
@@ -58,7 +61,7 @@ def lambda_handler(event, context):
     return json.loads(response['body'].read())
 ```
 
-Lambda execution role needs `bedrock:InvokeModel` permission on the target model ARN.
+Lambda execution role needs `bedrock:InvokeModel` permission on the inference profile ARN and on the underlying foundation model ARNs in the Regions the profile can route to. Newer Claude models such as Sonnet 5 do not accept the bare model ID on `bedrock-runtime` for on-demand use; use a geo (`eu.`, `us.`, `au.`) or `global.` inference profile ID, or the `bedrock-mantle` endpoint for single-Region inference.
 
 ## Integration with SageMaker
 
@@ -92,3 +95,4 @@ Wagner's original pitch was for an event-driven glue service, not a general-purp
 2. AWS Compute Blog. "Compute content at re:Invent 2014." [https://aws.amazon.com/blogs/compute/reinvent2014/](https://aws.amazon.com/blogs/compute/reinvent2014/)
 3. Serverless Chats Podcast. "Episode #52: The Past, Present, and Future of Serverless with Tim Wagner." [https://www.serverlesschats.com/52/](https://www.serverlesschats.com/52/)
 4. Lober, F. "10 Years of AWS Lambda -- The Evolution, Impact, and Future of Serverless." Medium. [https://medium.com/@fabian_lober/10-years-of-aws-lambda-the-evolution-impact-and-future-of-serverless-1-2-0da1e86a9dae](https://medium.com/@fabian_lober/10-years-of-aws-lambda-the-evolution-impact-and-future-of-serverless-1-2-0da1e86a9dae)
+5. AWS. "Claude Sonnet 5 model card." Amazon Bedrock User Guide, accessed 25 September 2026. [https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-sonnet-5.html](https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-sonnet-5.html)

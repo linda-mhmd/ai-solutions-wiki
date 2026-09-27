@@ -10,7 +10,9 @@ related:
   - patterns/canary-deployment
   - guides/ci-cd-ai-detailed
   - tools/amazon-bedrock
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 A model version is a specific combination of: model weights, prompt template, configuration parameters, and evaluation metrics - captured at a point in time. Without versioning, you cannot reproduce a previous model's behaviour, cannot attribute a quality change to a specific deployment, and cannot roll back to a known-good state. For production AI systems, model versioning is the mechanism that makes deployments auditable and reversible.
@@ -20,12 +22,12 @@ A model version is a specific combination of: model weights, prompt template, co
 A model version in a production AI system is not just the model weights. It includes everything needed to reproduce the model's behaviour:
 
 **For Bedrock-based systems (using managed foundation models):**
-- Bedrock model ID and version string (e.g. `anthropic.claude-sonnet-4-5-20251001-v2:0`)
+- Bedrock model ID or inference profile ID (e.g. `eu.anthropic.claude-opus-5-5`)
 - Prompt template text (stored in S3 or Git, not hardcoded)
 - System prompt text
 - Inference parameters (temperature, max tokens, top-p)
 - Knowledge base ID and data source version
-- Bedrock agent alias ID
+- Agent version identifier (AgentCore Runtime version and endpoint, or the agent alias ID for existing Bedrock Agents Classic deployments)
 
 **For SageMaker-based systems (custom or fine-tuned models):**
 - Model artifact S3 URI (the model weights)
@@ -98,7 +100,7 @@ config/
 **bedrock-config.json:**
 ```json
 {
-  "model_id": "anthropic.claude-sonnet-4-5-20251001-v2:0",
+  "model_id": "eu.anthropic.claude-opus-5-5",
   "inference_config": {
     "temperature": 0.1,
     "max_tokens": 2048,
@@ -147,18 +149,20 @@ model_package = sm.create_model_package(
 
 ## Bedrock Model Version Pinning
 
-Foundation models in Bedrock are versioned. Never use a "latest" alias in production - the model provider may update it without notice, changing your system's behaviour.
+Foundation models in Bedrock are versioned: each model ID refers to one fixed model version. Never resolve the model at runtime from a floating "latest" alias (in your own config layer, an AI gateway, or a provider alias that can be repointed) - the model behind it can change without a deployment, changing your system's behaviour.
 
-**Always pin to a specific version:**
+**Always pin to a specific model ID in version-controlled config:**
 ```python
-# Bad: behaviour changes when the provider updates the model
-model_id = "anthropic.claude-sonnet-4-5"
+# Bad: behaviour changes when someone repoints the alias
+model_id = MODEL_ALIASES["claude-latest"]
 
-# Good: locked to this exact model version
-model_id = "anthropic.claude-sonnet-4-5-20251001-v2:0"
+# Good: locked to this exact model (EU geo inference profile)
+model_id = "eu.anthropic.claude-opus-5-5"
 ```
 
-Bedrock model IDs that include a date stamp are version-pinned. When a new model version is released, treat the model ID change as a deployment requiring evaluation, not an automatic upgrade.
+Older Anthropic models on Bedrock carried a date stamp in the ID (for example `anthropic.claude-haiku-4-5-20251001-v1:0`); newer ones such as `anthropic.claude-opus-5-5` do not, but the ID still identifies a single model version. Some models can only be called on demand through a geo or global inference profile ID (the `us.`, `eu.` or `global.` prefix), so record the exact ID you call, including the prefix. When a new model version is released, treat the model ID change as a deployment requiring evaluation, not an automatic upgrade.
+
+Pinning does not stop retirement. Each Bedrock model card shows an "EOL no sooner than" date, and once a model enters its Legacy period new customers cannot adopt it; track these dates for every pinned ID and schedule the migration and re-evaluation before EOL.
 
 ## Rollback Procedures
 
@@ -180,7 +184,7 @@ Documenting what was deployed is not sufficient for reproducibility. You must be
 
 - Model artifact pinned to a specific S3 URI (not a path that gets overwritten)
 - Prompt templates pinned to a specific Git commit SHA
-- Bedrock model ID including the version string
+- Exact Bedrock model or inference profile ID
 - Infrastructure configuration stored in Git (IaC)
 - Training data version documented (even if the data itself is not stored alongside the model)
 
@@ -188,5 +192,8 @@ Documenting what was deployed is not sufficient for reproducibility. You must be
 
 - AWS Documentation: Amazon SageMaker Model Registry. [https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry.html](https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry.html)
 - AWS Documentation: Amazon Bedrock model IDs. [https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html](https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html)
+- AWS Documentation: Claude Opus 5.5 model card (model and inference profile IDs, EOL no sooner than 22 September 2027), accessed 25 September 2026. [https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-opus-5-5.html](https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-opus-5-5.html)
+- AWS Documentation: Amazon Bedrock model lifecycle (Active, Legacy, EOL), accessed 25 September 2026. [https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html](https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html)
+- AWS Documentation: Bedrock Agents Classic maintenance mode, accessed 25 September 2026. [https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html)
 - AWS Documentation: S3 object versioning. [https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html)
 - Sculley, D. et al. (2015). "Hidden Technical Debt in Machine Learning Systems." Advances in Neural Information Processing Systems 28. - The original paper identifying reproducibility as a core ML operations challenge.

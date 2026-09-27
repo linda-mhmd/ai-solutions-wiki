@@ -1,16 +1,20 @@
 ---
 title: "Azure Media Services - Cloud Media Processing and Streaming"
-description: "Azure Media Services is a cloud-based platform for encoding, packaging, protecting, and streaming video and audio content at scale."
+description: "Azure Media Services was a cloud-based platform for encoding, packaging, protecting, and streaming video and audio content. It was retired on 30 June 2024."
 date: 2026-03-28
 categories: [Tools]
 tags: [azure, media, video, encoding, streaming]
 related:
   - tools/aws-mediaconvert
   - tools/azure-blob-storage
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
-Azure Media Services is Microsoft Azure's cloud-based media processing platform that provides encoding, live and on-demand streaming, content protection with DRM, and AI-powered video analytics. The platform enables media organizations, enterprises, and developers to build workflows that ingest raw video and audio, transcode it into multiple formats and bitrates, protect it with digital rights management, and deliver it to viewers worldwide through Azure's content delivery network. For AI applications, Media Services provides the video processing backbone that prepares content for downstream AI analysis including speech transcription, content moderation, face detection, and scene understanding.
+**Status: retired.** Azure Media Services was retired on 30 June 2024; streaming stopped on that date and accounts became read-only before deletion. This page is kept for historical reference. For new work, use partner solutions from the Azure Marketplace (Microsoft's retirement guide lists vendors such as Bitmovin) for encoding and streaming, and Azure AI Video Indexer, which continues as a separate service, for video AI.
+
+Azure Media Services was Microsoft Azure's cloud-based media processing platform that provided encoding, live and on-demand streaming, content protection with DRM, and AI-powered video analytics. The platform enables media organizations, enterprises, and developers to build workflows that ingest raw video and audio, transcode it into multiple formats and bitrates, protect it with digital rights management, and deliver it to viewers worldwide through Azure's content delivery network. For AI applications, Media Services provides the video processing backbone that prepares content for downstream AI analysis including speech transcription, content moderation, face detection, and scene understanding.
 
 The encoding engine transforms source video into adaptive bitrate streaming formats (HLS and MPEG-DASH) with multiple quality levels, enabling smooth playback across devices and network conditions. Encoding supports H.264/AVC and H.265/HEVC codecs with content-aware encoding that automatically optimizes bitrate ladders based on the complexity of each video. Live events provide real-time encoding and packaging of live streams with pass-through and live encoding modes. Content protection supports Microsoft PlayReady, Google Widevine, and Apple FairPlay DRM systems, with Azure Media Services handling license delivery and key management.
 
@@ -27,7 +31,7 @@ Official documentation: https://learn.microsoft.com/en-us/azure/media-services/
 
 ## AWS Equivalent
 
-Azure Media Services is Azure's counterpart to AWS MediaConvert (for encoding) and the broader AWS Elemental Media Services suite (for live streaming and packaging). Azure combines encoding, streaming, content protection, and AI-powered video analysis in a single platform, while AWS distributes these across MediaConvert, MediaLive, MediaPackage, and separate AI services. Note that Microsoft announced the retirement of Azure Media Services for June 2024, with migration to third-party solutions or individual Azure AI services.
+Azure Media Services was Azure's counterpart to AWS Elemental MediaConvert (for encoding) and the broader AWS Elemental Media Services suite (for live streaming and packaging). It combined encoding, streaming, content protection, and AI-powered video analysis in a single platform, while AWS distributes these across MediaConvert, MediaLive, MediaPackage, and separate AI services. Since the retirement on 30 June 2024, Azure has no first-party equivalent to MediaConvert.
 
 ## Origins and History
 
@@ -37,3 +41,4 @@ Azure Media Services launched in general availability in April 2014, evolving fr
 
 1. Microsoft Learn. "Azure Media Services documentation." https://learn.microsoft.com/en-us/azure/media-services/
 2. Microsoft Azure Blog. "Azure Media Services retirement." June 2023. https://azure.microsoft.com/en-us/updates/retirement-notice-azure-media-services-is-being-retired-on-30-june-2024/
+3. Microsoft Learn. "Azure Media Services retirement guide." Accessed 25 September 2026. https://learn.microsoft.com/en-us/azure/media-services/latest/azure-media-services-retirement

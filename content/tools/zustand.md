@@ -11,7 +11,9 @@ related:
   - guides/from-zero-to-production
 solutions:
   - guides/from-zero-to-production
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Zustand (German for "state") is a state management library for React and React Native built by the team at [Pmndrs](https://pmnd.rs/) (Poimandres). It was created as a direct response to the complexity of Redux and the performance limitations of React's built-in Context API. The pitch is deliberately minimal: create a store, define actions in the same place as state, subscribe to exactly the slice of state you need. No reducers, no action creators, no boilerplate.
@@ -334,18 +336,22 @@ A common pattern: use TanStack Query for all server state (API responses, lists 
 
 The key performance characteristic of Zustand is that components subscribe to slices of state, not the entire store. When an action is dispatched, Zustand compares the selector output before and after the update using `Object.is` equality by default. If the selector output did not change, the component does not re-render.
 
-For complex selectors that return objects or arrays, you can provide a custom equality function:
+For selectors that build a new object or array on every call, wrap the selector in `useShallow`. Since Zustand v5 (current line: 5.0.x), the hook returned by `create` no longer accepts an equality function as a second argument; use `useShallow`, or `createWithEqualityFn` from `zustand/traditional` if you need the v4-style API:
 
 ```typescript
-import { shallow } from 'zustand/shallow'
+import { useShallow } from 'zustand/shallow'
 
-// Without shallow: re-renders on every update (new array reference each time)
-const items = useWardrobeStore((state) => state.items)
+// Without useShallow: this selector returns a new array on every call,
+// so the component re-renders on every store update
+const topNames = useWardrobeStore((state) =>
+  state.items.filter((i) => i.category === 'tops').map((i) => i.name)
+)
 
-// With shallow: only re-renders if any item in the array changed
-const items = useWardrobeStore(
-  (state) => state.items,
-  shallow
+// With useShallow: re-renders only if the array's elements changed
+const topNamesShallow = useWardrobeStore(
+  useShallow((state) =>
+    state.items.filter((i) => i.category === 'tops').map((i) => i.name)
+  )
 )
 ```
 
@@ -355,5 +361,6 @@ This is particularly valuable on React Native where component re-renders have a 
 
 1. https://zustand.docs.pmnd.rs/
 2. https://github.com/pmndrs/zustand
-3. https://docs.pmnd.rs/zustand/guides/persisting-store-data
-4. https://react-native-async-storage.github.io/async-storage/
+3. https://zustand.docs.pmnd.rs/reference/integrations/persisting-store-data
+4. Zustand, "Migrating to v5" (custom equality functions removed from `create`; use `useShallow` or `zustand/traditional`): https://github.com/pmndrs/zustand/blob/main/docs/reference/migrations/migrating-to-v5.md
+5. https://react-native-async-storage.github.io/async-storage/

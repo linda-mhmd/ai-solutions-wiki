@@ -4,7 +4,9 @@ description: "A comprehensive guide to GitHub Actions security vulnerabilities, 
 date: 2026-04-02
 categories: [Guides]
 tags: [software-engineering, intermediate, security, devops, ci-cd, github-actions, supply-chain]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 CI/CD pipelines are not neutral infrastructure. They run with elevated privileges, hold production secrets, and execute arbitrary code on every push. When those pipelines are compromised, attackers get exactly what they want: write access to your codebase, your artifact registries, and your production environments. Understanding GitHub Actions security is not optional for any team shipping software in 2026.
@@ -52,7 +54,7 @@ GitHub Security Lab has documented multiple cases of this vulnerability in widel
 
 ### Excessive Permissions
 
-GitHub Actions grants workflows a `GITHUB_TOKEN` scoped to the repository. By default (until recently), this token had `write` permissions on most scopes. GitHub changed the default to `read-all` in 2023, but many organizations still run older configurations or explicitly override to broad write permissions.
+GitHub Actions grants workflows a `GITHUB_TOKEN` scoped to the repository. Originally this token had read/write permissions by default. In February 2023 GitHub changed the default to a read-only token for newly created enterprises, organizations and repositories, but the change did not apply to existing ones, so many organizations still run older read/write defaults or explicitly override to broad write permissions.
 
 The principle of least privilege applies here: a workflow that only reads artifacts has no business with `contents: write` or `packages: write`. Permissions should be declared explicitly at the workflow level and narrowed further at the job level:
 
@@ -70,6 +72,8 @@ jobs:
 ### Unpinned Third-Party Actions
 
 When you reference `uses: actions/checkout@v4`, you are trusting that the `v4` tag in the `actions/checkout` repository points to safe code. Tags are mutable. A compromised maintainer account or a supply chain attack can move a tag to point at malicious code, and every workflow using that tag will execute it on the next run.
+
+This has happened in practice. In March 2025 the widely used `tj-actions/changed-files` action was compromised and its version tags were repointed to a malicious commit that dumped CI secrets into workflow logs (CVE-2025-30066). In March 2026 attackers compromised release tags of `aquasecurity/trivy-action`, a security scanner many pipelines run with elevated access; Aqua Security re-published clean releases under `v`-prefixed tags.
 
 Pinning to a full SHA hash prevents this:
 
@@ -209,7 +213,7 @@ uses: actions/checkout@v4
 uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
 ```
 
-Use a comment to document which tag the SHA corresponds to. Renovate and Dependabot both support automated SHA-pinned updates for Actions.
+Use a comment to document which tag the SHA corresponds to. Renovate and Dependabot both support automated SHA-pinned updates for Actions. Since August 2025, administrators can also enforce SHA pinning through the allowed-actions policy at the enterprise, organization or repository level: any workflow that references an action by tag instead of a full commit SHA fails. The same policy can block specific actions or versions outright, which is useful when an action is known to be compromised.
 
 ### Declare Minimum Required Permissions
 
@@ -308,3 +312,7 @@ AI pipelines extend the CI/CD attack surface in ways that are not always obvious
 - [SLSA Supply Chain Levels for Software Artifacts](https://slsa.dev/)
 - [GitHub Docs: Security hardening for GitHub Actions](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions)
 - [Codecov Security Advisory CVE-2021-3639](https://about.codecov.io/apr-2021-post-mortem/)
+- [GitHub Changelog: Updating the default GITHUB_TOKEN permissions to read-only (2 February 2023)](https://github.blog/changelog/2023-02-02-github-actions-updating-the-default-github_token-permissions-to-read-only/)
+- [GitHub Changelog: GitHub Actions policy now supports blocking and SHA pinning actions (15 August 2025)](https://github.blog/changelog/2025-08-15-github-actions-policy-now-supports-blocking-and-sha-pinning-actions/)
+- [NVD: CVE-2025-30066 (tj-actions/changed-files)](https://nvd.nist.gov/vuln/detail/CVE-2025-30066)
+- [Aqua Security: trivy-action releases (re-published after the March 2026 supply-chain attack)](https://github.com/aquasecurity/trivy-action/releases)

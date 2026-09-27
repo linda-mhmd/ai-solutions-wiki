@@ -4,7 +4,9 @@ description: "How to choose embedding models for semantic search, RAG, and simil
 date: 2026-03-28
 categories: [Guides]
 tags: [embeddings, models, RAG, semantic-search, evaluation]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Embedding models convert text, images, or other data into numerical vectors that capture semantic meaning. The choice of embedding model directly impacts the quality of semantic search, RAG retrieval, and recommendation systems. With dozens of options available, selecting the right one requires understanding the tradeoffs between quality, speed, cost, and dimensionality.
@@ -29,11 +31,13 @@ Embedding models convert text, images, or other data into numerical vectors that
 
 **OpenAI text-embedding-3-small.** 1536 dimensions. Good quality at lower cost ($0.02 per million tokens). Suitable when budget is constrained or storage is a concern.
 
-**Amazon Titan Embeddings V2.** 1024 dimensions. Available through Amazon Bedrock. Competitive quality. Good choice for AWS-centric architectures to keep data within AWS.
+**Amazon Titan Text Embeddings V2 and Nova Multimodal Embeddings.** Titan V2 (1024 dimensions) remains available through Amazon Bedrock; Amazon Nova Multimodal Embeddings is Amazon's newer model and also embeds images, video and audio. Good choice for AWS-centric architectures to keep data within AWS.
 
-**Cohere embed-v3.** 1024 dimensions. Strong multilingual performance. Supports both search and classification use cases. Available through Bedrock and Cohere API.
+**Cohere Embed v4.** 1536 dimensions by default (256, 512 and 1024 also supported), 128K-token context, and embeds text, images and mixed documents such as PDFs. Strong multilingual performance. Available through Bedrock and the Cohere API. The earlier embed-v3 models (1024 dimensions, 512-token context) are still offered.
 
-**Voyage AI.** Multiple variants optimized for specific domains (code, legal, finance). 1024 dimensions. Competitive with OpenAI on domain-specific tasks.
+**Voyage AI.** The voyage-4 series (voyage-4-large, voyage-4, voyage-4-lite, plus voyage-code-4) with 32K-token context and 1024 dimensions by default (256 to 2048 selectable), and domain variants for finance and law. Embeddings from all voyage-4 models are compatible with each other. Competitive with OpenAI on domain-specific tasks.
+
+**Google Gemini Embedding 2.** `gemini-embedding-2`, a stable multimodal model that maps text, images, video, audio and PDFs into one embedding space. 8,192-token input, flexible output dimensions from 128 to 3072.
 
 ### Open Source / Self-Hosted Models
 
@@ -47,17 +51,19 @@ Embedding models convert text, images, or other data into numerical vectors that
 
 **Nomic-embed-text.** 768 dimensions. Open source with strong performance. Supports long context (8192 tokens).
 
+**Newer open-weight options.** The models above date from 2023-2024. More recent open-weight embedders include Alibaba's Qwen3-Embedding family (June 2025, Apache 2.0), Google's EmbeddingGemma (300M parameters, Gemma licence) and Voyage's open-weight voyage-4-nano. Check the current MTEB leaderboard before defaulting to an older model.
+
 ## Selection Criteria
 
 ### By Use Case
 
 **RAG retrieval.** Prioritize retrieval quality. Use a model that scores well on MTEB retrieval benchmarks. OpenAI text-embedding-3-large or BGE-large are strong choices.
 
-**Semantic search.** Similar to RAG but may need multilingual support. Cohere embed-v3 for multilingual; OpenAI or BGE for English-focused.
+**Semantic search.** Similar to RAG but may need multilingual support. Cohere Embed v4 or voyage-4 for multilingual; OpenAI or BGE for English-focused.
 
 **Classification or clustering.** Some models are optimized for these tasks separately. Check task-specific benchmarks, not just overall MTEB scores.
 
-**Code search.** Use models trained on code. Voyage Code or OpenAI with code-specific fine-tuning.
+**Code search.** Use models trained on code, such as voyage-code-4, or a general model evaluated on your own code corpus.
 
 ### By Constraint
 
@@ -67,7 +73,7 @@ Embedding models convert text, images, or other data into numerical vectors that
 
 **Privacy-sensitive.** Self-hosted models keep data on your infrastructure. No data is sent to third-party APIs. BGE, E5, and GTE are excellent self-hosted options.
 
-**Multilingual.** Cohere embed-v3 and multilingual-e5-large handle multiple languages well. English-only models will produce poor results on non-English text.
+**Multilingual.** Cohere Embed v4, the voyage-4 series and multilingual-e5-large handle multiple languages well. English-only models will produce poor results on non-English text.
 
 ## Evaluation Methodology
 
@@ -106,3 +112,12 @@ Plot quality vs. cost and quality vs. latency. The best model depends on where y
 **Hybrid search.** Combining embedding-based search with keyword-based search (BM25) often outperforms either alone. Consider this before investing in a more expensive embedding model.
 
 The embedding model is a foundational choice that affects the entire retrieval pipeline. Invest the time to evaluate properly on your data - public benchmarks predict general performance but not domain-specific results.
+
+## Sources
+
+1. OpenAI, "Vector embeddings" guide and API pricing (text-embedding-3-small $0.02, text-embedding-3-large $0.13 per million tokens; fetched 25 September 2026): [https://developers.openai.com/api/docs/guides/embeddings](https://developers.openai.com/api/docs/guides/embeddings)
+2. Cohere, "Models overview" (Embed v4 and v3 specifications): [https://docs.cohere.com/docs/models](https://docs.cohere.com/docs/models)
+3. Voyage AI, "Text embeddings" (voyage-4 series): [https://docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)
+4. Google, "Gemini Embedding 2" model page: [https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2](https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2)
+5. AWS Documentation, "Models at a glance" (Amazon Nova Multimodal Embeddings, Titan Text Embeddings V2, Cohere Embed v4): [https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards.html](https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards.html)
+6. Hugging Face, Qwen/Qwen3-Embedding-8B: [https://huggingface.co/Qwen/Qwen3-Embedding-8B](https://huggingface.co/Qwen/Qwen3-Embedding-8B)

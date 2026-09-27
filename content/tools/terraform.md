@@ -11,7 +11,9 @@ related:
 alternatives:
   aws: tools/aws-amplify
   azure: tools/azure-data-factory
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Terraform is an infrastructure-as-code tool that provisions cloud resources from declarative configuration files. You describe the desired state of infrastructure in HCL (HashiCorp Configuration Language), Terraform computes the difference from the current state, and applies the changes. For AI projects on AWS, Terraform manages everything from S3 buckets and Lambda functions to Bedrock configurations and IAM roles.
@@ -42,7 +44,7 @@ resource "aws_s3_bucket" "ai_pipeline_input" {
 
 ## State Management
 
-Terraform tracks the current state of provisioned infrastructure in a **state file** (`terraform.tfstate`). For teams, store state in S3 with DynamoDB locking:
+Terraform tracks the current state of provisioned infrastructure in a **state file** (`terraform.tfstate`). For teams, store state in S3 with S3-native state locking (`use_lockfile`, available since Terraform 1.10). DynamoDB-based locking via `dynamodb_table` still works but is deprecated and slated for removal; you can set both during a migration:
 
 ```hcl
 terraform {
@@ -50,7 +52,7 @@ terraform {
     bucket         = "my-terraform-state"
     key            = "ai-pipeline/prod.tfstate"
     region         = "eu-west-1"
-    dynamodb_table = "terraform-locks"
+    use_lockfile   = true  # S3-native locking; replaces the deprecated dynamodb_table
   }
 }
 ```
@@ -96,14 +98,17 @@ Mitchell Hashimoto first recognized the need for a cloud-agnostic infrastructure
 
 On July 28, 2014, HashiCorp released Terraform 0.1 with support for AWS and DigitalOcean. The announcement described Terraform as "a tool for safely and efficiently building, combining, and launching infrastructure." The initial vision was to compose resources across multiple providers -- servers from AWS, DNS from CloudFlare, databases from Heroku -- and build them all in parallel.
 
-Terraform was far from an overnight success. Downloads were largely stagnant for the first eighteen months, and the team considered shutting the project down. By late 2016, however, the provider ecosystem had grown to over 750 contributors and dozens of providers including Azure, Google Cloud, and OpenStack. Downloads began doubling monthly in 2017. Terraform 1.0 reached general availability in June 2021, signaling production stability. In April 2024, IBM announced the acquisition of HashiCorp for $6.4 billion, closing in February 2025.
+Terraform was far from an overnight success. Downloads were largely stagnant for the first eighteen months, and the team considered shutting the project down. By late 2016, however, the provider ecosystem had grown to over 750 contributors and dozens of providers including Azure, Google Cloud, and OpenStack. Downloads began doubling monthly in 2017. Terraform 1.0 reached general availability in June 2021, signaling production stability. In August 2023 HashiCorp moved Terraform from the Mozilla Public License 2.0 to the source-available Business Source License 1.1, which prompted the Linux Foundation-hosted open-source fork OpenTofu (MPL 2.0). In April 2024, IBM announced the acquisition of HashiCorp for $6.4 billion, closing in February 2025. Terraform remains on the 1.x line (1.16.4, September 2026).
 
 ## Sources
 
 1. HashiCorp. "Terraform Announcement." July 28, 2014. [https://www.hashicorp.com/en/blog/terraform-announcement](https://www.hashicorp.com/en/blog/terraform-announcement)
 2. HashiCorp. "The Story of HashiCorp Terraform with Mitchell Hashimoto." [https://www.hashicorp.com/en/resources/the-story-of-hashicorp-terraform-with-mitchell-hashimoto](https://www.hashicorp.com/en/resources/the-story-of-hashicorp-terraform-with-mitchell-hashimoto)
 3. HashiCorp. "Announcing HashiCorp Terraform 1.0 General Availability." June 2021. [https://www.hashicorp.com/en/blog/announcing-hashicorp-terraform-1-0-general-availability](https://www.hashicorp.com/en/blog/announcing-hashicorp-terraform-1-0-general-availability)
-4. "Terraform (software)." Wikipedia. [https://en.wikipedia.org/wiki/Terraform_(software)](https://en.wikipedia.org/wiki/Terraform_(software))
+4. HashiCorp. "Backend Type: s3" (use_lockfile; DynamoDB locking deprecated). [https://developer.hashicorp.com/terraform/language/backend/s3](https://developer.hashicorp.com/terraform/language/backend/s3)
+5. Terraform LICENSE (Business Source License 1.1) and releases (v1.16.4, 23 September 2026). [https://github.com/hashicorp/terraform](https://github.com/hashicorp/terraform)
+6. OpenTofu. [https://github.com/opentofu/opentofu](https://github.com/opentofu/opentofu)
+7. "Terraform (software)." Wikipedia. [https://en.wikipedia.org/wiki/Terraform_(software)](https://en.wikipedia.org/wiki/Terraform_(software))
 
 ## Related Articles
 

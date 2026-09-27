@@ -11,7 +11,9 @@ related:
   - guides/from-zero-to-production
 solutions:
   - guides/from-zero-to-production
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Expo is an open-source framework and platform built on top of React Native that makes mobile app development practical for teams who want to ship to iOS and Android without maintaining separate native codebases. Where raw React Native hands you a collection of loosely coupled tools and asks you to wire them together, Expo provides a curated SDK, a managed build service, an over-the-air update system, and a file-based routing library, all integrated and versioned together.
@@ -159,21 +161,23 @@ Persistent key-value storage on the device, equivalent to `localStorage` for the
 
 | | **Expo Managed** | **Expo Bare** | **React Native CLI** |
 |---|---|---|---|
-| **Starting point** | `npx create-expo-app` | Eject from managed | `npx @react-native-community/cli init` |
+| **Starting point** | `npx create-expo-app` | `npx expo prebuild` generates the native projects | `npx @react-native-community/cli init` |
 | **Native code visible** | No (abstracted) | Yes (`ios/` and `android/` present) | Yes |
 | **EAS Build** | Yes | Yes | Yes (with some config) |
 | **Expo SDK modules** | All available | All available | Must add individually |
 | **Custom native modules** | Dev Client required | Full control | Full control |
 | **When to use** | Starting out, most apps | Need native code changes not covered by SDK | Need full control or existing native codebase |
 
-**Recommendation for most teams:** Start managed. Eject to bare only if you hit a specific native capability the SDK does not provide. The SDK covers 95% of common use cases.
+**Recommendation for most teams:** Start managed. Move to bare (commit the `ios/` and `android/` folders that `npx expo prebuild` generates) only if you hit a specific native capability the SDK does not provide. The SDK covers 95% of common use cases.
 
 ## Expo SDK version cycle
 
-Expo releases a new SDK version roughly every quarter. Each SDK version pins a specific version of React Native. For example:
+Expo releases a new SDK version roughly every quarter. Each SDK version targets a single React Native version, typically the latest stable one at release. Recent pairs:
 
-- SDK 52 → React Native 0.76
-- SDK 53 → React Native 0.77 (with New Architecture on by default)
+- SDK 54 → React Native 0.81
+- SDK 55 → React Native 0.83
+- SDK 56 → React Native 0.85
+- SDK 57 → React Native 0.86 (latest SDK as of September 2026)
 
 Upgrading SDK versions is the primary maintenance task for Expo projects. The changelog is thorough, and the `expo-doctor` CLI command checks for incompatibilities before you build.
 
@@ -232,13 +236,14 @@ Apps do not auto-upgrade. Users stay on the SDK version baked into their install
 
 **Expo SDK and CLI:** free and open-source (MIT).
 
-**EAS pricing (as of 2026):**
+**EAS pricing (checked September 2026):**
 
-| Plan | Price | Build minutes/month | EAS Update |
+| Plan | Price | Build credit | EAS Update |
 |---|---|---|---|
-| Free | $0 | 30 minutes | 1,000 monthly active devices |
-| Production | $99/month | 1,600 minutes | 50,000 monthly active devices |
-| Enterprise | Custom | Unlimited | Unlimited |
+| Free | $0 | 15 Android and 15 iOS builds per month | 1,000 monthly active users |
+| Starter | $19/month + usage | $45 of build credit | 3,000 monthly active users |
+| Production | $199/month + usage | $225 of build credit | 50,000 monthly active users |
+| Enterprise | Custom | $1,000 of build credit | 1M+ monthly active users |
 
 Most indie apps and small teams run on the free tier during development and upgrade to Production when shipping to real users at scale.
 
@@ -264,3 +269,5 @@ eas build --platform ios --profile preview
 4. https://docs.expo.dev/eas/
 5. https://docs.expo.dev/router/introduction/
 6. https://reactnative.dev/docs/environment-setup
+7. https://docs.expo.dev/versions/latest/ (Expo SDK to React Native version table, checked 26 September 2026)
+8. https://expo.dev/pricing (EAS plans, checked 26 September 2026)

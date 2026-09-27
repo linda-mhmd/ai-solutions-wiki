@@ -6,7 +6,9 @@ categories: [Solutions]
 tags: [digital-twin, simulation, process-optimization, iot, manufacturing-ai]
 industries: [manufacturing]
 tools: [amazon-sagemaker, aws-iot-twinmaker, amazon-kinesis]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 A digital twin is a virtual representation of a physical manufacturing system - a machine, production line, or entire factory - that mirrors the real system's state in real time using sensor data. AI enhances digital twins by enabling predictive simulation: rather than just reflecting current state, the twin predicts future behavior, tests optimizations virtually, and recommends changes before they are implemented on the physical system.
@@ -29,7 +31,7 @@ Complex manufacturing processes (chemical reactions, metal forming, semiconducto
 
 ## Architecture
 
-Sensor data from the physical system streams through Kinesis to IoT TwinMaker. SageMaker hosts the physics-informed models that power the twin's predictive capability. The twin's state and predictions are stored in a time-series database (Timestream) and visualized in real-time dashboards. Optimization results are presented to process engineers for review and implementation. Integration with the process control system enables automated parameter adjustments for approved optimizations.
+Sensor data from the physical system streams through Kinesis to IoT TwinMaker. SageMaker hosts the physics-informed models that power the twin's predictive capability. The twin's state and predictions are stored in a time-series database (Amazon Timestream for InfluxDB; Timestream for LiveAnalytics [closed to new customers on 20 June 2025](https://docs.aws.amazon.com/timestream/latest/developerguide/AmazonTimestreamForLiveAnalytics-availability-change.html)) and visualized in real-time dashboards. Optimization results are presented to process engineers for review and implementation. Integration with the process control system enables automated parameter adjustments for approved optimizations.
 
 ## Key Considerations
 

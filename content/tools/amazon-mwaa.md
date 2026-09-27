@@ -12,14 +12,15 @@ layer: orchestration
 provider: aws
 pricing_model: payg
 maturity: production
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 enhanced_pass: "2026-06"
 ---
 
 Amazon Managed Workflows for Apache Airflow (MWAA) is a fully managed service that runs open-source Apache Airflow on AWS. It handles the provisioning, patching, scaling, and maintenance of Airflow's scheduler, workers, and web server, allowing teams to focus on writing DAGs rather than managing infrastructure. MWAA integrates natively with AWS services including Amazon S3, AWS Glue, Amazon EMR, Amazon SageMaker, and AWS Lambda, making it a common choice for orchestrating data and ML pipelines within the AWS ecosystem.
 
-As of June 2026, Amazon MWAA supports Apache Airflow 3.x (3.0.6 since October 2025 and 3.2.1 since May 2026) alongside the 2.x line (2.11.0 since January 2026), all on Python 3.12. MWAA is generally available, actively maintained, and not deprecated.
+As of September 2026, Amazon MWAA supports Apache Airflow 3.x (3.0.6 since October 2025, 3.2.1 since May 2026 and 3.3.1 since 1 September 2026) alongside the 2.x line (2.11.0 since January 2026 and 2.11.2 since 23 July 2026), all on Python 3.12. MWAA is generally available, actively maintained, and not deprecated.
 
 Official documentation: https://docs.aws.amazon.com/mwaa/
 Pricing: https://aws.amazon.com/managed-workflows-for-apache-airflow/pricing/
@@ -61,7 +62,7 @@ Amazon MWAA is the AWS-managed version of {{< relref "tools/apache-airflow" >}}.
 
 Amazon MWAA was announced at AWS re:Invent 2020 and reached general availability in late 2020. The service was created to address the operational complexity of self-hosting Apache Airflow, which requires managing a scheduler, web server, metadata database, and worker fleet. Before MWAA, AWS customers typically ran Airflow on Amazon ECS, Amazon EKS, or Amazon EC2 with significant operational overhead. MWAA tracks upstream Airflow releases, typically making new versions available within a few months of their open-source release.
 
-Recent milestones reflect that cadence. MWAA added Apache Airflow 3.0 support on 1 October 2025, bringing the redesigned UI, event-driven scheduling, the Task SDK, and DAG versioning. On 17 November 2025 AWS introduced the MWAA Serverless deployment option. Airflow 2.11 arrived on 7 January 2026 and Airflow 3.2.1 on 19 May 2026. MWAA follows the Apache Airflow community version policy: it commits to supporting at least three minor versions at a time and announces an end-of-support date at least 180 days in advance. Versions v2.4.3, v2.5.1, and v2.6.3 reached end of support on 30 December 2025, after which they can no longer be used to create new environments.
+Recent milestones reflect that cadence. MWAA added Apache Airflow 3.0 support on 1 October 2025, bringing the redesigned UI, event-driven scheduling, the Task SDK, and DAG versioning. On 17 November 2025 AWS introduced the MWAA Serverless deployment option. Airflow 2.11 arrived on 7 January 2026, Airflow 3.2.1 on 19 May 2026, Airflow 2.11.2 on 23 July 2026 and Airflow 3.3.1 on 1 September 2026. MWAA follows the Apache Airflow community version policy: it commits to supporting at least three minor versions at a time and announces an end-of-support date at least 180 days in advance. Versions v2.4.3, v2.5.1, and v2.6.3 reached end of support on 30 December 2025, after which they can no longer be used to create new environments.
 
 ## Best practices
 
@@ -70,7 +71,7 @@ AWS publishes specific guidance for running MWAA well. For architecture and oper
 ## Sources
 
 1. AWS. "Amazon Managed Workflows for Apache Airflow Documentation." https://docs.aws.amazon.com/mwaa/
-2. AWS. "Apache Airflow versions on Amazon Managed Workflows for Apache Airflow." https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html
+2. AWS. "Apache Airflow versions on Amazon Managed Workflows for Apache Airflow" (version table with MWAA availability dates, fetched 25 September 2026). https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html
 3. AWS Big Data Blog. "Introducing Apache Airflow 3 on Amazon MWAA: New features and capabilities." 1 October 2025. https://aws.amazon.com/blogs/big-data/introducing-apache-airflow-3-on-amazon-mwaa-new-features-and-capabilities
 4. AWS. "Amazon MWAA Introduces Serverless Deployment Option for Apache Airflow Workflows." 17 November 2025. https://aws.amazon.com/about-aws/whats-new/2025/11/mwaa-serverless-deployment-apache-airflow-workflows/
 5. AWS. "Amazon MWAA now supports Apache Airflow 3.2." April 2026. https://aws.amazon.com/about-aws/whats-new/2026/04/amazon-mwaa-now-supports-apache-airflow-3-2/

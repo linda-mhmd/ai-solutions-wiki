@@ -2,6 +2,8 @@
 title: "What is React Native?"
 description: "React Native lets you write one JavaScript codebase that runs as a real native app on both iOS and Android. Not a website in a wrapper: actual native components."
 date: 2026-05-28
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 2
 categories: [Basics]
 tags: [beginner, mobile, react-native, ios, android, javascript, typescript, cross-platform]
@@ -23,7 +25,7 @@ related:
   - tools/zustand
   - tools/async-storage
   - basics/what-is-vibe-coding
-last_updated: 2026-05-30
+last_updated: 2026-09-25
 ---
 
 {{< quickanswer >}}
@@ -78,12 +80,12 @@ This worked well for most apps but introduced latency for interactions that requ
 
 ### The new architecture: JSI and Fabric
 
-Since 2022, React Native has been migrating to a new architecture that eliminates the bridge:
+From 2022, React Native migrated to a new architecture that eliminates the bridge. The migration is now complete: React Native 0.82 (October 2025) was the first release that runs entirely on the New Architecture, and later releases have been removing the legacy code:
 
 - **JSI (JavaScript Interface)**: a C++ layer that lets JavaScript call native functions directly, synchronously, without serialisation. No message queue, no JSON overhead.
 - **Fabric**: a reimplemented rendering layer that can synchronously compute layouts and respond to gestures without crossing a thread boundary.
 
-The practical result: the new architecture closes roughly 90% of the performance gap between React Native and fully native apps. Since Expo SDK 53 (2025), the new architecture is enabled by default for new projects.
+The practical result: the new architecture closes roughly 90% of the performance gap between React Native and fully native apps. Since Expo SDK 53 (2025), the new architecture has been enabled by default for new Expo projects, and since React Native 0.82 there is no legacy mode to fall back to. React Native 0.84 also made Hermes V1 the default JavaScript engine.
 
 <div class="bz-arch">
   <div class="bz-arch-layer">
@@ -219,7 +221,8 @@ See the [Expo tool article](/tools/expo/) for the full build pipeline, SDK modul
 - [Expo documentation](https://docs.expo.dev/): the recommended starting framework
 - [React Native New Architecture](https://reactnative.dev/docs/the-new-architecture/landing-page): how JSI and Fabric work
 - [State of React Native 2024](https://results.stateofreactnative.com/): community survey on usage and satisfaction
-- [Flutter vs React Native (2025)](https://www.jetbrains.com/lp/devecosystem-2024/): JetBrains developer survey data
+- [JetBrains Developer Ecosystem survey 2024](https://www.jetbrains.com/lp/devecosystem-2024/): developer survey data, including cross-platform framework usage
+- [React Native blog](https://reactnative.dev/blog): release notes, including 0.82 (New Architecture only) and 0.84 (Hermes V1 default)
 
 ## What's next
 

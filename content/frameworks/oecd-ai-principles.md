@@ -9,10 +9,12 @@ related:
   - frameworks/iso-42001
   - frameworks/ieee-7000-ethical-ai
   - guides/responsible-ai-guide
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
-The OECD Principles on Artificial Intelligence, adopted in May 2019, were the first intergovernmental standard for responsible AI. Originally endorsed by 36 OECD member countries and subsequently adopted by the G20, the principles now have adherence from over 40 countries. They have become the foundational reference point for national AI strategies, regulatory frameworks, and corporate AI ethics policies worldwide.
+The OECD Principles on Artificial Intelligence, adopted in May 2019, were the first intergovernmental standard for responsible AI. Originally endorsed by 36 OECD member countries and subsequently adopted by the G20, the principles were updated in May 2024 to reflect developments such as generative AI, and now have 47 adherents, including the European Union. They have become the foundational reference point for national AI strategies, regulatory frameworks, and corporate AI ethics policies worldwide.
 
 
 <figure class="bz-figure">
@@ -60,7 +62,7 @@ To support implementation, the OECD created the AI Policy Observatory (OECD.AI),
 
 ## Influence on National and International Policy
 
-The OECD AI Principles have shaped AI regulation globally. The EU AI Act references OECD definitions and risk categories. The US National AI Initiative and Executive Order on AI Safety align with OECD principle areas. Japan, Canada, the UK, and Australia have all built national AI strategies that explicitly reference the OECD framework. The G7 Hiroshima Process on AI and the Global Partnership on AI (GPAI) both operate within the conceptual framework established by these principles.
+The OECD AI Principles have shaped AI regulation globally. The EU AI Act references OECD definitions and risk categories. The US National AI Initiative and the 2023 Executive Order on AI safety (EO 14110, rescinded in January 2025) aligned with OECD principle areas, and the United States remains an adherent. Japan, Canada, the UK, and Australia have all built national AI strategies that explicitly reference the OECD framework. The G7 Hiroshima Process on AI and the Global Partnership on AI (GPAI) both operate within the conceptual framework established by these principles.
 
 The principles' broad adoption is partly due to their high-level, technology-neutral formulation. They provide a shared vocabulary and value system without prescribing specific technical implementations, allowing countries and organizations to adapt them to their own legal, cultural, and economic contexts.
 

@@ -2,11 +2,11 @@
 title: "S3 vs EFS for AI Workloads"
 description: "Comparing Amazon S3 and Amazon EFS for AI training data, model storage, and inference workloads, covering performance, cost, and access patterns."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [S3, EFS, storage, AWS, AI-infrastructure]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 AI workloads have diverse storage needs: training datasets, model artifacts, checkpoint files, feature stores, and inference caches. S3 and EFS both store data on AWS but serve fundamentally different access patterns. Choosing the wrong one causes performance bottlenecks or unnecessary cost.
@@ -97,9 +97,10 @@ The classic split (S3 for objects, EFS for filesystem access) is softer than it 
 
 - **Mountpoint for Amazon S3** - an open source client that mounts an S3 bucket as a local filesystem, so applications that expect file paths can read S3 directly with high aggregate throughput. There is also a Mountpoint for Amazon S3 CSI driver (generally available) for mounting buckets into Kubernetes pods on Amazon EKS.
 - **S3 Express One Zone** - a single-Availability-Zone storage class purpose-built for consistent single-digit millisecond access. It stores data in directory buckets, can scale to millions of requests per second, and is aimed squarely at latency-sensitive AI/ML training and analytics where you want S3 economics with much lower latency. The tradeoff is single-AZ durability.
+- **Amazon S3 Files** - a managed shared file system (built on Amazon EFS) that presents an S3 bucket or prefix as NFS-mountable files on EC2, Lambda, EKS, and ECS, with close-to-open consistency and background sync back to the bucket. It keeps the active working set (by default, files under 128 KiB read within the last 30 days) on high-performance storage and streams larger or colder reads straight from S3, so the data stays in S3 as the single copy. It is the most direct answer yet to "I want EFS semantics over my S3 data".
 - **Amazon FSx for Lustre** - a fully managed high-performance parallel filesystem that links to an S3 bucket and is the common choice for large distributed training that needs sub-millisecond filesystem latency at very high throughput, beyond what EFS targets.
 
-For many AI teams the practical decision is now S3 as the durable system of record, plus one of these access layers (Mountpoint, S3 Express One Zone, or FSx for Lustre) when the workload needs filesystem semantics or very low latency, with EFS reserved for shared POSIX workspaces.
+For many AI teams the practical decision is now S3 as the durable system of record, plus one of these access layers (Mountpoint, S3 Files, S3 Express One Zone, or FSx for Lustre) when the workload needs filesystem semantics or very low latency, with EFS reserved for shared POSIX workspaces.
 
 ## Common Patterns for AI
 
@@ -134,4 +135,5 @@ Data science teams share datasets and models via EFS. Each notebook instance mou
 - [Amazon EFS storage classes and Infrequent Access](https://aws.amazon.com/efs/features/infrequent-access/) (official)
 - [Amazon S3 Express One Zone storage class](https://aws.amazon.com/s3/storage-classes/express-one-zone/) (official)
 - [Mountpoint for Amazon S3](https://aws.amazon.com/s3/features/mountpoint/) (official)
+- [Amazon S3 Files](https://aws.amazon.com/s3/features/files/) and [Working with Amazon S3 Files](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files.html) (official, checked 25 September 2026)
 - [Choosing an input mode and a storage unit for SageMaker AI training](https://docs.aws.amazon.com/sagemaker/latest/dg/model-access-training-data-best-practices.html) (official)

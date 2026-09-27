@@ -1,6 +1,6 @@
 ---
 title: "Amazon Fraud Detector - ML-Based Fraud Prevention"
-description: "Amazon Fraud Detector: ML fraud scoring with rules. Closed to new customers November 2025, end of support October 2026. Plan a migration."
+description: "Amazon Fraud Detector: ML fraud scoring with rules. Closed to new customers since November 2025 and in maintenance mode. Plan a migration."
 date: 2026-03-28
 categories: [Tools]
 tags: [AWS, fraud-detection, ML, security, "aws-service"]
@@ -14,16 +14,17 @@ provider: aws
 pricing_model: payg
 maturity: production
 status: deprecated
-status_detail: "Closed to new customers as of November 7, 2025. AWS lists it in Services in Sunset with an announcement date of October 7, 2025 and an end of support date of October 7, 2026, after which AWS will end operations and support. Existing customers can continue using it until then."
+status_detail: "Closed to new customers as of November 7, 2025. As of September 25, 2026 AWS lists it under Services in maintenance (announced October 7, 2025) with no published end-of-support date; it is not on the Services in Sunset list. Existing customers can continue using it, but no new features are added."
 status_source: "https://docs.aws.amazon.com/frauddetector/latest/ug/frauddetector-availability-change.html"
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 enhanced_pass: "2026-06"
 ---
 
 Amazon Fraud Detector is a managed service that uses machine learning to identify potentially fraudulent activity in real time. It combines your historical fraud data with Amazon's fraud detection expertise (patterns learned from AWS and Amazon.com) to train models that score transactions, account registrations, or any event for fraud risk. The service is designed so that fraud analysts and application developers can build and deploy detection models without deep ML knowledge.
 
-> Status notice (verify before you build): Amazon Fraud Detector is closed to new customers as of November 7, 2025, and AWS lists it under Services in Sunset with an end of support date of October 7, 2026. After that date AWS will end operations and support for the service. Existing customers can keep using it until then, but you should not start a new project on it. AWS recommends [AutoGluon](https://auto.gluon.ai/) (an open-source AutoML library, often deployed on {{< relref "tools/amazon-sagemaker" >}}) for fraud model building, and [AWS WAF](https://aws.amazon.com/waf/) Fraud Control for account creation and login abuse. See the official [availability change notice](https://docs.aws.amazon.com/frauddetector/latest/ug/frauddetector-availability-change.html). The rest of this page documents how the service works and remains useful for current users planning a migration.
+> Status notice (verify before you build): Amazon Fraud Detector is closed to new customers as of November 7, 2025. You may see an end-of-support date of October 7, 2026 cited elsewhere, but as of September 25, 2026 AWS lists the service under Services in maintenance rather than Services in Sunset, with no published end-of-support date. Existing customers can keep using it, but no new features are coming and you should not start a new project on it. AWS recommends [AutoGluon](https://auto.gluon.ai/) (an open-source AutoML library, often deployed on {{< relref "tools/amazon-sagemaker" >}}) for fraud model building, and [AWS WAF](https://aws.amazon.com/waf/) Fraud Control for account creation and login abuse. See the official [availability change notice](https://docs.aws.amazon.com/frauddetector/latest/ug/frauddetector-availability-change.html). The rest of this page documents how the service works and remains useful for current users planning a migration.
 
 ## Beginner foundations
 
@@ -75,23 +76,24 @@ The combination of ML scores and deterministic rules is what makes Fraud Detecto
 
 ## Pricing
 
-Pricing is pay as you go with no minimum fees or upfront commitments. Per the official pricing page, you are billed on the compute hours used to train and host your models, the amount of storage you use, and the number of fraud predictions you make. For planning purposes the prediction cost is usually the dominant factor at production scale, so estimate your monthly event volume and check the current rate on the [pricing page](https://aws.amazon.com/fraud-detector/pricing/). Training and hosting costs are typically smaller in comparison. Because the service is in sunset, treat any new spend here as transitional.
+Pricing is pay as you go with no minimum fees or upfront commitments. Per the official pricing page, you are billed on the compute hours used to train and host your models, the amount of storage you use, and the number of fraud predictions you make. For planning purposes the prediction cost is usually the dominant factor at production scale, so estimate your monthly event volume and check the current rate on the [pricing page](https://aws.amazon.com/fraud-detector/pricing/). Training and hosting costs are typically smaller in comparison. Because the service is in maintenance mode and closed to new customers, treat any new spend here as transitional.
 
 ## Migrating off Amazon Fraud Detector
 
-Since the service is closed to new customers and reaches end of support on October 7, 2026, existing users should plan a migration before that date. AWS recommends two paths depending on the use case:
+Since the service is closed to new customers and in maintenance mode, existing users should plan a migration now rather than wait for an end-of-support date to be announced. AWS recommends two paths depending on the use case:
 
 - For transaction and payment fraud modelling, build a custom model with [AutoGluon](https://auto.gluon.ai/), the open-source AutoML library, and deploy it on {{< relref "tools/amazon-sagemaker" >}}. AutoGluon handles the automated training that Fraud Detector used to do for you.
 - For account creation and login abuse (credential stuffing, fake accounts), use {{< relref "tools/aws-waf" >}} Fraud Control, which protects sign-up and sign-in pages with managed rules.
 
-To preserve your data, export event data stored in Fraud Detector before end of support, following the official migration guidance linked below.
+To preserve your data, export event data stored in Fraud Detector as part of the migration, following the official migration guidance linked below.
 
 Best practices: for designing the replacement fraud workload, follow the [AWS Well-Architected Machine Learning Lens](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html), which covers the full ML lifecycle (data quality, training, evaluation, monitoring, and retraining) and explicitly calls out fraud detection and risk scoring as a target use case.
 
 ## Sources
 
 - Amazon Fraud Detector availability change (official end of support notice): https://docs.aws.amazon.com/frauddetector/latest/ug/frauddetector-availability-change.html
-- AWS Services in Sunset (announcement October 7, 2025, end of support October 7, 2026): https://docs.aws.amazon.com/general/latest/gr/sunset_services.html
+- AWS Services in maintenance (lists Amazon Fraud Detector, announced October 7, 2025; fetched September 25, 2026): https://docs.aws.amazon.com/general/latest/gr/maintenance_services.html
+- AWS Services in Sunset (does not list Amazon Fraud Detector as of September 25, 2026): https://docs.aws.amazon.com/general/latest/gr/sunset_services.html
 - How Amazon Fraud Detector works: https://docs.aws.amazon.com/frauddetector/latest/ug/how-frauddetector-works.html
 - Event dataset requirements (minimum and recommended data): https://docs.aws.amazon.com/frauddetector/latest/ug/create-event-dataset.html
 - Amazon Fraud Detector endpoints and quotas (GetPrediction rate and other limits): https://docs.aws.amazon.com/general/latest/gr/fraud-detector.html

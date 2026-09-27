@@ -10,7 +10,9 @@ related:
   - patterns/graceful-degradation-ai
   - patterns/model-tier-routing
   - patterns/retry-and-backoff
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Model APIs go down. Rate limits get hit. Responses come back garbled. A production AI system that depends on a single model provider is one outage away from a complete service failure. The fallback chain pattern defines an ordered sequence of alternative models that the system tries when the primary model is unavailable or produces unacceptable results.
@@ -29,13 +31,13 @@ Failure conditions that trigger fallback include:
 
 ## Chain Design
 
-A well-designed fallback chain degrades gracefully from the best option to acceptable alternatives:
+A well-designed fallback chain degrades gracefully from the best option to acceptable alternatives. The model names below are examples current at the time of writing (September 2026); providers replace models every few months, so check the [LLM Landscape 2026](/comparisons/llm-landscape-2026/) for the live list and review your chain whenever a model in it is deprecated.
 
-**Primary** - Your preferred model. Best quality for your use case, the one you have optimized prompts for. Example: Claude Opus for complex reasoning tasks.
+**Primary** - Your preferred model. Best quality for your use case, the one you have optimized prompts for. Example: Claude Opus 5.5 for complex reasoning tasks.
 
-**Secondary** - A capable alternative from a different provider. Different enough that an outage at one provider is unlikely to affect the other. Example: GPT-4o as secondary when Anthropic is primary.
+**Secondary** - A capable alternative from a different provider. Different enough that an outage at one provider is unlikely to affect the other. Example: GPT-6 Sol as secondary when Anthropic is primary.
 
-**Tertiary** - A smaller or cheaper model that handles the task adequately if not optimally. Example: Claude Haiku or GPT-4o-mini for degraded but functional responses.
+**Tertiary** - A smaller or cheaper model that handles the task adequately if not optimally. Example: Claude Haiku 4.5, GPT-6 Luna or Gemini 3.8 Flash for degraded but functional responses.
 
 **Deterministic fallback** - A non-LLM fallback for when all models are unavailable. Template-based responses, cached responses, or a simple rules engine. This ensures the user gets something rather than an error.
 

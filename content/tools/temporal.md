@@ -9,7 +9,9 @@ related:
   - tools/prefect
   - tools/apache-airflow
   - guides/durable-execution-for-agent-workflows
-last_updated: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Temporal is an open-source durable execution platform that enables developers to build reliable distributed applications and long-running workflows using familiar programming languages. Unlike traditional workflow engines that use DSLs or visual editors, Temporal allows developers to write workflow logic as ordinary code in Go, Java, TypeScript, Python, or .NET. The platform guarantees that workflow code will run to completion despite infrastructure failures, process crashes, or network outages through its durable execution model, which transparently persists the state of every function call.
@@ -21,7 +23,7 @@ Temporal is used by companies including Netflix, Snap, Stripe, Datadog, and Hash
 ## Key Capabilities
 
 - **Durable Execution** - Transparent state persistence that guarantees workflow completion despite arbitrary infrastructure failures
-- **Multi-Language SDKs** - Write workflows in Go, Java, TypeScript, Python, and .NET using native language constructs and debugging tools
+- **Multi-Language SDKs** - Write workflows in Go, Java, TypeScript, Python, and .NET using native language constructs and debugging tools; Temporal also documents SDKs for PHP, Ruby, and Rust
 - **Activity Retries** - Configurable retry policies with exponential backoff, maximum attempts, timeouts, and heartbeating for long-running activities
 - **Visibility and Observability** - Searchable workflow execution history, real-time state queries, and integration with standard observability tools
 
@@ -61,7 +63,7 @@ for the full pattern, including when you need this and when you don't.
 
 ## Origins and History
 
-Temporal was created by Maxim Fateev and Samar Abbas, who previously built Uber's Cadence workflow engine. They founded Temporal Technologies in 2019 to create an improved, open-source version of Cadence. The Temporal Server is licensed under the MIT License, and SDKs are under the Apache License 2.0. Temporal Technologies has raised over $200 million in venture funding. Temporal Cloud, a managed SaaS offering, launched in 2022. The system's intellectual lineage traces back through Cadence (Uber), Amazon Simple Workflow Service (SWF), and Microsoft's Durable Task Framework.
+Temporal was created by Maxim Fateev and Samar Abbas, who previously built Uber's Cadence workflow engine. They founded Temporal Technologies in 2019 to create an improved, open-source version of Cadence. The Temporal Server is licensed under the MIT License, and SDKs are under the Apache License 2.0. Temporal Technologies announced a $550 million Series E at a $12.55 billion valuation on 14 September 2026, co-led by Lightspeed, citing demand for durable execution of long-running AI agents. Temporal Cloud, a managed SaaS offering, launched in 2022. The system's intellectual lineage traces back through Cadence (Uber), Amazon Simple Workflow Service (SWF), and Microsoft's Durable Task Framework.
 
 ## Sources
 
@@ -70,3 +72,5 @@ Temporal was created by Maxim Fateev and Samar Abbas, who previously built Uber'
 3. https://temporal.io/blog/announcing-openai-agents-sdk-integration
 4. https://docs.temporal.io/develop/typescript/integrations/openai-agents
 5. https://temporal.io/changelog/openai-agents-sdk-sandbox-integration-public-preview
+6. Temporal, "Temporal raises $550M at a $12.55B valuation as demand grows for reliable AI infrastructure" (14 September 2026): https://temporal.io/blog/temporal-raises-usd550m-series-e-at-usd12-55b-valuation-ai
+7. Temporal documentation index (SDK developer guides): https://docs.temporal.io/llms.txt

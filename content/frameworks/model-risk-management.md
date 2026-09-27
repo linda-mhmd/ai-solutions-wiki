@@ -8,14 +8,16 @@ related:
   - guides/ai-governance-implementation
   - frameworks/nist-ai-rmf
   - guides/ai-regulatory-compliance-checklist
-last_updated: 2026-05-30
+last_updated: 2026-09-26
+lastmod: 2026-09-26
+last_verified: 2026-09-26
 ---
 
 Model risk management is the discipline of identifying, measuring, and controlling the risk that arises from using quantitative models to make business decisions. In regulated industries, particularly financial services, model risk management is not optional. It is a supervisory requirement with specific expectations for how organizations develop, validate, and govern their models.
 
 ## Origins and History
 
-The formal regulatory framework for model risk management originates from SR 11-7, "Guidance on Model Risk Management," issued jointly by the Board of Governors of the Federal Reserve System and the Office of the Comptroller of the Currency (OCC) on April 4, 2011 [1]. This guidance was prompted by the 2008 financial crisis, which revealed that financial institutions had placed excessive reliance on models (particularly for mortgage-backed securities pricing and risk measurement) without adequate validation or governance. SR 11-7 defined model risk as the potential for adverse consequences from decisions based on incorrect or misused model outputs. It established the three pillars that remain the foundation of model risk management today: model development, model validation, and model governance [1]. As machine learning models entered financial services in the mid-2010s, regulators clarified that SR 11-7 applies regardless of modeling technique. The OCC's 2021 bulletin on the use of AI in banking reinforced that ML and AI models are subject to the same risk management expectations [2]. The European Central Bank's 2023 guide on AI further extended these principles in the European regulatory context [3].
+The formal regulatory framework for model risk management originates from SR 11-7, "Guidance on Model Risk Management," issued jointly by the Board of Governors of the Federal Reserve System and the Office of the Comptroller of the Currency (OCC) on April 4, 2011 [1]. This guidance was prompted by the 2008 financial crisis, which revealed that financial institutions had placed excessive reliance on models (particularly for mortgage-backed securities pricing and risk measurement) without adequate validation or governance. SR 11-7 defined model risk as the potential for adverse consequences from decisions based on incorrect or misused model outputs. It established the three pillars that remain the foundation of model risk management today: model development, model validation, and model governance [1]. As machine learning models entered financial services in the mid-2010s, regulators clarified that SR 11-7 applies regardless of modeling technique. The OCC's 2021 bulletin on the use of AI in banking reinforced that ML and AI models are subject to the same risk management expectations [2]. In the euro area, the European Central Bank's revised Guide to internal models (July 2025) added expectations for machine-learning techniques used in banks' internal models [3].
 
 ## The Three Pillars
 
@@ -43,4 +45,4 @@ LLMs challenge traditional model risk frameworks in several ways. They are gener
 
 1. Board of Governors of the Federal Reserve System and Office of the Comptroller of the Currency. "Supervisory Guidance on Model Risk Management" (SR 11-7 / OCC 2011-12), April 4, 2011.
 2. Office of the Comptroller of the Currency. "Comptroller's Handbook: Model Risk Management," August 2021. Updated guidance addressing AI/ML models.
-3. European Central Bank. "Guide on artificial intelligence and machine learning for credit institutions," 2023.
+3. European Central Bank, Banking Supervision. "ECB publishes revised guide to internal models" (press release, 28 July 2025). https://www.bankingsupervision.europa.eu/press/pr/date/2025/html/ssm.pr250728~2b36305822.en.html

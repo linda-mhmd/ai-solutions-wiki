@@ -4,7 +4,9 @@ description: "What model cards document, why they matter for AI governance, and 
 date: 2026-03-24
 categories: [Glossary]
 tags: ["ai-ml", "beginner", "model-cards", "documentation", "responsible-ai", "transparency", "evaluation"]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 A model card is a short document that describes an AI model: what it does, how it was built, how well it works, and where it should and should not be used. Originally proposed by Google researchers in 2018, model cards have become a standard artifact in responsible AI development and are increasingly required by enterprise procurement, regulatory bodies, and AI governance frameworks.
@@ -41,7 +43,7 @@ The standard model card structure covers:
 
 For custom models, create the model card during development, not after deployment. The information is most available when the team is actively building. Template: Google's original model card template is freely available and widely used. Hugging Face's model card format is standard in the open source community.
 
-For third-party models, the provider's model card (Anthropic publishes model cards for Claude; Amazon publishes them for Titan and other Bedrock models) covers the base model. Your organization should supplement it with documentation of how you are using it: what system prompts, what guardrails, what use case, and what evaluation you have done on your specific deployment.
+For third-party models, the provider's model card (Anthropic publishes model cards for Claude; Amazon publishes AI Service Cards for its Nova and Titan models, and Bedrock lists a model card for each hosted model) covers the base model. Your organization should supplement it with documentation of how you are using it: what system prompts, what guardrails, what use case, and what evaluation you have done on your specific deployment.
 
 ## Sources
 

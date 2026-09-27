@@ -11,6 +11,8 @@ related:
   - tools/ollama
   - tools/vllm
   - guides/hybrid-and-multicloud-ai
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -67,8 +69,9 @@ Xinity is a set of components, most of them Apache 2.0 licensed:
 - **Gateway**: the OpenAI-compatible API proxy that handles routing and rate limiting.
 - **Daemon**: the model runtime that runs on GPU nodes, backed by [Ollama](/tools/ollama/) or [vLLM](/tools/vllm/).
 - **Infoserver**: the model registry and configuration server.
+- **Tether**: an SSE bridge between the daemons and the database.
 - **Database layer**: PostgreSQL and Redis for state.
-- **Dashboard**: a management interface with role-based access and single sign-on. This component uses the Elastic License v2 with a free tier for one organisation and one node, while the gateway, daemon, CLI, infoserver, and database schema are Apache 2.0.
+- **Dashboard**: a management interface with role-based access and single sign-on. This component uses the Elastic License v2 with a free tier of up to 120 GB total VRAM across your cluster (paid tiers unlock more capacity and multiple organisations), while the gateway, daemon, tether, CLI, infoserver, and database schema are Apache 2.0.
 
 Because it exposes an OpenAI-compatible API and can run open-weight or your own models, Xinity acts as a drop-in replacement for a hosted API without the data leaving your control.
 
@@ -80,8 +83,12 @@ Install the CLI, then bring the platform up.
 # Install the CLI
 curl -fsSL https://get.xinity.ai/install.sh | bash
 
-# Bring up all services (gateway, daemon, infoserver, dashboard, DB)
+# Bring up all services (Postgres, inference engine, dashboard)
 xinity up all
+
+# Create your admin account from the terminal
+xinity configure dashboardUrl http://localhost:4030
+xinity act onboarding.cli
 ```
 
 Deploy a model so the gateway can serve it:
@@ -90,12 +97,12 @@ Deploy a model so the gateway can serve it:
 xinity act deployment.create '{
   "name": "Phi-3 Mini",
   "publicSpecifier": "phi-3-mini",
-  "modelSpecifier": "phi3:mini",
+  "specifier": "phi-3-mini",
   "enabled": true
 }'
 ```
 
-Running the platform needs Docker and Docker Compose on the host. Model runtimes need local GPUs for anything beyond small models.
+Check readiness with `xinity act deployment.list '{"withStatus": true}'` and system health with `xinity doctor`. Phi-3 Mini is simply the project's quick-start example; any model in the infoserver registry can be deployed the same way. Running the platform needs Docker and Docker Compose on the host. Model runtimes need local GPUs for anything beyond small models.
 
 ## Calling it like OpenAI
 
@@ -105,7 +112,7 @@ The whole value proposition is that your existing code barely changes. Point any
 from openai import OpenAI
 
 # The only change from a hosted provider is the base_url
-client = OpenAI(base_url="http://localhost:3000/v1", api_key="sk_...")
+client = OpenAI(base_url="http://localhost:4010/v1", api_key="sk_...")
 
 resp = client.chat.completions.create(
     model="phi-3-mini",
@@ -117,7 +124,7 @@ print(resp.choices[0].message.content)
 The same request over plain HTTP:
 
 ```bash
-curl http://localhost:3000/v1/chat/completions \
+curl http://localhost:4010/v1/chat/completions \
   -H "Authorization: Bearer sk_..." \
   -H "Content-Type: application/json" \
   -d '{"model": "phi-3-mini", "messages": [{"role": "user", "content": "Hello"}]}'
@@ -186,5 +193,5 @@ Xinity sits above runtimes like Ollama and vLLM rather than replacing them; it u
 ## Sources
 
 - Xinity. Sovereign AI Infrastructure Software for European Enterprises. https://xinity.ai/
-- Xinity. Open-source engine (GitHub, components and install). https://github.com/xinity-ai/xinity-ai
+- Xinity. Open-source engine (GitHub README: components, quick start, gateway on port 4010, licensing table; checked 25 September 2026). https://github.com/xinity-ai/xinity-ai
 - Xinity. Pricing. https://xinity.ai/sovereign-ai-pricing

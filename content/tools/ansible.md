@@ -59,7 +59,7 @@ Ansible runs from a control node that holds your playbooks, inventory, and crede
       <span class="bz-arch-chip">NVIDIA drivers + CUDA</span>
       <span class="bz-arch-chip">Container runtime</span>
       <span class="bz-arch-chip">Model servers</span>
-      <span class="bz-arch-chip-note">Triton, vLLM, TGI, Ollama</span>
+      <span class="bz-arch-chip-note">Triton, vLLM, SGLang, Ollama</span>
     </div>
   </div>
 </div>
@@ -79,7 +79,7 @@ This is where Ansible earns its place in an AI stack. After machines exist, Ansi
 - **GPU node preparation.** Install and pin NVIDIA drivers, configure persistence mode, and reboot a fleet in a controlled order. NVIDIA maintains an official driver role.
 - **Container GPU runtime.** Install Docker or containerd plus the NVIDIA Container Toolkit and run `nvidia-ctk runtime configure`, so containers can reach the GPUs.
 - **Cluster configuration.** Configure Kubernetes worker nodes (via the `kubernetes.core` collection) or Slurm HPC clusters for scheduled training jobs.
-- **Inference server deployment.** Deploy and configure serving stacks such as [vLLM](/tools/vllm/), Triton, TGI, or [Ollama](/tools/ollama/), template their config, pull model weights, and open the right ports.
+- **Inference server deployment.** Deploy and configure serving stacks such as [vLLM](/tools/vllm/), Triton, [SGLang](/tools/sglang/), or [Ollama](/tools/ollama/), template their config, pull model weights, and open the right ports.
 - **Hybrid fleet consistency.** Enforce the same driver, CUDA, and toolkit versions across bare metal, colocation, edge, and cloud GPU hosts, and correct drift.
 
 **Ansible and Terraform are complementary, not rivals.** [Terraform](/tools/terraform/) provisions infrastructure and is stateful: it creates, changes, and destroys cloud resources, tracking them in a state file. Ansible configures what runs on that infrastructure and is largely stateless, relying on idempotency instead. The standard pattern for AI infra: Terraform stands up the GPU cluster and networking, then Ansible installs the drivers, runtime, and model server.

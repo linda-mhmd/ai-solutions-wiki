@@ -6,7 +6,9 @@ categories: [Solutions]
 tags: ["ai-ml", "advanced", "gis", "geospatial", "ai-architecture", "mapping", "spatial-data"]
 industries: [geospatial]
 tools: [amazon-bedrock, amazon-opensearch, amazon-lambda, amazon-s3]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Geospatial AI combines spatial data processing with large language models to enable natural language queries over geographic information systems. Rather than requiring users to write spatial SQL or GIS software expertise, an AI layer translates natural language into spatial operations and returns answers in plain language.
@@ -45,7 +47,7 @@ The index schema combines both: each document has a text description (for semant
 
 **Answer generation** - Retrieved spatial features provide context for Bedrock to generate a human-readable answer. The prompt includes: user question, retrieved features (as JSON with properties), and instructions to answer concisely with citations to specific features.
 
-**Agentic queries** - For multi-step analysis (e.g., "which neighborhoods have the highest intersection of flood risk and housing density?"), a Strands or Bedrock agent decomposes the question into spatial sub-queries, executes them, and synthesizes the results.
+**Agentic queries** - For multi-step analysis (e.g., "which neighborhoods have the highest intersection of flood risk and housing density?"), an agent (for example built with [Strands Agents](/tools/strands-agents/) and hosted on [Amazon Bedrock AgentCore](/tools/bedrock-agentcore/); the older Bedrock Agents service, now Bedrock Agents Classic, [closed to new customers on 30 July 2026](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html)) decomposes the question into spatial sub-queries, executes them, and synthesizes the results.
 
 ## Deployment Considerations
 

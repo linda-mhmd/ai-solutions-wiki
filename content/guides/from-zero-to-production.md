@@ -10,7 +10,9 @@ related:
   - tools/stripe-connect
   - guides/async-job-queues
   - guides/lean-canvas
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Most tutorials end at "it works on my machine." This guide starts there, and takes you to a real, deployed, user-facing product. It covers the full progression: demo, MVP, and production-grade system. Every infrastructure decision is explained. Every cost is visible.
@@ -243,7 +245,7 @@ Stage 3 adds the marketplace layer. This is when the product transforms from a p
 
 Stripe Connect handles everything a marketplace needs: splitting payments between buyer and seller, KYC (identity verification, legally required), tax reporting, dispute resolution, and payout scheduling. Building this manually would take a team 6–12 months and still not be compliant with EU payment regulations.
 
-**Cost model**: Stripe charges 2.9% + €0.30 per transaction. The marketplace takes an additional 10–15% commission via `application_fee_amount`. Stripe handles the split automatically. See [Stripe Connect](/tools/stripe-connect/).
+**Cost model**: Stripe charges a per-transaction card fee, for example 1.5% + €0.25 for standard EEA cards in Austria (2.5% + €0.25 for UK cards; rates differ by country and card type), plus Connect fees depending on the account setup. The marketplace takes an additional 10–15% commission via `application_fee_amount`. Stripe handles the split automatically. See [Stripe Connect](/tools/stripe-connect/).
 
 ---
 
@@ -332,3 +334,7 @@ Each stage requires new skills. Here is what you need and where to learn it:
 - [Lean Canvas](/guides/lean-canvas/): the business model before you write a line of code
 - [AI Monetization Strategies](/guides/ai-monetization-strategies/): freemium model design
 - [Building RAG Systems](/guides/building-rag-systems/): when your app needs document-based AI
+
+## Sources
+
+1. Stripe, "Pricing" (Austria, standard card fees; fetched 25 September 2026): [https://stripe.com/at/pricing](https://stripe.com/at/pricing)

@@ -8,7 +8,9 @@ related:
   - tools/pinecone
   - tools/weaviate
   - tools/langchain
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Chroma is an open-source embedding database designed for simplicity and developer experience. It runs in-process (embedded in your Python application), as a standalone server, or as a managed cloud service. Chroma's primary value is speed of development: you can have a working vector search system in under 10 lines of Python. For AI projects, Chroma is the go-to choice for prototyping RAG systems, local development, and production deployments where the dataset is moderate in size (up to low millions of documents).
@@ -68,20 +70,27 @@ Chroma integrates natively with LangChain, LlamaIndex, and other LLM orchestrati
 
 **Good fit**: Prototyping RAG applications, local development environments, small to medium datasets (up to a few million documents), single-team applications, and projects where developer velocity matters more than enterprise features.
 
-**Less suitable**: Multi-tenant SaaS applications (limited multi-tenancy support compared to Weaviate or Pinecone), datasets with hundreds of millions of vectors (consider Pinecone or Qdrant), and workloads requiring advanced features like hybrid search or real-time replication.
+**Less suitable**: Multi-tenant SaaS applications (limited multi-tenancy support compared to Weaviate or Pinecone), very large self-hosted datasets with hundreds of millions of vectors (consider Pinecone, Qdrant, or Chroma Cloud rather than a single self-hosted node), and self-hosted workloads needing real-time replication. Hybrid search (dense plus sparse/BM25 vectors fused with Reciprocal Rank Fusion) is available through Chroma Cloud's Search API.
 
 ## Metadata Filtering
 
-Chroma supports where clauses on metadata and where_document clauses on document content. Filters use operators like $eq, $ne, $gt, $lt, $in, and $nin. Logical operators $and and $or combine conditions:
+Chroma supports where clauses on metadata and where_document clauses on document content. Filters use operators like $eq, $ne, $gt, $gte, $lt, $lte, $in, and $nin (range operators work on numeric values). Multiple conditions must be combined explicitly with the logical operators $and or $or:
 
 ```python
 results = collection.query(
     query_texts=["search query"],
-    where={"source": {"$eq": "manual"}, "date": {"$gt": "2025-01-01"}},
+    where={"$and": [{"source": {"$eq": "manual"}}, {"year": {"$gte": 2025}}]},
     n_results=10
 )
 ```
 
 ## Pricing
 
-Chroma is open-source (Apache 2.0 license) and free to self-host. Chroma Cloud pricing is usage-based, covering storage, queries, and embeddings generated. For most development and moderate-scale production use cases, the self-hosted option has zero licensing cost beyond infrastructure.
+Chroma is open-source (Apache 2.0 license) and free to self-host; the 1.x releases (1.5.9 at the time of writing) moved the core to Rust. Chroma Cloud pricing is usage-based: at the time of writing, $2.50 per GiB written, $0.33 per GiB-month stored, and $0.0075 per TiB queried plus $0.09 per GiB returned, with a $0 Starter plan (including $5 in free credits) and a $250/month Team plan (including $100 in credits). For most development and moderate-scale production use cases, the self-hosted option has zero licensing cost beyond infrastructure.
+
+## Sources
+
+1. Chroma. "Documentation." https://docs.trychroma.com/
+2. Chroma. "Hybrid Search with RRF." Chroma Cloud Search API docs, accessed 25 September 2026. https://docs.trychroma.com/cloud/search-api/hybrid-search
+3. Chroma. "Pricing." Accessed 25 September 2026. https://www.trychroma.com/pricing
+4. PyPI. "chromadb" (latest release 1.5.9), accessed 25 September 2026. https://pypi.org/project/chromadb/

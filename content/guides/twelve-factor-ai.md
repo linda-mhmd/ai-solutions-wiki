@@ -9,7 +9,9 @@ related:
   - patterns/microservices-for-ai
   - guides/ci-cd-for-ai
   - tools/amazon-bedrock
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 The 12-Factor App methodology, published by Adam Wiggins in 2011 (drawing from Heroku's experience with thousands of app deployments), defines twelve principles for building software-as-a-service applications that are portable, scalable, and maintainable. Each principle maps naturally onto AI system design. Teams building LLM-based applications face the same problems the 12 factors solve - configuration drift, environment inconsistency, tight coupling to infrastructure - compounded by the additional complexity of non-deterministic model outputs and large model artifacts.
@@ -32,7 +34,7 @@ If you have multiple AI applications sharing a prompt library, extract it as an 
 
 **Applied to AI:** Declare the specific version of every SDK and library the application uses. This includes `anthropic`, `boto3`, `langchain`, `sentence-transformers`, and any other AI library. Pin versions explicitly.
 
-Model dependencies are trickier. If your application calls Amazon Bedrock with `anthropic.claude-3-5-sonnet-20241022-v2:0`, that model ID is a dependency. Document it. If the model is deprecated, your application will fail. Design model selection to flow through configuration, not be hardcoded (see Factor III).
+Model dependencies are trickier. If your application calls Amazon Bedrock with `us.anthropic.claude-sonnet-5` (an inference profile ID), that ID is a dependency. Document it. When the model reaches end of life, your application will fail: the Claude 3.x IDs, including the `anthropic.claude-3-5-sonnet-20241022-v2:0` ID an earlier version of this guide used as its example, have already been retired, and Bedrock publishes Legacy and EOL dates for each model so you can plan the switch. Design model selection to flow through configuration, not be hardcoded (see Factor III).
 
 **For self-hosted models:** Include model download scripts and checksums in the repository so any developer can reproduce the model environment from a clean checkout.
 
@@ -90,7 +92,7 @@ Specific backing services for AI applications:
 
 This is violated by applications that maintain an in-memory conversation history per process instance. When the process restarts or the load balancer routes the request to a different instance, the conversation is lost.
 
-For agentic systems: agent state (what steps have been taken, what tools have been called, what results were returned) must be persisted externally, not held in the agent process. Amazon Bedrock AgentCore handles this for Bedrock agents.
+For agentic systems: agent state (what steps have been taken, what tools have been called, what results were returned) must be persisted externally, not held in the agent process. On AWS, Amazon Bedrock AgentCore (Runtime and Memory) handles this; it is also what AWS recommends for new agent builds, since the original Bedrock Agents service (now Bedrock Agents Classic) closed to new customers on 30 July 2026.
 
 ## Factor VII: Port Binding - Export services via port binding
 
@@ -179,6 +181,8 @@ These run using the same codebase, the same environment configuration, and the s
 - Wiggins, A. (2011). "The Twelve-Factor App." [https://12factor.net/](https://12factor.net/) - The original methodology this article extends to AI systems.
 - AWS Documentation: AWS Well-Architected Machine Learning Lens. [https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html)
 - AWS Documentation: Amazon Bedrock model invocation logging. [https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html](https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html)
-- AWS Documentation: Amazon Bedrock AgentCore (stateful agent execution). [https://docs.aws.amazon.com/bedrock/latest/userguide/agentcore.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agentcore.html)
+- AWS Documentation: What is Amazon Bedrock AgentCore? (stateful agent execution). [https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html)
+- AWS Documentation: Amazon Bedrock Agents Classic maintenance mode. [https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html)
+- AWS Documentation: Amazon Bedrock model lifecycle. [https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html](https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html)
 - AWS Documentation: AWS Systems Manager Parameter Store. [https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html)
-- Anthropic Documentation: Claude API. [https://docs.anthropic.com/](https://docs.anthropic.com/)
+- Anthropic Documentation: Claude API. [https://platform.claude.com/docs/](https://platform.claude.com/docs/)

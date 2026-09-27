@@ -2,6 +2,8 @@
 title: "Famous Open Source Projects"
 description: "Linux, Git, Python, Kubernetes, React—the origin stories of projects that changed computing. Who built them, why, and how they became essential infrastructure."
 date: 2026-07-30
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 2
 categories: [Basics]
 tags: [open-source, linux, git, python, kubernetes, history, technology]
@@ -12,7 +14,7 @@ faqs:
     answer: "One person can start something that changes the world. But scaling it requires community. Linus Torvalds wrote the first Linux kernel, but thousands of contributors made it what it is today. The initial spark matters, but so does everything that follows."
   - question: "Are these projects still maintained by their original creators?"
     answer: "Some yes, some no. Linus Torvalds still leads Linux kernel development. Guido van Rossum stepped back from Python. Many projects have transitioned to foundation governance. Healthy projects don't depend on a single person forever."
-last_updated: 2026-07-30
+last_updated: 2026-09-25
 ---
 
 {{< quickanswer >}}
@@ -158,7 +160,7 @@ The software that runs the modern world is mostly open source, created by indivi
 
 **Impact today**: Most popular frontend library. Powers Facebook, Instagram, Netflix, Airbnb, and countless other applications.
 
-**Governance**: Meta controls React development but accepts community contributions.
+**Governance**: Meta led React development for over a decade. Since 24 February 2026, React has been governed by the [React Foundation](https://react.dev/blog) under the Linux Foundation, with Meta as one of several member companies.
 
 ### Node.js (2009)
 
@@ -261,7 +263,7 @@ The software that runs the modern world is mostly open source, created by indivi
 
 **The story**: Google open-sourced their internal machine learning framework. It became the dominant deep learning framework until PyTorch caught up.
 
-**Impact today**: Still widely used, especially in production. TensorFlow.js, TensorFlow Lite extend to browsers and mobile.
+**Impact today**: Still widely used, especially in production. TensorFlow.js and LiteRT (formerly TensorFlow Lite, renamed in 2024) extend it to browsers and mobile.
 
 **Governance**: Google controls development.
 
@@ -281,7 +283,7 @@ The software that runs the modern world is mostly open source, created by indivi
 
 **The story**: Started as a library to use transformer models easily. Grew into the central hub for AI models, datasets, and tools.
 
-**Impact today**: Default place to find and share AI models. Hosts LLaMA, Stable Diffusion, and thousands of other models.
+**Impact today**: Default place to find and share AI models. Hosts open-weight models such as Llama, Qwen, Gemma, DeepSeek and Stable Diffusion, alongside well over a million other models.
 
 ## Common patterns in origin stories
 

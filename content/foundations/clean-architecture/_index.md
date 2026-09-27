@@ -102,7 +102,7 @@ A presenter that formats data for a view is hard to test because the view is a U
 
 The dependency rule resolves one of the most common structural problems in AI systems: business logic that is entangled with a specific LLM provider.
 
-**The LLM is infrastructure, not a domain object.** An OpenAI `ChatCompletion` call is as much an implementation detail as a SQL query. It belongs in the outermost layer. The business rules - what questions to ask, what constitutes a valid response, how to evaluate output quality - belong in use cases and entities. A system where prompt engineering logic and OpenAI SDK calls are mixed together in the same module has the same structural problem as a system where business rules and SQL queries are mixed together.
+**The LLM is infrastructure, not a domain object.** An OpenAI Responses API call is as much an implementation detail as a SQL query. It belongs in the outermost layer. The business rules - what questions to ask, what constitutes a valid response, how to evaluate output quality - belong in use cases and entities. A system where prompt engineering logic and OpenAI SDK calls are mixed together in the same module has the same structural problem as a system where business rules and SQL queries are mixed together.
 
 **RAG system layering.** A retrieval-augmented generation system has natural Clean Architecture layers. Entities: the documents and their chunking rules. Use cases: the retrieval and synthesis logic (what to retrieve, how to rank, how to combine into a response). Interface adapters: the vector store repository, the LLM gateway, the HTTP controller that accepts queries. Frameworks: the vector database driver, the LLM SDK, the web framework.
 

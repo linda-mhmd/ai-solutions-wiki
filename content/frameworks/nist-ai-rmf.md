@@ -9,7 +9,9 @@ related:
   - guides/ai-audit-readiness
   - guides/responsible-ai-guide
   - frameworks/iso-42001
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 The NIST AI Risk Management Framework (AI RMF 1.0), published in January 2023, provides a voluntary, rights-preserving framework for managing risks throughout the AI system lifecycle. Unlike regulatory mandates, the AI RMF is designed to be flexible and usable by organizations of any size, in any sector, regardless of their stage of AI adoption. It has rapidly become the reference framework for AI risk management in the United States and has influenced policy discussions internationally.
@@ -50,11 +52,13 @@ The AI RMF defines seven characteristics of trustworthy AI: valid and reliable, 
 
 Organizations typically begin by mapping the AI RMF functions to their existing risk management and governance structures. The framework includes a companion Playbook that provides suggested actions and references for each subcategory. Many organizations use the AI RMF alongside sector-specific regulations, internal policies, and other frameworks such as ISO/IEC 42001. The framework does not prescribe specific technical solutions but provides a structured process for ensuring that risks are identified, measured, and managed systematically.
 
-The AI RMF has been referenced in the October 2023 Executive Order on AI Safety and is increasingly cited in procurement requirements for AI systems used by the US federal government.
+The AI RMF was referenced in the October 2023 Executive Order 14110 on AI safety, which was rescinded in January 2025, and it remains widely cited in procurement requirements for AI systems used by the US federal government. NIST published a companion Generative AI Profile (NIST AI 600-1) on 26 July 2024 and a concept note for a critical-infrastructure profile on 7 April 2026. As of September 2026, NIST states that AI RMF 1.0 "is being revised as part of the White House AI Action Plan"; the July 2025 plan directs NIST to remove references to misinformation, diversity, equity and inclusion, and climate change. Check the NIST page for the current version before citing it in a policy.
 
 ## Sources and Further Reading
 
 - [NIST AI Risk Management Framework 1.0](https://www.nist.gov/itl/ai-risk-management-framework) - Official framework document and supporting materials
-- [NIST AI RMF Playbook](https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook) - Practical guidance and suggested actions for implementing the framework
-- [Executive Order on Safe, Secure, and Trustworthy AI](https://www.whitehouse.gov/briefing-room/presidential-actions/2023/10/30/executive-order-on-the-safe-secure-and-trustworthy-development-and-use-of-artificial-intelligence/) - White House executive order referencing the AI RMF
-- [NIST AI RMF Crosswalk](https://airc.nist.gov/AI_RMF_Knowledge_Base/Crosswalks) - Mapping between AI RMF and other frameworks including ISO/IEC 42001
+- [NIST AI RMF Playbook](https://airc.nist.gov/airmf-resources/playbook/) - Practical guidance and suggested actions for implementing the framework
+- [Executive Order 14110 on Safe, Secure, and Trustworthy AI](https://www.federalregister.gov/documents/2023/11/01/2023-24283/safe-secure-and-trustworthy-development-and-use-of-artificial-intelligence) - Federal Register text of the 2023 order referencing the AI RMF (rescinded 20 January 2025)
+- [NIST AI 600-1: Generative AI Profile](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence) - NIST, 26 July 2024
+- [America's AI Action Plan](https://www.whitehouse.gov/wp-content/uploads/2025/07/Americas-AI-Action-Plan.pdf) - White House, July 2025; directs the AI RMF revision
+- [NIST AI RMF Crosswalk](https://airc.nist.gov/airmf-resources/crosswalks/) - Mapping between AI RMF and other frameworks including ISO/IEC 42001

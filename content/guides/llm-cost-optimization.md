@@ -9,7 +9,9 @@ related:
   - guides/prompt-management-guide
   - guides/building-ai-platform
   - guides/rag-evaluation-guide
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 LLM inference costs add up fast. A customer-facing application processing thousands of requests per hour can easily generate six-figure monthly bills. The good news is that most LLM deployments have significant optimization opportunities. The key is reducing cost without degrading the quality your users experience.
@@ -32,6 +34,8 @@ Before cutting costs, instrument your system to understand where money goes. Tra
 
 **Semantic caching.** Cache responses for semantically similar prompts. When a new query is sufficiently similar to a cached query, return the cached response. This requires careful threshold tuning to balance cache hits against response quality.
 
+**Provider prompt caching.** Hosted APIs cache repeated prompt prefixes for you and bill cache hits at a steep discount: Anthropic charges 10% of the base input price for a cache read on most Claude models (5% on Claude Opus 5.5), and OpenAI discounts cached input tokens as well. Put stable content (system prompt, tool definitions, reference documents) at the start of the prompt and keep it byte-identical between calls so the cache hits.
+
 **KV cache reuse.** For self-hosted models, reuse key-value caches across requests that share prompt prefixes. This reduces computation for the shared portion. Effective when many requests use the same system prompt.
 
 ## Model Routing
@@ -52,7 +56,9 @@ Not every request needs your most capable (and expensive) model. Implement a rou
 
 ## Output Optimization
 
-**Limit output tokens.** Set max_tokens to the minimum needed for your use case. A classification task does not need 4096 output tokens.
+**Limit output tokens.** Set the output limit to the minimum needed for your use case (`max_tokens` on Anthropic's Messages API; `max_completion_tokens` or `max_output_tokens` on OpenAI's reasoning models). A classification task does not need 4096 output tokens.
+
+**Control reasoning effort.** Most current frontier models reason before they answer, and those hidden reasoning tokens are billed as output tokens. Use the lowest effort or thinking setting that passes your evaluations for each route; a high setting on a simple extraction task can multiply output cost without improving the answer.
 
 **Use structured output.** JSON mode or function calling produces more concise outputs than free-form text, reducing output token costs.
 
@@ -70,3 +76,8 @@ For self-hosted models:
 ## Monitoring Cost Continuously
 
 Add cost tracking to your observability stack. Alert on cost anomalies (a new feature that unexpectedly triples token usage) and track cost per user action as a key metric alongside latency and quality.
+
+## Sources
+
+1. Anthropic, "Pricing" (prompt caching multipliers; fetched 25 September 2026): [https://platform.claude.com/docs/en/about-claude/pricing](https://platform.claude.com/docs/en/about-claude/pricing)
+2. OpenAI, "Reasoning models" guide (reasoning tokens billed as output tokens): [https://developers.openai.com/api/docs/guides/reasoning](https://developers.openai.com/api/docs/guides/reasoning)

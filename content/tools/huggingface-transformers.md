@@ -11,10 +11,12 @@ related:
   - tools/amazon-comprehend
   - tools/vllm
   - tools/ollama
-last_updated: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
-Hugging Face Transformers is an open-source library that provides a unified API for downloading, using, and fine-tuning state-of-the-art pretrained models across natural language processing, computer vision, audio processing, and multimodal tasks. The library supports models built on PyTorch, TensorFlow, and JAX, and provides a consistent interface regardless of the underlying framework. With access to over 400,000 models on the Hugging Face Hub, Transformers has become the central distribution mechanism for the machine learning research community.
+Hugging Face Transformers is an open-source library that provides a unified API for downloading, using, and fine-tuning state-of-the-art pretrained models across natural language processing, computer vision, audio processing, and multimodal tasks. Since version 5 (released 26 January 2026) the library is PyTorch-only: v5 removed the TensorFlow and JAX (Flax) code paths to focus on `torch`, and it now ships minor releases weekly (v5.17 as of September 2026). With access to more than a million Transformers-compatible checkpoints among the roughly 3 million models on the Hugging Face Hub, Transformers has become the central distribution mechanism for the machine learning research community.
 
 The library's `pipeline` API offers a high-level interface for common tasks including text generation, sentiment analysis, named entity recognition, question answering, summarization, translation, image classification, object detection, speech recognition, and many more. For researchers and engineers who need more control, the library provides model-specific classes, tokenizers, feature extractors, and training utilities. The `Trainer` API and integration with the Accelerate library simplify distributed training across multiple GPUs and nodes. PEFT (Parameter-Efficient Fine-Tuning) integration enables fine-tuning large models with LoRA, QLoRA, and other adapter methods using a fraction of the memory required for full fine-tuning.
 
@@ -22,9 +24,9 @@ Transformers has fundamentally changed how the ML community shares and consumes 
 
 ## Key Capabilities
 
-- **400,000+ Pretrained Models** - Instant access to models for text, vision, audio, and multimodal tasks via the Hugging Face Hub
+- **1M+ Transformers Checkpoints** - Instant access to models for text, vision, audio, and multimodal tasks via the Hugging Face Hub
 - **Unified Pipeline API** - High-level interface for inference across 30+ task types with automatic model and tokenizer selection
-- **Framework Agnostic** - Support for PyTorch, TensorFlow, and JAX with seamless conversion between frameworks
+- **PyTorch-Native** - A single PyTorch backend since v5 (TensorFlow and JAX support were removed in January 2026), with integrations for vLLM, SGLang, TGI, and training frameworks such as Axolotl, Unsloth, and DeepSpeed
 - **Fine-Tuning Tools** - Trainer API, PEFT/LoRA integration, and Accelerate for efficient distributed fine-tuning on custom datasets
 
 ## Cloud Equivalents
@@ -39,3 +41,5 @@ The Transformers library was created by Thomas Wolf, Julien Chaumond, and Clemen
 
 1. https://huggingface.co/docs/transformers
 2. https://github.com/huggingface/transformers
+3. Transformers v5 release notes, 26 January 2026. https://github.com/huggingface/transformers/releases/tag/v5.0.0
+4. Transformers v5 migration guide ("Removal of TensorFlow and Jax"). https://github.com/huggingface/transformers/blob/main/MIGRATION_GUIDE_V5.md

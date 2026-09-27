@@ -6,7 +6,9 @@ categories: [Guides]
 tags: ["context-engineering", "llm", "agents", "prompt-caching", "rag", "token-optimization"]
 tools: []
 related: [ "guides/ai-agent-memory-management", "guides/multi-model-routing", "guides/building-rag-systems", "glossary/tokenization", "guides/llm-cost-optimization" ]
-last_updated: 2026-06-23
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Context engineering is the practice of deciding which tokens a model sees on each call, in what order, and at what cost. It treats the context window as a budget, not a bucket. Done well, it cuts token spend and raises answer accuracy at the same time, because the model stops drowning in irrelevant text.
@@ -131,20 +133,20 @@ def assemble_context(query, chunks, max_chunk_tokens=4000):
 
 Caching reuses a processed prompt prefix across calls, so you pay full price for the stable part once instead of every request. The discounts are steep and worth designing around.
 
-OpenAI caches automatically for prompts at or above 1,024 tokens, and states up to 80% lower latency and up to 90% lower input cost on cache hits ([OpenAI prompt caching](https://openai.com/index/api-prompt-caching/)). Anthropic prices cache reads at 0.1x base input, about 90% off, with cache writes at 1.25x base input for a 5-minute time-to-live or 2x for a 1-hour time-to-live ([Anthropic prompt caching docs](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)). Google Gemini turns implicit caching on by default for Gemini 2.5 and newer, with a 4,096-token minimum, and passes the savings on automatically ([Google Gemini context caching](https://ai.google.dev/gemini-api/docs/caching)).
+OpenAI enables caching by default for prompts at or above 1,024 tokens and discounts cached input by up to 90% ([OpenAI prompt caching](https://openai.com/index/api-prompt-caching/)). For GPT-5.6 and later it now also charges cache writes at 1.25x the uncached input rate (reads at 0.1x), and lets you place explicit cache breakpoints instead of relying on the implicit one ([OpenAI prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching), checked 25 September 2026). Anthropic prices cache reads at 0.1x base input on most models, about 90% off (0.05x on Claude Opus 5.5 and 0.025x on Claude Fable 5.1), with cache writes at 1.25x base input for a 5-minute time-to-live or 2x for a 1-hour time-to-live ([Anthropic prompt caching docs](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)). Google Gemini turns implicit caching on by default for Gemini 2.5 and newer, with a 4,096-token minimum, and passes the savings on automatically ([Google Gemini context caching](https://ai.google.dev/gemini-api/docs/caching)).
 
 The design rule that follows: put stable content first, volatile content last. A cached prefix only pays off if its bytes stay identical across calls. Below, the long system prompt and the document carry the cache breakpoint, while the per-request question stays outside it.
 
 ```python
 # Anthropic: mark the stable prefix as cacheable; keep the question outside it.
 response = client.messages.create(
-    model="claude-opus-4-8",
+    model="claude-opus-5-5",
     max_tokens=1024,
     system=[
         {
             "type": "text",
             "text": LARGE_STABLE_DOCUMENT,        # reused every call
-            "cache_control": {"type": "ephemeral"},  # cache write 1.25x, read 0.1x
+            "cache_control": {"type": "ephemeral"},  # cache write 1.25x, read 0.05x on Opus 5.5
         }
     ],
     messages=[{"role": "user", "content": user_question}],  # changes per call, not cached
@@ -178,6 +180,8 @@ So treat it as a routing decision, not a dogma. For a single dense document and 
 - [Long Context vs. RAG for LLMs: An Evaluation and Revisits, Li et al. (2024)](https://arxiv.org/abs/2501.01880): when long context beats RAG and when it does not.
 - [Anthropic prompt caching docs](https://platform.claude.com/docs/en/build-with-claude/prompt-caching): cache read and write multipliers and time-to-live options.
 - [OpenAI prompt caching](https://openai.com/index/api-prompt-caching/): automatic caching threshold and the latency and cost savings.
+- [OpenAI prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching): cache-write pricing and explicit breakpoints for GPT-5.6 and later (checked 25 September 2026).
+- [Anthropic pricing](https://platform.claude.com/docs/en/about-claude/pricing): per-model cache-read multipliers, including 0.05x on Claude Opus 5.5 (checked 25 September 2026).
 - [Google Gemini context caching](https://ai.google.dev/gemini-api/docs/caching): implicit caching defaults and the token minimum.
 - [Anthropic context windows docs](https://platform.claude.com/docs/en/build-with-claude/context-windows): context window sizes and token management.
 - [Managing AI agent memory](/guides/ai-agent-memory-management/): persisting state outside the window across sessions.

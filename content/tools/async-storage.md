@@ -10,7 +10,9 @@ related:
   - basics/what-is-react-native
 solutions:
   - guides/from-zero-to-production
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 AsyncStorage is the standard way to store small amounts of persistent data in a React Native or Expo application. It works like `localStorage` in a browser, a key-value store that survives app restarts, but it is asynchronous, meaning every read and write returns a Promise rather than blocking the thread.
@@ -23,6 +25,8 @@ It is the correct tool for: user preferences, authentication tokens, draft conte
 </figure>
 
 ---
+
+> **Version note (September 2026):** the current major version is **3.x** (3.0.0 released 23 February 2026). Version 3 adds `createAsyncStorage("name")`, which gives you separate SQLite-backed databases on iOS, Android and macOS (IndexedDB on web), and renames the batch methods: `multiGet`/`multiSet`/`multiRemove` became `getMany`/`setMany`/`removeMany`. The default export still points at the legacy single-database storage, so the `getItem`/`setItem`/`removeItem` examples below work unchanged, and React Native 0.76 or later is required.
 
 ## How it works
 
@@ -212,7 +216,7 @@ const loadData = async () => {
 
 AsyncStorage is asynchronous by design, it will not block your UI thread. However:
 
-- **Multiple reads**: If you read 20 separate keys on app launch, consider using `AsyncStorage.multiGet()` instead
+- **Multiple reads**: If you read 20 separate keys on app launch, consider a single batched read with `getMany()` (called `multiGet()` before version 3) instead
 - **Large objects**: Storing a 500-item list as a single JSON blob works, but updates require rewriting the entire blob
 - **Frequency**: Writing on every keystroke is too frequent: debounce writes by 500-1000ms
 
@@ -238,4 +242,5 @@ SecureStore is limited to 2KB per value. Use it for tokens and secrets, not for 
 - [Zustand](/tools/zustand/): combine with AsyncStorage for automatic state persistence
 - [Expo](/tools/expo/): the platform that makes AsyncStorage installation trivial
 - [What is React Native?](/basics/what-is-react-native/): the foundation this tool runs on
-- [Official AsyncStorage docs](https://react-native-async-storage.github.io/async-storage/)
+- [AsyncStorage on GitHub](https://github.com/react-native-async-storage/async-storage): README with the v3 API and compatibility table
+- [@react-native-async-storage/async-storage on npm](https://www.npmjs.com/package/@react-native-async-storage/async-storage): release history (3.0.0 on 23 February 2026)

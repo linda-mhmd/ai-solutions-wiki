@@ -16,14 +16,16 @@ alternatives:
   aws: tools/amazon-bedrock
   azure: tools/azure-openai
   gcp: tools/google-vertex-ai
-last_updated: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
-Ollama is an open-source tool that makes it easy to run large language models locally on personal computers, workstations, and edge devices. It provides a streamlined experience for downloading, configuring, and running LLMs through a simple command-line interface and a local REST API compatible with the OpenAI API format. Ollama handles model quantization, GPU acceleration (via CUDA, ROCm, and Metal), memory management, and inference optimization transparently, allowing users to run models like Llama 3, Mistral, Gemma, Phi, and dozens of others with a single command.
+Ollama is an open-source tool that makes it easy to run large language models locally on personal computers, workstations, and edge devices. It provides a streamlined experience for downloading, configuring, and running LLMs through a simple command-line interface and a local REST API compatible with the OpenAI API format. Ollama handles model quantization, GPU acceleration (via CUDA, ROCm, and Metal), memory management, and inference optimization transparently, allowing users to run open-weight models such as Qwen3.8, Gemma 4, gpt-oss, Llama, Mistral, Phi, and dozens of others with a single command.
 
-Ollama's architecture wraps llama.cpp (the C/C++ inference engine) with a user-friendly model management layer inspired by Docker's design. Models are pulled from a central registry, cached locally, and can be customized through Modelfiles that define system prompts, parameters, and adapter layers. The local HTTP API enables integration with applications, development tools, and frameworks like LangChain, LlamaIndex, and various chat UIs. Ollama supports running multiple models concurrently, speculative decoding, and multimodal models (vision-language models).
+Ollama's architecture wraps llama.cpp (the C/C++ inference engine) with a user-friendly model management layer inspired by Docker's design. Models are pulled from a central registry, cached locally, and can be customized through Modelfiles that define system prompts, parameters, and adapter layers. The local HTTP API enables integration with applications, development tools, and frameworks like LangChain, LlamaIndex, and various chat UIs. Ollama supports running multiple models concurrently, tool calling, thinking models, and multimodal (vision-language) models. Alongside local models, the Ollama library now also lists cloud-hosted models (tagged `cloud`, for example `glm-5.3` and `deepseek-v4.1-flash`) that run on Ollama's servers rather than your hardware — check the tag if data must stay local.
 
-Ollama has become one of the most popular tools for local LLM experimentation, with millions of downloads and a rapidly growing community. It is used by developers for prototyping AI applications without API costs, by privacy-conscious organizations that need on-premises inference, and by researchers experimenting with different models. The simplicity of running `ollama run llama3` to start chatting with a model locally has made it a gateway for many developers entering the LLM ecosystem.
+Ollama has become one of the most popular tools for local LLM experimentation, with millions of downloads and a rapidly growing community. It is used by developers for prototyping AI applications without API costs, by privacy-conscious organizations that need on-premises inference, and by researchers experimenting with different models. The simplicity of running a single command such as `ollama run gemma4` to start chatting with a model locally has made it a gateway for many developers entering the LLM ecosystem.
 
 ## Key Capabilities
 
@@ -38,9 +40,10 @@ Ollama is the local-first alternative to AWS Bedrock, Azure OpenAI Service, and 
 
 ## Origins and History
 
-Ollama was created by Jeffrey Morgan and Michael Chiang and first released in 2023. The project is licensed under the MIT License. It quickly gained traction in the developer community, accumulating over 100,000 GitHub stars by 2025. Ollama builds on the llama.cpp project by Georgi Gerganov, which demonstrated that quantized LLMs could run efficiently on consumer hardware. The Ollama model registry hosts hundreds of models in various quantization formats (GGUF), contributed by the community and model creators.
+Ollama was created by Jeffrey Morgan and Michael Chiang and first released in 2023. The project is licensed under the MIT License. It quickly gained traction in the developer community, accumulating over 180,000 GitHub stars by September 2026, with frequent releases (v0.34 in September 2026). Ollama builds on the llama.cpp project by Georgi Gerganov, which demonstrated that quantized LLMs could run efficiently on consumer hardware. The Ollama model registry hosts hundreds of models in various quantization formats (GGUF), contributed by the community and model creators.
 
 ## Sources
 
 1. https://ollama.com/
 2. https://github.com/ollama/ollama
+3. Ollama model library and search (local and `cloud`-tagged models, checked 25 September 2026). https://ollama.com/search

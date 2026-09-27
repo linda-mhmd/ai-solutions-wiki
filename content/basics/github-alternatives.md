@@ -12,7 +12,9 @@ faqs:
     answer: "Yes. Git repositories are portable. All platforms support importing from each other. Your commit history, branches, and tags transfer completely. Issues, pull requests, and CI configurations need more manual work but migration tools exist."
   - question: "Should I self-host my own Git server?"
     answer: "Only if you have a specific reason: regulatory compliance, air-gapped networks, extreme cost optimization at scale, or philosophical commitment. Self-hosting adds operational burden—backups, security updates, availability. For most teams, managed services are worth the cost."
-last_updated: 2026-07-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 {{< quickanswer >}}
@@ -36,7 +38,7 @@ GitHub is the most popular Git hosting platform, but it's not the only option. G
 **What it is**: The largest Git hosting platform, owned by Microsoft since 2018. Home to most open-source projects and the default choice for most developers.
 
 **Strengths**:
-- Largest developer community (100M+ users)
+- Largest developer community (GitHub reports 225M+ developers)
 - Most open-source projects are here
 - Best ecosystem of integrations
 - GitHub Actions for CI/CD
@@ -45,7 +47,7 @@ GitHub is the most popular Git hosting platform, but it's not the only option. G
 - Strong security features (Dependabot, code scanning)
 
 **Limitations**:
-- Cloud-only (no self-hosting option)
+- Self-hosting (GitHub Enterprise Server) is only available on the paid Enterprise plan
 - Microsoft ownership concerns some organizations
 - Enterprise features require paid plans
 - Less integrated DevOps compared to GitLab
@@ -74,7 +76,7 @@ GitHub is the most popular Git hosting platform, but it's not the only option. G
 
 **Best for**: Teams wanting integrated DevOps, organizations requiring self-hosting, enterprises with compliance needs.
 
-**Cost**: Free tier available. Premium: $29/user/month. Ultimate: $99/user/month. Self-hosted CE: free.
+**Cost**: Free tier available. Premium: $29/user/month (billed annually). Ultimate: custom pricing. Self-hosted CE: free.
 
 **Why teams choose GitLab over GitHub**:
 - Need to self-host for compliance or security
@@ -101,7 +103,7 @@ GitHub is the most popular Git hosting platform, but it's not the only option. G
 
 **Best for**: Teams already using Jira and Confluence, enterprises in the Atlassian ecosystem.
 
-**Cost**: Free for up to 5 users. Standard: $3/user/month. Premium: $6/user/month.
+**Cost**: Free for up to 5 users. Standard: $3.65/user/month. Premium: $7.25/user/month.
 
 **Why teams choose Bitbucket**:
 - Already paying for Jira and want integration
@@ -262,3 +264,4 @@ The core skill—using Git—is the same everywhere. The platform is just where 
 - [How to set up a GitHub project](/basics/how-to-setup-github-project/): Getting started with GitHub
 - [How to collaborate on GitHub](/basics/how-to-collaborate-on-github/): Pull requests and team workflows
 - [What is open source?](/basics/what-is-open-source/): The ecosystem these platforms serve
+- Pricing sources (checked 25 September 2026): [GitLab pricing](https://about.gitlab.com/pricing/), [Bitbucket pricing](https://www.atlassian.com/software/bitbucket/pricing), [GitHub about page](https://github.com/about) (developer count)

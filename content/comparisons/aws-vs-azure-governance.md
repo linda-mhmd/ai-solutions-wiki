@@ -2,7 +2,7 @@
 title: "AWS vs Azure Governance Tools"
 description: "Comparison of AWS and Azure governance capabilities for AI workloads, covering organization management, policy enforcement, cost control, and security monitoring."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [aws, azure, cloud-governance, security, cost-management, comparison]
 related:
@@ -10,8 +10,8 @@ related:
   - guides/cloud-governance-aws
   - guides/cloud-security-posture-management
   - frameworks/cloud-governance-framework
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 Both AWS and Azure provide comprehensive governance tooling. This comparison covers the key capabilities relevant to AI workloads and helps organizations understand the strengths of each platform's governance approach.
@@ -44,7 +44,7 @@ Both AWS and Azure provide comprehensive governance tooling. This comparison cov
 
 **AWS** offers Security Hub (aggregated findings), GuardDuty (threat detection), Inspector (vulnerability scanning), Macie (sensitive data discovery), and CloudTrail (audit logging). AI-specific monitoring through SageMaker Model Monitor and Bedrock invocation logging.
 
-**Azure** provides Microsoft Defender for Cloud (CSPM and threat protection), Microsoft Sentinel (SIEM and SOAR), Microsoft Purview (data governance and classification), and Azure Monitor. Microsoft is consolidating its security operations: Sentinel is moving into the Microsoft Defender portal, and Microsoft has set July 1, 2026 as the date the standalone Azure portal experience for Sentinel is retired (the SIEM and SOAR capabilities continue under the unified Defender portal). AI-specific monitoring runs through Microsoft Foundry (formerly Azure AI Foundry, formerly Azure AI Studio) and Azure AI Content Safety.
+**Azure** provides Microsoft Defender for Cloud (CSPM and threat protection), Microsoft Sentinel (SIEM and SOAR), Microsoft Purview (data governance and classification), and Azure Monitor. Microsoft is consolidating its security operations: Sentinel is moving into the Microsoft Defender portal, and Microsoft, which originally set July 1, 2026 as the cut-off, now says Sentinel will no longer be supported in the Azure portal after March 31, 2027 (the SIEM and SOAR capabilities continue under the unified Defender portal). AI-specific monitoring runs through Microsoft Foundry (formerly Azure AI Foundry, formerly Azure AI Studio) and Azure AI Content Safety.
 
 **Verdict:** Microsoft Defender for Cloud provides a more unified CSPM experience, now reinforced by the move toward a single Defender portal for posture and SIEM. AWS requires combining more services but offers deeper per-service capabilities.
 
@@ -68,3 +68,4 @@ For organizations already invested in one cloud, extend governance to AI workloa
 - [Automated Reasoning checks now available in Amazon Bedrock Guardrails, AWS What's New](https://aws.amazon.com/about-aws/whats-new/2025/08/automated-reasoning-checks-amazon-bedrock-guardrails)
 - [AI security posture management, Microsoft Defender for Cloud documentation](https://learn.microsoft.com/en-us/azure/defender-for-cloud/ai-security-posture)
 - [Transition your Microsoft Sentinel environment to the Defender portal, Microsoft Learn](https://learn.microsoft.com/en-us/azure/sentinel/move-to-defender)
+- [Microsoft Sentinel in the Microsoft Defender portal (Azure portal support ends March 31, 2027), Microsoft Learn, checked 25 September 2026](https://learn.microsoft.com/en-us/azure/sentinel/microsoft-sentinel-defender-portal)

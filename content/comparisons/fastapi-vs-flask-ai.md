@@ -2,14 +2,14 @@
 title: "FastAPI vs Flask for AI Applications"
 description: "Comparing FastAPI and Flask for building AI model serving APIs and backend services, covering performance, developer experience, and production readiness."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [FastAPI, Flask, Python, API, AI-infrastructure]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
-FastAPI and Flask are the two most popular Python web frameworks for building AI APIs. Most AI model serving, LLM orchestration, and ML pipeline APIs are built with one of them. This comparison focuses on AI-specific considerations. As of 2026, FastAPI (0.137.0, built on Starlette and Pydantic v2) has become the de facto default for new AI and ML serving APIs, while Flask (3.1.x) remains a mature, widely deployed choice, especially for existing applications and server-rendered web apps.
+FastAPI and Flask are the two most popular Python web frameworks for building AI APIs. Most AI model serving, LLM orchestration, and ML pipeline APIs are built with one of them. This comparison focuses on AI-specific considerations. As of September 2026, FastAPI (0.141.1, built on Starlette and Pydantic v2) has become the de facto default for new AI and ML serving APIs, while Flask (3.1.x) remains a mature, widely deployed choice, especially for existing applications and server-rendered web apps.
 
 ## Quick Comparison
 
@@ -117,6 +117,6 @@ For new AI applications, FastAPI is the better default choice. Its async support
 ## Sources
 
 - [FastAPI documentation](https://fastapi.tiangolo.com/) - official docs covering async, StreamingResponse, WebSockets, lifespan events, and Pydantic-based validation.
-- [FastAPI on PyPI](https://pypi.org/project/fastapi/) - latest release (0.137.0, June 2026), Python 3.10+ requirement, and Pydantic v2 dependency.
+- [FastAPI on PyPI](https://pypi.org/project/fastapi/) - latest release (0.141.1, July 2026), Python 3.10+ requirement, and Pydantic v2 dependency.
 - [Flask documentation: Using async and await](https://flask.palletsprojects.com/en/stable/async-await/) - explains the flask[async] extra and that async views run in a worker thread.
 - [Flask changelog](https://flask.palletsprojects.com/en/stable/changes/) - version history, including the 3.1.x line and the removal of before_first_request in 2.3.0.

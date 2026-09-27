@@ -2,7 +2,7 @@
 title: "DeepEval vs Promptfoo for LLM Evaluation in CI"
 description: "Comparing DeepEval and Promptfoo for automated LLM evaluation: metrics, CI integration, configuration, pricing, and when to choose each."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [deepeval, promptfoo, evaluation, testing, llm, ai-engineering]
 related:
@@ -10,13 +10,13 @@ related:
   - guides/ci-cd-testing-ai
   - guides/testing-ai-systems
   - patterns/statistical-assertion
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 DeepEval and Promptfoo are the two most widely adopted open-source frameworks for evaluating LLM outputs in CI pipelines. Both enable automated quality checks on model outputs, but they take different approaches: DeepEval integrates as pytest test cases with built-in LLM-powered metrics, while Promptfoo uses YAML configuration with a CLI-first approach and supports multi-provider comparison. This comparison helps you choose the right tool for your evaluation workflow.
 
-DeepEval is maintained by Confident AI under the Apache 2.0 license. Promptfoo is MIT licensed, and in March 2026 its company agreed to be acquired by OpenAI. The maintainers committed to keeping the open-source suite free and to continuing support for a diverse range of providers and models, so the cross-provider workflow described below remains intact, but teams evaluating long-term governance should factor the change of ownership into their decision.
+DeepEval is maintained by Confident AI under the Apache 2.0 license. Promptfoo is MIT licensed, and in March 2026 its company agreed to be acquired by OpenAI. The maintainers committed to keeping the open-source suite free and to continuing support for a diverse range of providers and models, so the cross-provider workflow described below remains intact, but teams evaluating long-term governance should factor the change of ownership into their decision. OpenAI has also made Promptfoo the migration path for its own hosted Evals platform, which it deprecated on 3 June 2026: existing evals become read-only on 31 October 2026 and the Evals dashboard and API are scheduled to shut down on 30 November 2026. If your team currently runs evals on OpenAI's platform, you need to move them to a framework such as one of these two before then.
 
 ## Architecture
 
@@ -44,7 +44,7 @@ def test_rag_quality():
 prompts:
   - "Answer based on context: {{context}}\nQuestion: {{question}}"
 providers:
-  - openai:gpt-4o-mini
+  - openai:gpt-6-luna
 tests:
   - vars:
       question: "What is the revenue?"
@@ -102,9 +102,9 @@ tests:
 
 ```yaml
 providers:
-  - openai:gpt-4o
-  - openai:gpt-4o-mini
-  - anthropic:messages:<model-id>
+  - openai:gpt-6-sol
+  - openai:gpt-6-luna
+  - anthropic:messages:claude-sonnet-5
 ```
 
 Provider strings follow the `provider:model` form, so you can drop in the current frontier models from OpenAI, Anthropic, Google, and others (or your own self-hosted endpoints) without changing the test set. This is Promptfoo's standout feature: quickly comparing model quality, cost, and latency across providers for the same tests.
@@ -154,3 +154,4 @@ Confident AI, the company that maintains DeepEval, sells a paid cloud platform f
 - [Promptfoo: LLM red teaming](https://www.promptfoo.dev/docs/red-team/) - adversarial plugins and framework coverage (OWASP LLM Top 10, NIST AI RMF).
 - [Promptfoo is joining OpenAI](https://www.promptfoo.dev/blog/promptfoo-joining-openai/) - acquisition announcement and the open-source and multi-provider commitments (March 2026).
 - [OpenAI to acquire Promptfoo](https://openai.com/index/openai-to-acquire-promptfoo/) - OpenAI's announcement of the acquisition.
+- [OpenAI API deprecations: Evals platform (announced 3 June 2026; read-only 31 October 2026, shutdown 30 November 2026)](https://developers.openai.com/api/docs/deprecations) and [Moving from OpenAI Evals to Promptfoo](https://developers.openai.com/cookbook/examples/evaluation/moving-from-openai-evals-to-promptfoo).

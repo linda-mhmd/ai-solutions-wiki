@@ -6,7 +6,9 @@ categories: [Solutions]
 tags: [renewable-energy, solar, wind, battery-storage, grid-integration]
 industries: [energy]
 tools: [amazon-sagemaker, amazon-forecast, amazon-kinesis]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Renewable energy generation is inherently variable: solar output depends on cloud cover, and wind generation depends on wind speed and direction. This variability creates challenges for grid integration, energy trading, and investment economics. AI optimization maximizes the value of renewable assets by improving generation forecasts, optimizing storage dispatch, and reducing curtailment.
@@ -29,7 +31,7 @@ As renewable penetration increases, these challenges become more acute. Grids wi
 
 ## Architecture
 
-Weather data, satellite imagery, and generation data flow into the forecasting pipeline. Amazon Forecast produces day-ahead generation projections. SageMaker models optimize storage dispatch in real time based on rolling forecasts of generation, demand, and prices. Kinesis handles the real-time data streams from operational assets. Optimization decisions are executed through the SCADA system or energy management platform.
+Weather data, satellite imagery, and generation data flow into the forecasting pipeline. SageMaker time-series models (Canvas or custom) produce day-ahead generation projections. Amazon Forecast, often used for this in the past, has been [closed to new customers since 29 July 2024](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/); AWS recommends SageMaker Canvas time-series forecasting for new builds. SageMaker models optimize storage dispatch in real time based on rolling forecasts of generation, demand, and prices. Kinesis handles the real-time data streams from operational assets. Optimization decisions are executed through the SCADA system or energy management platform.
 
 ## Key Considerations
 

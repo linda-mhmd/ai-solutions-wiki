@@ -10,9 +10,11 @@ related:
   - glossary/change-data-capture
   - glossary/feature-store
   - glossary/kafka
-  - patterns/event-driven-ai
+  - glossary/event-driven-architecture
   - guides/mlops-getting-started
-last_updated: 2026-05-30
+last_updated: 2026-09-26
+lastmod: 2026-09-26
+last_verified: 2026-09-26
 ---
 
 **This page describes the pattern.** For a full implementation guide covering pipeline architecture, late data handling, schema evolution, and event-driven inference, see [Real-Time Data Pipelines for AI Workloads](/guides/stream-processing-ai/).
@@ -52,9 +54,11 @@ Most real-time features are windowed aggregations over event streams:
 DataStream<Feature> features = events
     .keyBy(Event::getUserId)
     .window(SlidingEventTimeWindows.of(
-        Time.minutes(30), Time.minutes(1)))
+        Duration.ofMinutes(30), Duration.ofMinutes(1)))
     .aggregate(new MultiFeatureAggregator());
 ```
+
+This uses the Flink 2.x DataStream API, where window sizes take a `java.time.Duration`. Flink 2.0 removed the old `Time.minutes(...)` helper, so 1.x examples no longer compile; the [implementation guide](/guides/stream-processing-ai/) covers the rest of the 2.x changes.
 
 The `MultiFeatureAggregator` computes multiple features from the same window to avoid redundant processing:
 

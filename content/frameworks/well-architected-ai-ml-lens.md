@@ -12,12 +12,16 @@ related:
   - glossary/cost-optimization-pillar
   - glossary/performance-efficiency
   - glossary/sustainability-pillar
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 The AWS Well-Architected Framework covers principles that apply to any cloud workload. Machine learning introduces a distinct set of challenges - training pipelines, model drift, prompt injection, inference cost volatility - that the base framework does not fully address. The AWS Well-Architected ML Lens is a published extension that maps each of the six pillars to the ML lifecycle and provides ML-specific best practices.
 
 Source: [AWS Well-Architected ML Lens](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html)
+
+For foundation-model workloads, AWS also publishes two companion lenses (both last revised 19 November 2025): the [Generative AI Lens](https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.html), which covers model selection, prompt engineering, RAG, agents, and guardrails, and the [Responsible AI Lens](https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/responsible-ai-lens.html). The generative AI practices on this page (Bedrock guardrails, prompt injection, prompt caching) are covered in more depth there.
 
 ## What the ML Lens Adds
 

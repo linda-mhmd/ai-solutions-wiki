@@ -2,8 +2,9 @@
 title: "LoRA, InstructLab, and Measuring What Actually Changed"
 description: "How to determine, from two files, exactly which weight matrices a LoRA fine-tune touched and how many parameters that is — plus where InstructLab's LAB method fits on the full-fine-tuning-to-LoRA spectrum."
 date: 2026-09-03
-lastmod: 2026-09-03
-last_updated: 2026-09-03
+lastmod: 2026-09-25
+last_updated: 2026-09-25
+last_verified: 2026-09-25
 categories: [Guides]
 tags: ["lora", "peft", "instructlab", "fine-tuning", "qlora", "dora", "adapter-weights"]
 related:
@@ -117,7 +118,9 @@ Even the broadest common option — every linear layer in every transformer bloc
 
 Training itself runs in two phases specifically to avoid catastrophic forgetting: a knowledge-tuning phase — first on short-response knowledge data, then on long-response knowledge data together with the foundational-skills data, replaying the first step's data — followed by a skills-tuning phase on compositional-skills data, replaying data from both prior knowledge-tuning steps.⁶ This structure is the source of the "replay buffer" framing: each step deliberately re-trains on a sample of earlier steps' data so new material doesn't overwrite what came before.
 
-**Does this use LoRA or full fine-tuning?** Both are supported, but they are not equally the default, and this is worth stating precisely rather than assuming. The original LAB paper's published training runs are full-parameter: its hyperparameter table reports a learning rate, batch size, and epoch count per phase with no mention of an adapter, rank, or target modules — every weight in Labradorite-13B and Merlinite-7B received gradients.⁶ The production `instructlab/training` library that backs the `ilab model train` CLI carries this forward: its `TrainingArgs` class declares `lora: LoraOptions | None = None` — LoRA is opt-in, and omitting it (the default) means every parameter in the base model is trainable, exactly like the paper.⁷ When you do enable it, `LoraOptions` defaults to `rank=4` (the low end of the typical 4–32 range), `alpha=32`, `dropout=0.1`, and `target_modules=None`, which the library's own comment defines as "all projection layers in the model (matching `_proj`)" — the "all-linear"-style broad option from the table above, not the narrower q/v-only default some other PEFT workflows use.⁷ In short: **InstructLab's reference multi-phase pipeline defaults to full fine-tuning; LoRA is an explicit opt-in for lower-resource setups, and when chosen it targets a broad set of projections by default.** A consequence worth being direct about: on a default InstructLab run, none of the `adapter_config.json` / `adapter_model.safetensors` introspection above applies at all — there is no adapter file, because the entire model's state dict changed. That inspection only becomes relevant the moment you pass `--lora-enabled` (or a `LoraOptions` object) to an InstructLab training run.
+**Does this use LoRA or full fine-tuning?** Both are supported, but they are not equally the default, and this is worth stating precisely rather than assuming. The original LAB paper's published training runs are full-parameter: its hyperparameter table reports a learning rate, batch size, and epoch count per phase with no mention of an adapter, rank, or target modules — every weight in Labradorite-13B and Merlinite-7B received gradients.⁶ The `instructlab/training` library, which backed the `ilab model train` CLI and is still maintained as a standalone library, carries this forward: its `TrainingArgs` class declares `lora: LoraOptions | None = None` — LoRA is opt-in, and omitting it (the default) means every parameter in the base model is trainable, exactly like the paper.⁷ When you do enable it, `LoraOptions` defaults to `rank=4` (the low end of the typical 4–32 range), `alpha=32`, `dropout=0.1`, and `target_modules=None`, which the library's own comment defines as "all projection layers in the model (matching `_proj`)" — the "all-linear"-style broad option from the table above, not the narrower q/v-only default some other PEFT workflows use.⁷ In short: **InstructLab's reference multi-phase pipeline defaults to full fine-tuning; LoRA is an explicit opt-in for lower-resource setups, and when chosen it targets a broad set of projections by default.** A consequence worth being direct about: on a default InstructLab run, none of the `adapter_config.json` / `adapter_model.safetensors` introspection above applies at all — there is no adapter file, because the entire model's state dict changed. That inspection only becomes relevant the moment you pass `--lora-enabled` (or a `LoraOptions` object) to an InstructLab training run.
+
+A note on project status: the all-in-one `instructlab/instructlab` repository (the `ilab` CLI) was archived after a September 2025 community announcement that split the project into separate components. Synthetic data generation continues as `sdg_hub` and training as `training_hub` under Red Hat's AI Innovation team, while the `instructlab/training` library cited above remains active.¹³
 
 ## Full fine-tuning, LoRA, QLoRA, and DoRA, by weights actually touched
 
@@ -144,6 +147,7 @@ QLoRA's row is the one most often misread: quantizing the base model does not ch
 10. Liu, S.-Y., et al. (2024), "DoRA: Weight-Decomposed Low-Rank Adaptation," ICML 2024, arXiv:2402.09353: [https://arxiv.org/abs/2402.09353](https://arxiv.org/abs/2402.09353)
 11. Red Hat, "What is InstructLab?": [https://www.redhat.com/en/topics/ai/what-is-instructlab](https://www.redhat.com/en/topics/ai/what-is-instructlab)
 12. InstructLab, community FAQ: [https://docs.instructlab.ai/community/FAQ/](https://docs.instructlab.ai/community/FAQ/)
+13. InstructLab, `instructlab/instructlab` README, "Community Announcement (Sept 2, 2025)" (repository archived; checked 25 September 2026): [https://github.com/instructlab/instructlab](https://github.com/instructlab/instructlab)
 
 ## Further reading
 

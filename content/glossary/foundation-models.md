@@ -4,7 +4,9 @@ description: "What foundation models are, how they differ from task-specific mod
 date: 2026-03-24
 categories: [Glossary]
 tags: ["ai-ml", "beginner", "foundation-models", "llm", "pre-training", "transfer-learning", "ai"]
-last_updated: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 A foundation model is a large AI model trained on broad data at scale, designed to be adapted to a wide range of downstream tasks. The term distinguishes these general-purpose models from earlier AI systems that were trained specifically for a single narrow task (e.g., a model trained only to classify spam email).
@@ -27,17 +29,19 @@ Foundation models are the architectural shift that made modern enterprise AI pra
 
 ## Major Model Families
 
-**Anthropic Claude** - Strong general reasoning, long context (up to 200K tokens), conservative safety profile. Available via Bedrock and direct API.
+**Anthropic Claude** - Strong general reasoning and agentic coding, long context (1M tokens on current Opus and Sonnet models at the time of writing, September 2026), conservative safety profile. Available via the Claude API, Amazon Bedrock, Google Cloud and Microsoft Foundry.
 
 **OpenAI GPT series** - Widely deployed, strong code and reasoning, extensive ecosystem of tools and integrations.
 
-**Meta Llama** - Open-weights models; weights can be downloaded and self-hosted. Cost-effective for high-volume workloads where self-hosting infrastructure is feasible.
+**Meta Llama and Muse** - Llama is the best-known open-weights family; weights can be downloaded and self-hosted, which is cost-effective for high-volume workloads where self-hosting infrastructure is feasible. Llama 4 (April 2025) is the most recent Llama release. Since 2026 Meta's flagship is the closed-weight Muse Spark family, and its current open-weight model is Muse Glimmer.
 
 **Google Gemini** - Multimodal from the ground up (text, image, audio, video). Available via Google Cloud Vertex AI (rebranded [Gemini Enterprise Agent Platform](/tools/google-vertex-ai/) in April 2026).
 
 **Mistral** - European models with strong data residency story. Competitive performance on European language tasks.
 
-**Amazon Titan** - Amazon's own models, tightly integrated with AWS services. Titan Embeddings is widely used in Bedrock RAG pipelines.
+**Amazon Nova and Titan** - Amazon's own models, tightly integrated with AWS services. [Amazon Nova](/tools/amazon-nova/) (currently the Nova 2 generation) is Amazon's generative model family; the older Titan Text Embeddings V2 model remains available on Bedrock and is widely used in RAG pipelines.
+
+Specific model versions change every few months. For the current lineup, context windows, and prices, see the [LLM landscape](/comparisons/llm-landscape-2026/).
 
 ## Multimodal Foundation Models
 
@@ -60,3 +64,5 @@ The flip side is that foundation model behavior is harder to control precisely t
 2. Brown, T. et al. (2020). "Language Models are Few-Shot Learners." *NeurIPS 2020.*, GPT-3 paper demonstrating that large-scale pre-training produces in-context few-shot learning capabilities; the empirical foundation for treating LLMs as general-purpose AI systems. [https://arxiv.org/abs/2005.14165](https://arxiv.org/abs/2005.14165)
 3. Devlin, J., Chang, M.-W., Lee, K., and Toutanova, K. (2018). "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding." *arXiv:1810.04805.*, Established masked language modeling and fine-tuning as the dominant approach for adapting pre-trained language models to downstream tasks. [https://arxiv.org/abs/1810.04805](https://arxiv.org/abs/1810.04805)
 4. Touvron, H. et al. (2023). "Llama 2: Open Foundation and Fine-Tuned Chat Models." *arXiv:2307.09288.*, Meta's open-weights foundation model family; the primary reference for open-access foundation models. [https://arxiv.org/abs/2307.09288](https://arxiv.org/abs/2307.09288)
+5. Anthropic. "Models overview" (accessed 25 September 2026). [https://platform.claude.com/docs/en/about-claude/models/overview](https://platform.claude.com/docs/en/about-claude/models/overview)
+6. AWS. "Amazon Titan Text Embeddings models," Amazon Bedrock User Guide (accessed 25 September 2026). [https://docs.aws.amazon.com/bedrock/latest/userguide/titan-embedding-models.html](https://docs.aws.amazon.com/bedrock/latest/userguide/titan-embedding-models.html)

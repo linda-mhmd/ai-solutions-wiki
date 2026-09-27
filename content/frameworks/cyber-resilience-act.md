@@ -10,10 +10,12 @@ related:
   - frameworks/ai-regulatory-landscape
   - glossary/ce-marking-ai
   - glossary/conformity-assessment
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
-The Cyber Resilience Act (CRA), Regulation (EU) 2024/2847, establishes mandatory cybersecurity requirements for products with digital elements sold in the EU market. It entered into force in December 2024 with most obligations applying from December 2027. The CRA is the first EU-wide horizontal legislation imposing cybersecurity requirements on hardware and software products, including AI systems distributed as products.
+The Cyber Resilience Act (CRA), Regulation (EU) 2024/2847, establishes mandatory cybersecurity requirements for products with digital elements sold in the EU market. It entered into force on 10 December 2024 and applies in stages: provisions on conformity assessment bodies from 11 June 2026, the manufacturer reporting obligations for actively exploited vulnerabilities and severe incidents from **11 September 2026** (now in effect), and the remaining obligations from 11 December 2027. The CRA is the first EU-wide horizontal legislation imposing cybersecurity requirements on hardware and software products, including AI systems distributed as products.
 
 ## Scope and Relevance to AI
 
@@ -25,13 +27,13 @@ Products must be designed, developed, and produced to ensure an appropriate leve
 
 ## Vulnerability Handling
 
-Manufacturers must establish and maintain a coordinated vulnerability disclosure policy, document and address vulnerabilities without delay, provide security updates free of charge for the support period (minimum 5 years or the expected product lifetime), and report actively exploited vulnerabilities to ENISA within 24 hours and to national CSIRTs.
+Manufacturers must establish and maintain a coordinated vulnerability disclosure policy, document and address vulnerabilities without delay, provide security updates free of charge for the support period (minimum 5 years or the expected product lifetime), and report actively exploited vulnerabilities and severe incidents through ENISA's single reporting platform to the designated national CSIRT and ENISA, with an early warning within 24 hours. This reporting duty has applied since 11 September 2026, including for products already on the market.
 
 For AI products, this means monitoring for AI-specific vulnerabilities (adversarial inputs, model extraction attacks, data poisoning) and having processes to address them. Security updates for AI products may include model updates, guardrail improvements, or patches to inference infrastructure.
 
 ## Product Classification
 
-The CRA classifies products into default, important (Class I and Class II), and critical categories based on their cybersecurity risk. Important and critical products require third-party conformity assessment. Default products can use self-assessment. AI products used in critical infrastructure, security functions, or safety-relevant applications are likely to fall into higher categories requiring third-party assessment.
+The CRA classifies products into default, important (Class I and Class II), and critical categories based on their cybersecurity risk. Class II and critical products require third-party conformity assessment; Class I products can self-assess only if they fully apply harmonised standards or common specifications. Default products can use self-assessment. AI products used in critical infrastructure, security functions, or safety-relevant applications are likely to fall into higher categories requiring third-party assessment.
 
 ## Software Bill of Materials
 
@@ -44,3 +46,8 @@ The CRA complements NIS2 (which covers the organizations using the products) and
 ## Practical Implications
 
 AI product companies must integrate security into the development lifecycle (security by design), establish vulnerability monitoring and response processes, create and maintain SBOMs, plan for long-term security support including AI-specific updates, and prepare for conformity assessment appropriate to their product's classification. These requirements apply to the product as placed on the market, so both the initial release and all subsequent updates must maintain compliance.
+
+## Sources
+
+1. European Commission, "Cyber Resilience Act – Summary": [https://digital-strategy.ec.europa.eu/en/policies/cra-summary](https://digital-strategy.ec.europa.eu/en/policies/cra-summary)
+2. Regulation (EU) 2024/2847, EUR-Lex: [https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng](https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng)

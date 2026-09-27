@@ -2,6 +2,8 @@
 title: "From Deterministic Code to LLM Systems: What Changes"
 description: "Six mental-model shifts for senior engineers moving from deterministic software to LLM systems: outputs as distributions, evals instead of tests, models as moving dependencies, new failure modes, per-token economics, and prompts as code."
 date: 2026-07-17
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 categories: [Guides]
 tags: ["llm", "ai-engineering", "evals", "non-determinism", "mental-models"]
 related:
@@ -99,7 +101,7 @@ Do not build a system whose correctness depends on byte-identical outputs. Anthr
 
 **New reality:** exact-match assertions on sampled text are meaningless. A single failing run tells you almost nothing, and a single passing run tells you less. You replace assertions with evals: run the model against a dataset of representative cases, score each output, and track the aggregate. You assert on the distribution, not on any individual sample.
 
-The scoring function depends on the task. Classification tasks score with exact label match. Extraction tasks score with field-level comparison. Open-ended generation scores with rubrics, often applied by a second model acting as a judge. Anthropic's [define success criteria](https://docs.claude.com/en/docs/test-and-evaluate/define-success) guide and OpenAI's [evals guide](https://platform.openai.com/docs/guides/evals) both describe this workflow as the core development practice, not an optional extra.
+The scoring function depends on the task. Classification tasks score with exact label match. Extraction tasks score with field-level comparison. Open-ended generation scores with rubrics, often applied by a second model acting as a judge. Anthropic's [define success criteria](https://docs.claude.com/en/docs/test-and-evaluate/define-success) guide and OpenAI's [evals guide](https://platform.openai.com/docs/guides/evals) both describe this workflow as the core development practice, not an optional extra. Keep the eval suite in your own repository and tooling rather than a vendor dashboard: OpenAI is shutting down its hosted Evals platform (existing evals become read-only on 31 October 2026 and the dashboard and API shut down on 30 November 2026), and points users to the open-source Promptfoo instead.
 
 A minimal eval looks like this:
 
@@ -231,7 +233,8 @@ If you hit strange behaviour while building, [how to read an error message](/gui
 - [Anthropic: Streaming](https://docs.claude.com/en/docs/build-with-claude/streaming): server-sent event streaming for the Messages API
 - [Anthropic: Pricing](https://docs.claude.com/en/docs/about-claude/pricing): per-token input and output pricing
 - [OpenAI: Deprecations](https://platform.openai.com/docs/deprecations): OpenAI's model deprecation and shutdown timeline
-- [OpenAI: Evals guide](https://platform.openai.com/docs/guides/evals): OpenAI's documentation on building and running evals
+- [OpenAI: Evals guide](https://platform.openai.com/docs/guides/evals): OpenAI's documentation on building and running evals (the hosted Evals platform shuts down on 30 November 2026)
+- [OpenAI: Moving from OpenAI Evals to Promptfoo](https://developers.openai.com/cookbook/examples/evaluation/moving-from-openai-evals-to-promptfoo): OpenAI's migration path for hosted evals
 
 ## Further reading
 

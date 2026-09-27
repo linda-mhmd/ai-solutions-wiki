@@ -4,8 +4,9 @@ description: "Amazon Polly turns text into lifelike speech with standard, neural
 date: 2026-03-25
 categories: [Tools]
 tags: ["ai-ml", "beginner", "text-to-speech", "audio", "aws", "speech", "aws-service"]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 enhanced_pass: "2026-06"
 layer: applications
 provider: aws
@@ -74,7 +75,12 @@ Polly can return speech marks alongside audio: JSON records indicating the start
 
 ## Pricing
 
-Polly charges per character synthesized. Neural voices cost 4x standard per character. The first 5 million standard characters per month are free in the first year. For high-volume applications, calculate cost carefully - a 1,000-word article is approximately 6,000 characters.
+Polly charges per character synthesized. Neural voices cost 4x standard per character. Accounts on the legacy 12-month AWS Free Tier get 5 million standard characters per month free for the first year; accounts created under AWS's newer credit-based Free Tier (up to $200 in credits over six months) draw on those credits instead. For high-volume applications, calculate cost carefully - a 1,000-word article is approximately 6,000 characters.
+
+## Sources
+
+- Amazon Polly pricing: https://aws.amazon.com/polly/pricing/
+- AWS Documentation, "Explore AWS services with AWS Free Tier" (credit-based Free and Paid account plans): https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier.html
 
 ## Related Articles
 

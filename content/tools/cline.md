@@ -2,8 +2,9 @@
 title: "Cline"
 description: "An open-source coding agent for your IDE and terminal that plans before it acts and asks approval for every file edit and command, keeping a human in the loop."
 date: 2026-07-06
-lastmod: 2026-07-06
-last_updated: 2026-07-06
+lastmod: 2026-09-25
+last_updated: 2026-09-25
+last_verified: 2026-09-25
 tags: ["ai-coding", "coding-agent", "vs-code", "open-source", "human-in-the-loop", "mcp"]
 tool_category: "AI"
 related:
@@ -22,7 +23,7 @@ related:
 
 Cline is an open-source coding agent that runs in your IDE and terminal. It reads and writes files, runs terminal commands, uses a browser, and builds features through conversation, but it does none of that silently. Every file edit and every terminal command surfaces for your approval first, so you always see and confirm what changes. It is released under the Apache-2.0 license by Cline Bot Inc. and is written in TypeScript.
 
-Its most-used surface is the Visual Studio Code extension, where edits appear in a diff view you approve or reject. Cline has since grown a command-line interface, a JetBrains plugin, and a Kanban board, all built on the same agent core. Cline is model-agnostic: you bring your own API key for a cloud or local model, and it also offers hosted billing options if you prefer not to manage keys.
+Its most-used surface is the Visual Studio Code extension, where edits appear in a diff view you approve or reject. Cline has since grown a command-line interface, a JetBrains plugin, a Kanban board, and (since 14 September 2026, as an early open-source Mac app) Cline Desktop, all built on the same agent core. In September 2026 Cline moved that core onto its new Cline SDK harness, and says the extension is used by more than 11 million developers. Cline is model-agnostic: you bring your own API key for a cloud or local model, and it also offers hosted billing options if you prefer not to manage keys.
 
 ## Where Cline sits in the stack
 
@@ -75,7 +76,7 @@ Cline installs from the Visual Studio Marketplace as a VS Code extension. There 
 npm i -g cline
 ```
 
-For the editor extension, search for "Cline" in the VS Code Extensions view, or install the extension id `saoudrizwan.claude-dev`. A JetBrains plugin and a Kanban web board (`npx kanban`) are also available.
+For the editor extension, search for "Cline" in the VS Code Extensions view, or install the extension id `saoudrizwan.claude-dev`. A JetBrains plugin, a Kanban web board (`npx kanban`), and the Cline Desktop app for macOS (early version, with parallel sessions and scheduled tasks) are also available.
 
 ## Two ways to use it
 
@@ -97,8 +98,9 @@ The second pattern is connecting an [MCP server](/glossary/model-context-protoco
 {
   "mcpServers": {
     "postgres": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-postgres", "postgresql://localhost/mydb"]
+      "command": "uvx",
+      "args": ["postgres-mcp", "--access-mode=restricted"],
+      "env": { "DATABASE_URI": "postgresql://localhost/mydb" }
     }
   }
 }
@@ -163,3 +165,5 @@ The second pattern is connecting an [MCP server](/glossary/model-context-protoco
 
 - [Cline documentation](https://docs.cline.bot/): definition, plan and act modes, approvals, checkpoints, MCP, and supported providers.
 - [Cline on GitHub](https://github.com/cline/cline): Apache-2.0 license, TypeScript, VS Code and CLI surfaces, and provider list.
+- [Cline blog, 14 September 2026, "Cline Desktop: An open-source app for open-weight models"](https://cline.bot/blog/cline-desktop-an-open-source-app-for-open-weight-models): Cline Desktop, the Cline SDK harness, and the 11 million developer figure.
+- [Postgres MCP Pro (crystaldba/postgres-mcp)](https://github.com/crystaldba/postgres-mcp): the Postgres MCP server used in the example; the earlier reference server `@modelcontextprotocol/server-postgres` is deprecated on npm.

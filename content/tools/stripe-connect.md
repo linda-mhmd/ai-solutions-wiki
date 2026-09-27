@@ -10,7 +10,9 @@ related:
   - guides/from-zero-to-production
 solutions:
   - guides/from-zero-to-production
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Stripe Connect is the payments infrastructure layer designed specifically for marketplaces and platforms, any product where money moves between more than two parties. In a standard Stripe integration, a business accepts payment from a customer. Connect adds a third party: the seller, contractor, creator, or service provider who receives a portion of that payment. Stripe handles the routing, compliance, and regulatory obligations automatically.
@@ -56,7 +58,7 @@ The core value proposition is legal and operational: to split payments between p
 
 ## The Three Connect Account Types
 
-Stripe Connect offers three account models. The right choice depends on how much control you need over the seller experience versus how much onboarding friction you can tolerate.
+Stripe Connect has historically offered three account models. **Stripe now treats Standard, Express, and Custom as legacy account types**: for new platforms it recommends the Accounts v2 API, or v1 Accounts configured with *controller properties* (which set separately who pays fees, who handles losses, who collects requirements, and which dashboard the seller gets). The three types below remain supported for existing integrations and are still a useful way to understand the trade-offs, because controller properties let you reproduce each of them. The right choice depends on how much control you need over the seller experience versus how much onboarding friction you can tolerate.
 
 **Standard accounts**: The seller creates their own Stripe account independently and grants your platform access. Stripe owns the relationship with the seller: Stripe's branding appears in onboarding, Stripe handles support, and the seller can use their account with multiple platforms. This is the fastest to implement and the lowest compliance burden for you, but offers the least control over the experience.
 
@@ -106,7 +108,7 @@ Register Connect webhooks in the Stripe Dashboard under Webhooks, with "Listen t
 
 ## Tax Reporting
 
-In the United States, Stripe files Form 1099-K for sellers who exceed $600 in annual payments (the threshold introduced by the American Rescue Plan Act). For EU platforms, Stripe handles DAC7 reporting, the EU directive requiring digital platforms to report seller income to tax authorities. UK platforms are covered by equivalent HMRC reporting obligations.
+In the United States, Stripe files Form 1099-K for sellers who exceed **$20,000 in gross volume and more than 200 transactions** in a year. (The American Rescue Plan Act had lowered the threshold to $600, but that change was phased in slowly and then reversed in July 2025, restoring the $20,000 / 200-transaction test.) For EU platforms, Stripe handles DAC7 reporting, the EU directive requiring digital platforms to report seller income to tax authorities. UK platforms are covered by equivalent HMRC reporting obligations.
 
 Stripe collects the necessary tax information (SSN/EIN for US sellers, VAT numbers for EU sellers) during KYC onboarding. Stripe's Tax reporting feature generates and distributes 1099s to sellers electronically and files the required returns with the IRS. This is one of the most practically valuable aspects of Connect: the reporting obligation alone would require significant engineering and legal work to implement independently.
 
@@ -145,11 +147,13 @@ const paymentIntent = await stripe.paymentIntents.create({
 
 ## Pricing
 
-Stripe Connect pricing layers on top of Stripe's standard processing fees. As of 2026:
+Stripe Connect pricing layers on top of Stripe's standard processing fees. As of September 2026 (euro pricing shown on Stripe's Connect pricing page for EEA platforms; other regions differ):
 
-- **Standard processing**: 2.9% + €0.30 per successful card charge (EU rates vary; UK is 1.5% + 20p for domestic cards)
-- **Connect fee**: 0.25% + €0.25 per payout to connected accounts (for Express and Custom accounts)
-- **Instant payouts**: Additional 1% if sellers request same-day payouts to a debit card
+- **Standard processing**: 1.5% + €0.25 per successful charge on standard EEA cards (other card types and regions cost more; US card pricing is 2.9% + 30¢)
+- **If Stripe handles pricing for your connected accounts**: no additional Connect fees for the platform
+- **If your platform handles pricing**: €2 per monthly active account (an account that receives a payout that month) plus 0.25% + €0.10 per payout
+- **Instant payouts**: 1% of payout volume
+- **Cross-border payouts**: from 0.25% of payout volume
 - **Stripe Tax** (for 1099/DAC7 filing): Priced separately per tax form filed
 
 For high-volume platforms, Stripe offers custom pricing negotiated directly. The economics work well for platforms taking 5–20% fees from sellers; at lower platform margins, Stripe's Connect fee becomes meaningful relative to your revenue.
@@ -205,4 +209,6 @@ PayPal Marketplace (via PayPal Commerce Platform / Braintree) has broader consum
 3. https://stripe.com/docs/connect/charges
 4. https://stripe.com/docs/connect/webhooks
 5. https://stripe.com/docs/connect/tax-reporting
-6. https://stripe.com/pricing/connect
+6. https://stripe.com/connect/pricing (accessed 25 September 2026, EEA euro pricing)
+7. Stripe, "Connect account types" (Standard/Express/Custom marked legacy; controller properties and Accounts v2 recommended): https://docs.stripe.com/connect/accounts
+8. Stripe, "Tax reporting for Connect" (1099-K: more than $20,000 gross volume and more than 200 transactions): https://docs.stripe.com/connect/tax-reporting

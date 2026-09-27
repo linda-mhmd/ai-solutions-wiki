@@ -4,6 +4,8 @@ description: "AI-powered presentation and document builder. Generate complete sl
 date: 2026-06-22
 tags: ["presentations", "ai-writing", "slides", "documents", "productivity", "no-code"]
 tool_category: "AI"
+lastmod: 2026-09-26
+last_verified: 2026-09-26
 ---
 
 <figure class="bz-figure">
@@ -126,27 +128,33 @@ The difference: audience, structure, length, tone, and regional context all spec
   </div>
 </div>
 
-## Pricing (as of June 2026)
+## Plans and AI credits (as of September 2026)
 
-| Plan | Monthly | Annual (monthly equiv.) | AI credits/month |
-|---|---|---|---|
-| **Free** | €0 | €0 | 400 |
-| **Plus** | €10 | €8 | Unlimited |
-| **Pro** | €20 | €15 | Unlimited + brand kit |
+Gamma sells Free, Plus, Pro, Ultra and Business plans (plus Enterprise). Every AI action, including generating decks and images and editing with Gamma's AI agent, draws on AI credits; no plan has unlimited AI.
 
-Free tier generates roughly 3-4 full decks per month. AI credits are consumed by generation and in-editor AI edits.
+| Plan | AI credits | Notes |
+|---|---|---|
+| **Free** | One-time allowance; does not refresh (up to 2,000 held, 200 per referral) | Up to 10 slides per prompt |
+| **Plus** | 1,000 per month | Up to 100 slides per prompt |
+| **Pro** | 4,000 per month | Up to 100 slides per prompt, brand kit |
+| **Ultra** | 20,000 per month | Early access features such as Studio Mode |
+| **Business / Enterprise** | Shared workspace credit pool | Per-member billing, admin controls |
+
+Paid-plan credits refresh monthly and roll over up to twice the plan size; extra credits can be bought. Prices viewed from Austria on 26 September 2026 ([gamma.app/pricing](https://gamma.app/pricing)), per month on annual / monthly billing: Free €0, Plus €8 / €10, Pro €18 / €24, Ultra €77.33 / €86.
 
 ## Comparison with alternatives
 
-| | Gamma | Beautiful.ai | Tome | Canva AI | Google Slides AI |
+| | Gamma | Beautiful.ai | Tome (discontinued) | Canva AI | Google Slides AI |
 |---|---|---|---|---|---|
 | **AI generation** | Full deck from prompt | Templates, smart layout | Full deck from prompt | Image + text fills | Basic autocomplete |
 | **Design quality** | High | High | Moderate | High | Moderate |
 | **PDF/PPTX export** | Yes | Yes | PDF only | Yes | Yes |
 | **Embed analytics** | Yes | No | Yes | No | No |
 | **Brand kit** | Pro plan | Yes | No | Yes (paid) | Via Google Workspace |
-| **Price (annual)** | from €8/month | from €10/month | from €16/month | from €10/month | Free with Google |
+| **Price (annual)** | from €8/month (Plus) | from €10/month | from €16/month | from €10/month | Free with Google |
 | **Best for** | Fast AI decks, sharing links | Branded presentations | Narrative-first | Visual marketing | Collaborative editing |
+
+Tome, once a direct competitor, no longer offers its presentation product; tome.app returned a Vercel "deployment not found" error when checked on 26 September 2026. The Tome column is kept for historical comparison only.
 
 ## When not to use Gamma
 
@@ -161,6 +169,7 @@ Free tier generates roughly 3-4 full decks per month. AI credits are consumed by
 ## Further reading
 
 - [Gamma documentation](https://help.gamma.app): Feature guides, AI generation tips, brand kit setup
+- [Gamma: how to upgrade your plan](https://help.gamma.app/en/articles/8077107-how-can-i-upgrade-my-gamma-subscription) and [how credits work](https://help.gamma.app/en/articles/7834324-how-do-credits-work-in-gamma): plan list and credit allowances (checked 26 September 2026)
 - [Gamma templates](https://gamma.app/templates): Starter templates by use case (pitch deck, report, product brief)
 - [Prompt Engineering Best Practices](/guides/prompt-engineering-enterprise/): Principles that apply equally to Gamma prompts and LLM prompts
 - [AI Stylist: Vibe Coding](/tools/cursor-ai/): How AI generation tools change the creation workflow

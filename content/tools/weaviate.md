@@ -20,12 +20,14 @@ alternatives:
 solutions:
   - solutions/retail/recommendation-engine
   - solutions/finance/fraud-detection
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Weaviate is an open-source vector database that combines vector search with structured filtering and a modular architecture for embedding generation and generative AI integration. Unlike managed-only solutions, Weaviate can be self-hosted (Docker, Kubernetes) or used as a managed cloud service. For enterprise AI projects, Weaviate is a strong choice when you need full control over the infrastructure, want to avoid vendor lock-in, or require features like multi-tenancy and built-in embedding generation.
 
-Official documentation: https://weaviate.io/developers/weaviate
+Official documentation: https://docs.weaviate.io/weaviate
 
 ## Core Concepts
 
@@ -83,4 +85,9 @@ Design collections around query patterns, not source data structure. If you need
 
 ## Pricing
 
-Weaviate Cloud pricing is based on cluster size (CPU, memory, storage). Self-hosted is free (open-source, BSD-3-Clause license) but requires infrastructure costs and operational effort. For teams evaluating Weaviate, start with the free sandbox tier on Weaviate Cloud, then decide between managed and self-hosted based on compliance requirements and operational capability.
+Weaviate Cloud has an always-free plan (one shared cluster per user, up to 100,000 objects, no credit card), a pay-as-you-go **Flex** plan (minimum $45/month covering baseline cluster cost, vector dimensions, and storage), and a prepaid **Premium** plan (shared or dedicated, from $400/month). Self-hosted is free (open-source, BSD-3-Clause license) but requires infrastructure costs and operational effort. For teams evaluating Weaviate, start with the free plan on Weaviate Cloud, then decide between managed and self-hosted based on compliance requirements and operational capability.
+
+## Sources
+
+1. Weaviate documentation: https://docs.weaviate.io/weaviate
+2. Weaviate pricing (Free, Flex, Premium; accessed 25 September 2026): https://weaviate.io/pricing

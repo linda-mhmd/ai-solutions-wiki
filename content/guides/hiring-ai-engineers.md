@@ -4,7 +4,9 @@ description: "How to hire AI and ML engineers effectively, covering role definit
 date: 2026-03-28
 categories: [Guides]
 tags: [hiring, talent, AI-development, teams, career]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Hiring AI engineers is one of the most competitive hiring challenges in technology. Demand far exceeds supply, compensation expectations are high, and the skills needed vary dramatically depending on the role. Organizations that hire well share a common trait: they have a clear understanding of what they actually need, not what they think they need.
@@ -33,7 +35,7 @@ Each of these roles requires different skills, experience, and compensation. Con
 
 **Be honest about the ratio of research to engineering.** If the job is 80% production engineering and 20% model development, say so. Candidates who want pure research will self-select out, which saves everyone time.
 
-**Include compensation range.** In most AI markets, the range is approximately: junior ML engineer $120K-$160K, mid-level $160K-$220K, senior $220K-$320K, staff/principal $300K-$450K+ (US, total compensation including equity). Posting without a range loses candidates who assume it is below their threshold.
+**Include compensation range.** In most AI markets, the range is approximately: junior ML engineer $120K-$160K, mid-level $160K-$220K, senior $220K-$320K, staff/principal $300K-$450K+ (US, total compensation including equity). Posting without a range loses candidates who assume it is below their threshold. In the EU it is also becoming a legal duty: the Pay Transparency Directive (EU) 2023/970, which member states had to transpose by 7 June 2026, requires employers to give applicants the initial pay or pay range before the interview, for example in the job advert. Check your country's implementing law for the exact rules and start date.
 
 **Skip the PhD requirement unless you need research.** For production ML engineering, strong software engineering skills and practical ML experience matter more than academic credentials. Requiring a PhD for a production engineering role eliminates excellent candidates.
 
@@ -88,3 +90,7 @@ Provide a realistic dataset and task: "Build a classifier for these support tick
 **No growth path.** AI engineers want to learn and grow. If the role offers no exposure to new problems, techniques, or technologies, they will leave within 18 months. Define a career ladder and commit to professional development.
 
 The AI talent market rewards employers who are specific about what they need, efficient in their process, competitive in compensation, and honest about the work. Organizations that offer interesting problems, good infrastructure, and supportive teams hire and retain well despite intense competition.
+
+## Sources
+
+1. Directive (EU) 2023/970 on pay transparency, EUR-Lex (Article 5, transparency prior to employment; Article 34, transposition by 7 June 2026): [https://eur-lex.europa.eu/eli/dir/2023/970/oj/eng](https://eur-lex.europa.eu/eli/dir/2023/970/oj/eng)

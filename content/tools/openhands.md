@@ -2,8 +2,9 @@
 title: "OpenHands"
 description: "An open-source platform for autonomous software-engineering agents that write code, run commands, and browse the web inside a sandboxed Docker runtime. Formerly OpenDevin."
 date: 2026-07-06
-lastmod: 2026-07-06
-last_updated: 2026-07-06
+lastmod: 2026-09-25
+last_updated: 2026-09-25
+last_verified: 2026-09-25
 tags: ["ai-agent", "coding-agent", "open-source", "autonomous", "sandbox", "swe-agent"]
 tool_category: "AI"
 related:
@@ -20,7 +21,7 @@ related:
   <figcaption>OpenHands runs its agent inside a sealed box: a sandboxed Docker runtime where it can safely write code, run commands, and browse.</figcaption>
 </figure>
 
-OpenHands is an open-source platform for building AI agents that work like a human developer: writing code, running commands at a terminal, and browsing the web. The official research paper defines it as "a platform for the development of powerful and flexible AI agents that interact with the world in similar ways to those of a human developer." It was previously called OpenDevin. It is maintained by All-Hands-AI, is written in Python and TypeScript, and is open source under the MIT license, with some bundled components under their own licenses.
+OpenHands is an open-source platform for building AI agents that work like a human developer: writing code, running commands at a terminal, and browsing the web. The official research paper defines it as "a platform for the development of powerful and flexible AI agents that interact with the world in similar ways to those of a human developer." It was previously called OpenDevin. It is maintained by All Hands AI (the GitHub organisation was renamed from `All-Hands-AI` to `OpenHands`; old URLs redirect), is written in Python and TypeScript, and is open source under the MIT license, with some bundled components under their own licenses.
 
 The core idea is a sandboxed runtime. OpenHands executes the agent's actions inside a Docker container that gives it a bash shell, a browser, and a Jupyter environment, isolated from your host. That makes autonomous execution safer: the agent can install packages and run code without touching your machine directly. The project has since grown into a broader self-hosted control center for coding agents, with a hosted OpenHands Cloud option and a Python Software Agent SDK; the standalone CLI and the older Docker GUI are now marked as legacy surfaces in the documentation.
 
@@ -103,7 +104,7 @@ openhands
 The second pattern is delegating work in the cloud or in CI. OpenHands Cloud connects to GitHub, GitLab, or Bitbucket and can take an issue through to a pull request, and the GitHub Action runs the same agent headlessly on a trigger.
 
 ```yaml
-# .github/workflows/openhands.yml (illustrative)
+# .github/workflows/openhands.yml
 name: OpenHands
 on:
   issues:
@@ -112,9 +113,11 @@ jobs:
   resolve:
     runs-on: ubuntu-latest
     steps:
-      - uses: All-Hands-AI/OpenHands-Action@main
+      - uses: actions/checkout@v4
+      - uses: OpenHands/openhands-github-action@v1
         with:
-          issue-number: ${{ github.event.issue.number }}
+          prompt: "Resolve issue #${{ github.event.issue.number }} and open a pull request"
+          openhands-api-key: ${{ secrets.OPENHANDS_API_KEY }}
 ```
 
 ## Typical workflow
@@ -167,7 +170,7 @@ The clearest way to place OpenHands is on the autonomy axis: it is built to run 
 ## Further reading
 
 - [OpenHands documentation](https://docs.openhands.dev/): official install, runtime, LLM setup, and cloud usage.
-- [OpenHands on GitHub](https://github.com/All-Hands-AI/OpenHands): source and issues; the LICENSE file details the mixed licensing.
+- [OpenHands on GitHub](https://github.com/OpenHands/OpenHands): source and issues; the LICENSE file details the mixed licensing.
 - [OpenHands paper (arXiv 2407.16741)](https://arxiv.org/abs/2407.16741): the platform's definition and the OpenDevin to OpenHands rename.
 - [Open-source coding agents compared](/comparisons/open-source-coding-agents/): where OpenHands sits among the alternatives.
 - [Cline](/tools/cline/): the approval-gated counterpoint to OpenHands' autonomy.
@@ -176,5 +179,6 @@ The clearest way to place OpenHands is on the autonomy axis: it is built to run 
 ## Sources
 
 - [OpenHands documentation](https://docs.openhands.dev/): install commands, Docker sandbox runtime, interfaces, and LiteLLM provider support.
-- [OpenHands on GitHub](https://github.com/All-Hands-AI/OpenHands): All-Hands-AI, Python and TypeScript, MIT license with mixed components.
+- [OpenHands on GitHub](https://github.com/OpenHands/OpenHands): Python and TypeScript, MIT license with mixed components (latest release checked: v1.24.0, 25 September 2026).
+- [OpenHands GitHub Action](https://github.com/OpenHands/openhands-github-action): `prompt` and `openhands-api-key` inputs used in the workflow example.
 - [OpenHands: An Open Platform for AI Software Developers as Generalist Agents](https://arxiv.org/abs/2407.16741): official paper, definition, and the OpenDevin rename.

@@ -4,7 +4,9 @@ description: "Open-weight image generation model from Stability AI. Run locally 
 date: 2026-06-22
 tags: ["image-generation", "diffusion-models", "stable-diffusion", "open-source", "fine-tuning", "lora"]
 tool_category: "AI"
-last_updated: 2026-09-03
+last_updated: 2026-09-26
+lastmod: 2026-09-26
+last_verified: 2026-09-26
 ---
 
 <figure class="bz-figure">
@@ -12,7 +14,7 @@ last_updated: 2026-09-03
   <figcaption>Stable Diffusion encodes the entire visual world into a compressed latent space, then decompresses it back into images guided by text, one noise-removal step at a time.</figcaption>
 </figure>
 
-Stable Diffusion is a family of open-weight latent diffusion models developed by Stability AI that generate images from text prompts. Unlike Midjourney and DALL-E 3, the model weights are publicly available. You can run them locally on consumer hardware (an NVIDIA GPU with 6 GB VRAM or an Apple Silicon Mac), fine-tune them on custom image datasets with LoRA or DreamBooth, and integrate them into production systems via the Stability AI API or through open-source inference servers. The current generation is Stable Diffusion 3.5 (2024), which improves typography and prompt adherence over earlier versions.
+Stable Diffusion is a family of open-weight latent diffusion models developed by Stability AI that generate images from text prompts. Unlike Midjourney and OpenAI's GPT Image models (which replaced DALL-E, retired on 12 May 2026), the model weights are publicly available. You can run them locally on consumer hardware (an NVIDIA GPU with 6 GB VRAM or an Apple Silicon Mac), fine-tune them on custom image datasets with LoRA or DreamBooth, and integrate them into production systems via the Stability AI API or through open-source inference servers. The current generation is still Stable Diffusion 3.5 (2024), which improves typography and prompt adherence over earlier versions; as of September 2026 Stability AI has not released a successor image model, and its recent open releases have been hardware-optimised SD 3.5 variants and audio models.
 
 <div class="bz-arch">
   <div class="bz-arch-layer">
@@ -98,7 +100,7 @@ image.save("output.png")
 For production use without local GPU infrastructure, the Stability AI REST API provides SD 3.5 access at per-image pricing.
 
 ```bash
-pip install stability-sdk requests
+pip install requests
 ```
 
 ```python
@@ -180,29 +182,34 @@ image.save("brand-output.png")
   </div>
 </div>
 
-## Pricing (Stability AI API, as of June 2026)
+## Pricing (Stability AI API)
 
-| Model | Price per image |
-|---|---|
-| **SD 3.5 Large** | ~€0.065 |
-| **SD 3.5 Medium** | ~€0.035 |
-| **SDXL 1.0** | ~€0.002 |
-| **Core (fast)** | ~€0.003 |
+Stability bills in credits: 1 credit = $0.01 ([platform.stability.ai/pricing](https://platform.stability.ai/pricing), checked 26 September 2026).
+
+| Model | Credits per image | Price per image |
+|---|---|---|
+| **Stable Image Ultra** | 8 | $0.08 |
+| **SD 3.5 Large** | 6.5 | $0.065 |
+| **Stable Image Core** | 3 | $0.03 |
+| **SD 3.5 Medium** | — | ~$0.035 (June 2026, not re-checked) |
+| **SDXL 1.0** | — | ~$0.002 (June 2026, not re-checked) |
 
 Local inference is free after the one-time cost of a GPU. An NVIDIA RTX 3080 (€500-700 used) generates 1,000+ images per day.
 
 ## Comparison with alternatives
 
-| | Stable Diffusion 3.5 | DALL-E 3 | Midjourney v6 | Flux.1 |
+| | Stable Diffusion 3.5 | OpenAI GPT Image 2 / 2.5 | Midjourney V8.1 | FLUX (Black Forest Labs) |
 |---|---|---|---|---|
-| **Open weight** | Yes | No | No | Yes (Flux.1 Dev) |
-| **Run locally** | Yes | No | No | Yes |
+| **Open weight** | Yes | No | No | Partly (FLUX.2 [dev] non-commercial licence; FLUX.2 [klein] 4B and FLUX.1 [schnell] Apache 2.0) |
+| **Run locally** | Yes | No | No | Yes (open-weight variants) |
 | **Fine-tunable** | Yes (LoRA, DreamBooth) | No | No | Yes (LoRA) |
-| **Image quality** | High | High | Very high | Very high |
+| **Image quality** | High | Very high | Very high | Very high |
 | **Text in images** | Good (SD 3.5) | Excellent | Good | Excellent |
 | **ControlNet** | Yes (extensive) | No | No | Partial |
-| **API pricing/image** | ~€0.035 | ~€0.040 | N/A (subscription) | ~€0.003 (Replicate) |
-| **Best for** | Custom pipelines, fine-tuning | OpenAI ecosystem integration | Aesthetic quality | Speed + quality |
+| **API pricing/image** | ~€0.035 | Token-based, varies with quality and size | N/A (subscription) | Varies by provider |
+| **Best for** | Custom pipelines, fine-tuning | OpenAI ecosystem integration, precise edits | Aesthetic quality | Speed + quality |
+
+DALL-E 2 and DALL-E 3 were retired from the OpenAI API on 12 May 2026; see the [Midjourney vs DALL-E vs Stable Diffusion comparison](/comparisons/midjourney-vs-dalle-vs-stable-diffusion/) for the current OpenAI and Midjourney lineups.
 
 ## ControlNet: spatial control over generation
 
@@ -218,7 +225,7 @@ controlnet = ControlNetModel.from_pretrained(
 )
 
 pipe = StableDiffusionControlNetPipeline.from_pretrained(
-    "runwayml/stable-diffusion-v1-5",
+    "stable-diffusion-v1-5/stable-diffusion-v1-5",  # formerly runwayml/stable-diffusion-v1-5
     controlnet=controlnet,
     torch_dtype=torch.float16,
 ).to("cuda")
@@ -250,3 +257,12 @@ image = pipe(
 - [SDXL LoRA training guide on Hugging Face](https://huggingface.co/docs/diffusers/en/training/sdxl): Detailed fine-tuning tutorial for SDXL
 - [LLM Landscape 2026](/comparisons/llm-landscape-2026/): How image generation models fit into the broader AI landscape
 - [What is a Machine Learning Model?](/glossary/model/): Foundational concept behind diffusion models
+
+## Sources
+
+1. Stability AI models on Hugging Face (no image model newer than SD 3.5; checked 25 September 2026): https://huggingface.co/stabilityai
+2. OpenAI, Deprecations (DALL-E 2 and DALL-E 3 retired 12 May 2026): https://developers.openai.com/api/docs/deprecations
+3. Black Forest Labs, FLUX.2 [dev] model card (FLUX non-commercial licence, November 2025): https://huggingface.co/black-forest-labs/FLUX.2-dev
+4. Black Forest Labs, FLUX.2 [klein] 4B model card (Apache 2.0, January 2026): https://huggingface.co/black-forest-labs/FLUX.2-klein-4B
+5. Midjourney, "V8.1 is now the default model" (11 June 2026): https://updates.midjourney.com/v8-1-is-now-the-default-model/
+6. Stable Diffusion v1.5 repository (moved from runwayml): https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5

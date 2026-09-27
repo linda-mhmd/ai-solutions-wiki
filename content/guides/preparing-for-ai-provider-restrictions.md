@@ -2,8 +2,9 @@
 title: "How to Prepare for Sudden AI Provider Restrictions"
 description: "A resilience playbook for builders: multi-provider abstraction, automatic failover, export-control and data-residency awareness, and a tested fallback plan, so a restricted or unavailable model is a config change, not an outage."
 date: 2026-06-14
-lastmod: 2026-06-14
-last_updated: 2026-06-14
+lastmod: 2026-09-25
+last_updated: 2026-09-25
+last_verified: 2026-09-25
 categories: [Guides]
 tags: ["ai-governance", "intermediate", "resilience", "llm", "architecture", "vendor-lock-in"]
 related:
@@ -13,7 +14,7 @@ related:
   - comparisons/eu-vs-us-ai-regulation
 ---
 
-A model your product depends on can become unavailable with no notice: restricted by a government, deprecated by the provider, rate-limited during an outage, or priced out of your budget. The June 2026 shutdown of Anthropic's Fable 5 and Mythos 5 made the point vividly, both models went dark for every user at once. The goal of this guide is simple: make any single model swappable, so a restriction is a configuration change instead of an incident. See the news explainer for context: [why the US restricted Fable 5 and Mythos 5]({{< relref "news/anthropic-fable-mythos-us-restriction" >}}).
+A model your product depends on can become unavailable with no notice: restricted by a government, deprecated by the provider, rate-limited during an outage, or priced out of your budget. The June 2026 shutdown of Anthropic's Fable 5 and Mythos 5 made the point vividly, both models went dark for every user at once. (The restriction was lifted two weeks later: Anthropic restored Fable 5 access from 1 July 2026, and its successors Fable 5.1 and Mythos 5.1 reached general availability on 1 September 2026; see [US lifts export controls on Fable 5 and Mythos 5](/news/fable-5-export-controls-lifted/). The lesson about single-model dependence still stands.) The goal of this guide is simple: make any single model swappable, so a restriction is a configuration change instead of an incident. See the news explainer for context: [why the US restricted Fable 5 and Mythos 5]({{< relref "news/anthropic-fable-mythos-us-restriction" >}}).
 
 ## 1. Abstract the provider (the single most important step)
 
@@ -43,7 +44,7 @@ The Fable and Mythos event was an export control action. If your users or your t
 
 ## 4. Design against lock-in from day one
 
-Portability is an architecture requirement, not a cleanup task for later. Lock-in usually creeps in through provider-specific features: proprietary tool formats, response shapes, fine-tuned models that cannot be moved, and assistants/agents APIs that hold state on the vendor's side.
+Portability is an architecture requirement, not a cleanup task for later. Lock-in usually creeps in through provider-specific features: proprietary tool formats, response shapes, fine-tuned models that cannot be moved, and assistants/agents APIs that hold state on the vendor's side. OpenAI's Assistants API is the cautionary example: it was shut down on 26 August 2026, and teams that kept threads and assistants only on OpenAI's side had to migrate them to the Responses and Conversations APIs [5].
 
 - Prefer portable building blocks. If you use a provider-specific feature, isolate it behind your interface so the blast radius is one adapter.
 - Keep your own copy of anything you would need to rebuild on another provider: prompts, eval sets, fine-tuning data, retrieval indexes.
@@ -66,3 +67,4 @@ If your primary model were disabled tomorrow, could you be back to acceptable qu
 2. "Multi-provider LLM orchestration in production: a 2026 guide." [https://dev.to/ash_dubai/multi-provider-llm-orchestration-in-production-a-2026-guide-1g10](https://dev.to/ash_dubai/multi-provider-llm-orchestration-in-production-a-2026-guide-1g10)
 3. "LLM gateway architecture: 2026 engineering reference." [https://www.digitalapplied.com/blog/llm-gateway-architecture-2026-engineering-reference](https://www.digitalapplied.com/blog/llm-gateway-architecture-2026-engineering-reference)
 4. "How to avoid LLM vendor lock-in." CustomGPT. [https://customgpt.ai/how-to-avoid-llm-vendor-lock-in/](https://customgpt.ai/how-to-avoid-llm-vendor-lock-in/)
+5. OpenAI. "Deprecations." OpenAI API documentation, accessed 25 September 2026. [https://developers.openai.com/api/docs/deprecations](https://developers.openai.com/api/docs/deprecations)

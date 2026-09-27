@@ -9,7 +9,9 @@ related:
   - guides/integration-testing-ai-pipelines
   - guides/mocking-ai-services
   - guides/ci-cd-testing-ai
-last_updated: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 AI systems require multiple test environments, each balancing cost, speed, and realism. A developer running tests locally cannot wait for real model API calls or pay for them on every save. A staging environment needs real model behavior to validate quality. Production must be monitored but never used for testing. Getting this layering right is critical for both developer velocity and test confidence.
@@ -73,7 +75,7 @@ services:
       - redis
 
   qdrant:
-    image: qdrant/qdrant:v1.12.0
+    image: qdrant/qdrant:v1.19.1
     ports:
       - "6333:6333"
     volumes:
@@ -121,7 +123,7 @@ Real LLM API calls are expensive. Manage costs deliberately.
 
 **Cost control strategies:**
 
-Use the cheapest model that validates your pipeline. If your production model is Claude Opus 5, use Claude Haiku 4.5 for staging tests that validate pipeline behavior rather than output quality. Reserve the production model for the final eval suite.
+Use the cheapest model that validates your pipeline. If your production model is Claude Opus 5.5, use Claude Haiku 4.5 for staging tests that validate pipeline behavior rather than output quality. Reserve the production model for the final eval suite.
 
 ```python
 # Environment-specific model configuration
@@ -130,8 +132,8 @@ MODEL_CONFIG = {
     "ci": {"provider": "mock", "model": None},
     "ci_eval": {"provider": "anthropic", "model": "claude-haiku-4-5"},
     "staging": {"provider": "anthropic", "model": "claude-haiku-4-5"},
-    "staging_eval": {"provider": "anthropic", "model": "claude-opus-5"},
-    "production": {"provider": "anthropic", "model": "claude-opus-5"},
+    "staging_eval": {"provider": "anthropic", "model": "claude-opus-5-5"},
+    "production": {"provider": "anthropic", "model": "claude-opus-5-5"},
 }
 ```
 

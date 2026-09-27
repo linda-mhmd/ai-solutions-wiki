@@ -14,7 +14,9 @@ alternatives:
   gcp: tools/google-vertex-ai
 solutions:
   - solutions/finance/credit-scoring
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 MLflow is an open-source platform for managing the end-to-end machine learning lifecycle. It covers experiment tracking (logging parameters, metrics, and artifacts during training), a model registry (versioning and staging trained models), model deployment (serving models as REST endpoints), and project packaging (reproducible ML workflows). For AI projects, MLflow provides the operational backbone that takes ML from notebook experiments to production systems with governance and reproducibility.
@@ -33,12 +35,12 @@ with mlflow.start_run():
     mlflow.log_param("epochs", 50)
     mlflow.log_metric("accuracy", 0.94)
     mlflow.log_metric("f1_score", 0.91)
-    mlflow.sklearn.log_model(model, "model")
+    mlflow.sklearn.log_model(model, name="model")
 ```
 
 The tracking UI displays experiments as sortable, filterable tables, making it straightforward to compare runs and identify the best-performing configurations. This is essential when training dozens or hundreds of model variants.
 
-**Model Registry** - A centralized model store with versioning, stage transitions, and annotations. Models move through stages: None, Staging, Production, Archived. Stage transitions can require approval, providing governance for model promotion. Each model version links back to its training run, preserving full lineage from data to deployed model.
+**Model Registry** - A centralized model store with versioning, aliases, tags, and annotations. Current MLflow versions promote models with **aliases** (for example `@champion` / `@challenger`) and tags; the older fixed stages (None, Staging, Production, Archived) have been deprecated since MLflow 2.9 and should not be used in new code. Promotion can be gated through approval workflows in your CI or on managed platforms. Each model version links back to its training run, preserving full lineage from data to deployed model.
 
 **MLflow Models** - A standard format for packaging ML models. The MLmodel format includes the model weights, a conda/pip environment specification, and a prediction interface. This format enables deployment to multiple targets: REST API (MLflow serving), SageMaker, Azure ML, Docker containers, and Spark UDFs.
 
@@ -46,13 +48,13 @@ The tracking UI displays experiments as sortable, filterable tables, making it s
 
 ## LLM Tracking
 
-MLflow has extended its tracking capabilities for LLM applications. The MLflow LLM tracking features include:
+MLflow 3 (first released in June 2025; 3.16 as of September 2026) reorganised the project around generative AI and agents alongside classic ML. Its GenAI features include:
 
 **Prompt logging** - Log prompts and responses for each LLM call, enabling debugging and quality analysis.
 
 **LLM evaluation** - Built-in evaluation metrics for LLM outputs: toxicity, relevance, faithfulness, and custom LLM-as-judge metrics. Run evaluations against datasets and compare across model versions or prompt configurations.
 
-**Tracing** - Distributed tracing for multi-step LLM applications (RAG pipelines, agent workflows). Each step is logged with inputs, outputs, latency, and token usage. Integrates with LangChain, LlamaIndex, and OpenAI.
+**Tracing** - Distributed tracing for multi-step LLM applications (RAG pipelines, agent workflows). Each step is logged with inputs, outputs, latency, and token usage. Built on OpenTelemetry, with one-line autologging for LangChain, LangGraph, LlamaIndex, OpenAI, Anthropic, Bedrock, DSPy, and other libraries.
 
 ## Deployment Patterns
 
@@ -64,7 +66,7 @@ MLflow has extended its tracking capabilities for LLM applications. The MLflow L
 
 ## MLflow on AWS
 
-MLflow can be self-hosted on EC2, ECS, or EKS with S3 as the artifact store and RDS (PostgreSQL or MySQL) as the tracking backend. For managed options, SageMaker includes MLflow integration through SageMaker with MLflow, providing a managed tracking server with SageMaker Studio integration.
+MLflow can be self-hosted on EC2, ECS, or EKS with S3 as the artifact store and RDS (PostgreSQL or MySQL) as the tracking backend. For managed options, Amazon SageMaker AI offers managed MLflow, providing a managed tracking server with SageMaker Studio integration.
 
 ## Comparison with Weights and Biases
 
@@ -73,3 +75,9 @@ MLflow and Weights and Biases (W&B) both provide experiment tracking and model m
 ## Pricing
 
 MLflow is open-source (Apache 2.0 license) and free. Costs are infrastructure only: compute for the tracking server, storage for artifacts (S3), and a database for metadata (RDS). Databricks offers a managed MLflow service included in the Databricks platform.
+
+## Sources
+
+1. MLflow documentation. https://mlflow.org/docs/latest/
+2. MLflow releases (v3.16.1, 17 September 2026). https://github.com/mlflow/mlflow/releases
+3. MLflow. "Model Registry" (aliases and deprecation of stages). https://mlflow.org/docs/latest/ml/model-registry/

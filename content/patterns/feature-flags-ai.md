@@ -10,7 +10,9 @@ related:
   - patterns/microservices-for-ai
   - guides/ci-cd-for-ai
   - guides/testing-ai-systems
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Model deployments are not like code deployments. A code change is either correct or incorrect - tests can verify it. A model change produces outputs that are statistically better or worse, and that difference often only becomes visible under real production traffic with real user queries. Feature flags give you control over which model handles which traffic, enabling safe rollout, A/B comparison, and instant rollback without redeployment.
@@ -34,15 +36,15 @@ A model selection flag is a string-valued flag rather than a boolean:
 ```json
 {
   "flag": "inference_model",
-  "default": "claude-3-haiku",
+  "default": "claude-haiku-4-5",
   "rules": [
     {
       "condition": {"user_segment": "internal"},
-      "value": "claude-opus-4-6"
+      "value": "claude-opus-5-5"
     },
     {
       "condition": {"rollout_percentage": 10},
-      "value": "claude-sonnet-4-6"
+      "value": "claude-sonnet-5"
     }
   ]
 }
@@ -72,6 +74,8 @@ AWS AppConfig is a managed feature flag and configuration service integrated int
 4. In your Lambda or ECS service, use the AppConfig Lambda extension or SDK to retrieve the configuration. AppConfig caches the config locally and polls for updates, adding negligible latency.
 
 ```python
+import json
+
 import boto3
 
 appconfig = boto3.client('appconfigdata')
@@ -89,18 +93,15 @@ LaunchDarkly is a dedicated feature flag platform with richer targeting and expe
 
 ```python
 import ldclient
+from ldclient import Context
 from ldclient.config import Config
 
 ldclient.set_config(Config("your-sdk-key"))
 client = ldclient.get()
 
 def get_model_for_user(user_id, user_segment):
-    context = ldclient.Context.create({
-        "kind": "user",
-        "key": user_id,
-        "segment": user_segment
-    })
-    model_name = client.variation("inference_model", context, "claude-3-haiku")
+    context = Context.builder(user_id).kind("user").set("segment", user_segment).build()
+    model_name = client.variation("inference_model", context, "claude-haiku-4-5")
     return model_name
 ```
 
@@ -119,4 +120,10 @@ This granularity allows you to identify which change drove a quality improvement
 
 ## Flag Hygiene
 
-Feature flags accumulate. Set a cleanup date when creating any flag. Once a rollout is complete and the old model is fully retired, remove the flag from the codebase. Dead flags that remain in code are a maintenance burden and a source of confusion during incident response.
+Feature flags accumulate. Set a cleanup date when creating any flag. Once a rollout is complete and the old model is fully retired, remove the flag from the codebase. Also watch provider deprecation schedules: a model ID left in a flag default or rule will start failing once the provider retires it (Anthropic retired the Claude 3 family and `claude-sonnet-4-20250514`, for example), so track retirement dates for every model ID your flags can return. Dead flags that remain in code are a maintenance burden and a source of confusion during incident response.
+
+## Sources
+
+1. [Model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations) - Anthropic, retirement dates for Claude model IDs (accessed 25 September 2026)
+2. [Models overview](https://platform.claude.com/docs/en/about-claude/models/overview) - Anthropic, current Claude model IDs (accessed 25 September 2026)
+3. [LaunchDarkly Python SDK reference](https://launchdarkly.com/docs/sdk/server-side/python) - LaunchDarkly, context builder and `variation` usage (accessed 25 September 2026)

@@ -11,8 +11,9 @@ related:
   - tools/strands-agents
   - tools/crewai
   - guides/multi-agent-systems-101
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Agentic AI refers to AI systems that can pursue goals autonomously - taking sequences of actions, using tools, and adapting based on intermediate results - rather than responding to individual queries. The distinction between "agentic" and "assistive" AI is not binary; it is a spectrum based on the degree of autonomy and the length of the action sequence the system can execute independently.
@@ -51,7 +52,7 @@ A growing share of this work now runs on shared, vendor neutral plumbing rather 
 
 ## Current Capabilities and Limitations
 
-Current frontier large language models (for example Anthropic's Claude Opus 4.8, alongside the latest frontier models from OpenAI and Google) are capable of reliably agentic behavior for well-defined tasks with clear success criteria and limited action spaces. The leading models are now built explicitly as hybrid reasoning systems for long running tool use, and reported autonomous coding runs (such as multi hour tasks completed without human intervention) illustrate how far the reliable horizon has moved. Examples where agentic AI works well:
+Current frontier large language models (at the time of writing, September 2026, for example Anthropic's Claude Opus 5.5, OpenAI's GPT-6 series and Google's Gemini 3.x models; see the [LLM landscape](/comparisons/llm-landscape-2026/) for the current lineup) are capable of reliably agentic behavior for well-defined tasks with clear success criteria and limited action spaces. The leading models are now built explicitly as hybrid reasoning systems for long running tool use, and reported autonomous coding runs (such as multi hour tasks completed without human intervention) illustrate how far the reliable horizon has moved. Examples where agentic AI works well:
 
 - Code generation, testing, and debugging loops
 - Document research and synthesis
@@ -77,6 +78,7 @@ Tooling for running agents in production has matured alongside the models. Manag
 - AWS News: "Amazon Bedrock AgentCore is now generally available" (October 13, 2025). [https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available/](https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available/)
 - AWS Documentation: Amazon Bedrock AgentCore. [https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html)
 - Anthropic: "Building Effective Agents" (December 19, 2024). [https://www.anthropic.com/research/building-effective-agents](https://www.anthropic.com/research/building-effective-agents) - Defines agents as systems where LLMs dynamically direct their own processes and tool usage.
+- Anthropic Documentation: Models overview (accessed 25 September 2026). [https://platform.claude.com/docs/en/about-claude/models/overview](https://platform.claude.com/docs/en/about-claude/models/overview)
 - Anthropic Documentation: Tool use with Claude. [https://platform.claude.com/docs/en/docs/build-with-claude/tool-use](https://platform.claude.com/docs/en/docs/build-with-claude/tool-use)
 - Linux Foundation: "Linux Foundation Launches the Agent2Agent Protocol Project" (June 23, 2025). [https://www.linuxfoundation.org/press/linux-foundation-launches-the-agent2agent-protocol-project-to-enable-secure-intelligent-communication-between-ai-agents](https://www.linuxfoundation.org/press/linux-foundation-launches-the-agent2agent-protocol-project-to-enable-secure-intelligent-communication-between-ai-agents)
 - Yao, S., Zhao, J., et al. (2022). "ReAct: Synergizing Reasoning and Acting in Language Models." *arXiv:2210.03629*. [https://arxiv.org/abs/2210.03629](https://arxiv.org/abs/2210.03629) - Introduced the ReAct pattern used in most modern agentic frameworks.

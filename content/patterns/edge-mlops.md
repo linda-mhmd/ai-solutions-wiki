@@ -24,7 +24,7 @@ Models trained in the cloud must be optimized before edge deployment. The optimi
 
 **Distillation** - Train a smaller student model to mimic the behavior of the larger cloud model. The student model is purpose-built for the target hardware and can be significantly smaller while maintaining acceptable accuracy for the edge use case.
 
-**Format conversion** - Export the optimized model to an edge-compatible runtime format: TensorFlow Lite, ONNX Runtime Mobile, Core ML, or a vendor-specific format for specialized hardware (NPUs, TPUs).
+**Format conversion** - Export the optimized model to an edge-compatible runtime format: LiteRT (formerly TensorFlow Lite), ONNX Runtime Mobile, Core ML, or a vendor-specific format for specialized hardware (NPUs, TPUs).
 
 ## Device-Aware CI/CD
 

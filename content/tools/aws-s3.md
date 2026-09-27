@@ -9,7 +9,9 @@ related:
   - tools/azure-blob-storage
   - tools/google-cloud-storage
   - tools/minio
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Amazon S3 (Simple Storage Service) is object storage built to store and retrieve any amount of data from anywhere. In AI pipelines it serves as the primary layer for raw data ingest, intermediate processing artifacts, model inputs, and final outputs. Because almost every AWS AI service integrates natively with S3, it is typically the first and last stop in any data workflow.
@@ -49,7 +51,7 @@ In a typical media AI pipeline, S3 handles each stage:
 
 **Pre-signed URLs** allow time-limited access to private objects without exposing credentials. Use these to give front-end applications temporary upload or download access.
 
-**S3 Select** lets you query CSV, JSON, or Parquet objects with SQL without downloading the whole file. Useful for sampling large datasets before a full processing run.
+**Querying in place** - S3 Select (SQL over a single CSV, JSON, or Parquet object) has been closed to new customers since July 2024; existing users can keep using it. AWS points new workloads to Amazon Athena or client-side filtering for sampling large datasets before a full processing run.
 
 **Multipart upload** handles large files reliably. For files over 100 MB (video, large audio), always use multipart upload to avoid timeout failures.
 
@@ -57,7 +59,7 @@ In a typical media AI pipeline, S3 handles each stage:
 
 | Feature | AWS S3 | Azure Blob Storage | GCP Cloud Storage |
 |---|---|---|---|
-| Free tier | 5 GB | 5 GB | 5 GB |
+| Free tier | New accounts: up to $200 in Free Tier credits over 6 months (older accounts: 5 GB for 12 months) | 5 GB (12 months) | 5 GB (always free, select US regions) |
 | Event triggers | EventBridge, Lambda | Event Grid | Pub/Sub, Cloud Functions |
 | Versioning | Yes | Yes (soft delete) | Yes |
 | Lifecycle policies | Yes | Yes | Yes |
@@ -78,6 +80,8 @@ SmugMug, the photo hosting service, became one of the first significant S3 custo
 2. Barr, J. "Eight Years (And Counting) of Cloud Computing." AWS Blog. [https://aws.amazon.com/blogs/aws/eight-years-and-counting-of-cloud-computing/](https://aws.amazon.com/blogs/aws/eight-years-and-counting-of-cloud-computing/)
 3. "Amazon S3." Wikipedia. [https://en.wikipedia.org/wiki/Amazon_S3](https://en.wikipedia.org/wiki/Amazon_S3)
 4. Konishi, H. "AWS History and Timeline regarding Amazon S3." [https://hidekazu-konishi.com/entry/aws_history_and_timeline_amazon_s3.html](https://hidekazu-konishi.com/entry/aws_history_and_timeline_amazon_s3.html)
+5. AWS. "Querying data in place with Amazon S3 Select." Amazon S3 User Guide, accessed 25 September 2026. [https://docs.aws.amazon.com/AmazonS3/latest/userguide/selecting-content-from-objects.html](https://docs.aws.amazon.com/AmazonS3/latest/userguide/selecting-content-from-objects.html)
+6. AWS. "AWS Free Tier." Accessed 25 September 2026. [https://aws.amazon.com/free/](https://aws.amazon.com/free/)
 
 ## Related Articles
 

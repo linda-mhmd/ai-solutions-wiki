@@ -8,8 +8,8 @@ related:
   - patterns/event-sourcing-ai
   - glossary/event-driven-architecture
   - patterns/data-pipeline-patterns
-  - tools/aws-eventbridge
-  - tools/amazon-step-functions
+  - tools/amazon-eventbridge
+  - tools/aws-step-functions
 last_updated: 2026-05-30
 ---
 

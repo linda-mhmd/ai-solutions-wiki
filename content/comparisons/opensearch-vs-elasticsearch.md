@@ -2,16 +2,16 @@
 title: "OpenSearch vs Elasticsearch for AI Workloads"
 description: "Comparing OpenSearch and Elasticsearch for AI and ML workloads, covering vector search, neural search, and integration with AI pipelines."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [OpenSearch, Elasticsearch, vector-search, AI, search, comparison]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 OpenSearch and Elasticsearch share the same codebase ancestry but have diverged since the 2021 fork. For AI workloads - particularly vector search, RAG retrieval, and neural search - the differences matter. Both support vector operations, but their implementations, ML integrations, and managed service options differ.
 
-The governance picture also changed. In September 2024, AWS transferred OpenSearch to the new OpenSearch Software Foundation under the Linux Foundation, making it a vendor neutral project rather than an AWS owned one. In the same month, Elastic added AGPLv3 as a license option for Elasticsearch and Kibana (alongside the existing Elastic License v2 and SSPL), which let Elastic call Elasticsearch open source again. Both projects have since shipped major releases: OpenSearch reached 3.0 in May 2025, and Elasticsearch reached 9.0 in 2025.
+The governance picture also changed. In September 2024, AWS transferred OpenSearch to the new OpenSearch Software Foundation under the Linux Foundation, making it a vendor neutral project rather than an AWS owned one. In the same month, Elastic added AGPLv3 as a license option for Elasticsearch and Kibana (alongside the existing Elastic License v2 and SSPL), which let Elastic call Elasticsearch open source again. Both projects have since shipped major releases: OpenSearch reached 3.0 in May 2025, and Elasticsearch reached 9.0 in April 2025. As of September 2026 the latest releases are OpenSearch 3.8 (August 2026) and Elasticsearch 9.5.x; Amazon OpenSearch Service supports OpenSearch up to 3.5, so the managed service trails the open-source release line.
 
 ## Overview
 
@@ -23,7 +23,7 @@ The governance picture also changed. In September 2024, AWS transferred OpenSear
 | Vector Search | k-NN plugin (Faiss, Lucene) | Dense vector field (HNSW via Lucene) |
 | ML Integration | ML Commons plugin | Elasticsearch ML nodes |
 | Neural Search | Neural search plugin | ELSER (semantic search) |
-| LLM Integration | OpenSearch AI connectors and MCP | Elastic AI Assistant |
+| LLM Integration | OpenSearch AI connectors and MCP | Elastic AI Assistant, Elastic Agent Builder (MCP and A2A servers) |
 
 ## Vector Search
 
@@ -43,7 +43,7 @@ Elasticsearch offers ELSER (Elastic Learned Sparse EncodeR), a sparse encoding m
 
 For RAG architectures, both work as the retrieval layer. OpenSearch integrates directly with Amazon Bedrock Knowledge Bases through both OpenSearch Serverless and OpenSearch managed clusters. It is one of several supported vector stores (others include Amazon Aurora PostgreSQL with pgvector, Amazon Neptune Analytics, Pinecone, MongoDB Atlas, and Redis), and it has long been the default quick create option for OpenSearch Serverless backed knowledge bases. The AI connectors framework allows OpenSearch to call external LLM APIs for query rewriting and response generation, and OpenSearch 3.0 added native Model Context Protocol (MCP) support so AI agents can talk to a cluster directly.
 
-Elasticsearch integrates with LangChain, LlamaIndex, and Elastic's own AI Assistant. The Playground feature in Elastic Cloud lets you build RAG prototypes with a visual interface. ESRE (Elasticsearch Relevance Engine) packages vector search, ELSER, and reranking into a cohesive retrieval pipeline.
+Elasticsearch integrates with LangChain, LlamaIndex, and Elastic's own AI Assistant. Elastic Agent Builder adds custom agents and tools grounded in your indices, can import tools from external MCP servers, and exposes agents and tools to outside clients through built-in MCP and A2A servers. The Playground feature in Elastic Cloud lets you build RAG prototypes with a visual interface. ESRE (Elasticsearch Relevance Engine) packages vector search, ELSER, and reranking into a cohesive retrieval pipeline.
 
 ## Managed Services
 
@@ -77,3 +77,6 @@ For AWS-native AI workloads, OpenSearch is the default choice due to Bedrock int
 - [Elasticsearch is open source again (Elastic, 2024)](https://www.elastic.co/blog/elasticsearch-is-open-source-again)
 - [What is new in Elastic 9.0 (Elastic)](https://www.elastic.co/blog/whats-new-elastic-search-9-0-0)
 - [Amazon OpenSearch Service now supports OpenSearch 3.3 (AWS, November 2025)](https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-opensearch-service-opensearch-version-3-3)
+- [What is Amazon OpenSearch Service? — supported versions (AWS, checked September 2026)](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html)
+- [OpenSearch releases](https://github.com/opensearch-project/OpenSearch/releases) and [Elasticsearch releases](https://github.com/elastic/elasticsearch/releases) on GitHub (OpenSearch 3.8.0, 5 August 2026; Elasticsearch 9.5.4, 15 September 2026)
+- [Elastic Agent Builder (Elastic documentation)](https://www.elastic.co/docs/explore-analyze/ai-features/elastic-agent-builder)

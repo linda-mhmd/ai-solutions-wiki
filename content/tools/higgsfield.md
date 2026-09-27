@@ -2,15 +2,16 @@
 title: "Higgsfield - AI Video Generation Platform"
 description: "What Higgsfield is, how its Cinema and Marketing studios wrap frontier video models behind motion presets, when a generative video tool fits versus code-based rendering, and its practical limits."
 date: 2026-06-14
-lastmod: 2026-06-14
-last_updated: 2026-06-14
+lastmod: 2026-09-25
+last_updated: 2026-09-25
+last_verified: 2026-09-25
 categories: [Tools]
 tags: ["ai-ml", "intermediate", "higgsfield", "video-generation", "generative-ai", "creative-tools"]
 related:
   - tools/remotion
   - tools/ffmpeg
   - comparisons/remotion-vs-ffmpeg
-  - glossary/generative-ai
+  - basics/what-is-generative-ai
 ---
 
 Higgsfield is an AI video generation and editing platform aimed at creators and marketers. Rather than train its own foundation video model, it wraps a set of frontier video and image models behind a creator-facing interface organized around motion presets and studios, so a user describes a shot and a camera move and gets a short clip without touching a model API directly. It became one of the most visible creator video tools through 2025 and 2026.
@@ -22,7 +23,7 @@ Higgsfield is organized into studios for different jobs:
 - **Cinema Studio** - cinematic clip generation with named camera and motion presets (push in, orbit, crash zoom, and similar), text to video and image to video.
 - **Marketing Studio** - ad and social-format generation aimed at performance creative.
 
-The platform routes generations to underlying frontier models. Reported backends across its studios have included Veo 3, Sora 2, Kling, Seedance, and Wan, which means the available quality and styles track whatever the wrapped models can do, while Higgsfield supplies the preset layer, queueing, and editing workflow on top.
+The platform routes generations to underlying frontier models. Reported backends across its studios have included Veo 3, Sora 2, Kling, Seedance, and Wan (Sora 2 can no longer be one of them: OpenAI shut down its Videos API and the `sora-2` models on 24 September 2026), which means the available quality and styles track whatever the wrapped models can do, while Higgsfield supplies the preset layer, queueing, and editing workflow on top.
 
 ## When a generative video tool makes sense
 
@@ -49,3 +50,4 @@ Higgsfield launched as a creator-focused AI video product and grew quickly on th
 
 1. PitchBook. Higgsfield company profile. [https://pitchbook.com/profiles/company/541424-89](https://pitchbook.com/profiles/company/541424-89)
 2. Higgsfield. Official site. [https://higgsfield.ai/](https://higgsfield.ai/)
+3. OpenAI. API deprecations (Videos API, `sora-2`, `sora-2-pro` shut down 24 September 2026). [https://developers.openai.com/api/docs/deprecations](https://developers.openai.com/api/docs/deprecations)

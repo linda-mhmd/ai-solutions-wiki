@@ -6,7 +6,9 @@ categories: [Guides]
 tags: ["agents", "memory", "context-engineering", "rag", "embeddings", "llm"]
 tools: []
 related: ["guides/context-engineering", "guides/building-rag-systems", "glossary/embeddings", "glossary/rag", "guides/multi-model-routing"]
-last_updated: 2026-06-23
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 An AI agent forgets everything the moment its context window fills or a session ends. Memory management is the practice of storing what matters outside the window and bringing it back when the agent needs it. This guide shows you the architecture, the memory types, and the concrete techniques that production agents use today.
@@ -85,7 +87,7 @@ You design storage around these types. Semantic facts suit a vector store or key
 
 ## Technique 1: summarization and compaction
 
-When the window approaches its limit, you compress older turns into a summary. Anthropic ships this as compaction, a server-side feature that auto-summarizes older context when the conversation nears the window limit (beta, January 2026) [6]. The agent keeps going without you managing the cutoff by hand.
+When the window approaches its limit, you compress older turns into a summary. Anthropic ships this as compaction, a server-side feature that summarizes older context for you [6]. It first arrived as a beta that triggers when the conversation crosses a token threshold (January 2026); a second mode, compaction on demand (beta header `compact-2026-09-04`), lets your application decide when to compact, and Anthropic now recommends it wherever it is available. Both modes were still in beta when checked on 25 September 2026 [6]. The agent keeps going without you managing the cutoff by hand.
 
 You can also write compaction yourself. The pattern: watch the token count, and when it crosses a threshold, replace old messages with a model-generated summary.
 

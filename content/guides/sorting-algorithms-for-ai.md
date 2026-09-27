@@ -9,7 +9,7 @@ related:
   - glossary/data-structures
   - patterns/tiered-analysis
   - glossary/hardware-constraints
-  - glossary/big-o-notation
+  - basics/what-is-big-o-notation
   - guides/building-rag-systems
   - glossary/vector-database
 last_updated: 2026-05-30

@@ -9,6 +9,8 @@ related:
   - glossary/kv-cache
   - tools/nvidia-ai
   - tools/tgi
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -18,7 +20,7 @@ related:
 
 NVIDIA TensorRT-LLM is an open-source library that optimizes large language model [inference](/glossary/inference/) on NVIDIA GPUs. It takes a trained model and applies GPU-specific techniques - custom kernels, quantization, in-flight batching, and a paged [KV cache](/glossary/kv-cache/) - so the model serves more requests per second at lower cost. It solves a common problem: a model that runs correctly in a research notebook is often too slow and too expensive to serve in production without hardware-level tuning.
 
-The library is built for NVIDIA hardware only. It targets data-center GPUs such as H100, H200, and B200, and it supports single-GPU, multi-GPU, and multi-node deployments through tensor, pipeline, and expert parallelism. Released under the Apache 2.0 license, it is the optimization layer behind NVIDIA's higher-level serving products, including NVIDIA NIM microservices and the Triton Inference Server.
+The library is built for NVIDIA hardware only. It targets data-center GPUs such as H100, H200, and B200, and it supports single-GPU, multi-GPU, and multi-node deployments through tensor, pipeline, and expert parallelism. Released under the Apache 2.0 license, it is the optimization layer behind NVIDIA's higher-level serving products, including NVIDIA NIM microservices, NVIDIA Dynamo, and the Triton Inference Server. The current stable line is 1.2 (v1.2.1, April 2026), with 1.3 in release candidates as of September 2026. Since the 1.0 release the library is architected on PyTorch: the default LLM API loads a Hugging Face checkpoint directly, while the older ahead-of-time TensorRT engine-build workflow remains available for maximum tuning.
 
 ## Where it sits in the stack
 
@@ -71,19 +73,19 @@ TensorRT-LLM applies several optimizations that work together. Understanding the
 
 ## How to use it and how it fits
 
-You install the Python library on a Linux host with a supported NVIDIA GPU and CUDA toolkit, then build an engine from a model checkpoint and serve it. Install the package with pip:
+You install the Python library on a Linux host with a supported NVIDIA GPU and CUDA toolkit, then load a model checkpoint through the LLM API (or build a TensorRT engine explicitly) and serve it. Install the package with pip:
 
 ```bash
 pip3 install --ignore-installed pip setuptools wheel
 pip3 install tensorrt_llm
 ```
 
-The library exposes a Python API. This minimal example loads a Hugging Face checkpoint, builds an optimized engine, and generates text:
+The library exposes a Python API. This minimal example loads a Hugging Face checkpoint on the default PyTorch backend and generates text:
 
 ```python
 from tensorrt_llm import LLM, SamplingParams
 
-# Build an optimized engine from a checkpoint
+# Load a checkpoint with optimized kernels (PyTorch backend by default)
 llm = LLM(model="meta-llama/Llama-3.1-8B-Instruct")
 
 sampling = SamplingParams(temperature=0.7, max_tokens=256)
@@ -127,35 +129,35 @@ In production you rarely call the library directly. You wrap the engine in Trito
 
 ## How it compares
 
-TensorRT-LLM competes with other inference engines. The main difference is that it targets NVIDIA hardware exclusively and leans on ahead-of-time compilation, while some alternatives run across more hardware with less setup.
+TensorRT-LLM competes with other inference engines. The main difference is that it targets NVIDIA hardware exclusively and is tuned for peak throughput there, while some alternatives run across more hardware with less setup.
 
-| | TensorRT-LLM | vLLM | TGI | SGLang |
+| | TensorRT-LLM | vLLM | TGI (archived) | SGLang |
 |---|---|---|---|---|
 | **Origin** | NVIDIA | UC Berkeley, community | Hugging Face | Community |
 | **Hardware** | NVIDIA GPUs only | NVIDIA, AMD, others | NVIDIA, AMD, others | NVIDIA, AMD |
-| **Setup** | Compile engine per GPU | Load model, run | Load model, run | Load model, run |
+| **Setup** | Load model (optional engine build per GPU) | Load model, run | Load model, run | Load model, run |
 | **Continuous batching** | Yes | Yes | Yes | Yes |
 | **Paged KV cache** | Yes | Yes (PagedAttention) | Yes | Yes (RadixAttention) |
 | **License** | Apache 2.0 | Apache 2.0 | Apache 2.0 | Apache 2.0 |
 | **Best for** | Peak NVIDIA throughput | Portable, easy start | Hugging Face stack | Structured, multi-turn |
 
-For a portable option tied to the Hugging Face ecosystem, see [Text Generation Inference (TGI)](/tools/tgi/). For managed inference where you skip serving entirely, compare [Groq](/tools/groq/), [Fireworks AI](/tools/fireworks-ai/), and [Together AI](/tools/together-ai/).
+For a portable, actively maintained option, see [vLLM](/tools/vllm/) or [SGLang](/tools/sglang/); Hugging Face's [Text Generation Inference (TGI)](/tools/tgi/) filled that role but was archived in March 2026. For managed inference where you skip serving entirely, compare [Groq](/tools/groq/), [Fireworks AI](/tools/fireworks-ai/), and [Together AI](/tools/together-ai/).
 
 ## When not to use it
 
 TensorRT-LLM rewards heavy, sustained traffic on NVIDIA hardware. It is the wrong choice in several cases.
 
-- **You do not run NVIDIA GPUs.** The library only targets NVIDIA hardware. On AMD or other accelerators, use vLLM, TGI, or SGLang instead.
+- **You do not run NVIDIA GPUs.** The library only targets NVIDIA hardware. On AMD or other accelerators, use vLLM or SGLang instead.
 - **You want to skip infrastructure.** If you would rather call an API than build and serve engines, a managed provider like [Together AI](/tools/together-ai/) or [Fireworks AI](/tools/fireworks-ai/) removes the whole serving layer.
 - **You are prototyping or serving low traffic.** The per-GPU compilation step and tuning add operational overhead that a small or bursty workload will not repay.
-- **You need instant model swaps.** Because an engine is compiled for a specific model, precision, and GPU, changing any of those means rebuilding. Engines that load weights at runtime react faster to frequent model changes.
+- **You need instant model swaps with the engine-build workflow.** A compiled TensorRT engine is specific to a model, precision, and GPU, so changing any of those means rebuilding. The default PyTorch backend avoids the rebuild, but per-GPU tuning still adds work when models change often.
 
 ## Further reading
 
 - [What is inference?](/glossary/inference/): what happens when a trained model answers a request.
 - [What is a KV cache?](/glossary/kv-cache/): the attention state that paged KV cache manages.
 - [NVIDIA AI](/tools/nvidia-ai/): the wider NVIDIA platform that packages TensorRT-LLM.
-- [Text Generation Inference (TGI)](/tools/tgi/): Hugging Face's portable serving alternative.
+- [Text Generation Inference (TGI)](/tools/tgi/): Hugging Face's serving engine, archived in March 2026.
 - [TensorRT-LLM documentation](https://nvidia.github.io/TensorRT-LLM/): official guides, feature reference, and support matrix.
 - [TensorRT-LLM on GitHub](https://github.com/NVIDIA/TensorRT-LLM): source code, examples, and release notes.
 
@@ -166,3 +168,4 @@ TensorRT-LLM rewards heavy, sustained traffic on NVIDIA hardware. It is the wron
 - [TensorRT-LLM on GitHub](https://github.com/NVIDIA/TensorRT-LLM): open-source library scope, kernels, parallelism, and Apache 2.0 license.
 - [NVIDIA TensorRT developer page](https://developer.nvidia.com/tensorrt): TensorRT ecosystem, optimization techniques, and Triton serving relationship.
 - [NVIDIA TensorRT-LLM developer page](https://developer.nvidia.com/tensorrt-llm): supported optimizations and GPU inference positioning.
+- [TensorRT-LLM README and releases](https://github.com/NVIDIA/TensorRT-LLM/releases): "Architected on PyTorch" LLM API, Dynamo and Triton integration; v1.2.1 stable (20 April 2026), v1.3.0 release candidates through September 2026 (checked 25 September 2026).

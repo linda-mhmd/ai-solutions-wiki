@@ -11,6 +11,8 @@ related:
   - tools/groq
   - tools/amazon-bedrock
   - comparisons/llm-landscape-2026
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -20,7 +22,7 @@ related:
 
 Fireworks AI is an inference and fine-tuning platform for generative AI models. It runs open-weight and custom models on optimised infrastructure and exposes them through an API, so you call a hosted endpoint instead of buying GPUs and building a serving stack. The company was founded by engineers from Meta's PyTorch team, and it targets teams that want open-model economics without operating their own model servers.
 
-The problem it solves is the gap between a model's weights and a production endpoint. Downloading an open-weight model is free, but serving it at low latency, scaling it under load, and keeping it warm is hard engineering work. Fireworks handles that serving layer. It hosts a large library of open models across text, vision, audio, and image generation, and lets you [fine-tune](/glossary/fine-tuning/) them and deploy the result on the same platform.
+The problem it solves is the gap between a model's weights and a production endpoint. Downloading an open-weight model is free, but serving it at low latency, scaling it under load, and keeping it warm is hard engineering work. Fireworks handles that serving layer. It hosts a large library of open models across text, vision, audio, and image generation (in September 2026 including DeepSeek, GLM and Kimi models), and since 23 September 2026 also its own model, **Ember-1**, which Fireworks says matches Kimi K3's quality with 40% fewer tokens (a vendor claim), and lets you [fine-tune](/glossary/fine-tuning/) them and deploy the result on the same platform.
 
 ## Where it sits in the stack
 
@@ -63,7 +65,7 @@ The problem it solves is the gap between a model's weights and a production endp
 
 ## How to access it
 
-Fireworks AI is an API service, so there is no local install. You create an account, generate an API key, and call an HTTP endpoint. The chat completions API is compatible with the OpenAI format, which means most existing OpenAI client code works after you change the base URL and key.
+Fireworks AI is an API service, so there is no local install. You create an account, generate an API key, and call an HTTP endpoint. The chat completions API is compatible with the OpenAI format, which means most existing OpenAI client code works after you change the base URL and key. Fireworks also accepts the Anthropic Messages format: the Anthropic SDK works with `base_url="https://api.fireworks.ai/inference"`. The examples below use GLM-5.3-Flash, the model Fireworks' own quickstart uses in September 2026; browse the model library for current IDs, since the catalogue turns over quickly.
 
 You choose a model by its identifier and send a request. Fireworks handles the [inference](/glossary/inference/) behind the endpoint.
 
@@ -72,7 +74,7 @@ curl https://api.fireworks.ai/inference/v1/chat/completions \
   -H "Authorization: Bearer $FIREWORKS_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "accounts/fireworks/models/llama-v3p1-70b-instruct",
+    "model": "accounts/fireworks/models/glm-5p3-flash",
     "messages": [
       {"role": "user", "content": "Summarise this support ticket in one line."}
     ]
@@ -90,7 +92,7 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="accounts/fireworks/models/llama-v3p1-70b-instruct",
+    model="accounts/fireworks/models/glm-5p3-flash",
     messages=[{"role": "user", "content": "Draft a release note for a caching fix."}],
 )
 print(response.choices[0].message.content)
@@ -98,7 +100,7 @@ print(response.choices[0].message.content)
 
 ### Typical use: fine-tune, then serve
 
-A common workflow is to start on a serverless base model, then fine-tune it once you have production data and want better quality or lower cost. Fireworks uses LoRA (Low-Rank Adaptation), a technique that adapts a model without retraining all of its weights. Fine-tuned models deploy onto the same serving setup as the base models, and the platform lets you keep multiple fine-tuned versions available so you can compare and swap them.
+A common workflow is to start on a serverless base model, then fine-tune it once you have production data and want better quality or lower cost. Fireworks supports LoRA (Low-Rank Adaptation), a technique that adapts a model without retraining all of its weights, and on 31 August 2026 it made its **Training API** generally available for post-training open models, including reinforcement-learning loops (Fireworks cites Harvey post-training Kimi K3 with asynchronous RL). Fine-tuned models deploy onto the same serving setup as the base models, and the platform lets you keep multiple fine-tuned versions available so you can compare and swap them.
 
 <div class="bz-flow">
   <div class="bz-flow-step">
@@ -165,3 +167,6 @@ Fireworks is a strong fit for open-weight models, but it is not always the right
 - Fireworks AI documentation: https://docs.fireworks.ai/
 - Fireworks AI supervised fine-tuning docs: https://docs.fireworks.ai/fine-tuning/fine-tuning-models
 - Fireworks AI fine-tuning launch blog: https://fireworks.ai/blog/fine-tune-launch
+- Fireworks AI quickstart (GLM-5.3-Flash examples; OpenAI and Anthropic SDK compatibility), checked 26 September 2026: https://docs.fireworks.ai/getting-started/quickstart
+- Fireworks AI, "Train past the frontier: Training API now generally available", 31 August 2026: https://fireworks.ai/blog/train-past-the-frontier-training-api-now-generally-available
+- Fireworks AI, "Introducing Ember-1", 23 September 2026: https://fireworks.ai/blog/ember-1

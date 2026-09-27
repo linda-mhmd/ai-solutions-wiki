@@ -5,12 +5,14 @@ date: 2026-06-23
 categories: [Comparisons]
 tags: ["pricing", "chatgpt", "claude", "gemini", "perplexity", "copilot", "subscriptions", "api-pricing", "comparison"]
 related: ["comparisons/small-vs-large-language-models", "comparisons/llm-landscape-2026", "guides/llm-cost-optimization", "guides/multi-model-routing", "tools/claude-anthropic"]
-last_updated: 2026-06-23
+last_updated: 2026-09-26
+lastmod: 2026-09-26
+last_verified: 2026-09-26
 ---
 
 Choosing an AI subscription means weighing a flat monthly fee against pay-per-use API access. This article compares the consumer tiers of ChatGPT, Claude, Gemini, Microsoft 365 Copilot, and Perplexity, then explains the pricing models behind them. You are reading this to find the plan that matches how you actually use AI.
 
-> Prices and tiers change often. Every figure here is stated as of June 2026 and links the official pricing page. Check the linked page before you buy. You are a European audience, so euro figures appear where the official EU page lists them in euros, and US dollar figures appear where the official page showed US dollars.
+> Prices and tiers change often. Every figure here was first stated as of June 2026 and links the official pricing page. On 25 September 2026 the Claude, Google AI and Microsoft 365 consumer prices were rechecked against the official pages and were unchanged, and the Anthropic API figures below were updated to the current model lineup; the ChatGPT euro prices could not be re-fetched and remain as of June 2026. Check the linked page before you buy. You are a European audience, so euro figures appear where the official EU page lists them in euros, and US dollar figures appear where the official page showed US dollars.
 
 <figure class="bz-figure">
   <img src="/img/rapid-ai/crystal-chest-gold-energy-notext.png" alt="A transparent chest filling with golden energy on a dark background. No em-dashes." loading="lazy">
@@ -45,15 +47,15 @@ Start with how often you use AI and what you are building. The flow below points
 
 The table below lists the main consumer tiers for each vendor. Currency matches the official page exactly. Prices are as of June 2026.
 
-| | Vendor | Tier | Price (as of June 2026) | What you get |
+| | Vendor | Tier | Price (checked from Austria; ChatGPT, Claude and Perplexity 26 September 2026, others June 2026) | What you get |
 |---|---|---|---|---|
 | **ChatGPT** | OpenAI | Free | 0 €/month | Basic access |
-| **ChatGPT** | OpenAI | Go | 7,99 €/month | Entry paid access |
+| **ChatGPT** | OpenAI | Go | 7,99 €/month (June 2026) | Entry paid access |
 | **ChatGPT** | OpenAI | Plus | 23 €/month | Higher limits, more models |
-| **ChatGPT** | OpenAI | Pro | 103 €/month | Highest consumer limits |
-| **Claude** | Anthropic | Free | $0 | Basic access |
-| **Claude** | Anthropic | Pro | $17/mo annual, $20/mo monthly | Higher usage limits |
-| **Claude** | Anthropic | Max | from $100/month | 5x or 20x Pro usage |
+| **ChatGPT** | OpenAI | Pro | 114 €/month (5x tier) | Highest consumer limits |
+| **Claude** | Anthropic | Free | 0 €/month | Basic access |
+| **Claude** | Anthropic | Pro | 15 €/month annual, 18 €/month monthly | Higher usage limits |
+| **Claude** | Anthropic | Max | from 90 €/month | 5x or 20x Pro usage |
 | **Gemini** | Google | Free | 0 €/month | Basic access |
 | **Gemini** | Google | AI Plus | 4,99 €/month | Entry paid access |
 | **Gemini** | Google | AI Pro | 21,99 €/month | Higher limits, more credits |
@@ -62,17 +64,18 @@ The table below lists the main consumer tiers for each vendor. Currency matches 
 | **Copilot** | Microsoft | M365 Family | $12.99/mo or $129.99/year | Up to six people |
 | **Copilot** | Microsoft | M365 Premium | $19.99/mo or $199.99/year | AI agents, research reports |
 | **Perplexity** | Perplexity | Free | $0 | Basic search |
-| **Perplexity** | Perplexity | Pro | $20/month | Higher limits, more models |
+| **Perplexity** | Perplexity | Pro | $17/month (billed annually) | Higher limits, more models |
+| **Perplexity** | Perplexity | Max | $167/month (billed annually) | Highest limits |
 
 ## Consumer subscription tiers explained
 
 ### OpenAI ChatGPT
 
-ChatGPT runs from a Free tier at 0 €/month up to Pro at 103 €/month, with Go at 7,99 €/month and Plus at 23 €/month in between (as of June 2026, [chatgpt.com/pricing](https://chatgpt.com/pricing/)). The EU pricing page showed these figures in euros. The Pro tier shown here is the lower of OpenAI's two Pro tiers. OpenAI's Help Center confirms Pro has two tiers, at $100 and $200 US dollars, described at [help.openai.com](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers). For teams, Business costs 21 €/user/month on annual billing or 26 €/user/month on monthly billing. Enterprise pricing is custom.
+ChatGPT runs from a Free tier at 0 €/month up to Pro at 114 €/month, with Plus at 23 €/month in between ([chatgpt.com/pricing](https://chatgpt.com/pricing/), viewed from Austria on 26 September 2026). Go was 7,99 €/month in June 2026; it was not shown on the September check, so treat that figure as unconfirmed. The 114 € Pro price is the 5x tier; on 26 September the page listed the 20x tier as "temporarily unavailable for purchase". The plans no longer name specific models, only "Advanced models" on Plus and a "Frontier Pro model" on Pro. For teams, a Business standard seat costs 21 €/user/month on annual billing or 26 €/user/month monthly, and a premium seat 105 € or 130 €. Enterprise pricing is custom.
 
 ### Anthropic Claude
 
-Claude starts at Free ($0), then Pro at $17/month on annual billing or $20/month on monthly billing (as of June 2026, [claude.com/pricing](https://claude.com/pricing)). The Claude pricing page showed US dollars. Max starts from $100/month and gives 5x or 20x Pro usage. For teams, the standard seat costs $20/seat/month annual or $25 monthly, for 5 to 150 seats. The Team premium seat costs $100/seat/month on annual billing. Enterprise is $20/seat plus usage at API rates, with custom terms.
+Claude starts at Free, then Pro at 15 €/month on annual billing (180 € a year) or 18 €/month on monthly billing, before tax ([claude.com/pricing](https://claude.com/pricing), viewed from Austria on 26 September 2026). Max starts from 90 €/month and gives 5x or 20x Pro usage; the page does not list a separate 20x price. For teams, the standard seat costs 18 €/seat/month annual or 21,04 € monthly, for 5 to 150 seats, and the premium seat 90 € annual or 105,23 € monthly. Enterprise is US$20/seat/month plus usage at API rates, with custom terms.
 
 ### Google Gemini
 
@@ -84,7 +87,7 @@ Microsoft folds consumer Copilot into Microsoft 365. Personal costs $9.99/month 
 
 ### Perplexity
 
-Perplexity offers a Free tier ($0) and Pro at $20/month (as of June 2026, [perplexity.ai help center](https://www.perplexity.ai/help-center/en/articles/10352901-what-is-perplexity-pro)). Perplexity also offers a Max tier, announced on the [official blog](https://www.perplexity.ai/hub/blog/introducing-perplexity-max), but its price is not confirmed on the official pricing page as of June 2026, so this article does not state a Max price.
+Perplexity offers a Free tier ($0), Pro at $17/month and Max at $167/month, both billed annually and shown in US dollars even from Austria ([perplexity.ai/pro](https://www.perplexity.ai/pro), checked 26 September 2026; see also the [perplexity.ai help center](https://www.perplexity.ai/help-center/en/articles/10352901-what-is-perplexity-pro)). Max was introduced on the [official blog](https://www.perplexity.ai/hub/blog/introducing-perplexity-max).
 
 ## Subscription versus API access
 
@@ -117,9 +120,9 @@ Five pricing models cover almost every plan on this page.
 
 **Per-seat flat subscription.** A fixed monthly fee per user. The vendor caps how much you can use rather than billing each request. This covers all consumer and team tiers above (sources: [claude.com/pricing](https://claude.com/pricing), [chatgpt.com/pricing](https://chatgpt.com/pricing/)).
 
-**Per-token usage-based.** API billing per million tokens, input and output separate, output more expensive. Official example figures: the Anthropic Opus class costs $5 input and $25 output per million tokens, the Sonnet class costs $3 and $15, and the Haiku class costs $1 and $5 ([Anthropic API pricing](https://platform.claude.com/docs/en/docs/about-claude/pricing)). OpenAI publishes its own per-token rates ([OpenAI API pricing](https://developers.openai.com/api/docs/pricing)).
+**Per-token usage-based.** API billing per million tokens, input and output separate, output more expensive. Official example figures as of September 2026: Claude Fable 5.1 costs $10 input and $50 output per million tokens, Claude Opus 5.5 costs $4 and $20, Claude Sonnet 5 costs $2 and $10 (its introductory price became the standard price; a planned rise to $3/$15 on 1 September 2026 was cancelled), and Claude Haiku 4.5 costs $1 and $5 ([Anthropic API pricing](https://platform.claude.com/docs/en/about-claude/pricing)). OpenAI publishes its own per-token rates ([OpenAI API pricing](https://developers.openai.com/api/docs/pricing)).
 
-**Prompt caching discount.** When you reuse the same context across calls, the cached portion is billed far cheaper. OpenAI prices cached input at about 10% of standard input. Anthropic prices cache reads at about 0.1x the base input rate, a roughly 90% discount, while cache writes cost more upfront (sources as above).
+**Prompt caching discount.** When you reuse the same context across calls, the cached portion is billed far cheaper. OpenAI prices cached input at about 10% of standard input. Anthropic prices cache reads at 0.1x the base input rate on most models, a 90% discount, and lower still on Opus 5.5 (0.05x) and Fable 5.1 (0.025x), while cache writes cost more upfront (sources as above).
 
 **Batch API discount.** Both OpenAI and Anthropic process bulk jobs asynchronously at 50% off input and output. Use this when you do not need an instant answer (sources as above).
 
@@ -131,18 +134,18 @@ Five pricing models cover almost every plan on this page.
 
 **Occasional user.** Use a free tier. If limits annoy you, move to a low entry tier such as ChatGPT Go (7,99 €/month) or Google AI Plus (4,99 €/month), as of June 2026.
 
-**Power user.** A Plus or Pro class subscription gives predictable cost and high limits. ChatGPT Plus (23 €/month), Claude Pro ($17/month annual), and Google AI Pro (21,99 €/month) all sit in this band, as of June 2026.
+**Power user.** A Plus or Pro class subscription gives predictable cost and high limits. ChatGPT Plus (23 €/month), Claude Pro (15 €/month annual) and Google AI Pro (21,99 €/month) all sit in this band (ChatGPT and Claude checked 26 September 2026, Google June 2026).
 
-**Team.** Buy per-seat team plans for shared admin and billing. Claude Team standard is $20/seat/month annual, and ChatGPT Business is 21 €/user/month annual, as of June 2026.
+**Team.** Buy per-seat team plans for shared admin and billing. Claude Team standard is 18 €/seat/month annual, and ChatGPT Business is 21 €/user/month annual (both checked 26 September 2026).
 
 **Product builder.** Use the API and pay per token. Apply prompt caching for repeated context and the Batch API for non-urgent jobs to cut cost. A flat subscription does not scale across many automated calls.
 
 ## Worked example: subscription versus API tokens
 
-This is an illustration, not a quote. It shows when a flat subscription beats per-token API billing and when it loses. Figures use the verified Anthropic Sonnet class example: $3 per million input tokens and $15 per million output tokens.
+This is an illustration, not a quote. It shows when a flat subscription beats per-token API billing and when it loses. Figures use the current Anthropic Sonnet 5 price: $2 per million input tokens and $10 per million output tokens.
 
 ```text
-Illustration only. Figures as of June 2026.
+Illustration only. API figures as of September 2026.
 
 Sample workload: 1,000 model calls in a month.
 Each call: 2,000 input tokens, 500 output tokens.
@@ -151,21 +154,21 @@ Totals across 1,000 calls:
   input  = 1,000 x 2,000   = 2,000,000 tokens = 2.0 million
   output = 1,000 x   500   =   500,000 tokens = 0.5 million
 
-Option 1: API (Sonnet class example, $3 input / $15 output per million)
-  input cost  = 2.0 x $3  = $6.00
-  output cost = 0.5 x $15 = $7.50
-  API total   = $13.50 per month
+Option 1: API (Sonnet 5, $2 input / $10 output per million)
+  input cost  = 2.0 x $2  = $4.00
+  output cost = 0.5 x $10 = $5.00
+  API total   = $9.00 per month
 
 Option 2: Flat subscription
   Claude Pro  = $20 per month (monthly billing)
 
 Result for THIS workload:
-  API ($13.50) is cheaper than the subscription ($20).
+  API ($9.00) is cheaper than the subscription ($20).
 
 Now scale up 10x: 10,000 calls in the month.
-  input  = 20 million x $3  = $60
-  output =  5 million x $15 = $75
-  API total = $135 per month, far above any single seat fee.
+  input  = 20 million x $2  = $40
+  output =  5 million x $10 = $50
+  API total = $90 per month, far above a single Pro seat fee.
 
 Takeaway:
   Light, code-driven workloads can be cheaper on the API.

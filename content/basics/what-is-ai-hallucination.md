@@ -2,6 +2,8 @@
 title: "What is AI Hallucination?"
 description: "AI hallucination is when a language model produces confident, fluent, factually wrong output. Why it happens, how to detect it, and how to reduce it."
 date: 2026-06-22
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 1
 categories: [Basics]
 tags: ["beginner", "hallucination", "llm", "reliability", "rag", "ai-basics"]
@@ -11,7 +13,7 @@ faqs:
   - question: "Why do AI models hallucinate?"
     answer: "Language models generate text by predicting the most likely next token given everything before it. They have no internal fact-checking mechanism and no way to distinguish between 'I know this' and 'I am guessing based on patterns'. When asked about something at the edge of their training data or outside it entirely, they continue generating plausible text, because that is all they can do. The result is confident, fluent, wrong output."
   - question: "How common is hallucination in practice?"
-    answer: "It depends heavily on the task and model. For well-documented topics within the model's training data, modern frontier models (GPT-4o, Claude) hallucinate infrequently. For specific facts (citation details, statistics, URLs, names of people), even the best models hallucinate several percent of the time. For knowledge after the training cutoff date, hallucination rate climbs sharply. For tasks where the model can show its reasoning (code, maths), you can verify correctness independently."
+    answer: "It depends heavily on the task and model. For well-documented topics within the model's training data, modern frontier models (at the time of writing, September 2026, the GPT-6, Claude Opus 5.5 and Gemini 3.8 generations) hallucinate infrequently. For specific facts (citation details, statistics, URLs, names of people), even the best models hallucinate several percent of the time. For knowledge after the training cutoff date, hallucination rate climbs sharply. For tasks where the model can show its reasoning (code, maths), you can verify correctness independently."
   - question: "Can I trust AI output for legal or medical decisions?"
     answer: "Not without expert verification. AI hallucination rates are too high for any decision where being wrong has serious consequences. The correct workflow for high-stakes use cases: use AI to draft, analyse, or summarise, then have a qualified human expert verify every factual claim before acting on it. AI-generated legal contracts, medical advice, and financial recommendations all require human review."
   - question: "Does retrieval-augmented generation (RAG) eliminate hallucination?"

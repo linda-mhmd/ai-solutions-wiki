@@ -9,7 +9,9 @@ related:
   - glossary/training-serving-skew
   - guides/mlops-getting-started
   - guides/building-ai-platform
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 A feature store is a centralized system for defining, storing, and serving ML features. Without one, teams end up recomputing the same features in different pipelines, introducing subtle inconsistencies between training and serving that silently degrade model performance. A feature store solves this by providing a single source of truth for feature definitions and values.
@@ -54,4 +56,8 @@ A feature store eliminates this problem by ensuring the same feature definition 
 
 ## Build vs. Buy
 
-Open-source options (Feast) provide flexibility but require operational investment. Managed services (SageMaker Feature Store, Databricks Feature Store, Tecton) reduce operational burden but add vendor dependency. For most teams, starting with a managed service and migrating later if needed is the pragmatic choice.
+Open-source options (Feast) provide flexibility but require operational investment. Managed services (SageMaker Feature Store, Databricks Feature Store, Tecton) reduce operational burden but add vendor dependency. Tecton was acquired by Databricks in 2025 and its real-time serving is being folded into the Databricks platform, so weigh its roadmap against your commitment to Databricks (see [Feast vs Tecton](/comparisons/feast-vs-tecton/)). For most teams, starting with a managed service and migrating later if needed is the pragmatic choice.
+
+## Sources
+
+1. Databricks, "Tecton is Joining Databricks to Power Real-Time Data for Personalized AI Agents" (August 2025): [https://www.databricks.com/blog/tecton-joining-databricks-power-real-time-data-personalized-ai-agents](https://www.databricks.com/blog/tecton-joining-databricks-power-real-time-data-personalized-ai-agents)

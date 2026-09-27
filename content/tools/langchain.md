@@ -19,13 +19,14 @@ alternatives:
 solutions:
   - solutions/finance/document-processing
   - solutions/retail/recommendation-engine
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 LangChain is the most widely adopted framework for building applications powered by large language models. It provides abstractions for common LLM patterns (retrieval-augmented generation, agents, chains) and integrations with hundreds of models, vector stores, document loaders, and tools. For enterprise AI projects, LangChain accelerates development by providing tested patterns for common workflows and a consistent interface across different LLM providers.
 
-LangChain reached its first stable release, version 1.0, on October 22, 2025. Version 1.0 reorients the framework around agents (a new `create_agent` abstraction built on the LangGraph runtime) and adopts semantic versioning, with a commitment to no breaking changes until 2.0. The release also moved legacy modules into a separate `langchain-classic` package. Version 1.1 followed on December 2, 2025. LangChain is available in both Python and JavaScript or TypeScript, with the Python ecosystem being the more mature of the two.
+LangChain reached its first stable release, version 1.0, on October 22, 2025. Version 1.0 reorients the framework around agents (a new `create_agent` abstraction built on the LangGraph runtime) and adopts semantic versioning, with a commitment to no breaking changes until 2.0. The release also moved legacy modules into a separate `langchain-classic` package. Version 1.1 followed on December 2, 2025, then 1.2 (December 2025), 1.3 (May 2026), and 1.4 (3 September 2026); the current release is 1.4.2. LangChain is available in both Python and JavaScript or TypeScript, with the Python ecosystem being the more mature of the two.
 
 Official documentation: https://docs.langchain.com/ (the legacy site at https://python.langchain.com/docs/ still resolves).
 
@@ -35,7 +36,7 @@ Official documentation: https://docs.langchain.com/ (the legacy site at https://
 
 **Prompts** - Template management for model inputs. PromptTemplate and ChatPromptTemplate handle variable interpolation, message formatting, and prompt versioning. Few-shot templates dynamically select examples based on the input.
 
-**Retrievers** - Abstractions for fetching relevant context. Retrievers connect to vector stores (Pinecone, Weaviate, Chroma, pgvector), search engines (Elasticsearch, Kendra), and custom data sources. The retriever interface standardizes the pattern of query-in, documents-out.
+**Retrievers** - Abstractions for fetching relevant context. Retrievers connect to vector stores (Pinecone, Weaviate, Chroma, pgvector), search engines (Elasticsearch, Amazon Kendra — note that Kendra has been closed to new customers since 30 July 2026, with AWS recommending Amazon Bedrock Knowledge Bases instead), and custom data sources. The retriever interface standardizes the pattern of query-in, documents-out.
 
 **Chains** - Sequences of operations composed together. A basic RAG chain: retrieve relevant documents, format them into a prompt, send to the LLM, parse the output. Chains can be simple (sequential steps) or complex (branching, parallel execution).
 
@@ -85,7 +86,7 @@ LangChain is less suitable when you need a minimal, dependency-light solution (c
 
 LangGraph is a separate library in the LangChain ecosystem for building stateful, multi-actor applications. It supports cycles, conditional branching, and persistent state, and LangGraph reached its own 1.0 release in October 2025. As of LangChain 1.0 the two are closely linked: `create_agent` is built on the LangGraph runtime, so a LangChain agent inherits LangGraph features like streaming, checkpointing, and human-in-the-loop. LangChain now frames its agent stack as three layers: LangGraph for low-level orchestration, LangChain (`create_agent`) for a configurable agent harness, and Deep Agents for a higher-level, batteries-included option. See the {{< relref "tools/langgraph" >}} article for details.
 
-Deep Agents is a newer, standalone agent harness from LangChain (released in 2026) aimed at long-running, multi-step tasks. It packages sensible defaults around the tool-calling loop: a planning tool to break work into steps, file-system style tools to offload large outputs and avoid context overflow, sub-agent delegation for specialized tasks, and persistent memory across threads via the LangGraph store. Like `create_agent`, it runs on the LangGraph runtime.
+Deep Agents is a newer, standalone agent harness from LangChain (the `deepagents` package, first published in July 2025 and at 0.7 by September 2026) aimed at long-running, multi-step tasks. It packages sensible defaults around the tool-calling loop: a planning tool to break work into steps, file-system style tools to offload large outputs and avoid context overflow, sub-agent delegation for specialized tasks, and persistent memory across threads via the LangGraph store. Like `create_agent`, it runs on the LangGraph runtime.
 
 ## Pricing
 
@@ -98,3 +99,6 @@ LangChain is open-source (MIT license) and free. LangSmith is the commercial sid
 - [LangChain GitHub Repository](https://github.com/langchain-ai/langchain) - Source code, examples, and community contributions
 - [LangSmith Documentation](https://docs.smith.langchain.com/) - Observability platform documentation for tracing and evaluation
 - [LangChain Blog](https://www.langchain.com/blog) - Technical articles on new features, best practices, and use cases
+- [langchain on PyPI](https://pypi.org/project/langchain/) and [deepagents on PyPI](https://pypi.org/project/deepagents/) - release history (checked 25 September 2026)
+- [LangSmith pricing](https://www.langchain.com/pricing) - Developer, Plus ($39 per seat per month), and Enterprise tiers
+- [Amazon Kendra availability change](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html) - AWS notice closing Kendra to new customers

@@ -7,9 +7,11 @@ tags: ["devops", "intermediate", "drift-detection", "infrastructure", "configura
 related:
   - patterns/observability-ai
   - patterns/model-versioning
-  - tools/aws-cloudwatch
+  - tools/amazon-cloudwatch
   - guides/ci-cd-ai-detailed
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Drift is the gradual degradation of a model's performance or relevance over time, caused by changes in the real-world data the model encounters compared to the data it was trained on. Drift is a fundamental challenge in production machine learning: a model that performed well at deployment will, without monitoring and retraining, eventually produce worse results as the world changes.
@@ -50,7 +52,8 @@ Amazon SageMaker Model Monitor provides managed drift detection for SageMaker en
 
 **Setup:**
 ```python
-from sagemaker.model_monitor import DataCaptureConfig, ModelMonitor
+# SageMaker Python SDK v3 (sagemaker>=3). On SDK v2 the same classes live in sagemaker.model_monitor.
+from sagemaker.core.model_monitor import DataCaptureConfig, DefaultModelMonitor
 
 # Enable data capture on the endpoint
 data_capture_config = DataCaptureConfig(
@@ -59,8 +62,8 @@ data_capture_config = DataCaptureConfig(
     destination_s3_uri='s3://monitoring-bucket/captures/'
 )
 
-# Create a monitoring schedule
-monitor = ModelMonitor(
+# Create a data-quality monitoring schedule
+monitor = DefaultModelMonitor(
     role=role,
     instance_count=1,
     instance_type='ml.m5.xlarge',
@@ -94,6 +97,7 @@ For foundation model applications using Bedrock (rather than fine-tuned models),
 ## Sources and Further Reading
 
 - AWS Documentation: SageMaker Model Monitor. [https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html)
+- SageMaker Python SDK v3 on PyPI (`sagemaker` 3.23.0, 24 September 2026; model monitor classes in `sagemaker.core.model_monitor`). [https://pypi.org/project/sagemaker/](https://pypi.org/project/sagemaker/)
 - AWS Documentation: Monitor data quality. [https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-quality.html](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-quality.html)
 - Gama, J. et al. (2014). "A Survey on Concept Drift Adaptation." ACM Computing Surveys. - The foundational survey on concept drift detection and adaptation methods.
 - Klaise, J. et al. (2020). "Alibi Detect: Algorithms for Outlier, Adversarial and Drift Detection." Journal of Machine Learning Research. [https://jmlr.org/papers/v23/21-1427.html](https://jmlr.org/papers/v23/21-1427.html)

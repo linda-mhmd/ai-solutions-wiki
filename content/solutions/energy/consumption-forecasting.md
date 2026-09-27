@@ -6,7 +6,9 @@ categories: [Solutions]
 tags: [energy-forecasting, demand-prediction, grid-management, utilities, smart-grid]
 industries: [energy]
 tools: [amazon-forecast, amazon-sagemaker, amazon-kinesis]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Energy consumption forecasting is fundamental to grid operations, energy trading, and utility planning. Generators must match supply to demand in real time; imbalances cause frequency deviations, price spikes, or blackouts. AI forecasting models capture the complex relationships between energy demand and its drivers - weather, economic activity, calendar effects, and consumer behavior - achieving accuracy levels that traditional methods cannot match.
@@ -19,7 +21,7 @@ The growth of distributed energy resources (rooftop solar, battery storage, elec
 
 ## AI Approach
 
-**Multi-horizon forecasting** - Amazon Forecast generates demand predictions at multiple time horizons: real-time (minutes ahead for grid balancing), short-term (hours ahead for generation scheduling), medium-term (days ahead for energy trading), and long-term (months ahead for capacity planning). Different models serve different horizons, with weather forecasts as a critical input for all.
+**Multi-horizon forecasting** - SageMaker Canvas time-series models (or custom SageMaker models) generate demand predictions at multiple time horizons: real-time (minutes ahead for grid balancing), short-term (hours ahead for generation scheduling), medium-term (days ahead for energy trading), and long-term (months ahead for capacity planning). Different models serve different horizons, with weather forecasts as a critical input for all.
 
 **Weather-demand modeling** - SageMaker models capture the non-linear relationship between weather and energy demand. The relationship is not simple: demand increases with both extreme cold (heating) and extreme heat (cooling), and the response curve varies by building stock, insulation levels, and HVAC penetration. The model also captures weather-demand interactions with time of day and day of week.
 
@@ -29,7 +31,7 @@ The growth of distributed energy resources (rooftop solar, battery storage, elec
 
 ## Architecture
 
-Smart meter data and SCADA readings stream through Kinesis into S3. Weather forecast data is ingested from meteorological services. Amazon Forecast and SageMaker models produce demand projections across multiple horizons. Forecasts feed into grid operations systems, energy trading platforms, and demand response management systems. Model accuracy is continuously monitored against actual demand.
+Smart meter data and SCADA readings stream through Kinesis into S3. Weather forecast data is ingested from meteorological services. SageMaker Canvas and custom SageMaker models produce demand projections across multiple horizons. Amazon Forecast, often used for this in the past, has been [closed to new customers since 29 July 2024](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/); AWS recommends SageMaker Canvas time-series forecasting for new builds. Forecasts feed into grid operations systems, energy trading platforms, and demand response management systems. Model accuracy is continuously monitored against actual demand.
 
 ## Key Considerations
 

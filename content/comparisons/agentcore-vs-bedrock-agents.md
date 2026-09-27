@@ -2,11 +2,11 @@
 title: "AWS AgentCore vs Bedrock Agents - When to Use Which AWS Agent Runtime"
 description: "Architectural and operational differences between Amazon Bedrock AgentCore and Amazon Bedrock Agents, covering runtime model, framework neutrality, identity, memory, and observability."
 date: 2026-05-08
-lastmod: 2026-06-14
-last_verified: 2026-06-14
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [comparisons, agents, AWS, bedrock, agentcore, multi-agent, AI architecture]
-last_updated: 2026-06-14
+last_updated: 2026-09-25
 ---
 
 Both Amazon Bedrock AgentCore and Amazon Bedrock Agents let teams operate AI agents on AWS, but they sit at different layers of the stack and target different operating models. Bedrock Agents is a managed, opinionated agent service tightly bound to the Bedrock control plane. AgentCore is a runtime and a set of services for operating agents you build with any framework. The choice depends on whether you want a turnkey agent definition or a runtime substrate for agents you already own.
@@ -39,7 +39,7 @@ Bedrock Agents executes inside the managed service. You do not provision compute
 
 AgentCore Runtime is a serverless execution environment with first-class support for long-running sessions, large payloads, and durable state. Each session can run for up to eight hours, accommodating workflows that pause for human review or external events. The runtime is single-tenant per session, with isolated execution. This makes AgentCore better-suited to multi-step, long-horizon agent workflows than Lambda-backed Bedrock Agents action groups.
 
-AgentCore uses consumption-based pricing with no upfront commitments or minimum fees. Runtime, Browser, and Code Interpreter bill on active CPU (vCPU-hour) and memory (GB-hour) consumption, so idle wait time while a session pauses for I/O is not charged; Gateway, Memory, Identity, and Policy bill per usage unit such as invocations and records. Foundation model inference is billed separately on top. Always check the AgentCore pricing page for current rates.
+AgentCore uses consumption-based pricing with no upfront commitments or minimum fees. Runtime, Browser, and Code Interpreter bill on active CPU (vCPU-hour) and memory (GB-hour) consumption, so idle wait time while a session pauses for I/O is not charged; Gateway, Memory, Identity, and Policy bill per usage unit such as invocations and records. Foundation model inference is billed separately on top. On 18 September 2026 AWS made a next-generation AgentCore Runtime generally available (opt in with `platformVersion` V2, initially in us-east-1, us-east-2, us-west-2, eu-west-1 and ap-northeast-1): it reclaims unused memory during a session so you pay for actual rather than peak memory, and restores new instances from a snapshot, which AWS measured at a P75 cold start of about 2 seconds for 200 MB to 2 GB images versus 5.4 to 30 seconds on V1. Always check the AgentCore pricing page for current rates.
 
 ## Identity and Tool Authorization
 
@@ -67,6 +67,8 @@ AgentCore adds two services aimed at production governance. AgentCore Policy (ge
 
 ## When Bedrock Agents Fits Better
 
+This applies only to accounts that already use Bedrock Agents Classic; new customers cannot adopt it after 30 July 2026.
+
 - The use case is a single agent with a small action group and a knowledge base
 - Time-to-first-agent matters more than long-term flexibility
 - The team prefers configuration over code
@@ -84,7 +86,7 @@ AgentCore adds two services aimed at production governance. AgentCore Policy (ge
 
 ## Migration Path
 
-The two services are not mutually exclusive. A common pattern is to prototype with Bedrock Agents, validate the use case, then migrate the orchestration loop to a framework on AgentCore Runtime when the agent outgrows the managed model. Knowledge bases, guardrails, and Bedrock-hosted models all remain accessible from AgentCore-hosted agents.
+The two services are not mutually exclusive for existing customers. A common pattern before July 2026 was to prototype with Bedrock Agents, validate the use case, then migrate; for Bedrock Agents Classic customers this is now the expected direction, moving the orchestration loop to a framework on AgentCore Runtime. Knowledge bases, guardrails, and Bedrock-hosted models all remain accessible from AgentCore-hosted agents.
 
 ## Summary
 
@@ -100,7 +102,7 @@ The two services are not mutually exclusive. A common pattern is to prototype wi
 | Pricing | Model + Lambda usage | Consumption-based per service |
 | Best for | Simple, configurable agents | Custom or long-running production agents |
 
-Choose Bedrock Agents for configuration-driven simplicity. Choose AgentCore when the agent is a real application with its own framework, identity needs, and operational requirements.
+Existing Bedrock Agents Classic users can keep configuration-driven agents running while they plan a move. For new builds, and whenever the agent is a real application with its own framework, identity needs, and operational requirements, choose AgentCore.
 
 ## See Also
 
@@ -124,6 +126,8 @@ Choose Bedrock Agents for configuration-driven simplicity. Choose AgentCore when
 - AWS (2025). *AgentCore Identity: OAuth-based identity for agents.* [https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity.html](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity.html)
 - AWS (2025). *AgentCore Memory: short- and long-term memory stores.* [https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html)
 - AWS (2025). *AgentCore Gateway and MCP integration.* [https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html)
+- AWS (18 September 2026). *The new AgentCore Runtime is now available in Amazon Bedrock AgentCore.* [https://aws.amazon.com/about-aws/whats-new/2026/09/new-agentcore-runtime-generally-available](https://aws.amazon.com/about-aws/whats-new/2026/09/new-agentcore-runtime-generally-available)
+- AWS. *Amazon Bedrock Agents Classic maintenance mode.* [https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html)
 - AWS. *Amazon Bedrock Agents user guide.* [https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html)
 - AWS. *Strands Agents: open-source agent framework.* [https://strandsagents.com/](https://strandsagents.com/)
 - Yao, S., Zhao, J., Yu, D., et al. (2023). *ReAct: Synergizing Reasoning and Acting in Language Models.* ICLR 2023. arXiv:2210.03629. [https://arxiv.org/abs/2210.03629](https://arxiv.org/abs/2210.03629)

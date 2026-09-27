@@ -4,10 +4,14 @@ description: "Using Langfuse to trace LLM calls, evaluate outputs, and monitor A
 date: 2026-03-24
 categories: [Tools]
 tags: ["ai-agents", "intermediate", "langfuse", "observability", "llm-monitoring", "tracing", "evaluation"]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Langfuse is an open-source LLM observability platform. It captures traces of AI application execution - every model call, retrieval step, tool invocation, and latency - and provides tooling to evaluate output quality, debug failures, and measure cost over time. For AI applications in production, observability is not optional: without it, quality regressions and cost spikes are invisible.
+
+Langfuse is open source and self-hostable. **ClickHouse acquired Langfuse on 16 January 2026**; both companies stated that the project stays open source, self-hostable, and that Langfuse Cloud continues unchanged.
 
 Official documentation: https://langfuse.com/
 
@@ -29,7 +33,7 @@ Traditional APM tools do not capture this semantic layer. Langfuse does.
 A RAG trace might look like:
 - `Trace: answer_question`
   - `Span: retrieve_context` (200ms, 5 documents retrieved)
-  - `Generation: claude-sonnet-4-6` (850ms, 1200 input tokens, 320 output tokens)
+  - `Generation: claude-sonnet-5` (850ms, 1200 input tokens, 320 output tokens)
 
 **Scores** attach evaluation results to traces. A score can be:
 - User feedback (thumbs up/down)
@@ -38,13 +42,12 @@ A RAG trace might look like:
 
 ## Integration
 
-Langfuse integrates via SDK or through framework callbacks:
+Langfuse integrates via SDK or through framework callbacks. The current Python SDK (v4, built on OpenTelemetry) exposes the `@observe()` decorator directly from the top-level package; the older `langfuse.decorators` import path belongs to the v2 SDK:
 
 ```python
-from langfuse import Langfuse
-from langfuse.decorators import observe
+from langfuse import get_client, observe
 
-langfuse = Langfuse()
+langfuse = get_client()
 
 @observe()
 def answer_question(question: str) -> str:
@@ -63,10 +66,17 @@ This is the practical way to answer: "did the prompt change I deployed last Tues
 
 ## Self-Hosted vs Cloud
 
-Langfuse is available as a managed cloud service and as a self-hosted Docker deployment. For applications with data privacy requirements (healthcare, legal, financial), self-hosting is typically necessary. Self-hosting uses PostgreSQL for trace storage and Redis for queuing.
+Langfuse is available as a managed cloud service and as a self-hosted Docker deployment. For applications with data privacy requirements (healthcare, legal, financial), self-hosting is typically necessary. Since Langfuse v3, self-hosting runs a web and a worker container backed by PostgreSQL (transactional data), ClickHouse (trace and observation data), Redis (cache and queue), and S3-compatible blob storage (raw events and attachments).
 
 ## Related Articles
 
 - [Amazon Bedrock]({{< relref "amazon-bedrock.md" >}}) - LLM provider whose calls Langfuse traces
 - [Pydantic AI]({{< relref "pydantic-ai.md" >}}) - agent framework with Langfuse integration
 - [LlamaIndex]({{< relref "llamaindex.md" >}}) - RAG framework with Langfuse callbacks
+
+## Sources
+
+1. Langfuse. "Langfuse SDKs" (Python SDK v4, JS/TS SDK v5). https://langfuse.com/docs/observability/sdk/overview
+2. Langfuse. "Self-hosting" architecture overview. https://langfuse.com/self-hosting
+3. ClickHouse. "ClickHouse welcomes Langfuse: The future of open-source LLM observability." 16 January 2026. https://clickhouse.com/blog/clickhouse-acquires-langfuse-open-source-llm-observability
+4. Langfuse. "Langfuse joins ClickHouse." https://langfuse.com/blog/joining-clickhouse

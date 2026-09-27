@@ -9,7 +9,9 @@ related:
   - frameworks/compound-ai-systems
   - patterns/multi-model-routing
   - guides/scaling-ai-infrastructure
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Inference-time scaling refers to techniques that improve AI model performance by allocating more computation during inference (when the model processes a query) rather than during training. The core insight, demonstrated by research from OpenAI, Google DeepMind, and others in 2024-2025, is that for many tasks, spending more compute at inference time -- allowing the model to "think longer" -- can produce better results than training a larger model. This represents a fundamental shift in how AI capabilities are scaled.
@@ -20,7 +22,7 @@ For most of the deep learning era, the primary way to improve model performance 
 
 ## The Inference-Time Scaling Insight
 
-Research beginning with chain-of-thought prompting and culminating in models like OpenAI's o1 and o3 series demonstrated that models can achieve substantially better performance on complex reasoning tasks when given the opportunity to generate intermediate reasoning steps before producing a final answer. The key finding is that the relationship between inference compute and task performance follows a scaling law analogous to training scaling laws: more inference compute yields predictably better results, especially on tasks requiring multi-step reasoning, planning, or search.
+Research beginning with chain-of-thought prompting, and brought into production by OpenAI's o1 (September 2024) and o3 reasoning models, demonstrated that models can achieve substantially better performance on complex reasoning tasks when given the opportunity to generate intermediate reasoning steps before producing a final answer. The key finding is that the relationship between inference compute and task performance follows a scaling law analogous to training scaling laws: more inference compute yields predictably better results, especially on tasks requiring multi-step reasoning, planning, or search.
 
 ## Techniques for Inference-Time Scaling
 
@@ -38,7 +40,7 @@ The model generates an initial response, evaluates it for errors or weaknesses, 
 
 ### Adaptive Compute Allocation
 
-Not all queries require the same amount of reasoning. Adaptive approaches route easy queries through a fast path with minimal inference compute and route hard queries through an extended reasoning path with significantly more compute. This mirrors the human pattern of answering simple questions quickly while deliberating on difficult ones.
+Not all queries require the same amount of reasoning. Adaptive approaches route easy queries through a fast path with minimal inference compute and route hard queries through an extended reasoning path with significantly more compute. This mirrors the human pattern of answering simple questions quickly while deliberating on difficult ones. As of September 2026 this is a standard API control rather than a research technique: OpenAI's GPT-6 Sol exposes reasoning effort levels from `none` to `max`, Anthropic's Claude Opus 5.5 uses always-on adaptive thinking with a configurable effort level, and DeepSeek-V4.1-Flash takes an integer effort from 1 to 100. See the [LLM landscape](/comparisons/llm-landscape-2026/) for current models.
 
 ## Implications for System Design
 
@@ -55,3 +57,9 @@ Inference-time scaling has several practical implications:
 ## The Broader Picture
 
 Inference-time scaling does not replace training-time scaling; it complements it. The most capable systems combine large, well-trained models with sophisticated inference-time reasoning strategies. The practical effect is that AI capabilities are no longer fixed at training time but can be dynamically adjusted based on task difficulty and available compute, enabling a more efficient allocation of resources to the problems that need them most.
+
+## Sources
+
+1. OpenAI, GPT-6 Sol model page: [https://developers.openai.com/api/docs/models/gpt-6-sol](https://developers.openai.com/api/docs/models/gpt-6-sol)
+2. Anthropic, Models overview: [https://platform.claude.com/docs/en/about-claude/models/overview](https://platform.claude.com/docs/en/about-claude/models/overview)
+3. DeepSeek, DeepSeek-V4.1-Flash model card: [https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash)

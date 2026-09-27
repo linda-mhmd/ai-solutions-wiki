@@ -11,13 +11,16 @@ related:
 status: deprecated
 status_detail: "Microsoft unified Semantic Kernel and AutoGen into the Microsoft Agent Framework, released as version 1.0 on 3 April 2026 and positioned as the enterprise-ready successor. Semantic Kernel continues in maintenance for existing applications; new projects should use Agent Framework."
 status_source: "https://github.com/microsoft/semantic-kernel"
-last_updated: 2026-07-05
-lastmod: 2026-07-05
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Semantic Kernel is Microsoft's open-source SDK for integrating large language models into applications. It supports C#, Python, and Java, making it the primary choice for enterprise teams working in the .NET ecosystem. Unlike LangChain (which is Python/JavaScript-first), Semantic Kernel treats C# as a first-class citizen, with strong typing, dependency injection integration, and patterns that align with enterprise .NET development practices.
 
 Official documentation: https://learn.microsoft.com/en-us/semantic-kernel/
+
+> **Status:** Microsoft now describes [Microsoft Agent Framework](/tools/microsoft-agent-framework/) (1.0 since 3 April 2026) as the enterprise-ready successor to Semantic Kernel. Semantic Kernel is still maintained for existing applications (the repository remains active), but new projects should start on Agent Framework, and Microsoft publishes a Semantic Kernel migration guide. The rest of this page describes Semantic Kernel for teams running it today.
 
 ## Core Concepts
 
@@ -27,9 +30,9 @@ Official documentation: https://learn.microsoft.com/en-us/semantic-kernel/
 
 **Function** - A single callable unit within a plugin. Functions have typed parameters with descriptions that the LLM uses to decide when and how to call them. This is Semantic Kernel's implementation of tool use / function calling.
 
-**Planner** - An AI-powered component that decomposes complex tasks into a sequence of function calls. Given a goal and available plugins, the planner creates an execution plan. The Handlebars planner generates template-based plans, while the Stepwise planner iteratively decides the next step.
+**Planning** - Early versions shipped prompt-based planners (the Handlebars and Stepwise planners) that decomposed a goal into a sequence of function calls. Semantic Kernel has since moved to the model's native function calling as the primary way to plan and execute tasks, and the old planners are legacy.
 
-**Memory** - Abstractions for vector storage and retrieval. Semantic Kernel provides memory connectors for Azure AI Search, Qdrant, Chroma, Pinecone, and others. Memory integrates with the kernel so that plugins can retrieve relevant context automatically.
+**Vector stores** - Abstractions for vector storage and retrieval. Semantic Kernel's vector store connectors (which replaced the legacy Memory Store connectors) cover Azure AI Search, Qdrant, Pinecone, and others, so plugins can retrieve relevant context.
 
 ## Plugin Architecture
 
@@ -56,7 +59,7 @@ Semantic Kernel supports filters that intercept function and prompt invocations.
 
 ## Comparison with LangChain
 
-Semantic Kernel and LangChain solve similar problems with different design philosophies. Semantic Kernel emphasizes strong typing, IDE support, and enterprise .NET patterns. LangChain emphasizes rapid prototyping, a massive integration ecosystem, and Python-first development. For teams using C#, Semantic Kernel is the clear choice. For Python teams, both are viable; LangChain has a larger community and more integrations, while Semantic Kernel offers a cleaner abstraction model.
+Semantic Kernel and LangChain solve similar problems with different design philosophies. Semantic Kernel emphasizes strong typing, IDE support, and enterprise .NET patterns. LangChain emphasizes rapid prototyping, a massive integration ecosystem, and Python-first development. For C# teams starting today, Microsoft Agent Framework (Semantic Kernel's successor) is the Microsoft-supported choice; Semantic Kernel remains reasonable for existing codebases. For Python teams, LangChain has a larger community and more integrations.
 
 ## Process Framework
 
@@ -64,4 +67,10 @@ Semantic Kernel includes a Process Framework for building long-running, stateful
 
 ## Pricing
 
-Semantic Kernel is open-source (MIT license) and free. Costs are determined by the underlying AI services (Azure OpenAI, search, infrastructure) and the development effort to build and maintain plugins.
+Semantic Kernel is open-source (MIT license) and free.
+
+## Sources
+
+1. Semantic Kernel repository README ("Semantic Kernel is now Microsoft Agent Framework"; accessed 25 September 2026): https://github.com/microsoft/semantic-kernel
+2. Microsoft Learn, "Planning" (function calling replaces legacy planners): https://learn.microsoft.com/en-us/semantic-kernel/concepts/planning
+3. Microsoft Learn, "Vector store connectors" (legacy Memory Store connectors): https://learn.microsoft.com/en-us/semantic-kernel/concepts/vector-store-connectors/ Costs are determined by the underlying AI services (Azure OpenAI, search, infrastructure) and the development effort to build and maintain plugins.

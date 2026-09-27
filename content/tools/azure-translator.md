@@ -7,7 +7,9 @@ tags: [azure, translation, nlp, language, ai-services]
 related:
   - tools/amazon-translate
   - tools/azure-cognitive-services
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Azure Translator is a neural machine translation service within Azure AI Services that provides real-time text translation, document translation, and custom model training across more than 100 languages and dialects. The service uses deep neural network models trained on Microsoft's extensive multilingual datasets, delivering translation quality that approaches human fluency for many language pairs. In AI solution architectures, Translator enables multilingual content processing pipelines, cross-language search and retrieval, real-time communication translation, and localization workflows that make AI-powered applications accessible to global audiences.
@@ -31,9 +33,10 @@ Azure Translator is Azure's counterpart to Amazon Translate. Both provide neural
 
 ## Origins and History
 
-Microsoft's machine translation efforts date to Microsoft Research work beginning in the early 2000s. The Microsoft Translator API was first offered as a cloud service in 2011, initially using statistical machine translation. Neural machine translation models replaced statistical models in November 2016, dramatically improving translation quality. The service was incorporated into Azure Cognitive Services and later Azure AI Services. Custom Translator reached general availability in 2019. Document Translation with format preservation launched in GA in May 2021. The language count has progressively expanded from 60 languages at the neural MT launch to over 100 languages by 2024.
+Microsoft's machine translation efforts date to Microsoft Research work beginning in the early 2000s. The Microsoft Translator API was first offered as a cloud service in 2011, initially using statistical machine translation. Neural machine translation models replaced statistical models in November 2016, dramatically improving translation quality. The service was incorporated into Azure Cognitive Services and later Azure AI Services. Custom Translator reached general availability in 2019. Document Translation with format preservation launched in GA in May 2021. The language count has progressively expanded from 60 languages at the neural MT launch to over 100 languages by 2024. The service is now documented as Azure Translator in Foundry Tools, and a newer text translation API version (2026-06-06) adds the option to route requests to selected large language models alongside the neural MT engine, plus adaptive custom translation; Microsoft publishes a migration guide from the long-standing v3.0 API.
 
 ## Sources
 
 1. Microsoft Learn. "What is Azure AI Translator?" https://learn.microsoft.com/en-us/azure/ai-services/translator/translator-overview
 2. Microsoft Research Blog. "Microsoft Translator launching Neural Network based translations." November 2016. https://www.microsoft.com/en-us/research/blog/microsoft-translator-launching-neural-network-based-translations/
+3. Microsoft Learn. "What is Azure Translator in Foundry Tools?" Accessed 25 September 2026. https://learn.microsoft.com/en-us/azure/ai-services/translator/overview

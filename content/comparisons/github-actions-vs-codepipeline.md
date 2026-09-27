@@ -2,11 +2,11 @@
 title: "GitHub Actions vs AWS CodePipeline for AI/ML CI/CD"
 description: "Comparing GitHub Actions and AWS CodePipeline for AI and ML continuous integration and deployment, covering features, ecosystem, and cost."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [GitHub-Actions, CodePipeline, CI-CD, DevOps, MLOps]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 CI/CD for AI workloads includes standard software CI/CD (code testing, building, deploying) plus ML-specific steps (model training, evaluation, model registry updates). GitHub Actions and AWS CodePipeline approach this differently.
@@ -15,7 +15,7 @@ CI/CD for AI workloads includes standard software CI/CD (code testing, building,
 
 **GitHub Actions** is a CI/CD platform integrated into GitHub. Workflows are defined in YAML files in the repository. Extensive marketplace of community-built actions. Runs on GitHub-hosted or self-hosted runners.
 
-**AWS CodePipeline** is a managed CI/CD service on AWS. Pipelines are defined through the console, CLI, CloudFormation, or CDK. Integrates natively with AWS services, with CodeBuild providing the build and execution environment. It connects to GitHub, GitLab, and Bitbucket through AWS CodeConnections (formerly AWS CodeStar Connections). AWS CodeCommit, the AWS-hosted Git service, has been closed to new customers since mid-2024, so most teams now point CodePipeline at an external Git provider.
+**AWS CodePipeline** is a managed CI/CD service on AWS. Pipelines are defined through the console, CLI, CloudFormation, or CDK. Integrates natively with AWS services, with CodeBuild providing the build and execution environment. It connects to GitHub, GitLab, and Bitbucket through AWS CodeConnections (formerly AWS CodeStar Connections). AWS CodeCommit, the AWS-hosted Git service, was closed to new customers in July 2024 but returned to full general availability, open to new customers again, on 24 November 2025; even so, most teams point CodePipeline at an external Git provider.
 
 ## Feature Comparison
 
@@ -104,4 +104,5 @@ GitHub Actions runs on every PR (tests, linting, evaluation). When code merges t
 - [GitHub Actions runner pricing (GitHub Docs)](https://docs.github.com/en/billing/reference/actions-runner-pricing)
 - [Reduced pricing for GitHub-hosted runners usage (GitHub Changelog, January 2026)](https://github.blog/changelog/2026-01-01-reduced-pricing-for-github-hosted-runners-usage/)
 - [AWS CodePipeline pricing](https://aws.amazon.com/codepipeline/pricing/)
+- [AWS CodeCommit returns to general availability (AWS DevOps Blog, 24 November 2025)](https://aws.amazon.com/blogs/devops/aws-codecommit-returns-to-general-availability/)
 - [Introducing AWS CodeConnections, formerly AWS CodeStar Connections (AWS What's New)](https://aws.amazon.com/about-aws/whats-new/2024/03/aws-codeconnections-formerly-codestar-connections/)

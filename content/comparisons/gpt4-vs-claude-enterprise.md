@@ -2,11 +2,11 @@
 title: "GPT vs Claude for Enterprise: What Actually Rules an Option Out"
 description: "OpenAI and Anthropic's enterprise models are closely matched on capability. This comparison starts instead from the constraints that actually gate the decision — jurisdiction, sunk cloud spend, contractual mandates, and a model shutdown that already happened — and separates what's a hard gate from what's a genuine tradeoff."
 date: 2026-03-28
-last_verified: 2026-09-03
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [GPT, Claude, OpenAI, Anthropic, enterprise, LLM, comparison, vendor-lock-in]
-last_updated: 2026-09-03
-lastmod: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 related:
   - guides/constraint-driven-comparisons
   - comparisons/openai-vs-anthropic
@@ -20,7 +20,7 @@ related:
   - news/openai-anthropic-google-outages-sept-2026
 ---
 
-The "GPT-4 versus Claude" framing this page originally carried is long gone. As of September 2026, OpenAI's enterprise lineup runs on the GPT-5.6 family (Sol, Terra, Luna) with GPT-6 Astra just beginning a limited rollout, and Anthropic's runs on Haiku 4.5, Sonnet 5, Opus 5, and Fable 5.1, with a gated Mythos 5.1 above them. Both portfolios are strong, well-supported, and roughly matched on the dimensions a benchmark table measures. That is exactly why a benchmark table is the wrong place to start: when two options are this close on capability, the decision is almost never actually decided by capability. It is decided by a constraint the reader already has — a jurisdictional rule, a contract that names a cloud, an outage the organization cannot absorb, spend already committed elsewhere.
+The "GPT-4 versus Claude" framing this page originally carried is long gone. As of 25 September 2026, OpenAI's enterprise lineup runs on GPT-6 Astra (released 3 September) and GPT-6 Sol and Luna (released 22 September), with GPT-5.6 Terra still the mid-tier and GPT-5.6 Sol and Luna now previous generation; Anthropic's runs on Haiku 4.5, Sonnet 5, Opus 5.5 (released 22 September, succeeding Opus 5), and Fable 5.1, with a gated Mythos 5.1 above them [13][14]. Both portfolios are strong, well-supported, and roughly matched on the dimensions a benchmark table measures. That is exactly why a benchmark table is the wrong place to start: when two options are this close on capability, the decision is almost never actually decided by capability. It is decided by a constraint the reader already has — a jurisdictional rule, a contract that names a cloud, an outage the organization cannot absorb, spend already committed elsewhere.
 
 This page follows the wiki's [constraint-driven comparison methodology](/guides/constraint-driven-comparisons/): name the constraint categories that could plausibly rule an option out or shape the tradeoff, mark which ones are hard gates versus which are weighable, and only then look at features — because for most readers, the two model lineups are not competing on a spec sheet so much as being filtered by facts about the reader's own organization that have nothing to do with either vendor's benchmark scores.
 
@@ -54,21 +54,24 @@ SOC 2 attestation, a named HIPAA Business Associate Agreement, and similar contr
 |---|---|---|---|
 | Claude Haiku 4.5 | $1 | $5 | cache read $0.10/MTok |
 | Claude Sonnet 5 | $2 | $10 | made permanent 10 Aug 2026 [see [Sonnet 5 pricing permanent](/news/claude-sonnet-5-pricing-permanent/)]; cache read $0.20/MTok |
-| Claude Opus 5 | $5 | $25 | current default flagship; cache read $0.50/MTok |
+| Claude Opus 5.5 | $4 | $20 | current default flagship since 22 Sep 2026; cache read $0.20/MTok [13] |
+| Claude Opus 5 | $5 | $25 | previous generation, superseded by Opus 5.5; cache read $0.50/MTok |
 | Claude Fable 5.1 | $10 | $50 | cache read cut to $0.25/MTok (from $1) on GA, 1 Sep 2026 [see [Fable 5.1 / Mythos 5.1 GA](/news/claude-fable-5-1-mythos-5-1-ga/)] |
 | Claude Mythos 5.1 | $10 | $50 | same headline price; access gated, see above |
-| GPT-5.6 Luna | $0.20 | $1.20 | [see [GPT-5.5 and GPT-5.6](/news/openai-gpt-5-5-and-5-6/)] |
-| GPT-5.6 Terra | $2 | $12 | |
-| GPT-5.6 Sol | $4 | $20 | promotional pricing, confirmed through at least 21 Nov 2026 [8] |
+| GPT-6 Luna | $0.10 | $0.50 | released 22 Sep 2026; cache read $0.01/MTok [14] |
+| GPT-6 Sol | $2 | $10 | released 22 Sep 2026; cache read $0.20/MTok [14] |
+| GPT-5.6 Luna | $0.20 | $1.20 | previous generation, superseded by GPT-6 Luna [see [GPT-5.5 and GPT-5.6](/news/openai-gpt-5-5-and-5-6/)] |
+| GPT-5.6 Terra | $2 | $12 | no GPT-6 successor |
+| GPT-5.6 Sol | $4 | $20 | previous generation, superseded by GPT-6 Sol; promotional pricing, confirmed through at least 21 Nov 2026 [8] |
 | GPT-6 Astra | $10 | $50 | announced 3 Sep 2026; limited rollout at launch [3][4][8] |
 
-*Fetched directly from Anthropic's and OpenAI's own pricing pages this session [1][8]; both change frequently and both providers reserve the right to change promotional rates without much notice — Anthropic itself cancelled a scheduled Sonnet 5 price increase in August 2026, and OpenAI's Sol pricing above is explicitly labelled promotional with a stated (not permanent) expiry. Model the number that's dated, not the number that's current.*
+*Fetched directly from Anthropic's and OpenAI's own pricing pages, most recently on 25 September 2026 [1][8][13][14]; both change frequently and both providers reserve the right to change promotional rates without much notice — Anthropic itself cancelled a scheduled Sonnet 5 price increase in August 2026, and OpenAI's Sol pricing above is explicitly labelled promotional with a stated (not permanent) expiry. Model the number that's dated, not the number that's current.*
 
-*One simplification in the table above, worth naming rather than leaving implicit: every GPT-5.6 and GPT-6 tier bills a second, roughly double rate once a request's context crosses OpenAI's long-context threshold — GPT-6 Astra, for instance, is $10/$50 short-context but $20/$75 beyond it, and Sol, Terra, and Luna each step up the same way [8]. Claude's per-token price, by contrast, is flat across its full 1M-token context window regardless of request length [1]. A workload that regularly sends long-context requests to a GPT tier should budget against the higher figure, not the headline short-context one shown here.*
+*One simplification in the table above, worth naming rather than leaving implicit: every GPT-5.6 and GPT-6 tier bills a second, higher rate once a request's context crosses OpenAI's long-context threshold of 272K input tokens — 2x input and 1.5x output for the whole request. GPT-6 Astra, for instance, is $10/$50 short-context but $20/$75 beyond it, and GPT-6 Sol is $2/$10 then $4/$15 [8][14]. Claude's per-token price, by contrast, is flat across its full 1M-token context window regardless of request length [1]. A workload that regularly sends long-context requests to a GPT tier should budget against the higher figure, not the headline short-context one shown here.*
 
-**Prompt caching mechanics now diverge in a way that compounds at scale.** Every other current Claude model uses a 0.1x multiplier on cached-token reads; Fable 5.1 and Mythos 5.1 use 0.025x — a genuine structural change, not just a sticker-price one, and Anthropic states it lowers typical workload cost by roughly 25% and highly agentic (heavy re-read) workload cost by up to 45% [2]. For a workload that is mostly single-pass rather than cache-heavy, this difference barely registers; for a long-running agentic session that re-reads large cached context every turn, it is the single largest cost lever on this table. Batch APIs on both sides offer a roughly 50% discount for non-real-time work.
+**Prompt caching mechanics now diverge in a way that compounds at scale.** Most current Claude models use a 0.1x multiplier on cached-token reads; Opus 5.5 uses 0.05x, and Fable 5.1 and Mythos 5.1 use 0.025x [13] — a genuine structural change, not just a sticker-price one, and Anthropic states it lowers typical workload cost by roughly 25% and highly agentic (heavy re-read) workload cost by up to 45% [2]. For a workload that is mostly single-pass rather than cache-heavy, this difference barely registers; for a long-running agentic session that re-reads large cached context every turn, it is the single largest cost lever on this table. Batch APIs on both sides offer a roughly 50% discount for non-real-time work.
 
-**The biggest cost lever remains model selection within a provider, not provider selection between them.** Routing simple classification or extraction to Haiku 4.5 or GPT-5.6 Luna instead of a flagship tier can cut cost by an order of magnitude with acceptable quality for many tasks — a lever available regardless of which vendor's flagship you also use.
+**The biggest cost lever remains model selection within a provider, not provider selection between them.** Routing simple classification or extraction to Haiku 4.5 or GPT-6 Luna instead of a flagship tier can cut cost by an order of magnitude with acceptable quality for many tasks — a lever available regardless of which vendor's flagship you also use.
 
 ## Resilience and continuity
 
@@ -124,6 +127,8 @@ Whichever cloud path a reader already operates is the lower-friction one regardl
 10. Anthropic, "Redeploying Fable 5" (30 June 2026): [https://www.anthropic.com/news/redeploying-fable-5](https://www.anthropic.com/news/redeploying-fable-5)
 11. OpenAI, "Path to Astra: critical capabilities and frontier safeguards" (1 September 2026), and this wiki's own sourced coverage of it, which corroborates and extends sources 3–4 above: [Astra becomes the first OpenAI model to cross the 'Critical' cyber threshold](/news/openai-astra-critical-cyber-threshold/).
 12. OpenAI Status and Claude Status incident pages (3 September 2026), collected in this wiki's own coverage: [ChatGPT, Claude, and Gemini go down the same morning](/news/openai-anthropic-google-outages-sept-2026/).
+13. Anthropic, "Claude Opus 5.5" (22 September 2026) and *Models overview* (Opus 5.5 pricing and 5% cache-read multiplier, Opus 5 legacy status), fetched 25 September 2026: [https://www.anthropic.com/claude-opus-5-5](https://www.anthropic.com/claude-opus-5-5), [https://platform.claude.com/docs/en/about-claude/models/overview](https://platform.claude.com/docs/en/about-claude/models/overview)
+14. OpenAI, API changelog (22 September 2026: GPT-6 Sol and Luna) and API pricing (GPT-6 Sol/Luna rates, 272K long-context threshold), fetched 25 September 2026: [https://developers.openai.com/api/docs/changelog](https://developers.openai.com/api/docs/changelog), [https://developers.openai.com/api/docs/pricing](https://developers.openai.com/api/docs/pricing)
 
 ## Further reading
 

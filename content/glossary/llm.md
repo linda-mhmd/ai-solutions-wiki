@@ -11,7 +11,9 @@ related:
   - tools/claude-anthropic
   - tools/amazon-bedrock
   - guides/getting-started-with-bedrock
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 A Large Language Model (LLM) is a type of AI model trained on large volumes of text to understand and generate language. LLMs are the technology behind products like Claude, ChatGPT, and Gemini, and they power most practical AI applications in enterprise settings today.
@@ -59,14 +61,14 @@ The "large" in LLM refers to the number of parameters: modern models range from 
 
 **Temperature** - Controls randomness in generation. Temperature 0 produces the most likely (most deterministic) output; higher temperature produces more varied, creative output. For extraction and classification tasks, use temperature 0.
 
-**Context window** - The maximum amount of text the model can process in a single call (input plus output). Modern models range from 8,000 to 200,000+ tokens. One token is approximately 0.75 English words.
+**Context window** - The maximum amount of text the model can process in a single call (input plus output). Current models range from about 128,000 to over 1 million tokens; at the time of writing (September 2026), the flagship Claude, GPT-6, Gemini, and DeepSeek models all accept around 1 million tokens (see the [LLM landscape](/comparisons/llm-landscape-2026/)). One token is approximately 0.75 English words.
 
 **Tokens** - The basic unit of text processing. LLMs do not process characters or words directly; they process tokens (subword units). Pricing for LLM APIs is always per token.
 
 ## Sources and Further Reading
 
 - Vaswani, A., Shazeer, N., Parmar, N., et al. (2017). "Attention Is All You Need." *arXiv:1706.03762*. [https://arxiv.org/abs/1706.03762](https://arxiv.org/abs/1706.03762) - The foundational paper introducing the transformer architecture that underlies all modern LLMs.
-- Anthropic Claude Documentation: [https://docs.anthropic.com/](https://docs.anthropic.com/)
+- Anthropic Claude Documentation: [https://platform.claude.com/docs/](https://platform.claude.com/docs/)
 - AWS Documentation: Supported foundation models in Amazon Bedrock. [https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html](https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html)
 - Brown, T., Mann, B., et al. (2020). "Language Models are Few-Shot Learners" (GPT-3 paper). *arXiv:2005.14165*. [https://arxiv.org/abs/2005.14165](https://arxiv.org/abs/2005.14165)
-- Anthropic Model Documentation (Claude API): [https://docs.anthropic.com/en/docs/about-claude/models/overview](https://docs.anthropic.com/en/docs/about-claude/models/overview)
+- Anthropic Model Documentation (Claude API): [https://platform.claude.com/docs/en/about-claude/models/overview](https://platform.claude.com/docs/en/about-claude/models/overview)

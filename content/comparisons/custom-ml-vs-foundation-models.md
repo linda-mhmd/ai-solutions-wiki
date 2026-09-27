@@ -2,12 +2,12 @@
 title: "Custom ML Models vs Foundation Models: The Constraints That Decide It"
 description: "SageMaker AI custom training vs Bedrock foundation models, organized around what actually rules an option out for a given team — ML capability, cost structure, EU AI Act provider status, and vendor-driven model lifecycles — not a feature checklist with a recommendation bolted on."
 date: 2026-03-24
-last_verified: 2026-09-03
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: ["ai-ml", "intermediate", "custom-ml", "foundation-models", "comparison", "build-vs-buy", "llm", "decision-making", "eu-ai-act"]
 tools: [amazon-sagemaker, amazon-bedrock]
-last_updated: 2026-09-03
-lastmod: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 related:
   - guides/constraint-driven-comparisons
   - guides/shared-responsibility-model
@@ -21,7 +21,7 @@ Build vs. buy for AI usually narrows, on AWS, to a specific pair: fine-tune or t
 
 ## What each option actually is
 
-**Foundation models via Bedrock.** Amazon Bedrock is a multi-provider catalog accessed through a single API: Anthropic Claude, Amazon Nova (the successor to the earlier Amazon Titan family), Meta Llama, Mistral, Cohere, and, since June 2026, OpenAI models (GPT-5.5, GPT-5.4, and Codex are generally available on Bedrock) [1][3]. These models are trained on massive general-purpose datasets and perform well on a wide range of tasks out of the box, without any training data of your own. Default on-demand pricing is per token, billed separately for input and output, with batch inference, provisioned throughput, and prompt caching available as lower-cost options for the right workload shape [2].
+**Foundation models via Bedrock.** Amazon Bedrock is a multi-provider catalog accessed through a single API: Anthropic Claude, Amazon Nova (the successor to the earlier Amazon Titan family), Meta Llama, Mistral, Cohere, and, since June 2026, OpenAI models (GPT-5.5, GPT-5.4, and Codex reached general availability on Bedrock in June 2026, followed by the GPT-5.6 family and, in September 2026, GPT-6 Astra, Sol, and Luna) [1][3][11]. These models are trained on massive general-purpose datasets and perform well on a wide range of tasks out of the box, without any training data of your own. Default on-demand pricing is per token, billed separately for input and output, with batch inference, provisioned throughput, and prompt caching available as lower-cost options for the right workload shape [2].
 
 **Custom ML on SageMaker AI.** The original Amazon SageMaker was renamed SageMaker AI at re:Invent 2024; the name Amazon SageMaker now refers to the broader unified data, analytics, and AI platform, with SageMaker AI remaining the place you build, train, and deploy models [4]. Training a purpose-built model on your own labeled data produces a model specialized for your specific task. SageMaker AI covers more than classic ML — it also supports fine-tuning and customizing foundation models, such as a custom Amazon Nova model — so "custom ML" here is really a spectrum from from-scratch classifiers to fine-tuned foundation models, not a single technique. Training and inference are billed by instance-hour rather than per token [5].
 
@@ -58,7 +58,7 @@ A common version of this worry, stated plainly: "if we call Bedrock, does Anthro
 
 ### Cost structure and sunk investment
 
-Foundation models via Bedrock price per token, so cost scales directly and continuously with usage. As an illustration, at a mid-tier model's on-demand rate (Claude Sonnet-tier pricing runs roughly $3 per million input tokens and $15 per million output tokens on Bedrock), processing on the order of 1 million tokens per day works out to roughly a few hundred EUR per month, depending on the input/output mix — check the current Bedrock pricing page for exact, current per-token rates, which vary by model, provider, and region and which AWS has continued to add options against, including Flex/Priority/Reserved service tiers and per-request routing pricing [2].
+Foundation models via Bedrock price per token, so cost scales directly and continuously with usage. As an illustration, at a mid-tier model's on-demand rate (Claude Sonnet-tier pricing is $2 per million input tokens and $10 per million output tokens for Claude Sonnet 5 on Anthropic's own price list, against $3/$15 for the earlier Sonnet 4.x models), processing on the order of 1 million tokens per day works out to somewhere between tens and a few hundred EUR per month, depending on the input/output mix — check the current Bedrock pricing page for exact, current per-token rates, which vary by model, provider, and region and which AWS has continued to add options against, including Flex/Priority/Reserved service tiers and per-request routing pricing [2].
 
 Custom SageMaker AI models price by instance-hour for both training and hosting: a deployed endpoint for a small classifier runs roughly 100–300 EUR/month regardless of volume, and a moderately complex training run costs roughly 50–500 EUR in compute and takes hours to days [5]. That fixed-cost shape sits behind an upfront investment, not in front of it: labeling a training set is a sunk cost the moment it's paid for, and it changes the marginal economics of staying on the custom-model path even if a newer foundation model would technically outperform it on raw capability — which is the sunk-investment half of this constraint, distinct from a pure per-unit price comparison.
 
@@ -66,7 +66,7 @@ One wrinkle connects cost back to the resilience constraint below: once a Bedroc
 
 ### Resilience and business continuity: who controls the model's lifecycle
 
-Every model offered on Bedrock moves through a defined lifecycle: **Active**, then **Legacy**, then **End-of-Life (EOL)**. A model stays on Bedrock at least 12 months before its EOL date, spends at least 6 months in Legacy before EOL (or, for EOL dates after 1 February 2026, a minimum 3 months in Legacy followed by a minimum 3-month "public extended access" period at potentially higher, provider-set pricing), and after the EOL date requests to that model fail outright — migration is not automatic, and you must update your application code before that date [10]. AWS publishes per-model Legacy and EOL dates and notifies account owners, so this is trackable, but it runs on AWS's and the model provider's schedule, not yours: a Bedrock-based system carries a recurring, vendor-scheduled migration obligation baked into the platform for as long as it depends on any specific model version.
+Every model offered on Bedrock moves through a defined lifecycle: **Active**, then **Legacy**, then **End-of-Life (EOL)**. For models launched before 7 September 2026, a model stays on Bedrock at least 12 months before its EOL date, spends at least 6 months in Legacy before EOL (or, for EOL dates after 1 February 2026, a minimum 3 months in Legacy followed by a minimum 3-month "public extended access" period at potentially higher, provider-set pricing), and after the EOL date requests to that model fail outright — migration is not automatic, and you must update your application code before that date [10]. Models launched on or after 7 September 2026 follow a revised policy: each model card states an "EOL no sooner than" date and a Legacy notice period of either 6 months (most models) or 45 days, so check the card before committing a long-lived workload to a new model [12]. AWS publishes per-model Legacy and EOL dates and notifies account owners, so this is trackable, but it runs on AWS's and the model provider's schedule, not yours: a Bedrock-based system carries a recurring, vendor-scheduled migration obligation baked into the platform for as long as it depends on any specific model version.
 
 A custom model trained and deployed on SageMaker AI has no equivalent externally-imposed retirement date. It keeps serving traffic until you decide to retrain or retire it. That cuts both ways: you are then fully responsible for detecting drift and deciding when a retrain is actually needed, where Bedrock's lifecycle at least forces a periodic, provider-driven capability refresh you might not otherwise schedule for yourself.
 
@@ -121,7 +121,9 @@ For a head-to-head on the two services themselves outside this constraint framin
 7. [Data protection in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html) - AWS documentation on per-provider model deployment accounts and model providers' lack of access to customer prompts and completions.
 8. [Amazon Bedrock security and compliance](https://aws.amazon.com/bedrock/security-compliance/) - on model customization using a private copy of the base model, not shared with or used to improve models for other customers or the model provider.
 9. [The Shared Responsibility Model for AI on AWS](/guides/shared-responsibility-model/) - the data, model, and infrastructure responsibility split across Bedrock and SageMaker, and confirmation that Bedrock does not use prompts to train foundation models.
-10. [Amazon Bedrock model lifecycle](https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html) - Active/Legacy/EOL states, minimum durations, public extended access pricing, and migration responsibility.
+10. [Amazon Bedrock model lifecycle](https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html) - Active/Legacy/EOL states, minimum durations, public extended access pricing, and migration responsibility.
+11. [OpenAI GPT-6 Astra](https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-astra-on-amazon-bedrock/) (8 September 2026) and [GPT-6 Sol and GPT-6 Luna](https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-sol-luna-on-amazon-bedrock/) (22 September 2026) generally available on Amazon Bedrock - AWS What's New.
+12. [Amazon Bedrock model lifecycle (models launched on or after 7 September 2026)](https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html) - model-card "EOL no sooner than" dates and 6-month or 45-day Legacy periods.
 
 ## Further reading
 

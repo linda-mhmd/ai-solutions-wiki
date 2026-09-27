@@ -2,6 +2,8 @@
 title: "What is AI?"
 description: "AI is software that learns patterns from data instead of following hand-written rules. Here is what that actually means, without the hype."
 date: 2026-05-24
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 4
 categories: [Basics]
 tags: [beginner, ai, machine-learning, llm, neural-networks]
@@ -85,13 +87,13 @@ The training objective is simple: given a sequence of tokens, predict the next t
 
 When you send a message to Claude, the model does not "look up" the answer. It generates a response one token at a time, each token being the model's prediction of what should come next given all the preceding context.
 
-Key LLMs and who builds them:
-- **Claude**, Anthropic. [Model docs](https://docs.anthropic.com/en/docs/about-claude/models/overview)
-- **GPT-4o**, OpenAI
-- **Gemini**, Google DeepMind
-- **Llama 3**, Meta (open weights, downloadable)
-- **Mistral**, Mistral AI (European, open source)
-- **Command R**, Cohere (enterprise-focused)
+Key LLM families and who builds them (current versions at the time of writing, September 2026; models are replaced every few months, so see the [LLM Landscape 2026](/comparisons/llm-landscape-2026/) for the live list):
+- **Claude**, Anthropic (e.g. Claude Opus 5.5, Sonnet 5, Haiku 4.5). [Model docs](https://platform.claude.com/docs/en/about-claude/models/overview)
+- **GPT**, OpenAI (e.g. GPT-6 Astra, GPT-6 Sol, GPT-6 Luna)
+- **Gemini**, Google DeepMind (e.g. Gemini 3.8 Flash), plus the open-weight **Gemma** family
+- **Muse Spark**, Meta (closed); Meta's older **Llama** models are open weights and downloadable
+- **Mistral**, Mistral AI (European; several models released as open weights)
+- **Command A**, Cohere (enterprise-focused)
 
 ## Neural networks: the architecture
 
@@ -154,7 +156,7 @@ Most people and applications use inference via APIs. Only a handful of labs trai
 | **Reasoning and analysis** | Structuring problems, drafting plans, reviewing documents |
 | **Code generation** | Writing, debugging, refactoring, explaining code |
 | **Image understanding** | Describing images, answering questions about visual content |
-| **Image generation** | DALL-E, Midjourney, Stable Diffusion, Adobe Firefly |
+| **Image generation** | OpenAI GPT Image, Google Gemini image models, Midjourney, Stable Diffusion, Adobe Firefly |
 | **Speech recognition** | OpenAI Whisper, Google Speech-to-Text |
 | **Structured output** | Extracting data from documents, classifying text |
 

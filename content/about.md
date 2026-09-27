@@ -13,7 +13,7 @@ The AI Solutions Wiki is built and maintained by **[Linda Mohamed](https://www.l
 If you want to work together:
 
 - **[Book a free 30-minute call](https://outlook.office.com/book/Letstalk1@lindamohamed.com/)** - architecture review, use-case scoping, or team questions
-- **[AI Workshops](https://www.lindamohamed.com/workshops)** - hands-on workshops for teams building with AI on AWS
+- **[AI Workshops](https://www.lindamohamed.com/ai-workshops?utm_source=ai-solutions.wiki&utm_medium=about&utm_campaign=workshops)** - hands-on workshops for teams building with AI on AWS
 - **[LinkedIn](https://www.linkedin.com/in/linda-mohamed/)** · **[YouTube](https://youtube.com/@mrs_lee_g)** · **[GitHub](https://github.com/linda-mhmd)**
 
 ---
@@ -52,7 +52,7 @@ The wiki is organized into three areas: learn, build, and reference.
 
 ### Build
 
-**[Guides](/guides/)**: Step-by-step implementations. 174 guides covering RAG systems, async job queues, multi-agent pipelines, sprint planning with AI, and production deployment patterns.
+**[Guides](/guides/)**: Step-by-step implementations. 238 guides covering RAG systems, async job queues, multi-agent pipelines, sprint planning with AI, and production deployment patterns.
 
 **[Patterns](/patterns/)**: Reusable architectural patterns that appear across AI projects: RAG, agent orchestration, data pipelines, prompt design, evaluation harnesses.
 
@@ -62,13 +62,13 @@ The wiki is organized into three areas: learn, build, and reference.
 
 ### Reference
 
-**[Tools](/tools/)**: 175 tools covered. What each tool does well, what it does not, pricing traps, and when to choose it over alternatives.
+**[Tools](/tools/)**: 248 tools covered. What each tool does well, what it does not, pricing traps, and when to choose it over alternatives.
 
-**[Comparisons](/comparisons/)**: Side-by-side analysis for 74 common decision points: Bedrock vs Azure OpenAI, RAG vs fine-tuning, Claude vs GPT-4, Airflow vs Step Functions.
+**[Comparisons](/comparisons/)**: Side-by-side analysis for 114 common decision points: Bedrock vs Azure OpenAI, RAG vs fine-tuning, Claude vs GPT, Airflow vs Step Functions.
 
 **[Frameworks](/frameworks/)**: Structured thinking tools for AI governance and planning. EU AI Act, ISO 42001, OECD Principles, Team Topologies, Wardley Mapping.
 
-**[Glossary](/glossary/)**: Plain-English definitions for 442 AI, ML, and cloud terms. Every definition includes context on when and why you would encounter that concept.
+**[Glossary](/glossary/)**: Plain-English definitions for 494 AI, ML, and cloud terms. Every definition includes context on when and why you would encounter that concept.
 
 **[Solutions](/solutions/)**: Industry-specific AI applications covering finance, insurance, media, logistics, healthcare, and more. Each article describes the problem, the architecture, the tools, and the operational considerations.
 

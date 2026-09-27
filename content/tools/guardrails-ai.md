@@ -8,7 +8,9 @@ related:
   - tools/nemo-guardrails
   - tools/instructor
   - tools/langchain
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Guardrails AI is an open-source Python framework for validating LLM outputs against defined rules. You specify validators (checks that output must pass), and Guardrails applies them to model responses, triggering corrective actions (retry, fix, filter, or raise an error) when validation fails. For AI projects, Guardrails addresses a critical production concern: ensuring that LLM outputs meet quality, safety, and format requirements before they reach end users or downstream systems.
@@ -45,7 +47,7 @@ from guardrails.hub import ToxicLanguage
 
 guard = Guard().use(ToxicLanguage(on_fail="fix"))
 result = guard(
-    model="gpt-4o",
+    model="gpt-6-luna",
     messages=[{"role": "user", "content": "Summarize this document..."}]
 )
 ```

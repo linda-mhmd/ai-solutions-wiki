@@ -4,6 +4,8 @@ description: "Make a working call to Claude in Python, then the same call with t
 date: 2026-07-17
 categories: [Guides]
 tags: ["llm", "api", "python", "engineers"]
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -88,7 +90,7 @@ from openai import OpenAI
 client = OpenAI()  # reads OPENAI_API_KEY
 
 response = client.responses.create(
-    model="gpt-5.5",
+    model="gpt-6-sol",
     input="Explain what an API key is in one sentence.",
 )
 
@@ -101,7 +103,7 @@ Same lifecycle, different shapes:
 |---|---|---|
 | **Env var** | `ANTHROPIC_API_KEY` | `OPENAI_API_KEY` |
 | **Call** | `client.messages.create(...)` | `client.responses.create(...)` |
-| **Model ID** | `claude-sonnet-5` | `gpt-5.5` |
+| **Model ID** | `claude-sonnet-5` | `gpt-6-sol` |
 | **Output cap** | `max_tokens` required | optional |
 | **Read text** | loop over content blocks | `response.output_text` |
 
@@ -156,7 +158,7 @@ print(contact.name, contact.demo_requested)
 
 ## What this call costs
 
-A token is a short chunk of text, roughly 4 English characters. Anthropic prices `claude-sonnet-5` at about 1.85 EUR ($2) per million input tokens and 9.20 EUR ($10) per million output tokens until 2026-08-31, then about 2.75 EUR ($3) and 13.80 EUR ($15). EUR figures assume $1 = 0.92 EUR; billing itself is in USD. The Step 3 call sends about 20 input tokens and returns about 60 output tokens. That is (20 x 2 + 60 x 10) / 1,000,000 = $0.00064, roughly 0.06 euro cents today, and roughly 0.09 euro cents at the standard price. One million such calls cost about 590 EUR today and about 880 EUR from September. Cheap per call, real at scale - set a budget cap before you ship anything, as covered in [Set spending limits before you ship](/guides/set-spending-limits-before-you-ship/).
+A token is a short chunk of text, roughly 4 English characters. Anthropic prices `claude-sonnet-5` at about 1.85 EUR ($2) per million input tokens and 9.20 EUR ($10) per million output tokens. That rate launched as an introductory price through 2026-08-31, but Anthropic has since made it the standard price and cancelled the planned rise to $3/$15. EUR figures assume $1 = 0.92 EUR; billing itself is in USD. The Step 3 call sends about 20 input tokens and returns about 60 output tokens. That is (20 x 2 + 60 x 10) / 1,000,000 = $0.00064, roughly 0.06 euro cents. One million such calls cost about 590 EUR. OpenAI's `gpt-6-sol` in the second example is priced identically, at $2 input and $10 output per million tokens for prompts up to 272K tokens. Cheap per call, real at scale - set a budget cap before you ship anything, as covered in [Set spending limits before you ship](/guides/set-spending-limits-before-you-ship/).
 
 ## The first errors you will hit
 
@@ -186,3 +188,4 @@ Three details save you an afternoon. First, the SDK raises typed exceptions (`an
 - [Anthropic Python SDK](https://github.com/anthropics/anthropic-sdk-python)
 - [OpenAI Python SDK](https://github.com/openai/openai-python)
 - [OpenAI: Quickstart](https://platform.openai.com/docs/quickstart)
+- [OpenAI: GPT-6 Sol model page](https://developers.openai.com/api/docs/models/gpt-6-sol)

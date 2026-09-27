@@ -11,7 +11,7 @@ related:
   - tools/strands-agents
   - tools/langgraph
   - tools/crewai
-  - tools/amazon-step-functions
+  - tools/aws-step-functions
 last_updated: 2026-05-30
 ---
 

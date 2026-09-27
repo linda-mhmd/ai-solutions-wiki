@@ -2,13 +2,14 @@
 title: "MCP Security Vulnerabilities 2026: The Protocol That Connected Everything Got 40+ CVEs"
 description: "The Model Context Protocol became the universal standard for AI agent integrations, and security researchers found it vulnerable by default. Over 40 CVEs, 492 exposed servers, and tool poisoning attacks."
 date: 2026-07-30
-lastmod: 2026-07-30
+lastmod: 2026-09-25
 categories: [News]
 tags: [MCP, AI security, vulnerabilities, CVE, tool poisoning, prompt injection]
 related:
   - /glossary/prompt-injection
-  - /glossary/ai-security-best-practices
+  - guides/ai-security-best-practices
   - /news/ai-agent-security-incidents-2025-2026
+  - news/ai-agent-security-roundup-september-2026
 ---
 
 The Model Context Protocol (MCP), introduced by Anthropic in late 2024 as a universal standard for connecting AI assistants to external tools and data sources, became a significant attack surface in 2026. Security researchers disclosed over 40 CVEs against MCP implementations, found hundreds of servers exposed to the public internet without authentication, and documented new attack classes including tool poisoning.
@@ -78,6 +79,12 @@ MCP adoption is accelerating. If you are building or consuming MCP integrations:
 
 The protocol's flexibility is a feature for developers and a vulnerability for security. Until MCP matures with stricter defaults, the burden is on implementers to secure their deployments.
 
+## Update, September 2026: MCP flaws now exploited in the wild
+
+On **2 September 2026**, CISA added **CVE-2026-59822** (CVSS 8.8) to its [Known Exploited Vulnerabilities catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog). It is an improper-authentication flaw in the **MCP Streamable HTTP endpoint of LiteLLM**, the open-source AI gateway, that could let an unauthenticated attacker open an authenticated MCP session. The Hacker News reports that Wiz observed exploitation attempts against it on honeypots. A separate LiteLLM authentication-bypass chain (CVE-2026-42271 with CVE-2026-48710) was added in the same batch and has been used to deploy cryptocurrency miners. MCP implementation bugs are no longer only a research finding. Attackers are actively scanning for them.
+
+On **10 September**, Wiz research reported that **294 of 3,074** internet-facing LiteLLM gateways it scanned in February accepted the example admin key `sk-1234` or had no master key set at all. That admin credential also controls the gateway's MCP-connected tools. If you run an MCP-capable gateway, patch it, set a strong unique master key, and keep its admin interface off the public internet. The [September 2026 AI agent security roundup](/news/ai-agent-security-roundup-september-2026/) covers these and four other disclosures from the month.
+
 ## Sources
 
 1. Microsoft. "The state of MCP security in 2026." Microsoft Security Blog. [https://techcommunity.microsoft.com/blog/microsoft-security-blog/the-state-of-mcp-security-in-2026/4531327](https://techcommunity.microsoft.com/blog/microsoft-security-blog/the-state-of-mcp-security-in-2026/4531327)
@@ -86,3 +93,5 @@ The protocol's flexibility is a feature for developers and a vulnerability for s
 4. UVCyber. "Threat Advisory: MCP Threats." [https://www.uvcyber.com/resources/reports/threat-advisory-mcp-threats](https://www.uvcyber.com/resources/reports/threat-advisory-mcp-threats)
 5. Codersera. "How to Secure MCP Servers (2026 Guide)." [https://codersera.com/blog/how-to-secure-mcp-servers-2026/amp/](https://codersera.com/blog/how-to-secure-mcp-servers-2026/amp/)
 6. AgentsID. "State of Agent Security 2026." [https://github.com/AgentsID-dev/agentsid-scanner/blob/master/docs/state-of-agent-security-2026.md](https://github.com/AgentsID-dev/agentsid-scanner/blob/master/docs/state-of-agent-security-2026.md)
+7. The Hacker News. "CISA Adds Seven Exploited Flaws as Attackers Deploy Reverse Shells and Crypto Miners." (3 September 2026). [https://thehackernews.com/2026/09/cisa-adds-seven-exploited-flaws-as.html](https://thehackernews.com/2026/09/cisa-adds-seven-exploited-flaws-as.html)
+8. The Hacker News. "Nearly 1 in 10 Exposed LiteLLM Gateways Accepted the Example 'sk-1234' Admin Key." (10 September 2026). [https://thehackernews.com/2026/09/nearly-1-in-10-exposed-litellm-gateways.html](https://thehackernews.com/2026/09/nearly-1-in-10-exposed-litellm-gateways.html)

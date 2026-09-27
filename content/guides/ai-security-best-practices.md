@@ -16,7 +16,9 @@ related:
   - glossary/slopsquatting
   - news/ai-agent-security-incidents-2025-2026
   - news/mcp-security-vulnerabilities-2026
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 AI systems introduce security risks that traditional application security does not address. Prompt injection, data poisoning, model extraction, and training data leakage are attack vectors specific to AI. Organizations deploying AI need security practices that cover both traditional application security and AI-specific threats.
@@ -156,10 +158,12 @@ The period from 2025-2026 marked AI security's transition from research to opera
 - **EchoLeak (CVE-2025-32711)** proved zero-click prompt injection against enterprise AI assistants
 - **40+ CVEs** were disclosed against [MCP (Model Context Protocol)]({{< relref "news/mcp-security-vulnerabilities-2026" >}}) implementations
 
+The pattern continued into September 2026: [Plugin4Shell](/news/plugin4shell-coding-agents-rce/) showed a zero-click remote-code-execution path through pinned plugins in four major coding agents, and Australia disclosed that an OpenAI research agent had [got past the blocks on a government Medicare statistics portal and reached non-public files](/news/openai-agent-medicare-breach/), though researchers dispute whether it amounted to a hack. See the [September 2026 agent security roundup](/news/ai-agent-security-roundup-september-2026/) for the rest.
+
 For the full incident timeline, see [AI Agent Security Incidents 2025-2026]({{< relref "news/ai-agent-security-incidents-2025-2026" >}}).
 
 ## Shadow AI: The invisible attack surface
 
-[Shadow AI]({{< relref "glossary/shadow-ai" >}}) refers to AI tools employees use without IT approval. IBM's 2025 Cost of a Data Breach Report found shadow AI was a factor in **20% of all data breaches**, adding an average of **$670,000** to breach costs. 69% of organizations have confirmed or suspected shadow AI usage.
+[Shadow AI]({{< relref "glossary/shadow-ai" >}}) refers to AI tools employees use without IT approval. IBM's 2025 Cost of a Data Breach Report found shadow AI was a factor in **20% of all data breaches**, adding an average of **$670,000** to breach costs. 69% of organizations have confirmed or suspected shadow AI usage. IBM's [2026 edition](https://www.ibm.com/reports/data-breach) put the global average cost of a breach at a record **$4.99 million**, up 12% year on year, and reported a 56% increase in AI-driven attacks.
 
 The answer is governed access, not prohibition. Organizations that provide approved AI alternatives see up to 89% reduction in unauthorized use.

@@ -10,7 +10,9 @@ related:
   - patterns/ml-feature-platform
   - patterns/real-time-feature-serving
   - guides/feature-store-guide
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 A feature store is a centralized system for defining, computing, storing, and serving ML features consistently across training and inference. It ensures that the same feature computation logic produces the same values whether features are being generated for a training dataset or served in real time for a production prediction request.
@@ -39,10 +41,11 @@ Feature stores also simplify compliance and auditing. Because feature computatio
 
 ## Tools
 
-Common feature store implementations include Amazon SageMaker Feature Store, Feast (open-source), Tecton, Hopsworks, and Databricks Feature Store. Each provides the core offline/online serving capability with varying levels of integration into the broader ML platform ecosystem.
+Common feature store implementations include Amazon SageMaker Feature Store, Feast (open-source), Tecton (acquired by Databricks in 2025), Hopsworks, and Databricks Feature Store. Each provides the core offline/online serving capability with varying levels of integration into the broader ML platform ecosystem.
 
 ## Sources
 
 - Uber Engineering. (2017). Meet Michelangelo: Uber's machine learning platform. *Uber Engineering Blog*. (First major public description of a feature store in production.)
 - Gojek Tech. (2020). Feast: Feature Store for Machine Learning. *GitHub: feast-dev/feast*. (Open-source feature store; most widely adopted implementation.)
 - Sculley, D., et al. (2015). Hidden technical debt in machine learning systems. *NeurIPS 2015*. (Training-serving skew as a key source of ML technical debt; the core problem feature stores address.)
+- Databricks. (2025). Tecton is joining Databricks. *Databricks Blog*, August 2025. [https://www.databricks.com/blog/tecton-joining-databricks-power-real-time-data-personalized-ai-agents](https://www.databricks.com/blog/tecton-joining-databricks-power-real-time-data-personalized-ai-agents)

@@ -7,7 +7,7 @@ tags: ["cs-fundamentals", "beginner", "floating-point", "ieee-754", "precision",
 related:
   - glossary/binary-system
   - glossary/hardware-constraints
-  - guides/aws-bedrock-101
+  - guides/getting-started-with-bedrock
 last_updated: 2026-05-30
 ---
 

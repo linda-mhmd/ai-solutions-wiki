@@ -25,7 +25,7 @@ AI red teaming typically follows a structured process. The team defines the scop
 
 ## Regulatory Context
 
-The EU AI Act requires providers of high-risk AI systems to conduct testing that includes adversarial evaluation. The NIST AI Risk Management Framework recommends red teaming as part of AI risk assessment. Executive Order 14110 (US, 2023) directed NIST to establish red teaming guidelines for AI. Major AI providers including OpenAI, Anthropic, Google, and Microsoft conduct extensive red teaming before releasing new models.
+The EU AI Act requires providers of high-risk AI systems to conduct testing that includes adversarial evaluation. The NIST AI Risk Management Framework recommends red teaming as part of AI risk assessment. Executive Order 14110 (US, 2023) directed NIST to establish red teaming guidelines for AI; it was rescinded in January 2025, but the NIST guidance it prompted remains published. Major AI providers including OpenAI, Anthropic, Google, and Microsoft conduct extensive red teaming before releasing new models.
 
 ## Building a Red Team
 

@@ -2,7 +2,6 @@
 title: "Reasoning Models"
 description: "Language models post-trained to allocate substantial inference-time compute to internal reasoning before producing final answers: the o1 / R1 generation."
 date: 2026-05-08
-lastmod: 2026-05-08
 categories: [Glossary]
 tags: ["ai-ml", "advanced", "llm", "reasoning", "inference-time-compute"]
 related:
@@ -11,10 +10,12 @@ related:
   - glossary/llm
   - glossary/foundation-models
   - glossary/direct-preference-optimization
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
-Reasoning models are large language models post-trained to allocate substantial inference-time compute to internal reasoning before producing a final answer. Where a conventional LLM emits its answer immediately after the prompt, a reasoning model first generates a long, often hidden, chain of thought that explores, plans, backtracks, and verifies, sometimes for thousands or tens of thousands of tokens, and only then produces the visible response. The class was established by OpenAI's o1 (September 2024), generalised by DeepSeek's R1 (January 2025), and is now represented in every major model family (o3, Claude with extended thinking, Gemini 2.0 Flash Thinking, Qwen3, GLM-Z1). Reasoning models trade latency and cost for substantially higher accuracy on math, coding, scientific reasoning, and planning tasks, a different scaling axis from parameter count.
+Reasoning models are large language models post-trained to allocate substantial inference-time compute to internal reasoning before producing a final answer. Where a conventional LLM emits its answer immediately after the prompt, a reasoning model first generates a long, often hidden, chain of thought that explores, plans, backtracks, and verifies, sometimes for thousands or tens of thousands of tokens, and only then produces the visible response. The class was established by OpenAI's o1 (September 2024), generalised by DeepSeek's R1 (January 2025), and was quickly adopted by every major model family (o3, Claude with extended thinking, Gemini 2.0 Flash Thinking, Qwen3, GLM-Z1). By September 2026 reasoning is the default rather than a separate product line: OpenAI's GPT-6 models are reasoning models with selectable effort levels, Claude Opus 5.5 always uses adaptive thinking, DeepSeek and Grok flagships expose effort controls, and Qwen models offer thinking and non-thinking modes (see the [LLM landscape](/comparisons/llm-landscape-2026/) for current models). Reasoning models trade latency and cost for substantially higher accuracy on math, coding, scientific reasoning, and planning tasks, a different scaling axis from parameter count.
 
 ## Mechanism
 
@@ -44,7 +45,7 @@ including dead ends, restarts, self-correction ...
 </answer>
 ```
 
-The thinking section may be hidden from the user (OpenAI o1, Claude extended thinking with `redacted_thinking`) or visible (DeepSeek-R1, Gemini Flash Thinking). Provider APIs typically expose a `reasoning_effort` or `thinking_budget` parameter that scales the maximum reasoning tokens, with corresponding accuracy / latency trade-off curves.
+The thinking section may be hidden or summarised (OpenAI's reasoning models never expose raw reasoning tokens but can return an opt-in reasoning summary; current Claude models return summarised thinking, or none with `display: "omitted"`, while billing the full thinking tokens) or visible (DeepSeek-R1, Gemini Flash Thinking). Provider APIs typically expose a `reasoning_effort`, effort-level, or `thinking_budget` parameter that scales the maximum reasoning tokens, with corresponding accuracy / latency trade-off curves. Current APIs increasingly offer graded levels (for example GPT-6 Sol accepts none, low, medium, high, xhigh, and max; DeepSeek-V4.1-Flash takes an integer effort from 1 to 100).
 
 ## Why Reasoning Models Matter
 
@@ -77,7 +78,7 @@ For these tasks, prefer a conventional model and reserve the reasoning model for
 - **Latency.** Reasoning responses can take seconds to minutes. Streaming the thinking is sometimes possible (DeepSeek-R1 streams the reasoning); often only the final answer is streamed. Plan UX accordingly.
 - **Cost.** Thinking tokens are billed (typically at the same rate as output tokens). A single hard query can consume 10× the tokens of a regular request.
 - **CoT prompting can hurt.** "Let's think step by step" interferes with the trained internal reasoning. Provider documentation typically advises *not* prompting a reasoning model the same way you would prompt a conventional one (Anthropic and OpenAI publish specific guidance).
-- **Function calling and tool use.** Most reasoning models support tool use, and the tool-calling format may differ from non-reasoning siblings (OpenAI's `o-series` requires Responses API; Anthropic's extended thinking interleaves with tool calls).
+- **Function calling and tool use.** Most reasoning models support tool use, and the tool-calling format may differ from non-reasoning siblings (OpenAI directs tool use for its reasoning models to the Responses API: GPT-6 Sol supports function calling in Chat Completions only with reasoning effort set to `none`; Anthropic's extended thinking interleaves with tool calls).
 - **Hallucination dynamics differ.** Reasoning models can confidently fabricate elaborate justifications. The thinking trace looks plausible but may be unfaithful (Turpin et al., 2023; Lanham et al., 2023). Treat verification as a separate step.
 
 ## Open vs Closed
@@ -95,6 +96,10 @@ The reasoning-model class went from closed-only (o1, September 2024) to open-rep
 ## Sources and Further Reading
 
 - OpenAI (2024). *Learning to Reason with LLMs (o1 system card).* [https://openai.com/index/learning-to-reason-with-llms/](https://openai.com/index/learning-to-reason-with-llms/)
+- OpenAI. *Reasoning models guide* (accessed 25 September 2026). [https://developers.openai.com/api/docs/guides/reasoning](https://developers.openai.com/api/docs/guides/reasoning)
+- Anthropic. *Adaptive thinking* (accessed 25 September 2026). [https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking)
+- OpenAI. *GPT-6 Sol model documentation* (accessed 25 September 2026). [https://developers.openai.com/api/docs/models/gpt-6-sol](https://developers.openai.com/api/docs/models/gpt-6-sol)
+- DeepSeek. *DeepSeek-V4.1-Flash model card* (10 September 2026). [https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash)
 - DeepSeek-AI (2025). *DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning.* arXiv:2501.12948. [https://arxiv.org/abs/2501.12948](https://arxiv.org/abs/2501.12948)
 - Snell, C., Lee, J., Xu, K., Kumar, A. (2024). *Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters.* arXiv:2408.03314. [https://arxiv.org/abs/2408.03314](https://arxiv.org/abs/2408.03314)
 - Wu, Y., Sun, Z., Li, S., et al. (2024). *Inference Scaling Laws: An Empirical Analysis of Compute-Optimal Inference for Problem-Solving with Language Models.* arXiv:2408.00724. [https://arxiv.org/abs/2408.00724](https://arxiv.org/abs/2408.00724)

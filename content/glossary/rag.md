@@ -11,7 +11,9 @@ related:
   - tools/amazon-opensearch
   - glossary/embeddings
   - glossary/vector-database
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Retrieval Augmented Generation (RAG) is an architecture pattern that improves the accuracy and relevance of AI-generated responses by providing the model with relevant source documents at query time, rather than relying solely on knowledge learned during training.
@@ -48,7 +50,7 @@ RAG is not the right pattern when:
 
 **Chunk size matters** - Documents are split into chunks before embedding. Chunks too large lose retrieval precision (the relevant sentence is buried in a large block of irrelevant text). Chunks too small lose context (a sentence pulled from the middle of a paragraph may be ambiguous without surrounding context). 300-500 token chunks with 50-100 token overlap between adjacent chunks is a good starting point for most document types.
 
-**Embedding model selection** - The embedding model determines retrieval quality. Specialized embedding models (Cohere Embed, Amazon Titan Embeddings) generally outperform general-purpose LLM-derived embeddings for search tasks. Test with a representative sample of your actual queries before committing to an embedding model.
+**Embedding model selection** - The embedding model determines retrieval quality. Specialized embedding models (Cohere Embed, Amazon Titan Text Embeddings V2, Amazon Nova Multimodal Embeddings) generally outperform general-purpose LLM-derived embeddings for search tasks. Test with a representative sample of your actual queries before committing to an embedding model.
 
 **Hybrid search** - Pure vector search misses exact keyword matches. Hybrid search combines vector similarity with BM25 (keyword-based) scoring. For most enterprise knowledge bases, hybrid retrieval outperforms pure vector search, particularly for queries containing specific terms, product codes, or proper nouns.
 
@@ -84,7 +86,7 @@ The embedding model is a significant driver of retrieval quality. It must be fix
 
 **Amazon Titan Embeddings v2** - Available via Amazon Bedrock. Supports embedding dimensions of 256, 512, or 1024. Good general-purpose performance with native integration into Bedrock Knowledge Bases.
 
-**Cohere Embed v3** - Strong retrieval performance on benchmarks. Supports multilingual embeddings across 100+ languages. Available via Bedrock and directly from Cohere.
+**Cohere Embed v4** - Cohere's current embedding model (successor to Embed v3), with strong retrieval performance, multilingual support across 100+ languages, and multimodal input (text, images, and PDFs). Available via Bedrock and directly from Cohere; Embed v3 remains available on Bedrock but is the previous generation.
 
 **Sentence-BERT family** - Open-source models from Reimers and Gurevych (2019) that produce semantically meaningful sentence embeddings. Models like `all-mpnet-base-v2` and `all-MiniLM-L6-v2` are widely used baselines. Run on your own infrastructure.
 
@@ -109,6 +111,7 @@ The standard pattern: retrieve top 20 chunks via vector similarity, rerank to ge
 - Lewis, P., Perez, E., Piktus, A., et al. (2020). "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks." *arXiv:2005.11401*. [https://arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401)
 - AWS Documentation: Amazon Bedrock Knowledge Bases. [https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html)
 - AWS Documentation: Amazon Bedrock Reranking. [https://docs.aws.amazon.com/bedrock/latest/userguide/rerank.html](https://docs.aws.amazon.com/bedrock/latest/userguide/rerank.html)
+- AWS Documentation: Cohere Embed v4 model card, Amazon Bedrock (accessed 25 September 2026). [https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-cohere-embed-v4.html](https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-cohere-embed-v4.html)
 - Reimers, N., and Gurevych, I. (2019). "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks." *arXiv:1908.10084*. [https://arxiv.org/abs/1908.10084](https://arxiv.org/abs/1908.10084)
 - MTEB Leaderboard (Massive Text Embedding Benchmark): [https://huggingface.co/spaces/mteb/leaderboard](https://huggingface.co/spaces/mteb/leaderboard)
 

@@ -2,11 +2,11 @@
 title: "Weaviate vs pgvector - Vector Database Comparison"
 description: "Comparing Weaviate and pgvector for vector search, covering architecture, performance, operational complexity, and when to choose each."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [Weaviate, pgvector, PostgreSQL, vector-search, database]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 Weaviate is a purpose-built vector database. pgvector is a PostgreSQL extension that adds vector operations to an existing relational database. This comparison helps teams decide between adding vector search to their existing PostgreSQL setup or introducing a dedicated vector database.
@@ -40,7 +40,7 @@ Weaviate is a purpose-built vector database. pgvector is a PostgreSQL extension 
 - 1-10 million vectors: requires careful tuning (shared_buffers, effective_cache_size, maintenance_work_mem)
 - Over 10 million vectors: performance may degrade; consider a dedicated vector database
 
-pgvector's HNSW implementation has improved significantly and is competitive with dedicated vector databases at moderate scale. pgvector 0.8.0 (October 2024) added iterative index scans (`hnsw.iterative_scan` and `ivfflat.iterative_scan`), which keep scanning the index when a restrictive `WHERE` filter returns too few rows. This addresses the long-standing overfiltering problem where a filtered vector query could return fewer results than requested. The latest release is 0.8.2 (February 2026).
+pgvector's HNSW implementation has improved significantly and is competitive with dedicated vector databases at moderate scale. pgvector 0.8.0 (October 2024) added iterative index scans (`hnsw.iterative_scan` and `ivfflat.iterative_scan`), which keep scanning the index when a restrictive `WHERE` filter returns too few rows. This addresses the long-standing overfiltering problem where a filtered vector query could return fewer results than requested. The latest release is 0.8.6 (July 2026), a bug-fix and memory-usage release in the 0.8 series.
 
 ## Operational Complexity
 
@@ -66,7 +66,7 @@ The operational cost of running a separate vector database is non-trivial. For s
 
 **Weaviate self-hosted:** Infrastructure cost only. Requires dedicated compute and storage. A minimum production deployment needs 3 nodes.
 
-**Weaviate Cloud:** A free Sandbox is available for evaluation (limited object count and duration). In October 2025, Weaviate restructured Weaviate Cloud into usage-based plans. The pay-as-you-go Flex plan starts at roughly $45/month, with billing driven by three dimensions: vector dimensions stored (object count times dimensionality, adjusted for replication), storage, and backups. Annual Plus and enterprise Premium tiers add stronger SLAs and dedicated infrastructure. Always check the current pricing page, as rates vary by cloud provider and region.
+**Weaviate Cloud:** An always-free tier is available for evaluation (shared deployment, up to 100,000 objects and one collection, no backups). In October 2025, Weaviate restructured Weaviate Cloud into usage-based plans. The pay-as-you-go Flex plan has a $45/month minimum, with billing driven by three dimensions: vector dimensions stored (object count times dimensionality, adjusted for replication), storage, and backups. Premium, a prepaid commitment starting from $400/month, comes in shared or dedicated deployments with stronger SLAs (99.9% shared, 99.95% dedicated, against 99.5% on Flex). Always check the current pricing page, as rates vary by cloud provider and region.
 
 For teams already running PostgreSQL with moderate vector search needs, pgvector is effectively free.
 
@@ -106,3 +106,5 @@ Start with pgvector. It is the simplest path if you already use PostgreSQL. If a
 - [Weaviate release notes (supported versions)](https://docs.weaviate.io/weaviate/release-notes)
 - [Weaviate 1.37 release blog (built-in MCP server)](https://weaviate.io/blog/weaviate-1-37-release)
 - [A simpler, more transparent pricing model for Weaviate Cloud (October 2025)](https://weaviate.io/blog/weaviate-cloud-pricing-update)
+- [Weaviate Cloud pricing (Free, Flex, Premium; checked September 25, 2026)](https://weaviate.io/pricing)
+- [pgvector CHANGELOG (0.8.6, July 29, 2026)](https://github.com/pgvector/pgvector/blob/master/CHANGELOG.md)

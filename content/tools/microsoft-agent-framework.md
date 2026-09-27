@@ -2,8 +2,9 @@
 title: "Microsoft Agent Framework"
 description: "Microsoft Agent Framework is an open-source, production SDK for building AI agents and multi-agent workflows in .NET and Python."
 date: 2026-07-06
-lastmod: 2026-07-06
-last_updated: 2026-07-06
+lastmod: 2026-09-25
+last_updated: 2026-09-25
+last_verified: 2026-09-25
 tags: ["ai-agents", "multi-agent", "orchestration", "dotnet", "python"]
 tool_category: "AI"
 related:
@@ -47,7 +48,7 @@ Agent Framework occupies the orchestration layer between your application and th
   <div class="bz-arch-layer">
     <span class="bz-arch-layer-label">Model clients</span>
     <div class="bz-arch-layer-content">
-      <span class="bz-arch-chip">Azure AI Foundry</span>
+      <span class="bz-arch-chip">Microsoft Foundry</span>
       <span class="bz-arch-chip">Azure OpenAI</span>
       <span class="bz-arch-chip">OpenAI</span>
       <span class="bz-arch-chip-note">Chat clients that back each agent</span>
@@ -79,7 +80,7 @@ dotnet add package Microsoft.Agents.AI
 dotnet add package Azure.Identity
 ```
 
-Sign in to Azure so the credential classes can obtain a token, then set your project endpoint and model deployment name as environment variables.
+Sign in to Azure so the credential classes can obtain a token, then set your project endpoint and model deployment name as environment variables. The examples below assume a deployment named `gpt-6-sol`; GPT-6 Astra, Sol and Luna became generally available in Microsoft Foundry on 22 September 2026, so substitute the name of whichever model deployment you created in your project.
 
 ```bash
 az login
@@ -99,7 +100,7 @@ from azure.identity import AzureCliCredential
 async def main():
     client = FoundryChatClient(
         project_endpoint="https://your-project.services.ai.azure.com",
-        model="gpt-4o",
+        model="gpt-6-sol",  # your Foundry model deployment name
         credential=AzureCliCredential(),
     )
 
@@ -132,7 +133,7 @@ def get_weather(city: str) -> str:
 async def main():
     client = FoundryChatClient(
         project_endpoint="https://your-project.services.ai.azure.com",
-        model="gpt-4o",
+        model="gpt-6-sol",
         credential=AzureCliCredential(),
     )
 
@@ -197,8 +198,8 @@ The multi-agent framework space is crowded. Agent Framework's distinguishing fea
 
 Agent Framework is not the right choice in a few situations.
 
-- **You are not on the Microsoft stack.** The framework works best with Azure AI Foundry and Azure OpenAI. If your models and infrastructure live entirely in another ecosystem, a provider-neutral option like [LangChain](/tools/langchain/) may fit better.
-- **You need a mature ecosystem today.** Version 1.0 is recent. If you want years of community examples and third-party integrations, a longer-established framework has more to draw on.
+- **You are not on the Microsoft stack.** The framework works best with Microsoft Foundry (formerly Azure AI Foundry) and Azure OpenAI. If your models and infrastructure live entirely in another ecosystem, a provider-neutral option like [LangChain](/tools/langchain/) may fit better.
+- **You need a mature ecosystem today.** Version 1.0 only shipped in April 2026 (the Python package was at 1.19 and the .NET packages at 1.22 by September 2026). If you want years of community examples and third-party integrations, a longer-established framework has more to draw on.
 - **Your task is a single prompt.** If you only call one model once with no tools or coordination, an agent framework adds overhead. Call the model API directly.
 - **You are already invested in AutoGen or Semantic Kernel.** Those projects still work, but they are in maintenance mode. Plan a migration rather than starting new work on them.
 
@@ -217,3 +218,4 @@ Agent Framework is not the right choice in a few situations.
 - [Agent Framework docs - your first agent](https://learn.microsoft.com/agent-framework/get-started/your-first-agent)
 - [Agent Framework documentation home](https://learn.microsoft.com/agent-framework/)
 - [Agent Framework GitHub repository](https://github.com/microsoft/agent-framework)
+- [GPT-6 Astra, Sol and Luna for production agents in Microsoft Foundry](https://azure.microsoft.com/en-us/blog/gpt-6-astra-sol-and-luna-for-production-agents-in-microsoft-foundry/) (Microsoft Azure Blog, 22 September 2026)

@@ -1,7 +1,9 @@
 ---
 title: "Full-Stack Frameworks Compared"
-description: "Next.js, Remix, Nuxt, SvelteKit, Astro—which full-stack framework should you use? An honest comparison of rendering strategies, tradeoffs, and when to choose each."
+description: "Next.js, React Router (formerly Remix), Nuxt, SvelteKit, Astro—which full-stack framework should you use? An honest comparison of rendering strategies, tradeoffs, and when to choose each."
 date: 2026-07-30
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 1
 categories: [Basics]
 tags: [beginner, fullstack, nextjs, remix, nuxt, sveltekit, astro, ssr, ssg, frameworks]
@@ -12,11 +14,11 @@ faqs:
     answer: "Not always. If you're building a simple static site, a basic frontend framework is fine. Full-stack frameworks shine when you need server-side rendering, API routes, or complex data fetching patterns."
   - question: "Can I use these with a separate backend?"
     answer: "Yes. Many teams use Next.js or similar as a 'backend for frontend' that talks to separate APIs. The built-in API routes are optional—you can fetch from any backend."
-last_updated: 2026-07-30
+last_updated: 2026-09-25
 ---
 
 {{< quickanswer >}}
-**Next.js** is the React default with the largest ecosystem. **Remix** focuses on web fundamentals and progressive enhancement. **Nuxt** brings the same to Vue. **SvelteKit** offers the best performance with Svelte. **Astro** is content-first with optional interactivity. For most React developers: Next.js. For content sites: Astro. For Vue developers: Nuxt.
+**Next.js** is the React default with the largest ecosystem. **React Router** (the successor to Remix) focuses on web fundamentals and progressive enhancement. **Nuxt** brings the same to Vue. **SvelteKit** offers the best performance with Svelte. **Astro** is content-first with optional interactivity. For most React developers: Next.js. For content sites: Astro. For Vue developers: Nuxt.
 {{< /quickanswer >}}
 
 ## The landscape
@@ -24,7 +26,7 @@ last_updated: 2026-07-30
 | Framework | Based on | Rendering | Best for |
 |-----------|----------|-----------|----------|
 | Next.js | React | SSR, SSG, ISR | Most React projects |
-| Remix | React | SSR, progressive | Web-standard apps |
+| React Router (formerly Remix) | React | SSR, progressive | Web-standard apps |
 | Nuxt | Vue | SSR, SSG | Vue full-stack |
 | SvelteKit | Svelte | SSR, SSG | Performance-critical |
 | Astro | Any/none | Static-first | Content sites, blogs |
@@ -117,9 +119,11 @@ export async function GET() {
 
 ---
 
-## Remix
+## React Router (formerly Remix)
 
 Web-standards-focused React framework. Emphasizes progressive enhancement.
+
+**Name change:** Remix v2's features were merged into **React Router v7** (November 2024), so for React projects "Remix" now means React Router in framework mode (at the time of writing, September 2026, React Router 8.x). The Remix team is separately building **Remix 3**, a new framework that is not based on React and was still in release-candidate stage in September 2026. The code below uses React Router's framework mode.
 
 ### Philosophy
 - Embrace web platform fundamentals
@@ -130,19 +134,18 @@ Web-standards-focused React framework. Emphasizes progressive enhancement.
 ### Code example
 ```tsx
 // app/routes/users.tsx
-import { json } from '@remix-run/node';
-import { useLoaderData, Form } from '@remix-run/react';
+import { useLoaderData, Form } from 'react-router';
 
 export async function loader() {
   const users = await db.users.findMany();
-  return json({ users });
+  return { users };
 }
 
 export async function action({ request }) {
   const formData = await request.formData();
   const name = formData.get('name');
   await db.users.create({ data: { name } });
-  return json({ success: true });
+  return { success: true };
 }
 
 export default function Users() {
@@ -176,11 +179,11 @@ export default function Users() {
 ### Weaknesses
 - **Smaller ecosystem**: Less examples, fewer integrations
 - **Less SSG**: Primarily SSR-focused
-- **Newer**: Less battle-tested
+- **Rebranding churn**: The Remix-to-React-Router move means older tutorials use outdated imports
 - **Shopify-owned**: Some uncertainty about direction
 - **Learning curve**: Different patterns from typical React
 
-### When to choose Remix
+### When to choose React Router (framework mode)
 - Care about progressive enhancement
 - Building forms-heavy applications
 - Want simpler mental model
@@ -190,7 +193,7 @@ export default function Users() {
 ### Ecosystem highlights
 - **Remix Auth**: Authentication strategies
 - **Conform**: Form validation
-- **Remix Flat Routes**: Alternative routing
+- **Remix Flat Routes**: Alternative routing (works with React Router)
 
 ---
 
@@ -337,14 +340,14 @@ export const actions = {
 ### Ecosystem highlights
 - **Skeleton**: UI component library
 - **Superforms**: Form handling
-- **Lucia**: Authentication
+- **Better Auth**: Authentication (Lucia, formerly popular here, was deprecated in 2025)
 - **Paraglide**: i18n
 
 ---
 
 ## Astro
 
-Content-first framework with islands architecture.
+Content-first framework with islands architecture. The company behind Astro joined Cloudflare in January 2026; Astro remains open source (MIT) and still deploys to any platform.
 
 ### Philosophy
 - Ship zero JavaScript by default
@@ -408,7 +411,7 @@ const users = await fetch('https://api.example.com/users')
 
 ## Quick comparison
 
-| Aspect | Next.js | Remix | Nuxt | SvelteKit | Astro |
+| Aspect | Next.js | React Router | Nuxt | SvelteKit | Astro |
 |--------|---------|-------|------|-----------|-------|
 | Based on | React | React | Vue | Svelte | Any |
 | Primary mode | SSR/SSG/ISR | SSR | SSR/SSG | SSR/SSG | Static |
@@ -423,7 +426,7 @@ const users = await fetch('https://api.example.com/users')
 Initial JS bundle (approximate):
 Astro:      10-50 KB (depends on islands)
 SvelteKit:  30-80 KB
-Remix:      70-150 KB
+React Router: 70-150 KB
 Nuxt:       80-150 KB
 Next.js:    80-200 KB
 ```
@@ -441,7 +444,7 @@ Using Svelte?
   → SvelteKit
   
 Heavy forms, progressive enhancement?
-  → Remix
+  → React Router (framework mode)
   
 Using React, need flexibility?
   → Next.js
@@ -458,7 +461,7 @@ Don't know what to pick?
 | Framework | Vercel | Netlify | Cloudflare | Railway | Self-host |
 |-----------|--------|---------|------------|---------|-----------|
 | Next.js | Best | Good | Partial | Good | Good |
-| Remix | Good | Good | Best | Good | Good |
+| React Router | Good | Good | Best | Good | Good |
 | Nuxt | Good | Good | Good | Good | Good |
 | SvelteKit | Good | Good | Good | Good | Good |
 | Astro | Good | Good | Good | Good | Good |
@@ -467,7 +470,7 @@ Next.js has the deepest Vercel integration. SvelteKit and Astro have the most fl
 
 ## The honest take
 
-**For React developers**: Next.js is the safe default. Remix if you care about web standards and progressive enhancement.
+**For React developers**: Next.js is the safe default. React Router (formerly Remix) if you care about web standards and progressive enhancement.
 
 **For Vue developers**: Nuxt. It's the obvious choice with excellent DX.
 
@@ -475,7 +478,7 @@ Next.js has the deepest Vercel integration. SvelteKit and Astro have the most fl
 
 **For content sites**: Astro. Nothing beats it for blogs, docs, and marketing sites.
 
-**For apps that feel like apps**: Next.js or Remix. They handle complex interactivity better.
+**For apps that feel like apps**: Next.js or React Router. They handle complex interactivity better.
 
 **If unsure**: Next.js has the largest ecosystem and most AI support. You can always learn others later.
 
@@ -485,3 +488,4 @@ Next.js has the deepest Vercel integration. SvelteKit and Astro have the most fl
 - [Backend frameworks compared](/basics/backend-frameworks-compared/): When you need separate backends
 - [Deployment platforms compared](/basics/deployment-platforms-compared/): Where to host
 - [What is SSR vs CSR?](/basics/what-is-ssr-vs-csr/): Rendering explained
+- [Merging Remix and React Router (Remix blog)](https://remix.run/blog/merging-remix-and-react-router) and [The Astro Technology Company joins Cloudflare (16 January 2026)](https://astro.build/blog/joining-cloudflare/): background on the framework changes noted above

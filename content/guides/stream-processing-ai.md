@@ -10,10 +10,12 @@ related:
   - glossary/change-data-capture
   - guides/data-quality-ai
   - glossary/kafka
-  - glossary/apache-flink
+  - tools/apache-flink
   - guides/mlops-getting-started
-  - patterns/event-driven-ai
-last_updated: 2026-05-30
+  - glossary/event-driven-architecture
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 **This page is a build guide.** For the architectural pattern describing dual-write consistency guarantees and training-serving skew prevention, see [Real-Time Feature Computation Pattern](/patterns/stream-processing-ai/).
@@ -41,16 +43,18 @@ DataStream<FeatureEvent> purchaseCounts = events
     .filter(e -> e.getType().equals("purchase"))
     .keyBy(Event::getUserId)
     .window(SlidingEventTimeWindows.of(
-        Time.minutes(30), Time.minutes(1)))
+        Duration.ofMinutes(30), Duration.ofMinutes(1)))
     .aggregate(new CountAggregator())
     .map(count -> new FeatureEvent(
         count.getUserId(),
         "purchase_count_30m",
         count.getValue()));
 
-// Write to feature store
-purchaseCounts.addSink(new RedisSink<>(redisConfig));
+// Write to feature store (a Sink V2 implementation; Flink 2.x removed SinkFunction/addSink-style sinks)
+purchaseCounts.sinkTo(redisFeatureSink);
 ```
+
+The snippets use the Flink 2.x DataStream API (current stable line: 2.3). Flink 2.0 removed the old `Time` window helper and the `SinkFunction` interface, so 1.x examples using `Time.minutes(...)` or `addSink(new RedisSink<>(...))` no longer compile; use `java.time.Duration` and a Sink V2 connector.
 
 ### Enrichment with External Data
 
@@ -128,6 +132,7 @@ Real-time pipelines are more complex to operate than batch. Start with the use c
 ## Sources
 
 - Kleppmann, M. *Designing Data-Intensive Applications.* O'Reilly Media, 2017., Chapters 10–11 cover stream processing, exactly-once semantics, and the trade-offs between batch and streaming architectures. The standard reference for distributed data systems.
+- Apache Flink Documentation. "Release Notes - Flink 2.0." https://nightlies.apache.org/flink/flink-docs-stable/release-notes/flink-2.0/, Lists the removed `Time` and `SinkFunction` APIs and the migration to `Duration` and Sink V2.
 - Apache Flink Documentation. "Event Time and Watermarks." https://nightlies.apache.org/flink/flink-docs-stable/docs/concepts/time/, Authoritative reference for the watermark and late-data handling patterns described above.
 - Confluent Documentation. "Schema Registry." https://docs.confluent.io/platform/current/schema-registry/index.html, Schema evolution strategy referenced in the Operational Considerations section.
 - Kreps, J. "The Log: What Every Software Engineer Should Know About Real-Time Data's Unifying Abstraction." *LinkedIn Engineering Blog* (2013). https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying, Foundational essay on log-based event streaming that underpins Kafka and streaming pipelines.

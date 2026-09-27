@@ -17,7 +17,9 @@ faqs:
     answer: "These describe how much the cloud provider manages. IaaS (Infrastructure as a Service): you rent raw computing resources, VMs, storage, networking. You manage the OS, runtime, and app. Example: AWS EC2. PaaS (Platform as a Service): you deploy code; the provider manages servers, OS, scaling. Example: Heroku, Railway, Render. SaaS (Software as a Service): you use finished software through a browser. Example: Salesforce, Notion, GitHub. As you move from IaaS to SaaS, you control less but manage less."
   - question: "What is GDPR and why does my server location matter?"
     answer: "GDPR (General Data Protection Regulation) is EU law governing personal data. If you collect or process personal data about people in the EU (names, emails, location, usage data), you have legal obligations around how it is stored and processed. Storing EU user data on servers in the US without appropriate safeguards can be a violation. Most cloud providers offer EU-based regions (AWS eu-west, GCP europe-west). For apps serving EU users, run them in EU regions. This is not optional if you are serious about compliance."
-last_updated: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 {{< quickanswer >}}
@@ -108,7 +110,7 @@ Cloud billing is based on usage. Common cost drivers:
 - Data transfer: usually free to receive (ingress), charged to send (egress)
 - Database: instance size per hour plus storage
 
-For a prototype or small app: **free tiers cover most of what you need**. AWS Free Tier, GCP Free Tier, and Azure Free Account all provide 12 months of meaningful free resources for new accounts.
+For a prototype or small app: **free tiers cover most of what you need**, but the offers differ and change, so check the current terms. At the time of writing (September 2026), new AWS accounts get up to $200 in credits on a Free plan that lasts 6 months or until the credits run out ([AWS Free Tier](https://aws.amazon.com/free/)); Google Cloud gives new customers $300 in credit plus free monthly usage of popular products ([Google Cloud free program](https://cloud.google.com/free)); Azure offers 12 months of selected free services plus 65+ always-free services ([Azure free services](https://azure.microsoft.com/en-us/pricing/free-services)).
 
 For production apps: start small and monitor. Tools like [Infracost](https://www.infracost.io/) estimate costs from your infrastructure code before you deploy.
 
@@ -117,9 +119,9 @@ For production apps: start small and monitor. Tools like [Infracost](https://www
 | You want to... | Use |
 |---|---|
 | Deploy a React/Next.js app | [Vercel](https://vercel.com/), push to GitHub, deployed instantly |
-| Deploy any backend service | [Railway](https://railway.app/) or [Render](https://render.com/) |
+| Deploy any backend service | [Railway](https://railway.com/) or [Render](https://render.com/) |
 | Store files and images | [Cloudflare R2](https://developers.cloudflare.com/r2/) or [AWS S3](https://aws.amazon.com/s3/) |
-| Managed PostgreSQL | [Supabase](https://supabase.com/) or [Neon](https://neon.tech/) |
+| Managed PostgreSQL | [Supabase](https://supabase.com/) or [Neon](https://neon.com/) |
 | Learn proper cloud (AWS) | [AWS Free Tier](https://aws.amazon.com/free/) |
 
 ## Further reading

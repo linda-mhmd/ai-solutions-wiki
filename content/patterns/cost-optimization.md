@@ -5,20 +5,22 @@ date: 2026-03-24
 categories: [Patterns]
 tags: ["architecture", "intermediate", "cost-optimization", "ai-costs", "efficiency", "budgeting", "llm"]
 tools: [amazon-bedrock, claude-anthropic]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 AI inference costs in production are real and can be significant if not managed. A production system processing thousands of calls per day at premium model rates can easily accumulate 10,000-50,000 EUR per month in API costs. Cost optimization does not mean accepting lower quality - it means applying the right capability to each task at the right price.
 
 ## Tiered Model Selection
 
-Not all tasks require the same capability. Claude's model family illustrates the spectrum:
+Not all tasks require the same capability. Claude's model family illustrates the spectrum (current models and prices are in the [LLM landscape](/comparisons/llm-landscape-2026/)):
 
-- **Haiku** - Fastest, lowest cost. Suitable for: classification, extraction, routing decisions, simple summarization, validation tasks. Haiku costs roughly 10-15x less than Sonnet per token.
+- **Haiku** - Fastest, lowest cost. Suitable for: classification, extraction, routing decisions, simple summarization, validation tasks. At the time of writing (September 2026), Claude Haiku 4.5 costs half as much per token as Claude Sonnet 5 ($1 / $5 versus $2 / $10 per million input / output tokens). Earlier generations had a 10x or larger gap, so check current prices rather than assuming an old ratio.
 - **Sonnet** - Balanced capability and cost. Suitable for: complex extraction, multi-step reasoning, document analysis, code generation, customer-facing responses. The default choice for most production tasks.
-- **Opus** - Highest capability, highest cost. Suitable for: complex analysis requiring deep reasoning, multi-document synthesis, tasks where quality difference is measurable and valuable.
+- **Opus** - Highest capability, highest cost (Claude Opus 5.5: $4 / $20 per million tokens at the time of writing). Suitable for: complex analysis requiring deep reasoning, multi-document synthesis, tasks where quality difference is measurable and valuable.
 
-The cost optimization strategy: default to Haiku for the first processing step (classify/route/validate), escalate to Sonnet for tasks that require it, and reserve Opus for tasks where the quality delta is demonstrably worth the cost premium. A well-tuned tiered system can reduce costs by 40-60% versus using Sonnet for everything.
+The cost optimization strategy: default to Haiku for the first processing step (classify/route/validate), escalate to Sonnet for tasks that require it, and reserve Opus for tasks where the quality delta is demonstrably worth the cost premium. How much a tiered system saves versus using Sonnet for everything depends on the price gap between tiers at the time; with the current Claude line-up the ceiling is about 50%, while cross-vendor tiers (for example GPT-6 Luna at $0.10 / $0.50) can widen it considerably.
 
 Implementation pattern: after Haiku processes a request, include a confidence signal in the output. If confidence is below a threshold, escalate to Sonnet. This ensures the cost saving only applies when Haiku's output is actually sufficient.
 
@@ -50,3 +52,8 @@ For high-volume pipelines, a 10% reduction in average input tokens is a 10% cost
 ## Monitoring and Alerting
 
 Set cost budgets and alerts. AWS Cost Explorer with daily granularity and budget alerts prevents unexpected spikes from going undetected. Log token consumption per workflow and per endpoint. Anomalies (an endpoint suddenly using 3x normal tokens) indicate bugs (context growing unboundedly, prompt template errors) before they become expensive.
+
+## Sources
+
+1. [Claude pricing](https://platform.claude.com/docs/en/about-claude/pricing) - Anthropic, per-token prices for Claude Haiku 4.5, Sonnet 5 and Opus 5.5 (accessed 25 September 2026)
+2. [GPT-6 Luna model page](https://developers.openai.com/api/docs/models/gpt-6-luna) - OpenAI, $0.10 / $0.50 per million tokens (accessed 25 September 2026)

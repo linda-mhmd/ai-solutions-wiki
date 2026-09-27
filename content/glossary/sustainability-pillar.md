@@ -9,7 +9,9 @@ related:
   - frameworks/well-architected-ai-ml-lens
   - glossary/cost-optimization-pillar
   - glossary/performance-efficiency
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Sustainability is the sixth pillar of the AWS Well-Architected Framework, added in November 2021. It covers minimizing the environmental impact of running cloud workloads - specifically energy consumption and the carbon emissions associated with it. The pillar recognizes that cloud infrastructure, while more energy-efficient than typical on-premises data centers, still consumes significant electricity, and that architectural choices directly affect how much energy a workload consumes.
@@ -20,7 +22,7 @@ Source: [AWS Well-Architected Sustainability Pillar](https://docs.aws.amazon.com
 
 The addition of Sustainability as a pillar in 2021 reflected growing organizational commitments to reduce carbon footprints, increasing regulatory interest in the environmental impact of technology, and a recognition that sustainable architectures tend to align with efficient architectures: wasting fewer compute cycles and storing less unnecessary data reduces both cost and environmental impact.
 
-AWS has committed to powering its global infrastructure with 100 percent renewable energy by 2025 and achieving net-zero carbon by 2040, as part of The Climate Pledge. The sustainability pillar provides a framework for customers to contribute to those goals through their architectural choices.
+Amazon set a goal of matching 100 percent of its electricity use with renewable energy by 2025 and reached it early: it reports that all electricity consumed by Amazon, including AWS data centers, was matched with renewable sources in 2023, 2024, and 2025. Its longer-term commitment, through The Climate Pledge, is net-zero carbon by 2040. The sustainability pillar provides a framework for customers to contribute to those goals through their architectural choices.
 
 The Amazon Sustainability Report documents AWS's progress toward renewable energy goals and the carbon footprint metrics associated with AWS regions. Organizations with sustainability commitments can use this information to inform where they deploy workloads.
 
@@ -53,3 +55,4 @@ The sustainability pillar frames environmental responsibility not as a constrain
 - AWS. (2023). *AWS Well-Architected Framework: Sustainability Pillar*. Amazon Web Services. (Definitive reference for the six sustainability design principles: understand your impact, establish sustainability goals, maximize utilization, use managed services, reduce downstream impact, and use efficient programming languages.)
 - Patterson, D., Gonzalez, J., Le, Q., Liang, C., Munguia, L.-M., Rothchild, D., So, D., Texier, M., & Dean, J. (2021). Carbon considerations for large language model and code synthesis training. *IEEE Micro*, 42(5), 9–16. (Carbon cost of ML model training; efficient hardware selection, renewable energy regions, and model reuse to reduce AI carbon footprint.)
 - Lannelongue, L., Grealey, J., & Inouye, M. (2021). Green algorithms: Quantifying the carbon footprint of computation. *Advanced Science*, 8(12), 2100707. (Carbon footprint quantification for computational workloads; the methodology underlying AWS Customer Carbon Footprint Tool calculations.)
+- Amazon. *Carbon-free energy* (accessed 25 September 2026). [https://sustainability.aboutamazon.com/climate-solutions/carbon-free-energy](https://sustainability.aboutamazon.com/climate-solutions/carbon-free-energy) (100 percent of electricity consumed by Amazon matched with renewable energy in 2025, for the third consecutive year.)

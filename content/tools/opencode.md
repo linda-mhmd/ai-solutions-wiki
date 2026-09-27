@@ -2,8 +2,9 @@
 title: "OpenCode"
 description: "An open-source, provider-agnostic AI coding agent for the terminal, with a headless server, build and plan agents, and support for 75+ model providers."
 date: 2026-07-06
-lastmod: 2026-07-06
-last_updated: 2026-07-06
+lastmod: 2026-09-25
+last_updated: 2026-09-25
+last_verified: 2026-09-25
 tags: ["ai-coding", "coding-agent", "terminal", "open-source", "cli", "self-hosting"]
 tool_category: "AI"
 related:
@@ -103,7 +104,7 @@ The first pattern is an interactive session. Inside the TUI you run `/init` once
 # Inside the OpenCode TUI
 /init                     # survey the repo and write an AGENTS.md
 /connect                  # authenticate a provider (OAuth or API key)
-/models                   # pick a model, e.g. anthropic/claude-sonnet-4-5
+/models                   # pick a model, e.g. anthropic/claude-sonnet-5
 # type a task, then press Tab to flip between build and plan
 ```
 
@@ -112,7 +113,7 @@ The second pattern is a project config file, `opencode.json`, checked into the r
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "anthropic/claude-sonnet-4-5",
+  "model": "anthropic/claude-sonnet-5",
   "provider": {
     "anthropic": { "options": { "apiKey": "{env:ANTHROPIC_API_KEY}" } }
   },

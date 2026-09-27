@@ -4,8 +4,9 @@ description: "Amazon EventBridge is a serverless event bus that routes events be
 date: 2026-03-25
 categories: [Tools]
 tags: ["cloud-computing", "intermediate", "event-driven", "orchestration", "serverless", "workflow", "aws-service"]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 enhanced_pass: "2026-06"
 layer: orchestration
 provider: aws
@@ -44,7 +45,7 @@ The default **event bus** carries events from AWS services. EventBridge works wi
 
 **EventBridge Pipes** provide point-to-point connections between a source (Amazon SQS, DynamoDB Streams, Amazon Kinesis, Amazon MSK, and others) and a single target, with optional filtering, enrichment, and transformation in between. Pipes are billed per request after filtering, so events you filter out do not cost extra. Useful when you want to enrich an event (for example, look up a record) before triggering downstream processing.
 
-**EventBridge Scheduler** is the recommended way to run cron-based and one-time triggers, superseding the older "scheduled rules" on the event bus. It supports one-time and recurring schedules with time zone and daylight-saving awareness, can target over 200 AWS services, and as of 2025 is available in all AWS Regions. In February 2026 it added CloudWatch resource-count metrics so you can monitor how close you are to your schedule quotas.
+**EventBridge Scheduler** is the recommended way to run cron-based and one-time triggers, superseding the older "scheduled rules" on the event bus. It supports one-time and recurring schedules with time zone and daylight-saving awareness, can target over 200 AWS services, and has been available in all AWS Regions since July 2025. In February 2026 it added CloudWatch resource-count metrics so you can monitor how close you are to your schedule quotas.
 
 ## AI Pipeline Patterns
 

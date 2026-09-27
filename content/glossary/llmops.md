@@ -11,7 +11,9 @@ related:
   - glossary/llm
   - glossary/ai-gateway
   - glossary/token-budget
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 LLMOps (Large Language Model Operations) is the set of practices, tools, and infrastructure patterns for developing, deploying, monitoring, and maintaining applications built on large language models. It extends MLOps concepts to address the unique operational challenges of LLM-based systems, including prompt management, context window optimization, cost control, and evaluation of non-deterministic outputs.
@@ -32,7 +34,7 @@ Traditional MLOps focuses on training pipelines, feature stores, model versionin
 
 ## Tooling Landscape
 
-The LLMOps ecosystem includes platforms like LangSmith, Weights & Biases Weave, Arize Phoenix, and Humanloop for evaluation and monitoring. AI gateways like LiteLLM and Portkey handle routing and cost management. Vector databases support RAG workflows. And orchestration frameworks like LangChain and LlamaIndex provide abstractions for building LLM applications.
+The LLMOps ecosystem includes platforms like LangSmith, Weights & Biases Weave, Arize Phoenix, and [Langfuse](/tools/langfuse/) for evaluation and monitoring. (Humanloop, an early LLM development platform, was sunset after its team joined Anthropic in 2025.) AI gateways like LiteLLM and Portkey handle routing and cost management. Vector databases support RAG workflows. And orchestration frameworks like LangChain and LlamaIndex provide abstractions for building LLM applications.
 
 ## Organizational Considerations
 
@@ -43,3 +45,4 @@ LLMOps requires collaboration between ML engineers, platform engineers, and appl
 - Sculley, D., et al. (2015). Hidden technical debt in machine learning systems. *NeurIPS 2015*. (Foundational ML engineering paper; the operational challenges LLMOps inherits from MLOps.)
 - Liang, P., et al. (2022). Holistic evaluation of language models (HELM). *arXiv:2211.09110*. (HELM; systematic LLM evaluation framework covering accuracy, robustness, fairness, and efficiency, what LLMOps evaluation pipelines measure.)
 - Shankar, S., et al. (2022). Operationalizing machine learning: An interview study. *arXiv:2209.09125*. (Empirical study of ML production challenges; many findings directly apply to LLM operational practices.)
+- Humanloop. "Humanloop joins Anthropic" (accessed 25 September 2026). [https://humanloop.com/](https://humanloop.com/)

@@ -4,7 +4,9 @@ description: "AI applications in supply chain: demand forecasting, inventory opt
 date: 2026-03-24
 categories: [Solutions]
 tags: ["ai-ml", "advanced", "supply-chain", "logistics", "forecasting", "optimization", "ai"]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Supply chain operations generate enormous amounts of data and operate with narrow margins for error. AI improves supply chain performance primarily through better forecasting (predicting what will be needed, when, and where) and better optimization (finding more efficient paths, inventory levels, and resource allocations given real-world constraints).
@@ -21,7 +23,7 @@ Demand forecasting - predicting future customer demand to inform production, pro
 - Scaling to thousands of product-location combinations with a single model
 - Producing probabilistic forecasts (10th/50th/90th percentile predictions) that inform safety stock calculations
 
-Amazon Forecast is a managed service for time-series demand forecasting that handles feature engineering, model selection, and hyperparameter tuning. For organizations with specialized requirements or existing ML infrastructure, SageMaker with custom AutoML or forecasting libraries (Prophet, NeuralForecast) provides more flexibility.
+SageMaker Canvas offers managed time-series demand forecasting that handles feature engineering, model selection, and hyperparameter tuning (it replaces Amazon Forecast, which has been [closed to new customers since 29 July 2024](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)). For organizations with specialized requirements or existing ML infrastructure, SageMaker with custom AutoML or forecasting libraries (Prophet, NeuralForecast) provides more flexibility.
 
 ## Inventory Optimization
 

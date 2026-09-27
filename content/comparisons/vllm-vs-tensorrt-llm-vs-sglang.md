@@ -12,9 +12,9 @@ related:
   - comparisons/gpu-clouds-and-neoclouds
   - glossary/kv-cache
   - glossary/continuous-batching
-last_verified: 2026-09-04
-last_updated: 2026-09-04
-lastmod: 2026-09-04
+last_verified: 2026-09-25
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 [Managed vs. reserved vs. self-hosted inference](/comparisons/managed-vs-reserved-vs-self-hosted-inference/) covers the payment-model question — pay-as-you-go, reserved capacity, or buying and running the GPUs yourself. This page starts one decision downstream of that: self-hosting is already the constraint-driven choice, and the question is which serving engine actually runs on the hardware. vLLM, NVIDIA TensorRT-LLM, and SGLang are the three engines that dominate that choice in 2026. All three are Apache 2.0, all three expose an OpenAI-compatible HTTP API, and all three build on the same underlying idea — a paged or tree-structured [KV cache](/glossary/kv-cache/) plus [continuous batching](/glossary/continuous-batching/) to keep a GPU saturated with concurrent requests. The differences that actually decide between them are not feature-row differences. They are a hardware gate, an operational-capability tradeoff, and a support-contract question — checked in that order, before any tokens-per-second number is worth reading.
@@ -53,11 +53,11 @@ Regulatory and jurisdictional exposure, and data gravity, are both resolved *ups
 
 ## What each one actually is
 
-**vLLM** originated at UC Berkeley's Sky Computing Lab, built around PagedAttention — a KV-cache scheme borrowed from operating-system virtual memory paging — published at SOSP 2023 and open-sourced the same year.¹⁰ It became a PyTorch Foundation-hosted project in 2025, and its current release is v0.28.0.¹¹
+**vLLM** originated at UC Berkeley's Sky Computing Lab, built around PagedAttention — a KV-cache scheme borrowed from operating-system virtual memory paging — published at SOSP 2023 and open-sourced the same year.¹⁰ It became a PyTorch Foundation-hosted project in 2025, and its current release is v0.30.0 (September 22, 2026).¹¹
 
-**NVIDIA TensorRT-LLM** is NVIDIA's own optimized inference library, built on top of the proprietary TensorRT SDK (governed by NVIDIA's separate software license agreement, distinct from the Apache 2.0 license on the TensorRT-LLM code itself) and CUDA.¹² Its current stable release is v1.2.1, with v1.3 in release candidates as of late August 2026.¹³
+**NVIDIA TensorRT-LLM** is NVIDIA's own optimized inference library, built on top of the proprietary TensorRT SDK (governed by NVIDIA's separate software license agreement, distinct from the Apache 2.0 license on the TensorRT-LLM code itself) and CUDA.¹² Its current stable release is v1.2.1, with v1.3 still in release candidates (v1.3.0rc28, September 23, 2026).¹³
 
-**SGLang** was introduced in January 2024 by researchers from Stanford, UC Berkeley, Texas A&M, and Shanghai Jiao Tong University, built around RadixAttention — a radix-tree structure for automatically reusing cached KV state across requests that share a prefix — and published at NeurIPS 2024.¹⁴ It is maintained by the non-profit LMSYS, with its current release at v0.5.18.¹⁵
+**SGLang** was introduced in January 2024 by researchers from Stanford, UC Berkeley, Texas A&M, and Shanghai Jiao Tong University, built around RadixAttention — a radix-tree structure for automatically reusing cached KV state across requests that share a prefix — and published at NeurIPS 2024.¹⁴ It is maintained by the non-profit LMSYS, with its current release at v0.5.20 (September 18, 2026).¹⁵
 
 ## The mechanism that actually differs: three answers to the same memory problem
 
@@ -107,7 +107,7 @@ The actual throughput and latency for a specific model, quantization, hardware g
 10. Kwon, W. et al., "Efficient Memory Management for Large Language Model Serving with PagedAttention," SOSP 2023: [https://arxiv.org/abs/2309.06180](https://arxiv.org/abs/2309.06180) — PagedAttention design and origin at UC Berkeley.
 11. GitHub, vllm-project/vllm releases: [https://github.com/vllm-project/vllm/releases](https://github.com/vllm-project/vllm/releases) — current release version, retrieved via the GitHub API, September 2026.
 12. GitHub, NVIDIA/TensorRT-LLM, LICENSE file: [https://github.com/NVIDIA/TensorRT-LLM/blob/main/LICENSE](https://github.com/NVIDIA/TensorRT-LLM/blob/main/LICENSE) — Apache 2.0 license text for the TensorRT-LLM codebase; NVIDIA, TensorRT Software License Agreement: [https://docs.nvidia.com/deeplearning/tensorrt/latest/reference/sla.html](https://docs.nvidia.com/deeplearning/tensorrt/latest/reference/sla.html) — the separate proprietary license governing the underlying TensorRT SDK dependency.
-13. GitHub, NVIDIA/TensorRT-LLM releases: [https://github.com/NVIDIA/TensorRT-LLM/releases](https://github.com/NVIDIA/TensorRT-LLM/releases) — current stable (v1.2.1) and release-candidate (v1.3.0rc) versions, retrieved via the GitHub API, September 2026.
+13. GitHub, NVIDIA/TensorRT-LLM releases: [https://github.com/NVIDIA/TensorRT-LLM/releases](https://github.com/NVIDIA/TensorRT-LLM/releases) — current stable (v1.2.1) and release-candidate (v1.3.0rc28) versions, checked September 25, 2026.
 14. Zheng, L. et al., "SGLang: Efficient Execution of Structured Language Model Programs," NeurIPS 2024: [https://arxiv.org/abs/2312.07104](https://arxiv.org/abs/2312.07104) — RadixAttention design, author institutions, and the paper's own throughput claims against 2024-era baselines (treat as historical evidence for the approach, not a current benchmark against 2026 engine versions).
 15. GitHub, sgl-project/sglang releases: [https://github.com/sgl-project/sglang/releases](https://github.com/sgl-project/sglang/releases) — current release version, retrieved via the GitHub API, September 2026; SGLang GitHub repository README: [https://github.com/sgl-project/sglang](https://github.com/sgl-project/sglang) — LMSYS maintainership and Apache 2.0 license.
 16. vLLM documentation, "Automatic Prefix Caching": [https://docs.vllm.ai/en/latest/design/automatic_prefix_caching.html](https://docs.vllm.ai/en/latest/design/automatic_prefix_caching.html) — hash-table-based prefix cache design and its equivalence to a radix-tree eviction policy under full attention.

@@ -8,7 +8,9 @@ related:
   - tools/amazon-quicksight
   - tools/google-bigquery
   - tools/google-vertex-ai
-last_updated: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Looker is Google Cloud's enterprise business intelligence (BI) platform. Unlike traditional BI tools that extract data into a separate analytics layer, Looker uses an in-database architecture that pushes SQL queries to the underlying data warehouse (most commonly BigQuery, but also Snowflake, Redshift, and 60+ other databases). This means all users query the same live data with consistent business logic, eliminating the "multiple versions of truth" problem that plagues organizations with extract-based BI tools.
@@ -26,7 +28,7 @@ Looker integrates deeply with BigQuery and the broader GCP AI ecosystem. Analyst
 
 ## AWS Equivalent
 
-Looker is Google Cloud's counterpart to Amazon QuickSight. QuickSight emphasizes ease of use and cost efficiency with SPICE (in-memory caching) and pay-per-session pricing, while Looker focuses on governance and consistency through the LookML semantic layer. Looker is better suited for organizations that need rigorous metric definitions and embedded analytics at scale, while QuickSight is more accessible for ad hoc visualization. Looker also competes with Tableau (Salesforce) and Power BI (Microsoft).
+Looker is Google Cloud's counterpart to Amazon Quick Sight (formerly QuickSight, now delivered as part of AWS's Amazon Quick suite). Quick Sight emphasizes ease of use and cost efficiency with SPICE (in-memory caching) and pay-per-session pricing, while Looker focuses on governance and consistency through the LookML semantic layer. Looker is better suited for organizations that need rigorous metric definitions and embedded analytics at scale, while Quick Sight is more accessible for ad hoc visualization. Looker also competes with Tableau (Salesforce) and Power BI (Microsoft).
 
 ## Origins and History
 
@@ -36,3 +38,4 @@ Looker was founded in 2012 by Lloyd Tabb and Ben Porterfield in Santa Cruz, Cali
 
 1. Google Cloud Documentation. "Looker overview." https://cloud.google.com/looker/docs/intro
 2. Google Cloud Blog. "Google completes Looker acquisition." February 2020. https://cloud.google.com/blog/topics/inside-google-cloud/google-completes-looker-acquisition
+3. AWS. "Amazon Quick Sight" (BI capabilities within Amazon Quick), checked 26 September 2026. https://aws.amazon.com/quick/quicksight/

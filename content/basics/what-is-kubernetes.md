@@ -12,7 +12,9 @@ faqs:
     answer: "Because it solves complicated problems: running thousands of containers across hundreds of machines, handling failures, managing networking and storage, securing everything. The complexity matches the problem scope. For simpler problems, use simpler tools."
   - question: "What does K8s mean?"
     answer: "K8s is shorthand for Kubernetes—K, followed by 8 letters (ubernete), followed by s. Numeronyms like this are common in tech (i18n for internationalization, a11y for accessibility)."
-last_updated: 2026-07-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 {{< quickanswer >}}
@@ -279,7 +281,7 @@ You still manage worker nodes and applications, but the control plane is handled
 
 ### For managed workloads
 
-- **Serverless containers**: Cloud Run (GCP), App Runner (AWS), Azure Container Apps
+- **Serverless containers**: Cloud Run (GCP), ECS Express Mode on Fargate (AWS; App Runner is closed to new customers), Azure Container Apps
 - **Platform as a Service**: Heroku, Railway, Render
 - **Serverless functions**: Lambda, Cloud Functions
 

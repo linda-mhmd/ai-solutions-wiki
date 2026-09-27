@@ -37,7 +37,7 @@ A gateway centralizes these cross-cutting concerns. Application code sends a gen
 
 ## Implementation Approaches
 
-Self-hosted gateways like LiteLLM Proxy, Portkey, or a custom Envoy/NGINX plugin give full control. Managed services like AWS Bedrock or Azure AI Gateway reduce operational burden but limit customization.
+Self-hosted gateways like LiteLLM Proxy, Portkey, or a custom Envoy/NGINX plugin give full control. Managed services like Amazon Bedrock or the AI gateway capabilities in Azure API Management reduce operational burden but limit customization.
 
 The key architectural decision is whether the gateway is a shared service or a sidecar. A shared service is simpler to operate but introduces a single point of failure. A sidecar pattern deploys the gateway logic alongside each service, trading operational simplicity for resilience.
 

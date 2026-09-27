@@ -11,10 +11,12 @@ related:
   - glossary/model-card
   - guides/ai-regulatory-compliance-checklist
   - guides/ai-audit-readiness
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
-The EU AI Act (Regulation (EU) 2024/1689) is the first comprehensive legal framework for artificial intelligence. It entered into force on August 1, 2024, with obligations phased in between February 2025 and August 2027. This guide provides practical steps for organizations that need to comply.
+The EU AI Act (Regulation (EU) 2024/1689) is the first comprehensive legal framework for artificial intelligence. It entered into force on August 1, 2024, with obligations phased in between February 2025 and August 2028. The Digital Omnibus on AI (Regulation (EU) 2026/1744, in force since July 27, 2026) deferred the high-risk deadlines; the dates below reflect the amended text. This guide provides practical steps for organizations that need to comply.
 
 ## Timeline
 
@@ -22,9 +24,11 @@ The EU AI Act (Regulation (EU) 2024/1689) is the first comprehensive legal frame
 
 **August 2, 2025** - Obligations for general-purpose AI (GPAI) models take effect. Providers of GPAI models must comply with transparency and documentation requirements.
 
-**August 2, 2026** - Obligations for high-risk AI systems take effect. This is the most impactful deadline for most organizations.
+**August 2, 2026** - Article 50 transparency obligations (chatbot disclosure, labelling of AI-generated content) become enforceable, and the AI Office gains powers to enforce the GPAI obligations. This was originally also the high-risk deadline.
 
-**August 2, 2027** - Obligations for high-risk AI systems embedded in products covered by existing EU harmonized legislation (medical devices, machinery, vehicles) take effect.
+**December 2, 2027** - Obligations for stand-alone high-risk AI systems listed in Annex III take effect (moved from August 2, 2026 by the Digital Omnibus). This is the most impactful deadline for most organizations.
+
+**August 2, 2028** - Obligations for high-risk AI systems embedded in products covered by existing EU harmonized legislation (medical devices, machinery, vehicles) take effect (moved from August 2, 2027).
 
 ## Step 1: Inventory Your AI Systems
 
@@ -34,11 +38,11 @@ Create a complete inventory of all AI systems your organization develops, deploy
 
 The EU AI Act defines four risk categories. Map each system in your inventory to a category.
 
-**Unacceptable risk** - Prohibited practices including social scoring, manipulative techniques targeting vulnerabilities, and certain biometric identification uses. If any of your systems fall here, they must be discontinued.
+**Unacceptable risk** - Prohibited practices including social scoring, manipulative techniques targeting vulnerabilities, certain biometric identification uses, and (since the Digital Omnibus) systems for generating non-consensual intimate imagery or child sexual abuse material. If any of your systems fall here, they must be discontinued.
 
 **High risk** - AI systems listed in Annex III (biometric identification, critical infrastructure management, education access, employment decisions, creditworthiness assessment, law enforcement, migration management) or AI systems used as safety components of products covered by EU harmonized legislation. High-risk systems face the full set of compliance obligations.
 
-**Limited risk** - AI systems with specific transparency obligations, primarily chatbots and deepfake generators. Users must be informed they are interacting with AI or viewing AI-generated content.
+**Limited risk** - AI systems with specific transparency obligations, primarily chatbots and deepfake generators. Users must be informed they are interacting with AI or viewing AI-generated content. These Article 50 duties have been enforceable since August 2, 2026.
 
 **Minimal risk** - Everything else. No specific obligations beyond voluntary codes of conduct.
 
@@ -71,3 +75,9 @@ Designate responsibility for AI Act compliance within your organization. Establi
 ## Step 6: Prepare for Conformity Assessment
 
 High-risk AI systems require conformity assessment before being placed on the market. For most systems, this is a self-assessment based on internal checks. For biometric identification systems, an independent third-party assessment is required. Build the conformity assessment process into your deployment pipeline so it becomes a standard gate rather than a last-minute exercise.
+
+## Sources
+
+1. Regulation (EU) 2026/1744 (Digital Omnibus on AI), EUR-Lex: [https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng](https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng)
+2. European Commission, "Commission starts enforcing AI Act rules and new transparency requirements" (31 July 2026): [https://ec.europa.eu/commission/presscorner/detail/en/ip_26_1714](https://ec.europa.eu/commission/presscorner/detail/en/ip_26_1714)
+3. AI Solutions Wiki, [EU AI Act enforcement begins](/news/eu-ai-act-enforcement-begins-2026/) (what took effect on 2 August 2026 and what was deferred)

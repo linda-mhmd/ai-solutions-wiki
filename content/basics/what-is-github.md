@@ -2,6 +2,8 @@
 title: "What is GitHub?"
 description: "GitHub is where the world's code lives. It hosts Git repositories, enables collaboration, and is where you manage your project's issues, roadmap, and releases."
 date: 2026-05-24
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 2
 categories: [Basics]
 tags: [beginner, github, collaboration, open-source, pull-request]
@@ -95,7 +97,7 @@ Every repository can publish a website at `username.github.io/repo-name` for fre
 
 ### GitHub Copilot, AI pair programmer
 
-**GitHub Copilot** is an AI coding assistant built into VS Code, JetBrains, and other editors. It suggests code completions, generates functions from comments, and helps write tests. It is built on OpenAI's models. [More: GitHub Copilot](https://github.com/features/copilot)
+**GitHub Copilot** is an AI coding assistant built into VS Code, JetBrains, and other editors. It suggests code completions, answers questions in a chat panel, and can run as an agent that makes changes across files and opens pull requests. It lets you choose between models from several providers, including OpenAI, Anthropic, Google and xAI (at the time of writing, September 2026, for example GPT-6 Sol, Claude Opus 5.5, Gemini 3.8 Flash and Grok 4.7). [More: GitHub Copilot](https://github.com/features/copilot)
 
 ## Managing a solo project on GitHub
 

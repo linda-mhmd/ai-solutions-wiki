@@ -9,7 +9,9 @@ related:
   - guides/test-data-management-ai
   - guides/integration-testing-ai-pipelines
   - glossary/golden-dataset
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 RAG systems have two distinct components that need separate testing strategies: the retrieval pipeline (deterministic, testable with standard methods) and the generation pipeline (non-deterministic, requiring evaluation-based testing). Testing them independently and then together provides the clearest signal about where quality issues originate.
@@ -199,33 +201,44 @@ def test_no_hallucination_beyond_context():
 RAGAS provides automated metrics for RAG quality. Integrate them into your CI pipeline.
 
 ```python
-from ragas import evaluate
-from ragas.metrics import faithfulness, answer_relevancy, context_recall
-from datasets import Dataset
+from statistics import mean
+
+from openai import AsyncOpenAI
+from ragas.embeddings.base import embedding_factory
+from ragas.llms.base import llm_factory
+from ragas.metrics.collections import AnswerRelevancy, ContextRecall, Faithfulness
+
+client = AsyncOpenAI()
+judge = llm_factory("gpt-6-luna", client=client)
+embeddings = embedding_factory("openai", model="text-embedding-3-small", client=client)
+
+faithfulness = Faithfulness(llm=judge)
+answer_relevancy = AnswerRelevancy(llm=judge, embeddings=embeddings)
+context_recall = ContextRecall(llm=judge)
+
+CASES = [
+    ("What is Python?", "Python is a programming language created by Guido van Rossum."),
+    ("Who created Java?", "Java was created by James Gosling."),
+]
 
 def test_ragas_metrics():
-    test_data = {
-        "question": ["What is Python?", "Who created Java?"],
-        "answer": [
-            rag_pipeline.run("What is Python?").answer,
-            rag_pipeline.run("Who created Java?").answer,
-        ],
-        "contexts": [
-            [c.text for c in rag_pipeline.retrieve("What is Python?")],
-            [c.text for c in rag_pipeline.retrieve("Who created Java?")],
-        ],
-        "ground_truth": [
-            "Python is a programming language created by Guido van Rossum.",
-            "Java was created by James Gosling.",
-        ],
-    }
-    dataset = Dataset.from_dict(test_data)
-    scores = evaluate(dataset, metrics=[faithfulness, answer_relevancy, context_recall])
+    f_scores, r_scores, c_scores = [], [], []
+    for question, reference in CASES:
+        answer = rag_pipeline.run(question).answer
+        contexts = [c.text for c in rag_pipeline.retrieve(question)]
+        f_scores.append(faithfulness.score(
+            user_input=question, response=answer, retrieved_contexts=contexts).value)
+        r_scores.append(answer_relevancy.score(
+            user_input=question, response=answer).value)
+        c_scores.append(context_recall.score(
+            user_input=question, retrieved_contexts=contexts, reference=reference).value)
 
-    assert scores["faithfulness"] >= 0.80
-    assert scores["answer_relevancy"] >= 0.75
-    assert scores["context_recall"] >= 0.70
+    assert mean(f_scores) >= 0.80
+    assert mean(r_scores) >= 0.75
+    assert mean(c_scores) >= 0.70
 ```
+
+This uses the metric classes in `ragas.metrics.collections` (Ragas 0.4). The older pattern of `from ragas.metrics import faithfulness` plus `evaluate(Dataset.from_dict(...))` still runs in 0.4 but emits deprecation warnings (Ragas says the old metric imports will be removed in v1.0), and in current Ragas `result["faithfulness"]` returns a list of per-sample scores rather than a mean, so asserting it against a float threshold fails. Ragas now points new code to its `@experiment` workflow for full evaluation runs ([docs.ragas.io](https://docs.ragas.io/en/latest/concepts/experiment/)).
 
 ## Regression Testing When Knowledge Base Changes
 

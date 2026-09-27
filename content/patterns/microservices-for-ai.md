@@ -10,7 +10,9 @@ related:
   - patterns/feature-flags-ai
   - guides/ci-cd-for-ai
   - glossary/event-sourcing
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 An AI system built as a monolith ships fast initially but becomes brittle under load, expensive to scale selectively, and risky to update. Decomposing AI systems into independent services applies the same reasoning that drove microservices adoption in backend engineering: isolate failure domains, scale hot components independently, and deploy without coordinating every team.
@@ -67,7 +69,7 @@ POST /inference
 }
 ```
 
-The caller does not know which model is behind the endpoint. This allows swapping Claude for GPT-4 or switching from a hosted API to a fine-tuned model on SageMaker without changing any calling service.
+The caller does not know which model is behind the endpoint. This allows swapping one provider's model for another's (for example Claude for GPT-6 Sol) or switching from a hosted API to a fine-tuned model on SageMaker without changing any calling service.
 
 For a retrieval service:
 ```json

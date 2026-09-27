@@ -2,6 +2,8 @@
 title: "What is Generative AI?"
 description: "Generative AI is software that creates new content: text, images, audio, video, and code. Plain-English explanation of how it works, why it matters, and what it cannot do."
 date: 2026-06-22
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 0
 categories: [Basics]
 tags: ["beginner", "generative-ai", "llm", "image-generation", "ai-basics"]
@@ -16,7 +18,7 @@ faqs:
   - question: "How does generative AI actually work?"
     answer: "Generative AI models are trained on enormous datasets: text from the internet for language models, images for image generators. During training, the model learns statistical patterns at a very deep level, like how words relate to each other, how image features cluster, and which concepts tend to appear together. When you give it a prompt, it uses those patterns to generate a plausible continuation or transformation. It is not searching a database or copying content. It is producing new output from learned patterns."
   - question: "Is generative AI the same as ChatGPT?"
-    answer: "ChatGPT is one product built on generative AI (specifically a large language model from OpenAI). Generative AI is the technology category. Other generative AI products include: Claude (Anthropic), Gemini (Google), Midjourney and DALL-E 3 (image generation), GitHub Copilot (code), Sora and RunwayML (video), ElevenLabs (voice). ChatGPT is to generative AI what iPhone is to smartphones: a specific popular product, not the category itself."
+    answer: "ChatGPT is one product built on generative AI (specifically a large language model from OpenAI). Generative AI is the technology category. Other generative AI products include: Claude (Anthropic), Gemini (Google), Midjourney and OpenAI's GPT Image (image generation), GitHub Copilot (code), Google Veo and Runway (video), ElevenLabs (voice). ChatGPT is to generative AI what iPhone is to smartphones: a specific popular product, not the category itself."
   - question: "Can generative AI be wrong?"
     answer: "Yes, frequently. Language models generate text by predicting what comes next based on training patterns, with no built-in fact-checking mechanism. They can produce confident, fluent, incorrect statements, a problem called hallucination. They can also reflect biases in their training data. Always verify factual claims from AI tools, especially for legal, medical, or financial decisions."
   - question: "Is generative AI going to replace jobs?"
@@ -65,7 +67,7 @@ The shift is significant. Previous AI required you to define the output categori
     <span class="bz-arch-layer-label">Images</span>
     <div class="bz-arch-layer-content">
       <span class="bz-arch-chip">Midjourney</span>
-      <span class="bz-arch-chip">DALL-E 3</span>
+      <span class="bz-arch-chip">GPT Image (OpenAI)</span>
       <span class="bz-arch-chip">Stable Diffusion</span>
       <span class="bz-arch-chip">Flux</span>
       <span class="bz-arch-chip-note">Generate images from text descriptions, edit photos, create product visuals</span>
@@ -83,7 +85,8 @@ The shift is significant. Previous AI required you to define the output categori
   <div class="bz-arch-layer">
     <span class="bz-arch-layer-label">Video and code</span>
     <div class="bz-arch-layer-content">
-      <span class="bz-arch-chip">Sora (OpenAI)</span>
+      <span class="bz-arch-chip">Veo (Google)</span>
+      <span class="bz-arch-chip">Runway</span>
       <span class="bz-arch-chip">GitHub Copilot</span>
       <span class="bz-arch-chip">Lovable</span>
       <span class="bz-arch-chip">Cursor</span>
@@ -157,6 +160,7 @@ The economic case is strongest for high-volume, repeatable tasks where speed and
 - [What is an AI Agent?](/basics/what-is-an-ai-agent/): When generative AI goes beyond answering questions and starts taking actions
 - [What is AI Hallucination?](/basics/what-is-ai-hallucination/): Why generative AI makes things up and how to reduce it
 - [What is Machine Learning?](/basics/what-is-machine-learning/): The foundational technique that powers generative AI
+- [Sora vs Runway vs Veo](/comparisons/sora-vs-runway-vs-veo/): Video generation tools after OpenAI shut down Sora (app in April 2026, API on 24 September 2026)
 
 ## Further reading
 

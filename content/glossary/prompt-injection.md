@@ -12,10 +12,12 @@ related:
   - patterns/guardrails-pattern
   - news/ai-agent-security-incidents-2025-2026
   - news/mcp-security-vulnerabilities-2026
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
-Prompt injection is a class of attacks against large language model (LLM) applications where an attacker crafts input that causes the model to override its system instructions, bypass safety guardrails, or perform unintended actions. It is consistently ranked as the top vulnerability in the OWASP Top 10 for LLM Applications.
+Prompt injection is a class of attacks against large language model (LLM) applications where an attacker crafts input that causes the model to override its system instructions, bypass safety guardrails, or perform unintended actions. It is consistently ranked as the top vulnerability in the OWASP Top 10 for LLM Applications, and remains LLM01 in the 2026 edition published in August 2026, which extends it to cross-modal attacks hidden in images or audio (see the [OWASP Top 10 for LLMs guide](/guides/owasp-top-10-llm/)).
 
 ## Types of Prompt Injection
 
@@ -39,7 +41,7 @@ Prompt injection attacks have been demonstrated against customer service chatbot
 
 June 2025 marked the inflection point. Aim Labs disclosed **EchoLeak (CVE-2025-32711)**, the first weaponized indirect prompt injection in a deployed mainstream LLM product. An attacker sent the target an ordinary email; the user never opened it; Microsoft 365 Copilot read it during background processing, and a later query triggered data exfiltration.
 
-By mid-2026, prompt injection had received CVE numbers in shipped Microsoft, OpenAI, Perplexity, and Brave products. Google's web scan found malicious injection attempts increased 32% between November 2025 and February 2026. For the full timeline, see [AI Agent Security Incidents 2025-2026]({{< relref "news/ai-agent-security-incidents-2025-2026" >}}).
+By mid-2026, prompt injection had received CVE numbers in shipped Microsoft, OpenAI, Perplexity, and Brave products. Google's web scan found malicious injection attempts increased 32% between November 2025 and February 2026. The pattern continued: in September 2026 Zenity Labs disclosed SalesBleed, three zero-click prompt injection flaws in Salesforce Agentforce (since fixed) in which text submitted through a public form hijacked the agent that later read it. For the full timeline, see [AI Agent Security Incidents 2025-2026]({{< relref "news/ai-agent-security-incidents-2025-2026" >}}) and the [September 2026 agent security roundup](/news/ai-agent-security-roundup-september-2026/).
 
 Both UK NCSC and OpenAI's head of Preparedness have said publicly that prompt injection may never be fully solved at the model layer. The consensus defense is architectural: capability scoping, content separation, deterministic egress monitoring, and human approval for sensitive actions.
 
@@ -48,3 +50,5 @@ Both UK NCSC and OpenAI's head of Preparedness have said publicly that prompt in
 - Perez, F., & Ribeiro, I. (2022). Ignore previous prompt: Attack techniques for language models. *NeurIPS ML Safety Workshop 2022*. (First systematic characterization of prompt injection attacks.)
 - Greshake, K., et al. (2023). Not what you've signed up for: Compromising real-world LLM-integrated applications with indirect prompt injection. *ACM CCS Workshop on AISec 2023*. (Indirect prompt injection via external content.)
 - OWASP Foundation. (2023). *OWASP Top 10 for Large Language Model Applications, Version 1.1*. LLM01: Prompt Injection. (Industry-standard vulnerability classification and mitigation guidance.)
+- OWASP GenAI Security Project. (2026). *OWASP GenAI LLM Top 10 2026* (3 August 2026). LLM01: Prompt Injection. [https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)
+- SecurityWeek. (2026). "SalesBleed Flaws in Salesforce Agentforce Enabled Zero-Click Data Exfiltration" (25 September 2026). [https://www.securityweek.com/salesbleed-flaws-in-salesforce-agentforce-enabled-zero-click-data-exfiltration/](https://www.securityweek.com/salesbleed-flaws-in-salesforce-agentforce-enabled-zero-click-data-exfiltration/)

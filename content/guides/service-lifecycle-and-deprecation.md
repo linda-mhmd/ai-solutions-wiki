@@ -11,7 +11,9 @@ related:
   - guides/software-licensing-and-vendor-lock-in
   - guides/history-of-it
   - news/aws-service-deprecations-2026
-last_updated: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 The service lifecycle describes how a piece of technology moves from brand new to abandoned. It does not happen overnight. A tool drifts through predictable stages, and at each stage the cost of leaving climbs higher. Understanding this pattern explains why banks still run software written in the 1980s, and why "legacy" makes engineers wince while everyone else shrugs.
@@ -95,12 +97,14 @@ The stages above are not just history. As of September 2026, several AI and clou
 |---|---|---|---|
 | **AWS App Mesh** | AWS | 2026-09-30, full discontinuation | Amazon ECS Service Connect or Amazon VPC Lattice |
 | **Amazon Nova Reel v1:1** (Bedrock) | AWS | 2026-09-30, model end of life | A newer Bedrock video model |
+| **Amazon Nova Canvas v1:0** (Bedrock) | AWS | 2026-09-30, model end of life | A newer Bedrock image model |
+| **`gpt-3.5-turbo-instruct`** (and `babbage-002`, `davinci-002`) | OpenAI | 2026-09-28, model shutdown | `gpt-5.6-terra` |
 | **gemini-omni-flash-preview** | Google | 2026-09-30, endpoint shutdown | `gemini-omni-1.1-flash` |
 | **[Azure AI Personalizer](/tools/azure-personalizer/)** | Microsoft | 2026-10-01, service retirement | The open-source `microsoft/learning-loop` project |
 
-App Mesh and Personalizer are full Stage 5 shutdowns: after the date, the console and API stop responding, not merely stop accepting new customers. The two model retirements are the same pattern applied to a model ID instead of a service, once the EOL date passes, a call to that endpoint stops working, exactly like an API losing support. Nova Reel's v1:0 build carries the identical 2026-09-30 end-of-life date, so both versions leave at once. Personalizer's own date is worth treating as provisional: Microsoft's original 2023 announcement and most current documentation say 1 October 2026, but Microsoft's own product-lifecycle tracker page currently lists 26 August 2026 for the same retirement, an unresolved conflict between Microsoft's own properties rather than a settled date.
+App Mesh and Personalizer are full Stage 5 shutdowns: after the date, the console and API stop responding, not merely stop accepting new customers. The two model retirements are the same pattern applied to a model ID instead of a service, once the EOL date passes, a call to that endpoint stops working, exactly like an API losing support. Nova Reel's v1:0 build carries the identical 2026-09-30 end-of-life date, so both versions leave at once, alongside Nova Canvas. Several shutdowns in the same wave have already happened: OpenAI's Assistants API shut down on 26 August 2026, Amazon Nova Premier and Nova Sonic v1 reached end of life on 14 September 2026, and OpenAI's Videos API with `sora-2` and `sora-2-pro` shut down on 24 September 2026 with no replacement named. Personalizer's own date is worth treating as provisional: Microsoft's original 2023 announcement and most current documentation say 1 October 2026, but Microsoft's own product-lifecycle tracker page currently lists 26 August 2026 for the same retirement, an unresolved conflict between Microsoft's own properties rather than a settled date.
 
-This wave is not an isolated event. Earlier in 2026, AWS moved a much larger batch of AI services, Kendra, the original Bedrock Agents, Amazon Q Business, into maintenance mode on their own separate timeline; see [AWS consolidates its AI stack](/news/aws-service-deprecations-2026/) for that fuller list and for how "maintenance mode" and "closed to new customers" differ from a hard shutdown like the ones above.
+This wave is not an isolated event. Earlier in 2026, AWS moved a much larger batch of AI services, Kendra, the original Bedrock Agents (now called Bedrock Agents Classic, closed to new customers since 30 July 2026, with AWS pointing new builds to Amazon Bedrock AgentCore), Amazon Q Business, into maintenance mode on their own separate timeline; see [AWS consolidates its AI stack](/news/aws-service-deprecations-2026/) for that fuller list and for how "maintenance mode" and "closed to new customers" differ from a hard shutdown like the ones above.
 
 ## How to respond at each stage
 
@@ -137,5 +141,8 @@ The systems that hurt are the ones nobody planned to leave. Watch the stages, ma
 - [Don't Panic: Kubernetes and Docker](https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/): the dockershim deprecation, explained calmly and early.
 - [AWS App Mesh end-of-support notice](https://docs.aws.amazon.com/app-mesh/latest/userguide/doc-history.html): the 30 September 2026 discontinuation date, stated directly in the doc history.
 - [Amazon Nova Reel model card](https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-reel.html): Bedrock's own EOL date for the Nova Reel v1:0/v1:1 models.
+- [Amazon Bedrock model lifecycle (legacy)](https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html): EOL dates for Nova Canvas and Nova Reel (30 September 2026) and Nova Premier and Nova Sonic v1 (14 September 2026).
+- [OpenAI API deprecations](https://developers.openai.com/api/docs/deprecations): shutdown dates for the Assistants API (26 August 2026), the Videos API and Sora 2 models (24 September 2026), and `gpt-3.5-turbo-instruct` (28 September 2026).
+- [Bedrock Agents Classic maintenance mode](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html): AWS's notice that Bedrock Agents Classic closed to new customers on 30 July 2026.
 - [Gemini API deprecations](https://ai.google.dev/gemini-api/docs/deprecations): Google's list of retiring model endpoints, including `gemini-omni-flash-preview`.
 - [Azure Personalizer product lifecycle](https://learn.microsoft.com/en-us/lifecycle/products/azure-personalizer): Microsoft's own lifecycle tracker, which lists 26 August 2026 as the retirement date, conflicting with the 1 October 2026 date used above and given in the [original 2023 retirement announcement](https://azure.microsoft.com/updates/ai-services-personalizer-will-be-retired-on-1-october-2026/) — an unresolved discrepancy between Microsoft's own sources at the time of writing.

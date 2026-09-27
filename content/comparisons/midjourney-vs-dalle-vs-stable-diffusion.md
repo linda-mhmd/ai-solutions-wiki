@@ -12,9 +12,9 @@ related:
   - basics/what-is-generative-ai
   - glossary/diffusion-models
   - glossary/lora
-last_verified: 2026-09-04
-last_updated: 2026-09-04
-lastmod: 2026-09-04
+last_verified: 2026-09-25
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -28,7 +28,7 @@ lastmod: 2026-09-04
 
 Midjourney is a paid-only image generator you now reach mainly through a web app at midjourney.com — Discord, which used to be the *only* way in, is now an optional sign-in method rather than a requirement, and most users work from the browser interface today [1][3]. There has never been a free tier since Midjourney removed its original trial in March 2023, and that hasn't changed [1].
 
-The current default model is **V8.1** (default since 11 June 2026), with **V8.2** following in July 2026 as a refinement pass — bolder aesthetics, fewer weak outputs, better personalization [2]. What hasn't changed across versions is the reason people specifically ask for Midjourney by name: its default output looks more like finished art — painterly, cinematic, considered — than a typical diffusion model's default, without any prompt-engineering effort. That's a real, distinctive product quality, not marketing.
+The current default model is **V8.1** (default since 11 June 2026), with **V8.2** following in July 2026 as a refinement pass — bolder aesthetics, fewer weak outputs, better personalization — and a dedicated **edit model for V8** on 27 August 2026 [2][13]. What hasn't changed across versions is the reason people specifically ask for Midjourney by name: its default output looks more like finished art — painterly, cinematic, considered — than a typical diffusion model's default, without any prompt-engineering effort. That's a real, distinctive product quality, not marketing.
 
 Pricing is a flat monthly tier, no per-image metering, paid in USD, with roughly 20% off for annual billing:
 
@@ -45,11 +45,11 @@ Pricing is a flat monthly tier, no per-image metering, paid in USD, with roughly
 
 This is the fact most in need of updating if what you remember is "DALL-E 3." It's retired. OpenAI deprecated both `dall-e-2` and `dall-e-3` in its API on **12 May 2026**, and separately retired the standalone "DALL·E" app inside the ChatGPT store on **30 August 2026** [4][8]. Neither exists as a live product anymore.
 
-What replaced it is **GPT Image 2** (`gpt-image-2`), which reached general availability on **21 April 2026** and is now OpenAI's default image-generation and editing model, both in the API and inside ChatGPT itself, where it's branded simply **"ChatGPT Images"** [4][5][9]. That naming is the real change to understand: image generation is no longer a separate destination or brand, it's a capability of the chat interface you're already in — you type "make me a poster of a fox reading in a library," and it generates inline, in the same thread, editable by follow-up messages ("make the sky darker") rather than by re-writing the whole prompt.
+What replaced it is **GPT Image 2** (`gpt-image-2`), which reached general availability on **21 April 2026**, both in the API and inside ChatGPT itself, where image generation is branded simply **"ChatGPT Images"** [4][5][9]. On **8 September 2026** OpenAI added two successors in the API: **GPT Image 2.5 Sunburst** (`gpt-image-2.5-sunburst`, for precise editing) and **GPT Image 2.5 Flare** (`gpt-image-2.5-flare`, fast everyday generation), both with new `xhigh` and `max` quality settings and billed at GPT Image 2 token rates [14]. That naming is the real change to understand: image generation is no longer a separate destination or brand, it's a capability of the chat interface you're already in — you type "make me a poster of a fox reading in a library," and it generates inline, in the same thread, editable by follow-up messages ("make the sky darker") rather than by re-writing the whole prompt.
 
 That's also its biggest practical advantage: **onboarding is trivial.** If you already have a ChatGPT account — including the free tier, which now includes ChatGPT Images with usage caps and queuing rather than gating it behind a paid plan entirely — you already have access [8][9]. ChatGPT Plus ($20/month) and Pro (OpenAI's higher tier, priced at $200/month) raise the generation limits substantially; see [AI subscription pricing 2026](/comparisons/ai-subscription-pricing-2026/) for this wiki's tracked, current figures across all the major chat subscriptions, since exact regional pricing shifts more often than this page should try to re-verify.
 
-Via the API, pricing is token-based rather than a flat per-image fee, which is a genuine mechanical difference from how DALL-E used to bill: OpenAI's own pricing documentation lists $5 per million text-prompt tokens, $8 per million image-input tokens (for edits), and $30 per million output tokens for `gpt-image-2`, batch processing at roughly half that [6]. In practice that works out to roughly $0.02–$0.20 for a single image depending on resolution and quality setting — check OpenAI's own cost calculator before budgeting a specific volume, because the exact figure moves with size and quality far more than a flat-fee competitor's pricing does [6].
+Via the API, pricing is token-based rather than a flat per-image fee, which is a genuine mechanical difference from how DALL-E used to bill: OpenAI's own pricing documentation lists $5 per million text-prompt tokens, $8 per million image-input tokens (for edits), and $30 per million output tokens for `gpt-image-2` — the same rates the GPT Image 2.5 models use — with batch processing at roughly half that [6][14]. In practice that works out to roughly $0.02–$0.20 for a single image depending on resolution and quality setting — check OpenAI's own cost calculator before budgeting a specific volume, because the exact figure moves with size and quality far more than a flat-fee competitor's pricing does [6].
 
 The tradeoff for that convenience: GPT Image's default aesthetic is generally more literal and less immediately "artistic" than Midjourney's out of the box, and because it inherits ChatGPT's content policy, it's noticeably more conservative than either Midjourney or an uncensored local Stable Diffusion checkpoint on things like real people's likenesses, some copyrighted characters, and other edge-case requests — a real constraint if that's specifically what you need.
 
@@ -66,7 +66,7 @@ What actually distinguishes Stable Diffusion from the other two is the ecosystem
 | | Midjourney | GPT Image (formerly DALL-E) | Stable Diffusion |
 |---|---|---|---|
 | Access | Web app (midjourney.com), Discord optional | Inside ChatGPT, or the OpenAI API | Local (ComfyUI/A1111) or hosted API |
-| Current model | V8.1 (V8.2 refinement, Jul 2026) | GPT Image 2 (`gpt-image-2`, GA Apr 2026) | Stable Diffusion 3.5 (Large/Turbo/Medium) |
+| Current model | V8.1 (V8.2 refinement, Jul 2026) | GPT Image 2.5 Sunburst / Flare (API, Sep 2026); GPT Image 2 (GA Apr 2026) | Stable Diffusion 3.5 (Large/Turbo/Medium) |
 | Free tier | None, ever | Yes — ChatGPT Free, capped/queued | Yes — free after your own hardware |
 | Cheapest paid entry | $10/mo (Basic) | $20/mo (ChatGPT Plus) | ~€0.03–0.07/image hosted, or $0 local |
 | Default aesthetic | Painterly, cinematic, distinctive | More literal, conversational editing | Depends heavily on checkpoint/LoRA used |
@@ -103,6 +103,8 @@ None of this is permanent. All three vendors ship new model versions every few m
 10. Stability AI, Stable Image product page, confirming Stable Diffusion 3.5 as the current flagship release, fetched September 2026: [https://stability.ai/stable-image](https://stability.ai/stable-image)
 11. Stability AI, News & Updates feed, showing no Stable Diffusion 4 announcement through the most recent entry (25 August 2026), fetched September 2026: [https://stability.ai/news-updates](https://stability.ai/news-updates)
 12. Stability AI, Community License terms ($1M annual revenue threshold for free commercial use): [https://stability.ai/license](https://stability.ai/license)
+13. Midjourney, "Edit Model for V8" (27 August 2026) and Alpha Changelog 9/23/26, fetched 25 September 2026: [https://updates.midjourney.com/](https://updates.midjourney.com/)
+14. OpenAI, API changelog, 8 September 2026 entry releasing GPT Image 2.5 Sunburst and Flare (`xhigh`/`max` quality, GPT Image 2 token rates): [https://developers.openai.com/api/docs/changelog](https://developers.openai.com/api/docs/changelog)
 
 ## Further reading
 

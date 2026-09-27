@@ -2,12 +2,12 @@
 title: "Backstage vs Red Hat Developer Hub - Build It or Buy the Support Contract"
 description: "Backstage and Red Hat Developer Hub are the same software underneath — RHDH is a curated, commercially supported distribution of upstream Backstage. The decision is whether you have, or want to build, the in-house platform engineering capacity to run and upgrade Backstage yourself, or would rather pay a subscription for a vendor to do it with an SLA behind it."
 date: 2026-09-03
-last_verified: 2026-09-03
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: ["backstage", "red-hat-developer-hub", "platform-engineering", "developer-portal", "build-vs-buy", "open-source", "internal-developer-platform", "openshift"]
 tools: [backstage, red-hat-developer-hub]
-last_updated: 2026-09-03
-lastmod: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 related:
   - tools/backstage
   - tools/red-hat-developer-hub
@@ -17,7 +17,7 @@ related:
   - glossary/platform-engineering
 ---
 
-Red Hat Developer Hub (RHDH) is not a competitor to Backstage — it is Backstage, repackaged. Every RHDH installation runs the open-source Backstage framework underneath, tracking a specific upstream version (RHDH 1.9, shipped March 2026, runs on Backstage 1.45.3). So this is not a features comparison; a feature you find in one is, with enough engineering time, buildable in the other. It is a build-vs-buy decision about who carries the operational weight of running a Node.js application, its plugin ecosystem, and its upgrade cadence: your own platform team, or Red Hat, under a subscription with a support SLA attached. The honest question to ask first is not "which has more features" but "do we have, or want to build, the in-house capability to be Backstage's maintainer" — because that is the job either way; the only variable is who's employed to do it.
+Red Hat Developer Hub (RHDH) is not a competitor to Backstage — it is Backstage, repackaged. Every RHDH installation runs the open-source Backstage framework underneath, tracking a specific upstream version (RHDH 1.9, shipped March 2026, ran on Backstage 1.45.3; the current 1.10 line, first tagged in June 2026, is built on Backstage 1.49.4). So this is not a features comparison; a feature you find in one is, with enough engineering time, buildable in the other. It is a build-vs-buy decision about who carries the operational weight of running a Node.js application, its plugin ecosystem, and its upgrade cadence: your own platform team, or Red Hat, under a subscription with a support SLA attached. The honest question to ask first is not "which has more features" but "do we have, or want to build, the in-house capability to be Backstage's maintainer" — because that is the job either way; the only variable is who's employed to do it.
 
 ## What each one actually is
 
@@ -104,3 +104,4 @@ Red Hat does not publish public list pricing for Developer Hub; it is sold as a 
 13. Roadie, "Backstage: How much does it really cost?" (self-hosted headcount and cost figures; Roadie is a vendor of the managed alternative, so treat these figures as vendor-sourced, not an independent benchmark): [https://roadie.io/blog/backstage-how-much-does-it-really-cost/](https://roadie.io/blog/backstage-how-much-does-it-really-cost/)
 14. CDW, "Red Hat Developer Hub - premium subscription (1 year) - 10 users" product listing (third-party reseller price point; Red Hat does not publish public list pricing, so treat as one observed data point, not an official rate card): [https://www.cdw.com/product/red-hat-developer-hub-premium-subscription-1-year-10-users/7891791](https://www.cdw.com/product/red-hat-developer-hub-premium-subscription-1-year-10-users/7891791)
 15. Spotify Engineering, "Celebrating Five Years of Backstage" (open-source date, March 16, 2020): [https://engineering.atspotify.com/2025/4/celebrating-five-years-of-backstage](https://engineering.atspotify.com/2025/4/celebrating-five-years-of-backstage)
+16. Red Hat, "Red Hat Developer Hub Life Cycle" (lists supported versions 1.10 and 1.9), checked 25 September 2026: [https://access.redhat.com/support/policy/updates/developerhub](https://access.redhat.com/support/policy/updates/developerhub); `redhat-developer/rhdh` tag 1.10.0 `backstage.json` (Backstage 1.49.4): [https://github.com/redhat-developer/rhdh/blob/1.10.0/backstage.json](https://github.com/redhat-developer/rhdh/blob/1.10.0/backstage.json)

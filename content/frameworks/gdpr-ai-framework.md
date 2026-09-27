@@ -16,7 +16,9 @@ related:
   - patterns/gdpr-compliant-ml-pipeline
   - patterns/privacy-preserving-ai
   - comparisons/gdpr-vs-eu-ai-act
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 The General Data Protection Regulation applies to any AI system that processes personal data of individuals in the EU, regardless of where the organization is based. GDPR was not written specifically for AI, but its principles create binding constraints on how machine learning models are trained, deployed, and maintained. Organizations building AI systems must understand where GDPR intersects with their ML workflows and what compliance requires in practice.
@@ -63,6 +65,11 @@ This creates a practical framework: if an organization can demonstrate that its 
 
 ## Enforcement Landscape
 
-GDPR penalties reach up to 4% of global annual revenue or 20 million euros, whichever is higher. As of 2025, GDPR is being used as the primary enforcement tool for AI regulation while AI-specific rules under the EU AI Act are still being phased in. Data protection authorities across the EU have increased scrutiny of AI systems, with several enforcement actions targeting AI companies for insufficient legal basis, inadequate transparency, or failure to conduct DPIAs.
+GDPR penalties reach up to 4% of global annual revenue or 20 million euros, whichever is higher. GDPR has been the primary enforcement tool for AI regulation while AI-specific rules under the EU AI Act phase in; the AI Act's high-risk obligations were deferred to December 2027 and August 2028 by the Digital Omnibus (Regulation (EU) 2026/1744). Separately, the Commission's Digital Omnibus proposal of 19 November 2025 would amend the GDPR itself, including how legitimate interest applies to AI development; as of September 2026 it was still in legislative negotiation, so the current GDPR text applies. Data protection authorities across the EU have increased scrutiny of AI systems, with several enforcement actions targeting AI companies for insufficient legal basis, inadequate transparency, or failure to conduct DPIAs.
 
 Organizations should treat GDPR compliance not as a one-time project but as a continuous obligation that evolves alongside their AI systems.
+
+## Sources
+
+1. European Commission, "Digital Omnibus Regulation Proposal" (19 November 2025): [https://digital-strategy.ec.europa.eu/en/library/digital-omnibus-regulation-proposal](https://digital-strategy.ec.europa.eu/en/library/digital-omnibus-regulation-proposal)
+2. Regulation (EU) 2026/1744 (Digital Omnibus on AI), EUR-Lex: [https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng](https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng)

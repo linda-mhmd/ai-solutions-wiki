@@ -2,14 +2,14 @@
 title: "LangChain vs DSPy - LLM Application Development Compared"
 description: "Comparing LangChain and DSPy for building LLM applications, covering programming models, prompt management, and optimization approaches."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [LangChain, DSPy, LLM, framework, comparison]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
-LangChain and DSPy represent fundamentally different philosophies for building LLM applications. LangChain provides composable abstractions for chaining LLM calls with tools and data. DSPy treats LLM interactions as optimizable programs where prompts are compiled rather than hand-written. Understanding this philosophical difference is key to choosing between them. Both have reached major milestones recently: LangChain shipped its first stable 1.0 release in October 2025, and DSPy shipped its 3.0 release in August 2025.
+LangChain and DSPy represent fundamentally different philosophies for building LLM applications. LangChain provides composable abstractions for chaining LLM calls with tools and data. DSPy treats LLM interactions as optimizable programs where prompts are compiled rather than hand-written. Understanding this philosophical difference is key to choosing between them. Both are now on stable major versions: LangChain shipped its first stable 1.0 release in October 2025 (the current line is 1.4.x, September 2026), and DSPy shipped its 3.0 release in August 2025 (3.4.0 was released on 25 September 2026).
 
 ## Overview
 
@@ -19,7 +19,7 @@ LangChain and DSPy represent fundamentally different philosophies for building L
 | Prompt Management | Manual prompt templates | Automated prompt compilation |
 | Learning Curve | Moderate (many abstractions) | Steep (new programming paradigm) |
 | Ecosystem | Very large (integrations, tools) | Growing, research-oriented |
-| Production Readiness | Widely deployed, stable 1.0 (Oct 2025) | Maturing, stable 3.0 (Aug 2025) |
+| Production Readiness | Widely deployed, stable since 1.0 (Oct 2025), 1.4.x in Sep 2026 | Maturing, stable since 3.0 (Aug 2025), 3.4 in Sep 2026 |
 | Community | Large, active | Smaller but growing, Stanford NLP roots |
 
 ## Programming Model
@@ -71,3 +71,4 @@ For most production applications today, LangChain's ecosystem maturity and commu
 - DSPy documentation. [https://dspy.ai/](https://dspy.ai/)
 - Khattab, O., Singhvi, A., Maheshwari, P., et al. (2024). *DSPy: Compiling Declarative Language Model Calls into State-of-the-Art Pipelines.* ICLR 2024. arXiv:2310.03714. [https://arxiv.org/abs/2310.03714](https://arxiv.org/abs/2310.03714)
 - Agrawal, L. A., Potts, C., Zaharia, M., Khattab, O., et al. (2025). *GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning.* arXiv:2507.19457. [https://arxiv.org/abs/2507.19457](https://arxiv.org/abs/2507.19457)
+- PyPI. *langchain* and *dspy* release histories (langchain 1.4.2, 18 September 2026; dspy 3.4.0, 25 September 2026). [https://pypi.org/project/langchain/](https://pypi.org/project/langchain/), [https://pypi.org/project/dspy/](https://pypi.org/project/dspy/)

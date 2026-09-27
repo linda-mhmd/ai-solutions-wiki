@@ -21,7 +21,7 @@ For any application that processes LLM output programmatically, request JSON out
 
 Structure the schema request in the prompt: "Return your response as JSON matching this schema: { field: type, ... }". For critical applications, validate the response against the schema before processing and implement a retry with a correction prompt if validation fails.
 
-Modern models (Claude, GPT-4, Gemini) support structured output modes that constrain generation to valid JSON - use these features when available rather than relying on the model's willingness to produce JSON in freeform generation.
+Modern models (Claude, GPT, Gemini) support structured output modes that constrain generation to valid JSON - use these features when available rather than relying on the model's willingness to produce JSON in freeform generation.
 
 ## Pattern 2 - Chain-of-Thought for Complex Reasoning
 

@@ -5,7 +5,9 @@ date: 2026-03-24
 categories: [Guides]
 tags: ["project-management", "beginner", "aws-funding", "poc", "proof-of-concept", "cloud-credits", "startup"]
 tools: [amazon-bedrock, amazon-sagemaker]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 AWS provides funding programs that offset the cost of proof-of-concept projects, cloud migrations, and production AI workloads. These programs are underused, primarily because most companies do not know they exist or find the application process opaque. If you are planning an AI project on AWS, funding should be one of the first things you explore.
@@ -28,7 +30,7 @@ For context: a project expected to generate $100,000 in annual AWS spend post-pr
 
 The AWS Migration Acceleration Program (MAP) covers migration of existing workloads to AWS - databases, applications, data warehouses. For AI projects that involve migrating data from on-premise to AWS before building AI capabilities, MAP can cover a substantial part of the migration cost.
 
-MAP funding has been updated significantly. As of mid-2024, the maximum credit pool increased from approximately $460,000 to **$2 million USD** for large migrations.[^2]
+MAP funding was updated significantly in 2024: effective 1 July 2024, the maximum credit pool increased from approximately $460,000 to **$2 million USD** for large migrations.[^2] That is the most recent publicly reported change to the cap; AWS's public MAP pages still do not publish amounts (checked 25 September 2026), so confirm current caps with your AWS Partner or account team.
 
 MAP comes in two tiers:
 

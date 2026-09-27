@@ -7,7 +7,9 @@ tags: [open-source, notifications, messaging, email, sms, push-notifications, de
 related:
   - tools/amazon-pinpoint
   - tools/supabase
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Novu is an open-source notification infrastructure platform that provides a unified API for managing transactional notifications across multiple communication channels. It enables developers to send notifications via email, SMS, push notifications, in-app messages, and chat platforms (Slack, Discord, Microsoft Teams) through a single API, abstracting away the complexity of integrating with multiple delivery providers and managing notification preferences, templates, and delivery logic.
@@ -25,13 +27,14 @@ Novu is used by development teams building SaaS applications, marketplaces, and 
 
 ## Cloud Equivalents
 
-Novu is the open-source alternative to AWS Pinpoint, Azure Notification Hubs, and Firebase Cloud Messaging. Cloud notification services offer higher scalability for campaign-style messaging, while Novu provides a developer-centric, multi-channel approach focused on transactional notifications with full control over templates, preferences, and delivery logic.
+Novu is the open-source alternative to Amazon Pinpoint, Azure Notification Hubs, and Firebase Cloud Messaging. Note that Amazon Pinpoint stopped accepting new customers on 20 May 2025 and reaches end of support on 30 October 2026; its SMS, voice, push, and WhatsApp channel APIs continue as AWS End User Messaging, email moves to Amazon SES, and AWS points engagement workloads to Amazon Connect outbound campaigns and Customer Profiles. Cloud notification services offer higher scalability for campaign-style messaging, while Novu provides a developer-centric, multi-channel approach focused on transactional notifications with full control over templates, preferences, and delivery logic.
 
 ## Origins and History
 
-Novu was founded in 2021 by Dima Grossman and Tomer Barnea. The project was initially called Notifire before being renamed to Novu. It is licensed under the MIT License. Novu participated in Y Combinator and has raised venture funding to support development. The project has accumulated over 30,000 GitHub stars, making it one of the most popular open-source notification frameworks. Novu 1.0, released in 2024, introduced the Framework SDK for defining notification workflows as code.
+Novu was founded in 2021 by Dima Grossman and Tomer Barnea. The project was initially called Notifire before being renamed to Novu. The core is licensed under the MIT License, with separately licensed enterprise packages. Novu participated in Y Combinator and has raised venture funding to support development. The project has accumulated over 40,000 GitHub stars, making it one of the most popular open-source notification frameworks. Novu 2.0, released in October 2024, built the platform around the Novu Framework SDK for defining notification workflows as code.
 
 ## Sources
 
 1. https://novu.co/
-2. https://github.com/novuhq/novu
+2. https://github.com/novuhq/novu (LICENSE-MIT, LICENSE-ENTERPRISE; v2.0.0 released 24 October 2024)
+3. AWS. "Amazon Pinpoint end of support." https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html

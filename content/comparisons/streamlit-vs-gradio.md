@@ -2,14 +2,14 @@
 title: "Streamlit vs Gradio for AI Application Interfaces"
 description: "Comparing Streamlit and Gradio for building AI demo interfaces and internal tools, covering capabilities, ease of use, and deployment options."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [Streamlit, Gradio, UI, prototyping, AI-development]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
-Streamlit and Gradio let Python developers build web interfaces for AI applications without writing HTML, CSS, or JavaScript. Both are popular for AI demos, internal tools, and prototyping. They differ in focus: Gradio is optimized for ML model interfaces, while Streamlit is a more general-purpose data application framework. Streamlit is owned by Snowflake (acquired in 2022) and ships as the 1.x series (1.58.0, May 2026). Gradio is maintained by Hugging Face and reached its sixth major version (Gradio 6) in 2026, a rewrite focused on performance and a standardized Python API.
+Streamlit and Gradio let Python developers build web interfaces for AI applications without writing HTML, CSS, or JavaScript. Both are popular for AI demos, internal tools, and prototyping. They differ in focus: Gradio is optimized for ML model interfaces, while Streamlit is a more general-purpose data application framework. Streamlit is owned by Snowflake (acquired in 2022) and ships as the 1.x series (1.64.0, September 2026). Gradio is maintained by Hugging Face and reached its sixth major version (Gradio 6.0, November 2025; 6.28.0 as of September 2026), a release focused on performance and a standardized Python API.
 
 ## Quick Comparison
 

@@ -8,7 +8,9 @@ related:
   - guides/ci-cd-for-ai
   - guides/devsecops-ai
   - patterns/microservices-for-ai
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 ML projects are software projects. The model is one component; the surrounding code handles data loading, feature engineering, API serving, monitoring, and orchestration. This surrounding code is often under-tested because teams focus on model accuracy metrics and neglect standard software quality practices. The result: production failures in data pipelines, API servers, and deployment scripts - not in the model itself.
@@ -138,7 +140,7 @@ select = [
     "UP",         # pyupgrade
     "B",          # bugbear (common bugs)
     "SIM",        # simplify
-    "TCH",        # type checking
+    "TC",         # flake8-type-checking (formerly TCH)
 ]
 ```
 

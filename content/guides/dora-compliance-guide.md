@@ -10,10 +10,12 @@ related:
   - glossary/supply-chain-security
   - guides/ai-security-best-practices
   - guides/ai-incident-response
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
-DORA applies to financial entities from January 2025 and covers all ICT systems, including AI. This guide focuses on the specific compliance requirements for AI systems in financial services.
+DORA has applied to financial entities since 17 January 2025 and covers all ICT systems, including AI. This guide focuses on the specific compliance requirements for AI systems in financial services.
 
 ## ICT Risk Management for AI Systems
 
@@ -37,7 +39,7 @@ DORA requires regular testing including vulnerability assessments, scenario-base
 
 DORA places significant requirements on managing third-party ICT providers, including AI service providers. If you use external LLM APIs, cloud-hosted ML platforms, or third-party AI models, these relationships fall under DORA's third-party risk management requirements.
 
-**Practical steps:** Register all AI-related ICT third-party providers. Ensure contracts include provisions for audit rights, security requirements, incident notification, data location, and exit strategies. Assess concentration risk if multiple critical AI functions depend on the same provider. Maintain exit strategies that include the ability to switch AI providers or bring capabilities in-house. Monitor the European Supervisory Authorities' designation of critical ICT third-party providers.
+**Practical steps:** Register all AI-related ICT third-party providers. Ensure contracts include provisions for audit rights, security requirements, incident notification, data location, and exit strategies. Assess concentration risk if multiple critical AI functions depend on the same provider. Maintain exit strategies that include the ability to switch AI providers or bring capabilities in-house. Check whether your AI and cloud providers are on the European Supervisory Authorities' list of designated critical ICT third-party providers (CTPPs): the first list, published on 18 November 2025, includes major cloud platforms such as Amazon Web Services, Microsoft Azure and Google Cloud, and the ESAs will update it over time. See [NIS2 vs DORA](/comparisons/nis2-vs-dora/).
 
 ## Information Sharing
 
@@ -46,3 +48,7 @@ DORA encourages sharing of cyber threat intelligence. Participate in financial s
 ## Governance Requirements
 
 Ensure the management body approves and oversees the ICT risk management framework including AI components. Management must understand AI-specific risks at a sufficient level to make informed governance decisions. Include AI risk metrics in board reporting. Assign clear ownership for AI operational resilience within the organization.
+
+## Sources
+
+1. EIOPA, "European Supervisory Authorities designate critical ICT third-party providers under the Digital Operational Resilience Act" (18 November 2025): [https://www.eiopa.europa.eu/european-supervisory-authorities-designate-critical-ict-third-party-providers-under-digital-2025-11-18_en](https://www.eiopa.europa.eu/european-supervisory-authorities-designate-critical-ict-third-party-providers-under-digital-2025-11-18_en)

@@ -106,7 +106,7 @@ The strangler fig's power comes from the maintained fallback. At every phase, th
 
 **Quality monitoring:** Amazon CloudWatch dashboards tracking AI accuracy metrics alongside system metrics. CloudWatch Alarms that trigger when quality metrics drop below thresholds.
 
-**Audit sampling:** Amazon Kinesis Data Firehose to capture a sample of AI decisions to S3 for human review.
+**Audit sampling:** Amazon Data Firehose (formerly Kinesis Data Firehose) to capture a sample of AI decisions to S3 for human review.
 
 **Circuit breaker:** Combine with the circuit breaker pattern (see [Circuit Breaker for AI Systems](../circuit-breaker-ai/)) to automatically route back to the legacy path when the AI error rate exceeds a threshold.
 

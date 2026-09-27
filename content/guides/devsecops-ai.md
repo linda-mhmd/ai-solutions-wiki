@@ -8,7 +8,9 @@ related:
   - glossary/devsecops
   - guides/ci-cd-for-ai
   - patterns/compliance-as-code
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 AI/ML projects carry security risks that standard application security scanning does not cover: pickle deserialization attacks in model files, excessive permissions for training jobs, sensitive data in training datasets, and prompt injection vulnerabilities. A DevSecOps pipeline for AI extends standard security scanning with ML-specific checks.
@@ -25,11 +27,11 @@ Install pre-commit hooks that catch issues before code reaches the repository:
 # .pre-commit-config.yaml
 repos:
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.18.0
+    rev: v8.30.1
     hooks:
       - id: gitleaks
   - repo: https://github.com/PyCQA/bandit
-    rev: 1.7.7
+    rev: 1.9.4
     hooks:
       - id: bandit
         args: ["-c", "pyproject.toml"]
@@ -45,7 +47,7 @@ Run these checks on every pull request:
 
 ```yaml
 - name: Scan dependencies
-  uses: aquasecurity/trivy-action@master
+  uses: aquasecurity/trivy-action@v0.36.0  # pin to a full commit SHA in production
   with:
     scan-type: 'fs'
     scan-ref: '.'
@@ -57,13 +59,15 @@ Run these checks on every pull request:
 
 ```yaml
 - name: Semgrep scan
-  uses: returntocorp/semgrep-action@v1
-  with:
-    config: >-
-      p/python
-      p/security-audit
-      p/owasp-top-ten
+  run: |
+    pip install semgrep
+    semgrep scan --error \
+      --config p/python \
+      --config p/security-audit \
+      --config p/owasp-top-ten
 ```
+
+The older `returntocorp/semgrep-action` wrapper is deprecated; Semgrep now recommends running the Semgrep CLI (or the `semgrep/semgrep` container image) directly in CI.
 
 **Model File Validation** - Reject pickle files in favour of safer serialization formats. Scan model artifacts for known malicious patterns:
 
@@ -78,11 +82,13 @@ def validate_model_format(path):
         )
 ```
 
+Pin third-party actions to a release, and ideally to a full commit SHA, rather than `@master`. The scanners themselves are a supply-chain target: in March 2026 attackers compromised release tags of `aquasecurity/trivy-action`, and Aqua Security re-published clean releases under `v`-prefixed tags (for example `v0.35.0`). See [GitHub Actions security](/guides/github-actions-security/) for pinning and least-privilege `GITHUB_TOKEN` settings.
+
 **Infrastructure-as-Code Scanning** - Checkov or tfsec validates Terraform and Kubernetes manifests:
 
 ```yaml
 - name: Checkov IaC scan
-  uses: bridgecrewio/checkov-action@master
+  uses: bridgecrewio/checkov-action@v12  # pin to a full commit SHA in production
   with:
     directory: infrastructure/
     framework: terraform,kubernetes
@@ -97,7 +103,7 @@ AI inference containers often use large base images with CUDA drivers, increasin
   run: docker build -t inference-service:${{ github.sha }} .
 
 - name: Scan image
-  uses: aquasecurity/trivy-action@master
+  uses: aquasecurity/trivy-action@v0.36.0  # pin to a full commit SHA in production
   with:
     image-ref: 'inference-service:${{ github.sha }}'
     severity: 'HIGH,CRITICAL'
@@ -130,3 +136,11 @@ AI projects handle numerous credentials: model provider API keys, database conne
 Security scanning adds pipeline time. Manage this by running fast checks (linting, secrets detection) on every commit and slower checks (full image scan, DAST) on merge to main. Cache scan results for unchanged dependencies. Set severity thresholds: fail on critical and high, warn on medium, ignore low.
 
 The goal is not zero vulnerabilities. It is continuous visibility and rapid remediation of the vulnerabilities that matter.
+
+## Sources
+
+1. Aqua Security, trivy-action release v0.35.0 (re-published after the March 2026 supply-chain attack, 20 March 2026) and v0.36.0 (22 April 2026): [https://github.com/aquasecurity/trivy-action/releases](https://github.com/aquasecurity/trivy-action/releases)
+2. Semgrep, semgrep-action README (deprecation notice): [https://github.com/returntocorp/semgrep-action](https://github.com/returntocorp/semgrep-action)
+3. Semgrep, "Sample CI configurations": [https://semgrep.dev/docs/semgrep-ci/sample-ci-configs](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs)
+4. Gitleaks releases (v8.30.1): [https://github.com/gitleaks/gitleaks/releases](https://github.com/gitleaks/gitleaks/releases)
+5. Bandit releases (1.9.4): [https://github.com/PyCQA/bandit/releases](https://github.com/PyCQA/bandit/releases)

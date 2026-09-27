@@ -10,7 +10,9 @@ related:
   - guides/ai-documentation-guide
   - glossary/responsible-ai
   - glossary/ai-literacy
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 The EU AI Act is the first comprehensive AI regulation. It applies to organizations that develop or deploy AI systems within the EU, regardless of where the organization is based. Compliance is not optional, and penalties for non-compliance reach up to 35 million euros or 7% of global annual turnover. This guide covers what you need to do, organized by practical steps rather than legal articles.
@@ -19,11 +21,11 @@ The EU AI Act is the first comprehensive AI regulation. It applies to organizati
 
 The Act classifies AI systems by risk level, with requirements scaled accordingly:
 
-**Unacceptable risk (banned).** Social scoring by governments, real-time remote biometric identification in public spaces (with narrow exceptions), emotion recognition in workplaces and schools, and manipulation techniques targeting vulnerable groups. If your system falls here, stop deploying it in the EU.
+**Unacceptable risk (banned).** Social scoring by governments, real-time remote biometric identification in public spaces (with narrow exceptions), emotion recognition in workplaces and schools, manipulation techniques targeting vulnerable groups, and (added by the Digital Omnibus) systems for generating non-consensual intimate imagery or child sexual abuse material. If your system falls here, stop deploying it in the EU.
 
 **High risk.** AI systems used in critical areas: employment and worker management, access to education, creditworthiness assessment, law enforcement, migration and border control, and safety components of regulated products. These face the most extensive requirements.
 
-**Limited risk.** Systems that interact with people (chatbots), generate synthetic content (deepfakes), or perform emotion recognition or biometric categorization outside the banned contexts. These have transparency obligations.
+**Limited risk.** Systems that interact with people (chatbots), generate synthetic content (deepfakes), or perform emotion recognition or biometric categorization outside the banned contexts. These have transparency obligations, enforceable since 2 August 2026.
 
 **Minimal risk.** Everything else. No specific requirements, though voluntary codes of practice are encouraged.
 
@@ -71,4 +73,10 @@ The Act requires organizations to ensure staff involved in the operation and use
 
 ## Timeline
 
-Provisions are being phased in. Bans on prohibited systems are already applicable. High-risk system requirements apply from August 2026. Ensure your compliance program accounts for these deadlines with sufficient lead time for implementation.
+Provisions are being phased in. Bans on prohibited systems have applied since 2 February 2025 and GPAI obligations since 2 August 2025. The Article 50 transparency obligations for limited-risk systems became enforceable on 2 August 2026. The Digital Omnibus on AI (Regulation (EU) 2026/1744, in force since 27 July 2026) moved the high-risk deadlines: stand-alone Annex III systems must comply by **2 December 2027**, and high-risk AI in products covered by EU harmonised legislation by **2 August 2028**. The requirements did not change, only the dates, so ensure your compliance program keeps running with sufficient lead time for implementation. See [EU AI Act enforcement begins](/news/eu-ai-act-enforcement-begins-2026/).
+
+## Sources
+
+1. Regulation (EU) 2026/1744 (Digital Omnibus on AI), EUR-Lex: [https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng](https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng)
+2. European Commission, "Commission starts enforcing AI Act rules and new transparency requirements" (31 July 2026): [https://ec.europa.eu/commission/presscorner/detail/en/ip_26_1714](https://ec.europa.eu/commission/presscorner/detail/en/ip_26_1714)
+

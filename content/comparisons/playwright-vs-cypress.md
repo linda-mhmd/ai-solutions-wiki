@@ -2,7 +2,7 @@
 title: "Playwright vs Cypress for Testing AI-Powered Web Apps"
 description: "A detailed comparison of Playwright and Cypress for end-to-end testing of AI applications: architecture, network interception, streaming support, async handling, and CI integration."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [playwright, cypress, e2e-testing, browser-automation, ai-engineering]
 related:
@@ -10,17 +10,17 @@ related:
   - guides/e2e-testing-ai-products
   - glossary/playwright
   - glossary/end-to-end-testing
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 Playwright and Cypress are the two leading E2E testing frameworks. For AI-powered web applications, the choice matters more than for typical web apps because AI UIs have specific requirements: streaming response rendering, long async operations, network interception for mocking AI APIs, and handling non-deterministic content. This comparison evaluates both frameworks against these AI-specific needs.
 
 ## Architecture
 
-**Playwright** (Microsoft's open source framework, latest stable release 1.60) operates outside the browser, driving it over a WebSocket connection. It uses the Chrome DevTools Protocol for Chromium and a Playwright-patched protocol layer for Firefox and WebKit, so the same API works uniformly across all three engines. This out-of-process architecture means Playwright can control multiple browser contexts, handle multiple tabs, and intercept network traffic at the protocol level.
+**Playwright** (Microsoft's open source framework, latest stable release 1.63, 4 September 2026) operates outside the browser, driving it over a WebSocket connection. It uses the Chrome DevTools Protocol for Chromium and a Playwright-patched protocol layer for Firefox and WebKit, so the same API works uniformly across all three engines. This out-of-process architecture means Playwright can control multiple browser contexts, handle multiple tabs, and intercept network traffic at the protocol level.
 
-**Cypress** (latest stable release in the 15.x line) runs inside the browser alongside the application. This in-browser architecture gives Cypress direct access to the application's DOM and JavaScript context, enabling features like automatic waiting and time travel debugging. However, it limits Cypress to a single browser tab and introduces constraints around cross-origin requests.
+**Cypress** (latest stable release in the 16.x line; 16.0 shipped 1 September 2026) runs inside the browser alongside the application. This in-browser architecture gives Cypress direct access to the application's DOM and JavaScript context, enabling features like automatic waiting and time travel debugging. However, it limits Cypress to a single browser tab and introduces constraints around cross-origin requests.
 
 **Winner for AI apps: Playwright.** The out-of-process architecture provides more flexibility for complex AI testing scenarios.
 
@@ -39,7 +39,7 @@ page.route("**/api/chat", lambda route: route.fulfill(
 ))
 ```
 
-**Cypress** uses `cy.intercept()` which works well for standard HTTP requests but has limited support for SSE and WebSocket mocking. Streaming responses require workarounds.
+**Cypress** uses `cy.intercept()` which works well for standard HTTP requests but has limited support for SSE and WebSocket mocking. Streaming responses require workarounds. Since Cypress 16, Chrome, Chromium, and Edge intercept test traffic on the native browser network (HTTP/2 by default) rather than through the Cypress proxy, which changes a few `cy.intercept()` behaviors; check the 16 migration guide if you upgrade an existing suite.
 
 ```javascript
 // Cypress: basic request interception
@@ -70,7 +70,7 @@ cy.get(".response", { timeout: 60000 }).should("be.visible");
 
 **Playwright** supports Chromium, Firefox, and WebKit (Safari's engine) as fully supported, first class targets on Windows, macOS, and Linux.
 
-**Cypress** supports Chromium-based browsers (Chrome, Edge, Electron) and Firefox. It also offers experimental WebKit support (opt in via the `experimentalWebkitSupport` config flag, available since Cypress 10.8), but that mode is built on Playwright's WebKit build and is still flagged experimental rather than production ready.
+**Cypress** supports Chromium-based browsers (Chrome, Edge, and Electron, which Cypress 16 deprecated as a test browser) and Firefox. It also offers experimental WebKit support (opt in via the `experimentalWebkitSupport` config flag, available since Cypress 10.8), but that mode is built on Playwright's WebKit build and is still flagged experimental rather than production ready.
 
 **Winner: Playwright.** Stable WebKit support matters for AI applications used on iOS devices, where Cypress's experimental mode may not be reliable enough.
 
@@ -108,8 +108,8 @@ Both integrate well with GitHub Actions, GitLab CI, and other CI platforms. Play
 
 Both projects have leaned into AI assisted testing, which matters if you want agents to help write or run your suites.
 
-- **Playwright** ships the official Playwright MCP server (a Model Context Protocol server first released in 2025) that lets LLM agents drive a real browser through the accessibility tree rather than screenshots, which makes the actions deterministic and text based. The 1.59 and 1.60 releases added agent oriented features such as a Screencast API, CLI debugging, and AI optimised accessibility snapshots.
-- **Cypress** added `cy.prompt()`, an AI command that turns natural language steps into Cypress commands, and a Cloud MCP server for analysing test runs from an MCP client. As of mid 2026, `cy.prompt()` is available to all users but still labelled experimental.
+- **Playwright** ships the official Playwright MCP server (a Model Context Protocol server first released in 2025) that lets LLM agents drive a real browser through the accessibility tree rather than screenshots, which makes the actions deterministic and text based. The 1.59 and 1.60 releases added agent oriented features such as a Screencast API, CLI debugging, and AI optimised accessibility snapshots, and 1.63 added JSON aria snapshots (`ariaSnapshotJSON()`) and aria snapshots in traces.
+- **Cypress** added `cy.prompt()`, an AI command that turns natural language steps into Cypress commands, and a Cloud MCP server for analysing test runs from an MCP client. As of mid 2026, `cy.prompt()` is available to all users but still labelled experimental. Cypress also publishes agent Skills (`cypress-author`, `cypress-docs`, `cypress-explain`) for AI coding assistants.
 
 This is a fast moving area for both tools, so confirm the exact feature status against the official docs before relying on it.
 
@@ -123,8 +123,8 @@ For most AI-powered applications, Playwright is the better fit. The streaming re
 
 ## Sources
 
-- [Playwright release notes](https://playwright.dev/docs/release-notes) (official, version 1.60 and recent features)
+- [Playwright release notes](https://playwright.dev/docs/release-notes) (official, versions 1.60 to 1.63)
 - [Playwright MCP server](https://github.com/microsoft/playwright-mcp) (official repository)
-- [Cypress changelog](https://docs.cypress.io/app/references/changelog) (official, Cypress 15.x releases)
+- [Cypress changelog](https://docs.cypress.io/app/references/changelog) (official, Cypress 15.x and 16.x releases, including the 16.0 breaking changes, 1 September 2026)
 - [Cypress experimental WebKit support](https://docs.cypress.io/app/references/launching-browsers) (official browser support docs)
 - [Cypress AI features, including cy.prompt and Cloud MCP](https://docs.cypress.io/cloud/features/cypress-ai-features) (official)

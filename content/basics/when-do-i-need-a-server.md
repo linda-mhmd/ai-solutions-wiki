@@ -9,10 +9,12 @@ faqs:
   - question: "Can I just use Vercel for everything?"
     answer: "For most vibecoder projects, yes. Vercel handles static hosting, serverless functions, and even edge functions. You only need to look elsewhere when you need persistent processes, websockets, custom runtimes, or more control over the server environment."
   - question: "What if my AI app needs to run long tasks?"
-    answer: "Serverless functions typically have execution limits (10-60 seconds). For long-running AI tasks, you need either a background job queue (like Inngest or Trigger.dev) or an actual server that can run processes for minutes or hours."
+    answer: "Serverless functions have execution limits (from about a minute to 15 minutes, depending on the platform and plan). For long-running AI tasks, you need either a background job queue (like Inngest or Trigger.dev) or an actual server that can run processes for minutes or hours."
   - question: "Is serverless cheaper than a server?"
     answer: "Depends on your traffic pattern. Serverless is cheaper for bursty, unpredictable traffic with lots of idle time. A server is cheaper for consistent, predictable load. A $5/month DigitalOcean droplet beats serverless costs if it's busy 24/7."
-last_updated: 2026-07-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 {{< quickanswer >}}
@@ -68,7 +70,7 @@ This runs when someone hits the endpoint, then shuts down. No server to manage.
 
 **Yes to any → You probably need a server.**
 
-This is where serverless hits its limits. A function that times out after 60 seconds can't process a 10-minute video. A function that spins down between requests can't hold a websocket open.
+This is where serverless hits its limits. A function that times out after a few minutes can't process an hour-long video. A function that spins down between requests can't hold a websocket open.
 
 ## What serverless can't do well
 
@@ -76,11 +78,13 @@ This is where serverless hits its limits. A function that times out after 60 sec
 
 | Platform | Max execution time |
 |---|---|
-| Vercel (Hobby) | 10 seconds |
-| Vercel (Pro) | 60 seconds |
-| Netlify | 10-26 seconds |
-| Cloudflare Workers | 30 seconds (paid) |
+| Vercel (Hobby) | 300 seconds |
+| Vercel (Pro / Enterprise) | 300 seconds default, up to 800 seconds |
+| Netlify | 60 seconds (synchronous); 15 minutes for background functions |
+| Cloudflare Workers | 30 seconds of CPU time by default on the paid plan, configurable up to 5 minutes (time spent waiting on network calls does not count) |
 | AWS Lambda | 15 minutes |
+
+Limits as of September 2026 ([Vercel](https://vercel.com/docs/functions/limitations), [Netlify](https://docs.netlify.com/build/functions/optional-configuration/), [Cloudflare Workers](https://developers.cloudflare.com/workers/platform/limits/), [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html)). Platforms raise these periodically, so check the current docs.
 
 If your task takes longer, it gets killed mid-execution. For AI tasks that involve generating long content, processing documents, or running agents with many tool calls, this limit matters.
 

@@ -2,6 +2,8 @@
 title: "Frontend Frameworks Compared"
 description: "React, Vue, Svelte, Angular, Solid—which frontend framework should you use? An honest comparison of tradeoffs, ecosystems, and when to choose each."
 date: 2026-07-30
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 1
 categories: [Basics]
 tags: [beginner, frontend, react, vue, svelte, angular, frameworks, javascript]
@@ -12,7 +14,7 @@ faqs:
     answer: "Less than you think. All major frameworks can build excellent apps. The differences matter at the margins—team experience, specific requirements, ecosystem needs. Pick one and become proficient rather than agonizing over the choice."
   - question: "What about vanilla JavaScript?"
     answer: "Perfectly valid for small projects and learning. But for anything interactive beyond a few elements, a framework handles state, updates, and component organization better than manual DOM manipulation."
-last_updated: 2026-07-30
+last_updated: 2026-09-25
 ---
 
 {{< quickanswer >}}
@@ -31,7 +33,7 @@ last_updated: 2026-07-30
 
 ## React
 
-The dominant framework. Created by Facebook, used everywhere.
+The dominant framework. Created by Facebook (Meta), used everywhere. Since 24 February 2026 it has been governed by the [React Foundation](https://react.dev/blog) under the Linux Foundation.
 
 ### Philosophy
 - Components as functions
@@ -154,19 +156,21 @@ The compiler framework. Shifts work from runtime to compile time.
 ### Code example
 ```svelte
 <script>
-  let count = 0;
+  let count = $state(0);
 </script>
 
 <p>Count: {count}</p>
-<button on:click={() => count++}>
+<button onclick={() => count++}>
   Increment
 </button>
 ```
 
+This is Svelte 5 syntax (released October 2024), which uses "runes" such as `$state` to mark reactive values. Older tutorials show Svelte 4 syntax (`let count = 0` and `on:click`), which still runs in Svelte 5's legacy mode.
+
 ### Strengths
 - **Performance**: Smallest bundles, fastest runtime
 - **Simplicity**: Less boilerplate than React
-- **Built-in features**: Animations, stores, transitions included
+- **Built-in features**: Animations, transitions and reactive state (runes) included
 - **Learning curve**: Very approachable syntax
 - **No virtual DOM overhead**: Direct DOM updates
 
@@ -186,7 +190,7 @@ The compiler framework. Shifts work from runtime to compile time.
 
 ### Ecosystem highlights
 - **SvelteKit**: Full-stack Svelte framework
-- **Svelte stores**: Built-in state management
+- **Runes and stores**: Built-in state management
 - **Skeleton/DaisyUI**: Component libraries
 
 ---

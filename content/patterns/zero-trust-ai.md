@@ -40,7 +40,7 @@ All service-to-service communication is encrypted and mutually authenticated:
 
 ```yaml
 # Istio PeerAuthentication - require mTLS for all ML services
-apiVersion: security.istio.io/v1beta1
+apiVersion: security.istio.io/v1
 kind: PeerAuthentication
 metadata:
   name: ml-services-mtls
@@ -60,7 +60,7 @@ Define granular authorization policies for each ML component:
 
 ```yaml
 # Istio AuthorizationPolicy - inference service can only call model registry and feature store
-apiVersion: security.istio.io/v1beta1
+apiVersion: security.istio.io/v1
 kind: AuthorizationPolicy
 metadata:
   name: inference-service-policy

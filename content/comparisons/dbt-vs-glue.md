@@ -2,11 +2,11 @@
 title: "dbt vs AWS Glue for AI Data Transformation"
 description: "Comparing dbt and AWS Glue for data transformation in AI pipelines, covering capabilities, developer experience, cost, and use case fit."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [dbt, AWS-Glue, data-transformation, ETL, data-engineering]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 Data transformation is a critical step in AI pipelines: raw data must be cleaned, joined, aggregated, and shaped into features before models can use it. dbt and AWS Glue are popular tools for this work, but they approach the problem differently.
@@ -15,7 +15,7 @@ Data transformation is a critical step in AI pipelines: raw data must be cleaned
 
 **dbt (data build tool)** is a SQL-first transformation framework. It transforms data already loaded into a data warehouse (Amazon Redshift, Snowflake, Google BigQuery, Databricks) using SQL SELECT statements. dbt handles dependency management, testing, documentation, and version control. Available as dbt Core (open source, Apache 2.0) or as a managed platform. In May 2025 dbt Labs introduced the dbt Fusion engine, a Rust-based execution engine with native SQL comprehension and column-level lineage that builds on the open-source dbt Core v2 runtime. dbt Labs completed a merger with Fivetran on June 1, 2026, combining ingestion (Fivetran) and transformation (dbt) under one company.
 
-**AWS Glue** is a serverless data integration service. It handles extraction, transformation, and loading (ETL) using PySpark, Python, or Spark SQL. Glue can read from and write to diverse data sources (Amazon S3, databases, APIs, streaming). It includes a data catalog, schema discovery, and job scheduling. The current generation, AWS Glue 5.1 (generally available November 2025), runs Apache Spark 3.5.6 on Python 3.11 and adds Lake Formation fine-grained access control plus support for the Apache Iceberg, Apache Hudi, and Delta Lake open table formats.
+**AWS Glue** is a serverless data integration service. It handles extraction, transformation, and loading (ETL) using PySpark, Python, or Spark SQL. Glue can read from and write to diverse data sources (Amazon S3, databases, APIs, streaming). It includes a data catalog, schema discovery, and job scheduling. The current generation, AWS Glue 6.0 (generally available August 21, 2026), runs Apache Spark 4.1 on Python 3.13 and Scala 2.13, adds full Apache Iceberg v3 support (VARIANT type, deletion vectors) plus newer Apache Hudi and Delta Lake versions, and, per AWS, a 30% price reduction. The previous generation, AWS Glue 5.1 (November 2025, Spark 3.5.6, Python 3.11), remains available.
 
 ## Fundamental Difference
 
@@ -81,7 +81,7 @@ Glue excels when feature engineering requires data from multiple sources or comp
 
 **dbt Core** is free and open source (Apache 2.0). The warehouse compute cost is the only expense, and the warehouse is likely already running. The managed dbt platform adds a per-seat subscription for scheduling, the development environment, and collaboration features (check current dbt Labs pricing, since plans changed after the Fivetran merger). The Fusion engine adds state-aware orchestration that runs only the models that have actually changed, which can cut warehouse compute.
 
-**AWS Glue** charges $0.44 per DPU-hour for standard Spark ETL jobs, billed per second with a one-minute minimum. The Flex execution option lowers this to $0.29 per DPU-hour for batch jobs that can tolerate a delayed start. A single DPU provides 4 vCPUs and 16 GB of memory. A minimal job (2 DPUs) running for 10 minutes costs roughly $0.15. A feature engineering job processing 100GB might cost a few dollars. Monthly costs depend entirely on job frequency and data volume.
+**AWS Glue** charges $0.44 per DPU-hour for standard Spark ETL jobs (the rate the pricing page still quotes as of September 2026; AWS announced Glue 6.0 with a 30% price reduction, so check how it applies to your jobs), billed per second with a one-minute minimum. The Flex execution option lowers this to $0.29 per DPU-hour for batch jobs that can tolerate a delayed start. A single DPU provides 4 vCPUs and 16 GB of memory. A minimal job (2 DPUs) running for 10 minutes costs roughly $0.15. A feature engineering job processing 100GB might cost a few dollars. Monthly costs depend entirely on job frequency and data volume.
 
 For SQL transformations within an existing warehouse, dbt is nearly free (warehouse compute is shared). For ETL from external sources, Glue's pay-per-use model is cost-effective.
 
@@ -114,6 +114,7 @@ A common and effective pattern: Glue handles extraction and initial loading (EL)
 ## Sources
 
 - [AWS Glue pricing](https://aws.amazon.com/glue/pricing/) - official per-DPU-hour rates, Flex execution, and billing details.
-- [Introducing AWS Glue 5.1](https://aws.amazon.com/about-aws/whats-new/2025/11/aws-glue-5-1/) - Spark, Python, and open table format versions in the current Glue generation.
+- [AWS Glue 6.0 delivers 30% price reduction and Iceberg v3 support](https://aws.amazon.com/about-aws/whats-new/2026/08/aws-glue-6-0-price-reduction-iceberg-v3) - AWS What's New, August 21, 2026: Spark 4.1, Python 3.13, Iceberg v3.
+- [Introducing AWS Glue 5.1](https://aws.amazon.com/about-aws/whats-new/2025/11/aws-glue-5-1/) - Spark, Python, and open table format versions in the previous Glue generation.
 - [About the dbt Fusion engine](https://docs.getdbt.com/docs/fusion/about-fusion) - dbt Labs documentation on the Rust-based engine and its relationship to dbt Core v2.
 - [Fivetran + dbt Labs complete merger (June 1, 2026)](https://www.getdbt.com/blog/fivetran-dbt-labs-complete-merger-to-create-the-data-infrastructure-for-trusted-ai-agents) - official announcement of the completed merger.

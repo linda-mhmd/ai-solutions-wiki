@@ -9,7 +9,9 @@ related:
   - glossary/react
   - glossary/nextjs
   - glossary/vite
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 TypeScript is a statically typed superset of JavaScript that compiles to plain JavaScript. Created by Anders Hejlsberg at Microsoft, TypeScript adds optional type annotations, interfaces, generics, and compile-time type checking to JavaScript while maintaining full compatibility with existing JavaScript code and the broader ecosystem.
@@ -38,7 +40,7 @@ TypeScript 0.9 (2013) added support for generics. TypeScript 1.0 was officially 
 
 TypeScript fundamentally changed how the JavaScript ecosystem approaches correctness. The Angular team adopted TypeScript as the default language for Angular 2+ (2016). React's type definitions became among the most downloaded packages on DefinitelyTyped. By 2024, the majority of new npm packages included TypeScript declarations, and major frameworks (Next.js, Remix, SvelteKit) defaulted to TypeScript in their project scaffolding.
 
-In March 2025, Hejlsberg announced a port of the TypeScript compiler to Go, targeting a 10x performance improvement for large codebases, to be released as TypeScript 7.0 [4].
+In March 2025, Hejlsberg announced a port of the TypeScript compiler to Go, targeting a 10x performance improvement for large codebases [4]. The port shipped as TypeScript 7.0 on 8 July 2026, installed through the same `typescript` npm package. Microsoft reports typical full-build speedups of 8x to 12x from native code and shared-memory multithreading, and TypeScript 7 serves editors through the Language Server Protocol [5].
 
 ## Sources
 
@@ -46,3 +48,4 @@ In March 2025, Hejlsberg announced a port of the TypeScript compiler to Go, targ
 2. Microsoft. (2012). TypeScript 0.8 release on CodePlex, October 1, 2012. https://devblogs.microsoft.com/typescript/announcing-typescript-0-8/
 3. Hejlsberg, A. (2023). Interview on TypeScript's history and move to GitHub. https://www.aarthiandsriram.com/p/our-dream-conversation-anders-hejlsberg
 4. Hejlsberg, A. (2025). "A 10x Faster TypeScript." TypeScript Blog, March 11, 2025. https://devblogs.microsoft.com/typescript/typescript-native-port/
+5. Rosenwasser, D. (2026). "Announcing TypeScript 7.0." TypeScript Blog, July 8, 2026. https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/

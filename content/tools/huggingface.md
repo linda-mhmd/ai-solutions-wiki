@@ -15,10 +15,12 @@ alternatives:
 solutions:
   - solutions/healthcare/medical-imaging
   - solutions/finance/credit-scoring
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
-Hugging Face is the central platform for open-source AI. It hosts over 500,000 models, 100,000 datasets, and provides libraries (Transformers, Diffusers, Tokenizers, Datasets) that have become the standard for working with ML models in Python. For enterprise AI projects, Hugging Face serves multiple roles: a source of pre-trained models, a library ecosystem for model integration, and an infrastructure option for model deployment.
+Hugging Face is the central platform for open-source AI. It hosts roughly 3 million models and more than 1 million datasets (September 2026), and provides libraries (Transformers, Diffusers, Tokenizers, Datasets) that have become the standard for working with ML models in Python. For enterprise AI projects, Hugging Face serves multiple roles: a source of pre-trained models, a library ecosystem for model integration, and an infrastructure option for model deployment.
 
 Official documentation: https://huggingface.co/docs
 
@@ -28,9 +30,11 @@ The Hugging Face Hub is a repository of pre-trained models organized by task (te
 
 Key model families available on the Hub:
 
-**Llama (Meta)** - Open-weights models ranging from 1B to 405B parameters. The most widely used open-source LLM family. Suitable for text generation, instruction following, and code generation when deployed on appropriate hardware.
+**Llama (Meta)** - Open-weights models ranging from 1B to 405B parameters (Llama 3.x) plus the Llama 4 mixture-of-experts models. One of the most widely used open-weight LLM families. Meta has shipped no new Llama since Llama 4 (April 2025); its current open-weight model is Muse Glimmer (30B, Apache 2.0), while its flagship Muse Spark is closed-weight. Suitable for text generation, instruction following, and code generation when deployed on appropriate hardware.
 
-**Mistral** - Efficient models with strong performance relative to their size. Mistral 7B and Mixtral 8x7B are popular choices for self-hosted deployments where GPU memory is constrained.
+**Mistral** - Efficient models with strong performance relative to their size. Current open-weight releases include Mistral Small 4 and Mistral Large 3; the earlier Mistral 7B and Mixtral 8x7B remain popular for self-hosted deployments where GPU memory is constrained.
+
+**Qwen, DeepSeek, and Gemma** - Alibaba's Qwen, DeepSeek (for example DeepSeek-V4.1-Flash, MIT-licensed), and Google's Gemma 4 are among the most downloaded open-weight families. See [the LLM landscape](/comparisons/llm-landscape-2026/) for the current line-up.
 
 **BERT variants** - Encoder models for classification, NER, and embedding tasks. DeBERTa, RoBERTa, and distilled variants are commonly used for production classification and ranking workloads.
 
@@ -46,7 +50,7 @@ classifier = pipeline("sentiment-analysis")
 result = classifier("This product exceeded my expectations")
 ```
 
-The library handles model downloading, tokenization, inference, and post-processing. It supports PyTorch, TensorFlow, and JAX backends. For enterprise teams, this dramatically reduces the engineering effort required to evaluate and integrate ML models.
+The library handles model downloading, tokenization, inference, and post-processing. Since Transformers v5 (January 2026) the library is PyTorch-only; the TensorFlow and JAX backends were removed. For enterprise teams, this dramatically reduces the engineering effort required to evaluate and integrate ML models.
 
 ## Datasets Library
 
@@ -54,11 +58,13 @@ The Datasets library provides access to thousands of datasets and efficient data
 
 ## Deployment Options
 
-**Inference Endpoints** - Managed model hosting on Hugging Face infrastructure. You select a model, choose hardware (CPU, GPU type), and get a REST API endpoint. This is the fastest path from model selection to deployment. Supports auto-scaling and private networking.
+**Inference Providers** - Serverless, pay-per-request access to hundreds of Hub models served by partner inference providers, through Hugging Face's Python and JavaScript client SDKs with a single Hugging Face token. It replaced the older Serverless Inference API.
+
+**Inference Endpoints** - Dedicated managed model hosting on Hugging Face infrastructure. You select a model, choose hardware (CPU, GPU type), and get a REST API endpoint. This is the fastest path from model selection to deployment. Supports auto-scaling and private networking.
 
 **SageMaker Integration** - Hugging Face models can be deployed to SageMaker endpoints using the Hugging Face DLC (Deep Learning Container). This keeps deployment within the AWS ecosystem while leveraging Hugging Face model weights and the Transformers library.
 
-**Self-hosted** - Download models and run them on your own infrastructure. Use text-generation-inference (TGI) or vLLM for optimized serving of generative models. This provides the most control but requires ML infrastructure expertise.
+**Self-hosted** - Download models and run them on your own infrastructure. Use vLLM or SGLang for optimized serving of generative models (Hugging Face archived its own text-generation-inference (TGI) server in March 2026; see [TGI](/tools/tgi/)). This provides the most control but requires ML infrastructure expertise.
 
 ## Fine-Tuning
 
@@ -68,10 +74,18 @@ For enterprise use cases, fine-tuning is appropriate when: a pre-trained model n
 
 ## Enterprise Considerations
 
-**Licensing** - Model licenses vary. Llama has a custom commercial license with usage restrictions. Mistral models use Apache 2.0. BERT variants are typically Apache 2.0 or MIT. Always verify the license before deploying a model in production.
+**Licensing** - Model licenses vary. Llama has a custom commercial license with usage restrictions. Most Mistral open-weight models use Apache 2.0, but Mistral Medium 3.5 uses a Modified MIT license with a carve-out for high-revenue companies. Gemma 4 moved to Apache 2.0; many recent Chinese open-weight models use MIT or custom licenses. BERT variants are typically Apache 2.0 or MIT. Always verify the license before deploying a model in production.
 
-**Hugging Face Enterprise Hub** - Provides private model repositories, SSO, audit logs, and compliance features. Organizations can host proprietary fine-tuned models and datasets in a private namespace.
+**Team and Enterprise plans** (formerly Enterprise Hub) - Provide private model repositories, SSO, audit logs, and compliance features. Organizations can host proprietary fine-tuned models and datasets in a private namespace.
 
 ## Pricing
 
-The Hub and core libraries are free. Inference Endpoints charge per hour based on hardware selection. The Enterprise Hub has per-user pricing. Self-hosted deployment has no Hugging Face costs but requires infrastructure investment.
+The Hub and core libraries are free. Inference Endpoints charge per hour based on hardware selection. Inference Providers bill per request at the partner provider's rates. Team and Enterprise plans are priced per user (Team starts at $20 per user per month). Self-hosted deployment has no Hugging Face costs but requires infrastructure investment.
+
+## Sources
+
+1. Hugging Face Hub model and dataset counts (shields API), September 2026. https://huggingface.co/models
+2. Transformers v5 migration guide ("Removal of TensorFlow and Jax"). https://github.com/huggingface/transformers/blob/main/MIGRATION_GUIDE_V5.md
+3. Hugging Face. "Inference Providers." https://huggingface.co/docs/inference-providers/index
+4. Hugging Face. Pricing. https://huggingface.co/pricing
+5. [The LLM landscape in 2026](/comparisons/llm-landscape-2026/) for current model families and licenses.

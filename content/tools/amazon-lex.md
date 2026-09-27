@@ -15,8 +15,9 @@ layer: applications
 provider: aws
 pricing_model: payg
 maturity: production
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 enhanced_pass: "2026-06"
 ---
 
@@ -63,7 +64,7 @@ This pattern reduces average handle time by resolving simple queries without age
 
 Lex V2 integrates with Amazon Bedrock (the AWS managed service for foundation models, see {{< relref "glossary/foundation-models" >}}) to handle queries that fall outside defined intents. Instead of returning a fallback "I didn't understand that" message, Lex can route unmatched utterances to a Bedrock foundation model that generates responses from a knowledge store. This hybrid approach provides deterministic handling for structured workflows (intent-based) and flexible handling for open-ended questions (generative).
 
-The main option is the `AMAZON.QnAIntent` built-in intent. It activates when an utterance is not classified into any other intent, then uses a Bedrock model to search a configured knowledge store and answer the question. This is a managed form of retrieval augmented generation (see {{< relref "glossary/rag" >}}): the model answers from your documents rather than from its training data alone, and responses include source attribution. The knowledge store can be an Amazon Bedrock Knowledge Base (see {{< relref "glossary/knowledge-base" >}}), an Amazon OpenSearch Service domain, or an Amazon Kendra index. Note that you cannot use `AMAZON.QnAIntent` and `AMAZON.KendraSearchIntent` in the same bot locale. You can apply Amazon Bedrock Guardrails to the intent for content filtering, and tune the model with temperature, topP, and maxTokens settings.
+The main option is the `AMAZON.QnAIntent` built-in intent. It activates when an utterance is not classified into any other intent, then uses a Bedrock model to search a configured knowledge store and answer the question. This is a managed form of retrieval augmented generation (see {{< relref "glossary/rag" >}}): the model answers from your documents rather than from its training data alone, and responses include source attribution. The knowledge store can be an Amazon Bedrock Knowledge Base (see {{< relref "glossary/knowledge-base" >}}), an Amazon OpenSearch Service domain, or an Amazon Kendra index (Kendra has been in maintenance mode and closed to new customers since 30 July 2026, so new builds should use a Bedrock Knowledge Base or OpenSearch). Note that you cannot use `AMAZON.QnAIntent` and `AMAZON.KendraSearchIntent` in the same bot locale. You can apply Amazon Bedrock Guardrails to the intent for content filtering, and tune the model with temperature, topP, and maxTokens settings.
 
 Beyond simple FAQ answering, two newer capabilities extend the generative integration:
 
@@ -88,7 +89,7 @@ Best practices: because Lex is a managed machine learning service, the AWS Well-
 
 Recent additions to Lex V2 (2024 to 2026) worth knowing:
 
-- **Generative AI integration with Bedrock** matured: the `AMAZON.QnAIntent` now supports Amazon Bedrock Knowledge Bases and Bedrock Guardrails, and the new `AMAZON.BedrockAgentIntent` connects bots to Bedrock Agents.
+- **Generative AI integration with Bedrock** matured: the `AMAZON.QnAIntent` now supports Amazon Bedrock Knowledge Bases and Bedrock Guardrails, and the new `AMAZON.BedrockAgentIntent` connects bots to Bedrock Agents. Note that Bedrock Agents became Bedrock Agents Classic and closed to new customers on 30 July 2026; new agent builds on AWS are steered to [Amazon Bedrock AgentCore](/tools/bedrock-agentcore/).
 - **Assisted NLU** uses LLMs to raise intent and slot accuracy while staying in scope.
 - **Global resiliency** replicates a bot to a second AWS Region for higher availability and disaster recovery.
 - **Custom vocabulary** expanded to 17 additional languages, and the `AMAZON.Currency` and `AMAZON.Confirmation` built-in slot types now work in all locales.
@@ -109,3 +110,4 @@ Lex is pay as you go with no upfront cost or minimum fee: you are charged per re
 - Amazon Lex endpoints and quotas: https://docs.aws.amazon.com/general/latest/gr/lex.html
 - Migrating a bot from Lex V1 to V2: https://docs.aws.amazon.com/lex/latest/dg/migrate.html
 - AWS Well-Architected Machine Learning Lens: https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html
+- Amazon Bedrock Agents Classic maintenance mode (closed to new customers 30 July 2026): https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html

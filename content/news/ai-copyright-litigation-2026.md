@@ -2,14 +2,16 @@
 title: "AI Copyright Litigation Broadens in 2026"
 description: "The AI copyright and liability fights widened in 2026: a sanctions motion against OpenAI, the $1.5B Anthropic settlement awaiting final approval, new suits against answer engines, and a UK ruling on model weights."
 date: 2026-07-09
-lastmod: 2026-07-13
-last_updated: 2026-07-13
+lastmod: 2026-09-25
+last_updated: 2026-09-25
+last_verified: 2026-09-25
 categories: [News]
 tags: [ai-copyright, litigation, legal, openai, anthropic, regulation]
 related:
   - news/us-ai-policy-preemption-2026
   - news/eu-ai-act-august-2026-obligations
   - guides/ai-regulatory-compliance-checklist
+  - news/doe-v-github-ninth-circuit
 ---
 
 The legal front around AI widened in 2026, moving beyond the original training-data copyright suits into discovery fights, answer-engine cases, and the first rulings on whether model weights are infringing copies. Nothing here is settled law yet, but the direction matters for anyone training on or building with third-party content. Note that court statuses change quickly; the items below reflect the record as researched and each should be checked against the live docket before relying on it.
@@ -26,12 +28,21 @@ Two practical signals. First, **provenance and retention are now legal exposure.
 
 The Getty UK holding, that weights are not copies, is an early data point favouring model builders on one narrow question, but it is under appeal and is UK law only. The safe posture is unchanged: know the provenance of your training and retrieval data, keep records, and treat "fair use will protect us" as an unsettled bet. Pair this with the [regulatory compliance checklist](/guides/ai-regulatory-compliance-checklist/).
 
+## Update, September 2026
+
+**Doe v. GitHub (Ninth Circuit, 16 September 2026).** A unanimous panel upheld the dismissal of the open-source programmers' DMCA §1202(b) claims against GitHub, Microsoft and OpenAI. It held that Copilot and Codex, as the complaint describes them, generate new code that never contained copyright management information, so no CMI was "removed or altered." The court rejected the district court's strict "identicality" rule, found the plaintiffs had standing, and expressly left open ordinary copyright-infringement claims. It did not decide a training-stage CMI theory, because that theory had not been preserved. Breach-of-contract claims remain pending in the trial court. Full write-up: [Ninth Circuit upholds dismissal of DMCA claims in Doe v. GitHub](/news/doe-v-github-ninth-circuit/).
+
+**China proposes a fair-use regime for AI training.** China's National Copyright Administration published its copyright development plan for 2026–2030, released online on 7 September 2026 and reported by Digital Watch on 9 September. Among other measures, it proposes developing a **fair-use system for AI training data**, which it describes as balancing innovation with protection of creators' rights. The plan sets a direction rather than specific rules. If adopted, it would settle in policy a question that US courts are still deciding case by case.
+
 ## Sources
 
 - NYT v. Microsoft and OpenAI docket (S.D.N.Y. 1:23-cv-11195): https://www.courtlistener.com/docket/68117049/the-new-york-times-company-v-microsoft-corporation/
 - Bartz v. Anthropic docket (N.D. Cal. 3:24-cv-05417): https://www.courtlistener.com/docket/69058235/bartz-v-anthropic-pbc/
 - Irish Data Protection Commission, inquiry into X/xAI (17 February 2026): https://www.dataprotection.ie/en/news-media/press-releases/data-protection-commission-opens-investigation-x-xiuc
 - Getty Images statement on the UK Stability AI ruling: https://newsroom.gettyimages.com/en/getty-images/getty-images-issues-statement-on-ruling-in-stability-ai-uk-litigation
+- Courthouse News Service, "Coders lose appeal in copyright fight against AI tools" (16 September 2026): https://www.courthousenews.com/coders-lose-appeal-in-copyright-fight-against-ai-tools/
+- Gibson Dunn, "Ninth Circuit Clarifies Limits of DMCA Liability for AI-Generated Code" (18 September 2026): https://www.gibsondunn.com/ninth-circuit-clarifies-limits-of-dmca-liability-for-ai-generated-code/
+- Digital Watch, "China sets out copyright plan for 2026-2030 with AI training rules" (9 September 2026): https://dig.watch/updates/china-copyright-plan-2026-2030-ai-training
 
 ## Further reading
 

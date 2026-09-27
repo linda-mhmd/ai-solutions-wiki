@@ -2,6 +2,8 @@
 title: "Types of Storage Explained"
 description: "Git repos, databases, S3 buckets, EBS volumes, NAS—what each type of storage is for, how they differ, and when to use which. A practical guide for builders."
 date: 2026-07-30
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 3
 categories: [Basics]
 tags: [storage, database, s3, ebs, nas, infrastructure, cloud, founder]
@@ -12,7 +14,7 @@ faqs:
     answer: "It depends on access patterns, but generally: SSD block storage (EBS) > Database storage > Object storage (S3) > Archive storage. However, the real cost often comes from data transfer (egress), not storage itself."
   - question: "Should I worry about this as a beginner?"
     answer: "Not much at first. Start with what your platform provides (Supabase database, Vercel Blob, etc.). These decisions matter more as you scale. But understanding the basics helps you avoid expensive mistakes early."
-last_updated: 2026-07-30
+last_updated: 2026-09-25
 ---
 
 {{< quickanswer >}}
@@ -82,7 +84,7 @@ my-project/
 - **Key-value**: Redis - fast lookups by key
 - **Vector**: Pinecone, pgvector - AI embeddings and similarity search
 
-**Cost**: Varies wildly. Managed databases (Supabase, PlanetScale, Neon) often have free tiers, then $10-50/month for small apps. Large-scale databases can cost thousands.
+**Cost**: Varies wildly. Managed databases (Supabase, Neon) often have free tiers; others such as PlanetScale start around $5/month; small apps typically pay $10-50/month. Large-scale databases can cost thousands.
 
 **Key characteristic**: You can ask questions about your data. "How many users signed up this week?" is a database query.
 

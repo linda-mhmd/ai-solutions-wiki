@@ -12,7 +12,9 @@ related:
 solutions:
   - guides/from-zero-to-production
   - guides/async-job-queues
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 FastAPI is a modern, high-performance Python web framework for building APIs. Released in 2018 by Sebastian Ramirez, it is built on two libraries: [Starlette](https://www.starlette.io/) (the async web toolkit) and [Pydantic](https://docs.pydantic.dev/) (the data validation library). The combination gives you asynchronous request handling with automatic, runtime-enforced type validation, and both of those things matter significantly for AI workloads.
@@ -223,17 +225,22 @@ app/
 `main.py` wires everything together:
 
 ```python
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from app.routers import inference, health
 from app.services.model_client import ModelClient
 from app.core.config import Settings
 
 settings = Settings()
-app = FastAPI(title="AI Inference API", version="1.0.0")
 
-@app.on_event("startup")
-async def startup():
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Runs once at startup; code after `yield` runs at shutdown.
+    # (The older @app.on_event("startup") hooks are deprecated.)
     app.state.model_client = ModelClient(settings.model_path)
+    yield
+
+app = FastAPI(title="AI Inference API", version="1.0.0", lifespan=lifespan)
 
 app.include_router(inference.router, prefix="/v1")
 app.include_router(health.router)
@@ -265,7 +272,7 @@ class InferenceRequest(BaseModel):
     prompt: str = Field(..., min_length=1, max_length=8192, description="The input prompt")
     temperature: float = Field(0.7, ge=0.0, le=2.0)
     max_tokens: Optional[int] = Field(512, ge=1, le=4096)
-    model: str = Field("mistral-7b-instruct", description="Model identifier")
+    model: str = Field("gemma4", description="Ollama model tag")
 
 class InferenceResponse(BaseModel):
     text: str
@@ -350,7 +357,7 @@ EXPOSE 8000
 CMD ["gunicorn", "app.main:app", "--workers", "4", "--worker-class", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8000"]
 ```
 
-**Railway:** Connect your GitHub repository. Railway detects Python automatically, sets `NIXPACKS_BUILD_CMD` and runs your `Procfile` or auto-detected start command. Add a `railway.toml` for custom configuration. See [Railway](/tools/railway/).
+**Railway:** Connect your GitHub repository. Railway builds the app with its Railpack builder, which detects Python automatically and runs your `Procfile` or auto-detected start command. Add a `railway.toml` (or a `railpack.json`) for custom configuration. See [Railway](/tools/railway/).
 
 **Modal:** For GPU-backed inference, Modal's Python SDK lets you define a FastAPI app that runs on GPU instances and scales to zero:
 
@@ -372,16 +379,15 @@ def fastapi_app():
 FastAPI applications typically read configuration from environment variables using Pydantic's `BaseSettings`:
 
 ```python
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
+    model_config = SettingsConfigDict(env_file=".env")
+
     model_path: str = "./models/mistral-7b"
     api_keys: list[str] = []
     max_concurrent_requests: int = 10
     log_level: str = "INFO"
-
-    class Config:
-        env_file = ".env"
 
 settings = Settings()
 ```
@@ -389,6 +395,8 @@ settings = Settings()
 ## Sources
 
 1. https://fastapi.tiangolo.com/
-2. https://github.com/tiangolo/fastapi
+2. https://github.com/fastapi/fastapi (moved from tiangolo/fastapi)
 3. https://docs.pydantic.dev/
 4. https://www.starlette.io/
+5. https://fastapi.tiangolo.com/advanced/events/ (lifespan is the recommended startup/shutdown mechanism; `on_event` is deprecated)
+6. https://docs.railway.com/builds/build-configuration (Railway builds with Railpack)

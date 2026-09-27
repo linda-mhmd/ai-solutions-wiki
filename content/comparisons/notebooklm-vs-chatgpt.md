@@ -12,9 +12,9 @@ related:
   - comparisons/perplexity-vs-chatgpt-vs-google-search
   - glossary/rag
   - guides/own-data-for-inference
-last_verified: 2026-09-04
-last_updated: 2026-09-04
-lastmod: 2026-09-04
+last_verified: 2026-09-25
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -43,7 +43,7 @@ Neither product has a standalone subscription; both ride on their parent company
 | **Gemini Notebook (NotebookLM)** | $0 — 100 notebooks, 50 sources/notebook, 50 chats/day, 3 audio + 3 video overviews/day | Google AI Plus, $4.99/mo — 200 notebooks, 100 sources, 200 chats/day, 6 audio + 6 video overviews/day | Google AI Pro, $19.99/mo — 500 notebooks, 300 sources, 500 chats/day, 20 audio + 20 video overviews/day (incl. 2 cinematic/day); Google AI Ultra, $99.99–$199.99/mo — up to 600 sources, 5,000 chats/day, 200 audio + 200 video overviews/day |
 | **ChatGPT** | $0 — Projects included since September 2025, 5 files/project | Plus, $20/mo — 25 files/project | Pro, $100–$200/mo — 40 files/project, priority access to newest models |
 
-Sources: Google's official Gemini Notebook limits page [4] and Google's Gemini subscriptions page [5] for the left column; this wiki's own [ChatGPT vs Gemini vs Claude](/comparisons/chatgpt-vs-gemini-vs-claude/) pricing research and cross-checked third-party trackers for the right column, since chatgpt.com's help pages block automated fetching the same way noted on that page. Gemini Notebook is also bundled into every Google Workspace plan at no extra cost, with higher limits on eligible business tiers [6] — genuinely useful if your school or employer already pays for Workspace, since it means paid-tier limits without a personal subscription.
+Sources: Google's official Gemini Notebook limits page [4] and Google's Gemini subscriptions page [5] for the left column; this wiki's own [ChatGPT vs Gemini vs Claude](/comparisons/chatgpt-vs-gemini-vs-claude/) pricing research and cross-checked third-party trackers for the right column, since chatgpt.com's help pages block automated fetching the same way noted on that page. One change on Google's side since this table was first compiled: **from 2 September 2026 Gemini Notebook also applies compute-based usage limits** that weigh prompt complexity, models, chat length and the feature used, refresh every five hours up to a weekly cap, and scale with plan (AI Plus 2x the standard limit, AI Pro 4x, AI Ultra 5x or 20x AI Pro); when you run out you can queue Studio generations to run later [13]. Google's upgrade page still lists the per-day counts above, so treat them as ceilings rather than guarantees. Gemini Notebook is also bundled into every Google Workspace plan at no extra cost, with higher limits on eligible business tiers [6] — genuinely useful if your school or employer already pays for Workspace, since it means paid-tier limits without a personal subscription.
 
 The practical read: NotebookLM's free tier is far more usable on its own than ChatGPT's. Fifty sources and fifty questions a day, for nothing, covers a real research project or a semester's reading list. ChatGPT's free tier does now include Projects, which keeps files and chat history grouped together — OpenAI rolled that out to everyone in September 2025 — but it caps you at 5 files per project, a sixth of Plus's 25. For sustained document work across more than a handful of files, you're still pushed toward the $20/month Plus plan.
 
@@ -102,3 +102,4 @@ Whether Interactive Audio Overview mode has left beta or expanded past English b
 10. On Cinematic Video Overviews (4 March 2026) and its Gemini 3 / Nano Banana Pro / Veo 3 model stack, cross-checked across current trackers: [https://www.buildfastwithai.com/blogs/notebooklm-cinematic-video-overview-full-guide-2026](https://www.buildfastwithai.com/blogs/notebooklm-cinematic-video-overview-full-guide-2026)
 11. Google, Gemini Notebook Help, "Add or discover new sources for your notebook," on the 500,000-word/200MB per-source limit and copy-protected PDF restriction: [https://support.google.com/notebooklm/answer/16215270?hl=en](https://support.google.com/notebooklm/answer/16215270?hl=en)
 12. This wiki, [ChatGPT vs Gemini vs Claude](/comparisons/chatgpt-vs-gemini-vs-claude/): full ChatGPT pricing-tier detail (Free/Go/Plus/Pro/Business) underlying the table above.
+13. Google, Gemini Notebook Help, "Manage your Gemini Notebook usage limits," on compute-based limits from 2 September 2026 (five-hour refresh, weekly cap, per-plan multipliers, Generate later), fetched 25 September 2026: [https://support.google.com/gemininotebook/answer/17670842](https://support.google.com/gemininotebook/answer/17670842)

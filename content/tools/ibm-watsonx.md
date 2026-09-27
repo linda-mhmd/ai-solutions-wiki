@@ -2,6 +2,9 @@
 title: "IBM watsonx"
 description: "IBM's enterprise AI and data platform, combining model building, a lakehouse, and AI governance across hybrid environments."
 date: 2026-06-29
+last_updated: 2026-09-09
+lastmod: 2026-09-09
+last_verified: 2026-09-09
 tags: ["ibm", "enterprise-ai", "governance", "foundation-models", "hybrid-cloud"]
 tool_category: "AI"
 related:
@@ -38,7 +41,7 @@ watsonx is not a single product. It is three components that work together.
     <span class="bz-arch-layer-label">Build</span>
     <div class="bz-arch-layer-content">
       <span class="bz-arch-chip">watsonx.ai</span>
-      <span class="bz-arch-chip">Granite models</span>
+      <span class="bz-arch-chip">Granite 4.2 models</span>
       <span class="bz-arch-chip">Third-party models</span>
       <span class="bz-arch-chip">Tuning Studio</span>
     </div>
@@ -62,6 +65,14 @@ watsonx is not a single product. It is three components that work together.
 
 Granite is IBM's own series of foundation models, built on a decoder-only transformer architecture. IBM trains them on enterprise-relevant data spanning internet, academic, code, legal, and finance sources, and publishes information about the data and the filtering steps used to produce the training set. IBM also states that client-specific data is not used to train its own models, which matters when you tune the platform with proprietary information.
 
+Naming the generation matters on a platform whose whole argument is documented provenance, so be specific about what you are deploying.
+
+**Granite 4.2** (released 25 August 2026) is the current generation, in 3B, 8B, and 30B sizes under Apache 2.0. Its headline feature is native toggleable thinking: you set reasoning to full, low effort, or off per request rather than switching models. IBM also added an agentic reinforcement-learning post-training phase aimed at software engineering, terminal work, and search workflows, with the 30B model reported at 57.0 on SWE-bench Verified - a benchmark figure carried in IBM's model cards and coverage rather than in the announcement blog itself. The same announcement shipped Granite Speech 5.0 Turbo CTC and Turbo CTC NC, two 470M models for edge speech recognition. IBM describes the 4.2 language models as a dense architecture, which is worth noting because several secondary write-ups describe Granite 4.x as a hybrid Mamba design.
+
+**Granite 4.1** (29 April 2026) supplies the base models that 4.2 is post-trained from, and broadened the family beyond text: Granite Vision 4.1, Granite Speech 4.1, Granite Guardian 4.1 for safety classification, and Granite Embedding Multilingual R2. IBM's 4.1 announcement describes extending context length to as much as 512K; the commonly quoted figure of 128K native context for the 4.2 models comes from secondary coverage rather than IBM's own blog, so confirm the limit for the specific model you deploy.
+
+Anything on Granite 3.x is two generations behind. Everything in the language line is Apache 2.0, so you can self-host it free of charge, or consume it metered through watsonx.ai.
+
 ## How it fits and how to use it
 
 You do not install watsonx as a local CLI. You access it as a managed platform, then wire it into your data and applications. A typical path runs from data to a governed, deployed model.
@@ -76,7 +87,7 @@ You do not install watsonx as a local CLI. You access it as a managed platform, 
   <div class="bz-flow-step">
     <span class="bz-flow-step-tag">Step 2</span>
     <span class="bz-flow-step-name">Pick a model</span>
-    <span class="bz-flow-step-desc">Choose a Granite model or a third-party open model in watsonx.ai.</span>
+    <span class="bz-flow-step-desc">Choose a Granite 4.2 model or a third-party open model in watsonx.ai.</span>
   </div>
   <div class="bz-flow-arrow">→</div>
   <div class="bz-flow-step">
@@ -99,7 +110,7 @@ The hybrid stance is the point of difference. Because watsonx.data reaches on-pr
 | | IBM watsonx | Amazon Bedrock | Azure OpenAI |
 |---|---|---|---|
 | **Vendor** | IBM | AWS | Microsoft |
-| **Own models** | Granite series | Amazon Nova, Titan | OpenAI models |
+| **Own models** | Granite 4.2 (Apache 2.0) | Amazon Nova, Titan | OpenAI models |
 | **Third-party models** | Llama, Mistral, Hugging Face | Anthropic, Meta, Mistral | OpenAI focus |
 | **Data layer included** | watsonx.data lakehouse | Bring your own on AWS | Bring your own on Azure |
 | **Governance built in** | watsonx.governance | Guardrails, add-on services | Content filters, add-on services |
@@ -126,10 +137,14 @@ watsonx is built for enterprises that need data, models, and governance to work 
 - [Amazon Bedrock](/tools/amazon-bedrock/): the AWS managed model platform
 - [Azure OpenAI](/tools/azure-openai/): the Microsoft managed model platform
 - [IBM watsonx product page](https://www.ibm.com/watsonx): official overview of the platform
+- [Introducing Granite 4.2, IBM Research](https://research.ibm.com/blog/introducing-granite-4-2): what changed in the current generation
 
 ## Sources
 
 - IBM watsonx product page: https://www.ibm.com/watsonx
+- Introducing Granite 4.2, IBM Research, 25 August 2026: https://research.ibm.com/blog/introducing-granite-4-2
+- Granite 4.1 AI foundation models, IBM Research, 29 April 2026: https://research.ibm.com/blog/granite-4-1-ai-foundation-models
+- Granite 4.2 language models on GitHub (sizes and Apache 2.0 licence): https://github.com/ibm-granite/granite-4.2-language-models
 - IBM watsonx.ai foundation models: https://www.ibm.com/products/watsonx-ai/foundation-models
 - IBM newsroom, watsonx AI and data platform advances: https://newsroom.ibm.com/2023-09-07-IBM-Advances-watsonx-AI-and-Data-Platform-with-Tech-Preview-for-watsonx-governance-and-Planned-Release-of-New-Models-and-Generative-AI-in-watsonx-data
 - IBM announcement on Granite model series and client protections: https://www.prnewswire.com/news-releases/ibm-announces-availability-of-watsonx-granite-model-series-client-protections-for-ibm-watsonx-models-301941186.html

@@ -7,7 +7,9 @@ tags: [predictive-maintenance, manufacturing, IoT, time-series, anomaly-detectio
 image: /img/obsidian-lab/lever-chain-mechanism-notext.png
 image_alt: "A hand pushing a lever through a mechanical chain, representing human-triggered automation and the moment a predictive signal becomes a maintenance action."
 image_caption: "The sensor detects the deviation. The model predicts the failure window. The work order goes out before the machine stops."
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 A continuous manufacturing plant running 24/7 operations experienced an average of 14 unplanned equipment failures per month, each costing $50,000-$200,000 in lost production, emergency repairs, and downstream schedule disruption. The plant deployed an AI-driven predictive maintenance system to detect failures before they occur and schedule maintenance during planned downtime windows.
@@ -16,7 +18,7 @@ A continuous manufacturing plant running 24/7 operations experienced an average 
 
 The system collects sensor data from 230 machines, processes it through anomaly detection models, and generates maintenance recommendations.
 
-**Data collection layer** - Each machine is instrumented with 5-15 sensors measuring vibration, temperature, pressure, current draw, and acoustic emissions. Sensors report readings every 10 seconds to an IoT gateway. The gateway forwards data to a time-series database (Amazon Timestream) via IoT Core. Total data volume is approximately 2 billion data points per day.
+**Data collection layer** - Each machine is instrumented with 5-15 sensors measuring vibration, temperature, pressure, current draw, and acoustic emissions. Sensors report readings every 10 seconds to an IoT gateway. The gateway forwards data to a time-series database (Amazon Timestream) via IoT Core. For new builds, note that Timestream for LiveAnalytics closed to new customers on 20 June 2025; AWS recommends Amazon Timestream for InfluxDB instead ([AWS documentation](https://docs.aws.amazon.com/timestream/latest/developerguide/AmazonTimestreamForLiveAnalytics-availability-change.html)). Total data volume is approximately 2 billion data points per day.
 
 **Feature engineering** - Raw sensor readings are transformed into features: rolling averages (1-hour, 24-hour, 7-day), rate-of-change indicators, frequency domain features from vibration data (FFT analysis), and cross-sensor correlation metrics. Feature computation runs as a streaming process, producing updated feature vectors every 5 minutes per machine.
 

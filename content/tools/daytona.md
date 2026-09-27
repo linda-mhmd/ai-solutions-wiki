@@ -2,14 +2,15 @@
 title: "Daytona"
 description: "Daytona is secure, elastic infrastructure for running AI-generated code, positioned as a fast sandbox runtime for agents."
 date: 2026-07-06
-lastmod: 2026-07-06
-last_updated: 2026-07-06
+lastmod: 2026-09-25
+last_updated: 2026-09-25
 tags: ["ai-agents", "sandbox", "code-execution", "infrastructure", "enterprise"]
 tool_category: "Infrastructure"
 related:
   - tools/e2b
   - tools/modal
   - glossary/ai-agent
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -17,7 +18,7 @@ related:
   <figcaption>Daytona keeps a pool of pre-warmed sandboxes ready, so an agent gets compute in milliseconds instead of seconds.</figcaption>
 </figure>
 
-Daytona is secure, elastic infrastructure for running AI-generated code, repositioned as an agent runtime. It targets a specific pain point: [AI agents](/glossary/ai-agent/) generate code that must run somewhere safe, and slow sandbox startup breaks the flow of an interactive agent. Daytona reports very fast cold starts, about 27 milliseconds using pre-warmed pools of sandboxes, and aims at regulated enterprises that need strong isolation with production performance. The company raised a 24 million dollar Series A led by FirstMark Capital, announced on 5 February 2026.
+Daytona is secure, elastic infrastructure for running AI-generated code, repositioned as an agent runtime. It targets a specific pain point: [AI agents](/glossary/ai-agent/) generate code that must run somewhere safe, and slow sandbox startup breaks the flow of an interactive agent. Daytona reports very fast sandbox creation, "under 90ms from code to execution" in its current documentation (it previously quoted about 27 milliseconds), using pre-warmed pools of sandboxes, and aims at regulated enterprises that need strong isolation with production performance. The company raised a 24 million dollar Series A led by FirstMark Capital, announced on 5 February 2026.
 
 ## Where it sits in the stack
 
@@ -55,14 +56,14 @@ Daytona sits between your agent and the compute that runs untrusted code. Your a
     <div class="bz-arch-layer-content">
       <span class="bz-arch-chip">Pre-warmed pools</span>
       <span class="bz-arch-chip">Isolated sandboxes</span>
-      <span class="bz-arch-chip-note">Cold starts around 27 ms</span>
+      <span class="bz-arch-chip-note">Sandbox creation under 90 ms</span>
     </div>
   </div>
 </div>
 
 ## Installation
 
-Daytona provides SDKs for Python and TypeScript. Install the Python SDK from PyPI.
+Daytona provides SDKs for Python and TypeScript (plus Go, Java and Ruby SDKs). Sandboxes are isolated containers by default, with full-VM sandbox classes (Linux and Windows) available for a hardware-virtualization boundary. Install the Python SDK from PyPI.
 
 ```bash
 pip install daytona
@@ -142,7 +143,7 @@ The lifecycle of a Daytona sandbox is short. The warm pool is what makes the cre
   <div class="bz-flow-step">
     <span class="bz-flow-step-tag">Step 2</span>
     <span class="bz-flow-step-name">Claim from pool</span>
-    <span class="bz-flow-step-desc">A pre-warmed sandbox is handed over in about 27 ms.</span>
+    <span class="bz-flow-step-desc">A pre-warmed sandbox is handed over in under 90 ms (vendor figure).</span>
   </div>
   <div class="bz-flow-arrow">→</div>
   <div class="bz-flow-step">
@@ -165,7 +166,7 @@ The agent-sandbox market has a handful of serious players. Daytona competes on c
 | | Daytona | [E2B](/tools/e2b/) | [Modal](/tools/modal/) | Self-managed containers |
 |---|---|---|---|---|
 | **Primary use** | Agent code execution | Agent code execution | Serverless functions | General workloads |
-| **Cold start** | About 27 ms | Sub-second | Sub-second | Varies widely |
+| **Cold start** | Under 90 ms (vendor figure) | Sub-second | Sub-second | Varies widely |
 | **Positioning** | Regulated enterprise | Open-source runtime | GPU and batch compute | Full control, more work |
 | **Open source** | Yes | Yes | No | Yes |
 | **Best for** | Speed-sensitive agents | Code interpreters | Heavy compute jobs | Custom infrastructure |
@@ -194,3 +195,5 @@ Daytona is not the right choice in every situation.
 - [Daytona Python SDK reference](https://www.daytona.io/docs/en/python-sdk/)
 - [Daytona official site](https://www.daytona.io/)
 - [Daytona GitHub repository](https://github.com/daytonaio/daytona)
+- [Daytona documentation home](https://www.daytona.io/docs/en/) ("spinning up in under 90ms from code to execution"; SDK list), checked 26 September 2026
+- [Daytona isolation docs](https://www.daytona.io/docs/en/isolation/) (container and VM sandbox classes), checked 26 September 2026

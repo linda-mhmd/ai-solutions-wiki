@@ -2,6 +2,8 @@
 title: "What is a Large Language Model (LLM)?"
 description: "A large language model is the AI behind ChatGPT, Claude, and Gemini. Plain-English explanation of how LLMs work, what they can and cannot do, and how to choose between them."
 date: 2026-06-22
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 1
 categories: [Basics]
 tags: ["beginner", "llm", "chatgpt", "claude", "gemini", "transformers", "ai-basics"]
@@ -14,13 +16,13 @@ faqs:
   - question: "What is an LLM in simple terms?"
     answer: "An LLM (large language model) is a type of AI trained on massive amounts of text that can understand and generate human language. 'Large' refers to billions of internal parameters. 'Language model' means it works with text: reading it, summarising it, translating it, answering questions about it, and writing new text. ChatGPT, Claude, Gemini, and Mistral are all LLMs."
   - question: "What is the difference between an LLM and ChatGPT?"
-    answer: "An LLM is the underlying model (the AI brain). ChatGPT is a product built on top of an LLM (GPT-4o from OpenAI). The relationship is like the difference between an engine and a car: the LLM is the engine, ChatGPT is the car. Other products built on LLMs include Claude (Anthropic), Gemini (Google), Copilot (Microsoft), and Perplexity. Companies can also access LLMs directly via API to build their own products."
+    answer: "An LLM is the underlying model (the AI brain). ChatGPT is a product built on top of LLMs (OpenAI's GPT models; at the time of writing, September 2026, the GPT-5.6 and GPT-6 families). The relationship is like the difference between an engine and a car: the LLM is the engine, ChatGPT is the car. Other products built on LLMs include Claude (Anthropic), Gemini (Google), Copilot (Microsoft), and Perplexity. Companies can also access LLMs directly via API to build their own products."
   - question: "How does an LLM know so much?"
-    answer: "LLMs are trained on text scraped from the internet, books, code repositories, and other sources. Training data for GPT-4 is estimated at several hundred billion words. During training, the model learns statistical relationships between words, concepts, facts, and reasoning patterns. It does not have a separate knowledge database it looks things up in. Everything it knows is encoded in its billions of parameters as learned patterns."
+    answer: "LLMs are trained on text scraped from the internet, books, code repositories, and other sources. Frontier models are trained on trillions of tokens (DeepSeek, for example, reports 45 trillion training tokens for DeepSeek-V4.1-Flash). During training, the model learns statistical relationships between words, concepts, facts, and reasoning patterns. It does not have a separate knowledge database it looks things up in. Everything it knows is encoded in its billions of parameters as learned patterns."
   - question: "What is a context window?"
-    answer: "The context window is how much text an LLM can consider at once in a single conversation. It is measured in tokens (roughly 0.75 words per token). A 128K context window holds about 100,000 words, enough for roughly 300 pages of text. Everything outside the context window is invisible to the model when generating a response. Larger context windows let you work with longer documents, but cost more per API call."
+    answer: "The context window is how much text an LLM can consider at once in a single conversation. It is measured in tokens (roughly 0.75 words per token). A 128K context window holds roughly 100,000 words, enough for about 300 pages of text; at the time of writing (September 2026) many current models, such as GPT-6 Sol, Claude Opus 5.5 and Gemini 3.8 Flash, accept around 1 million tokens. The exact words-per-token ratio depends on the model's tokenizer and the language. Everything outside the context window is invisible to the model when generating a response. Larger context windows let you work with longer documents, but cost more per API call."
   - question: "Which LLM is best?"
-    answer: "It depends on the use case. Claude claude-opus-4-8 and GPT-4o lead on complex reasoning and long documents. Mistral and Llama 3 are best for cost-sensitive or EU-data-residency requirements. Gemini 2.0 Flash leads on speed and multimodal tasks. The best practice is to define your quality bar and budget, then benchmark 2-3 models on your actual use case before committing."
+    answer: "It depends on the use case, and the leaders change every few months. At the time of writing (September 2026), top-tier models such as Claude Opus 5.5, Claude Fable 5.1 and GPT-6 Astra lead on complex reasoning and long agentic tasks. Mid-tier models like GPT-6 Sol and Claude Sonnet 5 cover most business work at lower cost. Fast, cheap models such as Gemini 3.8 Flash, GPT-6 Luna and Claude Haiku 4.5 suit high-volume tasks. Open-weight models such as Mistral Large 3 or DeepSeek-V4.1-Flash suit self-hosting and strict data-residency requirements. See the LLM Landscape 2026 page for the current list. The best practice is to define your quality bar and budget, then benchmark 2-3 models on your actual use case before committing."
 ---
 
 {{< quickanswer >}}
@@ -115,13 +117,16 @@ The key insight: an LLM does not retrieve facts from a database. It generates te
 
 ## Major LLMs compared
 
-| | GPT-4o (OpenAI) | Claude Sonnet 4.6 (Anthropic) | Gemini 2.0 Flash (Google) | Mistral Large |
+The table below is a snapshot at the time of writing (September 2026). Models are replaced every few months; see the [LLM Landscape 2026](/comparisons/llm-landscape-2026/) for the live list.
+
+| | GPT-6 Sol (OpenAI) | Claude Sonnet 5 (Anthropic) | Gemini 3.8 Flash (Google) | Mistral Large 3 (Mistral) |
 |---|---|---|---|---|
-| **Context window** | 128K tokens | 200K tokens | 1M tokens | 128K tokens |
-| **Multimodal (images)** | Yes | Yes | Yes | No |
-| **Best at** | General tasks, GPT ecosystem | Long documents, coding | Speed, large context | EU residency, cost |
-| **API pricing (input/1M)** | ~€4.50 | ~€3.00 | ~€0.10 | €2.00 |
-| **Data residency** | US | US | US or EU | EU (Paris) |
+| **Context window** | 1.05M tokens | 1M tokens | 1,048,576 tokens | 256K tokens |
+| **Multimodal (images in)** | Yes | Yes | Yes | Yes |
+| **Best at** | Coding and agentic workflows, OpenAI ecosystem | Long documents, coding, agents | Speed, low price, large context | Open weights, EU provider, low cost |
+| **API price (input / output per 1M tokens)** | $2 / $10 | $2 / $10 | $0.75 / $3.75 (introductory, until 31 Dec 2026) | $0.50 / $1.50 |
+| **Weights** | Closed | Closed | Closed | Open (Apache 2.0) |
+| **EU data residency** | Available on the API (check per model) | Via cloud partners (Bedrock, Google Cloud, Foundry) | Via Google Cloud regional endpoints (check per model) | EU-based provider; can also be self-hosted |
 
 <div class="bz-flow">
   <div class="bz-flow-step">

@@ -4,6 +4,8 @@ description: "A plain-English tour of the production cloud stack behind a real A
 date: 2026-06-25
 categories: [Guides]
 tags: ["architecture", "cloud", "inference", "rag", "finops"]
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure"><img src="/img/enterprise-dark/server-room-corridor-notext.png" alt="A dark data center corridor lined with red-lit server racks fading into the distance." loading="lazy"><figcaption>The chat box you type into is the front door. Most of an AI app lives in racks like these, far from view.</figcaption></figure>
@@ -97,7 +99,7 @@ A base model only knows what it learned during training. It has never seen your 
 
 ## Layer 5: Inference, the part that writes the answer
 
-This is the engine. [Inference](/glossary/inference/) is the act of running a trained model to produce output. Teams reach it in one of two ways. The most common route is a hosted model API, where a provider runs the hardware and you pay per token of text in and out. The other route is self-hosting, where you rent GPUs and run the model yourself, often with a serving engine such as vLLM. On the major clouds the managed route maps to Amazon Bedrock, Azure AI Foundry, and Google Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story). All three keep pace on the popular models, including Claude, Llama, and Mistral; Azure AI Foundry has the deepest GPT-family integration through the OpenAI partnership.
+This is the engine. [Inference](/glossary/inference/) is the act of running a trained model to produce output. Teams reach it in one of two ways. The most common route is a hosted model API, where a provider runs the hardware and you pay per token of text in and out. The other route is self-hosting, where you rent GPUs and run the model yourself, often with a serving engine such as vLLM. On the major clouds the managed route maps to Amazon Bedrock, Microsoft Foundry (formerly Azure AI Foundry), and Google Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story). All three keep pace on the popular models, including Claude, Llama, and Mistral. Microsoft Foundry has the deepest GPT-family integration through the OpenAI partnership, though OpenAI's GPT-6 models are no longer Azure-only: GPT-6 Sol and Luna reached general availability on Amazon Bedrock on 22 September 2026.
 
 | | Hosted model API | Self-hosted GPUs |
 |---|---|---|
@@ -127,7 +129,7 @@ Most AI apps follow the same shape regardless of cloud. The names change, the la
 | Layer | AWS | Azure | Google Cloud |
 |---|---|---|---|
 | **API gateway** | API Gateway | API Management | API Gateway |
-| **Model / inference** | Bedrock | AI Foundry | Vertex AI |
+| **Model / inference** | Bedrock | Microsoft Foundry | Vertex AI |
 | **Vector store** | OpenSearch, pgvector | AI Search | Vertex AI, pgvector |
 | **Observability** | CloudWatch | Monitor | Cloud Operations |
 
@@ -148,4 +150,5 @@ Most AI apps follow the same shape regardless of cloud. The names change, the la
 - [GroovyWeb](https://www.groovyweb.co/blog/ai-orchestration-definition-production-stack): definition of AI orchestration and the production stack layers.
 - [Spheron](https://www.spheron.network/blog/ai-infrastructure-companies-2026/): the layered view of AI infrastructure, from compute to governance.
 - [Atlan](https://atlan.com/know/enterprise-rag-platforms-comparison/): retrieval latency ranges and enterprise RAG platform components.
-- [Bits Lovers](https://www.bitslovers.com/bedrock-vs-azure-ai-foundry-vs-vertex-ai/): comparison of Amazon Bedrock, Azure AI Foundry, and Google Vertex AI.
+- [Bits Lovers](https://www.bitslovers.com/bedrock-vs-azure-ai-foundry-vs-vertex-ai/): comparison of Amazon Bedrock, Azure AI Foundry (now Microsoft Foundry), and Google Vertex AI.
+- [AWS What's New](https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-sol-luna-on-amazon-bedrock/): OpenAI GPT-6 Sol and GPT-6 Luna generally available on Amazon Bedrock, 22 September 2026.

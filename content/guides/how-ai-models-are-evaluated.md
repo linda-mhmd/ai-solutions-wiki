@@ -2,6 +2,8 @@
 title: "How AI Models Are Evaluated: The Hidden Lifecycle"
 description: "The invisible pipeline behind every chat box: training, alignment, red teaming, benchmarks, and monitoring that decide whether a model ships."
 date: 2026-07-01
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 categories: [Guides]
 tags: ["evaluation", "red-teaming", "benchmarks", "ai-safety", "adversarial"]
 ---
@@ -144,7 +146,7 @@ Recent research has moved red teaming from ad hoc probing toward reproducible, d
 - **RIFT-Bench** evaluates the security of agentic AI systems using a broad set of dynamically adaptable adversarial probes across diverse attack vectors. It works in two automated phases, discovery then scanning, and the authors report testing it across 45 different agentic systems (arXiv 2606.23927).
 - **REALM** is a unified red-teaming benchmark for vision language models in physical-world contexts. It probes how models handle adversarial images and instructions tied to real-world and robotics tasks, across multiple attack categories (arXiv 2606.23892).
 - **AIRTBench** measures whether language models can perform autonomous red teaming: independently finding and exploiting vulnerabilities without a human driving each step. The code is open source (arXiv 2506.14682).
-- **The Agent Red Teaming benchmark** comes from a large-scale public competition run by Gray Swan AI with the UK AI Safety Institute. Researchers competed to break deployed [AI agents](/glossary/ai-agents/), surfacing novel attack patterns and showing that current defences often fall short when agents have tool access (arXiv 2507.20526).
+- **The Agent Red Teaming benchmark** comes from a large-scale public competition run by Gray Swan AI with the UK AI Security Institute (renamed from the AI Safety Institute in February 2025). Researchers competed to break deployed [AI agents](/glossary/ai-agents/), surfacing novel attack patterns and showing that current defences often fall short when agents have tool access (arXiv 2507.20526).
 
 These benchmarks matter because agents raise the stakes. A model that only chats can give a bad answer. A model that can call tools and act can be turned against the systems around it.
 

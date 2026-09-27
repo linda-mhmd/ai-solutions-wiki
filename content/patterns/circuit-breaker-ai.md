@@ -8,7 +8,7 @@ related:
   - glossary/circuit-breaker
   - patterns/microservices-for-ai
   - patterns/feature-flags-ai
-  - tools/amazon-step-functions
+  - tools/aws-step-functions
   - guides/testing-ai-systems
 last_updated: 2026-05-30
 ---

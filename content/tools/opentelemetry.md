@@ -12,7 +12,9 @@ alternatives:
   aws: tools/amazon-cloudwatch
   azure: tools/azure-monitor
   gcp: tools/google-cloud-monitoring
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 OpenTelemetry (OTel) is a vendor-neutral, open-source observability framework that provides a single set of APIs, SDKs, and tools for generating, collecting, processing, and exporting telemetry data -- traces, metrics, and logs -- from applications and infrastructure. It is the industry standard for instrumenting cloud-native software, supported by virtually every observability vendor, cloud provider, and monitoring platform. OpenTelemetry's goal is to make high-quality telemetry a built-in feature of all software, eliminating vendor lock-in for observability data.
@@ -34,9 +36,11 @@ OpenTelemetry is the open-source standard that complements (rather than directly
 
 ## Origins and History
 
-OpenTelemetry was formed in 2019 through the merger of OpenTracing (created by Ben Sigelman at LightStep, 2016) and OpenCensus (created at Google, 2018). The merger was announced by the CNCF to unify the fragmented instrumentation landscape. OpenTelemetry is licensed under the Apache License 2.0 and is a CNCF incubating project. The tracing specification reached GA in 2021, metrics in 2023, and logs stabilization has been ongoing. The project has over 1,000 contributors across its repositories.
+OpenTelemetry was formed in 2019 through the merger of OpenTracing (created by Ben Sigelman at LightStep, 2016) and OpenCensus (created at Google, 2018). The merger was announced by the CNCF to unify the fragmented instrumentation landscape. OpenTelemetry is licensed under the Apache License 2.0. It moved to CNCF incubation in August 2021 and reached CNCF Graduated status on 11 May 2026. The tracing specification reached GA in 2021 and metrics in 2023; logs are stable in the specification and in several SDKs (C++, .NET, Java, PHP), while others (Python, JavaScript, Ruby) still list logs as in development, and profiles are the newest signal. The project has over 1,000 contributors across its repositories.
 
 ## Sources
 
 1. https://opentelemetry.io/
 2. https://github.com/open-telemetry
+3. CNCF, "OpenTelemetry" project page (maturity history; graduated 11 May 2026): https://www.cncf.io/projects/opentelemetry/
+4. OpenTelemetry, "Status" (signal maturity per language, accessed 25 September 2026): https://opentelemetry.io/status/

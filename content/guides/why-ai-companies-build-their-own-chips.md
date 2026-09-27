@@ -4,6 +4,8 @@ description: "Why OpenAI, Google, and Amazon design custom AI silicon: inference
 date: 2026-06-25
 categories: [Guides]
 tags: ["ai-hardware", "inference", "chips", "infrastructure"]
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure"><img src="/img/enterprise-dark/server-cpu-split-notext.png" alt="Split image of a dark server room on the left and a red-lit processor chip on the right." loading="lazy"><figcaption>The split between buying off-the-shelf compute and designing your own chip is now a strategic choice for large AI companies.</figcaption></figure>
@@ -40,7 +42,7 @@ Not all AI chips do the same job. Training and inference put different demands o
 
 <div class="bz-flow"><div class="bz-flow-step"><span class="bz-flow-step-tag">Step 1</span><span class="bz-flow-step-name">Training</span><span class="bz-flow-step-desc">A model learns from data once. Heavy, parallel maths over weeks or months. Needs huge memory and bandwidth.</span></div><div class="bz-flow-arrow">&rarr;</div><div class="bz-flow-step"><span class="bz-flow-step-tag">Step 2</span><span class="bz-flow-step-name">Deployment</span><span class="bz-flow-step-desc">The finished model is copied into data centres to serve users.</span></div><div class="bz-flow-arrow">&rarr;</div><div class="bz-flow-step"><span class="bz-flow-step-tag">Step 3</span><span class="bz-flow-step-name">Inference</span><span class="bz-flow-step-desc">The model answers each query. This runs billions of times. Cost per request and latency dominate.</span></div></div>
 
-Training happens once per model version. Inference happens on every single request, forever. As products like ChatGPT scale to billions of queries, the cost of inference becomes the larger and more predictable bill. That is why several custom chips, including Jalapeno and Google's Ironwood, target inference first. Amazon splits the two jobs across two chip lines: Trainium for training and Inferentia for inference.
+Training happens once per model version. Inference happens on every single request, forever. As products like ChatGPT scale to billions of queries, the cost of inference becomes the larger and more predictable bill. That is why several custom chips, including Jalapeno and Google's Ironwood, target inference first. Amazon built two chip lines, Trainium for training and Inferentia for inference, but now positions Trainium for both training and inference at scale, with Inferentia remaining the dedicated inference line.
 
 ## The four reasons companies design their own chips
 
@@ -90,5 +92,6 @@ For you as a builder, the practical effect is downstream pricing. As providers s
 - [ANI News](https://aninews.in/news/business/openai-broadcom-roll-out-jalapeno-ai-chip-for-llm-inference-target-gigawatt-scale-data-centres-from-202620260624210023/)
 - [Google Cloud Blog](https://cloud.google.com/blog/products/compute/ironwood-tpus-and-new-axion-based-vms-for-your-ai-workloads)
 - [AWS Inferentia](https://aws.amazon.com/ai/machine-learning/inferentia/)
+- [AWS Trainium](https://aws.amazon.com/ai/machine-learning/trainium/)
 - [EE Times](https://www.eetimes.com/amazon-newest-gambit-selling-ai-chips/)
 - [Introl](https://introl.com/blog/custom-silicon-inflection-2026-hyperscaler-asics-nvidia-gpu)

@@ -2,6 +2,8 @@
 title: "Storage Costs as You Scale"
 description: "How storage costs grow as your SaaS scales from 0 to 10,000 users. What catches founders off guard, and how to plan ahead."
 date: 2026-07-30
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 3
 categories: [Basics]
 tags: [storage, costs, saas, founder, scaling, infrastructure, cloud]
@@ -12,7 +14,7 @@ faqs:
     answer: "Egress (data transfer out). Storing 1TB on S3 costs $23/month. Serving that 1TB to users costs $90. A viral moment can generate a four-figure bill overnight. Cloudflare R2's free egress eliminates this surprise."
   - question: "Should I self-host to save money?"
     answer: "Almost never at early stage. The engineering time to manage storage infrastructure far exceeds the cost savings. Consider it only when you're spending $10K+/month on cloud storage AND have an ops team to manage it."
-last_updated: 2026-07-30
+last_updated: 2026-09-25
 ---
 
 {{< quickanswer >}}
@@ -40,7 +42,7 @@ Storage costs start trivial and grow with your user base, data retention, and fe
 - Don't store files in your database
 - Don't commit secrets to Git
 - Use object storage (S3/R2) for user uploads from day one
-- Pick a provider with good free tier (Supabase, R2, PlanetScale)
+- Pick a provider with good free tier (Supabase, Neon, Cloudflare R2)
 
 ### Phase 2: Traction (100-1,000 users)
 

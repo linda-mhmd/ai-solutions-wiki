@@ -9,7 +9,9 @@ related:
   - guides/ci-cd-for-ai
   - glossary/ci-cd
   - patterns/circuit-breaker-ai
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 A feature flag (also called a feature toggle or feature switch) is a configuration value that controls whether a specific feature or behaviour is active, without requiring a code deployment to change it. Features are wrapped in conditional checks that read the flag value at runtime. Changing the flag value changes behaviour immediately, across all running instances, without restarting the service.
@@ -18,16 +20,16 @@ A feature flag (also called a feature toggle or feature switch) is a configurati
 
 Without feature flags:
 ```python
-response = call_model("claude-opus-4-6", prompt)
+response = call_model("claude-opus-5-5", prompt)
 ```
 
 With a feature flag:
 ```python
-model = feature_flags.get("inference_model", default="claude-3-haiku")
+model = feature_flags.get("inference_model", default="claude-haiku-4-5")
 response = call_model(model, prompt)
 ```
 
-Changing the flag value from `"claude-3-haiku"` to `"claude-opus-4-6"` in the flag management system takes effect immediately for all new requests, without any code change or deployment.
+Changing the flag value from `"claude-haiku-4-5"` to `"claude-opus-5-5"` in the flag management system takes effect immediately for all new requests, without any code change or deployment.
 
 ## Why Feature Flags Matter for AI
 
@@ -47,11 +49,11 @@ Feature flags allow:
 
 **AWS AppConfig** - Managed flag and configuration service within AWS. Integrates with CloudWatch alarms for automatic rollback when a metric threshold is breached. Good choice for AWS-native stacks. Free tier covers most use cases.
 
-**LaunchDarkly** - Dedicated feature flag platform with sophisticated targeting rules, experimentation (A/B testing with statistical significance calculations), and integrations with observability tools. Priced per monthly active user. Industry standard for teams that need rich experimentation capabilities.
+**LaunchDarkly** - Dedicated feature flag platform with sophisticated targeting rules, experimentation (A/B testing with statistical significance calculations), and integrations with observability tools. Priced by server-side service connections plus client-side monthly active users, with a free Developer tier. Industry standard for teams that need rich experimentation capabilities.
 
 **Unleash** - Open-source feature flag platform. Can be self-hosted (free) or used as a managed service. Strong community support. Good choice for teams that want flag management without vendor lock-in.
 
-**Environment variables** - The simplest possible feature flag. Set `MODEL_NAME=claude-opus-4-6` in your environment. Change it and restart. No dynamic updates, but sufficient for small projects where deployment is fast and rollback is acceptable.
+**Environment variables** - The simplest possible feature flag. Set `MODEL_NAME=claude-opus-5-5` in your environment. Change it and restart. No dynamic updates, but sufficient for small projects where deployment is fast and rollback is acceptable.
 
 ## Flag Types for AI
 
@@ -72,3 +74,4 @@ Feature flags are technical debt if left indefinitely. When a rollout is complet
 - Hodgson, P. (2017). Feature toggles (aka feature flags). *martinfowler.com*. (Canonical feature flags reference; defines toggle types (release, experiment, ops, permission) and flag lifecycle management.)
 - Humble, J., & Farley, D. (2010). *Continuous Delivery*. Addison-Wesley. Chapter 10: Deploying and Releasing Applications. (Feature flags as a continuous delivery mechanism enabling trunk-based development.)
 - Kohavi, R., Tang, D., & Xu, Y. (2020). *Trustworthy Online Controlled Experiments: A Practical Guide to A/B Testing*. Cambridge University Press. (A/B testing methodology that feature flags enable; experimental design for gradual model rollouts.)
+- LaunchDarkly. *Pricing* (accessed 25 September 2026). [https://launchdarkly.com/pricing/](https://launchdarkly.com/pricing/) (Service-connection and client-side MAU billing.)

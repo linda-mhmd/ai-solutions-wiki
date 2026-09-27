@@ -10,7 +10,9 @@ related:
   - "glossary/fine-tuning"
   - "guides/context-engineering"
   - "comparisons/ai-subscription-pricing-2026"
-last_updated: 2026-06-23
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 "Small language model" has no fixed parameter cutoff. The leading survey defines small language models (SLMs) by capability, not size, with literature definitions ranging from under 1 billion parameters up to roughly 10 billion [10]. The practical question is not which model is biggest. The practical question is which model fits your task, your budget, and your hardware.
@@ -77,27 +79,27 @@ Treat these as guidance, not law. A 3B model that solves your task beats a 70B m
 
 ## The main SLM families
 
-The open-model field is crowded. Here are the families worth knowing, with sizes and verified benchmarks.
+The open-model field is crowded. Here are the families worth knowing, with sizes and verified benchmarks. The benchmark figures below come from each generation's technical report; newer generations have shipped since, and each family notes its current successor as of September 2026. For the full current lineup, see [LLM landscape 2026](/comparisons/llm-landscape-2026/).
 
 ### Phi (Microsoft)
 
-Phi-3-mini has 3.8 billion parameters, trained on 3.3 trillion tokens, and is small enough to run on a phone. It scores 69% on MMLU (a broad knowledge benchmark) and 8.38 on MT-bench, rivaling Mixtral 8x7B and GPT-3.5 [1]. Phi-3-small (7B) and Phi-3-medium (14B) reach 75% and 78% on MMLU [1]. Phi-4 is a 14B model that surpasses its teacher GPT-4 on STEM-focused question answering, going beyond distillation through heavy use of synthetic training data [2].
+Phi-3-mini has 3.8 billion parameters, trained on 3.3 trillion tokens, and is small enough to run on a phone. It scores 69% on MMLU (a broad knowledge benchmark) and 8.38 on MT-bench, rivaling Mixtral 8x7B and GPT-3.5 [1]. Phi-3-small (7B) and Phi-3-medium (14B) reach 75% and 78% on MMLU [1]. Phi-4 is a 14B model that surpasses its teacher GPT-4 on STEM-focused question answering, going beyond distillation through heavy use of synthetic training data [2]. The current Phi line is the MIT-licensed Phi-4 family, including Phi-4-mini (3.8B) and Phi-4-mini-reasoning, plus Phi-4-reasoning-vision-15B (March 2026) for multimodal reasoning (see [LLM landscape 2026](/comparisons/llm-landscape-2026/)).
 
 ### Gemma (Google)
 
-The original Gemma shipped at 2B and 7B and beat similarly sized open models on 11 of 18 tasks [3]. Gemma 2 spans 2B, 9B, and 27B. Its 2B and 9B variants train with knowledge distillation instead of plain next-token prediction [4]. Gemma 3 spans 1B to 27B, adds vision, and supports at least 128K context. Its 4B instruct variant competes with the previous-generation 27B model [5].
+The original Gemma shipped at 2B and 7B and beat similarly sized open models on 11 of 18 tasks [3]. Gemma 2 spans 2B, 9B, and 27B. Its 2B and 9B variants train with knowledge distillation instead of plain next-token prediction [4]. Gemma 3 spans 1B to 27B, adds vision, and supports at least 128K context. Its 4B instruct variant competes with the previous-generation 27B model [5]. Gemma 4 (April 2026) is the current generation: E2B and E4B for on-device use (128K context), plus 12B, 26B A4B (MoE) and 31B (256K context), and it moves the family from the Gemma Terms of Use to Apache 2.0 ([Gemma 4 model card](https://ai.google.dev/gemma/docs/core/model_card_4)).
 
 ### Qwen2.5 (Alibaba)
 
-Qwen2.5 released in seven sizes: 0.5B, 1.5B, 3B, 7B, 14B, 32B, and 72B, with quantized variants for each [6]. That spread lets you pick a size per task without changing model families.
+Qwen2.5 released in seven sizes: 0.5B, 1.5B, 3B, 7B, 14B, 32B, and 72B, with quantized variants for each [6]. That spread lets you pick a size per task without changing model families. Qwen2.5 is now several generations old: Alibaba has since shipped Qwen3 through Qwen3.8 (August 2026), and of the current generation the Apache 2.0 open-weight model is Qwen3.8-27B, which sits at the upper edge of "small".
 
 ### Llama 3.2 lightweight (Meta)
 
-Meta Llama 3.2 lightweight models come in 1B and 3B, support 128K context, and target on-device summarization and rewriting. Meta trained them with pruning and distillation [11]. Quantized Llama 3.2 1B and 3B achieve an average 56% model-size reduction, 41% memory reduction, and a 2-4x speedup versus the BF16 baseline, using QLoRA and SpinQuant [12].
+Meta Llama 3.2 lightweight models come in 1B and 3B, support 128K context, and target on-device summarization and rewriting. Meta trained them with pruning and distillation [11]. Quantized Llama 3.2 1B and 3B achieve an average 56% model-size reduction, 41% memory reduction, and a 2-4x speedup versus the BF16 baseline, using QLoRA and SpinQuant [12]. Meta has not shipped a new Llama since Llama 4 Scout and Maverick (April 2025), neither of which is small, so Llama 3.2 1B and 3B remain the most recent small Llama models. Meta's current open-weight model is Muse Glimmer, a 30B dense model under Apache 2.0 (August 2026).
 
 ### SmolLM (Hugging Face)
 
-SmolLM ships at 135M, 360M, and 1.7B. The 1.7B variant outperforms other sub-2B models, including Phi-1.5 and Qwen2-1.5B [13]. These are the models to reach for when you need something that runs on almost any device.
+SmolLM ships at 135M, 360M, and 1.7B. The 1.7B variant outperforms other sub-2B models, including Phi-1.5 and Qwen2-1.5B [13]. These are the models to reach for when you need something that runs on almost any device. SmolLM3 (July 2025) added a 3B, Apache 2.0 model with open training data and recipes ([model card](https://huggingface.co/HuggingFaceTB/SmolLM3-3B)).
 
 ### TinyLlama
 
@@ -173,12 +175,12 @@ The honest framing is a portfolio. Use SLMs where they fit and LLMs where they d
 
 ## Try a small model locally
 
-You can run a small model on your own machine in a few minutes. With Ollama, pull a quantized Phi-3 and prompt it:
+You can run a small model on your own machine in a few minutes. With Ollama, pull a quantized Phi-4-mini and prompt it:
 
 ```bash
 # Pull a quantized small model (under 3 GB) and run it locally
-ollama pull phi3:mini
-ollama run phi3:mini "Summarize this in one sentence: small models trade breadth for speed and privacy."
+ollama pull phi4-mini
+ollama run phi4-mini "Summarize this in one sentence: small models trade breadth for speed and privacy."
 ```
 
 To call llama.cpp directly with a GGUF file, build the binary and point it at a downloaded model [14]:
@@ -200,6 +202,7 @@ Both run on a laptop with no API key and no data leaving the machine.
 
 ## Further reading
 
+- [Phi-4-mini on Ollama](https://ollama.com/library/phi4-mini): the 2.5 GB quantized model used in the example above.
 - [Phi-3 Technical Report (Microsoft)](https://arxiv.org/abs/2404.14219): the 3.8B model that runs on a phone and rivals far larger models.
 - [Phi-4 Technical Report (Microsoft)](https://arxiv.org/abs/2412.08905): a 14B model that surpasses its GPT-4 teacher on STEM through synthetic data.
 - [Gemma 3 Technical Report (Google DeepMind)](https://arxiv.org/abs/2503.19786): 1B to 27B with vision and 128K context, where the 4B rivals the prior 27B.
@@ -208,7 +211,9 @@ Both run on a laptop with no API key and no data leaving the machine.
 - [Distilling the Knowledge in a Neural Network (Hinton et al.)](https://arxiv.org/abs/1503.02531): the original distillation paper behind modern small models.
 - [llama.cpp](https://github.com/ggml-org/llama.cpp): CPU-only local inference with GGUF and 1.5-bit to 8-bit quantization.
 - [Llama 3.2 quantized models (Meta AI)](https://ai.meta.com/blog/meta-llama-quantized-lightweight-models/): 56% smaller, 41% less memory, 2-4x faster.
-- [LLM landscape 2026](/comparisons/llm-landscape-2026/): how the large models compare today.
+- [Gemma 4 model card (Google)](https://ai.google.dev/gemma/docs/core/model_card_4): current Gemma sizes, context windows and the Apache 2.0 licence (checked 25 September 2026).
+- [SmolLM3 (Hugging Face)](https://huggingface.co/HuggingFaceTB/SmolLM3-3B): 3B, Apache 2.0, released July 2025.
+- [LLM landscape 2026](/comparisons/llm-landscape-2026/): how the large models compare today, including the current Phi, Qwen and Llama generations.
 - [Multi-model routing](/guides/multi-model-routing/): build the SLM-first, LLM-fallback architecture in practice.
 - [Ollama](/tools/ollama/): the easiest way to pull and run small models locally.
 - [Fine-tuning](/glossary/fine-tuning/): how to specialize a small model on your domain.

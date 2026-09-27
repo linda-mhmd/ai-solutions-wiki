@@ -60,7 +60,7 @@ The Lean Canvas is problem-focused where the Business Model Canvas is customer-f
 
 **Unique Value Proposition.** One sentence that explains what you do, who it is for, and what makes it different. It should be clear enough that a prospect can read it and immediately understand whether they are the target customer. The UVP sits at the centre of the canvas because every other box either explains it or enables it.
 
-**Solution.** The top three capabilities of your product that directly address the top three problems. Not a feature list: the three most important things. For AI products, resist the urge to lead with the technology ("GPT-4 powered"). Lead with the outcome ("Invoices reconciled automatically, reviewed and approved by finance teams in minutes").
+**Solution.** The top three capabilities of your product that directly address the top three problems. Not a feature list: the three most important things. For AI products, resist the urge to lead with the technology ("powered by GPT-6"). Lead with the outcome ("Invoices reconciled automatically, reviewed and approved by finance teams in minutes").
 
 **Channels.** How do customers find out about you, try the product, buy it, and get support? Different channels have different costs and conversion rates. Early-stage products should focus on low-cost, high-feedback channels: direct sales, communities, content.
 

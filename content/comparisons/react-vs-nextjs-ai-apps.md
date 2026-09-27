@@ -2,14 +2,14 @@
 title: "React vs Next.js for AI-Powered Applications"
 description: "Comparing React and Next.js for building AI-powered web applications, covering streaming, server components, API routes, and AI SDK integration."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [React, Next.js, frontend, web-development, AI-apps]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
-React and Next.js are both used to build web frontends for AI applications. Since Next.js is built on React, this comparison is really about whether your AI application benefits from Next.js's additional features: Server Components, API routes (Route Handlers), streaming, and full-stack capabilities. As of mid 2026, the relevant baselines are React 19 (with the React Compiler now at 1.0) and Next.js 16, which ships Turbopack as the default bundler, opt-in Cache Components (the `use cache` directive), and stable React Compiler support.
+React and Next.js are both used to build web frontends for AI applications. Since Next.js is built on React, this comparison is really about whether your AI application benefits from Next.js's additional features: Server Components, API routes (Route Handlers), streaming, and full-stack capabilities. As of September 2026, the relevant baselines are React 19 (19.3, released 9 September 2026, with the React Compiler at 1.0) and Next.js 16 (16.3.x), which ships Turbopack as the default bundler, opt-in Cache Components (the `use cache` directive), and stable React Compiler support.
 
 ## Core Difference
 
@@ -43,6 +43,8 @@ Next.js Server Components run on the server and send only the rendered HTML to t
 - AI processing happens on the server (secure, no API key exposure)
 - Initial page load is fast (server-rendered content)
 - Client JavaScript bundle is smaller (AI logic stays on the server)
+
+Server-side does not mean risk-free: in December 2025 the React team disclosed a critical unauthenticated remote code execution vulnerability in React Server Components, followed by further denial-of-service and source-exposure fixes, so keep React and Next.js patched if your AI logic runs in Server Components.
 
 React standalone does not have server components. All processing is client-side or requires a separate backend.
 
@@ -91,7 +93,7 @@ Next.js (Server Components + Route Handlers) <-> LLM API (Amazon Bedrock/OpenAI)
 
 ## The Vercel AI SDK
 
-The Vercel AI SDK works with both React and Next.js but provides the best experience with Next.js. The SDK reached version 5 in July 2025 (redesigned, type safe chat with separate UI and model messages, an Agent abstraction, and Server-Sent Events streaming) and has since moved to version 6, which expands the agent loop and adds tool execution approval for human in the loop workflows. Version 5 to 6 was a large breaking change, so check the migration guide when upgrading.
+The Vercel AI SDK works with both React and Next.js but provides the best experience with Next.js. The SDK reached version 5 in July 2025 (redesigned, type safe chat with separate UI and model messages, an Agent abstraction, and Server-Sent Events streaming) then moved to version 6 (December 2025), which expanded the agent loop and added tool execution approval for human in the loop workflows, and to version 7 (25 June 2026), which adds provider-neutral reasoning control, durable workflow agents, and real-time voice. Major versions have carried breaking changes, so check the migration guide (Vercel ships a `@ai-sdk/codemod` for 6 to 7) when upgrading.
 
 The SDK ships separate provider packages, including `@ai-sdk/openai`, `@ai-sdk/anthropic`, and `@ai-sdk/amazon-bedrock` for Amazon Bedrock, plus Google, Azure, and many others. UI bindings exist for React, Vue, Svelte, and Angular.
 
@@ -118,5 +120,8 @@ The SDK ships separate provider packages, including `@ai-sdk/openai`, `@ai-sdk/a
 - [Next.js 16 release announcement](https://nextjs.org/blog/next-16) - Turbopack as the default bundler, Cache Components and the `use cache` directive, stable React Compiler support, the rename of `middleware.ts` to `proxy.ts`, and the React 19.2 and Node.js 20.9 baseline.
 - [Next.js documentation: Route Handlers](https://nextjs.org/docs/app/api-reference/file-conventions/route) - how server-side API endpoints, including streaming responses for LLM output, are built inside a Next.js project.
 - [AI SDK 5 announcement (Vercel)](https://vercel.com/blog/ai-sdk-5) - the redesigned type safe chat, the Agent abstraction, and the move to Server-Sent Events streaming.
-- [AI SDK documentation](https://ai-sdk.dev/docs/introduction) - current version (v6), the useChat and useCompletion hooks, React, Vue, Svelte and Angular bindings, and supported providers including OpenAI, Anthropic, and Amazon Bedrock.
-- [React 19.2 announcement](https://react.dev/blog/2025/10/01/react-19-2) - the current React release line and its Server Components, Actions, and View Transitions features.
+- [AI SDK 7 is now available (Vercel, 25 June 2026)](https://vercel.com/blog/ai-sdk-7) - the current major version and its v6 to v7 codemod.
+- [AI SDK documentation](https://ai-sdk.dev/docs/introduction) - the useChat and useCompletion hooks, React, Vue, Svelte and Angular bindings, and supported providers including OpenAI, Anthropic, and Amazon Bedrock.
+- [React 19.2 announcement](https://react.dev/blog/2025/10/01/react-19-2) - Activity, Performance Tracks, and useEffectEvent.
+- [React 19.3 announcement](https://react.dev/blog/2026/09/09/react-19-3) (9 September 2026) - the current React release, with View Transitions, Fragment Refs, and Trusted Types.
+- [Critical Security Vulnerability in React Server Components](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components) (3 December 2025) - the RSC remote code execution fix.

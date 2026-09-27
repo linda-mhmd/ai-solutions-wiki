@@ -2,8 +2,9 @@
 title: "Open-Source Coding Agents: the Claude Code Alternatives"
 description: "A 2026 map of the open-source coding agents that compete with Claude Code, Cursor, and Codex, comparing OpenCode, Aider, Cline, Goose, OpenHands, Hermes, and more."
 date: 2026-07-06
-lastmod: 2026-07-06
-last_updated: 2026-07-06
+lastmod: 2026-09-25
+last_updated: 2026-09-25
+last_verified: 2026-09-25
 tags: ["comparison", "ai-coding", "coding-agent", "open-source", "claude-code", "developer-tools"]
 ---
 
@@ -77,7 +78,7 @@ Under the surface differences, these agents are built from the same layers.
 | **Continue** | continuedev | Apache-2.0 | Any provider | IDE, CLI | Autocomplete plus agent |
 | **[OpenHands](/tools/openhands/)** | All-Hands-AI | MIT (mixed) | Any via LiteLLM | CLI, cloud, CI | Autonomous sandboxed tasks |
 | **Codex CLI** | OpenAI | Apache-2.0 | OpenAI models | Terminal | OpenAI-native terminal work |
-| **Gemini CLI** | Google | Apache-2.0 | Gemini models | Terminal | Search-grounded, big context |
+| **Gemini CLI** | Google | Apache-2.0 | Gemini models | Terminal | Enterprise and paid-API users (consumer tiers moved to Antigravity CLI) |
 | **Qwen Code** | Alibaba (QwenLM) | Apache-2.0 | Any provider | Terminal | Open Qwen-model coding |
 | **[Hermes Agent](/tools/hermes-agent/)** | Nous Research | MIT | Any provider | CLI, 20+ chat apps | Persistent orchestrator |
 | **Roo Code** | Roo Code, Inc. | Apache-2.0 | Any provider | VS Code | Discontinued 2026-05-15 |
@@ -88,11 +89,11 @@ These run in your shell and edit your local files. [OpenCode](/tools/opencode/) 
 
 **Crush** is worth knowing because of a naming tangle. The original OpenCode was a Go project (`opencode-ai/opencode`); it was archived, and its author continued the work at Charm under the name Crush. So Crush is the official continuation of that original codebase: a single Go binary with strong LSP-enhanced context and mid-session model switching. The OpenCode covered on this wiki is a separate TypeScript agent that carries the `opencode` name today.
 
-Three of the terminal agents come from the big model labs and ship as open-source CLIs, but two are tied to their maker's models. **Codex CLI** (OpenAI, Apache-2.0, written in Rust) runs against OpenAI models via a ChatGPT account or an API key. **Gemini CLI** (Google, Apache-2.0) is locked to Gemini models but adds Google Search grounding and a very large context window. **Qwen Code** (Alibaba, Apache-2.0) is the exception: it began as a fork of Gemini CLI (from version 0.8.2, then developed independently) and stays provider-agnostic, working with OpenAI, Anthropic, Gemini, and Qwen models as well as local runtimes. Note that Google began transitioning Gemini CLI to a new Antigravity CLI in May 2026, so the Gemini-branded CLI is being folded into that successor.
+Three of the terminal agents come from the big model labs and ship as open-source CLIs, but two are tied to their maker's models. **Codex CLI** (OpenAI, Apache-2.0, written in Rust) runs against OpenAI models via a ChatGPT account or an API key. **Gemini CLI** (Google, Apache-2.0) is locked to Gemini models but adds Google Search grounding and a very large context window. **Qwen Code** (Alibaba, Apache-2.0) is the exception: it began as a fork of Gemini CLI (from version 0.8.2, then developed independently) and stays provider-agnostic, working with OpenAI, Anthropic, Gemini, and Qwen models as well as local runtimes. Note that Google announced on 19 May 2026 that it is transitioning Gemini CLI to a new, Go-based **Antigravity CLI**: since **18 June 2026** Gemini CLI no longer serves requests for free, Google AI Pro/Ultra, or Google One users, who are pointed to Antigravity CLI instead. Gemini CLI is still maintained and released for Gemini Code Assist Standard/Enterprise licenses and for paid Gemini or Gemini Enterprise Agent Platform API keys.
 
 ## The IDE and platform agents
 
-[Cline](/tools/cline/) lives mainly in VS Code and is built around a human in the loop: it plans in Plan mode, executes in Act mode, and asks approval for every file edit and terminal command, with checkpoints to undo its work. **Continue** is the long-standing open-source assistant across VS Code and JetBrains, offering autocomplete, chat, and an agent, plus a command-line agent called `cn`. Note one caveat: its main `continuedev/continue` repository is now read-only and marked no longer actively maintained, while its command-line agent ships from the separate `@continuedev/cli` package. Check the current state before you standardise a team on it.
+[Cline](/tools/cline/) lives mainly in VS Code and is built around a human in the loop: it plans in Plan mode, executes in Act mode, and asks approval for every file edit and terminal command, with checkpoints to undo its work. **Continue** is the long-standing open-source assistant across VS Code and JetBrains, offering autocomplete, chat, and an agent, plus a command-line agent called `cn`. Note one caveat: its main `continuedev/continue` repository is now read-only and marked no longer actively maintained; the project shipped a "final 2.0.0 release" of the VS Code extension, the CLI (`@continuedev/cli`), and the JetBrains plugin. Treat it as a finished, unmaintained tool rather than an actively developed one before you standardise a team on it.
 
 [OpenHands](/tools/openhands/) sits at the autonomous end. Formerly OpenDevin, it runs the agent inside a sandboxed Docker container so it can write code, run commands, and browse safely, and it offers a CLI, a cloud service, and a GitHub Action for issue-to-pull-request automation.
 
@@ -151,4 +152,5 @@ The open-source tools trade the polish and support of a paid product for two thi
 - [OpenCode](https://opencode.ai/docs/), [Aider](https://aider.chat/), [Goose](https://goose-docs.ai), [Cline](https://docs.cline.bot/), [OpenHands](https://docs.openhands.dev/), and [Hermes Agent](https://hermes-agent.nousresearch.com/docs/) official documentation.
 - [Crush on GitHub](https://github.com/charmbracelet/crush) and the [archived original opencode](https://github.com/opencode-ai/opencode) that continued as Crush.
 - [Codex CLI](https://github.com/openai/codex), [Gemini CLI](https://github.com/google-gemini/gemini-cli), and [Qwen Code](https://github.com/QwenLM/qwen-code) repositories for license, language, and model coupling.
+- Google Developers Blog, ["An important update: Transitioning Gemini CLI to Antigravity CLI"](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/) (19 May 2026), and the [Gemini CLI documentation](https://geminicli.com/docs/) (checked 25 September 2026).
 - [Continue](https://github.com/continuedev/continue) and [Roo Code](https://github.com/RooCodeInc/Roo-Code) repositories for their current maintenance status.

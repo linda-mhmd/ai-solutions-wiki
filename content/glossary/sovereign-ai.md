@@ -2,6 +2,8 @@
 title: "Sovereign AI"
 description: "AI infrastructure that runs entirely under one country's or organization's legal and physical control, so data, models, and compute never leave a chosen jurisdiction."
 date: 2026-07-01
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 categories: [Glossary]
 tags: ["ai-ml", "intermediate", "sovereignty", "compliance", "infrastructure", "on-premise", "eu-ai-act"]
 related:
@@ -69,7 +71,7 @@ A model behind an OpenAI-compatible API on your own GPUs, in your own building, 
 
 ## Why it became urgent in 2026
 
-Three forces converged. First, extraterritorial law: the US CLOUD Act lets US authorities compel US-headquartered providers to hand over data regardless of where it is physically stored, which unsettles European regulators. Second, regulation: the [EU AI Act](/frameworks/eu-ai-act-risk-framework/) reaches key enforcement milestones through 2026, and obligations for high-risk systems raise the bar for auditability and control. Third, geopolitics: reliance on a handful of non-European providers came to be seen as a strategic risk, prompting public investment in home-grown capacity.
+Three forces converged. First, extraterritorial law: the US CLOUD Act lets US authorities compel US-headquartered providers to hand over data regardless of where it is physically stored, which unsettles European regulators. Second, regulation: the [EU AI Act](/frameworks/eu-ai-act-risk-framework/) reached key enforcement milestones in 2026, with the Article 50 transparency duties and the AI Office's enforcement powers applying from 2 August 2026, and its high-risk obligations, deferred by the Digital Omnibus (Regulation (EU) 2026/1744) to 2 December 2027 for Annex III systems, raise the bar for auditability and control (see [EU AI Act enforcement begins](/news/eu-ai-act-enforcement-begins-2026/)). Third, geopolitics: reliance on a handful of non-European providers came to be seen as a strategic risk, prompting public investment in home-grown capacity.
 
 Enterprise sentiment moved with it. Industry surveys in 2026 reported that a majority of Western European enterprises expected to accelerate data-sovereignty investment, and close to half were actively re-evaluating non-European cloud dependencies.
 

@@ -9,7 +9,9 @@ related:
   - tools/amazon-bedrock
   - guides/deployment-models-ai
   - patterns/observability-ai
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Every AWS customer operates under the shared responsibility model. AWS secures the cloud itself - the physical data centres, the hypervisor, the managed service infrastructure. The customer secures what they put in the cloud: their data, their application logic, their access controls, their compliance configuration. For standard web applications this division is well understood. For AI and ML workloads, the boundary requires more careful thought.
@@ -49,7 +51,7 @@ AI workloads handle data differently from standard applications. Three categorie
 
 ## Model Responsibility
 
-**Managed foundation models (Bedrock).** When you use Amazon Bedrock to call Anthropic Claude, Meta Llama, or Amazon Titan, the model weights are AWS infrastructure. AWS is responsible for the availability, security, and maintenance of those model artifacts. You are responsible for how you use the model: the prompts you send, the guardrails you configure, and the outputs you pass to users.
+**Managed foundation models (Bedrock).** When you use Amazon Bedrock to call Anthropic Claude, Meta Llama, or Amazon Nova, the model weights are AWS infrastructure. AWS is responsible for the availability, security, and maintenance of those model artifacts. You are responsible for how you use the model: the prompts you send, the guardrails you configure, and the outputs you pass to users.
 
 **Custom models and fine-tuned models.** If you upload a fine-tuned model to Bedrock Custom Model Import, or train and deploy a model on SageMaker, the model artifact is your intellectual property and your responsibility. You are responsible for model bias assessment, content safety evaluation, and version control. If a custom model produces harmful outputs, that liability rests with the customer, not AWS.
 

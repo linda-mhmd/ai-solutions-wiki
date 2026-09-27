@@ -16,9 +16,9 @@ related:
   - glossary/cloud-act
   - glossary/data-sovereignty
   - guides/software-licensing-and-vendor-lock-in
-last_verified: 2026-09-04
-last_updated: 2026-09-04
-lastmod: 2026-09-04
+last_verified: 2026-09-25
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 Before comparing features, one fact has to be stated plainly because it changes which cell of this comparison is even reachable: **Azure AD B2C has not been purchasable by new customers since May 1, 2025.** Microsoft's own FAQ page states it without qualification — "Effective May 1, 2025 Azure AD B2C will no longer be available to purchase for new customers" — and steers new work toward Microsoft Entra External ID instead [1]. An organization starting a green-field identity decision in September 2026 is not choosing between three live products; it is choosing between two live products (Keycloak, Cognito) and one that already has an announced successor. That is exactly the kind of gate the [constraint-driven methodology](/guides/constraint-driven-comparisons/) says belongs at the top of a comparison, not in a footnote — so it goes there, before anything about MFA flows or pricing tiers.
@@ -27,7 +27,7 @@ This page follows that methodology: name the constraints that actually decide th
 
 ## What each one actually is
 
-**Keycloak** is an open-source (Apache 2.0) identity and access management server, originally built at Red Hat and donated to the CNCF in April 2023, where it remains an Incubating project as of 2026 — it has not reached Graduated status [2][3]. It implements OIDC, OAuth 2.0, and SAML 2.0, and you run it yourself: on your own servers, in your own Kubernetes cluster, or via Red Hat build of Keycloak if you already hold a qualifying Red Hat subscription. The current release line is 26.7.x (26.7.1 shipped August 5, 2026) [4].
+**Keycloak** is an open-source (Apache 2.0) identity and access management server, originally built at Red Hat and donated to the CNCF in April 2023, where it remains an Incubating project as of 2026 — it has not reached Graduated status [2][3]. It implements OIDC, OAuth 2.0, and SAML 2.0, and you run it yourself: on your own servers, in your own Kubernetes cluster, or via Red Hat build of Keycloak if you already hold a qualifying Red Hat subscription. The current release line is 26.7.x (26.7.4 shipped September 16, 2026) [4].
 
 **Amazon Cognito** is AWS's managed identity service, split into User Pools (authentication, JWT issuance) and Identity Pools (exchanging those tokens for temporary AWS credentials via STS). It is priced per monthly active user across three feature plans — Lite, Essentials, Plus — introduced in a November 2024 pricing restructure [5].
 
@@ -105,7 +105,7 @@ Several things here are genuinely organization-specific and this page cannot set
 1. Microsoft Learn, "Frequently asked questions (FAQ) for Azure Active Directory B2C" — end-of-sale date, P1/P2 status, and the "until at least May 2030" support commitment: [https://learn.microsoft.com/en-us/azure/active-directory-b2c/faq](https://learn.microsoft.com/en-us/azure/active-directory-b2c/faq)
 2. CNCF, "Keycloak joins CNCF as an incubating project" (April 2023): [https://www.cncf.io/blog/2023/04/11/keycloak-joins-cncf-as-an-incubating-project/](https://www.cncf.io/blog/2023/04/11/keycloak-joins-cncf-as-an-incubating-project/)
 3. CNCF, Keycloak project page (maturity level): [https://www.cncf.io/projects/keycloak/](https://www.cncf.io/projects/keycloak/)
-4. Keycloak, "Keycloak 26.7.1 released" (August 5, 2026): [https://www.keycloak.org/2026/08/keycloak-2671-released](https://www.keycloak.org/2026/08/keycloak-2671-released)
+4. Keycloak, "Keycloak 26.7.4 released" (September 16, 2026): [https://www.keycloak.org/2026/09/keycloak-2674-released](https://www.keycloak.org/2026/09/keycloak-2674-released)
 5. AWS, "Amazon Cognito pricing" (Lite/Essentials/Plus feature-plan MAU pricing): [https://aws.amazon.com/cognito/pricing/](https://aws.amazon.com/cognito/pricing/)
 6. Red Hat, "Subscriptions or Entitlements Requirements for Red Hat build of Keycloak": [https://access.redhat.com/articles/7044244](https://access.redhat.com/articles/7044244)
 7. Microsoft Learn, "External Tenant Overview - Microsoft Entra External ID": [https://learn.microsoft.com/en-us/entra/external-id/customers/overview-customers-ciam](https://learn.microsoft.com/en-us/entra/external-id/customers/overview-customers-ciam)

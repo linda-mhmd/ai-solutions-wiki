@@ -10,7 +10,9 @@ related:
   - glossary/llm
   - glossary/token-budget
   - patterns/model-tier-routing
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Inference-time compute refers to the strategy of using additional computational resources during model inference (prediction time) to improve the quality of outputs, rather than relying solely on capabilities learned during training. This approach has emerged as a powerful complement to training-time scaling, demonstrating that spending more compute at inference can sometimes substitute for training larger models.
@@ -29,11 +31,13 @@ Inference-time compute creates a cost-quality tradeoff that organizations can tu
 
 ## Production Considerations
 
-More inference-time compute means higher latency and cost per request. Organizations must balance quality improvements against response time requirements and budget constraints. Token budgets, caching, and adaptive compute allocation strategies help manage this tradeoff. The emergence of reasoning-optimized models (like OpenAI's o-series) makes inference-time compute an explicit architectural choice rather than an afterthought.
+More inference-time compute means higher latency and cost per request. Organizations must balance quality improvements against response time requirements and budget constraints. Token budgets, caching, and adaptive compute allocation strategies help manage this tradeoff. The emergence of reasoning-optimized models (starting with OpenAI's o-series) made inference-time compute an explicit architectural choice rather than an afterthought. At the time of writing (September 2026), current flagship models expose it directly as an API parameter: OpenAI's GPT-6 Sol takes a reasoning effort from none to max, and Anthropic's Claude Opus 5.5 uses adaptive thinking steered by an effort setting.
 
 ## Sources
 
 - Wei, J., et al. (2022). Chain-of-thought prompting elicits reasoning in large language models. *NeurIPS 2022*. (Chain-of-thought; foundational inference-time compute technique.)
 - Wang, X., et al. (2023). Self-consistency improves chain of thought reasoning in language models. *ICLR 2023*. (Self-consistency sampling as inference-time compute scaling.)
 - Snell, C., et al. (2024). Scaling LLM test-time compute optimally is more effective than scaling model parameters for reasoning. *arXiv:2408.03314*. (Test-time compute scaling laws; shows inference compute can substitute for training compute.)
+- OpenAI. *GPT-6 Sol* model documentation (reasoning effort levels; accessed 25 September 2026). [https://developers.openai.com/api/docs/models/gpt-6-sol](https://developers.openai.com/api/docs/models/gpt-6-sol)
+- Anthropic. *Models overview* (adaptive thinking and effort; accessed 25 September 2026). [https://platform.claude.com/docs/en/about-claude/models/overview](https://platform.claude.com/docs/en/about-claude/models/overview)
 - OpenAI. (2024). *Learning to Reason with LLMs.* OpenAI Blog. (o1 model; training models to use extended thinking at inference time.)

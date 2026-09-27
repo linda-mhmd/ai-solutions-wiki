@@ -9,18 +9,22 @@ related:
   - patterns/fallback-chain
   - patterns/plan-and-execute
   - patterns/direct-model-interface
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Not every request needs your most expensive model. A simple classification task does not require the same compute as a complex multi-step analysis. Model tier routing evaluates incoming requests and directs them to the appropriate model tier - small, medium, or large - based on task complexity, quality requirements, and cost constraints. Organizations that implement tiered routing typically reduce their inference costs by 40-70% while maintaining output quality on the requests that matter most.
 
 ## Tiering Strategy
 
-**Tier 1: Small models** - Fast, cheap, high throughput. Handle classification, entity extraction, simple Q&A, format conversion, and other well-defined tasks. Models like Claude Haiku or GPT-4o-mini. Cost per million tokens is a fraction of larger models.
+The example models below are current at the time of writing (September 2026). Model names change every few months, but the three tiers stay stable; see the [LLM Landscape 2026](/comparisons/llm-landscape-2026/) for the live list.
 
-**Tier 2: Mid-range models** - Balance of capability and cost. Handle summarization, moderate reasoning tasks, code generation for common patterns, and multi-step tasks with known structure. Claude Sonnet class models sit here.
+**Tier 1: Small models** - Fast, cheap, high throughput. Handle classification, entity extraction, simple Q&A, format conversion, and other well-defined tasks. Models like GPT-6 Luna ($0.10 input / $0.50 output per million tokens), Gemini 3.8 Flash ($0.75 / $3.75, introductory until 31 December 2026) or Claude Haiku 4.5 ($1 / $5). Cost per million tokens is a fraction of larger models.
 
-**Tier 3: Frontier models** - Maximum capability. Reserved for complex reasoning, novel problem-solving, nuanced writing, and tasks where quality directly impacts business outcomes. Claude Opus class or equivalent. Use sparingly and deliberately.
+**Tier 2: Mid-range models** - Balance of capability and cost. Handle summarization, moderate reasoning tasks, code generation for common patterns, and multi-step tasks with known structure. Models like Claude Sonnet 5 and GPT-6 Sol (both $2 input / $10 output per million tokens) sit here.
+
+**Tier 3: Frontier models** - Maximum capability. Reserved for complex reasoning, novel problem-solving, nuanced writing, and tasks where quality directly impacts business outcomes. Models like Claude Opus 5.5 ($4 / $20), Claude Fable 5.1 ($10 / $50) or GPT-6 Astra ($10 / $50). Use sparingly and deliberately.
 
 ## Routing Mechanisms
 
@@ -46,4 +50,4 @@ Not every request needs your most expensive model. A simple classification task 
 
 Build a cost model that maps request types to tiers and projects monthly spend. Include: average tokens per request by type, request volume by type, cost per token by tier, and expected quality scores. Update the model monthly with actual usage data. This model becomes your primary tool for optimizing the routing configuration.
 
-The cost difference between tiers is substantial. At current pricing, routing a million requests from a frontier model to a small model can save thousands of dollars monthly. Even modest improvements in routing accuracy translate to significant cost reductions at scale.
+The cost difference between tiers is substantial, but check the actual gaps rather than assuming old ratios. At the time of writing, GPT-6 Luna is 20x cheaper than GPT-6 Sol, while Claude Haiku 4.5 is only half the price of Claude Sonnet 5, and Claude Opus 5.5 costs twice Sonnet 5. Within one vendor the savings from dropping a tier can be much smaller than the savings from switching vendors for the small tier. At current pricing, routing a million requests from a frontier model to a small model can save thousands of dollars monthly. Even modest improvements in routing accuracy translate to significant cost reductions at scale.

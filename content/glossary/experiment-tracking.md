@@ -11,7 +11,9 @@ related:
   - tools/mlflow
   - tools/weights-and-biases
   - guides/experiment-tracking-guide
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Experiment tracking is the systematic logging of every parameter, metric, artifact, and configuration associated with each ML training run. It provides a searchable, comparable record of what was tried, what worked, and what did not, enabling teams to make informed decisions about model development rather than relying on memory or scattered notes.
@@ -40,7 +42,7 @@ Experiment tracking also supports collaboration. When multiple team members run 
 
 **Weights & Biases** - Cloud-hosted experiment tracking with rich visualization, hyperparameter sweep management, and team collaboration features. Provides automatic logging integrations for major ML frameworks.
 
-**Amazon SageMaker Experiments** - Integrated experiment tracking within the SageMaker ecosystem. Tracks training jobs, processing jobs, and pipeline executions with automatic metadata capture.
+**Amazon SageMaker AI with MLflow** - Managed MLflow tracking servers inside SageMaker AI, which AWS now recommends for experiment tracking. The older SageMaker Experiments Python SDK (now called Experiments Classic) tracks training jobs, processing jobs, and pipeline executions with automatic metadata capture, but is available only in Studio Classic.
 
 ## Best Practices
 
@@ -51,3 +53,4 @@ Log everything automatically rather than relying on manual logging. Integrate tr
 - Chen, T., et al. (2016). Training deep nets with sublinear memory cost. *arXiv:1604.06174*. (Gradient checkpointing; highlights the need for systematic tracking of training configurations.)
 - Zaharia, M., et al. (2018). Accelerating the machine learning lifecycle with MLflow. *VLDB SIGMOD Workshop on Human-In-the-Loop Data Analytics*. (MLflow introduction by Databricks.)
 - Bender, E.M., et al. (2021). On the dangers of stochastic parrots. *FAccT 2021*. (Model documentation and reproducibility imperatives; motivates systematic experiment tracking.)
+- AWS Documentation. *Amazon SageMaker Experiments in Studio Classic* (accessed 25 September 2026). [https://docs.aws.amazon.com/sagemaker/latest/dg/experiments.html](https://docs.aws.amazon.com/sagemaker/latest/dg/experiments.html) (Experiments Classic is limited to Studio Classic; AWS recommends MLflow integrations.)

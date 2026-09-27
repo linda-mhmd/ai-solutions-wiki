@@ -2,6 +2,8 @@
 title: "AI Factory"
 description: "An AI factory is an enterprise platform for building, deploying, and operating AI applications at scale. It standardizes the infrastructure, tooling, and processes that individual AI projects would otherwise reinvent."
 date: 2026-06-22
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 categories: [Glossary]
 tags: ["ai-factory", "enterprise-ai", "mlops", "platform-engineering", "ai-infrastructure", "llmops", "production-ai"]
 related:
@@ -10,7 +12,7 @@ related:
   - tools/amazon-bedrock
   - tools/amazon-sagemaker
   - guides/mlops-getting-started
-  - frameworks/eu-ai-act
+  - frameworks/eu-ai-act-risk-framework
 ---
 
 An AI factory is a shared enterprise platform that gives every product team the infrastructure, tooling, and processes needed to build AI applications without starting from scratch. The term "factory" is deliberate: raw materials (data and foundation models) enter one end, a production line of pipelines and evaluations transforms them, and quality-controlled AI features exit the other end into production.
@@ -140,7 +142,7 @@ The layers below show a complete AI factory stack, from raw data governance at t
 
 The absence of a factory is not a neutral position. It is a compounding liability.
 
-**Without a factory**, each team makes independent choices. One team uses OpenAI GPT-4o. Another uses Claude. A third uses Mistral because a developer preferred it. Each team stores API keys differently, monitors their feature differently, and handles PII (personally identifiable information) differently. Six months later, the CISO cannot tell you which teams are sending customer data to external providers. Finance cannot tell you which features are responsible for the €140,000 monthly model bill. Compliance cannot produce the audit trail required under the EU AI Act.
+**Without a factory**, each team makes independent choices. One team uses an OpenAI GPT model. Another uses Claude. A third uses Mistral because a developer preferred it. Each team stores API keys differently, monitors their feature differently, and handles PII (personally identifiable information) differently. Six months later, the CISO cannot tell you which teams are sending customer data to external providers. Finance cannot tell you which features are responsible for the €140,000 monthly model bill. Compliance cannot produce the audit trail required under the EU AI Act.
 
 **With a factory**, there is one approved LLM gateway through which all model traffic flows. Cost is attributed to the team and feature that generated it. Security policies are enforced centrally, not per application. Every model decision has a traceable lineage from data source to deployed version. When a model provider raises prices or has an outage, the platform team handles it once rather than ten teams scrambling in parallel.
 
@@ -170,7 +172,7 @@ AWS has productized the AI factory concept across a tightly integrated set of ma
 
 **AWS Lake Formation** enforces data governance across the data lake, controlling which roles and services can access which datasets. It provides the data lineage and access control layer that feeds into the AI factory's data connectors.
 
-**Amazon Q** provides developer and business user assistants that draw on the factory's data layer. For internal tools, Q for Business connects to corporate knowledge bases through factory-managed connectors.
+**Amazon Quick** (the successor to Amazon Q Business, which is no longer available to new customers) provides a business user assistant that draws on the factory's data layer, connecting to corporate knowledge bases through factory-managed connectors. On the developer side, AWS now points new users to Kiro; support for the Amazon Q Developer IDE plugins ends on 30 April 2027.
 
 The AWS-native AI factory pattern uses these services as composable layers, with each layer mapping to the architecture diagram above. Organizations running on AWS can adopt this pattern incrementally: start with Bedrock as the LLM gateway, add SageMaker for custom models when the need arises, and add Lake Formation governance as data complexity grows.
 
@@ -207,8 +209,10 @@ The inflection point for most enterprises is three to five AI projects in produc
 
 ## Further Reading
 
-- [Amazon Bedrock documentation](https://docs.aws.amazon.com/bedrock/): official reference for the AWS LLM gateway layer, including model access, guardrails, and agents.
+- [Amazon Bedrock documentation](https://docs.aws.amazon.com/bedrock/): official reference for the AWS LLM gateway layer, including model access and guardrails. For agents, AWS now recommends Amazon Bedrock AgentCore; the original Bedrock Agents (now Bedrock Agents Classic) closed to new customers on 30 July 2026.
 - [Amazon SageMaker MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html): experiment tracking and model registry within SageMaker, the foundation of the model lineage layer.
+- [Amazon Q Business](https://aws.amazon.com/q/business/) and [Amazon Q Developer](https://aws.amazon.com/q/developer/) product pages (end-of-support notices, accessed 25 September 2026): Q Business is closed to new customers in favour of Amazon Quick; Q Developer IDE plugins lose support on 30 April 2027 in favour of Kiro.
+- [Bedrock Agents Classic maintenance mode](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html): AWS notice that Bedrock Agents closed to new customers on 30 July 2026, with AgentCore as the recommended path.
 - [AWS Lake Formation](https://docs.aws.amazon.com/lake-formation/): data governance, access control, and lineage for the data platform layer.
 - [EU AI Act](/frameworks/eu-ai-act-risk-framework/): the compliance obligations that make the governance layer of an AI factory necessary for European enterprises.
 - [Team Topologies by Skelton and Pais](https://teamtopologies.com/book): the organizational framework that underpins the platform team and product team model in an AI factory.

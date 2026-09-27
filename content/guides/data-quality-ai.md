@@ -8,7 +8,9 @@ related:
   - glossary/data-quality
   - glossary/data-contract
   - guides/stream-processing-ai
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 AI models are only as good as their training data and input features. A data quality issue that would be a minor inconvenience in a reporting dashboard can cause a model to learn incorrect patterns, make biased predictions, or fail silently in production. Data quality validation must be automated, continuous, and integrated into every data pipeline that feeds an AI system.
@@ -19,9 +21,9 @@ Great Expectations is the most widely adopted open-source data quality framework
 
 ### Core Concepts
 
-- **Expectation** - A declarative assertion about data. Example: `expect_column_values_to_not_be_null("customer_id")`
+- **Expectation** - A declarative assertion about data. Example: `gx.expectations.ExpectColumnValuesToNotBeNull(column="customer_id")`
 - **Expectation Suite** - A collection of expectations for a dataset, stored as JSON
-- **Validator** - Runs an expectation suite against a batch of data and produces results
+- **Validation Definition** - Pairs an expectation suite with a batch definition so it can be run repeatedly and produce results
 - **Checkpoint** - An executable validation step that can be integrated into pipelines
 - **Data Docs** - Auto-generated HTML documentation showing validation results
 
@@ -29,38 +31,40 @@ Great Expectations is the most widely adopted open-source data quality framework
 
 ```python
 import great_expectations as gx
+import pandas as pd
 
 context = gx.get_context()
 
-# Connect to your data source
-datasource = context.sources.add_pandas("training_data")
-asset = datasource.add_csv_asset("features", filepath_or_buffer="features.csv")
-batch_request = asset.build_batch_request()
+# Connect to your data source (GX Core 1.x API)
+data_source = context.data_sources.add_pandas("training_data")
+asset = data_source.add_dataframe_asset(name="features")
+batch_definition = asset.add_batch_definition_whole_dataframe("full_batch")
+batch = batch_definition.get_batch(
+    batch_parameters={"dataframe": pd.read_csv("features.csv")}
+)
 
 # Create expectation suite
-suite = context.add_expectation_suite("ml_feature_validation")
-validator = context.get_validator(
-    batch_request=batch_request,
-    expectation_suite_name="ml_feature_validation"
-)
+suite = context.suites.add(gx.ExpectationSuite(name="ml_feature_validation"))
 
 # Define expectations
-validator.expect_column_values_to_not_be_null("user_id")
-validator.expect_column_values_to_be_between(
-    "age", min_value=0, max_value=150
-)
-validator.expect_column_values_to_be_in_set(
-    "category", ["A", "B", "C", "D"]
-)
-validator.expect_column_mean_to_be_between(
-    "purchase_amount", min_value=10, max_value=500
-)
-validator.expect_column_proportion_of_unique_values_to_be_between(
-    "user_id", min_value=0.9, max_value=1.0
-)
+suite.add_expectation(gx.expectations.ExpectColumnValuesToNotBeNull(column="user_id"))
+suite.add_expectation(gx.expectations.ExpectColumnValuesToBeBetween(
+    column="age", min_value=0, max_value=150
+))
+suite.add_expectation(gx.expectations.ExpectColumnValuesToBeInSet(
+    column="category", value_set=["A", "B", "C", "D"]
+))
+suite.add_expectation(gx.expectations.ExpectColumnMeanToBeBetween(
+    column="purchase_amount", min_value=10, max_value=500
+))
+suite.add_expectation(gx.expectations.ExpectColumnProportionOfUniqueValuesToBeBetween(
+    column="user_id", min_value=0.9, max_value=1.0
+))
 
-validator.save_expectation_suite(discard_failed_expectations=False)
+results = batch.validate(suite)
 ```
+
+The snippets on this page use the GX Core 1.x API (1.23 at the time of writing, September 2026). Older 0.x-era tutorials use calls such as `context.sources` and `context.add_expectation_suite()`, which GX 1.0 replaced with `context.data_sources` and `context.suites`.
 
 ### Distribution-Aware Expectations
 
@@ -68,23 +72,23 @@ Standard validation catches structural issues. For ML, you also need to detect d
 
 ```python
 # Detect feature drift by checking distributional properties
-validator.expect_column_kl_divergence_to_be_less_than(
-    "feature_1",
+suite.add_expectation(gx.expectations.ExpectColumnKLDivergenceToBeLessThan(
+    column="feature_1",
     partition_object=reference_distribution,
     threshold=0.1
-)
+))
 
-validator.expect_column_mean_to_be_between(
-    "feature_1",
+suite.add_expectation(gx.expectations.ExpectColumnMeanToBeBetween(
+    column="feature_1",
     min_value=reference_mean * 0.8,
     max_value=reference_mean * 1.2
-)
+))
 
-validator.expect_column_stdev_to_be_between(
-    "feature_1",
+suite.add_expectation(gx.expectations.ExpectColumnStdevToBeBetween(
+    column="feature_1",
     min_value=reference_std * 0.5,
     max_value=reference_std * 2.0
-)
+))
 ```
 
 ## AWS Deequ
@@ -121,7 +125,7 @@ Run validation before model training starts. If validation fails, the pipeline s
 ```python
 # In Airflow DAG or Step Functions
 def validate_training_data(**context):
-    checkpoint = ge_context.get_checkpoint("training_data_check")
+    checkpoint = gx_context.checkpoints.get("training_data_check")
     result = checkpoint.run()
 
     if not result.success:
@@ -159,3 +163,10 @@ Validation checks catch known issues. Monitoring catches emerging issues:
 - **Automated retraining triggers** - When data drift exceeds a threshold, trigger model retraining with fresh data
 
 Data quality is not a gate you pass once. It is a continuous signal that requires monitoring with the same rigour as infrastructure metrics.
+
+## Sources
+
+1. Great Expectations, "Create an Expectation" (GX Core 1.23 docs, fetched 25 September 2026): [https://docs.greatexpectations.io/docs/core/define_expectations/create_an_expectation](https://docs.greatexpectations.io/docs/core/define_expectations/create_an_expectation)
+2. Great Expectations, "Connect to dataframe data" (GX Core 1.x docs): [https://docs.greatexpectations.io/docs/core/connect_to_data/dataframes/](https://docs.greatexpectations.io/docs/core/connect_to_data/dataframes/)
+3. Great Expectations, "Organize Expectations into an Expectation Suite": [https://docs.greatexpectations.io/docs/core/define_expectations/organize_expectation_suites](https://docs.greatexpectations.io/docs/core/define_expectations/organize_expectation_suites)
+4. PyPI, great-expectations (version 1.23.2): [https://pypi.org/project/great-expectations/](https://pypi.org/project/great-expectations/)

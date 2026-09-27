@@ -9,7 +9,9 @@ related:
   - guides/ci-cd-for-ai
   - guides/capacity-planning-ai
   - patterns/microservices-for-ai
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 AI/ML teams face infrastructure complexity that most backend teams do not encounter: GPU scheduling, CUDA version management, model artifact storage, experiment tracking, feature stores, and evaluation pipelines. Without a platform, each ML engineer becomes a part-time infrastructure engineer. An internal developer platform (IDP) for AI/ML solves this by providing self-service capabilities that abstract operational complexity while preserving the flexibility ML teams need.
@@ -91,7 +93,7 @@ Do not build custom solutions where mature tools exist:
 | Infrastructure provisioning | Terraform, Crossplane, Pulumi |
 | Container orchestration | Kubernetes, EKS, GKE |
 | CI/CD | GitHub Actions, GitLab CI, Argo CD |
-| Experiment tracking | MLflow, Weights & Biases, Neptune |
+| Experiment tracking | MLflow, Weights & Biases (Neptune shut down on 5 March 2026 after its acquisition by OpenAI [1]) |
 | Feature store | Feast, Tecton, SageMaker Feature Store |
 
 The platform team's job is integration and curation, not building everything from scratch.
@@ -107,3 +109,7 @@ Track these metrics to evaluate platform effectiveness:
 - **Developer satisfaction** - Regular surveys measuring ease of use and cognitive load
 
 A successful AI/ML platform is one that ML engineers choose to use because it makes them faster, not one they are forced to use because it is mandated.
+
+## Sources
+
+1. neptune.ai. "Neptune Service Shutdown - March 5, 2026." Neptune documentation, accessed 25 September 2026. https://docs.neptune.ai/

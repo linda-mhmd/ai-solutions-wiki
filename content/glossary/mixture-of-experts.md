@@ -2,7 +2,6 @@
 title: "Mixture of Experts (MoE)"
 description: "A neural network architecture in which only a small subset of parameters is activated for each input, enabling scaling parameter count far beyond what dense models support at the same compute budget."
 date: 2026-05-08
-lastmod: 2026-05-08
 categories: [Glossary]
 tags: ["ai-ml", "advanced", "architecture", "llm", "scaling", "moe"]
 related:
@@ -11,17 +10,19 @@ related:
   - glossary/llm
   - glossary/foundation-models
   - glossary/inference-time-compute
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
-Mixture of Experts (MoE) is a neural network architecture pattern in which a layer is replaced by a set of *expert* sub-networks plus a *router* (or *gating function*) that selects which experts to activate for each input token. Only the selected experts contribute to the forward pass, so the number of parameters touched per token is far smaller than the total parameter count. This decouples model *capacity* (total parameters) from *compute* (parameters per token), allowing models with hundreds of billions of total parameters to run at the inference cost of much smaller dense models. MoE is the architecture behind several major 2024–2026 LLMs, including Mixtral 8x7B / 8x22B (Jiang et al., 2024), DeepSeek-V2 / V3 / R1 (DeepSeek-AI, 2024 / 2025), Qwen2-MoE, and reportedly GPT-4 and Gemini 1.5.
+Mixture of Experts (MoE) is a neural network architecture pattern in which a layer is replaced by a set of *expert* sub-networks plus a *router* (or *gating function*) that selects which experts to activate for each input token. Only the selected experts contribute to the forward pass, so the number of parameters touched per token is far smaller than the total parameter count. This decouples model *capacity* (total parameters) from *compute* (parameters per token), allowing models with hundreds of billions of total parameters to run at the inference cost of much smaller dense models. MoE became the dominant design for large open-weight LLMs from 2024 onward: early examples include Mixtral 8x7B / 8x22B (Jiang et al., 2024), DeepSeek-V2 / V3 / R1 (DeepSeek-AI, 2024 / 2025), and Qwen2-MoE, and GPT-4 and Gemini 1.5 were reported to use it. By September 2026 most frontier open-weight releases are MoE models, for example DeepSeek-V4.1-Flash (552B backbone parameters, 1 shared plus 384 routed experts per MoE layer with 6 routed experts active per token) and Xiaomi's MiMo-V2.6-Pro (1.02T total, 42B active). See the [LLM landscape](/comparisons/llm-landscape-2026/) for current models.
 
 ## Mechanism
 
 A standard transformer block has a self-attention sublayer followed by a feed-forward (MLP) sublayer. In an MoE transformer, the MLP sublayer is replaced by N experts (each itself an MLP) and a router. For each token:
 
 1. The router (typically a small linear layer followed by a softmax) computes a score for each expert given the token's hidden state.
-2. The top-k experts (commonly k=2) are selected by score.
+2. The top-k experts are selected by score. Early MoE LLMs such as Mixtral used a few large experts with k=2; newer "fine-grained" designs in the DeepSeek line use hundreds of small routed experts, activate several per token, and add always-on shared experts.
 3. Each selected expert processes the token; outputs are weighted by the router scores and summed.
 4. Tokens not routed to a given expert do not consume its compute.
 
@@ -83,6 +84,8 @@ Dense models remain preferable when:
 - Jiang, A. Q., Sablayrolles, A., Roux, A., et al. (2024). *Mixtral of Experts.* arXiv:2401.04088. [https://arxiv.org/abs/2401.04088](https://arxiv.org/abs/2401.04088)
 - DeepSeek-AI (2024). *DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model.* arXiv:2405.04434. [https://arxiv.org/abs/2405.04434](https://arxiv.org/abs/2405.04434)
 - DeepSeek-AI (2024). *DeepSeek-V3 Technical Report.* arXiv:2412.19437. [https://arxiv.org/abs/2412.19437](https://arxiv.org/abs/2412.19437)
+- DeepSeek-AI (2026). *DeepSeek-V4.1-Flash model card.* Hugging Face (released 10 September 2026). [https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash)
+- Xiaomi MiMo (2026). *MiMo-V2.6-Pro-RL model card.* Hugging Face (21 September 2026). [https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL](https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL)
 - Komatsuzaki, A., Puigcerver, J., Lee-Thorp, J., et al. (2023). *Sparse Upcycling: Training Mixture-of-Experts from Dense Checkpoints.* ICLR 2023. arXiv:2212.05055. [https://arxiv.org/abs/2212.05055](https://arxiv.org/abs/2212.05055)
 - Puigcerver, J., Riquelme, C., Mustafa, B., Houlsby, N. (2024). *From Sparse to Soft Mixtures of Experts.* ICLR 2024. arXiv:2308.00951. [https://arxiv.org/abs/2308.00951](https://arxiv.org/abs/2308.00951)
 - Frantar, E., Alistarh, D. (2024). *QMoE: Practical Sub-1-Bit Compression of Trillion-Parameter Models.* MLSys 2024. arXiv:2310.16795. [https://arxiv.org/abs/2310.16795](https://arxiv.org/abs/2310.16795)

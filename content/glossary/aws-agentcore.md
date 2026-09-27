@@ -9,7 +9,9 @@ related:
   - glossary/agentic-ai
   - glossary/multi-agent-systems
   - glossary/multi-agent-orchestration
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Amazon Bedrock AgentCore is an AWS service that provides enterprise-grade infrastructure for deploying, operating, and governing AI agents at scale. Rather than requiring teams to build their own agent hosting, observability, and policy enforcement systems, AgentCore provides a managed runtime, gateway, memory, identity, and evaluation layer that works with any agent framework and any model. AgentCore represents a strategic shift in AWS's AI offering from model APIs to agent infrastructure.
@@ -20,17 +22,19 @@ Amazon Bedrock AgentCore was first announced as a preview in 2025 and became gen
 
 The launch addressed a fundamental gap in the AI tooling landscape. By late 2025, numerous frameworks existed for building agents (LangGraph, CrewAI, AutoGen, custom implementations), but the operational concerns of running those agents in production, including identity management, policy enforcement, observability, and scaling, were left to each team to solve independently. AgentCore provides a framework-agnostic platform layer for these operational concerns.
 
+AgentCore is now AWS's recommended path for building agents on Bedrock. The original Amazon Bedrock Agents service (launched November 2023) was renamed Amazon Bedrock Agents Classic, closed to new customers on 30 July 2026, and is in maintenance mode; AWS points new builds to AgentCore. Bedrock Knowledge Bases and Guardrails are not affected [8].
+
 ## Core Components
 
-**AgentCore Runtime** provides managed compute for hosting agents built with any framework. It handles scaling, deployment, and lifecycle management. The runtime supports bidirectional streaming for voice agent use cases, where agents simultaneously listen and respond while handling interruptions and context changes mid-conversation. The runtime also supports the Agent-to-Agent (A2A) protocol for inter-agent communication.
+**AgentCore Runtime** provides managed compute for hosting agents built with any framework. It handles scaling, deployment, and lifecycle management. The runtime supports bidirectional streaming for voice agent use cases, where agents simultaneously listen and respond while handling interruptions and context changes mid-conversation. The runtime also supports the Agent-to-Agent (A2A) protocol for inter-agent communication. A next-generation Runtime became available on 18 September 2026: it reclaims unused memory during a session so you pay for actual rather than peak usage, and restores new instances from a snapshot for consistent cold starts. It is opted into by setting `platformVersion` to `V2`, initially in five Regions [7].
 
 **AgentCore Gateway** acts as an intermediary for all tool calls made by agents. Every API call, database query, or external service invocation passes through the gateway, enabling centralized logging, rate limiting, and policy enforcement.
 
-**AgentCore Policy** (preview) enables organizations to define boundaries for agent actions using natural language rules that are automatically converted to Cedar, the AWS open-source policy language [3]. For example, a policy might permit an agent to issue refunds up to one hundred dollars autonomously but require human approval for larger amounts. Policy integrates with the gateway to intercept and evaluate every tool call in real time.
+**AgentCore Policy** (generally available since 3 March 2026 [5]) enables organizations to define boundaries for agent actions using natural language rules that are automatically converted to Cedar, the AWS open-source policy language [3]. For example, a policy might permit an agent to issue refunds up to one hundred dollars autonomously but require human approval for larger amounts. Policy integrates with the gateway to intercept and evaluate every tool call in real time.
 
 **AgentCore Memory** provides agents with persistent memory across sessions. Episodic memory, announced at re:Invent 2025, enables agents to accumulate knowledge about users over time, such as travel preferences or communication style, and apply that knowledge in future interactions.
 
-**AgentCore Evaluations** (preview) provides both on-demand evaluation for CI/CD pipelines and continuous online evaluation for production monitoring. Thirteen built-in evaluators cover dimensions including helpfulness, tool selection accuracy, and response quality. Custom model-based scoring systems can be defined for domain-specific quality criteria. Metrics are surfaced through a unified Amazon CloudWatch dashboard.
+**AgentCore Evaluations** (generally available since 31 March 2026 [6]) provides both on-demand evaluation for CI/CD pipelines and continuous online evaluation for production monitoring. Thirteen built-in evaluators cover dimensions including helpfulness, tool selection accuracy, and response quality. Custom model-based scoring systems can be defined for domain-specific quality criteria. Metrics are surfaced through a unified Amazon CloudWatch dashboard.
 
 ## Strategic Significance
 
@@ -42,3 +46,7 @@ AgentCore signals that AI infrastructure is moving beyond model hosting. The ser
 2. AWS (2025). "Top announcements of AWS re:Invent 2025." [https://aws.amazon.com/blogs/aws/top-announcements-of-aws-reinvent-2025/](https://aws.amazon.com/blogs/aws/top-announcements-of-aws-reinvent-2025/)
 3. AWS (2025). "Amazon Bedrock AgentCore now includes Policy (preview), Evaluations (preview) and more." [https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-bedrock-agentcore-policy-evaluations-preview/](https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-bedrock-agentcore-policy-evaluations-preview/)
 4. About Amazon (2025). "New Amazon Bedrock AgentCore capabilities." [https://www.aboutamazon.com/news/aws/aws-amazon-bedrock-agent-core-ai-agents](https://www.aboutamazon.com/news/aws/aws-amazon-bedrock-agent-core-ai-agents)
+5. AWS What's New (3 March 2026). "Policy in Amazon Bedrock AgentCore is now generally available." [https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/](https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/)
+6. AWS What's New (31 March 2026). "Amazon Bedrock AgentCore Evaluations is now generally available." [https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/](https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/)
+7. AWS What's New (18 September 2026). "The new AgentCore Runtime is now available in Amazon Bedrock AgentCore." [https://aws.amazon.com/about-aws/whats-new/2026/09/new-agentcore-runtime-generally-available/](https://aws.amazon.com/about-aws/whats-new/2026/09/new-agentcore-runtime-generally-available/)
+8. AWS Documentation. "Amazon Bedrock Agents Classic maintenance mode" (accessed 25 September 2026). [https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html)

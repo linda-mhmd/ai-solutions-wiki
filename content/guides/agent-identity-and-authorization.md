@@ -2,8 +2,9 @@
 title: "Agent Identity and Authorization: Who Is the Agent Acting As?"
 description: "Why a shared service account destroys attribution the moment agents act autonomously, how MCP's OAuth 2.1 model binds tokens to a single resource, and the delegation, scope, and revocation questions to answer before agents reach production."
 date: 2026-09-02
-lastmod: 2026-09-02
-last_updated: 2026-09-02
+lastmod: 2026-09-25
+last_updated: 2026-09-25
+last_verified: 2026-09-25
 categories: [Guides]
 tags: ["ai-agents", "identity", "authorization", "oauth", "mcp", "security", "zero-trust", "non-human-identity"]
 related:
@@ -88,8 +89,8 @@ MCP's first year also demonstrated what happens when an agent standard scales fa
 
 ## Sources
 
-1. Model Context Protocol. "Authorization" specification. [https://modelcontextprotocol.io/specification/draft/basic/authorization](https://modelcontextprotocol.io/specification/draft/basic/authorization)
-2. IETF. "The OAuth 2.1 Authorization Framework" (draft-ietf-oauth-v2-1). [https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-13](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-13)
+1. Model Context Protocol. "Authorization" specification, version 2026-07-28 (the requirements quoted here are unchanged in the current draft). [https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization)
+2. IETF. "The OAuth 2.1 Authorization Framework" (draft-ietf-oauth-v2-1; still an Internet-Draft, latest revision -16 of 3 September 2026). [https://datatracker.ietf.org/doc/draft-ietf-oauth-v2-1/](https://datatracker.ietf.org/doc/draft-ietf-oauth-v2-1/)
 3. IETF. "Resource Indicators for OAuth 2.0" (RFC 8707). [https://www.rfc-editor.org/rfc/rfc8707.html](https://www.rfc-editor.org/rfc/rfc8707.html)
 4. IETF. "OAuth 2.0 Protected Resource Metadata" (RFC 9728). [https://datatracker.ietf.org/doc/html/rfc9728](https://datatracker.ietf.org/doc/html/rfc9728)
 5. IETF. "OAuth 2.0 Bearer Token Usage" (RFC 6750). [https://datatracker.ietf.org/doc/html/rfc6750](https://datatracker.ietf.org/doc/html/rfc6750)

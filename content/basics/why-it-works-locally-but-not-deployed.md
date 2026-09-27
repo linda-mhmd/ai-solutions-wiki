@@ -12,7 +12,9 @@ faqs:
     answer: "Use environment variables properly, lock dependency versions, test in a staging environment, and automate deployments so they're reproducible. Docker helps by making environments identical."
   - question: "My API works locally but fails deployed. Why?"
     answer: "Check: Is the API URL hardcoded to localhost? Is the environment variable for the API URL set in production? Are CORS settings blocking the deployed domain? Is the API server actually reachable from the deployment?"
-last_updated: 2026-07-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 {{< quickanswer >}}
@@ -93,7 +95,7 @@ Then set `NEXT_PUBLIC_API_URL=https://myapp.com` in production.
 - Package compatibility errors
 
 **What happened:**
-You have Node 20 locally. Production has Node 18. You used a feature that only exists in Node 20.
+You have Node 24 locally. Production has Node 22. You used a feature that only exists in Node 24. (Old versions also stop getting security fixes: Node 18 and Node 20 are both end-of-life per the [Node.js release schedule](https://github.com/nodejs/Release), so a platform default pinned to one of them is worth updating anyway.)
 
 **The fix:**
 Specify version in your project:
@@ -102,14 +104,14 @@ Specify version in your project:
 // package.json
 {
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=24.0.0"
   }
 }
 ```
 
 Or `.nvmrc` file:
 ```
-20
+24
 ```
 
 Most platforms let you set the Node version in settings.

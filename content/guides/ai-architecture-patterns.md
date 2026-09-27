@@ -10,7 +10,9 @@ related:
   - patterns/microservices-for-ai
   - tools/amazon-bedrock
   - guides/multi-agent-systems-101
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 AI systems follow a recognizable architectural evolution as they mature, scale, and take on more complex tasks. Understanding this progression helps teams make deliberate architecture decisions rather than inheriting complexity they did not choose. This article traces the three main stages: monolithic, microservices, and multi-agent, with the signals that indicate when to move between them.
@@ -117,9 +119,9 @@ User Request
 
 **AWS implementation:**
 
-- Amazon Bedrock multi-agent collaboration for orchestrator-worker patterns
+- Amazon Bedrock AgentCore for managed agent runtime with memory and session management, with orchestrator-worker logic written in an agent framework such as [Strands Agents](/tools/strands-agents/)
 - AWS Step Functions for workflow orchestration with explicit state management
-- Amazon Bedrock AgentCore for managed agent runtime with memory and session management
+- Amazon Bedrock multi-agent collaboration only if you already run Bedrock Agents: it is part of Bedrock Agents Classic, which closed to new customers on 30 July 2026, and AWS recommends AgentCore for new builds
 - Amazon EventBridge for event-driven agent triggering
 
 ## Trade-offs Summary
@@ -152,7 +154,8 @@ These principles apply regardless of stage, drawn from the AWS Well-Architected 
 
 - AWS Documentation: AWS Well-Architected Machine Learning Lens. [https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html)
 - AWS Documentation: Amazon Bedrock multi-agent collaboration. [https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent.html)
+- AWS Documentation: Amazon Bedrock Agents Classic maintenance mode (closed to new customers 30 July 2026). [https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html)
 - Newman, S. (2021). *Building Microservices: Designing Fine-Grained Systems* (2nd ed.). O'Reilly Media. - The reference for microservices architecture patterns applied throughout this article.
 - Fowler, M. "Microservices" (2014). [https://martinfowler.com/articles/microservices.html](https://martinfowler.com/articles/microservices.html)
-- AWS Documentation: Amazon Bedrock AgentCore. [https://docs.aws.amazon.com/bedrock/latest/userguide/agentcore.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agentcore.html)
+- AWS Documentation: Amazon Bedrock AgentCore. [https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html)
 - AWS Documentation: AWS Step Functions. [https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html)

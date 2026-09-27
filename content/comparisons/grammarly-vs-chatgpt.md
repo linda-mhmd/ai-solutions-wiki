@@ -12,9 +12,9 @@ related:
   - basics/what-is-chatgpt
   - basics/what-is-generative-ai
   - glossary/hallucination
-last_verified: 2026-09-04
-last_updated: 2026-09-04
-lastmod: 2026-09-04
+last_verified: 2026-09-25
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -46,7 +46,7 @@ Grammarly restructured its plans in 2026, folding what used to be separate Premi
 |---|---|---|---|
 | **Grammarly** | $0 — grammar, spelling, and tone checks; 100 AI prompts/month; free-standing AI Detector and Plagiarism Checker tools online | *(no separate budget tier)* | **Pro**, $12/mo billed annually ($144/yr) or $30/mo billed monthly — full-sentence rewrites, tone control, plagiarism + AI-generated-text detection built into the app, 2,000 AI prompts/member/month [3][4] |
 | **Grammarly (top)** | | | **Enterprise** — custom pricing, unlimited AI prompts, SAML SSO, SCIM, bring-your-own-key encryption, data loss prevention [3] |
-| **ChatGPT** | $0 — GPT-5.6 Luna, unlimited text chat (OpenAI dropped the old ~10-messages-per-5-hours cap on 6 August 2026); images, uploads, voice, Deep Research, and Agent Mode are still tightly capped or unavailable; ads shown to Free users | **Go**, $8/mo — higher limits than Free, no Agent mode or Deep Research | **Plus**, $20/mo — GPT-5.6 Sol, Canvas, Agent mode, Deep Research, image and voice tools [5][6] |
+| **ChatGPT** | $0 — GPT-5.6 Luna, unlimited text chat (OpenAI dropped the old ~10-messages-per-5-hours cap on 6 August 2026); images, uploads, voice, Deep Research, and Agent Mode are still tightly capped or unavailable; ads shown to Free users | **Go**, $8/mo — higher limits than Free, no Agent mode or Deep Research | **Plus**, $20/mo — GPT-5.6 Sol plus GPT-6 Astra, Sol and Luna (surfaced mainly in ChatGPT Work and Codex, per [ChatGPT Free vs Plus vs Pro](/comparisons/chatgpt-free-vs-plus-vs-pro/)), Canvas, Agent mode, Deep Research, image and voice tools [5][6] |
 | **ChatGPT (top)** | | | **Pro**, $100/mo (Codex-focused) or $200/mo (near-unlimited usage) [5][6]; **Business**, $20–25/seat/mo, two-seat minimum |
 
 Two things worth noticing. Grammarly's plagiarism checker and AI detector are effectively free-to-try as standalone web tools at grammarly.com, but the versions built into the app — with granular sentence-level flags and one-click fixes — are gated behind Pro [7][8]. And Grammarly has no cheap middle tier the way ChatGPT does with Go: you're either on the capped Free plan or paying the full $12–30/month Pro price, with nothing in between.

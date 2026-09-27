@@ -2,6 +2,8 @@
 title: "What is Natural Language Processing (NLP)?"
 description: "Natural language processing (NLP) is the field of AI concerned with understanding and generating human language. Plain-English guide covering how NLP works and where you encounter it."
 date: 2026-06-22
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 0
 categories: [Basics]
 tags: ["beginner", "nlp", "natural-language-processing", "text-analysis", "ai-basics", "llm"]
@@ -135,7 +137,7 @@ client = OpenAI(api_key="YOUR_API_KEY")
 
 def analyse_customer_email(email_text):
     response = client.chat.completions.create(
-        model="gpt-4o-mini",
+        model="gpt-6-luna",  # a small, cheap model; see /comparisons/llm-landscape-2026/ for current options
         messages=[
             {
                 "role": "system",

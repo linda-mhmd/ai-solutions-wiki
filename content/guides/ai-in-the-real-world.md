@@ -12,7 +12,9 @@ related:
   - guides/software-licensing-and-vendor-lock-in
   - news/deepfake-fraud-epidemic-2026
   - history/mata-v-avianca-ai-hallucinations-legal
-last_updated: 2026-07-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Most AI writing is either a press release or a panic. This guide is neither. It collects the biggest real AI deployments from 2024 to 2026, the wins and the failures, and grades each one by how trustworthy the evidence is. The single most useful habit when reading any AI claim is to ask two questions: who is the source, and was it independently checked? Throughout this page, every number is tagged **(vendor-reported)** when it comes from the company that benefits from it, or **(independently verified)** when it comes from a court, a regulator, a peer-reviewed study, or an audited filing. Treat the second kind as far stronger than the first.
@@ -130,6 +132,6 @@ This page is a living snapshot and will be updated as outcomes change. For the l
 - [The History of IT](/guides/history-of-it/): the full arc of hardware, software, cloud, and AI.
 - [Mata v. Avianca and AI hallucinations in legal filings](/history/mata-v-avianca-ai-hallucinations-legal/): the landmark case and the 1,000+ incidents that followed.
 - [Deepfake fraud epidemic](/news/deepfake-fraud-epidemic-2026/): the $3.7 billion problem.
-- [Stanford HAI AI Index](https://hai.stanford.edu/ai-index/2025-ai-index-report): an independent annual measurement of AI adoption and capability.
+- [Stanford HAI AI Index](https://hai.stanford.edu/ai-index/2026-ai-index-report) (2026 edition): an independent annual measurement of AI adoption and capability.
 - [MIT report on enterprise GenAI pilots](https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/): the 95% no-P&L-impact finding in context.
 - [METR study on AI and developer productivity](https://arxiv.org/abs/2507.09089): the randomized trial that measured a slowdown.

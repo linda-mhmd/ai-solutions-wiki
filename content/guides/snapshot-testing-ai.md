@@ -9,7 +9,9 @@ related:
   - guides/testing-llm-applications
   - patterns/semantic-assertion
   - glossary/snapshot-testing
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Snapshot testing captures a known-good output and compares future outputs against it. When the output changes, the test fails, forcing a developer to review the change and either fix a regression or intentionally update the snapshot. For AI systems, traditional exact-match snapshots are too brittle because model outputs vary. This guide covers snapshot strategies adapted for non-deterministic AI outputs.
@@ -119,14 +121,14 @@ Model updates change outputs. When you upgrade from one model version to another
 3. Update snapshots for improvements and neutral changes
 4. Fix regressions before accepting the model update
 
-**Version your snapshots.** Include the model version in snapshot filenames or directories.
+**Version your snapshots.** Include the model version in snapshot filenames or directories. Where the provider offers dated snapshots (for example `claude-haiku-4-5-20251001`), pin and record the dated ID rather than a moving alias, so a silent alias update cannot change outputs under you.
 
 ```
 tests/snapshots/
-  gpt-4o-2024-08-06/
+  gpt-5.6-terra/
     system_prompt_v3.txt
     response_structure.json
-  gpt-4o-2025-01-15/
+  gpt-6-sol/
     system_prompt_v3.txt
     response_structure.json
 ```

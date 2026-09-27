@@ -1,13 +1,17 @@
 ---
 title: "Amazon Bedrock AgentCore - Serverless AI Agent Hosting"
-description: "How Amazon Bedrock AgentCore provides managed infrastructure for running AI agents at scale without managing servers."
+description: "How Amazon Bedrock AgentCore provides managed infrastructure for building and running AI agents at scale without managing servers, and why it replaces Bedrock Agents Classic for new builds."
 date: 2026-03-25
 categories: [Tools]
 tags: ["ai-agents", "advanced", "bedrock-agentcore", "aws", "agent-runtime", "tool-use", "memory", "aws-service"]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
-AWS Bedrock AgentCore is the managed runtime layer for deploying AI agents in production. Rather than building your own agent execution infrastructure (managing compute, scaling, state persistence, and tool invocation), AgentCore provides these capabilities as a managed service. Agents run serverlessly - you pay per invocation, not for idle capacity.
+Amazon Bedrock AgentCore is AWS's platform for building, deploying, and operating AI agents in production with any framework and any foundation model. Rather than building your own agent execution infrastructure (managing compute, scaling, state persistence, and tool invocation), AgentCore provides these capabilities as modular managed services. Agents run serverlessly in isolated microVMs with consumption-based pricing: billing is per second for the CPU and memory a session actually uses, and CPU is not charged while the agent waits on model responses or tool calls.
+
+AgentCore is also AWS's recommended migration path for Amazon Bedrock Agents, which was renamed Bedrock Agents Classic and closed to new customers on 30 July 2026.
 
 Official documentation: https://aws.amazon.com/bedrock/agentcore/
 
@@ -20,13 +24,17 @@ The garden way to picture it: an agent crew is a specialist garden team. Each me
 
 ## What AgentCore Provides
 
-**Managed agent runtime** - AgentCore handles the agent execution loop: sending messages to the foundation model, routing tool calls to the appropriate handlers, capturing tool results, and continuing the loop until the agent reaches a final answer or a stop condition. You define the agent (system prompt, tools, model selection) in a configuration object; AgentCore runs it.
+**Managed agent harness** - For config-first agents, the AgentCore harness runs the agent loop for you: sending messages to the foundation model, routing tool calls, capturing results, and continuing until the agent reaches a final answer or a stop condition. You declare the model, system prompt, and tools; each session runs in an isolated microVM.
 
-**Tool execution environment** - Each tool is defined as a code artifact that AgentCore invokes within a secure sandbox. Tools can call AWS services, external APIs, or custom logic. AgentCore handles parallelizing tool calls when the model requests multiple tools simultaneously.
+**Runtime for code-defined agents** - AgentCore Runtime hosts your own agent code (any framework) in serverless microVMs with session isolation, built-in identity, and support for long-running asynchronous work. The next-generation Runtime, generally available since 18 September 2026 (opt in with `platformVersion` `V2`), reclaims unused memory during a session so you pay for actual rather than peak memory, and restores new instances from a snapshot for consistent cold starts. At launch it was available in us-east-1, us-east-2, us-west-2, eu-west-1, and ap-northeast-1.
+
+**Tools: Gateway, Code Interpreter, Browser** - AgentCore Gateway turns APIs, Lambda functions, and existing services into Model Context Protocol (MCP) tools and connects to existing MCP servers. Code Interpreter provides an isolated sandbox for executing code, and Browser provides a managed cloud browser for web interaction.
 
 **Session management** - AgentCore maintains conversation state across turns within a session. Multi-turn conversations work without your application managing conversation history manually. Sessions have configurable TTLs.
 
-**Memory integration** - Long-term memory (facts about the user, previous interactions, established preferences) can be stored in a managed memory store and retrieved at the start of each session. This enables agents that improve over repeated interactions.
+**Memory integration** - AgentCore Memory provides short-term memory for multi-turn conversations and long-term memory (facts about the user, previous interactions, established preferences) that persists across sessions and can be shared across agents.
+
+**Governance and operations** - Identity (agent authentication against existing IdPs such as Cognito, Okta, or Entra ID), Policy (deterministic rules on what agents may do), Observability, Evaluations, Optimization, Registry (a catalog of agents, MCP servers, and tools), and Payments round out the platform.
 
 ## Supported Frameworks
 
@@ -38,7 +46,7 @@ AgentCore has first-class support for several frameworks:
 - **LlamaIndex** - RAG-focused framework with AgentCore deployment path
 - **Pydantic AI** - type-safe agent framework with Bedrock backend support
 
-Any agent that conforms to the AgentCore tool-use interface can run on the platform regardless of the underlying framework.
+AgentCore Runtime is framework- and model-agnostic, so agents built with other frameworks (or none) can run on it as well.
 
 ## When to Use AgentCore vs Self-Hosted
 
@@ -54,7 +62,14 @@ Self-hosted (Lambda + DynamoDB, ECS task) makes sense when:
 
 ## Integration with Bedrock Services
 
-AgentCore connects natively to Bedrock Knowledge Bases (for retrieval during tool execution), Bedrock Guardrails (for output safety), and Amazon CloudWatch (for agent execution traces). The complete agent call - including model invocations, tool calls, and retrieved context - appears as a structured trace in CloudWatch.
+AgentCore connects to Bedrock Knowledge Bases (for retrieval, including through Gateway), Bedrock Guardrails (for output safety, enforceable through Gateway), and Amazon CloudWatch (for agent execution traces via AgentCore Observability). The complete agent call - including model invocations, tool calls, and retrieved context - appears as a structured trace in CloudWatch.
+
+## Sources
+
+1. AWS. "What is Amazon Bedrock AgentCore?" AgentCore Developer Guide, accessed 25 September 2026. https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html
+2. AWS What's New. "The new AgentCore Runtime is now available in Amazon Bedrock AgentCore." 18 September 2026. https://aws.amazon.com/about-aws/whats-new/2026/09/new-agentcore-runtime-generally-available/
+3. AWS. "Amazon Bedrock AgentCore pricing." Accessed 25 September 2026. https://aws.amazon.com/bedrock/agentcore/pricing/
+4. AWS. "Amazon Bedrock Agents Classic maintenance mode." Accessed 25 September 2026. https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html
 
 ## Related Articles
 

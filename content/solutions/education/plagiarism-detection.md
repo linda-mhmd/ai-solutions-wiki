@@ -6,14 +6,16 @@ categories: [Solutions]
 tags: [plagiarism, academic-integrity, content-detection, nlp, stylometry]
 industries: [education]
 tools: [amazon-bedrock, amazon-sagemaker, amazon-opensearch]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 The rise of large language models has fundamentally changed the academic integrity landscape. Traditional plagiarism detection - matching text against a corpus of known sources - cannot detect AI-generated original text. Institutions need detection systems that go beyond text matching to include stylometric analysis, semantic similarity detection, and AI-generated content identification.
 
 ## The Problem
 
-Traditional plagiarism tools like Turnitin rely primarily on string matching against databases of published works, web content, and previously submitted papers. This approach has two blind spots: paraphrased plagiarism (rewriting a source in different words) and AI-generated content (original text produced by an LLM that matches no existing source). With AI writing tools freely available, the proportion of submissions containing AI-generated content has increased significantly, and institutions lack reliable detection mechanisms.
+Traditional plagiarism checking relies primarily on string matching against databases of published works, web content, and previously submitted papers. Commercial tools have since added AI-writing detectors (Turnitin, for example, [announced its detector in February 2023](https://www.turnitin.com/press/turnitin-announces-ai-writing-detector-and-ai-writing-resource-center-for-educators) and built it into its products), but their accuracy is contested and some universities have switched the feature off. String matching has two blind spots: paraphrased plagiarism (rewriting a source in different words) and AI-generated content (original text produced by an LLM that matches no existing source). With AI writing tools freely available, the proportion of submissions containing AI-generated content has increased significantly, and string matching alone cannot detect it.
 
 ## AI Approach
 

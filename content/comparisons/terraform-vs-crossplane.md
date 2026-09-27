@@ -12,9 +12,9 @@ related:
   - guides/software-licensing-and-vendor-lock-in
   - patterns/declarative-control-planes-for-agents
   - glossary/gitops
-last_verified: 2026-09-04
-last_updated: 2026-09-04
-lastmod: 2026-09-04
+last_verified: 2026-09-25
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 Terraform and Crossplane are both, in the loosest sense, "declarative infrastructure" tools: you describe a desired state and something makes reality match it. Past that one sentence they stop being comparable on the same axis. Terraform is a CLI-driven provisioning tool: it computes a diff between configuration and a tracked state file, and applies that diff when a person or a CI job tells it to. Crossplane is a Kubernetes-native framework: desired state lives as a Kubernetes object, and a controller reconciles actual state toward it continuously, on its own schedule, for as long as the object exists. One runs when invoked; the other runs forever until deleted. That is an operating-model difference, not a feature gap.
@@ -25,9 +25,9 @@ This page follows the [constraint-driven methodology](/guides/constraint-driven-
 
 ## What each one actually is
 
-[Terraform](/tools/terraform/) is HashiCorp's — now IBM's — infrastructure-as-code tool, first released in 2014. You write HCL, run `terraform plan` to see a diff against a tracked state file, and `terraform apply` to execute it. Nothing changes between applies unless a person or a pipeline reruns the tool; on the paid HCP Terraform tier, a scheduled health assessment can detect drift and surface it, but a human still has to queue and apply the fix — the platform does not self-heal it ([HCP Terraform docs, "Health assessments"](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/health)). The current release is Terraform 1.16.1, published September 2, 2026 ([GitHub releases](https://github.com/hashicorp/terraform/releases)). Since Terraform 1.6 it has shipped under the Business Source License 1.1 (BSL); the project's own license file lists **International Business Machines Corporation** as the licensor, permits free production use but forbids offering Terraform to third parties as a hosted service competing with IBM's paid products, and converts each release to MPL 2.0 four years after it ships ([`hashicorp/terraform` LICENSE](https://github.com/hashicorp/terraform/blob/main/LICENSE)).
+[Terraform](/tools/terraform/) is HashiCorp's — now IBM's — infrastructure-as-code tool, first released in 2014. You write HCL, run `terraform plan` to see a diff against a tracked state file, and `terraform apply` to execute it. Nothing changes between applies unless a person or a pipeline reruns the tool; on the paid HCP Terraform tier, a scheduled health assessment can detect drift and surface it, but a human still has to queue and apply the fix — the platform does not self-heal it ([HCP Terraform docs, "Health assessments"](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/health)). The current release is Terraform 1.16.4, published September 23, 2026 ([GitHub releases](https://github.com/hashicorp/terraform/releases)). Since Terraform 1.6 it has shipped under the Business Source License 1.1 (BSL); the project's own license file lists **International Business Machines Corporation** as the licensor, permits free production use but forbids offering Terraform to third parties as a hosted service competing with IBM's paid products, and converts each release to MPL 2.0 four years after it ships ([`hashicorp/terraform` LICENSE](https://github.com/hashicorp/terraform/blob/main/LICENSE)).
 
-[Crossplane](/tools/crossplane/) is a CNCF framework, originally built by Upbound and open-sourced in 2018, that extends the Kubernetes API with Custom Resource Definitions representing external infrastructure — a cloud database, a VPC, an entire application stack. A platform team defines a Composition mapping a custom API (an XR) to underlying Managed Resources; a requester creates an instance of that API and Crossplane's controllers reconcile the cluster's actual state toward it, on a default one-hour full resync plus event-driven updates the moment a watched object changes ([Crossplane docs, "Pods"](https://docs.crossplane.io/latest/guides/pods/)). The current release is v2.4.0, published August 20, 2026 ([GitHub releases](https://github.com/crossplane/crossplane/releases)). Crossplane is licensed Apache 2.0, and the CNCF's Technical Oversight Committee voted it to **Graduated** status — the foundation's top maturity tier — on October 28, 2025, citing over 3,000 contributors from more than 450 organizations and completed third-party security audits ([CNCF graduation announcement](https://www.cncf.io/announcements/2025/11/06/cloud-native-computing-foundation-announces-graduation-of-crossplane/)).
+[Crossplane](/tools/crossplane/) is a CNCF framework, originally built by Upbound and open-sourced in 2018, that extends the Kubernetes API with Custom Resource Definitions representing external infrastructure — a cloud database, a VPC, an entire application stack. A platform team defines a Composition mapping a custom API (an XR) to underlying Managed Resources; a requester creates an instance of that API and Crossplane's controllers reconcile the cluster's actual state toward it, on a default one-hour full resync plus event-driven updates the moment a watched object changes ([Crossplane docs, "Pods"](https://docs.crossplane.io/latest/guides/pods/)). The current release is v2.4.2, published September 22, 2026 ([GitHub releases](https://github.com/crossplane/crossplane/releases)). Crossplane is licensed Apache 2.0, and the CNCF's Technical Oversight Committee voted it to **Graduated** status — the foundation's top maturity tier — on October 28, 2025, citing over 3,000 contributors from more than 450 organizations and completed third-party security audits ([CNCF graduation announcement](https://www.cncf.io/announcements/2025/11/06/cloud-native-computing-foundation-announces-graduation-of-crossplane/)).
 
 ## The constraint categories that actually apply here
 
@@ -62,7 +62,7 @@ Of the general categories this wiki uses to structure a comparison, four carry r
 | Execution trigger | Human or CI invokes `apply` | Controller reconciles continuously |
 | Drift handling | Manual re-plan, or paid-tier detect-only | Reconciled automatically by default |
 | State storage | Separate state file (S3, Terraform Cloud, etc.) | Live Kubernetes objects (etcd) |
-| Current release (Sept. 2026) | 1.16.1 | v2.4.0 |
+| Current release (Sept. 2026) | 1.16.4 | v2.4.2 |
 | Listed providers | 7,191 (Terraform Registry API) | 154 (Upbound Marketplace) |
 | Natural fit | General IaC users, multi-cloud/SaaS provisioning, teams wanting a readable `plan` diff | Kubernetes-heavy platform-engineering shops building a self-service internal developer platform |
 
@@ -84,8 +84,8 @@ Whether the BSL's "does not compete with IBM's paid version" carve-out is accept
 
 1. `hashicorp/terraform` LICENSE file (Business Source License 1.1, licensor IBM): [https://github.com/hashicorp/terraform/blob/main/LICENSE](https://github.com/hashicorp/terraform/blob/main/LICENSE)
 2. HashiCorp Blog, "HashiCorp officially joins the IBM family" (acquisition closed February 27, 2025): [https://www.hashicorp.com/en/blog/hashicorp-officially-joins-the-ibm-family](https://www.hashicorp.com/en/blog/hashicorp-officially-joins-the-ibm-family)
-3. `hashicorp/terraform` GitHub Releases (current release 1.16.1, September 2, 2026): [https://github.com/hashicorp/terraform/releases](https://github.com/hashicorp/terraform/releases)
-4. `crossplane/crossplane` GitHub Releases (current release v2.4.0, August 20, 2026): [https://github.com/crossplane/crossplane/releases](https://github.com/crossplane/crossplane/releases)
+3. `hashicorp/terraform` GitHub Releases (current release 1.16.4, September 23, 2026): [https://github.com/hashicorp/terraform/releases](https://github.com/hashicorp/terraform/releases)
+4. `crossplane/crossplane` GitHub Releases (current release v2.4.2, September 22, 2026): [https://github.com/crossplane/crossplane/releases](https://github.com/crossplane/crossplane/releases)
 5. CNCF, "Cloud Native Computing Foundation Announces Graduation of Crossplane," November 6, 2025: [https://www.cncf.io/announcements/2025/11/06/cloud-native-computing-foundation-announces-graduation-of-crossplane/](https://www.cncf.io/announcements/2025/11/06/cloud-native-computing-foundation-announces-graduation-of-crossplane/)
 6. OpenTofu, official project site (Linux Foundation stewardship, MPL 2.0, drop-in replacement, feature list including native state encryption): [https://opentofu.org/](https://opentofu.org/)
 7. HashiCorp, HCP Terraform pricing page (Essentials/Standard/Premium per-resource rates): [https://www.hashicorp.com/en/products/terraform/pricing](https://www.hashicorp.com/en/products/terraform/pricing)

@@ -10,7 +10,9 @@ related:
   - glossary/concept-drift
   - guides/continuous-training-guide
   - guides/ai-observability-guide
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 A model that performed well at deployment will eventually degrade. The world changes, user behavior shifts, and the data your model sees in production drifts away from what it was trained on. Drift detection is the practice of monitoring for these changes and responding before they cause business impact.
@@ -62,4 +64,8 @@ A model that performed well at deployment will eventually degrade. The world cha
 
 ## Tooling
 
-SageMaker Model Monitor, Evidently AI, WhyLabs, and Arize provide drift detection out of the box. For custom implementations, build on statistical libraries (scipy, alibi-detect) and your existing monitoring infrastructure. The key is integrating drift alerts into your existing on-call and incident response workflows rather than creating a separate monitoring silo.
+SageMaker Model Monitor, Evidently AI, and Arize provide drift detection out of the box. WhyLabs, once a common choice here, has discontinued operations; its platform was open-sourced and its whylogs profiling library remains available. For custom implementations, build on statistical libraries (scipy, alibi-detect, whylogs) and your existing monitoring infrastructure. The key is integrating drift alerts into your existing on-call and incident response workflows rather than creating a separate monitoring silo.
+
+## Sources
+
+1. WhyLabs, company notice on discontinuing operations and open-sourcing the platform (fetched 25 September 2026): [https://whylabs.ai/](https://whylabs.ai/)

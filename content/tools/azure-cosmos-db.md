@@ -7,10 +7,12 @@ tags: [azure, database, nosql, globally-distributed, multi-model]
 related:
   - tools/amazon-dynamodb
   - tools/amazon-neptune
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
-Azure Cosmos DB is Microsoft Azure's globally distributed, multi-model database service that provides single-digit millisecond response times and guaranteed availability backed by comprehensive SLAs. Unlike most managed database services that support a single data model, Cosmos DB supports multiple APIs: NoSQL (document), MongoDB, Apache Cassandra, Apache Gremlin (graph), Table, and PostgreSQL. This multi-model approach means teams can use their preferred data model and query language while benefiting from the same underlying globally distributed infrastructure.
+Azure Cosmos DB is Microsoft Azure's globally distributed, multi-model database service that provides single-digit millisecond response times and guaranteed availability backed by comprehensive SLAs. Unlike most managed database services that support a single data model, Cosmos DB supports multiple APIs: NoSQL (document), MongoDB, Apache Cassandra, Apache Gremlin (graph), Table, and PostgreSQL (the last now on a retirement path; see below). This multi-model approach means teams can use their preferred data model and query language while benefiting from the same underlying globally distributed infrastructure.
 
 For AI workloads, Cosmos DB serves several critical roles. Its vector search capability, introduced in 2023, enables storage and retrieval of vector embeddings for retrieval-augmented generation (RAG) patterns alongside the application data that produced those embeddings. The change feed feature provides a real-time stream of document modifications, enabling event-driven architectures where data changes trigger AI processing via Azure Functions. The globally distributed nature of the service, with automatic multi-region replication, ensures that AI-powered applications deliver consistent low-latency responses regardless of user location.
 
@@ -20,7 +22,7 @@ Official documentation: https://learn.microsoft.com/en-us/azure/cosmos-db/
 
 ## Key Capabilities
 
-- **Multi-Model APIs** - Support for NoSQL, MongoDB, Cassandra, Gremlin (graph), Table, and PostgreSQL APIs on a single distributed database engine
+- **Multi-Model APIs** - Support for NoSQL, MongoDB, Cassandra, Gremlin (graph), and Table APIs, with a separate PostgreSQL offering that is no longer recommended for new projects
 - **Global Distribution** - Turnkey multi-region replication with automatic failover, configurable consistency levels, and single-digit millisecond reads and writes worldwide
 - **Integrated Vector Search** - Native vector indexing and similarity search for RAG patterns, eliminating the need for a separate vector database
 - **Change Feed** - Real-time ordered stream of document changes that powers event-driven architectures and materialized views
@@ -31,9 +33,10 @@ Azure Cosmos DB covers functionality split between Amazon DynamoDB (key-value/do
 
 ## Origins and History
 
-Cosmos DB originated as Azure DocumentDB, a document database service launched in April 2015. At the Build 2017 conference in May 2017, Microsoft rebranded and expanded it as Azure Cosmos DB, adding support for multiple data models and global distribution as first-class features. The service was designed by Leslie Lamport's team at Microsoft Research, incorporating the TLA+ specification language for formal verification. Vector search support was announced at Build 2023 and reached general availability in late 2023. The PostgreSQL API (powered by the Citus distributed database engine) was added in October 2023.
+Cosmos DB originated as Azure DocumentDB, a document database service launched in April 2015. At the Build 2017 conference in May 2017, Microsoft rebranded and expanded it as Azure Cosmos DB, adding support for multiple data models and global distribution as first-class features. The service was designed by Leslie Lamport's team at Microsoft Research, incorporating the TLA+ specification language for formal verification. Vector search support was announced at Build 2023 and reached general availability in late 2023. A PostgreSQL offering, powered by the Citus distributed database engine, was added later. Azure Cosmos DB for PostgreSQL is now on a retirement path and no longer recommended for new projects; Microsoft points PostgreSQL workloads to the Elastic Clusters feature of Azure Database for PostgreSQL.
 
 ## Sources
 
 1. Microsoft Learn. "Welcome to Azure Cosmos DB." https://learn.microsoft.com/en-us/azure/cosmos-db/introduction
 2. Microsoft Azure Blog. "Azure Cosmos DB: The industry's first globally-distributed, multi-model database service." May 10, 2017. https://azure.microsoft.com/en-us/blog/azure-cosmos-db-microsofts-globally-distributed-multi-model-database-service/
+3. Microsoft Learn. "What is Azure Cosmos DB for PostgreSQL?" (retirement-path notice), accessed 25 September 2026. https://learn.microsoft.com/en-us/azure/cosmos-db/postgresql/introduction

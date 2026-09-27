@@ -11,6 +11,8 @@ related:
   - tools/fireworks-ai
   - tools/amazon-bedrock
   - comparisons/llm-landscape-2026
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -18,7 +20,7 @@ related:
   <figcaption>Together AI serves hundreds of open-weight models behind one API, so you switch models without switching vendors.</figcaption>
 </figure>
 
-Together AI is a cloud platform for running, fine-tuning, and serving open-weight models through an API. It solves a specific problem: open models like Llama, Qwen, DeepSeek, and Mixtral are free to download, but standing up your own GPU servers to serve them at production speed and scale is hard. Together AI hosts those models for you, exposes them through an OpenAI-compatible API, and also rents GPU clusters when you need dedicated capacity. The company describes itself as an "AI native cloud" and was founded in 2022.
+Together AI is a cloud platform for running, fine-tuning, and serving open-weight models through an API. It solves a specific problem: open models like Qwen, DeepSeek, Kimi, GLM, MiniMax, gpt-oss, and Llama are free to download, but standing up your own GPU servers to serve them at production speed and scale is hard. Together AI hosts those models for you, exposes them through an OpenAI-compatible API, and also rents GPU clusters when you need dedicated capacity. The company describes itself as an "AI native cloud" and was founded in 2022.
 
 ## Where it sits in the stack
 
@@ -94,13 +96,13 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="Qwen/Qwen2.5-72B-Instruct-Turbo",
+    model="Qwen/Qwen3.8-Flash",
     messages=[{"role": "user", "content": "Write a SQL query for monthly active users."}],
 )
 print(response.choices[0].message.content)
 ```
 
-Beyond serverless calls, the platform runs three other workloads. Batch inference handles large asynchronous jobs where latency does not matter. [Fine-tuning](/glossary/fine-tuning/) lets you adapt an open model to your data using LoRA or full-parameter training, then deploy the result. GPU clusters give you dedicated NVIDIA capacity when you need reserved compute rather than shared serverless endpoints.
+Beyond serverless calls, the platform runs several other workloads. Batch inference handles large asynchronous jobs where latency does not matter, at up to 50% lower cost. Dedicated endpoints deploy a model on GPUs reserved for you, and provisioned throughput (sold through sales, with a term of one month or more) reserves capacity with committed throughput for a model family on Together's managed infrastructure; as of September 2026 it covers Kimi K3, MiniMax M3, and GLM-5.2. [Fine-tuning](/glossary/fine-tuning/) lets you adapt an open model to your data using LoRA or full-parameter training, then deploy the result. GPU clusters give you dedicated NVIDIA capacity when you need reserved compute rather than shared serverless endpoints.
 
 The workflow for a custom model runs end to end on the platform:
 
@@ -170,3 +172,6 @@ Together AI is not the right fit in a few cases.
 - [Together AI - serverless inference](https://www.together.ai/serverless-inference)
 - [Together AI - fine-tuning](https://www.together.ai/fine-tuning)
 - [Together AI - pricing](https://www.together.ai/pricing)
+- [Together AI docs - serverless models](https://docs.together.ai/docs/serverless-models) (current catalog incl. Qwen3.8 Flash, DeepSeek V4.1 Flash, Kimi K3, GLM-5.3, MiniMax M3, Llama 3.3 70B Turbo; accessed 25 September 2026)
+- [Together AI docs - provisioned throughput](https://docs.together.ai/docs/inference/provisioned-throughput) (Kimi K3, MiniMax M3, GLM-5.2)
+- [Together AI docs - batch inference](https://docs.together.ai/docs/inference/batch/overview)

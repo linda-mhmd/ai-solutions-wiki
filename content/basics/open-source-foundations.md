@@ -2,6 +2,8 @@
 title: "Open Source Foundations"
 description: "Linux Foundation, Apache, CNCF, OpenJS—organizations that govern and fund open source projects. What they do, why they exist, and how they work."
 date: 2026-07-30
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 3
 categories: [Basics]
 tags: [open-source, foundations, linux-foundation, apache, cncf, governance]
@@ -12,7 +14,7 @@ faqs:
     answer: "Some do, directly or through grants. But most open-source work is done by people employed by member companies, not by the foundation itself. Foundations provide structure and funding, but the actual coding is usually done by people whose employers contribute their time."
   - question: "How do projects join foundations?"
     answer: "Each foundation has its own process. Generally: the project applies, demonstrates community health and governance, meets technical requirements, and goes through a review. Some foundations actively recruit projects; others wait for applications."
-last_updated: 2026-07-30
+last_updated: 2026-09-25
 ---
 
 {{< quickanswer >}}
@@ -70,7 +72,7 @@ Beyond code:
 
 **Founded**: 2000 (merger of Open Source Development Labs and Free Standards Group)
 
-**Notable projects**: Linux kernel, Kubernetes (via CNCF), Node.js (via OpenJS), Let's Encrypt, Hyperledger
+**Notable projects**: Linux kernel, Kubernetes (via CNCF), Node.js (via OpenJS), PyTorch (via the PyTorch Foundation), React (via the React Foundation, launched February 2026), the Model Context Protocol (via the Agentic AI Foundation, created December 2025), Let's Encrypt, Hyperledger (now LF Decentralized Trust)
 
 **How it works**:
 - Umbrella organization hosting many sub-foundations
@@ -384,3 +386,4 @@ Some projects thrive without foundations:
 - [Famous open source projects](/basics/famous-open-source-projects/): Projects that live in foundations
 - [The open source sustainability problem](/basics/open-source-sustainability-problem/): Challenges foundations try to address
 - [How to contribute to open source](/basics/how-to-contribute-to-open-source/): Participating in foundation-hosted projects
+- [The React Foundation: A New Home for React (24 February 2026)](https://react.dev/blog) and [MCP protocol](/tools/mcp-protocol/): examples of projects moving into Linux Foundation sub-foundations; Hyperledger now operates as [LF Decentralized Trust](https://www.lfdecentralizedtrust.org/)

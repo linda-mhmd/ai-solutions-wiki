@@ -10,6 +10,8 @@ related:
   - tools/amazon-bedrock
   - tools/lambda-cloud
   - tools/nebius
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -71,7 +73,7 @@ A neocloud specializes. It rents GPU compute and the networking and software tha
 
 ## What CoreWeave rents
 
-CoreWeave offers access to NVIDIA GPUs, including current Blackwell-generation parts (such as GB200 and HGX B200) and Hopper-generation parts (H100 and H200), alongside older data-center GPUs. It provides bare-metal servers, an InfiniBand networking fabric that connects GPUs across a cluster, and storage options including object storage and distributed file storage. On top of the hardware, it offers a managed Kubernetes service, a Slurm-on-Kubernetes scheduler for large training jobs, and Mission Control for observability.
+CoreWeave offers access to NVIDIA GPUs, including Blackwell-generation parts (such as GB300 NVL72, GB200 and HGX B200, plus RTX PRO 6000 Blackwell Server Edition) and Hopper-generation parts (H100 and H200), alongside older data-center GPUs. It is also bringing up NVIDIA's next generation: in September 2026 CoreWeave announced a multi-rack NVIDIA Vera Rubin NVL72 cluster. It provides bare-metal servers, an InfiniBand networking fabric that connects GPUs across a cluster, and storage options including object storage and distributed file storage. On top of the hardware, it offers a managed Kubernetes service, a Slurm-on-Kubernetes scheduler for large training jobs, and Mission Control for observability.
 
 ## How to access it and typical use
 
@@ -137,3 +139,5 @@ CoreWeave is also aimed at scale. If you want to call a model through a simple A
 - CoreWeave official site: https://www.coreweave.com/
 - CoreWeave IPO pricing press release: https://www.coreweave.com/news/coreweave-announces-pricing-of-initial-public-offering
 - CNBC, CoreWeave Nasdaq debut, 2025-03-28: https://www.cnbc.com/2025/03/28/coreweave-starts-trading-on-nasdaq-at-per-share.html
+- CoreWeave GPU compute catalogue (GB300 NVL72, RTX PRO 6000 Blackwell Server Edition, H100/H200), checked 26 September 2026: https://www.coreweave.com/products/gpu-compute
+- CoreWeave newsroom, "CoreWeave Brings Up Multi-Rack NVIDIA Vera Rubin NVL72 Cluster", September 2026 (listed on the homepage news feed, checked 26 September 2026): https://www.coreweave.com/

@@ -11,17 +11,19 @@ related:
   - comparisons/crewai-vs-strands
   - patterns/agentic-workflows
   - guides/multi-agent-systems-101
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
-Strands Agents is an open-source Python framework for building AI agents, developed by AWS to integrate natively with Bedrock and the broader AWS service ecosystem. Unlike frameworks designed for multi-cloud use, Strands is opinionated about running on AWS and integrates directly with Bedrock AgentCore for deployment.
+Strands Agents is an open-source (Apache 2.0) SDK for building AI agents in Python and TypeScript, developed by AWS. It defaults to Amazon Bedrock and integrates directly with Bedrock AgentCore for deployment, but it is model-agnostic: the SDK has first-class providers for Bedrock, Anthropic, OpenAI, and Gemini, plus others and custom providers. The project now lives in the `strands-agents/harness-sdk` monorepo, which also ships **Strands harness** (`strands-harness` on PyPI, `@strands-agents/harness` on npm), a pre-assembled agent with default tools, memory, sessions, and context management.
 
 Official documentation: https://strandsagents.com/
 
 ## Core Design
 
 Strands follows a minimal, code-first design. An agent is defined by:
-- A foundation model (any Bedrock-supported model)
+- A foundation model (Bedrock by default; other providers are supported)
 - A system prompt
 - A list of tools (Python functions decorated with `@tool`)
 
@@ -36,7 +38,7 @@ def query_database(sql: str) -> str:
     return run_query(sql)
 
 agent = Agent(
-    model="us.anthropic.claude-sonnet-4-6",
+    model="us.anthropic.claude-sonnet-5",  # Sonnet 5 needs a geo/global inference profile on Bedrock
     system_prompt="You are a data analyst...",
     tools=[query_database]
 )
@@ -69,3 +71,9 @@ Strands agents deploy to Bedrock AgentCore without modification. The same agent 
 - [Bedrock AgentCore]({{< relref "bedrock-agentcore.md" >}}) - deployment target for Strands agents
 - [MCP Protocol]({{< relref "mcp-protocol.md" >}}) - tool interface used by Strands
 - [Amazon Bedrock]({{< relref "amazon-bedrock.md" >}}) - foundation models for Strands agents
+
+## Sources
+
+1. Strands Agents monorepo README (Python and TypeScript SDKs, Strands harness, model providers; accessed 25 September 2026): https://github.com/strands-agents/harness-sdk
+2. strands-agents on PyPI: https://pypi.org/project/strands-agents/
+3. Anthropic, "Models overview" (Sonnet 5 on Bedrock is called through an inference profile such as `us.anthropic.claude-sonnet-5`; see the Bedrock model card): https://platform.claude.com/docs/en/about-claude/models/overview

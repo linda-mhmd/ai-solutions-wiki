@@ -2,21 +2,23 @@
 title: "What is a Domain Name?"
 description: "A domain name is the human-readable address for your website. It's how people find you on the internet instead of typing an IP address like 142.250.185.78."
 date: 2026-07-30
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 1
 categories: [Basics]
 tags: [beginner, domain, dns, web, hosting]
 faqs:
   - question: "How much does a domain cost?"
-    answer: "Typically $10-15/year for common extensions like .com, .io, or .co. Some trendy extensions like .ai cost more ($50-100/year). You pay annually to keep it. If you stop paying, you lose it and someone else can buy it."
+    answer: "Typically $10-15/year for a .com. Other extensions vary: .co and .io often cost $15-30 for the first year and $30-55/year to renew, and .ai costs around $80/year. Always check the renewal price, not just the first-year price. You pay annually to keep it. If you stop paying, you lose it and someone else can buy it."
   - question: "What's the difference between a domain and hosting?"
     answer: "A domain is the address (myapp.com). Hosting is where your website files actually live. You need both. It's like the difference between your street address and your actual house. The domain tells people where to go; hosting is where they arrive."
   - question: "Should I get the .com version?"
-    answer: "If it's available and affordable, yes. People still type .com by habit. But .io is perfectly respectable for tech products, and .co, .app, or country-specific domains work fine too. Don't pay $10,000 for a premium .com when a $15 .io works."
-last_updated: 2026-07-30
+    answer: "If it's available and affordable, yes. People still type .com by habit. But .io is perfectly respectable for tech products, and .co, .app, or country-specific domains work fine too. Don't pay $10,000 for a premium .com when a $30-50/year .io works."
+last_updated: 2026-09-25
 ---
 
 {{< quickanswer >}}
-A domain name is the address people type to reach your website—like google.com or myawesomeapp.io. It's a human-friendly name that points to a server's actual IP address. You buy domains from registrars like Namecheap, Google Domains, or Cloudflare, and you have to renew them yearly to keep them.
+A domain name is the address people type to reach your website—like google.com or myawesomeapp.io. It's a human-friendly name that points to a server's actual IP address. You buy domains from registrars like Namecheap, Porkbun, or Cloudflare, and you have to renew them yearly to keep them.
 {{< /quickanswer >}}
 
 ## Why domain names exist
@@ -49,15 +51,15 @@ Domain names are the phonebook of the internet. When you type `google.com`, a sy
 ## How to get a domain
 
 1. **Pick a name**: Check if it's available using any registrar's search
-2. **Choose a registrar**: Namecheap, Cloudflare, Porkbun, Google Domains (now Squarespace)
-3. **Buy it**: Usually $10-15/year for .com, .io, .co
+2. **Choose a registrar**: Namecheap, Cloudflare, Porkbun, Squarespace Domains (which took over Google Domains in 2023)
+3. **Buy it**: Usually $10-15/year for .com; .io, .co and .ai cost more, especially at renewal
 4. **Point it somewhere**: Connect it to your hosting provider
 
 Popular registrars:
 - **Cloudflare** - Sells at cost, no markup. Good if you'll use their other services.
 - **Namecheap** - Cheap, straightforward, been around forever.
 - **Porkbun** - Cheap, good UI, quirky branding.
-- **Google Domains** (now Squarespace) - Simple, integrates with Google services.
+- **Squarespace Domains** - Took over Google Domains customers in 2023. Simple, but no longer tied to Google.
 
 Avoid: GoDaddy (aggressive upselling), generic "web builder" registrars (overpriced).
 
@@ -122,3 +124,4 @@ Most modern sites use the non-www version (`myapp.com`) as canonical. It's short
 - [What is hosting?](/basics/what-is-hosting/): Where your app actually lives
 - [What is the internet?](/basics/what-is-the-internet/): How all of this connects
 - [What is deployment?](/basics/what-is-deployment/): Getting your app online
+- [Porkbun domain pricing](https://porkbun.com/products/domains): example registration and renewal prices used above (checked 25 September 2026: .com $11.08, .io $28.12 first year / $51.80 renewal, .co $15.76 / $31.20, .ai $82.70)

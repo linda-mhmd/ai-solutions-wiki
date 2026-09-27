@@ -13,7 +13,7 @@ Databricks and Amazon EMR both run Apache Spark for large-scale data processing.
 
 ## Platform Overview
 
-**Databricks** is a managed data and AI platform built around Apache Spark. It includes collaborative notebooks, MLflow integration, Delta Lake for reliable data storage, Unity Catalog for governance, and Mosaic AI for building, serving, and governing models and agents. At the Data + AI Summit in June 2025, Databricks shipped MLflow 3 (redesigned for generative AI and agent observability), Agent Bricks (a beta tool for building auto-optimized agents), and serverless GPU compute. The platform is available on AWS, Microsoft Azure, and Google Cloud.
+**Databricks** is a managed data and AI platform built around Apache Spark. It includes collaborative notebooks, MLflow integration, Delta Lake for reliable data storage, Unity Catalog for governance, and built-in tooling for building, serving, and governing models and agents (formerly branded Mosaic AI; Databricks now documents it as Agent Bricks and AI Search, see [Databricks](/tools/databricks/)). At the Data + AI Summit in June 2025, Databricks shipped MLflow 3 (redesigned for generative AI and agent observability), Agent Bricks (a beta tool for building auto-optimized agents), and serverless GPU compute. The platform is available on AWS, Microsoft Azure, and Google Cloud.
 
 **Amazon EMR** is a managed Hadoop and Spark service on AWS. It provides the compute infrastructure for running Spark, Hive, Presto/Trino, Apache Flink, and other big data frameworks. EMR on EC2, EMR on EKS, and EMR Serverless offer different deployment models. Apache Spark 4.0 reached general availability on EMR in June 2026 (the emr-spark-8.0 release), supported across all three deployment options.
 

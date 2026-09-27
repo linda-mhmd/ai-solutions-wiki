@@ -9,16 +9,18 @@ related:
   - patterns/model-tier-routing
   - patterns/react-pattern-ai
   - patterns/agentic-workflows
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 The plan-and-execute pattern splits agent work into two distinct phases. A capable planner model analyzes the task, breaks it into concrete steps, and produces a structured plan. Then a cheaper executor model carries out each step independently. The planner may re-plan if execution results reveal the original plan was flawed. This separation reduces cost because the expensive model only runs once for planning, while the bulk of token-heavy execution work runs on a cheaper tier.
 
 ## Architecture
 
-**Planner** - A high-capability model (Claude Sonnet, GPT-4 class) receives the user request and produces an ordered list of steps. Each step should be self-contained: it specifies what to do, what inputs are needed, and what the expected output looks like. The planner does not execute; it thinks.
+**Planner** - A high-capability model (Claude Opus or Sonnet, GPT-6 Sol class at the time of writing; see the [LLM landscape](/comparisons/llm-landscape-2026/)) receives the user request and produces an ordered list of steps. Each step should be self-contained: it specifies what to do, what inputs are needed, and what the expected output looks like. The planner does not execute; it thinks.
 
-**Executor** - A faster, cheaper model (Claude Haiku, GPT-4o-mini class) takes each step from the plan and carries it out. The executor might call tools, generate text, transform data, or perform any other atomic operation. It receives only the context it needs for its specific step, not the full conversation history.
+**Executor** - A faster, cheaper model (Claude Haiku, GPT-6 Luna or Gemini Flash class) takes each step from the plan and carries it out. The executor might call tools, generate text, transform data, or perform any other atomic operation. It receives only the context it needs for its specific step, not the full conversation history.
 
 **Replanner** (optional) - After each step completes, the planner reviews the result. If the output is unexpected or reveals new information, the planner adjusts the remaining steps. This adaptive replanning handles situations where the initial plan was based on incomplete information.
 
@@ -26,7 +28,7 @@ The plan-and-execute pattern splits agent work into two distinct phases. A capab
 
 **Complex multi-step tasks** - Research questions that require gathering information from multiple sources, synthesizing findings, and producing a report. The planning phase identifies what to research and in what order; execution handles each lookup.
 
-**Cost-sensitive workloads** - When the total token count across all execution steps is high, the savings from using a cheaper executor model are significant. A task with 10 execution steps might use a $15/MTok planner once and a $0.25/MTok executor ten times, instead of running the expensive model eleven times.
+**Cost-sensitive workloads** - When the total token count across all execution steps is high, the savings from using a cheaper executor model are significant. A task with 10 execution steps might use a planner priced at $4 input / $20 output per million tokens (Claude Opus 5.5) once and an executor at $1 / $5 (Claude Haiku 4.5) ten times, instead of running the expensive model eleven times. Check current prices before assuming a ratio; the gap between tiers varies by vendor.
 
 **Tasks with predictable structure** - If the task type has a known decomposition pattern (e.g., code review always involves: read code, check style, check logic, check security, summarize), the planner can quickly produce the plan and execution is straightforward.
 
@@ -53,3 +55,7 @@ The plan-and-execute pattern splits agent work into two distinct phases. A capab
 The planning call adds a fixed latency overhead, typically one to three seconds. For tasks that would otherwise require many expensive model calls, this overhead is recouped many times over. Measure the total cost and latency of your most common task types with and without plan-and-execute to determine where the pattern provides a net benefit.
 
 A common optimization is caching plans for recurring task types. If users frequently ask the same class of question, a cached plan template eliminates the planning call entirely, and execution runs immediately on the cheap model tier.
+
+## Sources
+
+1. [Claude pricing](https://platform.claude.com/docs/en/about-claude/pricing) - Anthropic, per-token prices for Claude Opus 5.5 and Claude Haiku 4.5 (accessed 25 September 2026)

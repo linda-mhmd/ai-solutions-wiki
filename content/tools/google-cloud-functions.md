@@ -9,10 +9,12 @@ related:
   - tools/google-cloud-run
   - tools/google-cloud-pub-sub
   - tools/google-vertex-ai
-last_updated: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
-Google Cloud Functions is Google Cloud's serverless, event-driven compute platform. It allows developers to write single-purpose functions that automatically execute in response to cloud events -- such as a file upload to Cloud Storage, a message on Pub/Sub, or an HTTP request -- without provisioning or managing servers. In AI pipelines, Cloud Functions serves the same role as AWS Lambda: it is the glue code that connects data sources to AI services and routes results downstream.
+Google Cloud Functions is Google Cloud's serverless, event-driven compute platform. Google has since folded it into Cloud Run: the current product is called **Cloud Run functions**, and the original first-generation service is now "Cloud Run functions (1st gen)". It allows developers to write single-purpose functions that automatically execute in response to cloud events -- such as a file upload to Cloud Storage, a message on Pub/Sub, or an HTTP request -- without provisioning or managing servers. In AI pipelines, Cloud Functions serves the same role as AWS Lambda: it is the glue code that connects data sources to AI services and routes results downstream.
 
 Cloud Functions supports Node.js, Python, Go, Java, .NET, Ruby, and PHP runtimes. The second generation of the service (Cloud Functions 2nd gen), launched in 2022, is built on Cloud Run and Eventarc, bringing longer timeouts (up to 60 minutes), larger instance sizes (up to 16 GiB memory and 4 vCPUs), concurrency within a single instance, and traffic splitting for gradual rollouts. This makes 2nd gen functions suitable for AI workloads that involve calling Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story) endpoints or processing large documents, where execution times can exceed the 1st gen limit of 9 minutes.
 
@@ -31,9 +33,10 @@ Cloud Functions is Google Cloud's counterpart to AWS Lambda. Both provide event-
 
 ## Origins and History
 
-Google Cloud Functions was first announced in alpha at Google Cloud Next in February 2016, initially supporting only Node.js. It reached general availability in July 2018 with Node.js 6 and Node.js 8 runtimes. Python support followed in January 2019, and Go in May 2019. The 2nd generation of Cloud Functions, built on Cloud Run and Eventarc, was announced at Google Cloud Next 2021 and reached general availability in August 2022. In 2023, Google unified the branding, encouraging migration to 2nd gen as the default and positioning Cloud Run as the shared runtime foundation for both Cloud Functions and containerized workloads.
+Google Cloud Functions was first announced in alpha at Google Cloud Next in February 2016, initially supporting only Node.js. It reached general availability in July 2018 with Node.js 6 and Node.js 8 runtimes. Python support followed in January 2019, and Go in May 2019. The 2nd generation of Cloud Functions, built on Cloud Run and Eventarc, was announced at Google Cloud Next 2021 and reached general availability in August 2022. Google then merged the product into Cloud Run: 2nd gen functions became Cloud Run functions, with the older service documented as Cloud Run functions (1st gen), and Cloud Run is now the shared runtime for both functions and containerized workloads.
 
 ## Sources
 
 1. Google Cloud Documentation. "Cloud Functions overview." https://cloud.google.com/functions/docs/concepts/overview
 2. Google Cloud Blog. "Cloud Functions 2nd gen is GA." August 2022. https://cloud.google.com/blog/products/serverless/cloud-functions-2nd-generation-now-generally-available
+3. Google Cloud Documentation. "Compare Cloud Run functions" (Cloud Run functions and Cloud Run functions (1st gen)). https://cloud.google.com/run/docs/functions/comparison

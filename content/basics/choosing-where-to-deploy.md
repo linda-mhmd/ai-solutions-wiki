@@ -12,7 +12,9 @@ faqs:
     answer: "You can migrate. Start simple and move when you hit real limitations. Premature optimization of infrastructure is as wasteful as premature code optimization."
   - question: "Should I use serverless or containers?"
     answer: "Serverless for sporadic traffic and simple functions. Containers for consistent traffic, complex apps, or when you need more control. Many apps work fine with either."
-last_updated: 2026-07-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 {{< quickanswer >}}
@@ -140,13 +142,13 @@ SSR costs more than static—servers run for each request:
 | **Railway** | Database included, simple setup |
 | **Render** | Managed Postgres, good pricing |
 | **Fly.io** | Global, low latency |
-| **AWS App Runner** | Scales to zero, AWS ecosystem |
+| **Amazon ECS Express Mode** | Container in, load-balanced service out; AWS ecosystem (AWS App Runner is closed to new customers) |
 
 ### Decision factors
 ```
 Need managed database? → Railway or Render
 Global latency matters? → Fly.io
-Want AWS ecosystem? → App Runner or ECS
+Want AWS ecosystem? → ECS Express Mode or ECS on Fargate
 Sporadic traffic? → Serverless (Lambda, Cloud Run)
 Predictable traffic? → Containers on Railway/Render
 ```
@@ -391,6 +393,7 @@ Budget 1-4 weeks for a migration. Include:
 
 ## Further reading
 
+- [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html): App Runner is closed to new customers; AWS recommends ECS Express Mode (checked 25 September 2026)
 - [Deployment platforms compared](/basics/deployment-platforms-compared/): Detailed platform comparison
 - [What is serverless?](/basics/what-is-serverless/): Serverless explained
 - [Databases compared](/basics/databases-compared/): Choosing your database

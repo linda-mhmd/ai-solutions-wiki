@@ -2,6 +2,8 @@
 title: "What is a Neural Network?"
 description: "A neural network is the core architecture behind modern AI. Plain-English explanation of how layers, weights, and backpropagation work, with no maths required."
 date: 2026-06-22
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 1
 categories: [Basics]
 tags: ["beginner", "neural-networks", "deep-learning", "machine-learning", "ai-basics"]
@@ -121,7 +123,7 @@ Training a neural network is the process of finding the right values for all the
 | **Convolutional (CNN)** | Images, video | Image recognition, object detection, medical imaging |
 | **Recurrent (RNN/LSTM)** | Sequences | Time series, older language models (pre-transformer) |
 | **Transformer** | Text, images, audio | Language models (GPT, Claude, Llama), vision models, audio |
-| **Diffusion model** | Noise | Image generation (Stable Diffusion, DALL-E 3) |
+| **Diffusion model** | Noise | Image and video generation (Stable Diffusion, FLUX, Google Veo) |
 | **Graph neural network** | Graphs (molecules, networks) | Drug discovery, social network analysis, fraud detection |
 
 ## A concrete example: image classification

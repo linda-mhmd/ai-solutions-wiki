@@ -9,7 +9,9 @@ related:
   - glossary/data-quality
   - guides/data-quality-ai
   - patterns/microservices-for-ai
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 In a microservices architecture, data flows between teams. The user activity team produces clickstream data. The ML team consumes it for recommendation model training. The analytics team uses it for reporting. When the user activity team renames a field, both downstream teams break. The data contract pattern makes these dependencies explicit and prevents breaking changes from reaching consumers.
@@ -26,11 +28,10 @@ The contract sits between producer and consumer. Both sides validate against it.
 
 ## Contract Specification
 
-Use a structured format for data contracts. The Open Data Contract Standard (ODCS) provides a YAML-based specification:
+Use a structured format for data contracts. The Open Data Contract Standard (ODCS, version v3.2.0 at the time of writing) provides a YAML-based specification. The example below is a simplified illustration of the kinds of information a contract carries; the formal ODCS layout differs (for example, `schema` is a list of objects with their own `properties`, and SLAs live under `slaProperties`), so start from the ODCS reference when writing a real contract:
 
 ```yaml
-# contracts/user-activity-v2.yaml
-apiVersion: v2.0.0
+# contracts/user-activity-v2.yaml (simplified, not schema-valid ODCS)
 kind: DataContract
 metadata:
   name: user-activity-events
@@ -96,14 +97,18 @@ consumers:
 The data producer validates every record against the contract before publishing:
 
 ```python
-from datacontract import DataContract
+# JSON Schema generated from the contract in CI, e.g.
+#   datacontract export --format jsonschema contracts/user-activity-v2.yaml
+import json
+from jsonschema import Draft202012Validator
 
-contract = DataContract.load("contracts/user-activity-v2.yaml")
+with open("contracts/user-activity-v2.schema.json") as f:
+    validator = Draft202012Validator(json.load(f))
 
 def publish_event(event: dict):
-    validation = contract.validate(event)
-    if not validation.is_valid:
-        logger.error(f"Contract violation: {validation.errors}")
+    errors = [e.message for e in validator.iter_errors(event)]
+    if errors:
+        logger.error(f"Contract violation: {errors}")
         metrics.increment("contract_violations")
         # Route to dead letter queue, do not publish
         dead_letter_queue.send(event)
@@ -134,9 +139,9 @@ Validate contract changes in the producer's CI pipeline:
 ```yaml
 - name: Validate data contract
   run: |
+    git show origin/main:contracts/user-activity-v2.yaml > /tmp/contract-main.yaml
     datacontract lint contracts/user-activity-v2.yaml
-    datacontract breaking contracts/user-activity-v2.yaml \
-      --against main:contracts/user-activity-v2.yaml
+    datacontract breaking /tmp/contract-main.yaml contracts/user-activity-v2.yaml
 ```
 
 The `breaking` check compares the proposed contract against the current version and fails if breaking changes are detected (removed fields, type changes, narrowed enums).
@@ -169,3 +174,8 @@ AI models are especially sensitive to data contract violations:
 - A change in data freshness SLO means features computed from this data may be staler than the model expects
 
 Data contracts make these dependencies explicit before they become production incidents.
+
+## Sources
+
+1. [Open Data Contract Standard (ODCS)](https://bitol-io.github.io/open-data-contract-standard/latest/) - Bitol / LF AI & Data, current specification v3.2.0 (accessed 25 September 2026)
+2. [datacontract-cli](https://github.com/datacontract/datacontract-cli) - open-source CLI for linting, testing, `breaking`/`changelog` checks and exporting contracts (e.g. to JSON Schema) (accessed 25 September 2026)

@@ -2,7 +2,7 @@
 title: "NIS2 vs DORA for Financial Services"
 description: "Comparison of NIS2 and DORA requirements for financial services organizations, covering scope, security measures, incident reporting, and how to comply with both."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [nis2, dora, financial-services, compliance, cybersecurity, regulation]
 related:
@@ -11,13 +11,13 @@ related:
   - glossary/supply-chain-security
   - guides/nis2-implementation-guide
   - guides/dora-compliance-guide
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 Financial services organizations must comply with both NIS2 and DORA. While DORA is the sector-specific regulation (lex specialis) that takes precedence where requirements overlap, NIS2 still applies and may impose additional obligations. Understanding the relationship between these two regulations is critical for efficient compliance.
 
-DORA (Regulation EU 2022/2554) entered into application on 17 January 2025 and applies directly across all member states, with no separate national transposition step. NIS2 (Directive EU 2022/2555) had a transposition deadline of 17 October 2024, but many member states missed it: in 2025 the European Commission issued reasoned opinions against 19 member states for incomplete transposition, and several national laws were still working through their legislative process in 2026. Because NIS2 is a directive, the exact obligations depend on each member state's implementing law.
+DORA (Regulation EU 2022/2554) entered into application on 17 January 2025 and applies directly across all member states, with no separate national transposition step. NIS2 (Directive EU 2022/2555) had a transposition deadline of 17 October 2024, but many member states missed it: in 2025 the European Commission issued reasoned opinions against 19 member states for incomplete transposition, and on 8 July 2026 it referred the four that had still not notified full transposition (Ireland, Spain, France and the Netherlands) to the Court of Justice of the EU, asking for financial penalties. Because NIS2 is a directive, the exact obligations depend on each member state's implementing law.
 
 ## Scope
 
@@ -43,7 +43,7 @@ DORA's requirements are more prescriptive and detailed than NIS2's, particularly
 
 **NIS2** requires early warning within 24 hours, incident notification within 72 hours, and a final report within one month, reported to national CSIRTs. **DORA** requires initial notification, intermediate reports, and a final report using specific templates defined by the European Supervisory Authorities, reported to financial competent authorities. The timelines are broadly similar, but the reporting channels and templates differ. Organizations should establish processes that can satisfy both reporting requirements simultaneously.
 
-The overlap in incident reporting is a known pain point, and the EU is moving to reduce it. The Commission's Digital Omnibus package (published 19 November 2025) and a follow-up proposal to amend NIS2 (published 20 January 2026) aim to streamline cyber incident reporting and clarify how NIS2 interacts with sectoral regimes such as DORA and the CER Directive. As of mid-2026 these are proposals working through the EU legislative process, not yet in force, so the obligations above remain the current baseline.
+The overlap in incident reporting is a known pain point, and the EU is moving to reduce it. The Commission's Digital Omnibus package (published 19 November 2025) and a follow-up proposal to amend NIS2 (published 20 January 2026) aim to streamline cyber incident reporting and clarify how NIS2 interacts with sectoral regimes such as DORA and the CER Directive. As of September 2026 neither has been adopted, so the obligations above remain the current baseline. (The separate Digital Omnibus on AI, adopted as Regulation (EU) 2026/1744, concerns the AI Act and does not change NIS2 or DORA incident reporting.)
 
 ## Third-Party Risk
 
@@ -65,3 +65,5 @@ Start with DORA compliance as the more detailed and prescriptive framework. Map 
 - [NIS2, Directive (EU) 2022/2555 (EUR-Lex)](https://eur-lex.europa.eu/eli/dir/2022/2555/oj)
 - [EIOPA: European Supervisory Authorities designate critical ICT third-party providers under DORA (18 November 2025)](https://www.eiopa.europa.eu/european-supervisory-authorities-designate-critical-ict-third-party-providers-under-digital-2025-11-18_en)
 - [European Commission: cybersecurity rules, Commission calls on member states to fully transpose the NIS2 Directive](https://digital-strategy.ec.europa.eu/en/news/commission-calls-19-member-states-fully-transpose-nis2-directive)
+- [European Commission: Commission refers Ireland, Spain, France and the Netherlands to the Court of Justice for failing to transpose the rules on cybersecurity (8 July 2026)](https://digital-strategy.ec.europa.eu/en/news/commission-refers-ireland-spain-france-and-netherlands-court-justice-failing-transpose-rules)
+- [European Commission: NIS2 Directive policy page, including the 20 January 2026 targeted-amendments proposal](https://digital-strategy.ec.europa.eu/en/policies/nis2-directive)

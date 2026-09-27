@@ -11,11 +11,14 @@ related:
 status: deprecated
 status_detail: "AutoGen is in maintenance mode (community-managed, no new features). Microsoft unified AutoGen and Semantic Kernel into the Microsoft Agent Framework, released as version 1.0 on 3 April 2026, which is the recommended successor for new multi-agent projects."
 status_source: "https://github.com/microsoft/autogen"
-last_updated: 2026-07-05
-lastmod: 2026-07-05
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 AutoGen is an open-source framework from Microsoft Research for building multi-agent systems where multiple AI agents converse with each other to solve tasks. Each agent has a defined role, system prompt, and capabilities (LLM reasoning, code execution, tool use, or human input). Agents exchange messages in a conversation loop, collaborating to complete complex tasks that would be difficult for a single agent. For enterprise AI projects, AutoGen is relevant for workflows that benefit from decomposition into specialized roles: coding tasks with review, research with fact-checking, or planning with validation.
+
+> **Status: maintenance mode.** AutoGen no longer receives new features and is community-managed. Microsoft directs new users to the [Microsoft Agent Framework](/tools/microsoft-agent-framework/) (1.0 released 3 April 2026), which merges AutoGen and Semantic Kernel, and publishes an AutoGen migration guide. The concepts below still describe how existing AutoGen code works.
 
 Official documentation: https://microsoft.github.io/autogen/
 
@@ -59,4 +62,9 @@ AutoGen is best suited for tasks that naturally decompose into multiple roles, w
 
 ## Pricing
 
-AutoGen is open-source (Creative Commons Attribution 4.0 for code, MIT for the framework). Costs are determined by the LLM APIs used and the infrastructure for code execution. Multi-agent patterns consume 3-10x more tokens than single-agent approaches for the same task.
+AutoGen is open-source (MIT licence for the code, Creative Commons Attribution 4.0 for documentation). Costs are determined by the LLM APIs used and the infrastructure for code execution. Multi-agent patterns consume 3-10x more tokens than single-agent approaches for the same task.
+
+## Sources
+
+- AutoGen GitHub repository (maintenance-mode notice, LICENSE-CODE MIT and LICENSE CC-BY-4.0; checked 25 September 2026): https://github.com/microsoft/autogen
+- Migrating from AutoGen to Microsoft Agent Framework (Microsoft Learn): https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/

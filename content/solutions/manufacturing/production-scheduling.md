@@ -6,7 +6,9 @@ categories: [Solutions]
 tags: [production-scheduling, planning, optimization, resource-allocation, manufacturing-ai]
 industries: [manufacturing]
 tools: [amazon-sagemaker, amazon-redshift, aws-lambda]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Production scheduling determines what to produce, when, on which equipment, and in what sequence. Effective scheduling maximizes throughput, minimizes costs (changeovers, overtime, inventory), and meets delivery commitments. The combinatorial complexity of real-world scheduling problems exceeds what human planners and simple heuristics can optimize, particularly when disruptions require rapid replanning.
@@ -25,7 +27,7 @@ Human schedulers use heuristics and experience to produce workable schedules, bu
 
 **Dynamic rescheduling** - When disruptions occur, the system generates an updated schedule within minutes. Lambda functions detect disruption events (machine breakdown notification, rush order entry, material delay alert) and trigger rescheduling. The new schedule minimizes disruption impact by reassigning work to alternative machines, adjusting sequences, and updating delivery commitments.
 
-**Demand-driven planning** - The scheduling horizon connects to demand forecasts from Amazon Forecast. As demand signals change, production plans adjust automatically. The system balances the cost of changing production plans against the cost of over- or under-producing relative to demand.
+**Demand-driven planning** - The scheduling horizon connects to demand forecasts from time-series models (SageMaker Canvas or custom SageMaker models). Amazon Forecast, often used for this in the past, has been [closed to new customers since 29 July 2024](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/); AWS recommends SageMaker Canvas time-series forecasting for new builds. As demand signals change, production plans adjust automatically. The system balances the cost of changing production plans against the cost of over- or under-producing relative to demand.
 
 ## Architecture
 

@@ -5,10 +5,12 @@ date: 2026-03-24
 categories: [Patterns]
 tags: ["architecture", "advanced", "ai-governance", "compliance", "responsible-ai", "policy", "risk"]
 tools: [amazon-bedrock, amazon-sagemaker]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
-AI governance is the set of processes, documentation, and controls that ensure AI systems in an organization are accountable, auditable, and compliant. As the EU AI Act enters into force, governance is shifting from a good practice to a legal requirement for many AI applications. Building governance patterns from the start is significantly less expensive than retrofitting them.
+AI governance is the set of processes, documentation, and controls that ensure AI systems in an organization are accountable, auditable, and compliant. With the EU AI Act now applying in stages (prohibited practices since 2 February 2025, general-purpose AI obligations since 2 August 2025, and the AI Office's enforcement powers since 2 August 2026), governance is shifting from a good practice to a legal requirement for many AI applications. Building governance patterns from the start is significantly less expensive than retrofitting them.
 
 ## Model Cards
 
@@ -21,7 +23,7 @@ What a model card should cover:
 - **Known limitations** - Failure modes, out-of-distribution behavior, populations where accuracy degrades
 - **Update history** - When the model was last updated and why
 
-For third-party models (e.g., Claude, Titan), the vendor provides model cards. For custom models, creating and maintaining a model card is the development team's responsibility.
+For third-party models (e.g., Claude, Amazon Nova), the vendor provides model cards. For custom models, creating and maintaining a model card is the development team's responsibility.
 
 ## Decision Logging
 
@@ -53,6 +55,11 @@ Tools like Jira, ServiceNow, or dedicated MLOps platforms (SageMaker Studio) can
 
 The EU AI Act creates obligations based on risk classification. High-risk AI systems (including those used in credit scoring, employment, education, critical infrastructure, and healthcare) require: conformity assessment, technical documentation, accuracy and robustness testing, human oversight mechanisms, and registration in an EU database.
 
-For systems that may qualify as high-risk, the governance infrastructure described above - model cards, decision logging, bias testing, approval workflows - aligns closely with what the Act requires. Building these practices now reduces the compliance effort when enforcement begins.
+For systems that may qualify as high-risk, the governance infrastructure described above - model cards, decision logging, bias testing, approval workflows - aligns closely with what the Act requires. Building these practices now reduces the compliance effort before the high-risk obligations apply. The Digital Omnibus (Regulation (EU) 2026/1744, published 24 July 2026) moved those deadlines to **2 December 2027** for stand-alone Annex III systems and **2 August 2028** for high-risk AI embedded in regulated products (Annex I); the requirements themselves did not change. See [EU AI Act enforcement begins](/news/eu-ai-act-enforcement-begins-2026/) for what applies today.
 
 Prohibited AI practices under the Act (subliminal manipulation, social scoring, real-time public biometric surveillance with limited exceptions) should be reviewed against any planned AI use cases.
+
+## Sources
+
+1. Regulation (EU) 2024/1689 (Artificial Intelligence Act), EUR-Lex: [https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng)
+2. Regulation (EU) 2026/1744 (Digital Omnibus on AI), published 24 July 2026, EUR-Lex: [https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng](https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng)

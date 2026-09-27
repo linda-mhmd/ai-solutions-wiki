@@ -8,7 +8,9 @@ related:
   - tools/pinecone
   - tools/weaviate
   - tools/chroma-db
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Qdrant (pronounced "quadrant") is an open-source vector similarity search engine written in Rust. It combines high performance (Rust's memory safety and speed), rich filtering capabilities, and a production-ready feature set (replication, sharding, snapshots). For AI projects, Qdrant occupies the space between lightweight databases like Chroma and fully managed services like Pinecone: it offers enterprise features while remaining open-source and self-hostable.
@@ -53,7 +55,7 @@ This eliminates the need for separate collections for different embedding models
 
 ## Quantization
 
-Qdrant supports scalar and product quantization to reduce memory usage and improve search speed. Quantization compresses vectors from 32-bit floats to lower precision with minimal accuracy loss. This can reduce memory usage by 4x (scalar quantization) or up to 64x (product quantization), enabling larger collections on the same hardware.
+Qdrant supports scalar, product, and binary quantization (including 1.5-bit and 2-bit variants and asymmetric quantization) to reduce memory usage and improve search speed. Quantization compresses vectors from 32-bit floats to lower precision with limited accuracy loss, typically recovered by rescoring against the original vectors. Scalar quantization reduces memory about 4x, binary quantization about 32x, and product quantization up to 64x, enabling larger collections on the same hardware.
 
 ## Snapshots and Backups
 
@@ -62,3 +64,8 @@ Qdrant provides snapshot functionality for backups and migration. Create a snaps
 ## Pricing
 
 Qdrant is open-source (Apache 2.0 license) and free to self-host. Qdrant Cloud pricing is based on cluster size (CPU, memory, storage) with no per-query charges. The per-cluster pricing model is predictable and does not penalize high query volumes. Free tier clusters are available for development and evaluation.
+
+## Sources
+
+1. Qdrant documentation, "Quantization" (scalar, product, binary, 1.5-/2-bit, asymmetric; accessed 25 September 2026): https://qdrant.tech/documentation/guides/quantization/
+2. Qdrant pricing: https://qdrant.tech/pricing/

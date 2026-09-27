@@ -12,9 +12,9 @@ related:
   - glossary/vector-database
   - comparisons/weaviate-vs-pgvector
   - glossary/cloud-act
-last_verified: 2026-09-04
-last_updated: 2026-09-04
-lastmod: 2026-09-04
+last_verified: 2026-09-25
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 A feature comparison of Supabase, Firebase, and AWS Amplify looks like a wash: all three give you auth, a database, file storage, serverless functions, and a client SDK, and all three now advertise an AI story. That symmetry is exactly what the [constraint-driven comparison methodology](/guides/constraint-driven-comparisons/) on this wiki warns against — it hides the two questions that actually decide this choice for an AI-powered application. First, what happens to your data model when the "database" needs to hold both relational application state and embeddings for retrieval-augmented generation (RAG)? Second, if the vendor relationship goes wrong — a pricing change, an acquisition, a compliance requirement that appears after launch — what does leaving actually cost? These are not features on a checklist. They are constraints that rule options in or out before a single API call is compared.
@@ -23,7 +23,7 @@ A feature comparison of Supabase, Firebase, and AWS Amplify looks like a wash: a
 
 **Supabase** is an open-source backend-as-a-service built around plain PostgreSQL. Auth (GoTrue), the auto-generated REST/GraphQL layer (PostgREST), realtime, and storage are separate open-source components Supabase packages and operates as a managed platform; the core stack is Apache-2.0/MIT licensed and ships as an official Docker Compose setup for self-hosting.[^1][^2] Because the database is Postgres, vector search is the `pgvector` extension running in the same instance as your relational tables, not a bolted-on service.[^3]
 
-**Firebase** is Google's fully managed application platform, built on Firestore, a proprietary NoSQL document database with no self-hosted or open-source equivalent. It has no exit path other than exporting data out of Google's infrastructure entirely. For AI features it connects to Vertex AI and, on-device, to ML Kit; see [Google Firebase](/tools/google-firebase/) and [Cloud Firestore](/tools/google-firestore/) for the platform-level detail this page does not repeat.
+**Firebase** is Google's fully managed application platform, built on Firestore, a proprietary NoSQL document database with no self-hosted or open-source equivalent. It has no exit path other than exporting data out of Google's infrastructure entirely. For AI features it calls Gemini models (via the Gemini Developer API or Vertex AI, which Google now brands the Gemini Enterprise Agent Platform) through Firebase AI Logic, the SDK formerly called Vertex AI in Firebase, and, on-device, ML Kit;[^12] see [Google Firebase](/tools/google-firebase/) and [Cloud Firestore](/tools/google-firestore/) for the platform-level detail this page does not repeat.
 
 **AWS Amplify** is not a database product at all — it is a hosting/CI-CD layer and a code-generation library that provisions and connects to standard AWS services (Cognito for auth, AppSync + DynamoDB for data by default, S3 for storage, Lambda for functions) inside the customer's own AWS account. As of Amplify Gen 2 (the current, TypeScript-first generation), AWS explicitly recommends Gen 2 for new projects; Gen 1 remains supported only for "high-priority bugs and essential security updates," and the two generations cannot coexist in one app.[^4] Gen 2's Data library defaults to DynamoDB through AppSync but can connect to an existing PostgreSQL or MySQL database instead of provisioning its own.[^5]
 
@@ -96,3 +96,4 @@ Which region Firestore or a Supabase project should be deployed in for a specifi
 [^9]: AWS Amplify Docs, "Knowledge Base": [https://docs.amplify.aws/react/ai/conversation/knowledge-base/](https://docs.amplify.aws/react/ai/conversation/knowledge-base/)
 [^10]: Firebase Docs, "Understand Cloud Firestore billing" and Google Cloud Firestore pricing: [https://firebase.google.com/docs/firestore/pricing](https://firebase.google.com/docs/firestore/pricing) / [https://cloud.google.com/firestore/pricing](https://cloud.google.com/firestore/pricing)
 [^11]: AWS Amplify, "Pricing": [https://aws.amazon.com/amplify/pricing/](https://aws.amazon.com/amplify/pricing/)
+[^12]: Firebase Docs, "Gemini API using Firebase AI Logic" (checked 25 September 2026): [https://firebase.google.com/docs/ai-logic](https://firebase.google.com/docs/ai-logic)

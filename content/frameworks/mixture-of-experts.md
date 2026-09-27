@@ -9,14 +9,16 @@ related:
   - frameworks/inference-time-scaling
   - patterns/multi-model-routing
   - guides/fine-tuning-llms-guide
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Mixture of Experts (MoE) is a neural network architecture in which multiple specialist sub-networks (called "experts") are combined with a routing mechanism (called a "gating network" or "router") that selects which experts to activate for each input. The key insight is that not all parts of a model need to process every input. By activating only a subset of experts per token or input, MoE models can have very large total parameter counts while keeping the computational cost of processing any single input manageable.
 
 ## How MoE Works
 
-In a standard transformer model, every token passes through every layer, and every parameter participates in every computation. In an MoE transformer, certain feed-forward layers are replaced with a set of parallel expert networks and a router. For each input token, the router produces a probability distribution over the available experts and selects the top-k experts (typically k=1 or k=2) to process that token. The outputs of the selected experts are combined, weighted by the router's confidence scores, and passed to the next layer.
+In a standard transformer model, every token passes through every layer, and every parameter participates in every computation. In an MoE transformer, certain feed-forward layers are replaced with a set of parallel expert networks and a router. For each input token, the router produces a probability distribution over the available experts and selects the top-k experts to process that token. Early designs used k=1 or k=2 over a handful of experts; recent fine-grained designs activate a few of several hundred small experts, often alongside a shared expert that every token passes through. The outputs of the selected experts are combined, weighted by the router's confidence scores, and passed to the next layer.
 
 This architecture creates two important properties. First, the model's total knowledge capacity scales with the total number of parameters across all experts, which can be very large. Second, the computational cost per forward pass scales with the number of active parameters, which is much smaller. A model with 8 experts where 2 are active per token uses roughly the compute of a dense model one-quarter its size while potentially matching the quality of a dense model closer to its full size.
 
@@ -52,4 +54,8 @@ The router is the critical component that determines MoE effectiveness. Router d
 
 ## MoE in Practice
 
-MoE architecture is now used in several of the most capable production language models. It has become a standard approach for building models that need to be both large (for quality) and efficient (for serving cost). The pattern also influences system-level design: the principle of routing different inputs to different specialist processors applies at the system level in compound AI architectures that route queries to different models or processing paths.
+MoE architecture is now used in many of the most capable production language models, especially open-weight ones. As of September 2026, examples include Meta's Llama 4 family and DeepSeek-V4.1-Flash (released 10 September 2026), a 552B-parameter MoE with one shared and 384 routed experts, of which six are active per token. It has become a standard approach for building models that need to be both large (for quality) and efficient (for serving cost). The pattern also influences system-level design: the principle of routing different inputs to different specialist processors applies at the system level in compound AI architectures that route queries to different models or processing paths.
+
+## Sources
+
+1. DeepSeek, DeepSeek-V4.1-Flash model card: [https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash)

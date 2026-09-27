@@ -5,8 +5,9 @@ date: 2026-06-25
 categories: [Tools]
 tags: ["ai-ml", "claude", "claude-cowork", "ai-agents", "knowledge-work", "automation"]
 tool_category: "AI"
-last_updated: 2026-06-25
-lastmod: 2026-06-25
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -16,9 +17,11 @@ lastmod: 2026-06-25
 
 Claude Cowork is Anthropic's agentic assistant for knowledge work. It brings the same agent architecture as [Claude Code](/tools/claude-code/) to everyday tasks, with no terminal required. You describe an outcome, and Cowork reads and writes your actual files, works across your applications, completes multi-step tasks on its own, and delivers the finished result. It moved from research preview to general availability on 9 April 2026.
 
+**Update, 16 September 2026: Cowork and chat are merging into one Claude.** Anthropic announced that Cowork's capabilities are becoming available from any Claude conversation, so you no longer choose between a chat and a Cowork session: Claude works out what a task needs and can keep working after you close your laptop. The change is rolling out to Pro and Max plans over the following weeks in the Claude app on web, desktop, and mobile; Team and Free plans are to follow, and Enterprise admins get at least 30 days' notice. Existing Cowork chats, projects, artifacts, connectors, and skills carry over. Anthropic still markets the capability as Claude Cowork.
+
 ## Where it lives
 
-Claude Cowork runs inside the **Claude Desktop app** on macOS and Windows. The desktop app is free to download; Cowork itself is part of your paid Claude subscription. Because it runs on your machine, it can reach your local files and connected applications directly, rather than only the text you paste into a chat.
+Claude Cowork started inside the **Claude Desktop app**, now available for macOS, Windows (including arm64), ChromeOS, and Linux. With the September 2026 merge it also runs in the Claude app on web and mobile, so you can start a task at your desk and follow it from your phone. The desktop app is free to download; Cowork itself is part of your paid Claude subscription. On the desktop it can reach your local files and connected applications directly, rather than only the text you paste into a chat, and a built-in browser in the Cowork side panel handles web tasks separately from your own browser.
 
 ## What it is for
 
@@ -27,6 +30,7 @@ Cowork is built for work that has several steps and a defined output, the kind o
 - **Autonomous multi-step tasks.** You describe the outcome and Cowork takes the actions to reach it, keeping you informed as it goes, then delivers the finished work to your folder.
 - **Real file access.** It reads and writes the files and applications on your computer, so the result lands where you work, not trapped in a chat window.
 - **Scheduled tasks.** You set a cadence once and Cowork repeats it: check your email each morning, pull metrics, or run a weekly Slack digest.
+- **Plugins.** Bundles of skills, connectors, and sub-agents turn Claude into a specialist for a role or team (for example, legal contract review).
 
 <div class="bz-flow">
   <div class="bz-flow-step"><span class="bz-flow-step-tag">Step 1</span><span class="bz-flow-step-name">Describe</span><span class="bz-flow-step-desc">You state the outcome you want and, if it repeats, the cadence.</span></div>
@@ -42,11 +46,11 @@ This is an applied [AI agent](/glossary/ai-agents/): a system that plans, uses t
 
 ## Which subscription you need
 
-The Claude Desktop app is free to download. Cowork is available to **all paying subscribers**.
+The Claude Desktop app is free to download. Cowork is a paid feature; the merged experience reaches **Pro and Max first**, with Team and Free plans to follow.
 
 - **Pro** (about 19 EUR per month, listed at 20 US dollars) and **Max** (about 92 or 185 EUR per month, listed at 100 or 200 US dollars): Cowork in the desktop app, with more usage on Max.
-- **Team and Enterprise**: available to members, with the usual admin and billing controls.
-- **Free**: the desktop app installs, but Cowork is a paid feature.
+- **Team and Enterprise**: Cowork in the desktop app is available to members, with the usual admin and billing controls; Enterprise admins manage it in Organization settings and are notified at least 30 days before the merged experience changes anything for their organization.
+- **Free**: Anthropic says the merged experience will follow for Free plans; until then, Cowork is a paid feature.
 
 ## The Claude product family
 
@@ -56,7 +60,7 @@ Claude Cowork is one of several products built on the same models. They differ m
 |---|---|---|---|
 | **[Claude Code](/tools/claude-code/)** | Terminal and IDEs | Editing, running, and shipping code | Pro, Max, Team Premium, or API |
 | **[Claude Design](/tools/claude-design/)** | claude.ai (Anthropic Labs) | Designing UI and documents as HTML | Pro, Max, Team, Enterprise |
-| **[Claude Cowork](/tools/claude-cowork/)** | Claude Desktop app | Autonomous multi-step knowledge work | Any paid plan |
+| **[Claude Cowork](/tools/claude-cowork/)** | Claude app (desktop, and since September 2026 web and mobile) | Autonomous multi-step knowledge work | Paid plans (Pro and Max first for the merged app) |
 | **[Claude apps and API](/tools/claude-anthropic/)** | Web, mobile, desktop, API | Chat, analysis, building on the model | Free and up |
 
 ## When not to use it
@@ -75,3 +79,4 @@ Claude Cowork is one of several products built on the same models. They differ m
 - [What is an AI agent](/glossary/ai-agents/): how planning, tool use, and multi-step action differ from a single prompt
 - [Claude Cowork (official product page)](https://claude.com/product/cowork): features, scheduled tasks, and availability
 - [Claude Cowork on Anthropic](https://www.anthropic.com/product/claude-cowork): the product overview from Anthropic
+- [Claude blog, 16 September 2026, "Claude Cowork and chat are now one Claude"](https://claude.com/blog/cowork-is-now-claude): the merge of Cowork and chat, and rollout by plan

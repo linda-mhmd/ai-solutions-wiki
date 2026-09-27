@@ -4,7 +4,9 @@ description: "How to generate and use synthetic data for AI training, covering t
 date: 2026-03-28
 categories: [Guides]
 tags: [synthetic-data, data-generation, training-data, privacy, machine-learning]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Synthetic data is artificially generated data that mimics the statistical properties of real data without containing actual records. It addresses several critical AI challenges: insufficient training data, privacy constraints that prevent using real data, and the need for balanced datasets with rare event representation. When done well, models trained on synthetic data perform comparably to those trained on real data.
@@ -49,7 +51,7 @@ Fit statistical models to real data and sample from them:
 
 **VAEs (Variational Autoencoders).** Learn a latent representation of the data and generate new samples by sampling from the latent space. Produces smoother but sometimes less sharp results than GANs.
 
-**Diffusion models.** Generate data through iterative denoising. State of the art for image generation (Stable Diffusion, DALL-E). Emerging applications for tabular data.
+**Diffusion models.** Generate data through iterative denoising. Widely used for image generation (open-weight Stable Diffusion and FLUX models, for example; OpenAI's DALL-E 2 and 3 were early diffusion examples and were retired from the OpenAI API on 12 May 2026). Emerging applications for tabular data.
 
 **Best for:** Complex data where relationships are hard to specify manually. Image generation, time series generation, and complex tabular data.
 

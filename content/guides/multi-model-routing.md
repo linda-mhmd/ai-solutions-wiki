@@ -6,7 +6,9 @@ categories: [Guides]
 tags: ["routing", "llm", "cost-optimization", "reliability", "gateways", "inference"]
 tools: []
 related: [ "guides/llm-gateway-architecture", "comparisons/small-vs-large-language-models", "guides/llm-cost-optimization", "guides/context-engineering", "comparisons/llm-landscape-2026" ]
-last_updated: 2026-06-23
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Sending every query to one frontier model wastes money. Most prompts are easy, and a cheaper model answers them at a fraction of the price. Multi-model routing picks the right model per query, so you pay frontier prices only when a request needs frontier reasoning. Routing also removes a single point of failure: when one provider is down, traffic shifts to another.
@@ -130,6 +132,8 @@ Two designs route traffic, and they sit in different places.
 
 A proxy stands in the request path. Your call goes to the proxy, the proxy calls the model, and the response comes back through the proxy. LiteLLM, Portkey, Cloudflare AI Gateway, and OpenRouter work this way. The proxy sees your prompt, so it can cache, log, and fail over. The cost is that your traffic flows through another service.
 
+A self-hosted proxy also becomes one of the most valuable targets in your stack. It holds every provider key and sees every prompt. In September 2026 CISA listed LiteLLM authentication flaws as actively exploited, and Wiz found gateways still running with the example admin key `sk-1234` or no master key at all. Patch the gateway, set a strong unique master key, and keep its admin interface off the public internet. The [September 2026 security roundup](/news/ai-agent-security-roundup-september-2026/) has the details.
+
 A recommender stays out of the path. It predicts the best model for an input, you call that model yourself, and your prompts never touch the recommender. Not Diamond is a recommender, not a proxy. It predicts the best model per input and supports cost or latency trade-offs, and prompts and keys do not pass through its servers. [10] Choose a recommender when you want routing intelligence but must keep prompts and keys on your own infrastructure.
 
 ## Reliability and failover
@@ -148,10 +152,12 @@ This example uses LiteLLM. It tries a cheap model first and falls back through a
 from litellm import completion
 
 # Models in priority order: cheap first, strong backups after.
+# Model IDs current at the time of writing (September 2026); check
+# /comparisons/llm-landscape-2026/ before copying them into production.
 model_list = [
-    "openai/gpt-4o-mini",          # cheap default
-    "anthropic/claude-haiku-4-5",  # backup, different provider
-    "openai/gpt-4o",               # strong last resort
+    "openai/gpt-6-luna",           # cheap default
+    "gemini/gemini-3.8-flash",     # backup, different provider
+    "anthropic/claude-sonnet-5",   # strong last resort, third provider
 ]
 
 def route_with_fallback(prompt: str) -> str:
@@ -181,12 +187,12 @@ def confidence(answer: str) -> float:
 def cascade(prompt: str, threshold: float = 0.5) -> str:
     messages = [{"role": "user", "content": prompt}]
 
-    cheap = completion(model="openai/gpt-4o-mini", messages=messages)
+    cheap = completion(model="openai/gpt-6-luna", messages=messages)
     cheap_answer = cheap["choices"][0]["message"]["content"]
     if confidence(cheap_answer) >= threshold:
         return cheap_answer  # most queries stop here
 
-    strong = completion(model="openai/gpt-4o", messages=messages)
+    strong = completion(model="openai/gpt-6-sol", messages=messages)
     return strong["choices"][0]["message"]["content"]
 
 print(cascade("Explain the trade-offs of optimistic locking."))

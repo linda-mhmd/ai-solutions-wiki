@@ -9,7 +9,9 @@ related:
   - glossary/react-router
   - glossary/nextjs
   - glossary/server-side-rendering
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Remix is a full-stack web framework for React that emphasizes web standards, progressive enhancement, and server-centric data loading. Created by Ryan Florence and Michael Jackson --- the same developers behind React Router --- Remix introduced the loader/action pattern and nested routing to simplify how React applications fetch data and handle form submissions.
@@ -34,7 +36,11 @@ On October 10, 2021, they announced $3 million in seed funding led by OSS Capita
 
 ## Merger with React Router
 
-In 2023, the Remix team recognized that Remix v2 had become a thin wrapper around React Router. Rather than maintain the artificial separation, they merged Remix's server runtime and bundler capabilities directly into React Router v7, released in late 2024. React Router v7 in "framework mode" provides the full Remix feature set --- loaders, actions, server rendering --- under the React Router name. The Remix brand effectively merged back into the project that started it all.
+In 2023, the Remix team recognized that Remix v2 had become a thin wrapper around React Router. Rather than maintain the artificial separation, they announced in May 2024 that they would merge Remix's server runtime and bundler capabilities directly into React Router v7, released on 22 November 2024. React Router v7 in "framework mode" provides the full Remix feature set --- loaders, actions, server rendering --- under the React Router name, and it is the upgrade path for Remix v1 and v2 applications.
+
+## Remix 3
+
+In May 2025 the team announced that the Remix name would be reused for a new framework rather than a new version of the React-based one [5]. Remix 3 is not built on React: it started from a fork of Preact and ships its own component model, router, asset server, and data tools as a single `remix` package, designed around web APIs with as few dependencies as possible. A beta followed on 30 April 2026 and the first release candidate on 31 August 2026, with the stable release scheduled for 2 October 2026 [6]. For existing Remix v1 and v2 applications, the team describes React Router as the stable, long-term-supported path [5].
 
 ## Sources
 
@@ -42,3 +48,5 @@ In 2023, the Remix team recognized that Remix v2 had become a thin wrapper aroun
 2. Jackson, M. and Florence, R. (2021). "Seed Funding for Remix." Remix Blog, October 10, 2021. https://remix.run/blog/seed-funding-for-remix
 3. Florence, R. and Jackson, M. (2021). "Remix v1." Remix Blog, November 22, 2021. https://remix.run/blog/remix-v1
 4. Remix Documentation. https://remix.run/docs
+5. Jackson, M. and Florence, R. (2025). "Wake up, Remix!" Remix Blog, May 28, 2025. https://remix.run/blog/wake-up-remix
+6. Lybrand, B. (2026). "Remix 3 Release Candidate." Remix Blog, August 31, 2026. https://remix.run/blog/remix-3-release-candidate

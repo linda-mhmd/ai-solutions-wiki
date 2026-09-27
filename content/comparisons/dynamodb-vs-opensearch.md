@@ -2,11 +2,11 @@
 title: "DynamoDB vs OpenSearch for AI Applications"
 description: "Comparing DynamoDB and OpenSearch for AI application backends, covering data patterns, vector search, performance, cost, and use case fit."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [DynamoDB, OpenSearch, database, vector-search, AWS]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 DynamoDB and OpenSearch serve different roles in AI applications, but their capabilities overlap in areas like vector search and metadata storage. Understanding where each excels prevents architectural mistakes.
@@ -115,7 +115,7 @@ For simple AI applications:
 
 ## Recommendation
 
-Use DynamoDB for application state, session management, and simple key-value access patterns. Use OpenSearch for vector search, full-text search, complex queries, and analytics. Most production AI applications benefit from using both, each for its strength. For a related decision specific to retrieval, see {{< relref "comparisons/kendra-vs-opensearch-rag" >}}.
+Use DynamoDB for application state, session management, and simple key-value access patterns. Use OpenSearch for vector search, full-text search, complex queries, and analytics. Most production AI applications benefit from using both, each for its strength. For a related decision specific to retrieval, see {{< relref "comparisons/kendra-vs-opensearch-rag" >}}; note that Amazon Kendra entered maintenance mode on 30 June 2026 and has been closed to new customers since 30 July 2026, with AWS pointing new retrieval workloads to Amazon Bedrock Knowledge Bases ([AWS Kendra availability change](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html)).
 
 ## Sources
 

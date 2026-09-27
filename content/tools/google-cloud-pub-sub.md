@@ -9,14 +9,16 @@ related:
   - tools/amazon-eventbridge
   - tools/google-cloud-dataflow
   - tools/google-cloud-functions
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Google Cloud Pub/Sub is a fully managed, serverless messaging service that enables asynchronous communication between services through a publish-subscribe pattern. Publishers send messages to topics, and subscribers receive messages from subscriptions attached to those topics. Pub/Sub decouples producers from consumers, handles message delivery guarantees, and scales automatically to handle millions of messages per second with no provisioning required.
 
 Pub/Sub is the event backbone of many GCP architectures. In AI pipelines, it serves as the message bus that connects data producers to processing consumers. A common pattern has upstream services publishing events (new document uploaded, transaction completed, sensor reading received) to Pub/Sub topics, with Cloud Functions, Cloud Run, or Dataflow pipelines subscribing to process those events through AI services. Pub/Sub provides at-least-once delivery by default, with exactly-once delivery available for Dataflow consumers. Messages are retained for up to 31 days (configurable), providing a buffer that absorbs traffic spikes and allows consumers to process at their own pace.
 
-Pub/Sub offers two subscription types: pull (subscribers request messages on their schedule) and push (Pub/Sub delivers messages to an HTTP endpoint). For streaming analytics, Pub/Sub integrates directly with Dataflow, providing a managed pipeline from event ingestion through processing to storage in BigQuery. Pub/Sub Lite offers a lower-cost alternative for high-volume workloads where zonal availability is acceptable. For organizations needing Kafka compatibility, Pub/Sub also supports the Kafka API through a managed Kafka integration, allowing existing Kafka producers and consumers to work with Pub/Sub without code changes.
+Pub/Sub offers two subscription types: pull (subscribers request messages on their schedule) and push (Pub/Sub delivers messages to an HTTP endpoint). For streaming analytics, Pub/Sub integrates directly with Dataflow, providing a managed pipeline from event ingestion through processing to storage in BigQuery. Pub/Sub Lite, the lower-cost zonal variant, is deprecated: Google says it remains functional for current customers until 31 January 2027, when it will be turned down, so do not start new workloads on it. Pub/Sub itself does not speak the Kafka protocol; for teams that need Kafka compatibility, Google offers a separate product, Google Cloud Managed Service for Apache Kafka.
 
 ## Key Capabilities
 
@@ -31,9 +33,11 @@ Cloud Pub/Sub combines capabilities that AWS splits across Amazon MSK (managed K
 
 ## Origins and History
 
-Google Cloud Pub/Sub was announced in 2014 and reached general availability in 2015. The service was built on Google's internal messaging infrastructure, which handles trillions of messages per day across Google's services. Pub/Sub Lite, a zonal lower-cost option, launched in general availability in March 2021. Exactly-once delivery for Dataflow subscribers was introduced in 2017. Message ordering support was added in 2020. In 2022, Google introduced BigQuery subscriptions, allowing messages to be written directly to BigQuery tables without intermediate processing. The Kafka-compatible API was added in 2023, simplifying migration for organizations with existing Kafka ecosystems.
+Google Cloud Pub/Sub was announced in 2014 and reached general availability in 2015. The service was built on Google's internal messaging infrastructure, which handles trillions of messages per day across Google's services. Pub/Sub Lite, a zonal lower-cost option, launched in general availability in March 2021 and has since been deprecated, with turndown set for 31 January 2027. Exactly-once delivery for Dataflow subscribers was introduced in 2017. Message ordering support was added in 2020. In 2022, Google introduced BigQuery subscriptions, allowing messages to be written directly to BigQuery tables without intermediate processing. For Kafka workloads, Google launched a separate Google Cloud Managed Service for Apache Kafka rather than adding a Kafka API to Pub/Sub.
 
 ## Sources
 
 1. Google Cloud Documentation. "Pub/Sub overview." https://cloud.google.com/pubsub/docs/overview
 2. Google Cloud Blog. "What is Pub/Sub?" https://cloud.google.com/pubsub/docs/overview
+3. Google Cloud Documentation. "Pub/Sub Lite" deprecation notice (functional until 31 January 2027). https://cloud.google.com/pubsub/lite/docs
+4. Google Cloud Documentation. "Pub/Sub overview" (points Kafka users to Google Cloud Managed Service for Apache Kafka). https://cloud.google.com/pubsub/docs/overview

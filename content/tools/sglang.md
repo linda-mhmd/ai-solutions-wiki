@@ -11,6 +11,8 @@ related:
   - tools/tgi
   - tools/tensorrt-llm
   - glossary/llm
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -130,16 +132,16 @@ SGLang also serves vision-language models such as LLaVA-OneVision, plus embeddin
 
 SGLang competes with other open serving runtimes. The right choice depends on your hardware, model, and how much your traffic shares context.
 
-| | SGLang | vLLM | TGI | TensorRT-LLM |
+| | SGLang | vLLM | TGI (archived) | TensorRT-LLM |
 |---|---|---|---|---|
 | **License** | Apache 2.0 | Apache 2.0 | Apache 2.0 | Apache 2.0 |
-| **Maintainer** | SGLang project | vLLM project | Hugging Face | NVIDIA |
+| **Maintainer** | SGLang project | vLLM project | Hugging Face (archived March 2026) | NVIDIA |
 | **Signature feature** | RadixAttention prefix reuse | PagedAttention KV cache | Managed HF serving | NVIDIA GPU optimisation |
 | **Structured output** | Fast constrained decoding | Supported | Supported | Supported |
 | **Hardware** | Single GPU to clusters | Broad GPU support | Broad GPU support | NVIDIA GPUs only |
 | **Best for** | Prefix-heavy, structured workloads | General open serving | Hugging Face stacks | Peak NVIDIA throughput |
 
-For the Hugging Face-native option, see [Text Generation Inference](/tools/tgi/). For the NVIDIA-optimised path, see [TensorRT-LLM](/tools/tensorrt-llm/). All four use forms of paged KV-cache management and [continuous batching](/glossary/continuous-batching/) to keep GPUs busy.
+Hugging Face's [Text Generation Inference](/tools/tgi/) was archived in March 2026, and Hugging Face now points new deployments to SGLang and vLLM. For the NVIDIA-optimised path, see [TensorRT-LLM](/tools/tensorrt-llm/). All four use forms of paged KV-cache management and [continuous batching](/glossary/continuous-batching/) to keep GPUs busy.
 
 ## When not to use it
 
@@ -156,7 +158,7 @@ For the Hugging Face-native option, see [Text Generation Inference](/tools/tgi/)
 - [What is inference?](/glossary/inference/): the runtime step SGLang optimises.
 - [What is the KV cache?](/glossary/kv-cache/): the memory RadixAttention reuses across requests.
 - [Continuous batching](/glossary/continuous-batching/): how serving frameworks keep GPUs busy.
-- [Text Generation Inference](/tools/tgi/): the Hugging Face serving alternative.
+- [Text Generation Inference](/tools/tgi/): the Hugging Face serving engine, archived in March 2026.
 - [GPU clouds and neoclouds](/comparisons/gpu-clouds-and-neoclouds/): where to rent the hardware SGLang runs on.
 
 ## Sources
@@ -164,3 +166,4 @@ For the Hugging Face-native option, see [Text Generation Inference](/tools/tgi/)
 - SGLang project, GitHub repository. https://github.com/sgl-project/sglang
 - SGLang documentation. https://docs.sglang.io/
 - SGLang installation guide. https://docs.sglang.io/get_started/install.html
+- Text Generation Inference repository (archived 21 March 2026, checked 25 September 2026). https://github.com/huggingface/text-generation-inference

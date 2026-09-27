@@ -11,7 +11,8 @@ related:
   - guides/infrastructure-as-code-ai
   - guides/everything-as-code
   - glossary/idempotency
-last_verified: 2026-07-02
+last_verified: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -40,7 +41,7 @@ Terraform and Ansible are the two most common tools for automating infrastructur
 
 Terraform is declarative. You describe the infrastructure you want, GPU instances, a VPC, a Kubernetes cluster, object storage, and Terraform works out the create, update, and delete actions to reach that state. It records what it has built in a state file, so it can detect drift and tear everything down cleanly. This lifecycle management is its core strength and pairs naturally with an immutable-infrastructure style, where you replace servers rather than patch them.
 
-Its main limits are inside the machine. Terraform provisions a GPU node, but it is awkward at the follow-on work of installing a specific driver version, compiling a kernel module, or restarting a service in the right order. One note on licensing: HashiCorp moved Terraform to the Business Source License in 2023, which prompted the MPL-licensed OpenTofu fork, now a drop-in alternative worth knowing about.
+Its main limits are inside the machine. Terraform provisions a GPU node, but it is awkward at the follow-on work of installing a specific driver version, compiling a kernel module, or restarting a service in the right order. One note on licensing and ownership: HashiCorp moved Terraform to the Business Source License in 2023, which prompted the MPL-licensed OpenTofu fork, now a drop-in alternative worth knowing about. HashiCorp has been part of IBM since February 2025, so both tools on this page now sit under the same parent company (Ansible via Red Hat), though they remain separate products.
 
 ### Ansible: configuration
 
@@ -113,5 +114,6 @@ If your question is really Terraform versus a cloud-native provisioner rather th
 
 - HashiCorp. "Terraform Documentation." https://developer.hashicorp.com/terraform/docs. Declarative provisioning, state, and the resource lifecycle.
 - Red Hat. "Ansible Documentation." https://docs.ansible.com/. Agentless architecture, idempotent modules, and playbooks.
+- HashiCorp. "HashiCorp officially joins the IBM family" (February 27, 2025). https://www.hashicorp.com/en/blog/hashicorp-officially-joins-the-ibm-family. Completion of IBM's acquisition of HashiCorp.
 - OpenTofu. "OpenTofu: An open-source, community fork of Terraform." https://opentofu.org/. The MPL-licensed fork created after the 2023 license change.
 - Morris, K. *Infrastructure as Code: Dynamic Systems for the Cloud Age*, 2nd ed. O'Reilly (2020). The provisioning-versus-configuration distinction and IaC patterns.

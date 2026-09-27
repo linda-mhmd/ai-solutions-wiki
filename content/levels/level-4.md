@@ -4,7 +4,9 @@ description: "Production AI, vibe coding, and language models. How AI systems ac
 date: 2026-05-29
 level_num: 4
 tags: ["intermediate", "ai-ml", "vibe-coding", "production-ai", "llm"]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -160,13 +162,13 @@ The mathematical architecture behind every modern AI model. Explains layers, wei
 
 ### [What is a Large Language Model (LLM)?](/basics/what-is-an-llm/)
 
-The technology behind ChatGPT, Claude, and Gemini. How LLMs generate text token by token, what a context window limits, and why they are not databases. Includes a comparison of GPT-4o, Claude, Gemini, and Mistral.
+The technology behind ChatGPT, Claude, and Gemini. How LLMs generate text token by token, what a context window limits, and why they are not databases. Includes a dated comparison of current models from OpenAI, Anthropic, Google, and Mistral.
 
 **You should read this if:** You access AI through a chatbot but have never understood what is actually happening when you send a message.
 
 ### [What is ChatGPT?](/basics/what-is-chatgpt/)
 
-OpenAI's product explained: what GPT-4o is, what the model family looks like, what ChatGPT can and cannot do, and how it compares to Claude and Gemini. Includes a code example showing how to use the API.
+OpenAI's product explained: which GPT models it runs on (GPT-5.6 and GPT-6 at the time of writing, September 2026), what the model family looks like, what ChatGPT can and cannot do, and how it compares to Claude and Gemini. Includes a code example showing how to use the API.
 
 **You should read this if:** You use ChatGPT regularly and want to understand the product and model well enough to evaluate alternatives.
 
@@ -182,7 +184,7 @@ The broader field that all text AI belongs to. Covers the core tasks (classifica
 
 ### [What is an AI Agent?](/basics/what-is-an-ai-agent/)
 
-When LLMs stop answering questions and start taking actions. The agentic loop, tool use (web search, code execution, APIs, file systems), and multi-agent coordination. Includes a comparison of agent frameworks (LangGraph, CrewAI, AWS Bedrock Agents).
+When LLMs stop answering questions and start taking actions. The agentic loop, tool use (web search, code execution, APIs, file systems), and multi-agent coordination. Includes a comparison of agent frameworks and platforms (LangGraph, CrewAI, Amazon Bedrock AgentCore).
 
 **You should read this if:** Your team is proposing an "AI agent" and you need to evaluate whether the task is bounded enough for current AI reliability.
 
@@ -297,7 +299,7 @@ Level 4 ends where real products begin. The moment your build meets real users, 
 
 - [What is AI?](/basics/what-is-ai/): language models, training, and inference in plain English
 - [What is Vibe Coding?](/basics/what-is-vibe-coding/): directing AI tools to build software, with tool comparisons and prompt patterns
-- [Anthropic Documentation](https://docs.anthropic.com/): the authoritative reference for Claude models, prompt engineering, and the Messages API
+- [Claude Documentation](https://platform.claude.com/docs/): the authoritative reference for Claude models, prompt engineering, and the Messages API
 - [Attention Is All You Need](https://arxiv.org/abs/1706.03762): the 2017 paper that introduced the transformer architecture; the abstract is readable
 - [Andrej Karpathy: Let's build GPT from scratch](https://www.youtube.com/watch?v=kCc8FmEb1nY): the clearest explanation of how language models work at a technical level
 - [Prompt Engineering Guide](https://www.promptingguide.ai/): comprehensive, maintained reference on prompting techniques with examples

@@ -6,9 +6,9 @@ lastmod: 2026-07-30
 categories: [Glossary]
 tags: [AI security, enterprise AI, governance, compliance, data leakage]
 related:
-  - /glossary/ai-governance
-  - /glossary/ai-security-best-practices
-  - /glossary/owasp-top-10-llm
+  - patterns/ai-governance
+  - guides/ai-security-best-practices
+  - guides/owasp-top-10-llm
 ---
 
 Shadow AI refers to any AI tool, model, or service that employees use for work purposes without IT or security team knowledge, approval, or oversight. This includes public LLMs accessed through personal accounts, browser-based AI extensions, AI coding assistants, and third-party SaaS features with embedded AI that were never submitted for security review.

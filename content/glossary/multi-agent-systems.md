@@ -4,7 +4,9 @@ description: "Definition, architecture patterns, and frameworks for multi-agent 
 date: 2026-03-24
 categories: [Glossary]
 tags: ["ai-agents", "intermediate", "multi-agent", "orchestration", "agents", "coordination", "llm"]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 A multi-agent system is an AI architecture in which multiple independent AI agents collaborate to complete a task. Each agent has a defined role, access to specific tools or data sources, and the ability to pass results to other agents. The agents are coordinated by an orchestration layer that manages the flow of work between them.
@@ -40,9 +42,9 @@ A single agent with access to multiple tools handles a large proportion of real-
 
 **CrewAI** - Role-based framework with a natural language interface for defining agent roles and tasks. Lower implementation overhead than LangGraph. Good for collaborative workflows where human-readable role definitions matter.
 
-**AWS AgentCore** - AWS's managed agent runtime, integrated with Bedrock. Handles memory, session management, and tool routing as managed infrastructure. Best for production workloads on AWS where operational reliability and managed scaling matter.
+**AWS AgentCore** - AWS's managed agent runtime, integrated with Bedrock. Handles memory, session management, and tool routing as managed infrastructure. Best for production workloads on AWS where operational reliability and managed scaling matter. AgentCore is also AWS's recommended path for new agent builds: the older Amazon Bedrock Agents service, including its multi-agent collaboration feature, was renamed Bedrock Agents Classic and closed to new customers on 30 July 2026 (maintenance mode). See [AWS AgentCore](/glossary/aws-agentcore/).
 
-**AutoGen** - Microsoft's conversation-based framework. Agents communicate through a structured chat interface. Strong tooling for code execution workflows.
+**Microsoft Agent Framework** - Microsoft's successor to AutoGen and Semantic Kernel, released as version 1.0 on 3 April 2026, with multi-agent orchestration and interoperability over A2A and MCP. AutoGen, the conversation-based framework where agents communicate through a structured chat interface, is now in maintenance mode (community-managed, no new features), and Microsoft points new users to Agent Framework. See [Microsoft Agent Framework](/tools/microsoft-agent-framework/).
 
 ## Observability
 
@@ -54,6 +56,8 @@ Multi-agent systems are harder to debug than single-model calls because errors c
 - CrewAI GitHub repository: [https://github.com/crewAIInc/crewAI](https://github.com/crewAIInc/crewAI)
 - LangGraph Documentation: [https://langchain-ai.github.io/langgraph/](https://langchain-ai.github.io/langgraph/)
 - LangGraph GitHub repository: [https://github.com/langchain-ai/langgraph](https://github.com/langchain-ai/langgraph)
-- AWS Documentation: Amazon Bedrock Multi-Agent Collaboration. [https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent.html)
-- Microsoft AutoGen Documentation: [https://microsoft.github.io/autogen/](https://microsoft.github.io/autogen/)
-- AWS Documentation: Amazon Bedrock Agents. [https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html)
+- AWS Documentation: Amazon Bedrock Agents Classic maintenance mode (accessed 25 September 2026). [https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html)
+- AWS Documentation: Amazon Bedrock Multi-Agent Collaboration (Agents Classic). [https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent.html)
+- Microsoft AutoGen repository (maintenance-mode notice): [https://github.com/microsoft/autogen](https://github.com/microsoft/autogen)
+- Microsoft Agent Framework repository: [https://github.com/microsoft/agent-framework](https://github.com/microsoft/agent-framework)
+- AWS Documentation: Amazon Bedrock Agents Classic. [https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html)

@@ -8,6 +8,8 @@ related:
   - basics/what-is-a-terminal
   - basics/what-is-git
   - guides/when-do-you-need-a-professional
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Every "getting started" tutorial assumes your computer is already set up for building software. Almost nobody explains what that setup actually is, why it happens in a terminal, or what to do when a command fails. This guide walks you through the whole thing once, properly: a package manager, Git, Node, Python, and an editor. It also tells you when to skip all of it and work in the browser instead.
@@ -74,7 +76,7 @@ A package manager is an app store for developer tools that lives in the terminal
 
 ### macOS: Homebrew
 
-Homebrew is the standard package manager for macOS. It supports macOS Sonoma 14 and newer. Open the Terminal app and paste this command from [brew.sh](https://brew.sh/):
+Homebrew is the standard package manager for macOS. It supports macOS Sequoia 15 and newer. Open the Terminal app and paste this command from [brew.sh](https://brew.sh/):
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -250,7 +252,8 @@ With a working setup, the next steps are small and concrete:
 
 ## Sources
 
-- [Homebrew](https://brew.sh/): official install command and supported macOS versions
+- [Homebrew](https://brew.sh/): official install command
+- [Homebrew installation requirements](https://docs.brew.sh/Installation): supported macOS versions (Sequoia 15 or higher, checked 25 September 2026)
 - [Git: Install on macOS](https://git-scm.com/install/mac): Homebrew and Xcode Command Line Tools options
 - [Git: Install on Windows](https://git-scm.com/install/windows): official winget install command
 - [Pro Git: First-Time Git Setup](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup): git config identity commands

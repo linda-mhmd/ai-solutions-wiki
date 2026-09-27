@@ -9,6 +9,8 @@ related:
   - glossary/ai-agents
   - tools/tgi
   - guides/from-zero-to-production
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -16,7 +18,7 @@ related:
   <figcaption>Ray Serve treats each model and each piece of business logic as an independently scaling node in a connected graph.</figcaption>
 </figure>
 
-Ray Serve is a scalable model-serving library built on Ray, the distributed computing framework maintained as open source and commercialised by Anyscale. It lets you deploy machine learning models and plain Python logic as online [inference](/glossary/inference/) APIs, then scale each piece independently across a cluster. Its focus sets it apart from single-model servers: Ray Serve is built for composing several models and steps into one service, not for squeezing maximum throughput out of one large language model on one node.
+Ray Serve is a scalable model-serving library built on Ray, the open-source distributed computing framework commercialised by Anyscale and, since October 2025, hosted by the PyTorch Foundation. It lets you deploy machine learning models and plain Python logic as online [inference](/glossary/inference/) APIs, then scale each piece independently across a cluster. Its focus sets it apart from single-model servers: Ray Serve is built for composing several models and steps into one service, not for squeezing maximum throughput out of one large language model on one node.
 
 The problem it solves is orchestration. A real inference service is rarely one model. It is a preprocessing step, a retrieval call, one or more models, and post-processing glue. Wiring these together across machines, and scaling each part to match its own load, is the hard part. Ray Serve exposes that graph as ordinary Python, so calls between models look like function calls rather than network plumbing.
 
@@ -140,13 +142,13 @@ Ray Serve occupies a different niche from dedicated LLM inference servers. Those
 | **You operate it** | Yes | Yes | Yes | No |
 | **Best for** | Pipelines, mixed models | One high-throughput LLM | One high-throughput LLM | Fastest time to live |
 
-If you need raw throughput for a single model, [TGI](/tools/tgi/) or vLLM are more direct. If you need to stitch several models and steps into one autoscaling service, Ray Serve is the composition layer, and it can host TGI or vLLM inside individual deployments.
+If you need raw throughput for a single model, [vLLM](/tools/vllm/) or [SGLang](/tools/sglang/) are more direct ([TGI](/tools/tgi/) filled the same role but has been archived since March 2026). If you need to stitch several models and steps into one autoscaling service, Ray Serve is the composition layer, and it can host vLLM or another engine inside individual deployments; Ray Serve LLM packages this pattern with vLLM and SGLang engine backends.
 
 ## When not to use it
 
 Ray Serve adds a cluster and a programming model. That overhead is not always worth it.
 
-- **You serve one model with one endpoint.** A single-model server such as TGI or vLLM is simpler to run and tune, and a managed endpoint removes operations entirely.
+- **You serve one model with one endpoint.** A single-model server such as vLLM or SGLang is simpler to run and tune, and a managed endpoint removes operations entirely.
 - **You want a fully managed service.** Ray Serve is a library you deploy and operate yourself. If you prefer not to run infrastructure, a hosted inference endpoint fits better.
 - **Your team has no Ray experience.** The distributed model, replicas, and handles carry a learning curve. For a first production service, weigh that against a simpler path in the [zero to production guide](/guides/from-zero-to-production/).
 - **Latency budgets are extremely tight and the graph is trivial.** Extra hops between deployments add coordination cost that a single process avoids.
@@ -156,7 +158,7 @@ Ray Serve adds a cluster and a programming model. That overhead is not always wo
 - [Ray Serve documentation](https://docs.ray.io/en/latest/serve/index.html): official reference for deployments, composition, and autoscaling.
 - [Ray project home](https://www.ray.io/): overview of Ray Core, Data, Train, Serve, Tune, and RLlib.
 - [What is inference?](/glossary/inference/): the serving stage Ray Serve is built to run.
-- [TGI](/tools/tgi/): a single-model LLM server you can compare against or host inside a deployment.
+- [TGI](/tools/tgi/): Hugging Face's single-model LLM server, archived in March 2026; see [vLLM](/tools/vllm/) for the actively maintained equivalent.
 - [AI agents](/glossary/ai-agents/): multi-step services that map naturally onto Ray Serve composition.
 - [From zero to production](/guides/from-zero-to-production/): a path to your first deployed service.
 
@@ -164,3 +166,5 @@ Ray Serve adds a cluster and a programming model. That overhead is not always wo
 
 - [Ray Serve documentation](https://docs.ray.io/en/latest/serve/index.html), Ray project, fetched 2026-06-29.
 - [Ray project home](https://www.ray.io/), Ray project, fetched 2026-06-29.
+- [PyTorch Foundation Welcomes Ray](https://pytorch.org/blog/pytorch-foundation-welcomes-ray-to-deliver-a-unified-open-source-ai-compute-stack/), PyTorch Foundation, 22 October 2025.
+- [Text Generation Inference repository](https://github.com/huggingface/text-generation-inference) (archived 21 March 2026), checked 2026-09-25.

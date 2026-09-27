@@ -15,7 +15,7 @@ Design Thinking is a problem-solving methodology that starts with understanding 
 
 ## Why Design Thinking Matters for AI
 
-AI projects are particularly susceptible to technology-driven thinking. The availability of powerful models tempts teams to start with "what can GPT-4 do?" rather than "what problem does the user need solved?" This leads to solutions looking for problems: chatbots nobody uses, automated reports nobody reads, and classification systems that duplicate what a quick search already accomplishes.
+AI projects are particularly susceptible to technology-driven thinking. The availability of powerful models tempts teams to start with "what can the newest model do?" rather than "what problem does the user need solved?" This leads to solutions looking for problems: chatbots nobody uses, automated reports nobody reads, and classification systems that duplicate what a quick search already accomplishes.
 
 Design Thinking flips the sequence: understand the problem deeply, then determine whether AI is the right solution. Often, AI is the right solution. But sometimes a better search interface, a simpler form, or a process change delivers more value than a model.
 

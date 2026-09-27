@@ -2,18 +2,18 @@
 title: "Apache Airflow vs AWS Step Functions for ML Pipelines"
 description: "Comparing Airflow and Step Functions for orchestrating ML training, data processing, and deployment pipelines."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [Airflow, Step-Functions, orchestration, MLOps, pipelines]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 ML pipelines need orchestration: run data ingestion, then preprocessing, then training, then evaluation, then conditionally deploy. Apache Airflow and AWS Step Functions are the two most common orchestrators for these workflows on AWS.
 
 ## Platform Overview
 
-**Apache Airflow** is an open-source workflow orchestration platform. Workflows (DAGs) are defined in Python. Amazon MWAA (Managed Workflows for Apache Airflow) provides managed Airflow on AWS. Airflow has a rich ecosystem of operators for integrating with external services. Apache Airflow 3.0 became generally available in April 2025 and is a significant release: a rewritten React and FastAPI web UI, DAG versioning (a run completes against the DAG version it started on), a new Task SDK, event-driven scheduling, and a Task Execution API that decouples task execution from the scheduler. Amazon MWAA added Airflow 3 support on October 1, 2025 and, as of mid-2026, offers it alongside the 2.x line; Airflow 3 environments on MWAA run on Python 3.12.
+**Apache Airflow** is an open-source workflow orchestration platform. Workflows (DAGs) are defined in Python. Amazon MWAA (Managed Workflows for Apache Airflow) provides managed Airflow on AWS. Airflow has a rich ecosystem of operators for integrating with external services. Apache Airflow 3.0 became generally available in April 2025 and is a significant release: a rewritten React and FastAPI web UI, DAG versioning (a run completes against the DAG version it started on), a new Task SDK, event-driven scheduling, and a Task Execution API that decouples task execution from the scheduler. Amazon MWAA added Airflow 3 support on October 1, 2025; as of September 2026 its newest version is Airflow 3.3.1 (available on MWAA from September 1, 2026), offered alongside the 2.x line (latest 2.11.2), and these environments run on Python 3.12.
 
 **AWS Step Functions** is a serverless workflow orchestration service. Workflows are defined in Amazon States Language (JSON or YAML), in Workflow Studio, or using the AWS Cloud Development Kit (CDK). Through AWS SDK integrations, Step Functions can call over nine thousand API actions across more than 200 AWS services, and the HTTP Task lets a workflow call external HTTPS APIs (for example Stripe or Salesforce) without a Lambda function in between.
 

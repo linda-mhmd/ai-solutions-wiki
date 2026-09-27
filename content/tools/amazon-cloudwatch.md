@@ -18,8 +18,9 @@ layer: infrastructure
 provider: aws
 pricing_model: payg
 maturity: production
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 enhanced_pass: "2026-06"
 ---
 
@@ -126,8 +127,9 @@ def invoke_model_with_metrics(prompt: str, model_id: str, environment: str):
 With token metrics in CloudWatch, create a metric math expression for daily cost:
 ```
 # Cost expression (verify current pricing on the Bedrock pricing page)
-# Claude Sonnet on-demand: input $0.003/1K tokens, output $0.015/1K tokens
-DailyCost = (SUM(InputTokens) * 0.003 / 1000) + (SUM(OutputTokens) * 0.015 / 1000)
+# Example: Claude Sonnet 5 at Anthropic's list price (September 2026):
+# input $0.002/1K tokens, output $0.010/1K tokens - Bedrock rates can differ
+DailyCost = (SUM(InputTokens) * 0.002 / 1000) + (SUM(OutputTokens) * 0.010 / 1000)
 ```
 
 Always confirm the rates on the [Amazon Bedrock pricing page](https://aws.amazon.com/bedrock/pricing/) before relying on a cost dashboard: per-model rates change, and batch and prompt-caching tiers cost less than on-demand. See {{< relref "glossary/token-budget" >}} for how to set spend limits.
@@ -244,3 +246,4 @@ For monitoring AI workloads on AWS, follow the operational excellence guidance i
 - AWS What's New: CloudWatch GenAI observability supports AgentCore Evaluations (2 December 2025). [https://aws.amazon.com/about-aws/whats-new/2025/12/cloudwatch-genai-observability-agentcore-evaluations](https://aws.amazon.com/about-aws/whats-new/2025/12/cloudwatch-genai-observability-agentcore-evaluations)
 - AWS Well-Architected: Generative AI Lens, operational excellence pillar. [https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/operational-excellence.html](https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/operational-excellence.html)
 - Amazon Bedrock pricing (verify current per-model token rates). [https://aws.amazon.com/bedrock/pricing/](https://aws.amazon.com/bedrock/pricing/)
+- Anthropic: Pricing (Claude Sonnet 5 at $2 input / $10 output per million tokens, checked September 2026). [https://platform.claude.com/docs/en/about-claude/pricing](https://platform.claude.com/docs/en/about-claude/pricing)

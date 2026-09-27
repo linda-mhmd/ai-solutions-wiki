@@ -64,7 +64,7 @@ The best first step is a short conversation. No cost, no pressure, and no obliga
 
 ## Other ways to work together
 
-- **[AI workshops](https://www.lindamohamed.com/workshops)**: structured, hands-on programmes that take teams from first prototype to production AI on AWS.
+- **[AI workshops](https://www.lindamohamed.com/ai-workshops?utm_source=ai-solutions.wiki&utm_medium=get-help&utm_campaign=workshops)**: structured, hands-on programmes that take teams from first prototype to production AI on AWS.
 - **[Connect on LinkedIn](https://www.linkedin.com/in/linda-mohamed/)**: for questions, introductions, and ongoing conversation.
 - **[lindamohamed.com](https://www.lindamohamed.com)**: the full picture of services and past work.
 

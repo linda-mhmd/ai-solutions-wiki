@@ -11,7 +11,9 @@ related:
   - guides/async-job-queues
 solutions:
   - guides/from-zero-to-production
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Railway is a platform-as-a-service (PaaS) designed to remove infrastructure configuration from the developer's path. The core workflow is: connect a GitHub repository, Railway detects the runtime and framework, and the application is deployed. No Dockerfiles required unless you want them. No load balancers to configure, no VPCs to design, no IAM roles to untangle. For developers who want to ship an API or background worker without spending a week on cloud configuration, Railway is the practical alternative.
@@ -36,25 +38,27 @@ Railway handles all of it automatically. A Node.js repo gets a Node.js environme
 Railway connects to your GitHub repository and watches for pushes. On each push to the configured branch:
 
 1. Railway pulls the latest code
-2. [Nixpacks](https://nixpacks.com/) (Railway's open-source build system) analyzes the repository and detects the runtime: Python (checks for `requirements.txt`, `pyproject.toml`, `Pipfile`), Node.js (checks for `package.json`), Go (checks for `go.mod`), Ruby, Java, and others
-3. Nixpacks builds the application into a container image without requiring a Dockerfile
+2. [Railpack](https://railpack.com/) (Railway's open-source build system, which replaced the now maintenance-mode Nixpacks) analyzes the repository and detects the runtime: Python (checks for `requirements.txt`, `pyproject.toml`, `Pipfile`), Node.js (checks for `package.json`), Go (checks for `go.mod`), Ruby, Java, and others
+3. Railpack builds the application into a container image without requiring a Dockerfile
 4. The new image is deployed with zero-downtime rollover if health checks pass
 5. The previous deployment is kept and can be restored instantly via the Railway dashboard
 
-You can override any step: provide your own `Dockerfile`, customize the build command via `railway.toml`, or set the start command explicitly. Railway uses your Dockerfile if one is present, bypassing Nixpacks.
+You can override any step: provide your own `Dockerfile`, customize the build command via `railway.toml`, or set the start command explicitly. Railway uses your Dockerfile if one is present, bypassing Railpack.
 
 ## Supported runtimes
 
-Railway can deploy anything that can be containerized. Nixpacks has built-in support for:
+Railway can deploy anything that can be containerized. Railpack has built-in support for:
 
 - **Node.js**: including Next.js, Express, NestJS, Fastify
 - **Python**: Flask, FastAPI, Django, Streamlit
 - **Go**
 - **Ruby**: Rails
-- **Java** / **Kotlin**: Spring Boot
+- **Java**: Spring Boot
 - **PHP**: Laravel
 - **Rust**
-- **Static sites**: via a Nixpacks static provider
+- **Deno** and **Elixir**
+- **Static sites**: via the Railpack staticfile provider
+- **Shell scripts**
 - **Docker**: any custom Dockerfile
 
 For AI workloads, Railway runs Python-based inference APIs and data pipelines well. It does not currently offer GPU instances. For GPU inference, see [vLLM](/tools/vllm/) on Modal or AWS SageMaker.
@@ -149,7 +153,7 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 **Step 2: Create a Railway project**
 
-- Go to [railway.app](https://railway.app/) and sign in with GitHub
+- Go to [railway.com](https://railway.com/) and sign in with GitHub
 - Click "New Project" → "Deploy from GitHub repo"
 - Select your repository
 - Railway detects Node.js via `package.json` and begins the build
@@ -185,22 +189,23 @@ railway run node server.js  # injects production env vars locally
 
 | Plan | Price | Resources | Notes |
 |---|---|---|---|
-| **Hobby (free)** | $0 | $5 credit/month, sleeps after inactivity | Good for prototypes |
-| **Pro** | $20/month + usage | No sleep, $10 credit included | Production workloads |
-| **Team** | $20/seat/month | Shared workspaces, role-based access | Small teams |
-| **Enterprise** | Custom | Custom limits, SLA, private clusters | Compliance needs |
+| **Trial** | $0 | One-time $5 credit, up to 30 days | Reverts to Free afterwards |
+| **Free** | $0/month | $1 of usage credit/month, 0.5 GB RAM / 1 vCPU per service | Very small apps |
+| **Hobby** | $5/month | Includes $5 of usage; up to 48 GB RAM / 48 vCPU per service | Personal projects, prototypes |
+| **Pro** | $20/month | Includes $20 of usage; up to 1 TB RAM / 1,000 vCPU per service | Production workloads and teams |
+| **Enterprise** | Custom | Higher limits, SLA, compliance add-ons | Compliance needs |
 
-Usage is billed at $0.000463/GB-hour (memory) + $0.000231/vCPU-hour. A small Node.js API using 256MB and 0.25 vCPU runs approximately $4-5/month beyond the included credit.
+Usage is billed at $10/GB/month for memory ($0.000231/GB/minute) and $20/vCPU/month for CPU ($0.000463/vCPU/minute), plus $0.05/GB network egress and $0.15/GB/month volume storage; builds are free. The subscription fee counts towards usage, so a small API that stays within the included amount costs only the plan fee. Services do not sleep by default; enabling the optional Serverless setting puts a service to sleep after 10 minutes without outbound traffic so it incurs no compute charges while idle.
 
 ## Railway vs Render vs Heroku vs Fly.io
 
 | Dimension | Railway | Render | Heroku | Fly.io |
 |---|---|---|---|---|
 | **Deploy model** | GitHub push, auto-detect | GitHub push, auto-detect | Git push / CLI | Docker / CLI |
-| **Free tier** | $5 credit/month, sleeps | 750hrs/month, sleeps | Removed in 2022 | Generous, no sleep |
+| **Free tier** | Free plan ($1 credit/month) after a $5 trial | 750hrs/month, sleeps | Removed in 2022 | Free trial only; legacy free allowances discontinued |
 | **Database add-ons** | PostgreSQL, Redis, MongoDB, MySQL | PostgreSQL, Redis | PostgreSQL, Redis (3rd party) | PostgreSQL (Fly Postgres) |
-| **Private networking** | Yes, per project | Yes | No | Yes |
-| **Multi-region** | Limited (US, EU) | Multiple regions | Dyno region selection | Global edge deploy |
+| **Private networking** | Yes, per project | Yes | Private Spaces (paid enterprise add-on) | Yes |
+| **Multi-region** | US West, US East, EU West, Southeast Asia | Multiple regions | Dyno region selection | Global edge deploy |
 | **Config-as-code** | `railway.toml` | `render.yaml` | `Procfile` | `fly.toml` |
 | **Docker support** | Yes | Yes | Yes | Required |
 | **DX / simplicity** | Excellent | Excellent | Legacy feel | Technical, powerful |
@@ -218,7 +223,7 @@ This is the correct architecture for a queue consumer: the API service pushes jo
 
 Railway is the right tool for a specific range of workloads. It is not the right tool when:
 
-- **Compliance requirements**: SOC 2, HIPAA, PCI-DSS. Railway does not offer the audit controls, data residency guarantees, and compliance documentation that regulated industries require. Use AWS or GCP with appropriate configurations.
+- **Strict compliance requirements beyond Railway's scope**: Railway is SOC 2 Type II and SOC 3 certified and offers a HIPAA BAA as a paid add-on above a committed-spend threshold, but if you need PCI-DSS scope, fine-grained data residency guarantees, or controls your auditors expect from a hyperscaler, use AWS, Azure, or GCP with appropriate configurations.
 - **GPU inference**: Railway does not offer GPU instances. For running local LLMs, use Modal, AWS SageMaker, or a self-managed GPU server. See [vLLM](/tools/vllm/).
 - **Fine-grained networking control**: Custom VPC peering, PrivateLink to other AWS services, complex routing rules. Railway's networking is intentionally simple.
 - **Very high traffic with cost predictability**: At scale, Railway's per-resource pricing can exceed a reserved-instance AWS deployment. Run the numbers above ~$500/month.
@@ -227,7 +232,7 @@ Railway is the right tool for a specific range of workloads. It is not the right
 For projects that start on Railway and grow: the migration path to AWS ECS or GCP Cloud Run is straightforward because Railway's Docker-based deployment means your application is already containerized.
 
 {{< seealso >}}
-- [FastAPI](/tools/fastapi/): the Python API framework most commonly deployed to Railway for AI services. Zero Dockerfile required with Nixpacks.
+- [FastAPI](/tools/fastapi/): the Python API framework most commonly deployed to Railway for AI services. Zero Dockerfile required with Railpack.
 - [Async Job Queues](/guides/async-job-queues/): run a BullMQ worker as a second Railway service alongside your API, sharing a Redis add-on.
 - [From Zero to Production](/guides/from-zero-to-production/): Railway is the recommended hosting choice at the MVP stage for its zero-config deployment.
 - [Supabase](/tools/supabase/): the database layer that pairs with Railway. Supabase handles your PostgreSQL and Railway deploys your API.
@@ -235,6 +240,13 @@ For projects that start on Railway and grow: the migration path to AWS ECS or GC
 
 ## Sources
 
-1. https://railway.app/
-2. https://docs.railway.app/
-3. https://nixpacks.com/
+1. https://railway.com/
+2. https://docs.railway.com/
+3. Railway docs, "Pricing Plans" (Free/Hobby/Pro/Enterprise, resource prices; accessed 25 September 2026): https://docs.railway.com/pricing/plans
+4. Railway docs, "Free Trial" ($5 one-time grant, reverts to Free plan): https://docs.railway.com/pricing/free-trial
+5. Railway docs, "Railpack": https://docs.railway.com/builds/railpack
+6. Nixpacks README (maintenance mode, Railpack recommended as replacement): https://github.com/railwayapp/nixpacks
+7. Railway docs, "Regions": https://docs.railway.com/deployments/regions
+8. Railway docs, "Compliance" (SOC 2 Type II, SOC 3, HIPAA BAA add-on): https://docs.railway.com/enterprise/compliance
+9. Railway docs, "Serverless": https://docs.railway.com/deployments/serverless
+10. Fly.io, "Pricing" (free trial; legacy plans discontinued): https://fly.io/docs/about/pricing/

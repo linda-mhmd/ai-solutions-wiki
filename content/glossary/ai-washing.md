@@ -2,7 +2,8 @@
 title: "AI Washing"
 description: "When companies exaggerate or fabricate their use of artificial intelligence in marketing, investor communications, or product claims to capitalize on AI hype — the new greenwashing."
 date: 2026-07-30
-lastmod: 2026-07-30
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 categories: [Glossary]
 tags: [AI hype, SEC enforcement, FTC, investor fraud, marketing claims, compliance]
 related:
@@ -82,7 +83,7 @@ If you're building an AI product or startup, AI washing creates several risks:
 
 ## How to avoid AI washing
 
-**Be specific about what AI does**: Instead of "AI-powered," say "uses GPT-4 to summarize customer feedback" or "routes support tickets using a fine-tuned classification model."
+**Be specific about what AI does**: Instead of "AI-powered," say "uses OpenAI's GPT-6 Luna to summarize customer feedback" or "routes support tickets using a fine-tuned classification model."
 
 **Distinguish current from planned**: If you're using a rules engine today but plan to add ML, say so. "Currently rule-based, with ML-based recommendations on our Q3 roadmap."
 
@@ -97,7 +98,7 @@ AI washing enforcement is accelerating:
 - The Canadian Securities Administrators (CSA) have issued specific guidance on AI washing disclosure requirements
 - The SEC has made AI washing a stated enforcement priority
 - The FTC's July 2026 policy statement treats undisclosed AI modifications as potential consumer deception
-- The EU AI Act (effective August 2026) includes transparency obligations that overlap with AI washing concerns
+- The EU AI Act's Article 50 transparency obligations, which have applied since 2 August 2026, overlap with AI washing concerns (see [EU AI Act enforcement begins](/news/eu-ai-act-enforcement-begins-2026/))
 
 For any company making AI claims — especially to investors — the regulatory environment now assumes these claims will be verified.
 

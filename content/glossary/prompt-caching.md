@@ -2,7 +2,8 @@
 title: "Prompt Caching"
 description: "Server-side caching of attention key/value tensors for repeated prompt prefixes, reducing latency and cost for applications that issue many requests sharing a long shared context."
 date: 2026-05-08
-lastmod: 2026-05-08
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 categories: [Glossary]
 tags: ["ai-ml", "intermediate", "llm", "performance", "cost-optimization", "inference"]
 related:
@@ -11,7 +12,7 @@ related:
   - glossary/inference-time-compute
   - glossary/transformer-architecture
   - glossary/long-context-model
-last_updated: 2026-05-30
+last_updated: 2026-09-25
 ---
 
 Prompt caching is an LLM serving optimisation in which the attention key/value (KV) tensors computed for a shared prompt prefix are stored and reused across subsequent requests, instead of being recomputed each time. For applications that send many requests with the same long prefix, system prompts, document context, agent histories, few-shot examples, RAG-augmented prompts, prompt caching reduces both time-to-first-token latency and per-call cost by an amount proportional to the cached prefix length. Cache discounts of 50–90% are typical at provider APIs (Anthropic, OpenAI, Google, AWS Bedrock).
@@ -44,9 +45,9 @@ It does not help when:
 
 Provider implementations differ in important details:
 
-- **Anthropic Claude**: explicit `cache_control: {"type": "ephemeral"}` markers in messages declare cache breakpoints. Up to four breakpoints per request. 5-minute or 1-hour TTL. Cache writes cost ~25% more than base, cache reads cost ~10% of base; net win at >2 reuses.
-- **OpenAI**: automatic caching for prompts above 1024 tokens, in 128-token blocks. No explicit markers. ~50% discount on cached input tokens. Cache TTL ~5–10 minutes.
-- **Google Gemini**: explicit context caching API (`CachedContent`) with controllable TTL. Storage cost separate from per-request cost.
+- **Anthropic Claude**: `cache_control: {"type": "ephemeral"}` either as a single top-level field (automatic caching, which moves the breakpoint forward as a conversation grows) or on individual content blocks as explicit breakpoints. Up to four breakpoints per request. 5-minute or 1-hour TTL. 5-minute cache writes cost 1.25× base input, 1-hour writes 2×, and cache reads 0.1× (lower on some newer models, for example 0.05× on Claude Opus 5.5); a 5-minute write pays for itself after one reuse.
+- **OpenAI**: models before GPT-5.6 cache automatically at implicit breakpoints, with no cache-write charge, a model-dependent cached-input discount, and cached-token counts rounded down to 128-token steps. From GPT-5.6 onward, including the GPT-6 models, caching starts at 1,024 visible input tokens, requests can also place explicit breakpoints (`prompt_cache_breakpoint`, up to four cache writes per request), cache writes cost 1.25× the uncached input rate and reads 0.1×, and entries live at least 30 minutes after the latest write or reuse. Older models keep entries roughly 5–10 minutes in memory, or up to 24 hours with extended retention.
+- **Google Gemini**: implicit caching is on by default for Gemini 2.5 and newer models; the explicit context caching API (`CachedContent`) adds a controllable TTL, with storage billed separately from per-request cost.
 - **AWS Bedrock**: prompt caching support varies by model (Claude on Bedrock supports `cachePoint` blocks via Converse API, mirroring Anthropic semantics).
 
 The economics shift with the discount and TTL. A long system prompt shared across an active chat session is almost always profitable to cache. A document referenced once and then dropped is not.
@@ -78,7 +79,7 @@ Prompt caching is *cross-request* KV cache reuse. Within a single request, *intr
 - Zheng, L., Yin, L., Xie, Z., et al. (2024). *SGLang: Efficient Execution of Structured Language Model Programs.* arXiv:2312.07104. [https://arxiv.org/abs/2312.07104](https://arxiv.org/abs/2312.07104) (RadixAttention; prefix-tree-based KV reuse)
 - Leviathan, Y., Kalman, M., Matias, Y. (2023). *Fast Inference from Transformers via Speculative Decoding.* ICML 2023. arXiv:2211.17192. [https://arxiv.org/abs/2211.17192](https://arxiv.org/abs/2211.17192)
 - Chen, C., Borgeaud, S., Irving, G., et al. (2023). *Accelerating Large Language Model Decoding with Speculative Sampling.* arXiv:2302.01318. [https://arxiv.org/abs/2302.01318](https://arxiv.org/abs/2302.01318)
-- Anthropic. *Prompt caching.* [https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching)
-- OpenAI. *Prompt caching.* [https://platform.openai.com/docs/guides/prompt-caching](https://platform.openai.com/docs/guides/prompt-caching)
-- Google. *Gemini context caching.* [https://ai.google.dev/gemini-api/docs/caching](https://ai.google.dev/gemini-api/docs/caching)
+- Anthropic. *Prompt caching* (accessed 25 September 2026). [https://platform.claude.com/docs/en/build-with-claude/prompt-caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)
+- OpenAI. *Prompt caching* (accessed 25 September 2026). [https://developers.openai.com/api/docs/guides/prompt-caching](https://developers.openai.com/api/docs/guides/prompt-caching)
+- Google. *Gemini context caching* (accessed 25 September 2026). [https://ai.google.dev/gemini-api/docs/caching](https://ai.google.dev/gemini-api/docs/caching)
 - AWS. *Amazon Bedrock prompt caching.* [https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html)

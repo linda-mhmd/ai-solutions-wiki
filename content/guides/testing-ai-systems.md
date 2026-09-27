@@ -10,7 +10,9 @@ related:
   - patterns/circuit-breaker-ai
   - patterns/feature-flags-ai
   - tools/langfuse
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Testing AI systems is harder than testing deterministic software because the outputs are probabilistic. The same input can produce different outputs on different runs. But "harder" does not mean "impossible" - it means applying a different testing strategy that validates properties and distributions rather than exact outputs.
@@ -73,8 +75,14 @@ class MockBedrockClient:
         prompt_hash = hashlib.md5(body.encode()).hexdigest()
         if prompt_hash in self.responses:
             return self.responses[prompt_hash]
-        # Default: return a valid but generic response
-        return json.dumps({"completion": "This is a test response.", "stop_reason": "end_turn"})
+        # Default: a valid but generic response in the Anthropic Messages format that
+        # current Claude models on Bedrock return (the old "completion" field is gone)
+        return json.dumps({
+            "type": "message",
+            "role": "assistant",
+            "content": [{"type": "text", "text": "This is a test response."}],
+            "stop_reason": "end_turn",
+        })
 ```
 
 This lets you test that your pipeline sends correctly formatted requests, handles the response correctly, and propagates errors properly - all without spending tokens or depending on API availability.

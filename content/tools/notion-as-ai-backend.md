@@ -5,7 +5,9 @@ date: 2026-03-24
 categories: [Tools]
 tags: ["software-engineering", "beginner", "notion", "knowledge-base", "integration", "productivity"]
 tools: [amazon-bedrock]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Notion is not an AI infrastructure tool, but it functions surprisingly well as a lightweight backend for AI agents in early-stage or lower-volume scenarios. If your team already lives in Notion, using it as a structured data store and knowledge base avoids introducing additional infrastructure for use cases where the volume does not justify it.
@@ -22,9 +24,9 @@ The Notion API exposes full CRUD operations on databases. An AI agent can read f
 
 ## MCP Integration
 
-Claude's Model Context Protocol (MCP) has a Notion integration that allows Claude to read and write Notion content directly. This enables an AI assistant that can: look up information from a Notion knowledge base, create new database entries based on conversation, update existing records, and navigate the Notion workspace structure.
+Notion runs an official remote MCP server (Notion MCP), hosted by Notion and authorised with OAuth, so any Model Context Protocol client, such as Claude, Claude Code, Cursor, or Codex, can read and write Notion content directly. Workspace owners control which MCP clients may connect under Settings → Connections. This enables an AI assistant that can: look up information from a Notion knowledge base, create new database entries based on conversation, update existing records, and navigate the Notion workspace structure.
 
-For teams using Claude Code or Claude.ai, MCP-connected Notion means the AI has live access to your team's knowledge - meeting notes, decisions, processes - without a separate RAG infrastructure build. The setup is a connector configuration rather than an engineering project.
+For teams using Claude Code, Claude.ai, or another MCP client, MCP-connected Notion means the AI has live access to your team's knowledge - meeting notes, decisions, processes - without a separate RAG infrastructure build. The setup is a connector configuration rather than an engineering project.
 
 ## API-Driven Automation
 
@@ -40,7 +42,7 @@ Notion's API integrates with automation tools (Make, n8n, Zapier) and custom Lam
 
 Notion works as an AI backend within specific constraints:
 
-**Volume** - Notion's API has rate limits (3 requests per second for most integrations). This is sufficient for dozens of documents per day; it is not sufficient for processing hundreds or thousands.
+**Volume** - Notion's API has rate limits: 180 requests per minute (an average of 3 per second) on most plans, and 600 per minute (about 10 per second) for Business and Enterprise workspaces. This is sufficient for dozens of documents per day; it is not sufficient for processing hundreds or thousands.
 
 **Search capability** - Notion's native search is keyword-based and limited. It is not a vector store. For semantic search across large content libraries, Notion data needs to be exported and re-indexed in a real vector store.
 
@@ -49,3 +51,8 @@ Notion works as an AI backend within specific constraints:
 **Reliability as production infrastructure** - Notion is a productivity tool. API downtime, schema changes by team members, and accidental deletion are real risks for production systems. For anything customer-facing, use a purpose-built database.
 
 The transition point is usually when: volume exceeds Notion API limits, semantic search is needed at scale, or the system is customer-facing with reliability requirements. Before that point, Notion is a legitimate and low-overhead choice.
+
+## Sources
+
+1. Notion Developers. "Notion MCP." https://developers.notion.com/docs/mcp
+2. Notion Developers. "Request limits." https://developers.notion.com/reference/request-limits

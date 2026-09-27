@@ -10,7 +10,9 @@ related:
   - patterns/data-versioning
   - guides/ai-model-governance
   - glossary/llmops
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Model lineage (also called model provenance) is the complete record of an AI model's origins and transformations throughout its lifecycle. It tracks which data was used for training, what code and hyperparameters produced the model, which base model it was fine-tuned from, what evaluation results it achieved, and who approved it for deployment. Model lineage answers the question: "How exactly was this model created, and can we reproduce it?"
@@ -25,7 +27,7 @@ Model lineage serves multiple purposes. **Reproducibility** - Given the lineage 
 
 ## Implementation
 
-Model lineage is typically implemented through experiment tracking tools (MLflow, Weights & Biases, Neptune) that automatically log parameters, metrics, and artifacts. Model registries store lineage metadata alongside model artifacts. Data versioning tools (DVC, LakeFS) track training data versions. CI/CD pipelines for ML capture the full training workflow as code.
+Model lineage is typically implemented through experiment tracking tools (MLflow, Weights & Biases; Neptune was another option until it shut down on 5 March 2026 following its acquisition by OpenAI) that automatically log parameters, metrics, and artifacts. Model registries store lineage metadata alongside model artifacts. Data versioning tools (DVC, LakeFS) track training data versions. CI/CD pipelines for ML capture the full training workflow as code.
 
 ## Challenges
 
@@ -36,3 +38,4 @@ Lineage for fine-tuned foundation models is inherently incomplete because the ba
 - Buneman, P., Khanna, S., & Tan, W. C. (2001). Why and where: A characterization of data provenance. *ICDT 2001*. (Foundational data provenance paper; the "why-provenance" and "where-provenance" concepts directly apply to model lineage.)
 - Bose, R., & Frew, J. (2005). Lineage retrieval for scientific data processing: A survey. *ACM Computing Surveys, 37*(1), 1–28. (Survey of lineage tracking in scientific workflows; directly applicable to ML experiment tracking.)
 - Sculley, D., et al. (2015). Hidden technical debt in machine learning systems. *NeurIPS 2015*. (Identified undocumented model dependencies as a primary ML technical debt; motivates systematic lineage tracking.)
+- neptune.ai. "Neptune Service Shutdown - March 5, 2026" (accessed 25 September 2026). [https://docs.neptune.ai/](https://docs.neptune.ai/)

@@ -4,14 +4,16 @@ description: "Using AWS Elemental MediaConvert for transcoding, format conversio
 date: 2026-03-25
 categories: [Tools]
 tags: ["media-processing", "intermediate", "aws-mediaconvert", "video-encoding", "transcoding", "aws", "media", "aws-service"]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 AWS Elemental MediaConvert is a file-based video transcoding service. It converts video files between formats, resolutions, and codecs, and applies processing like caption insertion, image overlay, and audio normalization. In AI pipelines it handles the heavy transcoding work that would be impractical on Lambda (file size limits, timeout limits) or expensive on EC2 (underutilized instances).
 
 Official documentation: https://aws.amazon.com/mediaconvert/
 
-**Azure equivalent:** Azure Media Services. **GCP equivalent:** Google Cloud Transcoder API.
+**Azure equivalent:** none first-party since Azure Media Services was retired on 30 June 2024; Microsoft points customers to partner encoding services in the Azure Marketplace. **GCP equivalent:** Google Cloud Transcoder API.
 
 ## Watch: AWS Elemental MediaConvert (documentation overview)
 {{< video src="screencasts/MediaConvert.mp4" title="AWS Elemental MediaConvert: AWS documentation overview" caption="A short walkthrough of MediaConvert rendering finished video in multiple formats and aspect ratios from one job." >}}
@@ -54,7 +56,12 @@ MediaConvert handles files of any size without Lambda's 15-minute timeout or 10 
 
 ## Cross-Cloud Comparison
 
-Azure Media Services offers comparable transcoding with tight integration into Azure CDN and Azure Video Indexer for AI analysis. GCP Cloud Transcoder API is more limited in codec support but simpler to configure for standard H.264 outputs. MediaConvert has the broadest format support and deepest integration with AWS AI services.
+Azure no longer has a first-party transcoding service: Azure Media Services was retired on 30 June 2024, and Microsoft's retirement guide directs customers to partner solutions (for example Bitmovin) while Azure AI Video Indexer remains available for AI analysis. GCP Cloud Transcoder API is more limited in codec support but simpler to configure for standard H.264 outputs. MediaConvert has the broadest format support and deepest integration with AWS AI services.
+
+## Sources
+
+1. AWS. "AWS Elemental MediaConvert pricing." Accessed 25 September 2026. https://aws.amazon.com/mediaconvert/pricing/
+2. Microsoft Learn. "Azure Media Services retirement guide." https://learn.microsoft.com/en-us/azure/media-services/latest/azure-media-services-retirement
 
 ## Related Articles
 

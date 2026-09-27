@@ -2,7 +2,6 @@
 title: "LLM Routing"
 description: "Architectures that direct each request to one of several available language models based on cost, capability, latency, or quality requirements: the multi-model production pattern."
 date: 2026-05-08
-lastmod: 2026-05-08
 categories: [Glossary]
 tags: ["ai-ml", "intermediate", "llm", "architecture", "cost-optimization", "production"]
 related:
@@ -12,10 +11,12 @@ related:
   - glossary/reasoning-models
   - glossary/llm-as-a-judge
   - glossary/inference-time-compute
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
-LLM routing is the architectural pattern of dispatching each incoming request to one of several available language models, chosen at runtime based on the request's characteristics and the models' cost, capability, latency, and reliability profiles. Routing is the production answer to a market with heterogeneous models: cheap fast models (Haiku, Mini, Flash, 8B-class open models) handle the majority of traffic, while expensive capable models (Opus, GPT-5, Sonnet thinking, Gemini 2.5 Pro, R1) are reserved for the queries that need them. A well-tuned router reduces aggregate cost by 5–20× over an "always use the most capable model" baseline while preserving end-to-end quality.
+LLM routing is the architectural pattern of dispatching each incoming request to one of several available language models, chosen at runtime based on the request's characteristics and the models' cost, capability, latency, and reliability profiles. Routing is the production answer to a market with heterogeneous models: cheap fast models (Haiku, Luna or Mini tiers, Flash, 8B-class open models) handle the majority of traffic, while expensive capable models are reserved for the queries that need them. At the time of writing (September 2026) that top tier includes Claude Opus 5.5 and Fable 5.1, GPT-6 Astra and Sol, Gemini 3.1 Pro, and DeepSeek V4-Pro; see the [LLM landscape](/comparisons/llm-landscape-2026/) for the current line-ups. A well-tuned router reduces aggregate cost by 5–20× over an "always use the most capable model" baseline while preserving end-to-end quality.
 
 ## Why Routing Matters
 
@@ -40,7 +41,7 @@ Try the cheap model first; if a quality check fails, escalate to the expensive m
 - LLM-as-a-judge gating
 - Heuristics (length, refusal patterns, hedging)
 
-The classical FrugalGPT result (Chen et al., 2023) showed cascades can match GPT-4 quality at ~2% of the cost on standard benchmarks.
+The classical FrugalGPT result (Chen et al., 2023) showed cascades could match GPT-4 quality (the flagship of the time) at ~2% of the cost on standard benchmarks.
 
 ### 3. Learned predictive routing
 

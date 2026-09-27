@@ -9,7 +9,9 @@ related:
   - glossary/ai-agents
   - glossary/prompt-engineering
   - tools/amazon-bedrock
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Kiro is an AI-powered integrated development environment (IDE) created by AWS that emphasizes spec-driven development over unstructured AI code generation. Built on the Code OSS platform (the open-source foundation of VS Code), Kiro guides developers through a structured workflow of requirements gathering, technical design, and task decomposition before generating code.
@@ -20,7 +22,7 @@ AWS launched Kiro in public preview on July 15, 2025, at the AWS Summit in New Y
 
 Kiro reached general availability on November 17, 2025, with an expanded feature set announced at AWS re:Invent 2025. The GA release introduced autonomous agents for individual developers, GitHub integration with issue assignment workflows, property-based testing, checkpointing for rollback, a CLI with agent capabilities, and enterprise management through IAM Identity Center. AWS announced that it was standardizing its own internal developers on Kiro.
 
-During preview, Kiro was free to use. Post-GA pricing includes a free tier (50 agentic interactions per month), Kiro Pro ($19/month, 1,000 interactions), and Kiro Pro+ ($39/month, 3,000 interactions). Kiro uses Anthropic's Claude Sonnet models as its AI backend.
+During preview, Kiro was free to use. Pricing is now credit-based: as of September 2026 Kiro lists a perpetual free tier (50 credits per month), Pro ($20 per user per month, 1,000 credits), Pro+ ($40, 2,000 credits), Pro Max ($100, 5,000 credits), and Power ($200, 10,000 credits), with add-on credits at $0.04 each; a credit is a unit of agent work, and more capable models consume credits faster [5]. By default prompts go to Auto, which mixes frontier and specialised models; users can also pick specific models, including Anthropic's Claude models (such as Sonnet 5 and Opus 5), OpenAI's GPT-5.6 models, and open-weight models.
 
 ## Spec-Driven Development
 
@@ -48,3 +50,4 @@ Kiro is built on Code OSS, making it compatible with existing VS Code settings, 
 2. Kiro Blog. "Kiro is generally available." November 17, 2025. [https://kiro.dev/blog/general-availability/](https://kiro.dev/blog/general-availability/)
 3. InfoQ. "Beyond Vibe Coding: Amazon Introduces Kiro, the Spec-Driven Agentic AI IDE." August 2025. [https://www.infoq.com/news/2025/08/aws-kiro-spec-driven-agent/](https://www.infoq.com/news/2025/08/aws-kiro-spec-driven-agent/)
 4. SiliconANGLE. "AWS launches Kiro: a 'spec coding' developer environment integrated with AI agents." July 14, 2025. [https://siliconangle.com/2025/07/14/aws-launches-kiro-spec-coding-developer-environment-integrated-ai-agents/](https://siliconangle.com/2025/07/14/aws-launches-kiro-spec-coding-developer-environment-integrated-ai-agents/)
+5. Kiro. "Pricing" (accessed 25 September 2026). [https://kiro.dev/pricing/](https://kiro.dev/pricing/)

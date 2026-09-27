@@ -10,7 +10,9 @@ related:
   - glossary/ai-agents
   - glossary/agentic-ai
   - glossary/aws-agentcore
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Multi-agent orchestration is the pattern of coordinating multiple specialized AI agents to collaborate on a task that no single agent could complete as effectively alone. An orchestration layer manages the flow of work between agents, handles context passing, resolves dependencies, and assembles the final output. The pattern draws on decades of research in distributed artificial intelligence and has become a dominant architecture for complex agentic AI systems.
@@ -21,7 +23,7 @@ The theoretical foundations of multi-agent orchestration trace to Marvin Minsky'
 
 Research in distributed artificial intelligence and multi-agent systems continued through the 1990s and 2000s, producing formal models for agent communication (FIPA ACL), coordination (contract nets, blackboard systems), and negotiation. However, practical implementations remained limited to academic and simulation contexts until the capabilities of large language models made general-purpose AI agents feasible.
 
-The modern era of multi-agent orchestration began in 2023 with the near-simultaneous release of several frameworks. Microsoft Research published the AutoGen paper in August 2023, introducing a framework where LLM-powered agents collaborate through structured multi-turn conversations [2]. AutoGen demonstrated that complex tasks including coding, mathematics, and research could be decomposed across conversable agents. Joao Moura released CrewAI in late 2023, formalizing the role-based collaboration pattern where agents with defined roles, goals, and tools work together as a "crew" [3]. LangGraph, from the LangChain team, took a graph-based approach, modeling agent workflows as directed graphs with nodes (agents or functions) and edges (transitions).
+The modern era of multi-agent orchestration began in 2023 with the near-simultaneous release of several frameworks. Microsoft Research published the AutoGen paper in August 2023, introducing a framework where LLM-powered agents collaborate through structured multi-turn conversations [2]. AutoGen demonstrated that complex tasks including coding, mathematics, and research could be decomposed across conversable agents. Joao Moura released CrewAI in late 2023, formalizing the role-based collaboration pattern where agents with defined roles, goals, and tools work together as a "crew" [3]. LangGraph, from the LangChain team, took a graph-based approach, modeling agent workflows as directed graphs with nodes (agents or functions) and edges (transitions). AutoGen has since been put into maintenance mode: Microsoft merged it with Semantic Kernel into the [Microsoft Agent Framework](/tools/microsoft-agent-framework/), which reached version 1.0 in April 2026 and is Microsoft's recommended framework for new multi-agent projects [5].
 
 ## Orchestration Patterns
 
@@ -45,3 +47,4 @@ The tradeoff is increased system complexity, higher total token usage, and the n
 2. Wu, Q., Bansal, G., Zhang, J., et al. (2023). "AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation." *arXiv:2308.08155*. [https://arxiv.org/abs/2308.08155](https://arxiv.org/abs/2308.08155)
 3. CrewAI GitHub Repository. [https://github.com/crewAIInc/crewAI](https://github.com/crewAIInc/crewAI)
 4. LangGraph Documentation. [https://python.langchain.com/docs/langgraph](https://python.langchain.com/docs/langgraph)
+5. Microsoft AutoGen repository, maintenance-mode notice (accessed 25 September 2026). [https://github.com/microsoft/autogen](https://github.com/microsoft/autogen)

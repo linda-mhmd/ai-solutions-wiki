@@ -4,7 +4,9 @@ description: "A practical guide for migrating on-premise AI and ML workloads to 
 date: 2026-03-28
 categories: [Guides]
 tags: [cloud-migration, AWS, infrastructure, AI-infrastructure, MLOps]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Migrating AI workloads to the cloud is not simply lifting VMs into EC2. AI workloads have specific requirements around GPU availability, data locality, training pipeline orchestration, and model serving that make migration planning different from typical application migrations. This guide covers the practical steps for migrating AI and ML workloads to cloud platforms.
@@ -41,7 +43,7 @@ For each workload, assess migration complexity:
 
 **Rehost (lift and shift).** Move the workload to cloud VMs with minimal changes. Fastest migration but does not leverage cloud-native services. Suitable for workloads that are already containerized or well-automated.
 
-**Replatform.** Move to cloud-managed services that replace on-premise infrastructure. Replace on-premise Kubernetes with EKS, on-premise MLflow with SageMaker Experiments, on-premise GPU servers with SageMaker Training. Moderate effort, significant operational benefit.
+**Replatform.** Move to cloud-managed services that replace on-premise infrastructure. Replace on-premise Kubernetes with EKS, self-managed MLflow with managed MLflow on Amazon SageMaker AI (the older SageMaker Experiments SDK is limited to Studio Classic), on-premise GPU servers with SageMaker Training. Moderate effort, significant operational benefit.
 
 **Refactor.** Redesign the workload to be cloud-native. Replace custom training pipelines with SageMaker Pipelines, replace on-premise model serving with SageMaker Endpoints or Bedrock. Highest effort, highest long-term benefit.
 
@@ -60,7 +62,7 @@ Migrate workloads in this order to minimize risk and maximize learning:
 
 **Medium datasets (100GB - 10TB).** Use AWS DataSync for optimized network transfer. Or use S3 Transfer Acceleration.
 
-**Large datasets (10TB+).** Use AWS Snowball or Snowball Edge for physical data transfer. Or set up a dedicated network connection (AWS Direct Connect) for ongoing data synchronization.
+**Large datasets (10TB+).** Set up a dedicated network connection (AWS Direct Connect) and use DataSync, or bring drives to an AWS Data Transfer Terminal for physical transfer. AWS Snowball Edge, the former default for shipping data on devices, is no longer available to new customers.
 
 **Ongoing synchronization.** If training data continues to be generated on-premise during migration, set up continuous replication (AWS DMS for databases, DataSync for files) to keep cloud copies current.
 
@@ -109,3 +111,9 @@ After migration, optimize for cloud:
 **Right-sizing.** After observing real usage patterns, adjust instance types and sizes. Most initial deployments are over-provisioned.
 
 Cloud migration for AI workloads is a phased journey, not a one-time event. Start with low-risk workloads, build expertise and confidence, then migrate progressively more critical workloads. The operational benefits (on-demand scaling, managed services, reduced maintenance) justify the migration effort, but only if the migration is planned and executed carefully.
+
+## Sources
+
+1. AWS Documentation, "What is Snowball Edge?" (availability notice; fetched 25 September 2026): [https://docs.aws.amazon.com/snowball/latest/developer-guide/whatisedge.html](https://docs.aws.amazon.com/snowball/latest/developer-guide/whatisedge.html)
+2. AWS Documentation, "Amazon SageMaker Experiments in Studio Classic": [https://docs.aws.amazon.com/sagemaker/latest/dg/experiments.html](https://docs.aws.amazon.com/sagemaker/latest/dg/experiments.html)
+3. AWS Documentation, "Managed MLflow on Amazon SageMaker AI": [https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html)

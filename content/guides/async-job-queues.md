@@ -10,7 +10,9 @@ related:
   - tools/railway
   - guides/from-zero-to-production
   - glossary/message-queue
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Any AI application that does real work will quickly encounter the same problem: some operations take far too long to complete inside an HTTP request. AI image generation takes 10–60 seconds. Video processing can run for minutes. Large file analysis, batch embeddings, sending thousands of emails, none of these belong in a synchronous request handler. Async job queues are the production pattern that solves this class of problem.
@@ -75,7 +77,7 @@ This decouples two concerns that do not belong together: accepting work (fast, m
 
 Not every background task needs a full queue system. If you are using a cron job to run a single database cleanup at 2am, a simple scheduled function is fine. Job queues add operational complexity; the trade-off is only justified when the following apply:
 
-**AI inference and generation**: Any call to an image generation model (Stable Diffusion, DALL-E, Flux), video generation, or large language model with long outputs. Latency is unpredictable and commonly exceeds HTTP timeout thresholds.
+**AI inference and generation**: Any call to an image generation model (Stable Diffusion, GPT Image, Flux), video generation, or large language model with long outputs. Latency is unpredictable and commonly exceeds HTTP timeout thresholds.
 
 **Video and media processing**: Transcoding video, generating thumbnails, applying filters, extracting audio. FFmpeg-based jobs routinely run for 30 seconds to several minutes.
 
@@ -150,7 +152,8 @@ BullMQ is the standard queue library for Node.js applications. It uses Redis as 
 import { Queue, Worker } from 'bullmq';
 import { Redis } from 'ioredis';
 
-const connection = new Redis({ host: 'localhost', port: 6379 });
+// Workers require maxRetriesPerRequest: null on a manually created ioredis client
+const connection = new Redis({ host: 'localhost', port: 6379, maxRetriesPerRequest: null });
 
 // Producer, enqueue a job from the API handler
 const imageQueue = new Queue('image-generation', { connection });
@@ -237,16 +240,20 @@ Start a worker: `celery -A tasks worker --loglevel=info --concurrency=4`
 pg-boss stores jobs in a PostgreSQL table rather than Redis. For teams already running Postgres who want to avoid adding Redis as an infrastructure dependency, this is a pragmatic choice. It loses some of the performance headroom of Redis at high throughput, but for most AI application workloads, hundreds to low thousands of jobs per hour, it is more than sufficient.
 
 ```javascript
-import PgBoss from 'pg-boss';
+import { PgBoss } from 'pg-boss';
 
 const boss = new PgBoss('postgres://user:password@localhost/mydb');
+boss.on('error', console.error);
 await boss.start();
+
+// Queues must be created before use (pg-boss 10 and later)
+await boss.createQueue('image-generation');
 
 // Enqueue
 await boss.send('image-generation', { prompt, userId });
 
-// Worker
-await boss.work('image-generation', { teamSize: 4 }, async (job) => {
+// Worker: handlers receive an array of jobs; localConcurrency runs 4 workers in this process
+await boss.work('image-generation', { localConcurrency: 4 }, async ([job]) => {
   const result = await callAIService(job.data.prompt);
   const url = await uploadToStorage(result, job.data.userId);
   return { url };
@@ -370,8 +377,8 @@ The user sees a loading state with progress updates while the job processes. If 
 
 ## Sources
 
-- BullMQ documentation: https://docs.bullmq.io
+- BullMQ documentation: https://docs.bullmq.io (connection requirements: https://docs.bullmq.io/guide/connections)
 - Celery documentation: https://docs.celeryq.dev
-- pg-boss documentation: https://github.com/timgit/pg-boss
+- pg-boss documentation: https://github.com/timgit/pg-boss (snippet checked against pg-boss 12.34.0, 25 September 2026; see the workers API reference at https://github.com/timgit/pg-boss/blob/master/docs/api/workers.md)
 - AWS SQS documentation: https://docs.aws.amazon.com/sqs/
 - Atlassian Engineering: "An Introduction to Message Queues" https://www.atlassian.com/microservices/microservices-architecture/message-queues

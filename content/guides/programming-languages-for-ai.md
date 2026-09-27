@@ -9,7 +9,9 @@ related:
   - glossary/api
   - guides/infrastructure-as-code-ai
   - guides/multi-agent-systems-101
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Modern AI systems rarely live in a single language. A production pipeline might use Python to call a model API, TypeScript to render the output as video, and HCL to provision the infrastructure that runs it all. Each language has a defined role. Understanding that division prevents the wrong-tool-for-the-job failures that make AI systems fragile.
@@ -20,7 +22,7 @@ Python is the standard language for AI and machine learning work. The library ec
 
 Python's syntax is readable enough that non-engineers can review pipelines and prompts without a long ramp-up. The REPL and Jupyter notebooks support iterative development where you run a cell, inspect output, and adjust. This workflow fits AI development well because so much of the work is exploratory.
 
-The weaknesses are real. Python is slow for CPU-bound computation, which is why ML frameworks offload the heavy work to C++ backends. The Global Interpreter Lock limits CPU parallelism in a single process. Deployment requires careful dependency management, often handled with Docker or virtual environments.
+The weaknesses are real. Python is slow for CPU-bound computation, which is why ML frameworks offload the heavy work to C++ backends. The Global Interpreter Lock limits CPU parallelism in a single process in the default build; a free-threaded (GIL-less) build has been officially supported since Python 3.14, but it is opt-in and some extension packages re-enable the GIL. Deployment requires careful dependency management, often handled with Docker or virtual environments.
 
 For agents specifically, Python is where orchestration logic lives: deciding which tool to call, passing results between steps, handling retries, formatting model outputs. Linda Mohamed uses Python for all agent work, including Bedrock API calls, CrewAI orchestration, Rekognition integrations, and AWS Lambda functions in AI pipelines.
 
@@ -63,5 +65,7 @@ Each layer communicates with the others through APIs and S3 artifacts rather tha
 ## Sources
 
 - Python Software Foundation. *Python 3 Documentation*. https://docs.python.org/3/
+- Python Software Foundation. *Python support for free threading* (Python 3.14 documentation). https://docs.python.org/3/howto/free-threading-python.html
+- Wouters, T., Page, M., and Gross, S. *PEP 779 – Criteria for supported status for free-threaded Python* (accepted 16 June 2025). https://peps.python.org/pep-0779/
 - Microsoft. *TypeScript Documentation*. https://www.typescriptlang.org/docs/
 - HashiCorp. *Terraform Documentation*. https://developer.hashicorp.com/terraform/docs

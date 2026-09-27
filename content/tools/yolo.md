@@ -11,6 +11,8 @@ related:
   - guides/computer-vision-guide
   - glossary/vision-transformer
   - guides/edge-ai-deployment
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -69,7 +71,7 @@ You work through the Ultralytics Python API or CLI. The model runs on [PyTorch](
 
 A YOLO network has three parts. The **backbone** (a CSP-style convolutional network) extracts features. The **neck** fuses features across scales using a Feature Pyramid Network plus Path Aggregation Network, so the model sees both fine detail and broad context. The **head** produces the final predictions. Older versions used anchor boxes, predefined box shapes that predictions adjust; since YOLOv8, Ultralytics models are anchor-free and predict box coordinates directly with a decoupled head. The training loss combines a box regression term (Complete IoU), an objectness term, and a classification term.
 
-A classic post-processing step, non-maximum suppression (NMS), removes duplicate overlapping boxes for the same object. NMS adds latency and complicates export. YOLOv10 (from Tsinghua University in 2024) pioneered NMS-free detection in the YOLO family using dual label assignment, and current Ultralytics flagships make end-to-end NMS-free inference the default.
+A classic post-processing step, non-maximum suppression (NMS), removes duplicate overlapping boxes for the same object. NMS adds latency and complicates export. YOLOv10 (from Tsinghua University in 2024) pioneered NMS-free detection in the YOLO family using dual label assignment, and Ultralytics' current flagship, YOLO26, ships an NMS-free end-to-end head (NMS can still be embedded in a supported export with `nms=True`).
 
 ## The version lineage
 
@@ -84,9 +86,9 @@ YOLO is not one model but a lineage, and different versions come from different 
 | **v10** | 2024 | Tsinghua University | NMS-free end-to-end |
 | **YOLO11** | 2024 | Ultralytics | Widely deployed stable release |
 | **v12 / v13** | 2025 | Academic groups | Attention and hypergraph research lines |
-| **YOLO26** | 2025-2026 | Ultralytics | Edge-optimised current flagship |
+| **YOLO26** | January 2026 | Ultralytics | Edge-optimised current flagship |
 
-As of 2026, **YOLO11** is the most widely deployed stable Ultralytics production model, and **YOLO26** is the newer flagship tuned for edge and CPU inference. YOLOv12 and YOLOv13 are separate academic research lineages that run through the Ultralytics package but are not Ultralytics releases. For a transformer-based real-time alternative, see RT-DETR.
+As of September 2026, Ultralytics recommends **YOLO26** (released January 2026) for new projects: it is the latest release, tuned for edge and CPU inference, and the only one covering all seven tasks (detect, segment, semantic segmentation, depth, classify, pose, oriented boxes). **YOLO11** remains the mature, widely deployed alternative. Ultralytics has previewed **YOLO27** as "coming soon", with no launch date and no weights yet. YOLOv12 and YOLOv13 are separate academic research lineages that run through the Ultralytics package but are not Ultralytics releases. For a transformer-based real-time alternative, see RT-DETR.
 
 ## Installing Ultralytics
 
@@ -102,7 +104,7 @@ The package pulls in [PyTorch](/tools/pytorch/) automatically. For GPU accelerat
 from ultralytics import YOLO
 
 # Load pretrained weights (n = nano; s, m, l, x are larger)
-model = YOLO("yolo11n.pt")
+model = YOLO("yolo26n.pt")
 
 # Predict on an image, a video, a folder, a URL, or a webcam index
 results = model.predict(source="street.jpg", conf=0.25, save=True)
@@ -118,7 +120,7 @@ for r in results:
 The same task from the command line:
 
 ```bash
-yolo detect predict model=yolo11n.pt source=street.jpg conf=0.25 save=True
+yolo detect predict model=yolo26n.pt source=street.jpg conf=0.25 save=True
 ```
 
 ## Training on a custom dataset
@@ -139,7 +141,7 @@ names:
 ```python
 from ultralytics import YOLO
 
-model = YOLO("yolo11n.pt")          # start from pretrained weights
+model = YOLO("yolo26n.pt")          # start from pretrained weights
 model.train(data="data.yaml", epochs=100, imgsz=640, batch=16, device=0)
 model.val()                          # evaluate on the val split
 model.export(format="onnx")          # export for deployment
@@ -219,3 +221,5 @@ If you cannot open-source your application and will not buy the Enterprise licen
 - Ultralytics documentation and model docs. https://docs.ultralytics.com/models/
 - Ultralytics licence page. https://www.ultralytics.com/license
 - Ultralytics GitHub repository. https://github.com/ultralytics/ultralytics
+- Ultralytics, "Models Supported by Ultralytics" (YOLO26 recommended for new projects; YOLO27 coming soon; accessed 25 September 2026). https://docs.ultralytics.com/models/
+- Ultralytics, YOLO26 model docs (released January 2026; `yolo26n.pt`; NMS-free head). https://docs.ultralytics.com/models/yolo26/

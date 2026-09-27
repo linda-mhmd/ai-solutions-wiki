@@ -5,12 +5,14 @@ date: 2026-03-25
 categories: [Patterns]
 tags: ["devops", "intermediate", "observability", "llm-monitoring", "tracing", "metrics", "ai-operations"]
 related:
-  - tools/aws-cloudwatch
+  - tools/amazon-cloudwatch
   - patterns/canary-deployment
   - glossary/observability
   - glossary/drift-detection
   - guides/ci-cd-ai-detailed
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Observability is the ability to understand the internal state of a system from its external outputs. For traditional software, three categories of output provide this understanding: logs (discrete events), metrics (numeric measurements over time), and traces (the path a request takes through a distributed system). AI systems generate all three but require additional instrumentation to capture the information that matters: token usage, response quality, cost per request, and model version attribution.
@@ -79,9 +81,10 @@ def publish_ai_metrics(model_id, input_tokens, output_tokens,
 **Cost tracking metrics:**
 Calculate cost per request using the token counts and published pricing:
 ```python
-# Anthropic Claude Sonnet example pricing (verify current pricing)
-INPUT_TOKEN_COST = 0.003 / 1000   # per token
-OUTPUT_TOKEN_COST = 0.015 / 1000  # per token
+# Claude Sonnet 5 list pricing at the time of writing (September 2026):
+# $2 input / $10 output per million tokens. Verify current pricing.
+INPUT_TOKEN_COST = 2.00 / 1_000_000   # per token
+OUTPUT_TOKEN_COST = 10.00 / 1_000_000  # per token
 
 cost = (input_tokens * INPUT_TOKEN_COST) + (output_tokens * OUTPUT_TOKEN_COST)
 ```
@@ -138,7 +141,7 @@ Use CloudWatch Logs Insights to query these structured logs for operational anal
 
 ## Pillar 3: Traces
 
-Distributed traces show the full path of a request through multiple services. For multi-agent AI systems, a trace might span: API Gateway -> Lambda orchestrator -> Bedrock agent -> Knowledge base -> Lambda tool -> DynamoDB.
+Distributed traces show the full path of a request through multiple services. For multi-agent AI systems, a trace might span: API Gateway -> Lambda orchestrator -> agent runtime (for example Amazon Bedrock AgentCore) -> Knowledge base -> Lambda tool -> DynamoDB.
 
 **OpenTelemetry for distributed tracing:**
 ```python
@@ -167,23 +170,23 @@ AWS X-Ray integrates with Lambda and API Gateway for automatic trace capture, wi
 Langfuse is an open-source LLM observability platform that captures prompt/response pairs, token counts, cost, and user feedback in a searchable interface. It is the recommended tool for production LLM quality monitoring.
 
 ```python
-from langfuse import Langfuse
-from langfuse.decorators import observe, langfuse_context
+from langfuse import get_client, observe
 
-langfuse = Langfuse()
+langfuse = get_client()
 
-@observe()
+@observe(as_type="generation")
 def generate_response(user_query: str) -> str:
-    langfuse_context.update_current_observation(
+    langfuse.update_current_generation(
         input=user_query,
+        model=MODEL_ID,
         metadata={"prompt_template_version": PROMPT_VERSION}
     )
 
     response = call_bedrock(user_query)
 
-    langfuse_context.update_current_observation(
+    langfuse.update_current_generation(
         output=response['text'],
-        usage={
+        usage_details={
             "input": response['usage']['inputTokens'],
             "output": response['usage']['outputTokens']
         }
@@ -217,6 +220,8 @@ A well-designed AI observability dashboard has three sections.
 
 - AWS Documentation: Amazon CloudWatch. [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/)
 - Langfuse Documentation: Getting started. [https://langfuse.com/docs](https://langfuse.com/docs)
+- Langfuse Documentation: Python SDK instrumentation (`observe`, `update_current_generation`), accessed 25 September 2026. [https://langfuse.com/docs/observability/sdk/python/instrumentation](https://langfuse.com/docs/observability/sdk/python/instrumentation)
+- Anthropic: Claude pricing, accessed 25 September 2026. [https://platform.claude.com/docs/en/about-claude/pricing](https://platform.claude.com/docs/en/about-claude/pricing)
 - OpenTelemetry Documentation: Getting started. [https://opentelemetry.io/docs/](https://opentelemetry.io/docs/)
 - AWS Documentation: Amazon Bedrock model invocation logging. [https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html](https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html)
 - Majors, C., Fong-Jones, L., and Miranda, G. (2022). *Observability Engineering*. O'Reilly Media.

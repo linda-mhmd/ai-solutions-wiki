@@ -2,7 +2,8 @@
 title: "Structured Output"
 description: "Constraining a language model to emit output that conforms to a specified schema (JSON, regex, grammar). The decoding-time technique behind reliable function calling, agent tool calls, and machine-readable LLM responses."
 date: 2026-05-08
-lastmod: 2026-05-08
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 categories: [Glossary]
 tags: ["ai-ml", "intermediate", "llm", "function-calling", "decoding"]
 related:
@@ -10,7 +11,7 @@ related:
   - glossary/tool-use
   - glossary/llm
   - glossary/prompt-engineering
-last_updated: 2026-05-30
+last_updated: 2026-09-25
 ---
 
 Structured output is the practice of constraining a language model's generation so that the output conforms to a specified schema, typically a JSON Schema, regular expression, context-free grammar, or Pydantic / dataclass type. It is the engineering technique that makes [function calling](/glossary/function-calling/) and machine-readable LLM responses reliable in production: prompting alone produces schema-violating output at non-trivial rates, while constrained decoding can reduce this rate to zero.
@@ -26,7 +27,7 @@ The dominant techniques:
 - **JSON-mode decoding.** A simpler subset that constrains output to syntactically valid JSON without enforcing a specific schema. Most provider APIs support this.
 - **Schema-aware fine-tuning.** Train the model on schema-conformant outputs so that the unconstrained distribution naturally satisfies the schema. Combined with constrained decoding for guarantees.
 
-OpenAI's Structured Outputs (released August 2024) and Anthropic's tool-use schema enforcement use grammar-constrained decoding under the hood, providing strict JSON Schema adherence at the API level.
+OpenAI's Structured Outputs (released August 2024) and Anthropic's structured outputs (JSON outputs via `output_config.format`, plus strict tool use with `strict: true`, now generally available) use grammar-constrained decoding under the hood, providing strict JSON Schema adherence at the API level.
 
 ## When to Use Structured Output
 
@@ -67,7 +68,7 @@ A subtle finding from recent work (Tam et al., 2024) is that strict schema const
 - **Microsoft Guidance**: programming model for constrained generation with templated control flow.
 - **LMQL** (Beurer-Kellner et al., 2023): query language with first-class constraint syntax.
 - **OpenAI Structured Outputs**: provider-native JSON Schema enforcement, August 2024 release.
-- **Anthropic tool use**: schema enforcement via native tool-use API.
+- **Anthropic structured outputs**: JSON Schema-constrained responses (`output_config.format`) and strict tool use (`strict: true`) on current Claude models.
 - **Google Gemini structured output**: `responseSchema` parameter on Gemini API.
 - **AWS Bedrock Converse `toolUse`**: schema-validated tool inputs.
 - **Pydantic + Instructor**: Python ergonomics layer over multiple provider backends, validates with Pydantic.
@@ -87,5 +88,6 @@ A subtle finding from recent work (Tam et al., 2024) is that strict schema const
 - Beurer-Kellner, L., Fischer, M., Vechev, M. (2023). *Prompting Is Programming: A Query Language for Large Language Models (LMQL).* PLDI 2023. arXiv:2212.06094. [https://arxiv.org/abs/2212.06094](https://arxiv.org/abs/2212.06094)
 - Tam, Z. R., Wu, C.-K., Tsai, Y.-L., et al. (2024). *Let Me Speak Freely? A Study on the Impact of Format Restrictions on Performance of Large Language Models.* arXiv:2408.02442. [https://arxiv.org/abs/2408.02442](https://arxiv.org/abs/2408.02442)
 - OpenAI (2024). *Introducing Structured Outputs in the API.* [https://openai.com/index/introducing-structured-outputs-in-the-api/](https://openai.com/index/introducing-structured-outputs-in-the-api/)
+- Anthropic. *Structured outputs* (accessed 25 September 2026). [https://platform.claude.com/docs/en/build-with-claude/structured-outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
 - JSON Schema specification. [https://json-schema.org/specification](https://json-schema.org/specification)
 - Outlines: structured generation library. [https://github.com/dottxt-ai/outlines](https://github.com/dottxt-ai/outlines)

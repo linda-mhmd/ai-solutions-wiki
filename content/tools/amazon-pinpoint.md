@@ -50,7 +50,7 @@ Official documentation: https://docs.aws.amazon.com/pinpoint/
 
 ## Event Streaming and Analytics
 
-Pinpoint captures engagement events (message sent, delivered, opened, clicked, bounced, complained) and streams them to Kinesis Data Streams or Kinesis Data Firehose. This enables real-time analytics pipelines: stream events to S3 for batch analysis, to Redshift for BI dashboards, or to custom Lambda consumers for real-time reactions.
+Pinpoint captures engagement events (message sent, delivered, opened, clicked, bounced, complained) and streams them to Kinesis Data Streams or Amazon Data Firehose. This enables real-time analytics pipelines: stream events to S3 for batch analysis, to Redshift for BI dashboards, or to custom Lambda consumers for real-time reactions.
 
 The built-in analytics dashboard shows campaign performance (delivery rate, open rate, click rate), transactional message metrics, and funnel analytics. For deeper analysis, export event data to Athena and run custom SQL queries.
 

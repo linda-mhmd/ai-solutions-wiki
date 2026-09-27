@@ -15,7 +15,9 @@ related:
   - tools/google-cloud-workflows
   - tools/temporal
   - tools/prefect
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 AWS Step Functions is a serverless workflow orchestration service that coordinates sequences of AWS service calls, Lambda functions, and external APIs. For AI pipelines - which typically involve multiple stages (ingest, process, model call, store results) - Step Functions provides the glue layer that handles sequencing, error handling, retries, and parallel execution.
@@ -68,6 +70,11 @@ Each step includes retry configuration (exponential backoff for API rate limit e
 
 ## Integration with Bedrock
 
-Step Functions has native Bedrock integration via the `aws-sdk:bedrock-runtime:invokeModel` integration. This means you can call Bedrock models directly from a Step Functions task state without a Lambda wrapper, reducing latency and simplifying the pipeline definition.
+Step Functions has an optimized Bedrock integration (`arn:aws:states:::bedrock:invokeModel`). This means you can call Bedrock models directly from a Step Functions task state without a Lambda wrapper, reducing latency and simplifying the pipeline definition.
 
-For Bedrock Agents, the pattern is: trigger agent execution via Step Functions, poll for completion, then branch on the agent's response.
+For agent steps, note that Amazon Bedrock Agents is now "Bedrock Agents Classic": it went into maintenance mode on 30 July 2026 and is closed to new customers. Existing agents keep working, but AWS recommends [Amazon Bedrock AgentCore](/tools/bedrock-agentcore/) for new agent builds. The orchestration pattern is the same either way: invoke the agent from a task state (typically through a Lambda wrapper, since agent responses are streamed), then branch on the agent's result.
+
+## Sources
+
+1. AWS. "Invoke and customize Amazon Bedrock models with Step Functions." AWS Step Functions Developer Guide, accessed 25 September 2026. https://docs.aws.amazon.com/step-functions/latest/dg/connect-bedrock.html
+2. AWS. "Amazon Bedrock Agents Classic availability change." Amazon Bedrock User Guide, accessed 25 September 2026. https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html

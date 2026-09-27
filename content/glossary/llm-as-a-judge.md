@@ -2,7 +2,8 @@
 title: "LLM-as-a-Judge"
 description: "Using a language model as an automated evaluator of another model's outputs: methodology, calibration with human judgement, known biases, and engineering practice for reliable evaluation pipelines."
 date: 2026-05-08
-lastmod: 2026-05-08
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 categories: [Glossary]
 tags: ["ai-ml", "advanced", "evaluation", "llm", "rag-evaluation", "mlops"]
 related:
@@ -14,7 +15,7 @@ related:
   - guides/llm-evaluation-methods
   - guides/agent-evaluation-guide
   - guides/rag-evaluation-guide
-last_updated: 2026-05-30
+last_updated: 2026-09-25
 ---
 
 LLM-as-a-judge is the practice of using a language model to score, compare, or critique the outputs of another language model (or its own outputs). It is the dominant evaluation methodology for open-ended generation tasks where automated string-overlap metrics (BLEU, ROUGE, exact match) are inadequate. The technique was systematised by Zheng et al. (2023) in the MT-Bench / Chatbot Arena work, which demonstrated that strong judge models reach approximately 80% agreement with human preference, comparable to human-human agreement on the same tasks.
@@ -76,7 +77,7 @@ Liu et al. (2023), G-Eval, provides a reference framework for chain-of-thought-b
 
 ## Frameworks
 
-- **Promptfoo, DeepEval, Ragas, OpenAI Evals, Anthropic Evaluator, AWS Bedrock Evaluation, Langfuse, Phoenix**: production-grade evaluation harnesses with built-in LLM-judge primitives. See [DeepEval vs Promptfoo](/comparisons/deepeval-vs-promptfoo/).
+- **Promptfoo, DeepEval, Ragas, OpenAI Evals, Anthropic Evaluator, AWS Bedrock Evaluation, Langfuse, Phoenix**: production-grade evaluation harnesses with built-in LLM-judge primitives. OpenAI's hosted Evals platform is being retired: existing evals become read-only on 31 October 2026 and the dashboard and API shut down on 30 November 2026, with OpenAI pointing users to Promptfoo as the migration path. See [DeepEval vs Promptfoo](/comparisons/deepeval-vs-promptfoo/).
 - **Chatbot Arena / LMSYS**: open community-maintained pairwise preference benchmark with crowdsourced human votes; the de facto reference for judge calibration on chat models.
 
 ## Related Concepts
@@ -90,6 +91,7 @@ Liu et al. (2023), G-Eval, provides a reference framework for chain-of-thought-b
 ## Sources and Further Reading
 
 - Zheng, L., Chiang, W.-L., Sheng, Y., et al. (2023). *Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena.* NeurIPS 2023 Datasets & Benchmarks. arXiv:2306.05685. [https://arxiv.org/abs/2306.05685](https://arxiv.org/abs/2306.05685)
+- OpenAI. *Deprecations: Evals platform* (accessed 25 September 2026). [https://developers.openai.com/api/docs/deprecations](https://developers.openai.com/api/docs/deprecations)
 - Liu, Y., Iter, D., Xu, Y., et al. (2023). *G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment.* EMNLP 2023. arXiv:2303.16634. [https://arxiv.org/abs/2303.16634](https://arxiv.org/abs/2303.16634)
 - Wang, P., Li, L., Chen, L., et al. (2023). *Large Language Models are not Fair Evaluators.* arXiv:2305.17926. [https://arxiv.org/abs/2305.17926](https://arxiv.org/abs/2305.17926)
 - Panickssery, A., Bowman, S. R., Feng, S. (2024). *LLM Evaluators Recognize and Favor Their Own Generations.* arXiv:2404.13076. [https://arxiv.org/abs/2404.13076](https://arxiv.org/abs/2404.13076)

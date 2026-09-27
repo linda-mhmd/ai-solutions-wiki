@@ -2,8 +2,9 @@
 title: "Hermes Agent"
 description: "Nous Research's open-source, self-improving AI agent that runs as a persistent process, remembers across sessions, and reaches you from the terminal or 20+ messaging platforms."
 date: 2026-07-06
-lastmod: 2026-07-06
-last_updated: 2026-07-06
+lastmod: 2026-09-25
+last_updated: 2026-09-25
+last_verified: 2026-09-25
 tags: ["ai-agent", "coding-agent", "open-source", "persistent-memory", "orchestration", "nous-research"]
 tool_category: "AI"
 related:
@@ -184,5 +185,5 @@ Hermes belongs in a different column from the terminal coding agents. It is a pe
 ## Sources
 
 - [Hermes Agent documentation](https://hermes-agent.nousresearch.com/docs/): definition, install, gateway, skills, tools, terminal backends, and providers.
-- [Hermes Agent on GitHub](https://github.com/NousResearch/hermes-agent): MIT license, Python, and release metadata (v0.18.0, tag v2026.7.1, published 2026-07-01).
+- [Hermes Agent on GitHub](https://github.com/NousResearch/hermes-agent): MIT license, Python, and release metadata (latest checked: v0.21.5, tag v2026.9.24, published 2026-09-24).
 - [OpenCode delegation skill](https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-opencode): the bundled skill for handing coding tasks to OpenCode.

@@ -39,7 +39,7 @@ An AI solution's value chain, from user need to infrastructure:
 
 **Orchestration** - LLM orchestration framework (LangChain, custom code)
 
-**Foundation Model** - The LLM powering generation (GPT-4, Claude, Llama)
+**Foundation Model** - The LLM powering generation (GPT, Claude, Gemini, Llama)
 
 **Retrieval** - Vector search, knowledge base integration
 

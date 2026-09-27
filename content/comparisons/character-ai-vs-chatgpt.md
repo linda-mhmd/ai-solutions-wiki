@@ -11,9 +11,9 @@ related:
   - comparisons/ai-subscription-pricing-2026
   - basics/what-is-chatgpt
   - glossary/ai-safety
-last_verified: 2026-09-04
-last_updated: 2026-09-04
-lastmod: 2026-09-04
+last_verified: 2026-09-25
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 <figure class="bz-figure">
@@ -36,7 +36,7 @@ That's the real product difference: Character.AI is a platform for *finding and 
 | | Free | Paid tier |
 |---|---|---|
 | **Character.AI** | Unlimited text messages, access to all public Characters, ads, "slow mode" during peak hours, limited voice calls | **c.ai+**: $9.99/month or roughly $95–100/year — removes ads, priority access during peak hours, faster responses, unlimited voice calls, expanded memory, more swipes/regenerations, early feature access [1][2] |
-| **ChatGPT** | GPT-5.6 Luna, unlimited text chat since 6 Aug 2026 (images/uploads/voice still capped), ads shown to free users in the US and, as of 24 Aug 2026, 31 European markets | **Go** $8/mo (GPT-5.6 Luna, higher tool/image/upload limits, still ads) · **Plus** $20/mo (GPT-5.6 Sol, no ads, voice, image generation, Agent mode) · **Pro** $100–$200/mo [3] |
+| **ChatGPT** | GPT-5.6 Luna, unlimited text chat since 6 Aug 2026 (images/uploads/voice still capped), ads shown to free users in the US and, as of 24 Aug 2026, 31 European markets | **Go** $8/mo (GPT-5.6 Luna, higher tool/image/upload limits, still ads) · **Plus** $20/mo (GPT-5.6 Terra/Sol, plus GPT-6 Astra, Sol and Luna, which OpenAI surfaces mainly in ChatGPT Work and Codex; no ads, voice, image generation, Agent mode) · **Pro** $100–$200/mo [3] |
 
 Character.AI has one paid tier; ChatGPT has three (plus Business/Enterprise). Note that Character.AI's official pricing page returns a 404 for direct crawling — pricing is surfaced only through the in-app paywall — so the figures above are cross-checked across multiple independent pricing trackers rather than pulled from one canonical page; treat the exact annual figure ($94.99 vs $99.99 depending on tracker and promotion) as approximate and confirm the current rate in-app before subscribing [1][2]. Character.AI also periodically runs promotional pricing (a "Summer Flash Sale" at $14.99 for three months was live as of June 2026) that undercuts the standard rate for new subscribers [2]. Neither product's free tier is genuinely comparable to the other's — Character.AI's free tier gives unlimited text messaging with every Character but layers in ads and "slow mode" delays at peak hours, while ChatGPT's free tier dropped its own message cap on 6 August 2026 (text is now unlimited there too) but still runs the smaller Luna model and caps images, uploads, and voice.
 
@@ -65,11 +65,11 @@ The honest summary: Character.AI is the product this specific controversy is act
 | Persistent, in-character persona roleplay | Yes — the core product | Only if you actively maintain it yourself each session |
 | Discover other users' created characters | Yes — 10M+ Characters, a real creator ecosystem | No equivalent |
 | General assistant tasks (writing, code, research, analysis) | Weak — not what it's built for | Strong — this is the core product |
-| Image/voice generation | Voice calls (c.ai+); no native image generation | Native image generation (`gpt-image-2`), Advanced Voice Mode |
+| Image/voice generation | Voice calls (c.ai+); no native image generation | Native image generation (ChatGPT Images 2.5 since 8 September 2026), Advanced Voice Mode |
 | Web browsing / up-to-date information | No | Yes (Plus and above) |
 | Under-18 open-ended chat | Not permitted since 25 Nov 2025 | Permitted, age-13+, with parental controls and reduced-restriction routing for predicted minors |
 | Content policy on sexual material | Explicit content blocked for all users, all tiers | Restrictive for all users; a verified-adult relaxation was announced then paused indefinitely (Mar 2026) |
-| Cost for the full experience | $9.99/mo (c.ai+) | $20/mo (Plus) for the flagship model and full feature set |
+| Cost for the full experience | $9.99/mo (c.ai+) | $20/mo (Plus) for the current models and full feature set |
 
 ## Who should actually pick which
 
@@ -96,7 +96,7 @@ The honest summary: Character.AI is the product this specific controversy is act
 
 1. Character.AI, c.ai+ pricing and features, cross-checked across multiple current trackers since character.ai's own pricing page is not directly crawlable (returns 404; pricing surfaces only through the in-app paywall): [https://costbench.com/software/ai-chatbots/character-ai/](https://costbench.com/software/ai-chatbots/character-ai/), [https://www.eesel.ai/blog/character-ai-pricing](https://www.eesel.ai/blog/character-ai-pricing)
 2. Character.AI Help Center, "c.ai+ Summer Flash Sale — Offer Terms" (June 2026), on promotional and standard c.ai+ pricing: [https://support.character.ai/hc/en-us/articles/51248493096987-c-ai-Summer-Flash-Sale-Offer-Terms](https://support.character.ai/hc/en-us/articles/51248493096987-c-ai-Summer-Flash-Sale-Offer-Terms)
-3. OpenAI ChatGPT consumer pricing (Free/Go/Plus/Pro), cross-checked against OpenAI's own site — see this wiki's [AI subscription pricing 2026](/comparisons/ai-subscription-pricing-2026/) for full sourcing detail on these figures.
+3. OpenAI ChatGPT consumer pricing (Free/Go/Plus/Pro), cross-checked against OpenAI's own site — see this wiki's [ChatGPT Free vs Plus vs Pro](/comparisons/chatgpt-free-vs-plus-vs-pro/) (updated 25 September 2026, including GPT-6 availability by plan) and [AI subscription pricing 2026](/comparisons/ai-subscription-pricing-2026/) for full sourcing detail; ChatGPT Images 2.5: see [OpenAI API](/tools/openai-api/).
 4. Garcia v. Character Technologies, Inc., No. 6:24-cv-01903 (M.D. Fla.), docket and May 2025 order on motion to dismiss: [https://www.courtlistener.com/docket/69300919/garcia-v-character-technologies-inc/](https://www.courtlistener.com/docket/69300919/garcia-v-character-technologies-inc/)
 5. Tech Justice Law Project, case summary, "Garcia v. Character Technologies, Google, and Character.AI Co-Founders": [https://techjusticelaw.org/cases/garcia-v-character-technologies-google-and-character-ai-co-founders-daniel-de-frietas-and-noam-shazeer/](https://techjusticelaw.org/cases/garcia-v-character-technologies-google-and-character-ai-co-founders-daniel-de-frietas-and-noam-shazeer/)
 6. CNBC, "Google, Character.AI to settle suits involving suicides, AI chatbots" (7 January 2026): [https://www.cnbc.com/2026/01/07/google-characterai-to-settle-suits-involving-suicides-ai-chatbots.html](https://www.cnbc.com/2026/01/07/google-characterai-to-settle-suits-involving-suicides-ai-chatbots.html)

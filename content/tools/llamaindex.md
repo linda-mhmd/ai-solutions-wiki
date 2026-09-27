@@ -4,7 +4,9 @@ description: "Using LlamaIndex for retrieval-augmented generation, data connecto
 date: 2026-03-24
 categories: [Tools]
 tags: ["ai-agents", "intermediate", "llamaindex", "rag", "data-connectors", "indexing", "retrieval"]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 LlamaIndex is a Python data framework for building LLM applications over your own data. Its focus is connecting models to external data sources through retrieval-augmented generation (RAG), with a comprehensive set of data connectors, index types, and query pipelines. It also supports agent workflows, though its primary strength is data-heavy applications.
@@ -18,7 +20,7 @@ LlamaIndex organizes your data into an **index** - a structure optimized for ret
 Building an index:
 ```python
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
-from llama_index.llms.bedrock import Bedrock
+from llama_index.llms.bedrock_converse import BedrockConverse
 from llama_index.embeddings.bedrock import BedrockEmbedding
 
 documents = SimpleDirectoryReader("./docs").load_data()
@@ -27,7 +29,7 @@ index = VectorStoreIndex.from_documents(
     embed_model=BedrockEmbedding(model_id="amazon.titan-embed-text-v2:0")
 )
 query_engine = index.as_query_engine(
-    llm=Bedrock(model="us.anthropic.claude-sonnet-4-6")
+    llm=BedrockConverse(model="us.anthropic.claude-sonnet-4-6")  # any Converse-enabled Claude model in your account
 )
 response = query_engine.query("What is our refund policy?")
 ```
@@ -44,7 +46,7 @@ For pure RAG (document Q&A, knowledge base search), LlamaIndex is the more focus
 
 ## Bedrock Integration
 
-LlamaIndex supports Bedrock models and embeddings through dedicated integration packages. Configure Bedrock as both the LLM and the embedding model to keep everything within the AWS environment - no OpenAI API keys, no external calls, billing through AWS.
+LlamaIndex supports Bedrock models and embeddings through dedicated integration packages. Use `llama-index-llms-bedrock-converse` (the Converse API integration); the older `llama-index-llms-bedrock` package is marked deprecated in the LlamaIndex docs. Configure Bedrock as both the LLM and the embedding model to keep everything within the AWS environment - no OpenAI API keys, no external calls, billing through AWS.
 
 ## OpenSearch Integration
 
@@ -59,3 +61,8 @@ LlamaIndex has 160+ data connectors (via LlamaHub) covering databases, SaaS tool
 - [Amazon OpenSearch Service]({{< relref "amazon-opensearch.md" >}}) - vector store backend
 - [Amazon Bedrock]({{< relref "amazon-bedrock.md" >}}) - LLM and embedding provider
 - [Knowledge Base]({{< relref "/glossary/knowledge-base.md" >}}) - concept LlamaIndex implements
+
+## Sources
+
+1. LlamaIndex. Bedrock LLM integration ("Deprecated: Use llama-index-llms-bedrock-converse instead"). https://developers.llamaindex.ai/python/framework/integrations/llm/bedrock/
+2. llama-index on PyPI (0.14.25, September 2026). https://pypi.org/project/llama-index/

@@ -7,7 +7,9 @@ tags: [azure, personalization, reinforcement-learning, recommendations, ai-servi
 related:
   - tools/amazon-personalize
   - tools/azure-cognitive-services
-last_updated: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Azure Personalizer is an Azure AI service that uses reinforcement learning to select the best content, product, layout, or action to present to an individual user in real time. Unlike traditional recommendation systems that rely on collaborative filtering or content-based approaches, Personalizer uses contextual bandit algorithms that continuously learn from user interactions to optimize content selection. The service takes in a set of actions (content options), context features (user attributes, device, time, location), and action features (content metadata), then returns a ranked list of actions. When the application reports a reward signal (click, purchase, time spent), Personalizer updates its model to improve future decisions.
@@ -31,9 +33,10 @@ Azure Personalizer is Azure's counterpart to Amazon Personalize. Both provide ma
 
 ## Origins and History
 
-Azure Personalizer originated from Microsoft Research's contextual bandit research, particularly the Vowpal Wabbit library developed by John Langford's team. The service was announced at Build 2019 in May 2019 and reached general availability on November 4, 2019. Multi-slot personalization, enabling optimization across multiple content positions simultaneously, was added in 2021. Apprentice mode, which learns from existing business logic, was introduced to lower the barrier to adoption. Microsoft announced in September 2023 that Personalizer would be retired as a standalone service, with personalization capabilities being integrated into other Azure AI platform services. The original announcement targeted October 2025; the retirement was subsequently pushed back, and as of September 2026 Microsoft's own properties do not fully agree on the exact date — Personalizer's product docs and the Microsoft Lifecycle page both point to late August 2026, while the Azure Advisor retirement tracker groups it with Azure Anomaly Detector and Azure Metrics Advisor at 1 October 2026. Treat 1 October 2026 as the date to plan against, and verify current status directly before relying on this service.
+Azure Personalizer originated from Microsoft Research's contextual bandit research, particularly the Vowpal Wabbit library developed by John Langford's team. The service was announced at Build 2019 in May 2019 and reached general availability on November 4, 2019. Multi-slot personalization, enabling optimization across multiple content positions simultaneously, was added in 2021. Apprentice mode, which learns from existing business logic, was introduced to lower the barrier to adoption. Microsoft announced in September 2023 that Personalizer would be retired as a standalone service, with personalization capabilities being integrated into other Azure AI platform services. New resources could not be created after 20 September 2023. Personalizer's product documentation gives the retirement date as **25 August 2026**, which has now passed, and Microsoft's Foundry Tools overview lists it as retired (the Azure Advisor retirement tracker had grouped it with Anomaly Detector and Metrics Advisor at 1 October 2026). Treat the service as retired: do not use it for new work, and move remaining workloads to an alternative such as Amazon Personalize, a self-hosted contextual bandit built on the open-source Vowpal Wabbit library, or a custom model on Azure Machine Learning.
 
 ## Sources
 
 1. Microsoft Learn. "What is Azure AI Personalizer?" https://learn.microsoft.com/en-us/azure/ai-services/personalizer/what-is-personalizer
 2. Microsoft Azure Blog. "Azure Personalizer is now generally available." November 2019. https://azure.microsoft.com/en-us/blog/azure-personalizer-is-now-generally-available/
+3. Microsoft Learn. "What are Foundry Tools?" (retired services list), accessed 25 September 2026. https://learn.microsoft.com/en-us/azure/ai-services/what-are-ai-services

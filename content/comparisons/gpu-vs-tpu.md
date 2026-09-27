@@ -2,20 +2,20 @@
 title: "GPU vs TPU for AI Training and Inference"
 description: "Comparing GPUs and TPUs for AI model training and inference, covering performance, cost, ecosystem, and workload suitability."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [GPU, TPU, training, inference, hardware, compute]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 The choice between GPUs and TPUs affects training speed, inference latency, cost, and which frameworks and model architectures are practical to use. GPUs are the default for most AI workloads, but TPUs offer advantages for specific use cases, particularly large-scale training of transformer models on Google Cloud. This comparison covers the trade-offs for AI training and inference workloads.
 
 ## Hardware Overview
 
-**GPUs (Graphics Processing Units)** are general-purpose parallel processors originally designed for graphics rendering. NVIDIA dominates the AI GPU market. Its Blackwell generation (B200 and GB200, plus the Blackwell Ultra B300 and GB300 refresh) is now the flagship for both training and inference, with the prior Hopper generation (H100 and H200) still widely deployed. NVIDIA's next architecture, Rubin, was announced for the second half of 2026. AMD competes with the Instinct line, including the MI300X and the CDNA 4 based MI350X and MI355X launched in June 2025. GPUs excel at matrix multiplication and are programmable through CUDA (NVIDIA) or ROCm (AMD).
+**GPUs (Graphics Processing Units)** are general-purpose parallel processors originally designed for graphics rendering. NVIDIA dominates the AI GPU market. Its Blackwell generation (B200 and GB200, plus the Blackwell Ultra B300 and GB300 refresh) is now the flagship for both training and inference, with the prior Hopper generation (H100 and H200) still widely deployed. NVIDIA's next architecture, Vera Rubin, was announced for the second half of 2026; as of September 2026 it has appeared only as a preview submission in MLPerf Inference v6.1 (16 September 2026), where NVIDIA reported up to 3.7x the throughput of GB300 NVL72, not yet as a generally available cloud instance. AMD competes with the Instinct line, including the MI300X and the CDNA 4 based MI350X and MI355X launched in June 2025. GPUs excel at matrix multiplication and are programmable through CUDA (NVIDIA) or ROCm (AMD).
 
-**TPUs (Tensor Processing Units)** are Google's custom-designed ASICs optimized specifically for tensor operations in neural network workloads. TPUs are available exclusively through Google Cloud as Cloud TPU VMs or through Google's TPU Research Cloud. The current generation is the seventh-generation Ironwood (TPU7x), which reached general availability in late 2025 and powers production Gemini 3 inference. The prior generation, Trillium (TPU v6e), remains available, and Google has signalled an eighth generation (a training-focused part and an inference-focused part) for later in 2026. Although TPUs run only on Google Cloud, their reach now extends beyond Google: in October 2025 Anthropic committed to using up to one million TPUs to train and serve Claude.
+**TPUs (Tensor Processing Units)** are Google's custom-designed ASICs optimized specifically for tensor operations in neural network workloads. TPUs are available exclusively through Google Cloud as Cloud TPU VMs or through Google's TPU Research Cloud. The current generation is the seventh-generation Ironwood (TPU7x), which reached general availability in late 2025 and powers production Gemini 3 inference. The prior generation, Trillium (TPU v6e), remains available, and Google has signalled an eighth generation (a training-focused part and an inference-focused part) for later in 2026, though as of late September 2026 Cloud TPU documentation still lists TPU7x as the newest generation. Although TPUs run only on Google Cloud, their reach now extends beyond Google: in October 2025 Anthropic committed to using up to one million TPUs to train and serve Claude.
 
 ## Feature Comparison
 
@@ -109,5 +109,7 @@ Some organizations use both: TPUs for large-scale training on GCP and GPUs for i
 - Google Cloud. *TPU7x (Ironwood) specifications.* [https://docs.cloud.google.com/tpu/docs/tpu7x](https://docs.cloud.google.com/tpu/docs/tpu7x)
 - Google Cloud. *TPU v6e (Trillium) specifications.* [https://docs.cloud.google.com/tpu/docs/v6e](https://docs.cloud.google.com/tpu/docs/v6e)
 - Anthropic (2025). *Anthropic to expand use of Google Cloud TPUs and services (up to one million TPUs).* [https://www.anthropic.com/news/google-broadcom-partnership-compute](https://www.anthropic.com/news/google-broadcom-partnership-compute)
+- NVIDIA (16 September 2026). *NVIDIA Vera Rubin NVL72 Delivers Leading Performance in MLPerf Inference v6.1 Debut.* [https://blogs.nvidia.com/blog/vera-rubin-nvl72-mlperf-inference/](https://blogs.nvidia.com/blog/vera-rubin-nvl72-mlperf-inference/)
+- Google Cloud. *TPU system architecture* (TPU generations listed, checked 25 September 2026). [https://docs.cloud.google.com/tpu/docs/system-architecture-tpu-vm](https://docs.cloud.google.com/tpu/docs/system-architecture-tpu-vm)
 - NVIDIA. *NVIDIA Blackwell architecture.* [https://www.nvidia.com/en-us/data-center/technologies/blackwell-architecture/](https://www.nvidia.com/en-us/data-center/technologies/blackwell-architecture/)
 - AMD (2025). *AMD Instinct MI350 Series and beyond.* [https://www.amd.com/en/blogs/2025/amd-instinct-mi350-series-and-beyond-accelerating-the-future-of-ai-and-hpc.html](https://www.amd.com/en/blogs/2025/amd-instinct-mi350-series-and-beyond-accelerating-the-future-of-ai-and-hpc.html)

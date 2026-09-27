@@ -4,7 +4,9 @@ description: "What speech-to-text technology is, how AWS Transcribe, Azure Speec
 date: 2026-03-24
 categories: [Glossary]
 tags: ["ai-ml", "beginner", "speech-to-text", "asr", "transcription", "audio", "nlp"]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Speech-to-text (STT) converts spoken audio into written text. Modern STT systems use end-to-end deep learning models trained on thousands of hours of labeled audio to achieve accuracy near human transcription levels for clear speech. Applications include meeting transcription, voice search, closed captioning, call center analytics, and voice interface backends.
@@ -13,7 +15,7 @@ Speech-to-text (STT) converts spoken audio into written text. Modern STT systems
 
 Contemporary STT systems use sequence-to-sequence neural networks. The audio waveform is first converted to a mel spectrogram (a frequency representation over time), then an encoder processes this visual representation into feature vectors, and a decoder generates text tokens. Attention mechanisms allow the decoder to focus on relevant audio segments when producing each word.
 
-Large models like Whisper (OpenAI) use transformer architectures and train on 680,000 hours of multilingual audio, achieving strong multilingual transcription without language-specific training.
+Large models like Whisper (OpenAI, 2022) use transformer architectures and train on 680,000 hours of multilingual audio, achieving strong multilingual transcription without language-specific training. In OpenAI's API, `whisper-1` and the `gpt-4o-transcribe` family are deprecated and will be removed on 26 February 2027, with `gpt-transcribe` and `gpt-live-transcribe` as the recommended replacements; the open-source Whisper weights are unaffected.
 
 ## AWS: Amazon Transcribe
 
@@ -32,7 +34,7 @@ Transcribe integrates natively with S3 (input and output), Lambda (trigger proce
 
 ## Azure: Speech Service
 
-Azure Cognitive Services Speech offers STT as the Speech-to-Text API. Distinguishing features include custom neural voice (CNTK-based model customization), real-time transcription with interim results, and deep integration with Teams and Office 365 for meeting scenarios. Azure's Conversation Transcription feature handles multi-speaker meeting scenarios well.
+Azure AI Speech (formerly Azure Cognitive Services Speech) offers STT as the Speech-to-Text API. Distinguishing features include Custom Speech (adapting the recognition model to domain vocabulary and acoustics), real-time transcription with interim results, and deep integration with Teams and Office 365 for meeting scenarios. Azure's Conversation Transcription feature handles multi-speaker meeting scenarios well.
 
 ## GCP: Speech-to-Text
 
@@ -63,3 +65,4 @@ Domain-specific terms - rare proper nouns, technical acronyms, product names, me
 - Baevski, A., et al. (2020). wav2vec 2.0: A framework for self-supervised learning of speech representations. *NeurIPS 2020*. (wav2vec 2.0; self-supervised pre-training that reduced labeled data requirements by orders of magnitude.)
 - Chan, W., Jaitly, N., Le, Q., & Vinyals, O. (2016). Listen, attend and spell: A neural network for large vocabulary conversational speech recognition. *ICASSP 2016*. (LAS; foundational attention-based end-to-end ASR model eliminating alignment assumptions.)
 - Graves, A. (2006). Connectionist temporal classification: Labelling unsegmented sequence data with recurrent neural networks. *ICML 2006*. (CTC loss; enabled end-to-end training of RNN ASR models without pre-segmented phoneme labels.)
+- OpenAI. *Deprecations: 2026-08-26 transcription models* (accessed 25 September 2026). [https://developers.openai.com/api/docs/deprecations](https://developers.openai.com/api/docs/deprecations)

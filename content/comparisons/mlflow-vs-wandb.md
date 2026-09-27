@@ -2,11 +2,11 @@
 title: "MLflow vs Weights & Biases - Experiment Tracking Compared"
 description: "Comparing MLflow and Weights & Biases (W&B) for ML experiment tracking, model registry, and collaboration features."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-26
 categories: [Comparisons]
 tags: [MLflow, Weights-and-Biases, experiment-tracking, MLOps, comparison]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-26
+lastmod: 2026-09-26
 ---
 
 Experiment tracking is the foundation of reproducible machine learning. MLflow and Weights & Biases (W&B) are the two dominant tools in this space, but they serve different audiences and philosophies. MLflow is open-source infrastructure you host yourself, stewarded by Databricks under the Linux Foundation. W&B is a managed platform with a polished UI and collaboration features; CoreWeave completed its acquisition of Weights & Biases on May 5, 2025, folding it into CoreWeave's AI cloud platform. Both tools have expanded heavily into GenAI and LLM observability, so the choice today is broader than classic experiment tracking.
@@ -23,7 +23,7 @@ Experiment tracking is the foundation of reproducible machine learning. MLflow a
 | UI Quality | Functional | Highly polished |
 | Framework Support | Framework-agnostic | Deep integrations with PyTorch, Hugging Face, etc. |
 | GenAI tooling | MLflow Tracing, LLM-as-a-judge evaluation, prompt management | W&B Weave (tracing, evaluation, guardrails, monitoring) |
-| Pricing | Free (infrastructure costs) | Free for individuals, paid for teams (Pro from about 60 USD/month) |
+| Pricing | Free (infrastructure costs) | Free for individuals, paid for teams (Pro from $60/month billed monthly, checked 26 September 2026) |
 
 ## Experiment Tracking
 
@@ -55,7 +55,7 @@ MLflow artifacts are simpler - files stored alongside runs. MLflow does not prov
 
 Both tools have moved well beyond classic experiment tracking to cover LLM and agent applications, which is the most significant recent change in this space.
 
-MLflow 3 reframed the project around generative AI alongside traditional ML and deep learning. It adds MLflow Tracing (an OpenTelemetry-compatible SDK that captures prompts, retrievals, and tool calls), LLM-as-a-judge evaluation, prompt management, and production monitoring. Recent 3.x releases (the 3.13 line shipped in mid 2026) layered on role-based access control, automatic trace archival, and tighter support for coding agents.
+MLflow 3 reframed the project around generative AI alongside traditional ML and deep learning. It adds MLflow Tracing (an OpenTelemetry-compatible SDK that captures prompts, retrievals, and tool calls), LLM-as-a-judge evaluation, prompt management, and production monitoring. Recent 3.x releases (the 3.13 line shipped in mid 2026; the current line is 3.16, from 4 September 2026) layered on role-based access control, automatic trace archival, and tighter support for coding agents.
 
 W&B now ships two complementary product lines:
 
@@ -79,6 +79,7 @@ For production ML platforms at scale, MLflow's open-source model and broad ecosy
 ## Sources
 
 - [MLflow releases](https://mlflow.org/releases/) - MLflow release history and current version.
+- [mlflow on PyPI](https://pypi.org/project/mlflow/) - 3.16.0 released 4 September 2026, 3.16.1 on 16 September 2026.
 - [MLflow GenAI documentation](https://mlflow.org/docs/latest/genai/) - MLflow Tracing, evaluation, and prompt management for LLM and agent applications.
 - [CoreWeave completes acquisition of Weights & Biases](https://investors.coreweave.com/news/news-details/2025/CoreWeave-Completes-Acquisition-of-Weights--Biases/default.aspx) - acquisition completion on May 5, 2025.
 - [W&B Weave](https://wandb.ai/site/weave/) - Weights & Biases GenAI observability and evaluation platform.

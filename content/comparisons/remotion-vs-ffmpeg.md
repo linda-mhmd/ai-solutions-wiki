@@ -2,11 +2,11 @@
 title: "Remotion vs FFmpeg - Video Processing Approaches"
 description: "When to use Remotion (React-based programmatic video) vs FFmpeg (command-line video processing) for AI video pipelines."
 date: 2026-03-24
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: ["media-processing", "intermediate", "remotion", "ffmpeg", "video-generation", "comparison", "programmatic-video"]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 Remotion and FFmpeg are frequently mentioned together in AI video pipeline discussions, but they solve fundamentally different problems. Understanding where each fits prevents misuse of both.
@@ -19,7 +19,7 @@ Remotion and FFmpeg are frequently mentioned together in AI video pipeline discu
 
 They are complementary tools, not alternatives.
 
-As of June 2026, the current stable FFmpeg release is 8.1.1 "Hoare" (May 2026), part of the FFmpeg 8 line that began with 8.0 "Huffman" in August 2025. Remotion is an open-source framework, free for individuals and teams of up to three people, with a paid company license required for larger teams (see the licensing notes below).
+As of September 2026, the latest stable FFmpeg release is 9.0.2 "Lei" (18 September 2026), from the FFmpeg 9 major line that followed 8.0 "Huffman" (August 2025) and 8.1 "Hoare" (March 2026); the 8.1 branch still receives point releases (8.1.3). Remotion is an open-source framework, free for individuals and teams of up to three people, with a paid company license required for larger teams (see the licensing notes below).
 
 ## Use Case Comparison
 
@@ -91,5 +91,5 @@ Remotion renders at approximately real-time on a single CPU for simple compositi
 
 - [Remotion documentation](https://www.remotion.dev/docs) - official docs for the React video framework
 - [Remotion Lambda overview](https://www.remotion.dev/docs/lambda) - how Remotion parallelizes rendering across AWS Lambda
-- [FFmpeg download and release page](https://www.ffmpeg.org/download.html) - current stable release and version history
+- [FFmpeg download and release page](https://www.ffmpeg.org/download.html) - current stable release (9.0.2 "Lei", 18 September 2026) and version history
 - [FFmpeg 8.0 release notes (Phoronix)](https://www.phoronix.com/news/FFmpeg-8.0-Released) - coverage of the Whisper filter and Vulkan compute codecs

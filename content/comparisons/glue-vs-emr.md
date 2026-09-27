@@ -2,11 +2,11 @@
 title: "AWS Glue vs EMR for Data Processing"
 description: "Comparing AWS Glue and Amazon EMR for data processing in AI and ML pipelines, covering serverless vs managed clusters, Spark support, and cost models."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [AWS-Glue, EMR, data-processing, Spark, ETL, comparison]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 AWS Glue and Amazon EMR both run Apache Spark workloads, but they target different operational models. Glue is serverless ETL. EMR is managed cluster infrastructure. For AI/ML data pipelines, the choice affects cost, control, and operational complexity.
@@ -26,7 +26,7 @@ AWS Glue and Amazon EMR both run Apache Spark workloads, but they target differe
 
 ## Architecture
 
-Glue abstracts away cluster management entirely. You define jobs (visual or code), specify the number of DPUs (data processing units), and Glue handles provisioning, scaling, and teardown. Glue jobs run on a managed Apache Spark environment with automatic retries and job bookmarking for incremental processing. The current engine is AWS Glue 5.1 (announced November 2025), which runs Apache Spark 3.5.6 on Python 3.11 and Java 17 and adds Apache Iceberg format version 3.0 support plus AWS Lake Formation fine-grained access control for write operations. AWS Glue 5.0 (December 2024) remains widely used and integrates with Amazon SageMaker Unified Studio and SageMaker Lakehouse.
+Glue abstracts away cluster management entirely. You define jobs (visual or code), specify the number of DPUs (data processing units), and Glue handles provisioning, scaling, and teardown. Glue jobs run on a managed Apache Spark environment with automatic retries and job bookmarking for incremental processing. The current engine is AWS Glue 6.0 (generally available August 21, 2026), which runs Apache Spark 4.1 on Python 3.13 and Scala 2.13, adds full Apache Iceberg v3 support, and comes with what AWS describes as a 30% price reduction. The previous engine, AWS Glue 5.1 (announced November 2025), runs Apache Spark 3.5.6 on Python 3.11 and Java 17 and adds Apache Iceberg format version 3.0 support plus AWS Lake Formation fine-grained access control for write operations. AWS Glue 5.0 (December 2024) remains widely used and integrates with Amazon SageMaker Unified Studio and SageMaker Lakehouse.
 
 EMR gives you full cluster control. You choose instance types, cluster size, applications to install, and configuration parameters. EMR on EC2 provides maximum control. EMR on EKS runs Spark on your Kubernetes clusters. EMR Serverless provides a serverless option that competes more directly with Glue. EMR on Outposts extends EMR to on-premises hardware. Recent EMR releases ship Apache Spark 4.x (the emr-spark-8.0.0 release line) alongside the long-supported Spark 3.5 builds, so you can pick a Spark major version per workload.
 
@@ -65,6 +65,7 @@ Related comparisons: {{< relref "comparisons/databricks-vs-emr" >}}, {{< relref 
 ## Sources
 
 - [AWS Glue pricing](https://aws.amazon.com/glue/pricing/) - per-DPU-hour and Flex rates, billing increments.
+- [AWS Glue 6.0 delivers 30% price reduction and Iceberg v3 support](https://aws.amazon.com/about-aws/whats-new/2026/08/aws-glue-6-0-price-reduction-iceberg-v3) - Apache Spark 4.1, Python 3.13, Scala 2.13 (August 21, 2026).
 - [Introducing AWS Glue 5.1](https://aws.amazon.com/about-aws/whats-new/2025/11/aws-glue-5-1) - Apache Spark 3.5.6, Python 3.11, Iceberg v3, Lake Formation write access.
 - [Introducing AWS Glue 5.0](https://aws.amazon.com/about-aws/whats-new/2024/12/aws-glue-5-0) - prior engine release and SageMaker Lakehouse integration.
 - [Amazon EMR pricing](https://aws.amazon.com/emr/pricing/) - EMR on EC2 layered pricing, Spot/Reserved/Savings Plans, EMR Serverless vCPU-hour and GB-hour rates.

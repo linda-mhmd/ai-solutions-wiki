@@ -4,10 +4,12 @@ description: "A practical guide to building multi-modal AI applications that pro
 date: 2026-03-28
 categories: [Guides]
 tags: [multi-modal, computer-vision, NLP, LLM, AI-development]
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
-Multi-modal AI systems process and reason across multiple data types: text, images, audio, video, and structured data. Modern foundation models like GPT-4, Claude, and Gemini natively support text and image inputs, making multi-modal applications more accessible than ever. This guide covers practical implementation of multi-modal AI systems.
+Multi-modal AI systems process and reason across multiple data types: text, images, audio, video, and structured data. Current foundation models such as OpenAI's GPT-6 family, Anthropic's Claude, and Google's Gemini natively support text and image inputs (see the [LLM landscape 2026](/comparisons/llm-landscape-2026/) for the lineup at the time of writing, September 2026), making multi-modal applications more accessible than ever. This guide covers practical implementation of multi-modal AI systems.
 
 ## Multi-Modal Capabilities Today
 
@@ -23,7 +25,7 @@ Multi-modal AI systems process and reason across multiple data types: text, imag
 
 **Video understanding.** Some models accept video input but with limitations on length and frame rate. Short video clips (under 2 minutes) work reasonably well. Long-form video analysis requires frame sampling strategies.
 
-**Audio processing.** Dedicated audio models (Whisper for transcription, speech synthesis models) work well. Integrated multi-modal models that directly process audio are emerging but less mature than text-image models.
+**Audio processing.** Dedicated audio models (Whisper and hosted transcription models, speech synthesis models) work well. Native audio-to-audio models are now generally available (for example Google's Gemini 3.8 Live and OpenAI's GPT-Live 1, both GA in September 2026), but they are priced and operated differently from text-image models and are less mature for complex reasoning.
 
 **Structured data reasoning.** Models can analyze tables and charts in images, but accuracy for complex data visualizations is still variable.
 
@@ -35,7 +37,7 @@ Send multiple modalities directly to a model that supports them.
 
 Use case: "Analyze this product image and this customer review to determine if the review matches the product."
 
-Implementation: Send the image and text together in a single API call to a multi-modal model (Claude, GPT-4). The model processes both natively.
+Implementation: Send the image and text together in a single API call to a multi-modal model (Claude, GPT-6, Gemini). The model processes both natively.
 
 **Advantages:** Simplest architecture. Model handles cross-modal reasoning natively.
 **Limitations:** Limited to modalities the model supports. Input size limits apply.

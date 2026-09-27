@@ -9,7 +9,9 @@ related:
   - glossary/remix
   - glossary/single-page-application
   - glossary/nextjs
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 React Router is the standard routing library for React applications, providing declarative, component-based navigation for single-page applications. Created by Ryan Florence and Michael Jackson in 2014, it has been through several major architectural shifts that mirror the React community's evolving understanding of how routing should work in component-driven applications.
@@ -30,7 +32,7 @@ React Router's version history reflects three distinct philosophical eras, as Fl
 
 **V4-V5: "Declarative Routing" (2017-2021).** Version 4 was a complete rewrite that treated routes as regular React components. Instead of a static route configuration, routes were rendered inline within the component tree using `<Route>` and `<Switch>` components. This was controversial --- it broke backward compatibility --- but it aligned routing with React's declarative philosophy. Routes could be rendered anywhere, conditionally, and composed like any other component.
 
-**V6-V7: "Data Routing" (2022-present).** Version 6 introduced a modernized API with smaller bundle size, better TypeScript support, and improved nested route handling. Version 6.4 (September 2022) added data APIs --- loaders and actions --- borrowed directly from Remix. Version 7 (late 2024) fully absorbed Remix's server runtime, offering a "framework mode" with server-side rendering, file-based routing, and the complete Remix feature set.
+**V6-V8: "Data Routing" (2022-present).** Version 6 introduced a modernized API with smaller bundle size, better TypeScript support, and improved nested route handling. Version 6.4 (September 2022) added data APIs --- loaders and actions --- borrowed directly from Remix. Version 7 (22 November 2024) fully absorbed Remix's server runtime, offering a "framework mode" with server-side rendering, file-based routing, and the complete Remix feature set. Version 8 (17 June 2026) was a deliberately low-drama major release that keeps the three modes (declarative, data, framework), raises the minimum requirements to React 19.2.7 and Node 22.22.0, and moves the project to a yearly major-release schedule [5].
 
 ## Core Concepts
 
@@ -48,3 +50,4 @@ React Router's version history reflects three distinct philosophical eras, as Fl
 2. React Blog. (2014). "Community Round-up #21." August 3, 2014. https://legacy.reactjs.org/blog/2014/08/03/community-roundup-21.html
 3. Florence, R. (2025). React Router version history thread. https://x.com/ryanflorence/status/1895546111961809316
 4. React Router Documentation. https://reactrouter.com/
+5. Lybrand, B. (2026). "React Router v8." Remix Blog, June 17, 2026. https://remix.run/blog/react-router-v8

@@ -10,12 +10,14 @@ related:
   - tools/apache-flink
   - tools/apache-kafka
   - tools/databricks
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Apache Spark is a unified analytics engine for large-scale data processing that provides high-level APIs in Java, Scala, Python, and R. It supports a rich set of higher-level tools including Spark SQL for structured data processing, MLlib for machine learning, GraphX for graph computation, and Structured Streaming for stream processing. Spark's in-memory computing capabilities make it up to 100 times faster than Hadoop MapReduce for certain workloads, fundamentally changing the economics and practicality of iterative algorithms and interactive data analysis.
 
-At its core, Spark introduces the Resilient Distributed Dataset (RDD) abstraction and the more modern DataFrame and Dataset APIs, which allow developers to express complex data transformations as a series of lazy operations that Spark's Catalyst optimizer compiles into efficient execution plans. The engine manages data partitioning, task scheduling, fault recovery, and data locality transparently. Spark runs on Hadoop YARN, Apache Mesos, Kubernetes, or its own standalone cluster manager, and can read from diverse data sources including HDFS, S3, Cassandra, HBase, and Kafka.
+At its core, Spark introduces the Resilient Distributed Dataset (RDD) abstraction and the more modern DataFrame and Dataset APIs, which allow developers to express complex data transformations as a series of lazy operations that Spark's Catalyst optimizer compiles into efficient execution plans. The engine manages data partitioning, task scheduling, fault recovery, and data locality transparently. Spark runs on Hadoop YARN, Kubernetes, or its own standalone cluster manager (Apache Mesos support was deprecated in Spark 3.2 and removed in Spark 4.0), and can read from diverse data sources including HDFS, S3, Cassandra, HBase, and Kafka.
 
 Spark has become the de facto standard for batch and micro-batch data processing in enterprise environments. It powers the data platforms of companies like Netflix, Uber, Airbnb, and thousands of others. The commercial ecosystem around Spark is anchored by Databricks, the company founded by Spark's original creators, which offers a managed Spark-based lakehouse platform on all major clouds.
 
@@ -32,9 +34,11 @@ Apache Spark is the core engine behind AWS EMR, Azure Synapse Spark Pools, Googl
 
 ## Origins and History
 
-Apache Spark was created by Matei Zaharia at the UC Berkeley AMPLab in 2009 and open-sourced in 2010. It became an Apache top-level project in 2014. Spark is licensed under the Apache License 2.0. Zaharia and several AMPLab colleagues co-founded Databricks in 2013 to commercialize the technology. Major releases include Spark 2.0 (2016) introducing the unified DataFrame API and Catalyst optimizer, and Spark 3.0 (2020) with adaptive query execution and GPU scheduling support.
+Apache Spark was created by Matei Zaharia at the UC Berkeley AMPLab in 2009 and open-sourced in 2010. It became an Apache top-level project in 2014. Spark is licensed under the Apache License 2.0. Zaharia and several AMPLab colleagues co-founded Databricks in 2013 to commercialize the technology. Major releases include Spark 2.0 (2016) introducing the unified DataFrame API and Catalyst optimizer, Spark 3.0 (2020) with adaptive query execution and GPU scheduling support, and Spark 4.0 (May 2025), which enabled ANSI SQL mode by default, added the VARIANT data type, and made Spark Connect a first-class client.
 
 ## Sources
 
 1. https://spark.apache.org/
 2. Zaharia, M. et al. "Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing." NSDI, 2012.
+3. Apache Spark 4.0 core migration guide (Mesos removal): https://spark.apache.org/docs/4.0.0/core-migration-guide.html
+4. pyspark on PyPI (4.0.0 on 23 May 2025): https://pypi.org/project/pyspark/

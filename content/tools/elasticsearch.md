@@ -8,12 +8,14 @@ related:
   - tools/amazon-opensearch
   - tools/pinecone
   - tools/weaviate
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Elasticsearch is a distributed search and analytics engine built on Apache Lucene. It has long been the standard for full-text search, log analytics, and application search. With the addition of dense vector fields and approximate nearest neighbor (ANN) search, Elasticsearch now serves as a hybrid search engine that combines traditional keyword search with vector similarity search. For AI projects, Elasticsearch is valuable when you need both structured search and semantic search in a single system, particularly when the organization already operates Elasticsearch infrastructure.
 
-Official documentation: https://www.elastic.co/guide/en/elasticsearch/reference/current/
+Official documentation: https://www.elastic.co/docs/reference/elasticsearch (the older /guide/en/elasticsearch/reference/current/ address redirects there)
 
 ## Core Concepts
 
@@ -68,8 +70,13 @@ Elasticsearch connects to LLM orchestration frameworks (LangChain, LlamaIndex) a
 
 **Self-managed** - Download and run Elasticsearch on your own infrastructure. Provides full control but requires significant operational expertise. Common on AWS using EC2 instances or EKS.
 
-**Amazon OpenSearch** - AWS's managed fork of Elasticsearch. Compatible with most Elasticsearch APIs but diverges in newer features. Consider OpenSearch when staying within the AWS ecosystem is a priority.
+**Amazon OpenSearch Service** - AWS's managed service for OpenSearch, the fork of Elasticsearch 7.10 that AWS started in 2021 and that is now governed by the OpenSearch Software Foundation under the Linux Foundation. Compatible with many Elasticsearch APIs but diverges in newer features. Consider OpenSearch when staying within the AWS ecosystem is a priority.
 
 ## Pricing
 
-Elastic Cloud charges based on deployment size (CPU, memory, storage) and data transfer. Self-managed has no licensing cost for the basic features (Elasticsearch is open-source under SSPL/Elastic License), but enterprise features (ML, security, alerting) require a paid subscription. Vector search and ELSER are included in the Elasticsearch license.
+Elastic Cloud charges based on deployment size (CPU, memory, storage) and data transfer. Self-managed has no licensing cost for the free features. Elasticsearch's source code is available under a choice of the Elastic License 2.0, SSPL 1.0, and, since Elastic added it in September 2024, the OSI-approved **AGPLv3**, so it again counts as open source; the default distribution ships under the Elastic License 2.0. Advanced features (such as some ML, security, and alerting capabilities) require a paid subscription. Vector search and ELSER are included in the Elasticsearch license.
+
+## Sources
+
+1. Elastic. "Licensing FAQ" (SSPL/ELv2 dual licence since 7.11 in 2021; AGPLv3 option added September 2024). https://www.elastic.co/pricing/faq/licensing
+2. Elasticsearch reference documentation. https://www.elastic.co/docs/reference/elasticsearch

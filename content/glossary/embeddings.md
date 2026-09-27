@@ -10,7 +10,9 @@ related:
   - guides/building-rag-systems
   - tools/amazon-bedrock
   - patterns/rag-implementation
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 An embedding is a numerical representation of a piece of text (or image, audio, or other data) as a vector of floating-point numbers. The key property of embeddings is that similar content produces similar vectors - measured by cosine similarity or dot product distance.
@@ -47,7 +49,7 @@ A vector database stores embeddings and provides fast approximate nearest-neighb
 
 **Amazon OpenSearch with k-NN** - Native vector search in a service most enterprise teams already use for other search workloads. Good choice for teams with existing OpenSearch infrastructure.
 
-**Amazon Bedrock Knowledge Bases** - Managed RAG infrastructure that handles embedding, storage (backed by OpenSearch or Aurora PostgreSQL), and retrieval. Lowest operational overhead for standard RAG use cases.
+**Amazon Bedrock Knowledge Bases** - Managed RAG infrastructure that handles embedding, storage (backed by OpenSearch, Aurora PostgreSQL, Amazon S3 Vectors, Neptune Analytics, or third-party stores such as Pinecone, Redis Enterprise Cloud and MongoDB Atlas), and retrieval. Lowest operational overhead for standard RAG use cases.
 
 **pgvector (PostgreSQL extension)** - Vector storage in PostgreSQL. Good for teams with existing PostgreSQL infrastructure who want to avoid adding a new database service.
 
@@ -66,6 +68,7 @@ For multilingual content, use a multilingual embedding model and ensure queries 
 - Reimers, N., and Gurevych, I. (2019). "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks." *arXiv:1908.10084*. [https://arxiv.org/abs/1908.10084](https://arxiv.org/abs/1908.10084) - The paper that established the sentence embedding approach used by most modern embedding models.
 - AWS Documentation: Amazon Titan Embeddings models. [https://docs.aws.amazon.com/bedrock/latest/userguide/titan-embedding-models.html](https://docs.aws.amazon.com/bedrock/latest/userguide/titan-embedding-models.html)
 - AWS Documentation: Amazon Bedrock Knowledge Bases (managed RAG with embeddings). [https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html)
+- AWS Documentation: Prerequisites for using a vector store you created for a knowledge base (supported vector stores; accessed 25 September 2026). [https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html)
 - Sentence-Transformers library documentation: [https://www.sbert.net/](https://www.sbert.net/)
 - MTEB Leaderboard - Massive Text Embedding Benchmark: [https://huggingface.co/spaces/mteb/leaderboard](https://huggingface.co/spaces/mteb/leaderboard)
 - Cohere Embed documentation: [https://docs.cohere.com/docs/embeddings](https://docs.cohere.com/docs/embeddings)

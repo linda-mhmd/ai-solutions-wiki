@@ -8,7 +8,7 @@ tags: ["chatgpt", "inference", "llm", "infrastructure", "gpu"]
 
 <figure class="bz-figure"><img src="/img/enterprise-dark/server-cpu-split-notext.png" alt="Split image of a dark server room on the left and a red-lit processor chip on the right, representing the data center hardware that runs a chatbot." loading="lazy"><figcaption>Behind a chat window sits a fleet of servers and accelerator chips that turn your words into a stream of predicted tokens.</figcaption></figure>
 
-When you type a message into ChatGPT and press enter, the reply that streams back is the visible end of a long chain of steps. Your text is broken into tokens, routed across the internet to a data center, processed by a large language model running on specialised chips, and sent back one piece at a time. This guide explains that chain in plain words, including the infrastructure layer that most explainers skip. If you want the product overview instead, the basics page on [what ChatGPT is](/glossary/llm/) covers the user-facing side.
+When you type a message into ChatGPT and press enter, the reply that streams back is the visible end of a long chain of steps. Your text is broken into tokens, routed across the internet to a data center, processed by a large language model running on specialised chips, and sent back one piece at a time. This guide explains that chain in plain words, including the infrastructure layer that most explainers skip. If you want the product overview instead, the basics page on [what ChatGPT is](/basics/what-is-chatgpt/) covers the user-facing side.
 
 ## The request lifecycle at a glance
 

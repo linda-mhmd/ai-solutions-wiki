@@ -2,7 +2,8 @@
 title: "Chain-of-Thought (CoT) Prompting"
 description: "Eliciting intermediate reasoning steps from language models to improve performance on multi-step problems, with rigorous experimental evidence and known limitations."
 date: 2026-05-08
-lastmod: 2026-05-08
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 categories: [Glossary]
 tags: ["ai-ml", "intermediate", "prompt-engineering", "reasoning", "llm"]
 related:
@@ -11,7 +12,7 @@ related:
   - glossary/llm
   - glossary/few-shot-learning
   - glossary/llm-as-a-judge
-last_updated: 2026-05-30
+last_updated: 2026-09-25
 ---
 
 Chain-of-thought (CoT) prompting is a technique for improving large language model performance on multi-step reasoning problems by eliciting intermediate reasoning traces before the final answer. The original result, Wei et al. (2022), demonstrated that for models above approximately 100B parameters, prompting with worked examples that include intermediate steps substantially improves arithmetic, commonsense, and symbolic reasoning accuracy. CoT has since become a foundational technique for reasoning systems and an active research area, with significant nuance about *when* and *why* it works.
@@ -46,7 +47,7 @@ CoT is the right tool when:
 CoT is *not* the right tool when:
 
 - The problem is single-step (lookup, classification of clear-cut inputs), CoT wastes tokens and can hurt accuracy by introducing reasoning errors
-- The model has been post-trained to reason internally (o1, Claude with extended thinking, DeepSeek-R1), these models reason in a hidden chain and benefit less from explicit CoT prompting
+- The model has been post-trained to reason internally (reasoning models such as OpenAI's o-series and GPT-5/GPT-6 families, Claude with extended or adaptive thinking, DeepSeek-R1 and its successors), these models reason in a hidden chain and benefit less from explicit CoT prompting
 - The task is creative or stylistic, CoT can over-rationalise outputs that should be direct
 
 ## Limitations and Failure Modes
@@ -61,7 +62,7 @@ CoT is not a guaranteed accuracy boost and has well-documented failure modes:
 
 ## Relation to Reasoning Models
 
-The 2024–2025 generation of reasoning models, OpenAI o1, o3, Anthropic Claude with extended thinking, DeepSeek-R1, Google Gemini 2.0 Flash Thinking, internalises CoT through post-training (typically RLHF or RL with verifiable rewards). These models emit a long, often hidden, chain of thought before the visible answer, and scale accuracy with thinking-token budget rather than parameter count. See [Inference-Time Compute](/glossary/inference-time-compute/) for the underlying scaling phenomenon (Snell et al., 2024) and DeepSeek-AI (2025) for an open-source training recipe.
+The 2024–2025 generation of reasoning models, OpenAI o1, o3, Anthropic Claude with extended thinking, DeepSeek-R1, Google Gemini 2.0 Flash Thinking, internalises CoT through post-training (typically RLHF or RL with verifiable rewards). These models emit a long, often hidden, chain of thought before the visible answer, and scale accuracy with thinking-token budget rather than parameter count. See [Inference-Time Compute](/glossary/inference-time-compute/) for the underlying scaling phenomenon (Snell et al., 2024) and DeepSeek-AI (2025) for an open-source training recipe. By 2026 built-in reasoning had become the default rather than a separate product line: current flagship models such as OpenAI's GPT-6 series and Anthropic's Claude Opus 5.5 reason by default, with the depth steered by an effort setting rather than by the prompt, and OpenAI has scheduled the original o1 for shutdown in its API on 23 October 2026, with `gpt-5.6-sol` as the named substitute. See the [LLM landscape](/comparisons/llm-landscape-2026/) for the current lineup.
 
 For these models, prompting *with* explicit CoT instructions is often unnecessary or counter-productive, the model already reasons internally, and "Let's think step by step" can interfere with the trained behaviour. Provider documentation should be consulted for each model.
 
@@ -88,3 +89,5 @@ For these models, prompting *with* explicit CoT instructions is often unnecessar
 - Snell, C., Lee, J., Xu, K., Kumar, A. (2024). *Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters.* arXiv:2408.03314. [https://arxiv.org/abs/2408.03314](https://arxiv.org/abs/2408.03314)
 - DeepSeek-AI (2025). *DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning.* arXiv:2501.12948. [https://arxiv.org/abs/2501.12948](https://arxiv.org/abs/2501.12948)
 - OpenAI (2024). *Learning to Reason with LLMs (o1 system card).* [https://openai.com/index/learning-to-reason-with-llms/](https://openai.com/index/learning-to-reason-with-llms/)
+- OpenAI. *Deprecations* (legacy GPT model snapshots, announced 22 April 2026; accessed 25 September 2026). [https://developers.openai.com/api/docs/deprecations](https://developers.openai.com/api/docs/deprecations)
+- Anthropic. *Models overview* (adaptive thinking on current Claude models; accessed 25 September 2026). [https://platform.claude.com/docs/en/about-claude/models/overview](https://platform.claude.com/docs/en/about-claude/models/overview)

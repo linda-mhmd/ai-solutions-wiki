@@ -2,11 +2,11 @@
 title: "Amazon Bedrock vs Google Vertex AI - Cloud AI Platforms Compared"
 description: "Comparing Amazon Bedrock and Google Vertex AI (now Gemini Enterprise Agent Platform) for models, fine-tuning, RAG, and agents."
 date: 2026-03-28
-last_verified: 2026-09-03
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [AWS, Google, Bedrock, Vertex-AI, LLM, cloud, comparison]
-last_updated: 2026-09-03
-lastmod: 2026-09-03
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 Amazon Bedrock and Google Vertex AI are the primary managed AI platforms from their respective cloud providers. Both offer access to foundation models, fine-tuning capabilities, and RAG infrastructure, but they differ in model selection, ecosystem integration, and architectural approach.
@@ -18,18 +18,18 @@ Amazon Bedrock and Google Vertex AI are the primary managed AI platforms from th
 | Aspect | Amazon Bedrock | Google Vertex AI / Gemini Enterprise Agent Platform |
 |---|---|---|
 | Model Access | Multi-vendor catalog (18+ providers) | Google models + Model Garden (200+ models) |
-| Flagship Models | Claude, Llama, Mistral, Amazon Nova, Titan | Gemini (3.x family), Imagen, Veo |
+| Flagship Models | Claude, OpenAI GPT-5.6 and GPT-6, Llama, Mistral, Amazon Nova | Gemini (3.x family, including Gemini image models), Veo |
 | Fine-tuning | Supported for select models | Supported with Agent Studio (formerly Vertex AI Studio) |
 | RAG | Bedrock Knowledge Bases | Agent Search (formerly Vertex AI Search) |
-| Agents | Bedrock Agents, Bedrock AgentCore | Agent Studio, ADK, Agent Runtime (formerly Vertex AI Agent Builder / Agent Engine) |
+| Agents | Bedrock AgentCore (Bedrock Agents Classic closed to new customers 30 July 2026) | Agent Studio, ADK, Agent Runtime (formerly Vertex AI Agent Builder / Agent Engine) |
 | Safety | Bedrock Guardrails | Responsible AI toolkit, Agent Identity, Agent Gateway |
 | Pricing Model | Per-token | Per-token (character-based for some legacy models) |
 
 ## Model Selection
 
-Bedrock's primary advantage is model diversity. You access Claude (Anthropic), Llama (Meta), Mistral, Cohere, Amazon Nova, and Amazon Titan models through a single API, with the catalog spanning more than a dozen providers. In early 2026 Bedrock also added several open weights models including DeepSeek, GLM, Kimi, MiniMax, and Qwen variants, so you can evaluate multiple model families without changing your integration code. Cross-region inference distributes requests across regions for higher throughput, and global cross-region inference can route to commercial AWS Regions worldwide for additional capacity.
+Bedrock's primary advantage is model diversity. You access Claude (Anthropic), OpenAI's GPT-5.6 and GPT-6 models (GPT-6 Astra GA on Bedrock 8 September 2026, GPT-6 Sol and Luna 22 September 2026), Llama (Meta), Mistral, Cohere, and Amazon Nova models (the successor to the older Amazon Titan family) through a single API, with the catalog spanning more than a dozen providers. In early 2026 Bedrock also added several open weights models including DeepSeek, GLM, Kimi, MiniMax, and Qwen variants, so you can evaluate multiple model families without changing your integration code. Cross-region inference distributes requests across regions for higher throughput, and global cross-region inference can route to commercial AWS Regions worldwide for additional capacity.
 
-Vertex AI centers on Google's own Gemini models (the current generation is the Gemini 3.x family - Gemini 3.1 Pro for complex reasoning, the 3.7/3.6/3.5 Flash line for latency-sensitive and agentic work), which are competitive across benchmarks. The Model Garden - rebranded as the Gemini Enterprise Agent Platform Model Garden but functionally unchanged - now lists 200+ Google and third-party models, including open models like Llama, Gemma, Qwen, and DeepSeek and partner models from Anthropic (the full Claude family) and Mistral AI. You can deploy custom models to managed endpoints as before. The first-class experience is still optimized for Gemini, though Google now markets the platform as a full agent stack rather than a model catalog alone.
+Vertex AI centers on Google's own Gemini models (the current generation is the Gemini 3.x family - Gemini 3.1 Pro, still in preview, for complex reasoning, and Gemini 3.8 Flash, released 2 September 2026, as the main model for latency-sensitive and agentic work, with the earlier 3.7/3.6/3.5 Flash releases still served), which are competitive across benchmarks. The Model Garden - rebranded as the Gemini Enterprise Agent Platform Model Garden but functionally unchanged - now lists 200+ Google and third-party models, including open models like Llama, Gemma, Qwen, and DeepSeek and partner models from Anthropic (the full Claude family) and Mistral AI. You can deploy custom models to managed endpoints as before. The first-class experience is still optimized for Gemini, though Google now markets the platform as a full agent stack rather than a model catalog alone.
 
 ## RAG and Knowledge Management
 
@@ -39,22 +39,22 @@ Vertex AI Search (formerly Enterprise Search, and renamed again to **Agent Searc
 
 ## Agents
 
-Bedrock Agents support multi-step task execution with tool use, knowledge base access, and code interpretation. Agents use a ReAct-style reasoning loop and support action groups that map to Lambda functions or API schemas. For production agents, AWS added Amazon Bedrock AgentCore, which reached general availability in October 2025. AgentCore is a framework-agnostic platform to deploy and operate agents at scale, with a managed runtime (extended execution windows and session isolation), short and long term memory, a gateway that exposes APIs and Lambda functions as tools, and support for the Model Context Protocol (MCP) and the Agent2Agent (A2A) protocol.
+Bedrock Agents (renamed Bedrock Agents Classic, and closed to new customers since 30 July 2026, with AWS directing new builds to AgentCore) support multi-step task execution with tool use, knowledge base access, and code interpretation. Agents use a ReAct-style reasoning loop and support action groups that map to Lambda functions or API schemas. For new and production agents, AWS now recommends Amazon Bedrock AgentCore, which reached general availability in October 2025. AgentCore is a framework-agnostic platform to deploy and operate agents at scale, with a managed runtime (extended execution windows and session isolation), short and long term memory, a gateway that exposes APIs and Lambda functions as tools, and support for the Model Context Protocol (MCP) and the Agent2Agent (A2A) protocol.
 
 What was Vertex AI Agent Builder is now split across two entry points under the Gemini Enterprise Agent Platform: **Agent Studio**, a low-code, visual builder (the renamed Vertex AI Studio), and the **Agent Development Kit (ADK)**, a code-first framework now in the 2.x line that supports graph-based orchestration of sub-agents. Both deploy onto **Agent Runtime** (the service originally previewed as "Agent Engine" at the April 2026 launch), a managed execution environment with long-running operations (up to 7 days), sub-second cold starts, and Memory Bank for persistent agent memory. Google has adopted the Agent2Agent (A2A) protocol - now at v1.0 - as the default interoperability layer, alongside MCP support in ADK. Dialogflow CX remains available for conversational agents, and the agent platform benefits from integration with Google Workspace and Google Search grounding. Governance additions include Agent Identity (cryptographic per-agent identities) and Agent Gateway for controlling tool access.
 
 ## Fine-tuning
 
-Both platforms support fine-tuning, but the experience differs. Bedrock offers fine-tuning for select models (Titan, Llama, Cohere) through an S3-based workflow. You upload training data to S3 and create a fine-tuning job through the API.
+Both platforms support fine-tuning, but the experience differs. Bedrock offers fine-tuning for select models (for example Amazon Nova and Meta Llama) through an S3-based workflow. You upload training data to S3 and create a fine-tuning job through the API.
 
 Vertex AI provides fine-tuning through what is now called **Agent Studio** (formerly Vertex AI Studio) with a more interactive experience. Supervised fine-tuning, reinforcement learning from human feedback (RLHF), and distillation are supported for Gemini models. The notebook integration (Colab Enterprise / Workbench, both renamed under the Gemini Enterprise Agent Platform but otherwise unchanged) makes experimentation more fluid.
 
 ## Model Lifecycle Notes (as of September 2026)
 
-Both vendors retire specific model versions on published schedules, and two currently in the retirement window affect the models discussed above:
+Both vendors retire specific model versions on published schedules, and several recent or imminent retirements affect the models discussed above:
 
-- **Bedrock:** `amazon.nova-reel-v1:1` (Nova Reel's multi-shot video generation model) entered Legacy status on March 30, 2026, and reaches end-of-life on **September 30, 2026** - the same EOL date as the original `amazon.nova-reel-v1:0` and Nova Canvas v1:0. Requests to the retired model IDs will fail after that date; migrate to the current Nova Reel or Nova Canvas releases before then.
-- **Vertex AI / Gemini Enterprise Agent Platform:** `gemini-omni-flash-preview`, the preview conversational-video model released June 30, 2026, is now deprecated with a shutdown date of **September 30, 2026**. Google shipped `gemini-omni-1.1-flash` to general availability on August 27, 2026 as the replacement, adding 40-second scene extension, keyframe control, and 4K upscaling.
+- **Bedrock:** `amazon.nova-reel-v1:1` (Nova Reel's multi-shot video generation model) entered Legacy status on March 30, 2026, and reaches end-of-life on **September 30, 2026** - the same EOL date as the original `amazon.nova-reel-v1:0` and Nova Canvas v1:0. Requests to the retired model IDs will fail after that date, and no newer Nova Reel or Nova Canvas version is listed, so plan a replacement image or video model. Nova Premier (`amazon.nova-premier-v1:0`) and the original Nova Sonic (`amazon.nova-sonic-v1:0`) already reached end-of-life on September 14, 2026. For models launched on or after September 7, 2026, Bedrock uses a new lifecycle policy in which each model card states an "EOL no sooner than" date.
+- **Vertex AI / Gemini Enterprise Agent Platform:** `gemini-omni-flash-preview`, the preview conversational-video model released June 30, 2026, is now deprecated with a shutdown date of **September 30, 2026**. Google shipped `gemini-omni-1.1-flash` to general availability on August 27, 2026 as the replacement, adding 40-second scene extension, keyframe control, and 4K upscaling. Imagen 4 was shut down on August 17, 2026 (Google points image generation to `gemini-3.1-flash-image`), and since September 18, 2026 the Gemini 2.5 models are available only to projects that had already used them.
 
 Given both organizations' pace of model churn, treat any specific model ID cited on this page as a snapshot - check the vendor's own lifecycle page before locking in a model for a long-lived production workload.
 
@@ -89,11 +89,15 @@ The model availability question often drives this decision. If your evaluation s
 - AWS. *Supported foundation models in Amazon Bedrock.* [https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html](https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html)
 - AWS (2026). *Amazon Bedrock adds support for six fully-managed open weights models (February 10, 2026: DeepSeek V3.2, MiniMax M2.1, GLM 4.7, GLM 4.7 Flash, Kimi K2.5, Qwen3 Coder Next).* [https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-bedrock-adds-support-six-open-weights-models](https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-bedrock-adds-support-six-open-weights-models)
 - AWS (2025). *Amazon Bedrock AgentCore is now generally available (October 13, 2025).* [https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available](https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available)
-- AWS. *Model lifecycle - Amazon Bedrock (Nova Reel v1:0/v1:1 and Nova Canvas v1:0 EOL September 30, 2026).* [https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html](https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html)
+- AWS. *Model lifecycle (Legacy) - Amazon Bedrock (Nova Reel v1:0/v1:1 and Nova Canvas v1:0 EOL September 30, 2026; Nova Premier and Nova Sonic v1 EOL September 14, 2026).* [https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html](https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html)
+- AWS. *Model lifecycle - Amazon Bedrock (policy for models launched on or after September 7, 2026).* [https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html](https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html)
+- AWS. *Amazon Bedrock Agents Classic maintenance mode.* [https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html)
+- AWS (September 2026). *OpenAI GPT-6 Astra is now generally available on Amazon Bedrock* (8 September) and *OpenAI GPT-6 Sol and GPT-6 Luna are now generally available on Amazon Bedrock* (22 September). [https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-astra-on-amazon-bedrock/](https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-astra-on-amazon-bedrock/), [https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-sol-luna-on-amazon-bedrock/](https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-sol-luna-on-amazon-bedrock/)
 - Google Cloud. *Google models on the Gemini Enterprise Agent Platform (formerly Vertex AI).* [https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models)
 - Google Cloud. *Gemini Enterprise Agent Platform (formerly Vertex AI) - product page.* [https://cloud.google.com/products/gemini-enterprise-agent-platform](https://cloud.google.com/products/gemini-enterprise-agent-platform)
 - Google Cloud. *Gemini Enterprise Agent Platform name changes (full old-name/new-name mapping table).* [https://docs.cloud.google.com/gemini-enterprise-agent-platform/vertex-ai-name-changes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/vertex-ai-name-changes)
 - Google Cloud. *Gemini Enterprise Agent Platform release notes (April 22, 2026 initial release entry: Agent Builder → Agent Platform, Agent Engine → Agent Runtime).* [https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes)
 - Google Cloud Blog (April 22, 2026). *The new Gemini Enterprise: one platform for agent development.* [https://cloud.google.com/blog/products/ai-machine-learning/the-new-gemini-enterprise-one-platform-for-agent-development](https://cloud.google.com/blog/products/ai-machine-learning/the-new-gemini-enterprise-one-platform-for-agent-development)
 - Google AI for Developers. *Gemini API deprecations (gemini-omni-flash-preview shutdown September 30, 2026; replacement gemini-omni-1.1-flash).* [https://ai.google.dev/gemini-api/docs/deprecations](https://ai.google.dev/gemini-api/docs/deprecations)
+- Google AI for Developers. *Gemini API changelog (Imagen 4 shutdown August 17, 2026; Gemini 2.5 access restricted September 18, 2026).* [https://ai.google.dev/gemini-api/docs/changelog](https://ai.google.dev/gemini-api/docs/changelog)
 - Google Cloud. *Model Garden.* [https://cloud.google.com/model-garden](https://cloud.google.com/model-garden)

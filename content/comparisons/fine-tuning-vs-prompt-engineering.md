@@ -2,11 +2,11 @@
 title: "Fine-Tuning vs Prompt Engineering Tradeoffs"
 description: "Comparing fine-tuning and prompt engineering for customizing LLM behavior, covering cost, quality, maintenance, and decision criteria."
 date: 2026-03-28
-last_verified: 2026-06-14
+last_verified: 2026-09-25
 categories: [Comparisons]
 tags: [fine-tuning, prompt-engineering, LLM, customization, comparison]
-last_updated: 2026-06-14
-lastmod: 2026-06-14
+last_updated: 2026-09-25
+lastmod: 2026-09-25
 ---
 
 When an LLM does not produce the output you need, you have two primary levers: change what you send to the model (prompt engineering) or change the model itself (fine-tuning). Both approaches customize LLM behavior, but they differ in cost, effort, maintainability, and the types of improvements they enable.
@@ -71,7 +71,7 @@ Choose fine-tuning when prompt engineering has been optimized and still falls sh
 
 Always exhaust prompt engineering before fine-tuning. The majority of LLM applications in production use prompt engineering alone. Fine-tuning is a specialized tool for specific situations - not a default approach. When you do fine-tune, maintain a strong prompt engineering baseline to measure fine-tuning's incremental value.
 
-This default has only hardened through 2025 and 2026 as frontier models improved at following instructions and as the discipline broadened from prompt engineering into context engineering (managing what the model sees at inference time: retrieval, memory, tool outputs, and prompt construction together). A common production pattern is to prompt-optimize on a strong model first, then distill or fine-tune a smaller model only when latency or cost forces it. The provider landscape is also shifting: in 2026 OpenAI began winding down its hosted fine-tuning platform (closing it to new users while existing fine-tuned models remain available for inference), while managed reinforcement and supervised fine-tuning continue to expand on platforms such as Amazon Bedrock. Confirm current availability against vendor documentation before committing to a fine-tuning workflow.
+This default has only hardened through 2025 and 2026 as frontier models improved at following instructions and as the discipline broadened from prompt engineering into context engineering (managing what the model sees at inference time: retrieval, memory, tool outputs, and prompt construction together). A common production pattern is to prompt-optimize on a strong model first, then distill or fine-tune a smaller model only when latency or cost forces it. The provider landscape is also shifting: OpenAI is winding down its self-serve fine-tuning platform. Since 7 May 2026 organizations that had never fine-tuned cannot create jobs; since 2 July 2026 organizations that have not run inference on a fine-tuned model in the past 60 days cannot either; and from 6 January 2027 no customer can create new fine-tuning jobs. Inference on existing fine-tuned models continues until the underlying base model is deprecated. Managed reinforcement and supervised fine-tuning meanwhile continue on platforms such as Amazon Bedrock, and Google added a console preview for reinforcement-learning fine-tuning on the Gemini Enterprise Agent Platform (formerly Vertex AI) on 15 September 2026. Confirm current availability against vendor documentation before committing to a fine-tuning workflow.
 
 ## See Also
 
@@ -82,6 +82,8 @@ This default has only hardened through 2025 and 2026 as frontier models improved
 ## Sources
 
 - AWS. *Customize your model to improve its performance for your use case* (Amazon Bedrock model customization: supervised fine-tuning, reinforcement fine-tuning, distillation). [https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
+- OpenAI. *Deprecations: Update to OpenAI's self-serve fine-tuning* (announced 7 May 2026; job creation ends for all customers 6 January 2027). [https://developers.openai.com/api/docs/deprecations](https://developers.openai.com/api/docs/deprecations)
+- Google Cloud. *Release notes feed* (15 September 2026 RL fine-tuning console preview). [https://cloud.google.com/feeds/gcp-release-notes.xml](https://cloud.google.com/feeds/gcp-release-notes.xml)
 - OpenAI. *Reinforcement fine-tuning guide.* [https://developers.openai.com/api/docs/guides/reinforcement-fine-tuning](https://developers.openai.com/api/docs/guides/reinforcement-fine-tuning)
 - OpenAI. *Supervised fine-tuning guide.* [https://developers.openai.com/api/docs/guides/supervised-fine-tuning](https://developers.openai.com/api/docs/guides/supervised-fine-tuning)
 - Hu, E. J., Shen, Y., Wallis, P., et al. (2022). *LoRA: Low-Rank Adaptation of Large Language Models.* ICLR 2022. arXiv:2106.09685. [https://arxiv.org/abs/2106.09685](https://arxiv.org/abs/2106.09685)

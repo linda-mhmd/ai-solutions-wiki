@@ -11,8 +11,9 @@ related:
   - patterns/blue-green-deployment
   - glossary/shared-responsibility
   - comparisons/prebuilt-ai-services-vs-foundation-models
-last_updated: 2026-09-02
-lastmod: 2026-09-02
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Cloud deployment models - SaaS, PaaS, IaaS, and Serverless - are typically introduced in the context of business applications. They apply equally to AI systems, but the trade-offs look different when the workload is model inference rather than a web application. This article maps each deployment model to concrete AI use cases, explains when each is appropriate, and covers cost implications.
@@ -59,7 +60,7 @@ Cloud deployment models - SaaS, PaaS, IaaS, and Serverless - are typically intro
 - Rate limits apply at the account level, not just per application
 - Not suitable when data residency requirements prohibit sending data to a third-party model provider's infrastructure
 
-**Cost model.** Pay per token (input tokens + output tokens). For Amazon Bedrock, as of 2026, Anthropic Claude Sonnet costs approximately $0.003 per 1,000 input tokens and $0.015 per 1,000 output tokens. There is no base fee and no minimum commitment.
+**Cost model.** Pay per token (input tokens + output tokens). As a reference point, Anthropic's list price for Claude Sonnet 5 (September 2026) is $2 per million input tokens and $10 per million output tokens ($0.002 and $0.010 per 1,000); Bedrock prices are set by AWS and can differ by model, Region and endpoint type, so check the Bedrock pricing page. There is no base fee and no minimum commitment.
 
 ## PaaS AI: Platform-Managed Model Endpoints
 
@@ -87,7 +88,7 @@ Cloud deployment models - SaaS, PaaS, IaaS, and Serverless - are typically intro
 
 **What it is.** IaaS AI means provisioning raw compute instances - typically GPU instances - and running your own model server stack on top of them. You control everything from the OS to the model serving framework.
 
-**AWS implementation.** EC2 GPU instances: p3 (NVIDIA V100), p4 (A100), p5 (H100), g5 (A10G for inference). You install CUDA, your framework (vLLM, TGI, TorchServe), and your model weights. You manage patching, scaling, and availability.
+**AWS implementation.** EC2 GPU instances: p3 (NVIDIA V100), p4 (A100), p5 (H100), g5 (A10G for inference). You install CUDA, your serving framework (for example vLLM or SGLang), and your model weights. You manage patching, scaling, and availability.
 
 **When to use it:**
 
@@ -128,9 +129,9 @@ Cloud deployment models - SaaS, PaaS, IaaS, and Serverless - are typically intro
 - Lambda has a 15-minute maximum execution time, which limits long-running agent tasks (mitigated by Step Functions for orchestration)
 - Lambda cold starts add latency (typically 100-500ms for Python with Bedrock SDK)
 - Not suitable for running your own model weights (you are always calling a managed model API)
-- AgentCore is a newer service with a maturing feature set
+- AgentCore is a younger service than Lambda (generally available since October 2025), and its feature set is still expanding. It is AWS's recommended path for new agent builds; the older Bedrock Agents feature (now "Bedrock Agents Classic") closed to new customers on 30 July 2026
 
-**Cost model.** Lambda charges per invocation ($0.0000002 per request) and per GB-second of execution. A Lambda function calling Bedrock Claude Sonnet for a 1-second invocation with 1GB memory costs approximately $0.0000016 in Lambda compute, plus the Bedrock token cost. At moderate scale, serverless AI is typically the lowest-cost deployment model.
+**Cost model.** Lambda charges per invocation ($0.0000002 per request) and per GB-second of execution. A Lambda function calling Bedrock Claude Sonnet for a 1-second invocation with 1GB memory costs approximately $0.0000167 in Lambda compute (at $0.0000166667 per GB-second on x86), plus the Bedrock token cost. At moderate scale, serverless AI is typically the lowest-cost deployment model.
 
 ## Choosing a Deployment Model
 
@@ -151,5 +152,8 @@ Most production AI systems use more than one model. A common pattern: Lambda + B
 - AWS Documentation: Types of Cloud Computing. [https://aws.amazon.com/types-of-cloud-computing/](https://aws.amazon.com/types-of-cloud-computing/)
 - AWS Documentation: Amazon Bedrock pricing. [https://aws.amazon.com/bedrock/pricing/](https://aws.amazon.com/bedrock/pricing/)
 - AWS Documentation: Amazon SageMaker pricing. [https://aws.amazon.com/sagemaker/pricing/](https://aws.amazon.com/sagemaker/pricing/)
+- Anthropic: Pricing (Claude Sonnet 5 at $2/$10 per million tokens). [https://platform.claude.com/docs/en/about-claude/pricing](https://platform.claude.com/docs/en/about-claude/pricing)
+- AWS: AWS Lambda pricing. [https://aws.amazon.com/lambda/pricing/](https://aws.amazon.com/lambda/pricing/)
+- AWS Documentation: Bedrock Agents Classic maintenance mode. [https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html)
 - AWS Documentation: Amazon Bedrock AgentCore. [https://docs.aws.amazon.com/bedrock/latest/userguide/agentcore.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agentcore.html)
 - Mohamed, L. (2026). "AI Deployment Models - SaaS, PaaS, IaaS, and Serverless." AI Solutions Wiki. Linda Mohamed, AI & Cloud Consultant.

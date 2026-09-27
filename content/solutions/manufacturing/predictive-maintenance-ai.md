@@ -5,8 +5,10 @@ date: 2026-03-28
 categories: [Solutions]
 tags: [predictive-maintenance, iot, manufacturing-ai, equipment-monitoring, reliability]
 industries: [manufacturing, energy]
-tools: [amazon-sagemaker, amazon-kinesis, amazon-lookout-for-equipment]
-last_updated: 2026-05-30
+tools: [amazon-sagemaker, amazon-kinesis]
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Unplanned equipment downtime costs manufacturers an estimated 50 billion EUR annually in Europe. Traditional maintenance approaches are either reactive (fix it when it breaks) or time-based preventive (service at fixed intervals regardless of condition). Both are suboptimal: reactive maintenance causes unplanned downtime and cascading production disruptions, while preventive maintenance wastes resources on equipment that does not need servicing. AI predictive maintenance uses sensor data to forecast failures and schedule maintenance at the optimal time.
@@ -21,7 +23,7 @@ The consequences of unplanned failures extend beyond repair costs. A single crit
 
 **Sensor data ingestion** - Amazon Kinesis ingests real-time sensor streams from equipment. Data rates vary from one reading per minute (temperature, pressure) to thousands per second (vibration). The ingestion layer handles time synchronization, data quality filtering, and downsampling for storage while preserving high-resolution data for event analysis.
 
-**Condition monitoring** - Amazon Lookout for Equipment or SageMaker models establish baseline equipment condition profiles from normal operating data. The system detects when current sensor patterns deviate from the baseline, indicating developing faults. Different fault modes produce different signature patterns: bearing degradation shows increasing vibration at specific frequencies, overheating shows gradual temperature trends, and electrical faults show current draw anomalies.
+**Condition monitoring** - SageMaker anomaly-detection models establish baseline equipment condition profiles from normal operating data. (Amazon Lookout for Equipment, the managed AWS option for this, [is discontinued on 7 October 2026](https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/what-is.html); do not start new projects on it.) The system detects when current sensor patterns deviate from the baseline, indicating developing faults. Different fault modes produce different signature patterns: bearing degradation shows increasing vibration at specific frequencies, overheating shows gradual temperature trends, and electrical faults show current draw anomalies.
 
 **Remaining useful life estimation** - For detected faults, regression models estimate the time until the fault progresses to failure. This enables maintenance scheduling that maximizes equipment utilization: service the machine during the next planned production gap rather than immediately or after failure. SageMaker models are trained on historical failure data linking sensor trajectories to failure timelines.
 

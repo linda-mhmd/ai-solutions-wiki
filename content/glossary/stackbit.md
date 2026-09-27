@@ -8,7 +8,9 @@ related:
   - glossary/jamstack
   - glossary/static-site-generation
   - glossary/nextjs
-last_updated: 2026-05-30
+last_updated: 2026-09-25
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 ---
 
 Stackbit is a visual editing platform that enables real-time, inline content editing for websites built on the Jamstack architecture. Founded by Ohad Eder-Pressman, Dan Barak, and Simon Hanukaev, Stackbit addressed the fundamental usability gap in Jamstack development: the disconnect between developer-optimized build workflows and content editor expectations for visual, WYSIWYG editing.
@@ -35,10 +37,13 @@ In 2020, the team launched Stackbit Studio, a more comprehensive editing environ
 
 ## Acquisition by Netlify
 
-Netlify acquired Stackbit in early 2024, integrating its visual editing technology into the Netlify platform. The acquisition aligned with Netlify's broader strategy of providing a complete Jamstack development and content management platform, combining deployment, serverless functions, and now visual editing under a single product.
+Netlify acquired Stackbit in early 2024, integrating its visual editing technology into the Netlify platform. The acquisition aligned with Netlify's broader strategy of providing a complete Jamstack development and content management platform, combining deployment, serverless functions, and visual editing under a single product. The product was renamed Netlify Visual Editor, and stackbit.com now redirects to Netlify.
+
+As of September 2026, Netlify documents Visual Editor as available only to teams that already have it enabled through Netlify Support: new teams and new projects can no longer turn it on, while existing users can keep using it for now [4].
 
 ## Sources
 
 1. Eder-Pressman, O. (2019). Stackbit founding and early vision. https://www.heavybit.com/library/podcasts/jamstack-radio/ep-65-unbundling-the-web-with-ohad-eder-pressman-of-stackbit
 2. Myers, A. (2019). "JAMstack Conference SF 2019." Medium. https://medium.com/memory-leak/jamstack-conference-sf-2019-d6030cfe30e9
 3. Stackbit. (2020). "Announcing Stackbit Studio." Stackbit Blog. https://www.stackbit.com/blog/announcing-stackbit-studio
+4. Netlify Docs. "Netlify Visual Editor overview" (accessed 25 September 2026). https://docs.netlify.com/manage/visual-editor/overview/

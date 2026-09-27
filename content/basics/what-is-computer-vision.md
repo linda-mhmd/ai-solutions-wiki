@@ -2,6 +2,8 @@
 title: "What is Computer Vision?"
 description: "Computer vision is the AI field that enables software to understand images and video. Plain-English guide covering how it works and where it is used in 2026."
 date: 2026-06-22
+lastmod: 2026-09-25
+last_verified: 2026-09-25
 level: 1
 categories: [Basics]
 tags: ["beginner", "computer-vision", "image-recognition", "cnn", "ai-basics", "object-detection"]
@@ -17,7 +19,7 @@ faqs:
   - question: "What is object detection vs image classification?"
     answer: "Image classification answers 'what is the main subject of this image?' and returns a single label (cat, car, person). Object detection answers 'what objects are in this image and where are they?' and returns bounding boxes with labels for every detected object. Object detection is used in retail (count items on shelves), manufacturing (detect defects on a production line), security (count people, detect vehicles), and autonomous driving (detect other cars, pedestrians, signs)."
   - question: "How does computer vision work with multimodal LLMs?"
-    answer: "Multimodal LLMs like GPT-4o, Claude claude-opus-4-8, and Gemini combine computer vision encoders with language model decoders. The vision encoder converts an image into a vector representation that the language model can understand. This allows you to ask questions about images in plain language: 'What defects do you see in this product photo?' or 'Read the text from this invoice and return it as JSON.' Multimodal LLMs have largely replaced standalone computer vision APIs for tasks that require combining visual understanding with language."
+    answer: "Multimodal LLMs like OpenAI's GPT models, Anthropic's Claude and Google's Gemini (at the time of writing, September 2026, for example GPT-6 Sol, Claude Opus 5.5 and Gemini 3.8 Flash; see the [LLM Landscape 2026](/comparisons/llm-landscape-2026/)) combine computer vision encoders with language model decoders. The vision encoder converts an image into a vector representation that the language model can understand. This allows you to ask questions about images in plain language: 'What defects do you see in this product photo?' or 'Read the text from this invoice and return it as JSON.' Multimodal LLMs have largely replaced standalone computer vision APIs for tasks that require combining visual understanding with language."
 ---
 
 {{< quickanswer >}}
@@ -166,7 +168,7 @@ with open("invoice.jpg", "rb") as f:
     image_data = base64.standard_b64encode(f.read()).decode("utf-8")
 
 response = client.messages.create(
-    model="claude-opus-4-8",
+    model="claude-opus-5-5",
     max_tokens=1024,
     messages=[
         {
@@ -202,7 +204,7 @@ print(response.content[0].text)
   <div class="bz-flow-step">
     <span class="bz-flow-step-tag">Step 2</span>
     <span class="bz-flow-step-name">Choose access route</span>
-    <span class="bz-flow-step-desc">Cloud API (AWS Rekognition, Google Vision, Azure) for standard tasks. Multimodal LLM (GPT-4o, Claude) for complex visual reasoning. Open-source model for custom tasks needing fine-tuning.</span>
+    <span class="bz-flow-step-desc">Cloud API (AWS Rekognition, Google Vision, Azure) for standard tasks. Multimodal LLM (GPT, Claude, Gemini) for complex visual reasoning. Open-source model for custom tasks needing fine-tuning.</span>
   </div>
   <div class="bz-flow-arrow">→</div>
   <div class="bz-flow-step">
@@ -226,7 +228,7 @@ print(response.content[0].text)
 | **Google Cloud Vision** | OCR, logo detection, label detection | €0.0015-€0.006/image |
 | **Azure Computer Vision** | Document analysis, OCR, spatial analysis | €0.001-€0.004/image |
 | **AWS Textract** | Structured document extraction (forms, tables) | €0.015/page |
-| **GPT-4o / Claude** | Complex visual reasoning, multimodal Q&A | €0.003-€0.015/image |
+| **Multimodal LLMs (GPT, Claude, Gemini)** | Complex visual reasoning, multimodal Q&A | €0.003-€0.015/image |
 | **YOLO (open source)** | Real-time object detection, self-hosted | Free (self-host cost only) |
 
 ## When not to use off-the-shelf computer vision
