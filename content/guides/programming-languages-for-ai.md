@@ -66,6 +66,6 @@ Each layer communicates with the others through APIs and S3 artifacts rather tha
 
 - Python Software Foundation. *Python 3 Documentation*. https://docs.python.org/3/
 - Python Software Foundation. *Python support for free threading* (Python 3.14 documentation). https://docs.python.org/3/howto/free-threading-python.html
-- Wouters, T., Page, M., and Gross, S. *PEP 779 – Criteria for supported status for free-threaded Python* (accepted 16 June 2025). https://peps.python.org/pep-0779/
+- Wouters, T., Page, M., and Gross, S. *PEP 779 - Criteria for supported status for free-threaded Python* (accepted 16 June 2025). https://peps.python.org/pep-0779/
 - Microsoft. *TypeScript Documentation*. https://www.typescriptlang.org/docs/
 - HashiCorp. *Terraform Documentation*. https://developer.hashicorp.com/terraform/docs

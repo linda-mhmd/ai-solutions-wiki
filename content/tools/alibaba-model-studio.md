@@ -73,7 +73,7 @@ Model Studio sits between your code and the models. You do not install a runtime
 The catalog centres on three flagship Qwen text tiers, which Alibaba positions as a cost and capability ladder. As of 25 September 2026 the supported-models page lists them as:
 
 - **`qwen3.8-max`**: the highest-performing tier, suited to complex, multi-step tasks. The alias currently points at the `qwen3.8-max-0902` snapshot (alias `qwen3.8-max-2026-09-02`, released 2 September 2026), which Alibaba says improves long-horizon coding, multi-tool agent work and vision. Announced 2026-08-03, roughly 2.4T total parameters with about 95B active, a 1,000,000-token context window, and native image and video input. It replaced `qwen3.7-max`, which is simply absent from the current model list rather than formally sunset.
-- **`qwen3.7-plus`**: a balance of performance, speed, and cost, recommended as the default for most scenarios. Note the version skew — the Plus tier is still on 3.7 while Max and Flash have moved to 3.8, so "Plus" and "Max" are not two rungs of the same generation.
+- **`qwen3.7-plus`**: a balance of performance, speed, and cost, recommended as the default for most scenarios. Note the version skew - the Plus tier is still on 3.7 while Max and Flash have moved to 3.8, so "Plus" and "Max" are not two rungs of the same generation.
 - **`qwen3.8-flash`**: low cost and low latency for simpler, high-volume tasks. Released 26 August 2026, multimodal, 1M context. This is an API model and is not the same thing as the open-weight Qwen3.8-Flash-Next preview.
 
 Alibaba does not publish these per-token prices in a form an automated reader can retrieve; the tables sit behind the Model Studio console and marketplace. Secondary sources put `qwen3.8-max` at roughly $2.00 per 1M input tokens and $6.00 per 1M output, flat across the full context, with a prompt-cache discount around 90% and a 50% batch discount. Confirm in the console before you build a budget on it.
@@ -139,11 +139,11 @@ Model Studio is available in several regions, including Singapore, US (Virginia)
 
 ### Snapshots and decommissioning
 
-Pin deliberately. An undated id like `qwen3.8-max` is an alias that Alibaba moves: on 2026-09-05 (UTC+8) it was automatically transitioned to the `qwen3.8-max-0902` snapshot, with billing unchanged but the underlying checkpoint different. If you need reproducible behaviour, call a dated snapshot id and upgrade on your own schedule. Alibaba's model-decommissioning policy gives snapshot models 30 days of sunset notice and mainline models three months, so a pinned snapshot buys you a shorter runway than a mainline id — which is the tradeoff to weigh.
+Pin deliberately. An undated id like `qwen3.8-max` is an alias that Alibaba moves: on 2026-09-05 (UTC+8) it was automatically transitioned to the `qwen3.8-max-0902` snapshot, with billing unchanged but the underlying checkpoint different. If you need reproducible behaviour, call a dated snapshot id and upgrade on your own schedule. Alibaba's model-decommissioning policy gives snapshot models 30 days of sunset notice and mainline models three months, so a pinned snapshot buys you a shorter runway than a mainline id - which is the tradeoff to weigh.
 
 ## How it compares
 
-Model Studio plays the same role as the managed model platforms from the other hyperscalers: a hosted way to reach many models plus tooling for fine-tuning, retrieval, and agents. The main difference is the model catalog and the cloud you run on. (The table below refers to Google Vertex AI, rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story.)
+Model Studio plays the same role as the managed model platforms from the other hyperscalers: a hosted way to reach many models plus tooling for fine-tuning, retrieval, and agents. The main difference is the model catalog and the cloud you run on. (The table below refers to Google Vertex AI, rebranded Gemini Enterprise Agent Platform in April 2026 - see [Google Vertex AI](/tools/google-vertex-ai/) for the full story.)
 
 | | Alibaba Model Studio | [Amazon Bedrock](/tools/amazon-bedrock/) | [Azure OpenAI](/tools/azure-openai/) | Google Vertex AI |
 |---|---|---|---|---|
@@ -166,7 +166,7 @@ Model Studio is a strong fit when Qwen suits your workload or you already run on
 - **You need a specific proprietary model.** If your application depends on a particular GPT or Claude version, use the platform that hosts it. Model Studio centres on Qwen and a curated set of third-party models.
 - **You must self-host for compliance.** Model Studio is a managed service. If a regulation requires the model to run in your own datacentre, you need the open Qwen weights on your own infrastructure, not the hosted platform. See [the Qwen models page](/tools/alibaba-qwen/) for the open-weight option.
 - **Your data cannot leave a specific jurisdiction not offered.** Region availability is finite. Confirm a compliant region exists before you commit.
-- **You only want Qwen for agent work on a subscription.** If you are not using fine-tuning, knowledge bases, or third-party models, the QwenCloud surface and a Token Plan subscription may be a simpler and cheaper fit than building on the full Model Studio console — though you still sign up for Model Studio to get the key, and Token Plan is Singapore-region only.
+- **You only want Qwen for agent work on a subscription.** If you are not using fine-tuning, knowledge bases, or third-party models, the QwenCloud surface and a Token Plan subscription may be a simpler and cheaper fit than building on the full Model Studio console - though you still sign up for Model Studio to get the key, and Token Plan is Singapore-region only.
 
 ## Further reading
 

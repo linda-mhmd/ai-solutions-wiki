@@ -16,7 +16,7 @@ last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-Feedback loops connect what you build to what users actually need. The cycle: build something small, ship it, measure what happens, learn from the data, then build the next thing. Short loops (days, not months) catch mistakes early and compound learning. Without feedback loops, you're guessing—and AI makes it easy to build the wrong thing faster.
+Feedback loops connect what you build to what users actually need. The cycle: build something small, ship it, measure what happens, learn from the data, then build the next thing. Short loops (days, not months) catch mistakes early and compound learning. Without feedback loops, you're guessing - and AI makes it easy to build the wrong thing faster.
 {{< /quickanswer >}}
 
 ## The build-measure-learn cycle
@@ -323,7 +323,7 @@ Short cycles mean you can test more ideas. Test more ideas, find more winners.
 
 ## The honest take
 
-**Feedback is uncomfortable.** Watching users struggle with something you built hurts. That's the point—it shows you what to fix.
+**Feedback is uncomfortable.** Watching users struggle with something you built hurts. That's the point - it shows you what to fix.
 
 **Fast feedback beats perfect feedback.** A quick conversation with 3 users beats a month-long survey you never run.
 

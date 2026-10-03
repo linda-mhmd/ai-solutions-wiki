@@ -69,7 +69,7 @@ As of July 2026, there has not yet been a reported case where slopsquatting has 
 
 ## Further reading
 
-- [What is a dependency?](/basics/what-is-a-dependency/): Understanding npm install and why projects break — the attack surface slopsquatting exploits.
+- [What is a dependency?](/basics/what-is-a-dependency/): Understanding npm install and why projects break - the attack surface slopsquatting exploits.
 - [Hallucination](/glossary/hallucination/): The AI behavior that makes package names up in the first place.
-- [AI slop](/glossary/ai-slop/): Low-quality AI content — "slop" in slopsquatting comes from this term.
+- [AI slop](/glossary/ai-slop/): Low-quality AI content - "slop" in slopsquatting comes from this term.
 - [Model collapse](/glossary/model-collapse/): As AI trains on AI, hallucination patterns may become more common.

@@ -43,4 +43,4 @@ Report F1 alongside precision and recall, not instead of them. Use F1 for model 
 
 - van Rijsbergen, C. J. (1979). *Information Retrieval* (2nd ed.). Butterworths. (Original formulation of the F-measure as a weighted combination of precision and recall.)
 - Manning, C. D., Raghavan, P., & Schütze, H. (2008). *Introduction to Information Retrieval*. Cambridge University Press. Chapter 8: Evaluation in information retrieval. (Standard IR reference; defines macro/micro F1 and their appropriate uses.)
-- Sokolova, M., & Lapalme, G. (2009). A systematic analysis of performance measures for classification tasks. *Information Processing & Management, 45*(4), 427–437. (Comprehensive analysis of classification metrics including F1 variants for multi-class problems.)
+- Sokolova, M., & Lapalme, G. (2009). A systematic analysis of performance measures for classification tasks. *Information Processing & Management, 45*(4), 427-437. (Comprehensive analysis of classification metrics including F1 variants for multi-class problems.)

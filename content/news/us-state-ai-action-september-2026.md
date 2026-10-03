@@ -37,7 +37,7 @@ Note that the order commissions **recommendations**, not rules. A kill-switch re
 
 ESG Dive reported that a **bipartisan coalition of 26 state attorneys general** sent a letter to both parties' leaders in the Senate and House. The letter calls for quick legislation so that AI research advances "at a safe, measured pace," and for rules requiring safety and transparency features in AI code that do not shield leading AI companies from competitive pressure. "The stakes have never been higher to ensure that AI agents cannot enact grave harms," the AGs wrote. They also stated that "OpenAI was aware of the agents' capabilities but failed to adequately monitor their activity or stop their exploits" in the Hugging Face case. ESG Dive's report does not list the signatory states. It also does not say whether the letter asks Congress to preserve state enforcement powers.
 
-### Sanders–Casar bill (23 September)
+### Sanders - Casar bill (23 September)
 
 The same report says a bill from **Sen. Bernie Sanders (I-Vt.) and Rep. Greg Casar (D-Texas)** would pause AI research until a federal regulator exists, create a **cabinet-level Department of Artificial Intelligence**, ban AI "superintelligence" (defined as capabilities exceeding humans'), and commit the federal government to pushing for a global ban. ESG Dive calls both sponsors senators, but Casar is a member of the House. With the White House openly hostile to AI limits, the bill has little chance of passing. ESG Dive quoted President Trump as posting that the only guardrail AI needs is "a STRONG AND SMART (High IQ!) PRESIDENT."
 

@@ -9,14 +9,14 @@ faqs:
   - question: "When should I do discovery vs just start building?"
     answer: "Always do some discovery, but scale it to the risk. Building a quick prototype to test? Minimal discovery. Building something that takes months? More discovery upfront. The goal is learning enough to build the right thing, not producing documents."
   - question: "These techniques seem heavy for a solo builder. Can I simplify?"
-    answer: "Yes. Impact mapping becomes 'write down the goal and 3 ways to measure it.' User interviews become 'talk to 5 people who might use this.' Event storming becomes 'sketch the main user flow on paper.' The technique doesn't matter—understanding users does."
+    answer: "Yes. Impact mapping becomes 'write down the goal and 3 ways to measure it.' User interviews become 'talk to 5 people who might use this.' Event storming becomes 'sketch the main user flow on paper.' The technique doesn't matter - understanding users does."
   - question: "What's the Open Practice Library?"
     answer: "A community collection of practices for software delivery, organized by when you'd use them (discovery, delivery, operations). Free at openpracticelibrary.com. Great source of techniques beyond what's covered here."
 last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-Product discovery answers "what should we build?" before you build it. Techniques like impact mapping (connect features to goals), event storming (map the domain), and user interviews (understand real needs) help you avoid building features nobody wants. With AI making building fast, discovery becomes more important—building the wrong thing fast is still waste.
+Product discovery answers "what should we build?" before you build it. Techniques like impact mapping (connect features to goals), event storming (map the domain), and user interviews (understand real needs) help you avoid building features nobody wants. With AI making building fast, discovery becomes more important - building the wrong thing fast is still waste.
 {{< /quickanswer >}}
 
 ## Why discovery matters more now

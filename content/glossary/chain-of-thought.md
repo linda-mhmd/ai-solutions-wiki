@@ -41,7 +41,7 @@ CoT is the right tool when:
 
 - The problem genuinely requires multi-step reasoning (arithmetic, logic, planning, structured analysis)
 - The model is large enough that emergent CoT abilities apply (small models often perform *worse* with CoT, Wei et al., 2022)
-- Latency budget tolerates the extra tokens (CoT outputs are typically 3–10× longer than direct answers)
+- Latency budget tolerates the extra tokens (CoT outputs are typically 3-10× longer than direct answers)
 - The reasoning trace is itself useful (auditability, evaluation, post-hoc verification)
 
 CoT is *not* the right tool when:
@@ -55,14 +55,14 @@ CoT is *not* the right tool when:
 CoT is not a guaranteed accuracy boost and has well-documented failure modes:
 
 - **Unfaithful reasoning** (Turpin et al., 2023; Lanham et al., 2023): the stated reasoning trace does not always reflect the actual computation; models can reach correct answers via wrong reasoning, or correct reasoning followed by an unrelated final answer. Audit traces critically.
-- **Reasoning errors compound.** A single arithmetic mistake in step 3 propagates through steps 4–10. Self-Consistency partially mitigates by majority-voting over many traces.
+- **Reasoning errors compound.** A single arithmetic mistake in step 3 propagates through steps 4-10. Self-Consistency partially mitigates by majority-voting over many traces.
 - **Format brittleness.** Small changes to the demonstration format (commas vs newlines, "answer:" vs "Therefore,") can shift accuracy by several points (Sclar et al., 2024).
 - **Bias and shortcut amplification.** CoT can rationalise biased outputs more confidently than direct prompting, making bias harder to detect (Turpin et al., 2023).
 - **Capability gating.** CoT benefits emerge sharply at scale; for sub-100B models the gains are marginal or negative (Wei et al., 2022).
 
 ## Relation to Reasoning Models
 
-The 2024–2025 generation of reasoning models, OpenAI o1, o3, Anthropic Claude with extended thinking, DeepSeek-R1, Google Gemini 2.0 Flash Thinking, internalises CoT through post-training (typically RLHF or RL with verifiable rewards). These models emit a long, often hidden, chain of thought before the visible answer, and scale accuracy with thinking-token budget rather than parameter count. See [Inference-Time Compute](/glossary/inference-time-compute/) for the underlying scaling phenomenon (Snell et al., 2024) and DeepSeek-AI (2025) for an open-source training recipe. By 2026 built-in reasoning had become the default rather than a separate product line: current flagship models such as OpenAI's GPT-6 series and Anthropic's Claude Opus 5.5 reason by default, with the depth steered by an effort setting rather than by the prompt, and OpenAI has scheduled the original o1 for shutdown in its API on 23 October 2026, with `gpt-5.6-sol` as the named substitute. See the [LLM landscape](/comparisons/llm-landscape-2026/) for the current lineup.
+The 2024-2025 generation of reasoning models, OpenAI o1, o3, Anthropic Claude with extended thinking, DeepSeek-R1, Google Gemini 2.0 Flash Thinking, internalises CoT through post-training (typically RLHF or RL with verifiable rewards). These models emit a long, often hidden, chain of thought before the visible answer, and scale accuracy with thinking-token budget rather than parameter count. See [Inference-Time Compute](/glossary/inference-time-compute/) for the underlying scaling phenomenon (Snell et al., 2024) and DeepSeek-AI (2025) for an open-source training recipe. By 2026 built-in reasoning had become the default rather than a separate product line: current flagship models such as OpenAI's GPT-6 series and Anthropic's Claude Opus 5.5 reason by default, with the depth steered by an effort setting rather than by the prompt, and OpenAI has scheduled the original o1 for shutdown in its API on 23 October 2026, with `gpt-5.6-sol` as the named substitute. See the [LLM landscape](/comparisons/llm-landscape-2026/) for the current lineup.
 
 For these models, prompting *with* explicit CoT instructions is often unnecessary or counter-productive, the model already reasons internally, and "Let's think step by step" can interfere with the trained behaviour. Provider documentation should be consulted for each model.
 

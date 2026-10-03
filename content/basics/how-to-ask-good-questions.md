@@ -38,7 +38,7 @@ One sentence of context:
 
 ### 2. What did you try?
 
-Show the code. Not your entire project—the relevant part:
+Show the code. Not your entire project - the relevant part:
 
 ```javascript
 // What I tried:
@@ -70,7 +70,7 @@ What should have happened:
 ### 5. What you've already tried
 
 Shows you've made effort:
-- "I checked the API endpoint exists—it works in Postman"
+- "I checked the API endpoint exists - it works in Postman"
 - "I tried adding Content-Type header"
 - "Searched for the error but solutions were for different frameworks"
 
@@ -100,7 +100,7 @@ What's not working? What error? What code? What did you try? Nobody can help wit
 
 ### Good question ✓✓
 
-> "fetch() returns 401 but Postman works—missing headers?"
+> "fetch() returns 401 but Postman works - missing headers?"
 >
 > **What I'm doing:** Sending login credentials to my Express API
 >
@@ -178,7 +178,7 @@ Checklist:
 - [ ] Do I have the actual error message ready?
 - [ ] Have I included the relevant code?
 
-This isn't gatekeeping—it's that you'll often find the answer while preparing the question. And if not, you now have a good question.
+This isn't gatekeeping - it's that you'll often find the answer while preparing the question. And if not, you now have a good question.
 
 ## Getting answers faster
 
@@ -190,7 +190,7 @@ Versions matter. Answers for React 17 might not work for React 18.
 
 ### Include what you've ruled out
 
-> "It's not CORS—same error without browser (using curl)"
+> "It's not CORS - same error without browser (using curl)"
 
 Saves helpers from suggesting things you've tried.
 
@@ -240,7 +240,7 @@ This gives AI:
 - You understand the problem but not the solution
 - You've been stuck for over an hour on the same issue
 
-There's no shame in asking—but you learn more from struggle, and you get better answers when you've done initial investigation.
+There's no shame in asking - but you learn more from struggle, and you get better answers when you've done initial investigation.
 
 ## Further reading
 

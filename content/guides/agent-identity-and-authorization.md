@@ -39,7 +39,7 @@ The fix is to stop collapsing distinct things into one credential. Any agent act
 | **Agent** | Which agent definition and version? | Client ID per agent, registered as an OAuth client |
 | **Principal** | On whose authority is it acting? | Delegated user token with explicit scopes |
 
-Workload identity is a solved problem and is covered under [zero trust for AI](/patterns/zero-trust-ai/). The two that are usually missing are agent identity and principal delegation — and the authorisation decision needs all three: *this agent, running as this workload, acting for this user, may perform this action.*
+Workload identity is a solved problem and is covered under [zero trust for AI](/patterns/zero-trust-ai/). The two that are usually missing are agent identity and principal delegation - and the authorisation decision needs all three: *this agent, running as this workload, acting for this user, may perform this action.*
 
 The effective permission set should be the **intersection** of what the agent is allowed and what the user is allowed. Never the union.
 
@@ -53,7 +53,7 @@ The Model Context Protocol's authorization specification is the most concrete pu
 
 **Token passthrough is prohibited.** The specification is explicit: MCP servers **"MUST only accept tokens that are valid for use with their own resources"** and **"MUST NOT accept or transit any other tokens."** Clients must not send tokens issued by anyone other than that server's authorization server.
 
-This last rule is the important one and the most commonly violated. The tempting design — accept the user's token and forward it to whatever downstream API the tool needs — turns every server into a confused deputy and lets a stolen token move laterally. Each hop gets its own audience-bound token.
+This last rule is the important one and the most commonly violated. The tempting design - accept the user's token and forward it to whatever downstream API the tool needs - turns every server into a confused deputy and lets a stolen token move laterally. Each hop gets its own audience-bound token.
 
 **Least privilege by construction.** Servers **SHOULD** advertise required scopes in the `WWW-Authenticate` challenge; clients request only what an operation needs and escalate through a **step-up authorization** flow on an `insufficient_scope` error rather than requesting everything up front.
 
@@ -65,7 +65,7 @@ This last rule is the important one and the most commonly violated. The tempting
 
 **Log the full chain.** Every audit record should carry agent identity, agent version, workload identity, principal, and a run or trace ID. Without the run ID you cannot reconstruct a multi-step action; without the principal you cannot answer whether the action was authorised at all.
 
-**Make the risky actions require fresh authority.** Reading and writing are not equivalent. Anything irreversible — sending money, deleting data, emailing externally, deploying — should require step-up authorisation or a human confirmation that names the specific action, not a blanket approval. The same reasoning that applies to [physical device limits](/news/anthropic-model-hardware-standard/) applies here: enforce the constraint in the authorisation layer, not in the prompt. A limit the model can reason its way past is not a limit.
+**Make the risky actions require fresh authority.** Reading and writing are not equivalent. Anything irreversible - sending money, deleting data, emailing externally, deploying - should require step-up authorisation or a human confirmation that names the specific action, not a blanket approval. The same reasoning that applies to [physical device limits](/news/anthropic-model-hardware-standard/) applies here: enforce the constraint in the authorisation layer, not in the prompt. A limit the model can reason its way past is not a limit.
 
 **Do not delegate more than the user has.** Sounds obvious; violated constantly, because the agent is usually built with a platform credential and the user check is left implicit.
 
@@ -73,9 +73,9 @@ This last rule is the important one and the most commonly violated. The tempting
 
 ## Why this is urgent now
 
-Two protocol shifts made agent identity a live production concern rather than a design exercise. MCP standardised how agents reach tools, and A2A standardises how agents reach **other agents** — both now governed under the same foundation, as covered in [A2A joining the Agentic AI Foundation](/news/a2a-joins-agentic-ai-foundation/). Agent-to-agent delegation is strictly harder than agent-to-tool: authority is passed across an organisational boundary, and each hop must narrow permissions rather than preserve them.
+Two protocol shifts made agent identity a live production concern rather than a design exercise. MCP standardised how agents reach tools, and A2A standardises how agents reach **other agents** - both now governed under the same foundation, as covered in [A2A joining the Agentic AI Foundation](/news/a2a-joins-agentic-ai-foundation/). Agent-to-agent delegation is strictly harder than agent-to-tool: authority is passed across an organisational boundary, and each hop must narrow permissions rather than preserve them.
 
-MCP's first year also demonstrated what happens when an agent standard scales faster than its security model — [more than 40 CVEs and a tool-poisoning attack class](/news/mcp-security-vulnerabilities-2026/), with credential exposure the most common problem found in the wild. Identity is the control that limits the blast radius when the other controls fail.
+MCP's first year also demonstrated what happens when an agent standard scales faster than its security model - [more than 40 CVEs and a tool-poisoning attack class](/news/mcp-security-vulnerabilities-2026/), with credential exposure the most common problem found in the wild. Identity is the control that limits the blast radius when the other controls fail.
 
 ## Further reading
 

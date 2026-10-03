@@ -66,7 +66,7 @@ Bedrock pricing is per-token (input and output tokens priced separately) with no
 
 There is no charge for API calls that return an error, and no charge for the model access request process itself.
 
-Two September 2026 changes are worth knowing before you plan capacity. Since 21 September, the daily token quota on the `bedrock-runtime` endpoint is a single cross-model quota per account and Region, not a per-model one, so one busy workload can consume the daily budget for all the others in the same account. And for models launched on or after 7 September 2026, each Bedrock model card shows an "EOL no sooner than" date and a Legacy notice period (usually six months), which is the date to plan migrations against — not the model provider's own retirement date.
+Two September 2026 changes are worth knowing before you plan capacity. Since 21 September, the daily token quota on the `bedrock-runtime` endpoint is a single cross-model quota per account and Region, not a per-model one, so one busy workload can consume the daily budget for all the others in the same account. And for models launched on or after 7 September 2026, each Bedrock model card shows an "EOL no sooner than" date and a Legacy notice period (usually six months), which is the date to plan migrations against - not the model provider's own retirement date.
 
 ## Sources
 

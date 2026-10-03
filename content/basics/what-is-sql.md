@@ -7,16 +7,16 @@ categories: [Basics]
 tags: [beginner, sql, database, queries, crud, postgres, mysql]
 faqs:
   - question: "What's the difference between SQL and NoSQL?"
-    answer: "SQL databases (PostgreSQL, MySQL) store data in tables with predefined schemas—structured rows and columns. NoSQL databases (MongoDB, DynamoDB) store documents or key-value pairs with flexible schemas. SQL is better for relational data; NoSQL for unstructured or rapidly changing data."
+    answer: "SQL databases (PostgreSQL, MySQL) store data in tables with predefined schemas - structured rows and columns. NoSQL databases (MongoDB, DynamoDB) store documents or key-value pairs with flexible schemas. SQL is better for relational data; NoSQL for unstructured or rapidly changing data."
   - question: "Should I learn raw SQL or use an ORM?"
     answer: "Both. ORMs (like Prisma, Drizzle, or SQLAlchemy) are convenient for common operations, but you'll eventually need raw SQL for complex queries, debugging, or performance tuning. Start with an ORM, but understand what SQL it generates."
   - question: "What's SQL injection and why is it dangerous?"
-    answer: "SQL injection is when user input becomes part of your SQL query, allowing attackers to run their own queries. It's one of the most common security vulnerabilities. Always use parameterized queries—never concatenate user input into SQL strings."
+    answer: "SQL injection is when user input becomes part of your SQL query, allowing attackers to run their own queries. It's one of the most common security vulnerabilities. Always use parameterized queries - never concatenate user input into SQL strings."
 last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-SQL (Structured Query Language) is the language for interacting with relational databases. You use it to create, read, update, and delete data—the four operations called CRUD. When your app needs to store users, orders, posts, or any persistent data, you're probably using SQL behind the scenes.
+SQL (Structured Query Language) is the language for interacting with relational databases. You use it to create, read, update, and delete data - the four operations called CRUD. When your app needs to store users, orders, posts, or any persistent data, you're probably using SQL behind the scenes.
 {{< /quickanswer >}}
 
 ## What SQL does
@@ -44,7 +44,7 @@ DELETE FROM users WHERE name = 'Alice';
 
 ## Tables, rows, and columns
 
-SQL databases organize data into **tables**—like spreadsheets:
+SQL databases organize data into **tables** - like spreadsheets:
 
 **users table:**
 | id | name | email | created_at |
@@ -172,7 +172,7 @@ GROUP BY user_id;
 
 ## SQL in your code
 
-You don't type SQL into a terminal—your code sends queries:
+You don't type SQL into a terminal - your code sends queries:
 
 **Raw SQL (Node.js with pg):**
 ```javascript

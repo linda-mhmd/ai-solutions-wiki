@@ -45,5 +45,5 @@ Always examine the confusion matrix, not just summary metrics. For multi-class p
 
 ## Sources
 
-- Powers, D.M.W. (2011). Evaluation: From precision, recall and F-measure to ROC, informedness, markedness and correlation. *Journal of Machine Learning Technologies, 2*(1), 37–63. (Systematic treatment of confusion matrix-derived metrics including F1, MCC.)
-- Fawcett, T. (2006). An introduction to ROC analysis. *Pattern Recognition Letters, 27*(8), 861–874. (Connects confusion matrix thresholding to ROC curves.)
+- Powers, D.M.W. (2011). Evaluation: From precision, recall and F-measure to ROC, informedness, markedness and correlation. *Journal of Machine Learning Technologies, 2*(1), 37-63. (Systematic treatment of confusion matrix-derived metrics including F1, MCC.)
+- Fawcett, T. (2006). An introduction to ROC analysis. *Pattern Recognition Letters, 27*(8), 861-874. (Connects confusion matrix thresholding to ROC curves.)

@@ -195,7 +195,7 @@ The screens stay the same. The data layer changes completely:
 
 **FastAPI for the AI service**: Python is the language of AI libraries. FastAPI is the modern Python web framework with native async support and automatic OpenAPI documentation. It handles the long-running, compute-heavy operations that Node.js cannot efficiently handle. See [FastAPI](/tools/fastapi/).
 
-**Async job queue for AI inference**: AI image generation takes 15–60 seconds. HTTP requests time out after 30 seconds. The solution: queue the job, return a job ID immediately, have the app poll for completion. See [Async Job Queues](/guides/async-job-queues/).
+**Async job queue for AI inference**: AI image generation takes 15-60 seconds. HTTP requests time out after 30 seconds. The solution: queue the job, return a job ID immediately, have the app poll for completion. See [Async Job Queues](/guides/async-job-queues/).
 
 ---
 
@@ -243,9 +243,9 @@ Stage 3 adds the marketplace layer. This is when the product transforms from a p
 
 ### Stripe Connect: why you never build this yourself
 
-Stripe Connect handles everything a marketplace needs: splitting payments between buyer and seller, KYC (identity verification, legally required), tax reporting, dispute resolution, and payout scheduling. Building this manually would take a team 6–12 months and still not be compliant with EU payment regulations.
+Stripe Connect handles everything a marketplace needs: splitting payments between buyer and seller, KYC (identity verification, legally required), tax reporting, dispute resolution, and payout scheduling. Building this manually would take a team 6-12 months and still not be compliant with EU payment regulations.
 
-**Cost model**: Stripe charges a per-transaction card fee, for example 1.5% + €0.25 for standard EEA cards in Austria (2.5% + €0.25 for UK cards; rates differ by country and card type), plus Connect fees depending on the account setup. The marketplace takes an additional 10–15% commission via `application_fee_amount`. Stripe handles the split automatically. See [Stripe Connect](/tools/stripe-connect/).
+**Cost model**: Stripe charges a per-transaction card fee, for example 1.5% + €0.25 for standard EEA cards in Austria (2.5% + €0.25 for UK cards; rates differ by country and card type), plus Connect fees depending on the account setup. The marketplace takes an additional 10-15% commission via `application_fee_amount`. Stripe handles the split automatically. See [Stripe Connect](/tools/stripe-connect/).
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Working with Constraints"
-description: "Time, budget, scope—you can't have everything. Learn to make tradeoffs, work within limits, and use constraints as a creative advantage rather than a frustration."
+description: "Time, budget, scope - you can't have everything. Learn to make tradeoffs, work within limits, and use constraints as a creative advantage rather than a frustration."
 date: 2026-07-30
 level: 1
 categories: [Basics]
@@ -9,7 +9,7 @@ faqs:
   - question: "What if the constraints are unrealistic?"
     answer: "Push back with data. 'We can build X in the timeline, or Y in the budget, but not both.' Make tradeoffs visible. If constraints can't change, scope must."
   - question: "How do I handle changing constraints?"
-    answer: "Constraints change—that's normal. When they do, revisit scope and priorities. Don't pretend you can absorb new constraints without adjusting something else."
+    answer: "Constraints change - that's normal. When they do, revisit scope and priorities. Don't pretend you can absorb new constraints without adjusting something else."
   - question: "Are constraints always bad?"
     answer: "No. Constraints force creativity, focus decisions, and prevent scope creep. A blank canvas is often harder than a constrained one. Embrace reasonable limits."
 last_updated: 2026-07-30

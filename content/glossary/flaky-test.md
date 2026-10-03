@@ -45,6 +45,6 @@ A healthy test suite has zero flaky deterministic tests and a small, well-manage
 
 ## Sources
 
-- Luo, Q., Hariri, F., Eloussi, L., & Marinov, D. (2014). An empirical analysis of flaky tests. *Proceedings of the 22nd ACM SIGSOFT International Symposium on Foundations of Software Engineering (FSE)*, 643–653. (Largest empirical study of flaky test causes; async behavior, concurrency, and test order dependence as top causes.)
-- Thorve, S., Shenoy, C., & Sarma, A. (2018). An empirical study of flaky tests in Android apps. *2018 IEEE International Conference on Software Maintenance and Evolution (ICSME)*, 534–538. (Flakiness patterns in mobile apps; generalizes to AI mobile inference contexts.)
+- Luo, Q., Hariri, F., Eloussi, L., & Marinov, D. (2014). An empirical analysis of flaky tests. *Proceedings of the 22nd ACM SIGSOFT International Symposium on Foundations of Software Engineering (FSE)*, 643-653. (Largest empirical study of flaky test causes; async behavior, concurrency, and test order dependence as top causes.)
+- Thorve, S., Shenoy, C., & Sarma, A. (2018). An empirical study of flaky tests in Android apps. *2018 IEEE International Conference on Software Maintenance and Evolution (ICSME)*, 534-538. (Flakiness patterns in mobile apps; generalizes to AI mobile inference contexts.)
 - Fowler, M. (2011). Eradicating non-determinism in tests. *martinfowler.com*. (Practical strategies for eliminating non-determinism; isolation, statistical sampling, and retry policies.)

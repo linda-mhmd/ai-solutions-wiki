@@ -16,7 +16,7 @@ last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-Prioritization frameworks help you decide what to build when you can't build everything. Common approaches: Impact/Effort (quick and visual), RICE scoring (structured with numbers), MoSCoW (categorization), and Cost of Delay (time-sensitive decisions). The framework matters less than consistently applying one—any systematic approach beats gut feel alone.
+Prioritization frameworks help you decide what to build when you can't build everything. Common approaches: Impact/Effort (quick and visual), RICE scoring (structured with numbers), MoSCoW (categorization), and Cost of Delay (time-sensitive decisions). The framework matters less than consistently applying one - any systematic approach beats gut feel alone.
 {{< /quickanswer >}}
 
 ## Why prioritize?
@@ -27,7 +27,7 @@ You have infinite ideas and limited time. Without prioritization:
 - You build features nobody uses
 - You never finish anything because you're always starting something new
 
-Prioritization means deciding—consciously—what matters most.
+Prioritization means deciding - consciously - what matters most.
 
 ## Impact/Effort matrix
 
@@ -90,7 +90,7 @@ More structured scoring: Reach × Impact × Confidence ÷ Effort
 - 80% = Medium (some data)
 - 50% = Low (mostly guessing)
 
-**Effort**: Person-weeks (or hours, or days—be consistent)
+**Effort**: Person-weeks (or hours, or days - be consistent)
 
 ### Formula
 
@@ -171,7 +171,7 @@ When timing matters: what do we lose by waiting?
 - Example: A feature that brings $1K/week revenue
 
 **Exponential**: Cost increases over time
-- Example: Compliance deadline—minor now, critical later
+- Example: Compliance deadline - minor now, critical later
 
 **Fixed deadline**: Worthless if late
 - Example: Conference demo, tax season feature

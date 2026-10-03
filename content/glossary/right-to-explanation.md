@@ -36,6 +36,6 @@ The right to explanation is increasingly relevant as AI systems are used for cre
 ## Sources
 
 - European Parliament and Council. (2016). *Regulation (EU) 2016/679 (GDPR)*, Articles 13(2)(f), 14(2)(g), 15(1)(h), 22. Official Journal of the European Union. (Primary legal source; the provisions collectively establishing explanation obligations.)
-- Goodman, B., & Flaxman, S. (2017). European Union regulations on algorithmic decision-making and a "right to explanation." *AI Magazine, 38*(3), 50–57. (First major paper arguing GDPR creates a right to explanation; launched the academic and policy debate.)
+- Goodman, B., & Flaxman, S. (2017). European Union regulations on algorithmic decision-making and a "right to explanation." *AI Magazine, 38*(3), 50-57. (First major paper arguing GDPR creates a right to explanation; launched the academic and policy debate.)
 - Wachter, S., Mittelstadt, B., & Russell, C. (2017). Counterfactual explanations without opening the black box: Automated decisions and the GDPR. *Harvard Journal of Law and Technology, 31*(2). (Proposed counterfactual explanations as a GDPR-compliant XAI method; highly cited in both law and ML.)
 - Doshi-Velez, F., & Kim, B. (2017). Towards a rigorous science of interpretable machine learning. *arXiv:1702.08608*. (Rigorous framework for evaluating interpretability; informs what constitutes a meaningful explanation.)

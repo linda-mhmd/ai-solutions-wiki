@@ -1,13 +1,13 @@
 ---
 title: "What is Cloud-Native?"
-description: "Cloud-native is a philosophy for building applications that fully exploit cloud computing—containers, microservices, automation, and resilience by design."
+description: "Cloud-native is a philosophy for building applications that fully exploit cloud computing - containers, microservices, automation, and resilience by design."
 date: 2026-07-30
 level: 3
 categories: [Basics]
 tags: [cloud-native, cncf, kubernetes, containers, microservices, devops]
 faqs:
   - question: "Does cloud-native mean running on AWS/GCP/Azure?"
-    answer: "Not exactly. Cloud-native applications can run on any cloud—or on-premises. It's about how applications are designed (containers, microservices, automation) rather than where they run. The goal is portability, not lock-in to one provider."
+    answer: "Not exactly. Cloud-native applications can run on any cloud - or on-premises. It's about how applications are designed (containers, microservices, automation) rather than where they run. The goal is portability, not lock-in to one provider."
   - question: "Do I need to be cloud-native?"
     answer: "Not necessarily. Cloud-native solves problems of scale, complexity, and team size. For small projects, it's overkill. A well-designed monolith on a simple host is often better than a poorly-designed microservices mess on Kubernetes."
   - question: "What's the CNCF?"
@@ -71,10 +71,10 @@ This differs from imperative ("run this command, then that command").
 ### Resilience by design
 
 Expect failures and handle them:
-- Services can fail—design for graceful degradation
-- Network is unreliable—use retries and circuit breakers
-- Machines die—stateless services restart anywhere
-- Errors happen—observability and alerting
+- Services can fail - design for graceful degradation
+- Network is unreliable - use retries and circuit breakers
+- Machines die - stateless services restart anywhere
+- Errors happen - observability and alerting
 
 ## The cloud-native stack
 
@@ -130,7 +130,7 @@ The Cloud Native Computing Foundation:
 
 ### The CNCF landscape
 
-The [CNCF landscape](https://landscape.cncf.io) maps the cloud-native ecosystem. It's overwhelming—hundreds of projects—but shows the scope of the space.
+The [CNCF landscape](https://landscape.cncf.io) maps the cloud-native ecosystem. It's overwhelming - hundreds of projects - but shows the scope of the space.
 
 Categories include:
 - Application definition and development

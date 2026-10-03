@@ -1,6 +1,6 @@
 ---
 title: "Backend Frameworks Compared"
-description: "Express, FastAPI, Django, Rails, NestJS, Go—which backend framework should you use? An honest comparison of tradeoffs, performance, and when to choose each."
+description: "Express, FastAPI, Django, Rails, NestJS, Go - which backend framework should you use? An honest comparison of tradeoffs, performance, and when to choose each."
 date: 2026-07-30
 level: 1
 categories: [Basics]
@@ -528,7 +528,7 @@ Go's efficiency means lower hosting costs at scale. Django/Rails need more resou
 
 **If you're building a full web app**: Django or Rails. The batteries-included approach saves time.
 
-**If performance is critical**: Go. But be honest—is it really critical, or is it premature optimization?
+**If performance is critical**: Go. But be honest - is it really critical, or is it premature optimization?
 
 **If you're in an enterprise**: NestJS or Django. Structure and conventions help large teams.
 

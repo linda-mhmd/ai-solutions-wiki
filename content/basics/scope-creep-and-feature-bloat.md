@@ -16,7 +16,7 @@ last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-Scope creep is when projects grow beyond their original boundaries—more features, more polish, more "while we're at it." Feature bloat is the result: products packed with features nobody uses. Both kill projects. The cure: define what done looks like before you start, and ruthlessly protect that boundary. With AI making building easy, the constraint isn't building—it's deciding what not to build.
+Scope creep is when projects grow beyond their original boundaries - more features, more polish, more "while we're at it." Feature bloat is the result: products packed with features nobody uses. Both kill projects. The cure: define what done looks like before you start, and ruthlessly protect that boundary. With AI making building easy, the constraint isn't building - it's deciding what not to build.
 {{< /quickanswer >}}
 
 ## How scope creep happens
@@ -57,7 +57,7 @@ AI makes building fast. This makes scope creep worse:
 **Before AI**: "That feature would take 2 weeks. Skip it."
 **After AI**: "AI can build that in 2 hours. Let's add it."
 
-But the cost isn't just building—it's:
+But the cost isn't just building - it's:
 - Maintaining forever
 - Testing all combinations
 - Documenting for users
@@ -174,7 +174,7 @@ This makes scope explicit. When someone suggests a feature, check the list.
 
 ### The parking lot
 
-Not every idea is bad—it might just be bad for now:
+Not every idea is bad - it might just be bad for now:
 
 ```
 🅿️ PARKING LOT
@@ -255,9 +255,9 @@ User: "You should add calendar integration!"
 
 ### Better response
 
-"Thanks for the suggestion! Help me understand—what would you use calendar integration for?"
+"Thanks for the suggestion! Help me understand - what would you use calendar integration for?"
 
-Learn the underlying need. Maybe they don't need a calendar—they need due date reminders.
+Learn the underlying need. Maybe they don't need a calendar - they need due date reminders.
 
 ### The request triage
 

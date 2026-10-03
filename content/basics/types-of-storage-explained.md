@@ -1,6 +1,6 @@
 ---
 title: "Types of Storage Explained"
-description: "Git repos, databases, S3 buckets, EBS volumes, NAS—what each type of storage is for, how they differ, and when to use which. A practical guide for builders."
+description: "Git repos, databases, S3 buckets, EBS volumes, NAS - what each type of storage is for, how they differ, and when to use which. A practical guide for builders."
 date: 2026-07-30
 lastmod: 2026-09-25
 last_verified: 2026-09-25

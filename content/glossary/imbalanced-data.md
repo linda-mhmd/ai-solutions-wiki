@@ -51,6 +51,6 @@ Address class imbalance whenever the minority class is the class of interest and
 
 ## Sources
 
-- Chawla, N.V., Bowyer, K.W., Hall, L.O., & Kegelmeyer, W.P. (2002). SMOTE: Synthetic minority over-sampling technique. *JMLR, 3*, 321–357. (SMOTE original paper.)
-- He, H., & Garcia, E.A. (2009). Learning from imbalanced data. *IEEE Transactions on Knowledge and Data Engineering, 21*(9), 1263–1284. (Survey of sampling, algorithm-level, and cost-sensitive approaches.)
+- Chawla, N.V., Bowyer, K.W., Hall, L.O., & Kegelmeyer, W.P. (2002). SMOTE: Synthetic minority over-sampling technique. *JMLR, 3*, 321-357. (SMOTE original paper.)
+- He, H., & Garcia, E.A. (2009). Learning from imbalanced data. *IEEE Transactions on Knowledge and Data Engineering, 21*(9), 1263-1284. (Survey of sampling, algorithm-level, and cost-sensitive approaches.)
 - Davis, J., & Goadrich, M. (2006). The relationship between precision-recall and ROC curves. *ICML 2006*. (AUPRC as preferred metric over AUC-ROC for imbalanced datasets.)

@@ -93,7 +93,7 @@ Storage costs start trivial and grow with your user base, data retention, and fe
 - Implement data retention policies
 - Move old data to cheaper storage tiers
 - Consider R2 to eliminate egress costs
-- Audit what you're storing—do you need all of it?
+- Audit what you're storing - do you need all of it?
 - Set up alerts for unexpected cost spikes
 
 ### Phase 4: Scale (10,000+ users)
@@ -165,7 +165,7 @@ Storage costs start trivial and grow with your user base, data retention, and fe
 
 ### 5. Feature-driven data explosion
 
-**The trap**: Features generate data. Activity feeds, notifications, analytics events, AI conversations—each creates records. Volume grows faster than user count.
+**The trap**: Features generate data. Activity feeds, notifications, analytics events, AI conversations - each creates records. Volume grows faster than user count.
 
 **Real example**: Chat feature. 100 active users × 50 messages/day × 30 days = 150,000 records/month. × 12 months = 1.8M records/year. Times all attachments, read receipts, typing indicators...
 

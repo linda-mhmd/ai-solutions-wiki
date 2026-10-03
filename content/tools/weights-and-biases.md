@@ -57,7 +57,7 @@ W&B's collaboration features are its primary differentiator from self-hosted alt
 
 W&B integrates with major ML frameworks (PyTorch, TensorFlow, Keras, Hugging Face Transformers, scikit-learn), training platforms (SageMaker, Vertex AI), and orchestration tools (Kubeflow, Airflow). The integration is typically a two-line code change: initialize W&B and pass the callback to the training loop.
 
-*Vertex AI was rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story.*
+*Vertex AI was rebranded Gemini Enterprise Agent Platform in April 2026 - see [Google Vertex AI](/tools/google-vertex-ai/) for the full story.*
 
 ## Deployment Options
 

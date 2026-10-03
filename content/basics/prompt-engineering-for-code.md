@@ -1,17 +1,17 @@
 ---
 title: "Prompt Engineering for Code"
-description: "AI generates what you describe—describe poorly, get poor code. Learn prompting patterns that produce better, more correct code from AI assistants."
+description: "AI generates what you describe - describe poorly, get poor code. Learn prompting patterns that produce better, more correct code from AI assistants."
 date: 2026-07-30
 level: 1
 categories: [Basics]
 tags: [beginner, ai, prompting, vibe-coding, development, productivity]
 faqs:
   - question: "Why does AI keep generating wrong code?"
-    answer: "Usually because the prompt is ambiguous. AI fills gaps with assumptions—often wrong ones. Better prompts have: clear context, specific requirements, examples of input/output, and constraints on the solution."
+    answer: "Usually because the prompt is ambiguous. AI fills gaps with assumptions - often wrong ones. Better prompts have: clear context, specific requirements, examples of input/output, and constraints on the solution."
   - question: "Should I write detailed prompts for everything?"
     answer: "No. Simple tasks need simple prompts. Match prompt detail to task complexity. 'Add a button that submits the form' doesn't need three paragraphs."
   - question: "What if AI still generates wrong code?"
-    answer: "Don't regenerate—refine. Tell it specifically what's wrong. 'That doesn't handle the error case—add try/catch around the fetch call.' Iterative refinement beats repeated regeneration."
+    answer: "Don't regenerate - refine. Tell it specifically what's wrong. 'That doesn't handle the error case - add try/catch around the fetch call.' Iterative refinement beats repeated regeneration."
 last_updated: 2026-07-30
 ---
 
@@ -242,7 +242,7 @@ describe('calculateDiscount', () => {
 
 ## Iteration patterns
 
-### Don't regenerate—refine
+### Don't regenerate - refine
 
 **Bad approach**:
 ```
@@ -265,17 +265,17 @@ AI fixes → Correct
 ### Be specific about what's wrong
 
 **Bad**: "This doesn't work"
-**Good**: "The form submits even when validation fails—the submit handler should check isValid first"
+**Good**: "The form submits even when validation fails - the submit handler should check isValid first"
 
 **Bad**: "Fix the errors"
-**Good**: "Line 23 has a type error—user.name could be undefined, add a null check"
+**Good**: "Line 23 has a type error - user.name could be undefined, add a null check"
 
 ### One thing at a time
 
 **Bad**: "Fix the validation, add loading state, and also make the button blue"
 
 **Good**: 
-1. "Fix the validation—currently accepts empty email"
+1. "Fix the validation - currently accepts empty email"
 2. (verify) "Now add loading state while submitting"
 3. (verify) "Change button to primary color (blue-600)"
 
@@ -406,7 +406,7 @@ The user clicks "Save" but nothing happens.
 
 ## The honest take
 
-**Prompting is a skill.** It improves with practice. Your first prompts won't be great—that's fine.
+**Prompting is a skill.** It improves with practice. Your first prompts won't be great - that's fine.
 
 **Match effort to complexity.** Simple tasks need simple prompts. Don't over-engineer every request.
 

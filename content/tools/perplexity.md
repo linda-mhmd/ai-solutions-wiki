@@ -175,7 +175,7 @@ Presets are not version-pinned. Perplexity updates the underlying model and conf
 | `sonar` | 127k tokens | Standard web-grounded Q&A |
 | `sonar-pro` | 200k tokens | Deeper research, more sources |
 | `sonar-reasoning-pro` | 200k tokens | Complex multi-step research tasks |
-| `sonar-deep-research` | — | Exhaustive multi-source research reports |
+| `sonar-deep-research` | - | Exhaustive multi-source research reports |
 
 `sonar-reasoning` no longer appears in Perplexity's Sonar model list. Context figures are from this page's June 2026 version and have not been re-checked.
 

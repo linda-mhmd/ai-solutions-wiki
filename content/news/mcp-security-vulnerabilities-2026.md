@@ -37,7 +37,7 @@ A 2026 audit summarized by API gateway vendor Zuplo found:
 
 Tool poisoning emerged as the signature MCP attack. Malicious instructions are hidden in a tool's description or schema that the model reads but the user mostly ignores.
 
-Microsoft describes the mechanism: "Anyone who can plant instructions in any of those can steer the agent. Tool poisoning is the sharp edge—malicious instructions hidden in a tool's description or schema that the model reads and the user mostly ignores" ([Microsoft, 2026](https://techcommunity.microsoft.com/blog/microsoft-security-blog/the-state-of-mcp-security-in-2026/4531327)).
+Microsoft describes the mechanism: "Anyone who can plant instructions in any of those can steer the agent. Tool poisoning is the sharp edge - malicious instructions hidden in a tool's description or schema that the model reads and the user mostly ignores" ([Microsoft, 2026](https://techcommunity.microsoft.com/blog/microsoft-security-blog/the-state-of-mcp-security-in-2026/4531327)).
 
 An attacker does not need to compromise the MCP server itself. They can:
 1. Create a legitimate-looking tool with a poisoned description

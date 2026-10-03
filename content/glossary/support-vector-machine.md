@@ -41,6 +41,6 @@ SVMs are strong choices for medium-sized datasets with high-dimensional features
 
 ## Sources
 
-- Cortes, C., & Vapnik, V. (1995). Support-vector networks. *Machine Learning, 20*(3), 273–297. (Original SVM paper with soft margin formulation.)
+- Cortes, C., & Vapnik, V. (1995). Support-vector networks. *Machine Learning, 20*(3), 273-297. (Original SVM paper with soft margin formulation.)
 - Vapnik, V. (1998). *Statistical Learning Theory.* Wiley. (VC dimension and theoretical foundations of SVM generalization.)
 - Boser, B., Guyon, I., & Vapnik, V. (1992). A training algorithm for optimal margin classifiers. *ACM COLT 1992*. (Kernel trick introduced for SVMs.)

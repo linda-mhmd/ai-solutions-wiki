@@ -19,7 +19,7 @@ The date the EU AI Act had been building toward since 2024 arrived on 2 August 2
 
 Two things landed in the space of a week.
 
-**The Digital Omnibus became law.** Regulation (EU) 2026/1744, dated 8 July 2026, was published in the Official Journal on **24 July 2026** and entered into force on **27 July 2026** — three days after publication, treated as a matter of urgency precisely because the 2 August deadline was days away. It amends Regulation (EU) 2024/1689 (the AI Act) along with Regulations (EU) 2018/1139 and (EU) 2023/1230.
+**The Digital Omnibus became law.** Regulation (EU) 2026/1744, dated 8 July 2026, was published in the Official Journal on **24 July 2026** and entered into force on **27 July 2026** - three days after publication, treated as a matter of urgency precisely because the 2 August deadline was days away. It amends Regulation (EU) 2024/1689 (the AI Act) along with Regulations (EU) 2018/1139 and (EU) 2023/1230.
 
 **The transparency duties became enforceable.** On 2 August 2026 the Commission's AI Office and national market surveillance authorities began enforcing the Article 50 obligations, alongside the European Data Protection Supervisor for EU institutions.
 
@@ -27,15 +27,15 @@ Two things landed in the space of a week.
 
 Article 50 requires that certain outputs be, in the Commission's words, "clearly and visibly labelled" with machine-readable marks:
 
-- **Deepfakes** — image, audio, or video content resembling real persons, objects, places, or events.
+- **Deepfakes** - image, audio, or video content resembling real persons, objects, places, or events.
 - **Emotion recognition and biometric categorisation** systems must tell the people exposed to them that they are running.
 - **AI-generated or manipulated text** published to inform the public on matters of public interest, where it has not been through human editorial review.
 
-Separately, providers must inform users when "they are not interacting with a real person, but an AI system" — chatbots, voice agents, and avatars.
+Separately, providers must inform users when "they are not interacting with a real person, but an AI system" - chatbots, voice agents, and avatars.
 
 Penalties for breach of the transparency duties run to **15 million euro or 3% of worldwide annual turnover**, whichever is higher, with a **750,000 euro** ceiling for EU institutions and reduced amounts for SMEs and small mid-caps.
 
-The obligations that were already live stayed live: the Article 5 prohibited-practices regime (since 2 February 2025) and the GPAI provider obligations under Articles 51–56 (since 2 August 2025, now enforceable by the AI Office).
+The obligations that were already live stayed live: the Article 5 prohibited-practices regime (since 2 February 2025) and the GPAI provider obligations under Articles 51-56 (since 2 August 2025, now enforceable by the AI Office).
 
 ## What was deferred
 
@@ -44,22 +44,22 @@ The obligations that were already live stayed live: the Article 5 prohibited-pra
 | Annex III standalone high-risk systems | 2 August 2026 | **2 December 2027** |
 | Annex I high-risk AI in regulated products | 2 August 2027 | **2 August 2028** |
 | Article 50 transparency | 2 August 2026 | *unchanged* |
-| GPAI obligations (Arts. 51–56) | 2 August 2025 | *unchanged* |
+| GPAI obligations (Arts. 51-56) | 2 August 2025 | *unchanged* |
 | Article 5 prohibitions | 2 February 2025 | *unchanged* |
 
 Annex III covers the categories most enterprises worry about: biometric identification, critical infrastructure, education, employment, essential private and public services such as credit scoring and insurance, law enforcement, migration, and administration of justice. Those systems now have until 2 December 2027 to complete conformity assessment, technical documentation, and registration in the EU database.
 
-The Omnibus does more than move dates. It expands the AI Office's powers, streamlines [conformity assessment](/glossary/conformity-assessment/), extends simplified documentation to medium-sized companies, and lets the Commission adjust AI Act requirements by delegated act where sector-specific law already provides equivalent or higher protection. It also adds two prohibited categories to Article 5 — systems for non-consensual intimate imagery and CSAM — with a grace period to 2 December 2026 for technical safeguards.
+The Omnibus does more than move dates. It expands the AI Office's powers, streamlines [conformity assessment](/glossary/conformity-assessment/), extends simplified documentation to medium-sized companies, and lets the Commission adjust AI Act requirements by delegated act where sector-specific law already provides equivalent or higher protection. It also adds two prohibited categories to Article 5 - systems for non-consensual intimate imagery and CSAM - with a grace period to 2 December 2026 for technical safeguards.
 
 ## Why it matters for builders
 
 The practical consequence is a reordering of what is urgent.
 
-If you ship a chatbot, a voice agent, a synthetic-media feature, or anything that generates published text into the EU market, your compliance deadline was **2 August 2026** and it has passed. This is not the paperwork-heavy tier — it is labelling, disclosure, and provenance marking — but it is enforceable now, against a percentage-of-turnover penalty. Machine-readable marking in particular is an engineering task, not a legal one: see [AI watermarking](/glossary/ai-watermarking/) for the mechanisms.
+If you ship a chatbot, a voice agent, a synthetic-media feature, or anything that generates published text into the EU market, your compliance deadline was **2 August 2026** and it has passed. This is not the paperwork-heavy tier - it is labelling, disclosure, and provenance marking - but it is enforceable now, against a percentage-of-turnover penalty. Machine-readable marking in particular is an engineering task, not a legal one: see [AI watermarking](/glossary/ai-watermarking/) for the mechanisms.
 
 If you build Annex III high-risk systems, you have gained roughly sixteen months. That is genuine relief, and it is also the trap. The requirements did not shrink; the risk management system, data governance, logging, human oversight, and conformity assessment all still have to exist by 2 December 2027. Teams that treat the deferral as cancellation will meet the same wall later with less runway.
 
-If you provide a GPAI model, the change is that the AI Office can now act — request information and model access, order mitigations or recalls, and fine. Documentation that was adequate as a good-faith gesture now has to survive a regulator asking for it.
+If you provide a GPAI model, the change is that the AI Office can now act - request information and model access, order mitigations or recalls, and fine. Documentation that was adequate as a good-faith gesture now has to survive a regulator asking for it.
 
 ## What to do
 

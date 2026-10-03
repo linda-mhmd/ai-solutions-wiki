@@ -33,6 +33,6 @@ When multiple organizations collaborate on an AI system, joint controllership ma
 
 ## Sources
 
-- European Parliament and Council. (2016). *Regulation (EU) 2016/679 (GDPR)*, Articles 4(7), 24–27. Official Journal of the European Union. (Primary legal source; defines data controller, controller obligations, and joint controllership.)
+- European Parliament and Council. (2016). *Regulation (EU) 2016/679 (GDPR)*, Articles 4(7), 24-27. Official Journal of the European Union. (Primary legal source; defines data controller, controller obligations, and joint controllership.)
 - European Data Protection Board. (2021). *Guidelines 07/2020 on the concepts of controller and processor in the GDPR*. EDPB. (Authoritative guidance on distinguishing controllers from processors in complex AI deployment scenarios.)
 - Wachter, S., & Mittelstadt, B. (2019). A right to reasonable inferences: Re-thinking data protection law in the age of big data and AI. *Columbia Business Law Review, 2019*(2). (Analyzes controller accountability for AI-generated inferences under GDPR.)

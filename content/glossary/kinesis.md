@@ -39,8 +39,8 @@ Size shards based on your expected throughput (1 MB/s write, 2 MB/s read per sha
 
 ## Sources
 
-- Akidau, T., Baldacci, A., Balikov, K., Čuklev, D., Perry, J., Whittle, S., Lam, W., Malone, B., Nathan, D., & Saecker, M. (2013). MillWheel: Fault-tolerant stream processing at internet scale. *Proceedings of the VLDB Endowment*, 6(11), 1033–1044. (Stream processing foundations at scale; watermarks, exactly-once semantics, and out-of-order data handling underlying Kinesis design.)
-- Zaharia, M., Das, T., Li, H., Hunter, T., Shenker, S., & Stoica, I. (2013). Discretized streams: Fault-tolerant streaming computation at scale. *Proceedings of ACM SOSP*, 423–438. (Streaming computation at scale; fault tolerance via micro-batching, the theoretical basis for streaming data pipelines like Kinesis.)
+- Akidau, T., Baldacci, A., Balikov, K., Čuklev, D., Perry, J., Whittle, S., Lam, W., Malone, B., Nathan, D., & Saecker, M. (2013). MillWheel: Fault-tolerant stream processing at internet scale. *Proceedings of the VLDB Endowment*, 6(11), 1033-1044. (Stream processing foundations at scale; watermarks, exactly-once semantics, and out-of-order data handling underlying Kinesis design.)
+- Zaharia, M., Das, T., Li, H., Hunter, T., Shenker, S., & Stoica, I. (2013). Discretized streams: Fault-tolerant streaming computation at scale. *Proceedings of ACM SOSP*, 423-438. (Streaming computation at scale; fault tolerance via micro-batching, the theoretical basis for streaming data pipelines like Kinesis.)
 - AWS. *Amazon Kinesis Data Analytics for SQL Applications: discontinuation notice* (accessed 25 September 2026). [https://docs.aws.amazon.com/kinesisanalytics/latest/dev/what-is.html](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/what-is.html)
 - AWS. *What is Amazon Managed Service for Apache Flink?* [https://docs.aws.amazon.com/managed-flink/latest/java/what-is.html](https://docs.aws.amazon.com/managed-flink/latest/java/what-is.html)
 - AWS. *What is Amazon Data Firehose?* [https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html](https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html)

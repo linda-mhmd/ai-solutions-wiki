@@ -48,7 +48,7 @@ Data quality is not a one-time cleanup project. It is a continuous process that 
 
 ## Sources
 
-- Redman, T.C. (1998). The impact of poor data quality on the typical enterprise. *Communications of the ACM, 41*(2), 79–82. (Early quantification of data quality costs.)
-- Wang, R.Y., & Strong, D.M. (1996). Beyond accuracy: What data quality means to data consumers. *Journal of Management Information Systems, 12*(4), 5–33. (Foundational four-dimension framework: accuracy, completeness, consistency, timeliness.)
-- Polyzotis, N., et al. (2019). Data lifecycle challenges in production machine learning. *ACM SIGMOD Record, 47*(2), 17–28. (Google TFX team on data quality in ML production pipelines.)
+- Redman, T.C. (1998). The impact of poor data quality on the typical enterprise. *Communications of the ACM, 41*(2), 79-82. (Early quantification of data quality costs.)
+- Wang, R.Y., & Strong, D.M. (1996). Beyond accuracy: What data quality means to data consumers. *Journal of Management Information Systems, 12*(4), 5-33. (Foundational four-dimension framework: accuracy, completeness, consistency, timeliness.)
+- Polyzotis, N., et al. (2019). Data lifecycle challenges in production machine learning. *ACM SIGMOD Record, 47*(2), 17-28. (Google TFX team on data quality in ML production pipelines.)
 - Breck, E., et al. (2019). Data validation for machine learning. *MLSys 2019*. (TensorFlow Data Validation; automated validation in continuous training.)

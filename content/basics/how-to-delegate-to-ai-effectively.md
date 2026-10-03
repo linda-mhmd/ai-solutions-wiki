@@ -1,13 +1,13 @@
 ---
 title: "How to Delegate to AI Effectively"
-description: "Get better results from AI coding assistants. Prompting strategies, context management, and working iteratively—because AI builds exactly what you describe."
+description: "Get better results from AI coding assistants. Prompting strategies, context management, and working iteratively - because AI builds exactly what you describe."
 date: 2026-07-30
 level: 1
 categories: [Basics]
 tags: [beginner, ai, vibe-coding, productivity, prompting, development]
 faqs:
   - question: "Why does AI keep generating wrong code?"
-    answer: "Usually because the prompt is ambiguous or missing context. AI fills gaps with assumptions—often wrong ones. Better prompts with clear requirements, acceptance criteria, and context produce better results."
+    answer: "Usually because the prompt is ambiguous or missing context. AI fills gaps with assumptions - often wrong ones. Better prompts with clear requirements, acceptance criteria, and context produce better results."
   - question: "Should I let AI write everything?"
     answer: "AI is a tool, not a replacement for understanding. Use it for implementation, but you need to understand enough to: describe what you want, verify the output, debug when it breaks, and make architectural decisions."
   - question: "How do I know if AI-generated code is good?"
@@ -16,7 +16,7 @@ last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-AI codes what you describe—describe poorly, get poor results. Effective AI delegation: provide context (what you're building, existing code patterns), clear requirements (user stories, acceptance criteria), and constraints (technologies, style). Work in small iterations, verify each piece, and build up incrementally rather than generating everything at once.
+AI codes what you describe - describe poorly, get poor results. Effective AI delegation: provide context (what you're building, existing code patterns), clear requirements (user stories, acceptance criteria), and constraints (technologies, style). Work in small iterations, verify each piece, and build up incrementally rather than generating everything at once.
 {{< /quickanswer >}}
 
 ## The delegation mindset
@@ -266,7 +266,7 @@ Asked for a simple solution, get an enterprise architecture.
 
 ### Security issues
 
-AI generates working but insecure code—SQL with string concatenation, unescaped output, hardcoded secrets.
+AI generates working but insecure code - SQL with string concatenation, unescaped output, hardcoded secrets.
 
 **Fix**: Always review for security. See [Security basics for beginners](/basics/security-basics-for-beginners/).
 
@@ -368,7 +368,7 @@ Effective AI development requires:
 | Typing fast | Thinking clearly about architecture |
 | Solo implementation | Directing and reviewing |
 
-You're still coding—just at a higher level of abstraction.
+You're still coding - just at a higher level of abstraction.
 
 ## Quick reference
 

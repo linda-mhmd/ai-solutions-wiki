@@ -117,6 +117,6 @@ The standard pattern: retrieve top 20 chunks via vector similarity, rerank to ge
 
 ## Further reading for vibecoders
 
-- [What is a token?](/basics/what-is-a-token/): Chunking strategies are about token counts — understand what tokens are and why they matter for cost.
+- [What is a token?](/basics/what-is-a-token/): Chunking strategies are about token counts - understand what tokens are and why they matter for cost.
 - [Hallucination](/glossary/hallucination/): RAG's primary purpose is reducing hallucination by grounding responses in real documents.
-- [What is JSON?](/basics/what-is-json/): RAG APIs return results in JSON format — you'll need to parse retrieval results.
+- [What is JSON?](/basics/what-is-json/): RAG APIs return results in JSON format - you'll need to parse retrieval results.

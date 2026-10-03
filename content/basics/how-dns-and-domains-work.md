@@ -9,16 +9,16 @@ categories: [Basics]
 tags: [beginner, dns, domains, networking, web, infrastructure]
 faqs:
   - question: "Why do DNS changes take so long?"
-    answer: "Caching. DNS responses are cached at multiple levels—your browser, your OS, your ISP, and DNS resolvers worldwide. Each cache has a TTL (time to live) before it refreshes. Lowering TTL before making changes can help, but some caches ignore it."
+    answer: "Caching. DNS responses are cached at multiple levels - your browser, your OS, your ISP, and DNS resolvers worldwide. Each cache has a TTL (time to live) before it refreshes. Lowering TTL before making changes can help, but some caches ignore it."
   - question: "What's the difference between a domain registrar and DNS hosting?"
     answer: "A registrar is where you buy the domain (Namecheap, Porkbun, Cloudflare, GoDaddy). DNS hosting is where your DNS records live. They can be the same company or different. Many people buy domains at a registrar but point nameservers to Cloudflare or their hosting provider for DNS."
   - question: "Do I need to understand DNS to deploy an app?"
-    answer: "For platforms like Vercel, Railway, or Netlify—barely. They handle most of it. You just need to add a CNAME or A record and maybe change nameservers. But when something breaks, understanding DNS helps you debug why your site isn't loading."
+    answer: "For platforms like Vercel, Railway, or Netlify - barely. They handle most of it. You just need to add a CNAME or A record and maybe change nameservers. But when something breaks, understanding DNS helps you debug why your site isn't loading."
 last_updated: 2026-09-25
 ---
 
 {{< quickanswer >}}
-When you type `example.com` in your browser, DNS (Domain Name System) translates that human-readable name into an IP address like `93.184.216.34` that computers use to find each other. It's the internet's phone book—you look up a name, you get an address.
+When you type `example.com` in your browser, DNS (Domain Name System) translates that human-readable name into an IP address like `93.184.216.34` that computers use to find each other. It's the internet's phone book - you look up a name, you get an address.
 {{< /quickanswer >}}
 
 ## The problem DNS solves
@@ -115,7 +115,7 @@ Use for: Subdomains, pointing to hosting platforms.
 **Important**: CNAME cannot be used on the root domain (`example.com`). Only on subdomains (`www.example.com`).
 
 ### MX Record
-Mail exchange—where to deliver email.
+Mail exchange - where to deliver email.
 
 ```
 example.com MX → mail.example.com (priority 10)
@@ -133,7 +133,7 @@ example.com TXT → "v=spf1 include:_spf.google.com ~all"
 Use for: Domain verification, email security (SPF, DKIM), proving you own the domain.
 
 ### NS Record
-Nameserver—which servers are authoritative for this domain.
+Nameserver - which servers are authoritative for this domain.
 
 ```
 example.com NS → ns1.cloudflare.com

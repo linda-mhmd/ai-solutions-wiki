@@ -36,6 +36,6 @@ Set a compute budget for tuning and stick to it. Diminishing returns set in quic
 
 ## Sources
 
-- Bergstra, J., & Bengio, Y. (2012). Random search for hyper-parameter optimization. *JMLR, 13*, 281–305. (Demonstrated random search outperforms grid search; standard justification for abandoning exhaustive grid search.)
+- Bergstra, J., & Bengio, Y. (2012). Random search for hyper-parameter optimization. *JMLR, 13*, 281-305. (Demonstrated random search outperforms grid search; standard justification for abandoning exhaustive grid search.)
 - Snoek, J., Larochelle, H., & Adams, R.P. (2012). Practical Bayesian optimization of machine learning algorithms. *NeurIPS 2012*. (Bayesian optimization for hyperparameter tuning; standard reference.)
 - Jaderberg, M., et al. (2017). Population based training of neural networks. *arXiv:1711.09846*. (Population-Based Training; DeepMind's approach to joint hyperparameter and weight optimization.)

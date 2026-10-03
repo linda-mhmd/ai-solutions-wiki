@@ -72,7 +72,7 @@ Google has made incremental improvements: better placement reporting, negative k
 ## Sources
 
 - Spider AF, "PMax Ad Fraud: How Performance Max Gets Exploited and How to Stop It" (2026): https://spideraf.com/articles/pmax-ad-fraud-how-performance-max-gets-exploited-and-how-to-stop-it
-- Spider AF, "Performance Max Spam Leads — What They Are and How to Fight" (2026): https://spideraf.com/articles/performance-max-spam-leads
+- Spider AF, "Performance Max Spam Leads - What They Are and How to Fight" (2026): https://spideraf.com/articles/performance-max-spam-leads
 - TNT Growth, "How to Fix a Google PMax Campaign Generating Spam Leads" (2026): https://tntgrowth.com/blog/fix-pmax-spam-leads
 - Search Engine Land, "Why Performance Max for lead generation often fails and how to make it work" (2023): https://searchengineland.com/why-performance-max-lead-generation-fails-make-it-work-393038
 - Search Engine Land, "How to reduce low-quality leads from Performance Max campaigns" (2025): https://searchengineland.com/how-to-reduce-low-quality-leads-from-performance-max-campaigns-468687

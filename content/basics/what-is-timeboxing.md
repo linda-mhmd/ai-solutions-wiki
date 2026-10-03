@@ -150,9 +150,9 @@ The first few times feel uncomfortable, because stopping at the bell goes agains
 
 | | Typical length | Purpose |
 |---|---|---|
-| **A decision** | 30–60 minutes | Force a clear choice and stop the debate from dragging on |
+| **A decision** | 30-60 minutes | Force a clear choice and stop the debate from dragging on |
 | **A Pomodoro focus block** | 25 minutes | Do deep, single-task work with no distractions |
-| **A spike or experiment** | 1–2 days | Test one risky idea cheaply before committing more |
+| **A spike or experiment** | 1-2 days | Test one risky idea cheaply before committing more |
 | **A Scrum Sprint** | One month or less | Ship a usable increment of work on a steady rhythm |
 
 ## What's next

@@ -41,5 +41,5 @@ Adopt semver for all shared interfaces: APIs, libraries, infrastructure modules.
 ## Sources
 
 - Preston-Werner, T. (2013). *Semantic Versioning 2.0.0*. semver.org. (The official specification defining major, minor, and patch versioning semantics and compatibility guarantees.)
-- Raemaekers, S., van Deursen, A., & Visser, J. (2014). Semantic versioning versus breaking changes: A study of the Maven repository. *2014 IEEE 14th International Working Conference on Source Code Analysis and Manipulation*, 215–224. (Empirical study of semver compliance in practice; how often packages actually follow their stated versioning semantics.)
+- Raemaekers, S., van Deursen, A., & Visser, J. (2014). Semantic versioning versus breaking changes: A study of the Maven repository. *2014 IEEE 14th International Working Conference on Source Code Analysis and Manipulation*, 215-224. (Empirical study of semver compliance in practice; how often packages actually follow their stated versioning semantics.)
 - Conventional Commits Authors. (2019). *Conventional Commits 1.0.0*. conventionalcommits.org. (Commit message convention for automating semver version bumps; directly integrates with CI pipelines.)

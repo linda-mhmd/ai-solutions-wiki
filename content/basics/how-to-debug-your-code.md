@@ -7,7 +7,7 @@ categories: [Basics]
 tags: [beginner, debugging, troubleshooting, devtools, errors, javascript]
 faqs:
   - question: "How do I get better at debugging?"
-    answer: "Practice and pattern recognition. The more bugs you fix, the faster you recognize common patterns. Keep a mental (or actual) list of 'things to check first' for different error types. Reading other people's code also helps—you learn to trace logic flow."
+    answer: "Practice and pattern recognition. The more bugs you fix, the faster you recognize common patterns. Keep a mental (or actual) list of 'things to check first' for different error types. Reading other people's code also helps - you learn to trace logic flow."
   - question: "Should I just ask AI to fix my bugs?"
     answer: "AI can help, but you'll learn faster by understanding what's wrong first. Use AI to explain error messages or suggest what to investigate. If you just paste code and say 'fix it' without understanding, you'll hit the same bugs repeatedly."
   - question: "When should I give up debugging and start over?"
@@ -21,7 +21,7 @@ Debugging is finding why code doesn't work as expected. The approach: understand
 
 ## The debugging mindset
 
-Bugs aren't random. Code does exactly what you told it to do—it just isn't what you meant.
+Bugs aren't random. Code does exactly what you told it to do - it just isn't what you meant.
 
 **The goal**: Find where your mental model of the code differs from what the code actually does.
 
@@ -248,7 +248,7 @@ For "something in this big chunk of code is broken":
 
 Explain the code out loud, line by line, to a rubber duck (or anyone/anything).
 
-"This function receives a user object. It should have a name property. We call .toUpperCase() on name. Oh wait—what if user is null?"
+"This function receives a user object. It should have a name property. We call .toUpperCase() on name. Oh wait - what if user is null?"
 
 Often you find the bug while explaining.
 
@@ -268,7 +268,7 @@ Then ask with:
 - Relevant code snippets
 - The actual error message
 
-This isn't gatekeeping—it's that this information is what anyone helping you needs anyway.
+This isn't gatekeeping - it's that this information is what anyone helping you needs anyway.
 
 ## Debugging checklist
 

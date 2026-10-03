@@ -21,7 +21,7 @@ The message: Europe needs its own AI infrastructure, its own models, and its own
 
 The immediate trigger was the Trump administration's decision in June 2026 to restrict foreign access to Anthropic's most advanced AI models under export control rules. The restriction, part of broader AI export policy, blocked European companies and institutions from accessing capabilities they had been using or planning to adopt.
 
-At VivaTech 2026 (17–18 June), French and German officials presented a joint paper on digital sovereignty. The paper was published as a policy document and is intended to guide the upcoming EU Tech Sovereignty Package.
+At VivaTech 2026 (17-18 June), French and German officials presented a joint paper on digital sovereignty. The paper was published as a policy document and is intended to guide the upcoming EU Tech Sovereignty Package.
 
 Key announcements:
 

@@ -7,7 +7,7 @@ categories: [Basics]
 tags: [beginner, ux, product, planning, discovery, user-research]
 faqs:
   - question: "Is this just for big companies with UX teams?"
-    answer: "No. A journey map can be a 5-minute sketch on paper. Solo builders benefit most—you're making all the decisions, so understanding the full journey prevents blind spots."
+    answer: "No. A journey map can be a 5-minute sketch on paper. Solo builders benefit most - you're making all the decisions, so understanding the full journey prevents blind spots."
   - question: "How do I know what users actually experience?"
     answer: "Talk to them. Even 3-5 conversations reveal patterns. If you can't access users yet, walk through the journey yourself, or ask someone unfamiliar with your product to try it while you watch."
   - question: "When should I create a journey map?"
@@ -16,7 +16,7 @@ last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-A user journey map shows the steps someone takes to accomplish a goal with your product—from first awareness through completion and beyond. It includes what they do, think, and feel at each stage. This reveals pain points and opportunities that screen-by-screen thinking misses. Even a quick sketch helps you build something that fits how users actually behave.
+A user journey map shows the steps someone takes to accomplish a goal with your product - from first awareness through completion and beyond. It includes what they do, think, and feel at each stage. This reveals pain points and opportunities that screen-by-screen thinking misses. Even a quick sketch helps you build something that fits how users actually behave.
 {{< /quickanswer >}}
 
 ## Why map journeys
@@ -79,7 +79,7 @@ Journey mapping forces you to see what users see: a continuous experience, not a
 
 ### Step 1: Define the scope
 
-**Who** is the user? (Be specific—not "users" but "new freelancer looking for invoicing software")
+**Who** is the user? (Be specific - not "users" but "new freelancer looking for invoicing software")
 
 **What goal** are they trying to accomplish? (Not "use the app" but "send their first invoice")
 
@@ -321,7 +321,7 @@ Real journeys include errors, confusion, and giving up.
 
 ## The honest take
 
-**Journey maps are thinking tools.** The goal isn't a pretty artifact—it's understanding.
+**Journey maps are thinking tools.** The goal isn't a pretty artifact - it's understanding.
 
 **5 minutes beats nothing.** A quick sketch on paper reveals blind spots. Don't skip it because you don't have time for a "proper" map.
 

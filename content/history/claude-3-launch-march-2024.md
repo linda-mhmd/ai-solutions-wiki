@@ -20,11 +20,11 @@ On March 4, 2024, Anthropic announced the Claude 3 model family. The family incl
 
 Claude 3 introduced a tiered structure that became industry standard:
 
-**Claude 3 Opus** — The most capable model, priced at $15 per million input tokens and $75 per million output tokens. Anthropic positioned it for "task automation, R&D, and strategy" work requiring complex reasoning.
+**Claude 3 Opus** - The most capable model, priced at $15 per million input tokens and $75 per million output tokens. Anthropic positioned it for "task automation, R&D, and strategy" work requiring complex reasoning.
 
-**Claude 3 Sonnet** — The balanced mid-tier model, priced at $3 per million input tokens and $15 per million output tokens. Designed for "data processing, sales, and time-saving tasks" at scale.
+**Claude 3 Sonnet** - The balanced mid-tier model, priced at $3 per million input tokens and $15 per million output tokens. Designed for "data processing, sales, and time-saving tasks" at scale.
 
-**Claude 3 Haiku** — The fastest and most affordable model, priced at $0.25 per million input tokens and $1.25 per million output tokens. Built for "customer interactions, content moderation, and cost-saving tasks" requiring near-instant responses.
+**Claude 3 Haiku** - The fastest and most affordable model, priced at $0.25 per million input tokens and $1.25 per million output tokens. Built for "customer interactions, content moderation, and cost-saving tasks" requiring near-instant responses.
 
 All three models launched with a 200,000-token context window, with Anthropic noting they could accept inputs exceeding one million tokens for select customers.
 

@@ -32,20 +32,20 @@ $$\mathcal{L}_\text{DPO}(\pi_\theta; \pi_\text{ref}) = -\mathbb{E}_{(x, y_w, y_l
 
 where π_θ is the trained policy, π_ref is a frozen reference (typically the SFT model), σ is the sigmoid, and β controls the KL deviation. This is a standard cross-entropy-style loss on the *log-ratio between policy and reference probabilities* of chosen vs rejected completions. It admits standard supervised optimisation (Adam, batch training) without on-policy sampling or a separate RM.
 
-The Rafailov et al. result is that the optimum of this loss is mathematically equivalent to the RLHF optimum under the Bradley–Terry preference model with KL constraint β. Empirically, DPO matches or exceeds PPO-RLHF on summarisation and dialogue benchmarks at a fraction of the engineering complexity.
+The Rafailov et al. result is that the optimum of this loss is mathematically equivalent to the RLHF optimum under the Bradley - Terry preference model with KL constraint β. Empirically, DPO matches or exceeds PPO-RLHF on summarisation and dialogue benchmarks at a fraction of the engineering complexity.
 
 ## Variants and Successors
 
 The DPO line has spawned a family of preference-learning methods, each addressing specific limitations:
 
-- **IPO** (Azar et al., 2024): Identity Preference Optimisation, removes DPO's susceptibility to overfitting on the Bradley–Terry assumption.
+- **IPO** (Azar et al., 2024): Identity Preference Optimisation, removes DPO's susceptibility to overfitting on the Bradley - Terry assumption.
 - **KTO** (Ethayarajh et al., 2024): Kahneman-Tversky Optimisation, requires only single-sample binary feedback (good/bad) rather than pairs. Cheaper data, comparable quality.
 - **ORPO** (Hong et al., 2024): Odds Ratio Preference Optimisation, fuses SFT and preference optimisation into a single training stage, eliminating the need for a separate SFT pass.
 - **SimPO** (Meng et al., 2024): Simple Preference Optimisation, removes the reference policy entirely, using length-normalised log-probabilities.
 - **CPO** (Xu et al., 2024): Contrastive Preference Optimisation, originally for machine translation; tightens the loss with hard-negative contrasting.
 - **RLOO / GRPO** (DeepSeek-AI, 2024 / 2025): return to RL with simpler estimators (REINFORCE-like, group-relative advantage); GRPO underpins DeepSeek-R1's reasoning training.
 
-The 2024–2025 consensus is that DPO is a strong default; SimPO and KTO are increasingly adopted; ORPO is attractive for compute-constrained pipelines; and RL-based methods (PPO, GRPO) remain preferred when the reward signal is verifiable (math, code, reasoning) rather than purely preferential.
+The 2024-2025 consensus is that DPO is a strong default; SimPO and KTO are increasingly adopted; ORPO is attractive for compute-constrained pipelines; and RL-based methods (PPO, GRPO) remain preferred when the reward signal is verifiable (math, code, reasoning) rather than purely preferential.
 
 ## When to Use DPO
 
@@ -66,7 +66,7 @@ It is not the right tool when:
 ## Engineering Considerations
 
 - **Reference model choice.** DPO requires KL anchor π_ref. Standard practice: SFT model. For a continuation of post-training (DPO on a DPO-tuned model), the previous DPO checkpoint is the new reference.
-- **Beta tuning.** β is the most important hyperparameter; controls how far the policy drifts from π_ref. Typical values 0.1–0.5. Too small → reward hacking, mode collapse; too large → no learning.
+- **Beta tuning.** β is the most important hyperparameter; controls how far the policy drifts from π_ref. Typical values 0.1-0.5. Too small → reward hacking, mode collapse; too large → no learning.
 - **Length bias.** DPO has a documented bias toward longer completions (similar to RLHF; Singhal et al., 2023). Mitigations: length-normalised variants (SimPO), length-controlled evaluation (Dubois et al., 2024), explicit length penalties in the dataset.
 - **Reward hacking is still possible.** Even without an explicit RM, DPO can exploit superficial features of the preference dataset. Clean preference data and held-out evaluation are mandatory.
 - **Memory: 2× the SFT model.** Both π_θ and π_ref are loaded. For 70B-class models, DPO requires the same multi-GPU setup as RLHF.

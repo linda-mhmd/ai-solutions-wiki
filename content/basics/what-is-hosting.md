@@ -11,14 +11,14 @@ faqs:
   - question: "Can I host my app for free?"
     answer: "Yes, for small projects. Vercel, Netlify, and Cloudflare Pages have generous free tiers for static sites and serverless functions. Railway and Render have limited free tiers. Once you get real traffic or need databases, you'll start paying."
   - question: "What's the difference between Vercel and AWS?"
-    answer: "Vercel is like a car with automatic transmission—it handles everything for you. AWS is like building a car from parts—maximum control, maximum complexity. For most vibecoders, start with Vercel/Netlify/Railway. Move to AWS when you have a specific reason."
+    answer: "Vercel is like a car with automatic transmission - it handles everything for you. AWS is like building a car from parts - maximum control, maximum complexity. For most vibecoders, start with Vercel/Netlify/Railway. Move to AWS when you have a specific reason."
   - question: "Do I need my own server?"
     answer: "Probably not. Running your own server means you're responsible for security updates, scaling, backups, and uptime. Platforms like Vercel handle all of that. Only get your own server when you have requirements those platforms can't meet."
 last_updated: 2026-09-25
 ---
 
 {{< quickanswer >}}
-Hosting is renting computer power on the internet to run your website or app. Your code needs to live somewhere that's always on and accessible to anyone with the URL. Your laptop at home doesn't count—it's not always on, it's behind your home network, and it's not built to handle many visitors.
+Hosting is renting computer power on the internet to run your website or app. Your code needs to live somewhere that's always on and accessible to anyone with the URL. Your laptop at home doesn't count - it's not always on, it's behind your home network, and it's not built to handle many visitors.
 {{< /quickanswer >}}
 
 ## Why you can't just use your laptop
@@ -74,7 +74,7 @@ Most vibecoders never need Tier 3. Start with Tier 1. Graduate when you hit limi
 
 ## What "serverless" actually means
 
-You'll hear "serverless" a lot. It doesn't mean no servers—it means you don't manage them.
+You'll hear "serverless" a lot. It doesn't mean no servers - it means you don't manage them.
 
 **Traditional hosting**: You rent a server that runs 24/7. You pay even when nobody's using it.
 
@@ -120,7 +120,7 @@ Typical monthly costs for a small SaaS:
 
 **Outgrowing free tiers? Stay on the same platform, pay.**
 - Vercel Pro, Railway paid tier, etc.
-- Migration is painful—avoid it if you can
+- Migration is painful - avoid it if you can
 
 **Specific requirements? Then research.**
 - Need GPU? Look at Modal, Replicate, Banana

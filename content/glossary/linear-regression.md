@@ -44,5 +44,5 @@ Linear regression is the right starting point when you need a fast, interpretabl
 ## Sources
 
 - Gauss, C. F. (1809). *Theoria Motus Corporum Coelestium*. (Introduced least squares; the mathematical foundation of ordinary least squares linear regression.)
-- Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. *Journal of the Royal Statistical Society, Series B, 58*(1), 267–288. (Lasso regression; introduced L1 regularization for sparse feature selection.)
-- Hoerl, A. E., & Kennard, R. W. (1970). Ridge regression: Biased estimation for nonorthogonal problems. *Technometrics, 12*(1), 55–67. (Ridge regression; introduced L2 regularization for multicollinear regression problems.)
+- Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. *Journal of the Royal Statistical Society, Series B, 58*(1), 267-288. (Lasso regression; introduced L1 regularization for sparse feature selection.)
+- Hoerl, A. E., & Kennard, R. W. (1970). Ridge regression: Biased estimation for nonorthogonal problems. *Technometrics, 12*(1), 55-67. (Ridge regression; introduced L2 regularization for multicollinear regression problems.)

@@ -41,6 +41,6 @@ Watch for hot partitions: if one partition key receives disproportionate traffic
 
 ## Sources
 
-- DeCandia, G., Hastorun, D., Jampani, M., Kakulapati, G., Lakshman, A., Pilchin, A., Sivasubramanian, S., Vosshall, P., & Vogels, W. (2007). Dynamo: Amazon's highly available key-value store. *Proceedings of ACM SOSP*, 205–220. (Original Dynamo paper; eventual consistency, consistent hashing, and the design principles underlying DynamoDB.)
-- Sivasubramanian, S. (2012). Amazon DynamoDB: A seamlessly scalable non-relational database service. *Proceedings of ACM SIGMOD*, 729–730. (DynamoDB's evolution from Dynamo; automatic partitioning, provisioned throughput, and the managed service model.)
-- Vogels, W. (2009). Eventually consistent. *Communications of the ACM*, 52(1), 40–44. (Theoretical foundation for eventual consistency underlying DynamoDB's design; BASE properties vs. ACID.)
+- DeCandia, G., Hastorun, D., Jampani, M., Kakulapati, G., Lakshman, A., Pilchin, A., Sivasubramanian, S., Vosshall, P., & Vogels, W. (2007). Dynamo: Amazon's highly available key-value store. *Proceedings of ACM SOSP*, 205-220. (Original Dynamo paper; eventual consistency, consistent hashing, and the design principles underlying DynamoDB.)
+- Sivasubramanian, S. (2012). Amazon DynamoDB: A seamlessly scalable non-relational database service. *Proceedings of ACM SIGMOD*, 729-730. (DynamoDB's evolution from Dynamo; automatic partitioning, provisioned throughput, and the managed service model.)
+- Vogels, W. (2009). Eventually consistent. *Communications of the ACM*, 52(1), 40-44. (Theoretical foundation for eventual consistency underlying DynamoDB's design; BASE properties vs. ACID.)

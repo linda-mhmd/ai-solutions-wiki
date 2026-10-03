@@ -32,7 +32,7 @@ An AI maturity model provides a structured assessment of where an organization s
 Assesses the AI/ML infrastructure, tools, and platforms available.
 
 - Level 1: No dedicated AI infrastructure. Ad-hoc use of laptops and free APIs.
-- Level 3: Cloud-based ML platform (SageMaker, Vertex AI — rebranded [Gemini Enterprise Agent Platform](/tools/google-vertex-ai/) in April 2026). Shared compute resources. Model serving infrastructure.
+- Level 3: Cloud-based ML platform (SageMaker, Vertex AI - rebranded [Gemini Enterprise Agent Platform](/tools/google-vertex-ai/) in April 2026). Shared compute resources. Model serving infrastructure.
 - Level 5: Fully automated MLOps pipeline. Self-service AI platform. Real-time feature stores. Automated monitoring and retraining.
 
 ### Data

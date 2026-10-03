@@ -44,7 +44,7 @@ Start with PCA when you need a simple, fast, interpretable reduction. Use t-SNE 
 
 ## Sources
 
-- Pearson, K. (1901). On lines and planes of closest fit to systems of points in space. *Philosophical Magazine, 2*(11), 559–572. (Original PCA formulation.)
-- van der Maaten, L., & Hinton, G. (2008). Visualizing data using t-SNE. *JMLR, 9*, 2579–2605. (t-SNE algorithm; standard reference for high-dimensional visualization.)
+- Pearson, K. (1901). On lines and planes of closest fit to systems of points in space. *Philosophical Magazine, 2*(11), 559-572. (Original PCA formulation.)
+- van der Maaten, L., & Hinton, G. (2008). Visualizing data using t-SNE. *JMLR, 9*, 2579-2605. (t-SNE algorithm; standard reference for high-dimensional visualization.)
 - McInnes, L., Healy, J., & Melville, J. (2018). UMAP: Uniform manifold approximation and projection for dimension reduction. *arXiv:1802.03426*. (UMAP; faster and more scalable alternative to t-SNE.)
 - Bellman, R. (1961). *Adaptive Control Processes: A Guided Tour.* Princeton University Press. (Curse of dimensionality first formulated here.)

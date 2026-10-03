@@ -9,14 +9,14 @@ faqs:
   - question: "What should I measure first?"
     answer: "Start with one metric tied to your product's core value. If you help people send invoices, measure 'invoices sent.' If you help people learn, measure 'lessons completed.' One clear metric beats ten fuzzy ones."
   - question: "How do I avoid analysis paralysis?"
-    answer: "Pick 3-5 metrics maximum. Define them before you build. Review weekly, but only act on clear signals. Perfect data doesn't exist—make decisions with good-enough data."
+    answer: "Pick 3-5 metrics maximum. Define them before you build. Review weekly, but only act on clear signals. Perfect data doesn't exist - make decisions with good-enough data."
   - question: "What tools should I use?"
     answer: "Start simple: Plausible or Fathom for privacy-friendly analytics, Mixpanel or Amplitude for product analytics, or even a spreadsheet for manual tracking. Tools matter less than the habit of measuring."
 last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-Vanity metrics make you feel good but don't drive decisions (page views, total signups). Actionable metrics tell you what to do (conversion rate, activation rate, churn). The best metrics are tied to your product's core value—if users get value, the metric goes up. Measure few things well rather than everything poorly.
+Vanity metrics make you feel good but don't drive decisions (page views, total signups). Actionable metrics tell you what to do (conversion rate, activation rate, churn). The best metrics are tied to your product's core value - if users get value, the metric goes up. Measure few things well rather than everything poorly.
 {{< /quickanswer >}}
 
 ## Vanity metrics vs actionable metrics
@@ -166,7 +166,7 @@ Feature adoption → Engagement → Retention
 Support tickets ↑ → Churn ↑
 ```
 
-Focus on leading indicators—they're your steering wheel.
+Focus on leading indicators - they're your steering wheel.
 
 ---
 

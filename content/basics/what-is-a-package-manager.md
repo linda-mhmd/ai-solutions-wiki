@@ -1,22 +1,22 @@
 ---
 title: "What is a Package Manager?"
-description: "npm, yarn, pip, cargo—package managers download and manage code libraries for you. The app store for code."
+description: "npm, yarn, pip, cargo - package managers download and manage code libraries for you. The app store for code."
 date: 2026-07-30
 level: 1
 categories: [Basics]
 tags: [beginner, npm, yarn, pip, packages, dependencies, javascript, python]
 faqs:
   - question: "Should I use npm or yarn?"
-    answer: "For most projects, it doesn't matter much. npm comes with Node.js, so it's the default. yarn is slightly faster and has some extra features. Pick one and stick with it for a project—don't mix them. pnpm is another option that's faster and saves disk space."
+    answer: "For most projects, it doesn't matter much. npm comes with Node.js, so it's the default. yarn is slightly faster and has some extra features. Pick one and stick with it for a project - don't mix them. pnpm is another option that's faster and saves disk space."
   - question: "Why are there so many different package managers?"
     answer: "Different languages have different ecosystems. npm is for JavaScript/Node.js. pip is for Python. cargo is for Rust. Each language community built tools suited to their needs. Within a language, alternatives (npm vs yarn) emerged when people wanted improvements."
   - question: "Is it safe to install packages?"
-    answer: "Mostly, but not blindly. Stick to popular, well-maintained packages. Check download counts and recent updates. Be careful with packages from AI suggestions—they might not exist (hallucination). Use `npm audit` to check for known vulnerabilities."
+    answer: "Mostly, but not blindly. Stick to popular, well-maintained packages. Check download counts and recent updates. Be careful with packages from AI suggestions - they might not exist (hallucination). Use `npm audit` to check for known vulnerabilities."
 last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-A package manager downloads, installs, and manages code libraries (packages) for your project. Instead of copying code manually, you run `npm install axios` and the package manager handles everything—downloading the code, tracking the version, and managing updates. npm (JavaScript), pip (Python), and cargo (Rust) are the most common ones.
+A package manager downloads, installs, and manages code libraries (packages) for your project. Instead of copying code manually, you run `npm install axios` and the package manager handles everything - downloading the code, tracking the version, and managing updates. npm (JavaScript), pip (Python), and cargo (Rust) are the most common ones.
 {{< /quickanswer >}}
 
 ## What package managers do

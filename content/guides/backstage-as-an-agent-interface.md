@@ -14,7 +14,7 @@ perform a repeatable operation without reconstructing it from scratch each time.
 A Backstage scaffolder template is already that. What is usually missing is a way
 for anything other than a person at a browser to run one.
 
-This guide covers how to close that gap, and — more usefully — where the sharp
+This guide covers how to close that gap, and - more usefully - where the sharp
 edges are, because most of them are not obvious until something has gone wrong.
 
 ## The problem with letting an agent "use the UI"
@@ -25,7 +25,7 @@ drive the browser. Resist it.
 A browser session is a person's identity. An agent acting through it inherits
 everything that person can do, in every plugin, with no scope and no separate
 audit trail. Every action it takes is attributed to the human. When something
-later needs explaining — who provisioned this account, under what authority —
+later needs explaining - who provisioned this account, under what authority - 
 the log says the person did it, and that is simply false.
 
 The session is also short-lived, so the capability disappears without warning,
@@ -84,8 +84,8 @@ happens, this is what comes out. When an agent runs one, the agent is not
 improvising infrastructure. It is filling in a form that a human wrote, reviewed
 and merged.
 
-That changes the review question from *"is this generated Terraform correct"* —
-which requires reading it every time — to *"is this template correct"*, which is
+That changes the review question from *"is this generated Terraform correct"* - 
+which requires reading it every time - to *"is this template correct"*, which is
 answered once, in a pull request, by whoever owns the platform.
 
 It also means the blast radius is bounded by the template rather than by the
@@ -100,7 +100,7 @@ Backstage also ships an official plugin,
 that exposes registered backend Actions as [MCP](/glossary/model-context-protocol/)
 tools over Streamable HTTP. It lives in the core `backstage/backstage` repository,
 not a community add-on, and is worth understanding as a second way to reach the
-same template — with a different set of trade-offs, not a strictly better one.
+same template - with a different set of trade-offs, not a strictly better one.
 
 **Get the comparison right first.** MCP is not an alternative to the browser. The
 scoped token above already avoids the browser entirely. MCP is an alternative to
@@ -114,7 +114,7 @@ approach was not already doing.
 | | Scoped REST token | MCP Actions server |
 |---|---|---|
 | Auth mechanism | `backend.auth.externalAccess`, static token | Same mechanism, or OAuth via Client ID Metadata Documents |
-| What is exposed | Whatever endpoints `accessRestrictions` names | Registered **Actions** — the individual steps a template is built from |
+| What is exposed | Whatever endpoints `accessRestrictions` names | Registered **Actions** - the individual steps a template is built from |
 | Discovery | None; you read the plugin's API docs | Tool listing and input schemas, over the protocol |
 | Granularity | Per plugin (`scaffolder`, `catalog`) | Per action, via named servers with include/exclude filters |
 | Protocol | Plain HTTP, whatever shape the plugin's API has | Streamable HTTP, standard MCP tool-call semantics |
@@ -166,7 +166,7 @@ mcpActions:
 ```
 
 Check which action IDs actually exist in your instance before writing the filter
-— they are listed at `/create/actions` in development — rather than guessing at
+- they are listed at `/create/actions` in development - rather than guessing at
 names.
 
 ### What to watch out for
@@ -174,7 +174,7 @@ names.
 **The "recommended" auth path reopens the exact problem this article opened
 with.** Backstage's own docs mark the static-token route as "a temporary
 workaround until device authentication is completed," and point integrators
-toward OAuth via CIMD instead. But CIMD's flow is a browser-based approval —
+toward OAuth via CIMD instead. But CIMD's flow is a browser-based approval - 
 which is precisely the borrowed-human-identity pattern the first section of this
 guide told you to avoid for an unattended agent. For a caller with nobody at a
 keyboard, the static token is currently the only practical option, not a
@@ -188,7 +188,7 @@ and Stack Overflow answers predate this and will lead you to a path Backstage
 itself no longer recommends.
 
 **"Action" is narrower than "template," and the two are not fully unified yet.**
-An Action is one step — publish to GitHub, register in the catalog — not an
+An Action is one step - publish to GitHub, register in the catalog - not an
 entire multi-step scaffolder template. Whether "run this template end-to-end"
 becomes a single invokable tool depends on how its steps are wired into the
 Actions Registry, and Backstage's own issue tracker has an open, unresolved
@@ -205,13 +205,13 @@ the one operation you built it for.
 
 **Use the built-in telemetry.** The plugin instruments metrics and tracing for
 tool calls, which gives you exactly what an audit trail through a template
-should have — who called what, with what subject, and when. Wire it into
+should have - who called what, with what subject, and when. Wire it into
 whatever already collects your platform's metrics rather than treating it as
 optional; this is the observability the `subject: agent` field in the token was
 already buying you, now visible per tool call rather than only in access logs.
 
-For the wider pattern this all sits inside — why an agent needs an identity of
-its own rather than a borrowed one, and how to scope, rotate, and revoke it —
+For the wider pattern this all sits inside - why an agent needs an identity of
+its own rather than a borrowed one, and how to scope, rotate, and revoke it - 
 see [agent identity and authorization](/guides/agent-identity-and-authorization/).
 For the failure modes MCP servers accumulate once they scale past one team's use,
 see [MCP security vulnerabilities in 2026](/news/mcp-security-vulnerabilities-2026/).
@@ -248,7 +248,7 @@ is always whatever the system currently holds, and an unknown value fails with
 the real list in the error message.
 
 **Order the stages so the irreversible one is last.** Creating an AWS account is
-effectively permanent — the display name and root email cannot be changed without
+effectively permanent - the display name and root email cannot be changed without
 support, and the address must be globally unique. Assigning access is trivially
 reversible. If a username is wrong, you want that to fail during planning, not
 after an account exists with nobody able to reach it.
@@ -263,7 +263,7 @@ non-obvious cause.
 
 **A passing pull request does not mean a working deployment.** Pipelines commonly
 skip cloud authentication on pull requests, because a fork should never receive
-credentials. That is correct — and it means a broken role reference can pass
+credentials. That is correct - and it means a broken role reference can pass
 every check and only fail after merge. If the deploy path has steps that never run
 on a pull request, those steps are untested until they run for real.
 
@@ -296,7 +296,7 @@ untrue. What it buys is work the agent never has to do at all.
 An operation described as a template executes deterministically. It is not
 re-derived, re-reviewed, or re-explained on each use, and it does not vary
 between two runs on different days. The agent's contribution is choosing the
-inputs and interpreting the outcome — the parts that genuinely need judgement.
+inputs and interpreting the outcome - the parts that genuinely need judgement.
 
 That is also why the template deserves the same review standard as application
 code. It is the artefact doing the work.

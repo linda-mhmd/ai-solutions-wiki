@@ -1,13 +1,13 @@
 ---
 title: "What is Cloud Storage?"
-description: "Cloud storage is file storage on someone else's servers, accessible from anywhere. S3, R2, Google Cloud Storage—here's what they are, how they work, and when to use them."
+description: "Cloud storage is file storage on someone else's servers, accessible from anywhere. S3, R2, Google Cloud Storage - here's what they are, how they work, and when to use them."
 date: 2026-07-30
 level: 2
 categories: [Basics]
 tags: [beginner, cloud, storage, s3, object-storage, files, infrastructure]
 faqs:
   - question: "Is cloud storage the same as a database?"
-    answer: "No. Databases store structured data—rows, columns, queries. Cloud storage stores files—images, videos, documents, backups. You'd store a user's profile picture in cloud storage, but their username and email in a database. Many apps use both."
+    answer: "No. Databases store structured data - rows, columns, queries. Cloud storage stores files - images, videos, documents, backups. You'd store a user's profile picture in cloud storage, but their username and email in a database. Many apps use both."
   - question: "Why not just store files on my server?"
     answer: "You can, but files on a server disk have problems: they're gone if the server dies, they don't scale easily, and they're harder to serve globally. Cloud storage handles redundancy, backups, and global distribution automatically."
   - question: "How much does cloud storage cost?"
@@ -44,7 +44,7 @@ Traditional file storage (like your hard drive) organizes files in folders with 
 - The **data** (the actual file contents)
 - **Metadata** (content type, size, custom tags)
 
-The key difference: object storage is flat. There are no real folders—the "/" in the key is just part of the name. This makes it massively scalable.
+The key difference: object storage is flat. There are no real folders - the "/" in the key is just part of the name. This makes it massively scalable.
 
 Services like S3 simulate folders in their UI, but underneath it's all flat key-value storage.
 
@@ -54,7 +54,7 @@ Services like S3 simulate folders in their UI, but underneath it's all flat key-
 
 The original and most widely used. "S3" has become almost generic for object storage.
 
-- **Durability**: 99.999999999% (eleven 9s)—essentially, your files won't disappear
+- **Durability**: 99.999999999% (eleven 9s) - essentially, your files won't disappear
 - **Availability**: 99.99%
 - **Integration**: Works with everything in AWS and most third-party tools
 - **Cost**: ~$0.023/GB/month storage + fees for requests and data transfer out
@@ -110,7 +110,7 @@ Vercel's native storage, optimized for Next.js apps.
 
 ### Buckets
 
-Storage is organized into **buckets**—named containers for your files. A bucket is like a top-level folder:
+Storage is organized into **buckets** - named containers for your files. A bucket is like a top-level folder:
 
 - `my-app-images` - user uploads
 - `my-app-backups` - database backups
@@ -188,7 +188,7 @@ pg_dump $DATABASE_URL | gzip | aws s3 cp - s3://backups/db-$(date +%Y%m%d).sql.g
 
 ### Large file distribution
 
-Software downloads, video content, datasets—anything too large to serve from your app server.
+Software downloads, video content, datasets - anything too large to serve from your app server.
 
 ### Data archiving
 

@@ -21,7 +21,7 @@ This guide covers the practical engineering decisions involved in conference-dri
 
 Internal deadlines are negotiable. A talk slot at a conference is not, cancellation carries professional cost, and the audience expects working demonstrations. This difference is psychologically significant but also structurally meaningful.
 
-Martin Fowler's concept of the **software spike** is relevant here: a time-boxed investigation into a technical question, producing a prototype whose purpose is to answer that question rather than to be production-ready. Conference talks function as public spikes with an externally enforced time box. The forced scope reduction that comes from fitting a demo into a 20–40 minute slot is equivalent to the constraint that makes spikes valuable: you cannot explore everything, so you explore the most important thing.
+Martin Fowler's concept of the **software spike** is relevant here: a time-boxed investigation into a technical question, producing a prototype whose purpose is to answer that question rather than to be production-ready. Conference talks function as public spikes with an externally enforced time box. The forced scope reduction that comes from fitting a demo into a 20-40 minute slot is equivalent to the constraint that makes spikes valuable: you cannot explore everything, so you explore the most important thing.
 
 The talk also forces **articulation**. The cognitive work of explaining a system to an audience who did not build it reveals assumptions and gaps that solo development allows to persist. Richard Feynman's observation, that you do not understand something until you can explain it simply, maps directly to the experience of preparing an AI system talk: you discover what you actually understand versus what you assumed you understood.
 
@@ -67,10 +67,10 @@ Use data that is visually or conceptually immediate. Abstract embeddings are har
 
 AI conference talks that explain both a problem and a technical approach follow a reliable structure:
 
-1. **The problem** (2–3 minutes): State the problem in concrete terms. What breaks without your approach? What does failure look like?
-2. **The naive approach and why it fails** (3–5 minutes): Show what a simpler solution does wrong. This grounds the architecture decision that follows.
-3. **Your approach** (10–15 minutes): The demo lives here. Walk through the system operating on real inputs. Show the code, the architecture, the output.
-4. **What does not work** (3–5 minutes): Honest treatment of limitations, failure cases, and open problems. This is the highest-signal section for technical audiences, it distinguishes practitioners from marketers.
+1. **The problem** (2-3 minutes): State the problem in concrete terms. What breaks without your approach? What does failure look like?
+2. **The naive approach and why it fails** (3-5 minutes): Show what a simpler solution does wrong. This grounds the architecture decision that follows.
+3. **Your approach** (10-15 minutes): The demo lives here. Walk through the system operating on real inputs. Show the code, the architecture, the output.
+4. **What does not work** (3-5 minutes): Honest treatment of limitations, failure cases, and open problems. This is the highest-signal section for technical audiences, it distinguishes practitioners from marketers.
 5. **What to take away** (2 minutes): A pattern, a mental model, or a code snippet the audience can apply.
 
 The "what does not work" section is not optional for a credible AI talk. The field has a significant marketing-to-reality gap, and audiences with engineering experience detect it. A talk that acknowledges where the system fails is more trustworthy and more useful than one that does not.
@@ -98,9 +98,9 @@ The timing matters: release the repository at the talk, not before. Pre-talk rel
 
 ## When Not to Give a Talk
 
-Conference-driven development has costs. Preparing a good 30-minute talk on a technical topic takes 20–40 hours of preparation for an experienced speaker; more for a first talk. The demo must be finished before the talk slot, not during, which means accepting talk slots on ideas that are genuinely prototyped, not just planned.
+Conference-driven development has costs. Preparing a good 30-minute talk on a technical topic takes 20-40 hours of preparation for an experienced speaker; more for a first talk. The demo must be finished before the talk slot, not during, which means accepting talk slots on ideas that are genuinely prototyped, not just planned.
 
-The timing heuristic for AI talks: a technique is most valuable to conference audiences when it is 6–18 months old. Early enough to be novel to most practitioners; late enough that you have honest production experience and can speak to failure modes. Talks about techniques that are 3 months old tend to be theoretical; talks about techniques that are 3 years old tend to be explaining what practitioners already know.
+The timing heuristic for AI talks: a technique is most valuable to conference audiences when it is 6-18 months old. Early enough to be novel to most practitioners; late enough that you have honest production experience and can speak to failure modes. Talks about techniques that are 3 months old tend to be theoretical; talks about techniques that are 3 years old tend to be explaining what practitioners already know.
 
 ## Sources
 

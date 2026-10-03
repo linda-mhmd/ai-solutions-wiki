@@ -24,7 +24,7 @@ LLM-as-a-judge is the practice of using a language model to score, compare, or c
 
 A judge prompt typically takes one of three forms:
 
-- **Pointwise scoring**: the judge receives a single response and rates it on a scale (e.g. 1–5) along one or more axes (helpfulness, faithfulness, factuality).
+- **Pointwise scoring**: the judge receives a single response and rates it on a scale (e.g. 1-5) along one or more axes (helpfulness, faithfulness, factuality).
 - **Pairwise comparison**: the judge receives two candidate responses (A and B) and selects the better one, optionally with a "tie" option. This is the format used in Chatbot Arena and most preference-learning datasets.
 - **Reference-based grading**: the judge receives a candidate response and a reference (gold) answer and scores the candidate against the reference.
 
@@ -59,7 +59,7 @@ Empirical studies (Zheng et al., 2023; Wang et al., 2023; Panickssery et al., 20
 
 A judge is only useful if its scores correlate with the metric you actually care about. The minimum-viable calibration protocol:
 
-1. Sample 100–500 representative inputs.
+1. Sample 100-500 representative inputs.
 2. Have humans (ideally domain experts) score each output along the same rubric.
 3. Compute agreement (Cohen's κ for categorical, Spearman's ρ for ordinal, accuracy for pairwise).
 4. Iterate the judge prompt until agreement is acceptable for the use case (typical thresholds: κ > 0.6, ρ > 0.7).

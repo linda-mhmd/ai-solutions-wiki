@@ -15,7 +15,7 @@ related:
 last_updated: 2026-09-25
 ---
 
-Prompt caching is an LLM serving optimisation in which the attention key/value (KV) tensors computed for a shared prompt prefix are stored and reused across subsequent requests, instead of being recomputed each time. For applications that send many requests with the same long prefix, system prompts, document context, agent histories, few-shot examples, RAG-augmented prompts, prompt caching reduces both time-to-first-token latency and per-call cost by an amount proportional to the cached prefix length. Cache discounts of 50–90% are typical at provider APIs (Anthropic, OpenAI, Google, AWS Bedrock).
+Prompt caching is an LLM serving optimisation in which the attention key/value (KV) tensors computed for a shared prompt prefix are stored and reused across subsequent requests, instead of being recomputed each time. For applications that send many requests with the same long prefix, system prompts, document context, agent histories, few-shot examples, RAG-augmented prompts, prompt caching reduces both time-to-first-token latency and per-call cost by an amount proportional to the cached prefix length. Cache discounts of 50-90% are typical at provider APIs (Anthropic, OpenAI, Google, AWS Bedrock).
 
 ## Mechanism
 
@@ -41,12 +41,12 @@ It does not help when:
 - Cache TTL is too short for the request arrival rate (cache misses every time)
 - The application is throughput-bounded rather than latency-bounded (caching reduces per-request compute but does not increase server peak throughput)
 
-## Provider Semantics (2024–2026)
+## Provider Semantics (2024-2026)
 
 Provider implementations differ in important details:
 
 - **Anthropic Claude**: `cache_control: {"type": "ephemeral"}` either as a single top-level field (automatic caching, which moves the breakpoint forward as a conversation grows) or on individual content blocks as explicit breakpoints. Up to four breakpoints per request. 5-minute or 1-hour TTL. 5-minute cache writes cost 1.25× base input, 1-hour writes 2×, and cache reads 0.1× (lower on some newer models, for example 0.05× on Claude Opus 5.5); a 5-minute write pays for itself after one reuse.
-- **OpenAI**: models before GPT-5.6 cache automatically at implicit breakpoints, with no cache-write charge, a model-dependent cached-input discount, and cached-token counts rounded down to 128-token steps. From GPT-5.6 onward, including the GPT-6 models, caching starts at 1,024 visible input tokens, requests can also place explicit breakpoints (`prompt_cache_breakpoint`, up to four cache writes per request), cache writes cost 1.25× the uncached input rate and reads 0.1×, and entries live at least 30 minutes after the latest write or reuse. Older models keep entries roughly 5–10 minutes in memory, or up to 24 hours with extended retention.
+- **OpenAI**: models before GPT-5.6 cache automatically at implicit breakpoints, with no cache-write charge, a model-dependent cached-input discount, and cached-token counts rounded down to 128-token steps. From GPT-5.6 onward, including the GPT-6 models, caching starts at 1,024 visible input tokens, requests can also place explicit breakpoints (`prompt_cache_breakpoint`, up to four cache writes per request), cache writes cost 1.25× the uncached input rate and reads 0.1×, and entries live at least 30 minutes after the latest write or reuse. Older models keep entries roughly 5-10 minutes in memory, or up to 24 hours with extended retention.
 - **Google Gemini**: implicit caching is on by default for Gemini 2.5 and newer models; the explicit context caching API (`CachedContent`) adds a controllable TTL, with storage billed separately from per-request cost.
 - **AWS Bedrock**: prompt caching support varies by model (Claude on Bedrock supports `cachePoint` blocks via Converse API, mirroring Anthropic semantics).
 

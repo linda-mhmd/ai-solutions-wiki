@@ -16,7 +16,7 @@ last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-Contributing to open source starts with finding a project you use or care about, then finding a way to help—documentation, bug reports, code fixes, or community support. Look for issues labeled "good first issue." Follow the project's contribution guidelines. Open a pull request. Respond to feedback. Even small contributions matter, and non-code contributions are often needed most.
+Contributing to open source starts with finding a project you use or care about, then finding a way to help - documentation, bug reports, code fixes, or community support. Look for issues labeled "good first issue." Follow the project's contribution guidelines. Open a pull request. Respond to feedback. Even small contributions matter, and non-code contributions are often needed most.
 {{< /quickanswer >}}
 
 ## Why contribute?

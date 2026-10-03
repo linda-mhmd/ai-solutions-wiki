@@ -57,6 +57,6 @@ IBM and Brookings both documented the problem. The backlash reframed context eng
 
 ## Further reading for vibecoders
 
-- [What is a token?](/basics/what-is-a-token/): Context engineering is about managing tokens effectively — understand what they are and why they cost money.
-- [What is rate limiting?](/basics/what-is-rate-limiting/): Aggressive context engineering can hit token-per-minute limits — know how to handle 429 errors.
+- [What is a token?](/basics/what-is-a-token/): Context engineering is about managing tokens effectively - understand what they are and why they cost money.
+- [What is rate limiting?](/basics/what-is-rate-limiting/): Aggressive context engineering can hit token-per-minute limits - know how to handle 429 errors.
 - [Tokenmaxxing](/glossary/tokenmaxxing/): The anti-pattern of maximizing token usage without measuring outcomes.

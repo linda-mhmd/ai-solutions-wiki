@@ -1,6 +1,6 @@
 ---
 title: "Deployment Platforms Compared"
-description: "Vercel, Railway, Render, Fly.io, Netlify, Heroku, AWS—where should you deploy? An honest comparison of pricing, features, and when to choose each platform."
+description: "Vercel, Railway, Render, Fly.io, Netlify, Heroku, AWS - where should you deploy? An honest comparison of pricing, features, and when to choose each platform."
 date: 2026-07-30
 level: 1
 categories: [Basics]

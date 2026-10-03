@@ -15,7 +15,7 @@ related:
 
 A pipeline reports success when its last step exits zero. That is all the signal contains. It is not evidence that an artefact was produced, that the artefact can start, that it reached the place the runtime reads from, or that the running system is now serving it. Those are four separate claims, and a green check mark asserts none of them.
 
-The failure this produces is quiet. A delivery pipeline can exist, be correctly written, pass review, and never once put an artefact into production — while the service continues serving something that was placed there by hand long ago. Nothing alerts, because nothing is wrong from the perspective of any individual component.
+The failure this produces is quiet. A delivery pipeline can exist, be correctly written, pass review, and never once put an artefact into production - while the service continues serving something that was placed there by hand long ago. Nothing alerts, because nothing is wrong from the perspective of any individual component.
 
 ## Four claims, verified separately
 
@@ -36,7 +36,7 @@ Before improving a pipeline, establish whether it has ever produced anything. Th
 gh api "repos/$OWNER/$REPO/actions/workflows/$WORKFLOW/runs" --jq '.total_count'
 ```
 
-A result of `0` means the workflow has never executed — usually because its trigger does not match how the repository is actually used. A low number against a busy repository means the same thing more subtly.
+A result of `0` means the workflow has never executed - usually because its trigger does not match how the repository is actually used. A low number against a busy repository means the same thing more subtly.
 
 The related check is whether the artefact destination and the runtime source are the same place. A build that publishes to one registry while the runtime pulls from another is a complete, well-formed, permanently ineffective pipeline. Nothing reconciles those two facts unless a person does, because each half is individually correct.
 
@@ -61,7 +61,7 @@ docker logs smoke 2>&1 | tail -40
 [ "$ok" = 1 ] || exit 1
 ```
 
-**Use placeholder configuration deliberately.** The test asks exactly one question — does this image start and serve — and real credentials are not needed to answer it. Injecting production secrets into a pull-request job to satisfy a boot check widens their exposure for no additional signal. Design the application so it starts with syntactically valid but non-functional configuration, and this test stays cheap and safe.
+**Use placeholder configuration deliberately.** The test asks exactly one question - does this image start and serve - and real credentials are not needed to answer it. Injecting production secrets into a pull-request job to satisfy a boot check widens their exposure for no additional signal. Design the application so it starts with syntactically valid but non-functional configuration, and this test stays cheap and safe.
 
 Always print the container logs. A failed health check tells you the probe did not succeed; the logs tell you why.
 
@@ -76,7 +76,7 @@ Two mitigations, neither perfect:
 
 ## Keep the identity of what you are replacing
 
-Deploying by moving a mutable tag such as `latest` destroys information at the moment you most need it. Once the tag moves, the previously-working artefact is untagged and effectively anonymous — you can no longer name the thing you would roll back to.
+Deploying by moving a mutable tag such as `latest` destroys information at the moment you most need it. Once the tag moves, the previously-working artefact is untagged and effectively anonymous - you can no longer name the thing you would roll back to.
 
 Capture it immediately before the move:
 
@@ -94,7 +94,7 @@ The stronger version of this is to stop using mutable tags for deployment at all
 
 ## Verify from outside the pipeline
 
-The final claim — that the running system is serving the new artefact — can only be checked against the running system. Have something observable from outside that changes when a deployment lands:
+The final claim - that the running system is serving the new artefact - can only be checked against the running system. Have something observable from outside that changes when a deployment lands:
 
 - **A version endpoint** returning the build identifier or commit SHA. The cleanest option, and worth adding if it does not exist.
 - **An asset fingerprint.** Content-hashed bundle filenames change on every build, so watching one change is a reliable proxy when you cannot add an endpoint:
@@ -109,7 +109,7 @@ Make this an assertion in the pipeline rather than something a person eyeballs. 
 
 ## The rule
 
-**A pipeline that has never delivered is not a pipeline.** It is a diagram of one, and it will be discovered on the day someone urgently needs it to work. Until an artefact it produced is demonstrably running, treat it as untested — regardless of how green it looks, how carefully it was reviewed, or how long it has existed.
+**A pipeline that has never delivered is not a pipeline.** It is a diagram of one, and it will be discovered on the day someone urgently needs it to work. Until an artefact it produced is demonstrably running, treat it as untested - regardless of how green it looks, how carefully it was reviewed, or how long it has existed.
 
 ## Further reading
 
@@ -124,8 +124,8 @@ Make this an assertion in the pipeline rather than something a person eyeballs. 
 ## Sources
 
 1. Google. *Site Reliability Engineering*, Chapter 8: "Release Engineering." [https://sre.google/sre-book/release-engineering/](https://sre.google/sre-book/release-engineering/)
-2. Open Container Initiative. "Image Format Specification" — content-addressable image digests. [https://github.com/opencontainers/image-spec/blob/main/spec.md](https://github.com/opencontainers/image-spec/blob/main/spec.md)
-3. GitHub. "REST API — list workflow runs for a workflow." [https://docs.github.com/en/rest/actions/workflow-runs](https://docs.github.com/en/rest/actions/workflow-runs)
-4. GitHub. "Security hardening for GitHub Actions" — secrets and workflows triggered by pull requests. [https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions)
-5. Docker. "Dockerfile reference — HEALTHCHECK." [https://docs.docker.com/reference/dockerfile/#healthcheck](https://docs.docker.com/reference/dockerfile/#healthcheck)
+2. Open Container Initiative. "Image Format Specification" - content-addressable image digests. [https://github.com/opencontainers/image-spec/blob/main/spec.md](https://github.com/opencontainers/image-spec/blob/main/spec.md)
+3. GitHub. "REST API - list workflow runs for a workflow." [https://docs.github.com/en/rest/actions/workflow-runs](https://docs.github.com/en/rest/actions/workflow-runs)
+4. GitHub. "Security hardening for GitHub Actions" - secrets and workflows triggered by pull requests. [https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions)
+5. Docker. "Dockerfile reference - HEALTHCHECK." [https://docs.docker.com/reference/dockerfile/#healthcheck](https://docs.docker.com/reference/dockerfile/#healthcheck)
 6. The Twelve-Factor App. "Build, release, run." [https://12factor.net/build-release-run](https://12factor.net/build-release-run)

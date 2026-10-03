@@ -1,6 +1,6 @@
 ---
 title: "Where to Store Files in Your App"
-description: "User uploads, images, documents, backups—a practical guide to where different types of files should live in a vibecoder's app."
+description: "User uploads, images, documents, backups - a practical guide to where different types of files should live in a vibecoder's app."
 date: 2026-07-30
 level: 2
 categories: [Basics]
@@ -11,14 +11,14 @@ faqs:
   - question: "What about local disk storage on my server?"
     answer: "Works for small projects, but has problems: files are gone if the server dies, you can't easily scale to multiple servers, and serving large files ties up your server. Cloud storage solves these problems for very little cost."
   - question: "How do I handle file uploads from users?"
-    answer: "Two approaches: (1) Upload to your server, then transfer to cloud storage—simpler to implement. (2) Get a signed URL from your backend, upload directly from browser to cloud storage—more scalable. For starting out, approach 1 is fine."
+    answer: "Two approaches: (1) Upload to your server, then transfer to cloud storage - simpler to implement. (2) Get a signed URL from your backend, upload directly from browser to cloud storage - more scalable. For starting out, approach 1 is fine."
 last_updated: 2026-09-25
 lastmod: 2026-09-25
 last_verified: 2026-09-25
 ---
 
 {{< quickanswer >}}
-Store structured data (users, posts, settings) in your database. Store files (images, uploads, documents) in cloud storage like S3 or R2. Store sensitive config (API keys) in environment variables. Store code in Git. Don't mix these up—each storage type exists for a reason.
+Store structured data (users, posts, settings) in your database. Store files (images, uploads, documents) in cloud storage like S3 or R2. Store sensitive config (API keys) in environment variables. Store code in Git. Don't mix these up - each storage type exists for a reason.
 {{< /quickanswer >}}
 
 ## The decision guide
@@ -193,7 +193,7 @@ Consider:
 **For serious video**: Use Mux, Cloudflare Stream, or AWS MediaConvert
 
 Consider:
-- Videos are huge—storage costs add up
+- Videos are huge - storage costs add up
 - Transcoding for different quality levels
 - Streaming vs download
 
@@ -257,7 +257,7 @@ my-app-backups/          # Database dumps, logs
 └── logs/
 ```
 
-Another approach—separate buckets per concern:
+Another approach - separate buckets per concern:
 ```
 my-app-avatars/
 my-app-documents/

@@ -1,0 +1,229 @@
+name: PR preview
+
+# Builds every PR and publishes it to a second GitHub Pages site, so a new
+# version can be reviewed from any device before it reaches ai-solutions.wiki.
+#
+#   live     https://ai-solutions.wiki                     (this repo, deploy.yml)
+#   preview  https://linda-mhmd.github.io/ai-solutions-wiki-preview/pr-<N>/
+#
+# One Pages site per repository is the limit, so the preview lives in its own
+# repo. The live custom domain is unaffected: domain inheritance only happens
+# when the domain sits on the user site (linda-mhmd.github.io), which does not
+# exist. Other project sites on this account already serve side by side.
+#
+# Setup, once: run ci/setup-automation.sh. It creates the preview repo, turns
+# Pages on, generates a deploy key scoped to that one repo, registers the public
+# half there and stores the private half here as PREVIEW_DEPLOY_KEY. Nothing is
+# typed by hand and no personal access token is involved: a deploy key can push
+# to exactly one repository and nothing else.
+# Without the secret this workflow warns and skips rather than failing.
+#
+# Previews deliberately do NOT go on the live Pages site. GitHub restricts the
+# github-pages environment to the default branch, so a pull request cannot
+# deploy there without loosening a protection rule, and a preview build sharing
+# the production domain is a duplicate-content and blast-radius problem that is
+# not worth solving.
+#
+# Every preview page gets a noindex meta tag injected after the build. A
+# robots.txt cannot help here: on a project site it is served under the repo
+# path, not the domain root, so crawlers ignore it. Without noindex the
+# previews would compete with the live wiki as duplicate content.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
+
+permissions: {}
+
+concurrency:
+  group: pr-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  PREVIEW_REPO: linda-mhmd/ai-solutions-wiki-preview
+  PREVIEW_BASE: https://linda-mhmd.github.io/ai-solutions-wiki-preview
+
+jobs:
+  publish:
+    name: Build and publish the preview
+    if: >-
+      github.event.action != 'closed' &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    env:
+      HUGO_VERSION: 0.165.0
+      PR: ${{ github.event.pull_request.number }}
+    steps:
+      - name: Check the deploy key is configured
+        env:
+          KEY: ${{ secrets.PREVIEW_DEPLOY_KEY }}
+        run: |
+          if [ -z "$KEY" ]; then
+            echo "::warning::PREVIEW_DEPLOY_KEY is not set, so there is no preview for this PR. Run ci/setup-automation.sh once; see docs/preview-environment.md"
+            echo "SKIP=yes" >> "$GITHUB_ENV"
+          fi
+
+      - name: Install Hugo CLI
+        if: env.SKIP != 'yes'
+        run: |
+          wget -O "$RUNNER_TEMP/hugo.deb" \
+            "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
+          sudo dpkg -i "$RUNNER_TEMP/hugo.deb"
+
+      - name: Checkout
+        if: env.SKIP != 'yes'
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: recursive
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Build with the preview base URL
+        if: env.SKIP != 'yes'
+        env:
+          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+          HUGO_ENVIRONMENT: production
+          TZ: Europe/Vienna
+        run: |
+          hugo --gc --minify --cleanDestinationDir \
+            --baseURL "${PREVIEW_BASE}/pr-${PR}/"
+
+      - name: Index with Pagefind
+        if: env.SKIP != 'yes'
+        run: npx -y pagefind@latest --site public --output-subdir pagefind
+
+      - name: Keep the preview out of search results
+        if: env.SKIP != 'yes'
+        run: |
+          # Injected rather than served as robots.txt: a project Pages site
+          # serves robots.txt under its repo path, where crawlers ignore it.
+          count=$(find public -name '*.html' -type f | wc -l)
+          find public -name '*.html' -type f -print0 | xargs -0 -r sed -i \
+            's|<head>|<head><meta name="robots" content="noindex,nofollow">|I'
+          echo "noindex added to $count page(s)"
+          grep -q 'noindex,nofollow' public/index.html || {
+            echo "::error::noindex injection did not take effect"; exit 1; }
+
+      - name: Load the deploy key
+        if: env.SKIP != 'yes'
+        env:
+          KEY: ${{ secrets.PREVIEW_DEPLOY_KEY }}
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$KEY" > ~/.ssh/preview_key
+          chmod 600 ~/.ssh/preview_key
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          echo "GIT_SSH_COMMAND=ssh -i ~/.ssh/preview_key -o IdentitiesOnly=yes" >> "$GITHUB_ENV"
+
+      - name: Publish to the preview site
+        if: env.SKIP != 'yes'
+        env:
+          SHA: ${{ github.event.pull_request.head.sha }}
+          TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          dir="$RUNNER_TEMP/preview"
+          git clone --depth 1 "git@github.com:${PREVIEW_REPO}.git" "$dir"
+          cd "$dir"
+          rm -rf "pr-${PR}"
+          mkdir -p "pr-${PR}"
+          cp -R "$GITHUB_WORKSPACE/public/." "pr-${PR}/"
+          touch .nojekyll
+          {
+            echo "# ai-solutions.wiki previews"
+            echo
+            echo "Throwaway builds of open pull requests. Each is noindexed and"
+            echo "is deleted when its PR closes. The live site is"
+            echo "<https://ai-solutions.wiki>."
+            echo
+            for d in pr-*/; do
+              [ -d "$d" ] || continue
+              echo "- [${d%/}](${d})"
+            done
+          } > README.md
+          git add -A
+          git -c user.name='ai-solutions-wiki bot' \
+              -c user.email='noreply@ai-solutions.wiki' \
+              commit -q -m "Preview PR #${PR}: ${TITLE}" \
+                        -m "Built from ${SHA}" \
+            || { echo "No change to publish."; exit 0; }
+          git push -q origin HEAD:main
+          echo "Published ${PREVIEW_BASE}/pr-${PR}/"
+
+      - name: Put the link on the pull request
+        if: env.SKIP != 'yes'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+          REPO: ${{ github.repository }}
+        run: |
+          body=$(printf '%s\n' \
+            "### Preview this version" \
+            "" \
+            "| | |" \
+            "|---|---|" \
+            "| Start here | ${PREVIEW_BASE}/pr-${PR}/ |" \
+            "| News index | ${PREVIEW_BASE}/pr-${PR}/news/ |" \
+            "| Tools changed | ${PREVIEW_BASE}/pr-${PR}/tools/ |" \
+            "| Search | works here, Pagefind is indexed |" \
+            "" \
+            "Built from \`${SHA}\`. Noindexed, and deleted when this PR closes." \
+            "GitHub Pages can take a minute to serve it after the deploy finishes.")
+          gh pr comment "$PR" --repo "$REPO" --body "$body" --edit-last --create-if-none \
+            || gh pr comment "$PR" --repo "$REPO" --body "$body"
+
+  cleanup:
+    name: Remove the preview
+    if: github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    permissions: {}
+    env:
+      PR: ${{ github.event.pull_request.number }}
+    steps:
+      - name: Delete the preview directory
+        env:
+          KEY: ${{ secrets.PREVIEW_DEPLOY_KEY }}
+        run: |
+          if [ -z "$KEY" ]; then
+            echo "No PREVIEW_DEPLOY_KEY, nothing to clean up."
+            exit 0
+          fi
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$KEY" > ~/.ssh/preview_key
+          chmod 600 ~/.ssh/preview_key
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/preview_key -o IdentitiesOnly=yes"
+          dir="$RUNNER_TEMP/preview"
+          git clone --depth 1 "git@github.com:${PREVIEW_REPO}.git" "$dir"
+          cd "$dir"
+          if [ ! -d "pr-${PR}" ]; then
+            echo "No preview for PR #${PR}."
+            exit 0
+          fi
+          rm -rf "pr-${PR}"
+          {
+            echo "# ai-solutions.wiki previews"
+            echo
+            echo "Throwaway builds of open pull requests. Each is noindexed and"
+            echo "is deleted when its PR closes. The live site is"
+            echo "<https://ai-solutions.wiki>."
+            echo
+            for d in pr-*/; do
+              [ -d "$d" ] || continue
+              echo "- [${d%/}](${d})"
+            done
+          } > README.md
+          git add -A
+          git -c user.name='ai-solutions-wiki bot' \
+              -c user.email='noreply@ai-solutions.wiki' \
+              commit -q -m "Remove preview for PR #${PR}"
+          git push -q origin HEAD:main
+          echo "Removed preview for PR #${PR}."

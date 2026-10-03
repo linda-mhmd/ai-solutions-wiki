@@ -48,6 +48,6 @@ For technical leaders, overfitting is the primary reason why impressive demo per
 
 ## Sources
 
-- Geman, S., Bienenstock, E., & Doursat, R. (1992). Neural networks and the bias/variance dilemma. *Neural Computation, 4*(1), 1–58. (Formal bias-variance decomposition underpinning overfitting theory.)
-- Srivastava, N., Hinton, G., Krizhevsky, A., Sutskever, I., & Salakhutdinov, R. (2014). Dropout: A simple way to prevent neural networks from overfitting. *JMLR, 15*(1), 1929–1958. (Dropout; most widely used neural network regularization against overfitting.)
-- Tikhonov, A.N. (1963). Solution of incorrectly formulated problems and the regularization method. *Soviet Mathematics Doklady, 4*, 1035–1038. (L2 regularization / weight decay; foundational regularization method.)
+- Geman, S., Bienenstock, E., & Doursat, R. (1992). Neural networks and the bias/variance dilemma. *Neural Computation, 4*(1), 1-58. (Formal bias-variance decomposition underpinning overfitting theory.)
+- Srivastava, N., Hinton, G., Krizhevsky, A., Sutskever, I., & Salakhutdinov, R. (2014). Dropout: A simple way to prevent neural networks from overfitting. *JMLR, 15*(1), 1929-1958. (Dropout; most widely used neural network regularization against overfitting.)
+- Tikhonov, A.N. (1963). Solution of incorrectly formulated problems and the regularization method. *Soviet Mathematics Doklady, 4*, 1035-1038. (L2 regularization / weight decay; foundational regularization method.)

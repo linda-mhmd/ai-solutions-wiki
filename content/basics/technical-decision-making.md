@@ -7,7 +7,7 @@ categories: [Basics]
 tags: [beginner, architecture, decisions, planning, technology]
 faqs:
   - question: "How do I know if I'm choosing the right technology?"
-    answer: "You can't know for certain, but you can make the decision more defensible: understand the tradeoffs, consider your constraints, evaluate how reversible the choice is, and document your reasoning. Perfect choices don't exist—informed choices do."
+    answer: "You can't know for certain, but you can make the decision more defensible: understand the tradeoffs, consider your constraints, evaluate how reversible the choice is, and document your reasoning. Perfect choices don't exist - informed choices do."
   - question: "Should I use the newest technology?"
     answer: "Usually no. New means less documentation, fewer solved problems, more bugs, and risk of abandonment. Unless the new thing solves a specific problem existing options can't, boring technology is often the better choice."
   - question: "What if I make the wrong choice?"
@@ -16,7 +16,7 @@ last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-Technical decisions compound—a quick choice now becomes architecture you're stuck with later. Use frameworks: understand the tradeoffs (not just benefits), assess reversibility (can you change it later?), consider your constraints (team skills, timeline, budget), and document why you decided. "What should I use?" is the wrong question—"What are the tradeoffs I'm accepting?" is better.
+Technical decisions compound - a quick choice now becomes architecture you're stuck with later. Use frameworks: understand the tradeoffs (not just benefits), assess reversibility (can you change it later?), consider your constraints (team skills, timeline, budget), and document why you decided. "What should I use?" is the wrong question - "What are the tradeoffs I'm accepting?" is better.
 {{< /quickanswer >}}
 
 ## The decision landscape
@@ -278,7 +278,7 @@ Choosing the safest, most conservative option even when it's wrong for your need
 
 Building for scale you don't have.
 
-**Fix**: Build for current needs. You can change later—and you'll know more then.
+**Fix**: Build for current needs. You can change later - and you'll know more then.
 
 ## Quick decision framework
 

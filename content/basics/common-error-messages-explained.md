@@ -1,6 +1,6 @@
 ---
 title: "Common Error Messages Explained"
-description: "npm ERR!, ModuleNotFoundError, 502 Bad Gateway, Cannot read property of undefined—what these errors actually mean and how to fix them."
+description: "npm ERR!, ModuleNotFoundError, 502 Bad Gateway, Cannot read property of undefined - what these errors actually mean and how to fix them."
 date: 2026-07-30
 level: 1
 categories: [Basics]
@@ -9,14 +9,14 @@ faqs:
   - question: "Why are error messages so cryptic?"
     answer: "They're written by developers for developers, and often include technical context (stack traces, line numbers) that's useful for debugging but overwhelming for beginners. The key is learning to find the actual message in all that noise."
   - question: "Should I just copy errors into ChatGPT?"
-    answer: "That works, but you'll learn faster and debug faster if you understand common patterns. Many errors have the same root cause—once you recognize 'npm ERR! ENOENT' you'll fix it in seconds instead of waiting for AI help."
+    answer: "That works, but you'll learn faster and debug faster if you understand common patterns. Many errors have the same root cause - once you recognize 'npm ERR! ENOENT' you'll fix it in seconds instead of waiting for AI help."
   - question: "How do I know which part of the error matters?"
-    answer: "Look for: the error name/type (ModuleNotFoundError), the message (what went wrong), and the location (which file, which line). Stack traces show the path the code took—the top lines are usually most relevant."
+    answer: "Look for: the error name/type (ModuleNotFoundError), the message (what went wrong), and the location (which file, which line). Stack traces show the path the code took - the top lines are usually most relevant."
 last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-Error messages tell you what went wrong, but you need to know how to read them. This guide covers the most common errors vibecoders encounter—from npm failures to server errors to JavaScript undefined errors—with plain-English explanations and fixes.
+Error messages tell you what went wrong, but you need to know how to read them. This guide covers the most common errors vibecoders encounter - from npm failures to server errors to JavaScript undefined errors - with plain-English explanations and fixes.
 {{< /quickanswer >}}
 
 ## How to read an error message
@@ -29,7 +29,7 @@ Most error messages have three parts:
 3. Location/Context   →  File "app.py", line 3
 ```
 
-**Focus on the message first**, then check the location. Stack traces (the long list of function calls) show you the path—start from the top.
+**Focus on the message first**, then check the location. Stack traces (the long list of function calls) show you the path - start from the top.
 
 ---
 
@@ -179,7 +179,7 @@ SyntaxError: Unexpected token ')'
 SyntaxError: Unexpected end of input
 ```
 
-**What it means**: The code has a syntax error—missing bracket, extra comma, etc.
+**What it means**: The code has a syntax error - missing bracket, extra comma, etc.
 
 **Fixes**:
 - Look at the line number

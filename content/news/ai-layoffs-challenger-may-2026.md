@@ -29,7 +29,7 @@ Andy Challenger, the firm's chief revenue officer, said: "On top of the headline
 
 ## What the data does not show
 
-The Challenger report tracks what employers cite, not what actually drives each decision. Researchers and journalists have noted that some companies frame cuts as AI-driven for investor signaling or narrative purposes even when the underlying cause is financial pressure. Stanford and ADP data cited elsewhere show a 13% employment decline for workers aged 22–25 in AI-exposed roles since late 2022, which suggests real displacement, but the Challenger figures specifically measure announced reasons, not verified causes.
+The Challenger report tracks what employers cite, not what actually drives each decision. Researchers and journalists have noted that some companies frame cuts as AI-driven for investor signaling or narrative purposes even when the underlying cause is financial pressure. Stanford and ADP data cited elsewhere show a 13% employment decline for workers aged 22-25 in AI-exposed roles since late 2022, which suggests real displacement, but the Challenger figures specifically measure announced reasons, not verified causes.
 
 The report also shows hiring announcements remain historically low by pre-pandemic standards. Through May 2026, employers announced 80,472 planned hires, roughly flat with 2025. Technology led May hiring with 11,250 announced positions.
 
@@ -47,7 +47,7 @@ For the longer argument about whether AI agents replace or augment software work
 
 - Challenger, Gray & Christmas, "Challenger Report: May Job Cuts Rise 16% from April; Highest May Total Since 2020" (5 June 2026): https://www.challengergray.com/blog/challenger-report-may-job-cuts-rise-16-from-april-highest-may-total-since-2020/
 - CNBC, "'AI is now the leading reason companies give for cutting jobs,' says report" (5 June 2026)
-- Forbes, "Tech Industry Loses 123,000 Jobs This Year—AI Is The Most Cited Reason For Layoffs" (4 June 2026)
+- Forbes, "Tech Industry Loses 123,000 Jobs This Year - AI Is The Most Cited Reason For Layoffs" (4 June 2026)
 
 ## Further reading
 

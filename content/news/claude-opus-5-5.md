@@ -23,8 +23,8 @@ Anthropic released **Claude Opus 5.5 (`claude-opus-5-5`) to general availability
 |---|---|---|---|---|
 | **Claude Opus 5.5** | **$4** | **$20** | **$0.20** | **$5** |
 | Claude Opus 5 (previous generation) | $5 | $25 | $0.50 | $6.25 |
-| Claude Fable 5.1 | $10 | $50 | $0.25 | — |
-| Claude Sonnet 5 | $2 | $10 | — | — |
+| Claude Fable 5.1 | $10 | $50 | $0.25 | - |
+| Claude Sonnet 5 | $2 | $10 | - | - |
 
 Input and output prices are 20% lower than Opus 5, and cache reads are 60% lower. Anthropic notes that cache reads "make up the majority of agentic and coding work costs". Opus 5.5 cache reads are now cheaper than Fable 5.1's. **Fast mode** runs up to 2.5x faster at $8 input and $40 output per million tokens, in Claude Code and on the Claude Platform. Anthropic also says Opus 5.5 generates output more than 30% faster than Opus 5 at standard speed.
 

@@ -7,16 +7,16 @@ categories: [Basics]
 tags: [beginner, agile, product, requirements, planning, ai-development]
 faqs:
   - question: "Do I really need user stories for a small project?"
-    answer: "Yes—especially for AI-assisted development. Without clear requirements, you'll waste time on misunderstood features. It doesn't have to be formal; a few sentences describing who, what, and why is enough to prevent major rework."
+    answer: "Yes - especially for AI-assisted development. Without clear requirements, you'll waste time on misunderstood features. It doesn't have to be formal; a few sentences describing who, what, and why is enough to prevent major rework."
   - question: "Who writes user stories?"
-    answer: "Anyone who understands what users need. Product managers, founders, developers—it doesn't matter. What matters is capturing the user's perspective and the business value, not just technical tasks."
+    answer: "Anyone who understands what users need. Product managers, founders, developers - it doesn't matter. What matters is capturing the user's perspective and the business value, not just technical tasks."
   - question: "How detailed should acceptance criteria be?"
     answer: "Detailed enough that someone else (or AI) could implement it and you'd accept the result. If you'd look at the implementation and say 'that's not what I meant,' your criteria weren't clear enough."
 last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-A user story describes a feature from the user's perspective: "As a [user type], I want to [do something] so that [reason/benefit]." Acceptance criteria define exactly when the story is done. Together, they create clear requirements that anyone—including AI—can implement correctly without constant clarification.
+A user story describes a feature from the user's perspective: "As a [user type], I want to [do something] so that [reason/benefit]." Acceptance criteria define exactly when the story is done. Together, they create clear requirements that anyone - including AI - can implement correctly without constant clarification.
 {{< /quickanswer >}}
 
 ## Why user stories matter more now

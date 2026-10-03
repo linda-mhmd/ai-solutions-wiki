@@ -47,6 +47,6 @@ Use t-SNE for exploratory visualization of high-dimensional data when you want t
 
 ## Sources
 
-- van der Maaten, L., & Hinton, G. (2008). Visualizing data using t-SNE. *JMLR, 9*, 2579–2605. (Original t-SNE paper.)
-- van der Maaten, L. (2014). Accelerating t-SNE using tree-based algorithms. *JMLR, 15*(1), 3221–3245. (Barnes-Hut t-SNE; O(n log n) approximation making t-SNE practical at scale.)
+- van der Maaten, L., & Hinton, G. (2008). Visualizing data using t-SNE. *JMLR, 9*, 2579-2605. (Original t-SNE paper.)
+- van der Maaten, L. (2014). Accelerating t-SNE using tree-based algorithms. *JMLR, 15*(1), 3221-3245. (Barnes-Hut t-SNE; O(n log n) approximation making t-SNE practical at scale.)
 - Wattenberg, M., Viégas, F., & Johnson, I. (2016). How to use t-SNE effectively. *Distill*. (Visual guide to perplexity, initialization, and interpretive pitfalls.)

@@ -51,7 +51,7 @@ Use online learning for recommendation systems, ad click prediction, financial m
 
 ## Sources
 
-- Rosenblatt, F. (1958). The perceptron: A probabilistic model for information storage and organization in the brain. *Psychological Review, 65*(6), 386–408. (Perceptron; first online learning algorithm.)
-- Shalev-Shwartz, S. (2012). Online learning and online convex optimization. *Foundations and Trends in Machine Learning, 4*(2), 107–194. (Comprehensive survey of online learning theory and algorithms.)
+- Rosenblatt, F. (1958). The perceptron: A probabilistic model for information storage and organization in the brain. *Psychological Review, 65*(6), 386-408. (Perceptron; first online learning algorithm.)
+- Shalev-Shwartz, S. (2012). Online learning and online convex optimization. *Foundations and Trends in Machine Learning, 4*(2), 107-194. (Comprehensive survey of online learning theory and algorithms.)
 - Bifet, A., & Gavalda, R. (2007). Learning from time-changing data with adaptive windowing. *SIAM International Conference on Data Mining*. (ADWIN; adaptive windowing for concept drift in online settings.)
 - Domingos, P., & Hulten, G. (2000). Mining high-speed data streams. *KDD 2000*. (Hoeffding Trees / VFDT; streaming decision trees.)

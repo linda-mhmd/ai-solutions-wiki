@@ -25,7 +25,7 @@ Multiple sources triangulate on similar numbers:
 
 **Goldman Sachs analysis.** AI capex at $765 billion in 2026 would represent 2.4% of US GDP, above the peak of the dot-com infrastructure buildout.
 
-**CNBC projections.** Analysts forecast hyperscale capex to exceed $1 trillion in 2027, with some projections suggesting AI infrastructure spending could reach $3–4 trillion annually by the end of the decade.
+**CNBC projections.** Analysts forecast hyperscale capex to exceed $1 trillion in 2027, with some projections suggesting AI infrastructure spending could reach $3-4 trillion annually by the end of the decade.
 
 **Bank for International Settlements.** A BIS systemic risk study found that the AI boom has outgrown every previous tech bubble in history by capital commitment at this stage of the cycle.
 
@@ -35,7 +35,7 @@ Proponents argue the spending is rational:
 
 **Demand is real.** Enterprise AI adoption is accelerating. Every major cloud provider reports strong demand for AI services, with waitlists for GPU capacity.
 
-**Infrastructure takes time.** Data centers have 2–5 year construction timelines. Building now anticipates demand that will materialize over the next several years.
+**Infrastructure takes time.** Data centers have 2-5 year construction timelines. Building now anticipates demand that will materialize over the next several years.
 
 **Winner-take-most dynamics.** AI infrastructure has network effects and scale economies. The company that reaches scale first captures disproportionate value.
 
@@ -61,7 +61,7 @@ The parallels to past bubbles are contested:
 
 **The railroad comparison.** Fortune ran an essay by Pulitzer Prize winner Liaquat Ahamed comparing the current AI buildout to the 1873 railroad crash. The argument: massive infrastructure spending, if it gets ahead of demand, leads to busts even when the underlying technology is valuable.
 
-**The dot-com comparison.** The infrastructure buildout of 1998–2000 exceeded near-term demand, leading to a crash, but the fiber and data centers laid during that period enabled the next generation of internet services.
+**The dot-com comparison.** The infrastructure buildout of 1998-2000 exceeded near-term demand, leading to a crash, but the fiber and data centers laid during that period enabled the next generation of internet services.
 
 **The counterargument.** Unlike dot-com, the AI buildout is funded primarily by large, profitable companies with strong balance sheets, not by speculative startups burning venture capital.
 

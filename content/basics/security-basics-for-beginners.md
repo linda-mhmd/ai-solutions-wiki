@@ -9,14 +9,14 @@ faqs:
   - question: "Do I really need to worry about security for a small app?"
     answer: "Yes. Automated bots scan the entire internet for vulnerabilities. They don't care if you have 5 users or 5 million. An exposed database or leaked API key will be found, usually within hours."
   - question: "Can AI-generated code be insecure?"
-    answer: "Absolutely. AI often generates code that works but isn't secure—SQL built with string concatenation, secrets hardcoded, inputs not validated. Always review AI code for these patterns."
+    answer: "Absolutely. AI often generates code that works but isn't secure - SQL built with string concatenation, secrets hardcoded, inputs not validated. Always review AI code for these patterns."
   - question: "When do I need a security professional?"
     answer: "When you handle payments, health data, or sensitive personal information. When you have real users who trust you. A security review before launch is much cheaper than a breach after."
 last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-The biggest security mistakes: leaking API keys in code, building SQL queries with user input, displaying user input without escaping it, and leaving databases open to the internet. These are the vulnerabilities that actually get beginners hacked—not sophisticated attacks, but basic oversights that bots find automatically.
+The biggest security mistakes: leaking API keys in code, building SQL queries with user input, displaying user input without escaping it, and leaving databases open to the internet. These are the vulnerabilities that actually get beginners hacked - not sophisticated attacks, but basic oversights that bots find automatically.
 {{< /quickanswer >}}
 
 ## The attacks that actually happen
@@ -61,7 +61,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 **If you already committed a secret:**
 1. Revoke the key immediately (generate a new one)
-2. The old key is compromised forever—it's in Git history
+2. The old key is compromised forever - it's in Git history
 3. Removing it from current code isn't enough
 
 **Check for exposed secrets:**

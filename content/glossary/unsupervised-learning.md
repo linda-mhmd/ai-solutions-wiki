@@ -40,4 +40,4 @@ The main limitation is evaluation. Without labels, quantifying model quality req
 ## Sources
 
 - Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The Elements of Statistical Learning*, 2nd ed. Springer. Chapter 14: Unsupervised Learning. (Standard reference covering clustering, PCA, and ICA.)
-- Hinton, G.E., & Salakhutdinov, R.R. (2006). Reducing the dimensionality of data with neural networks. *Science, 313*(5786), 504–507. (Autoencoder pre-training for unsupervised feature learning; reignited interest in deep learning.)
+- Hinton, G.E., & Salakhutdinov, R.R. (2006). Reducing the dimensionality of data with neural networks. *Science, 313*(5786), 504-507. (Autoencoder pre-training for unsupervised feature learning; reignited interest in deep learning.)

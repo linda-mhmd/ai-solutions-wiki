@@ -77,6 +77,6 @@ For AWS-native AI workloads, OpenSearch is the default choice due to Bedrock int
 - [Elasticsearch is open source again (Elastic, 2024)](https://www.elastic.co/blog/elasticsearch-is-open-source-again)
 - [What is new in Elastic 9.0 (Elastic)](https://www.elastic.co/blog/whats-new-elastic-search-9-0-0)
 - [Amazon OpenSearch Service now supports OpenSearch 3.3 (AWS, November 2025)](https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-opensearch-service-opensearch-version-3-3)
-- [What is Amazon OpenSearch Service? — supported versions (AWS, checked September 2026)](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html)
+- [What is Amazon OpenSearch Service? - supported versions (AWS, checked September 2026)](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html)
 - [OpenSearch releases](https://github.com/opensearch-project/OpenSearch/releases) and [Elasticsearch releases](https://github.com/elastic/elasticsearch/releases) on GitHub (OpenSearch 3.8.0, 5 August 2026; Elasticsearch 9.5.4, 15 September 2026)
 - [Elastic Agent Builder (Elastic documentation)](https://www.elastic.co/docs/explore-analyze/ai-features/elastic-agent-builder)

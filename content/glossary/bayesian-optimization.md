@@ -46,6 +46,6 @@ Use Bayesian optimization when training a single model configuration takes more 
 ## Sources
 
 - Mockus, J. (1975). On Bayesian methods for seeking the extremum. *Optimization Techniques, IFIP Technical Conference*. (Earliest formulation of Bayesian optimization with acquisition functions.)
-- Jones, D.R., Schonlau, M., & Welch, W.J. (1998). Efficient global optimization of expensive black-box functions. *Journal of Global Optimization, 13*(4), 455–492. (EGO algorithm; Expected Improvement acquisition function.)
+- Jones, D.R., Schonlau, M., & Welch, W.J. (1998). Efficient global optimization of expensive black-box functions. *Journal of Global Optimization, 13*(4), 455-492. (EGO algorithm; Expected Improvement acquisition function.)
 - Snoek, J., Larochelle, H., & Adams, R.P. (2012). Practical Bayesian optimization of machine learning algorithms. *NeurIPS 2012*. (First major application to ML hyperparameter tuning.)
-- Bergstra, J., & Bengio, Y. (2012). Random search for hyper-parameter optimization. *JMLR, 13*, 281–305. (Establishes random search as a stronger baseline than grid search; motivation for Bayesian methods.)
+- Bergstra, J., & Bengio, Y. (2012). Random search for hyper-parameter optimization. *JMLR, 13*, 281-305. (Establishes random search as a stronger baseline than grid search; motivation for Bayesian methods.)

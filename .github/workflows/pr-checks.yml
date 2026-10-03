@@ -1,0 +1,159 @@
+name: PR checks
+
+# Everything a reviewer should not have to check by hand:
+#   1. the site still builds, with zero warnings or deprecations
+#   2. changed content passes the front matter, sourcing and house-style gate
+#   3. internal links on changed pages resolve to pages the build produced
+#   4. no secrets, and the workflows themselves are audited
+#
+# Style rules are scoped to the lines a PR adds. The repo carries a legacy
+# backlog (run `python3 ci/check_content.py --backlog`), and this gate is here
+# to stop new violations, not to demand a repo-wide rewrite first.
+
+on:
+  pull_request:
+    branches:
+      - main
+
+# No permissions by default; each job requests only what it needs.
+permissions: {}
+
+concurrency:
+  group: pr-checks-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  content:
+    name: Build and content gate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      HUGO_VERSION: 0.165.0
+    steps:
+      - name: Install Hugo CLI
+        run: |
+          wget -O "$RUNNER_TEMP/hugo.deb" \
+            "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
+          sudo dpkg -i "$RUNNER_TEMP/hugo.deb"
+
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Work out what changed
+        id: changed
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          files=$(git diff --name-only --diff-filter=d "$BASE_SHA"...HEAD -- 'content/**/*.md' 'content/*.md' | tr '\n' ' ')
+          added=$(git diff --name-only --diff-filter=A "$BASE_SHA"...HEAD -- 'content/**/*.md' 'content/*.md' | tr '\n' ' ')
+          {
+            echo "md=$files"
+            echo "new=$added"
+            echo "base=$BASE_SHA"
+          } >> "$GITHUB_OUTPUT"
+          echo "Changed markdown: ${files:-none}"
+          echo "Newly added:      ${added:-none}"
+
+      - name: Build with Hugo, failing on any warning
+        env:
+          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+          HUGO_ENVIRONMENT: production
+          TZ: Europe/Vienna
+        run: |
+          if ! out=$(hugo --gc --minify --cleanDestinationDir 2>&1); then
+            echo "$out"
+            echo "::error::hugo build failed"
+            exit 1
+          fi
+          echo "$out"
+          if grep -iqE 'warn|deprecat|error' <<<"$out"; then
+            echo "::error::build emitted warnings, deprecations or errors"
+            exit 1
+          fi
+          echo "Clean build."
+
+      - name: Content gate
+        env:
+          FILES: ${{ steps.changed.outputs.md }}
+          NEW: ${{ steps.changed.outputs.new }}
+          BASE: ${{ steps.changed.outputs.base }}
+        run: |
+          if [ -z "${FILES// /}" ]; then
+            echo "No markdown under content/ changed; nothing to gate."
+            exit 0
+          fi
+          python3 -m pip install --quiet --disable-pip-version-check pyyaml
+          # shellcheck disable=SC2086
+          python3 ci/check_content.py --diff-base "$BASE" --new-files $NEW -- $FILES
+
+      - name: Internal link check on changed pages
+        env:
+          FILES: ${{ steps.changed.outputs.md }}
+        run: |
+          if [ -z "${FILES// /}" ]; then
+            echo "No markdown under content/ changed; nothing to check."
+            exit 0
+          fi
+          # shellcheck disable=SC2086
+          python3 ci/check_links.py --site public --pages $FILES
+
+      - name: Index with Pagefind
+        run: npx -y pagefind@latest --site public --output-subdir pagefind
+
+      - name: Upload the built site
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: site-pr-${{ github.event.pull_request.number }}
+          path: public
+          retention-days: 7
+
+  secrets:
+    name: Secret scan
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Install gitleaks
+        env:
+          GITLEAKS_VERSION: 8.30.0
+        run: |
+          wget -qO "$RUNNER_TEMP/gitleaks.tar.gz" \
+            "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          tar -xzf "$RUNNER_TEMP/gitleaks.tar.gz" -C "$RUNNER_TEMP" gitleaks
+          sudo install -m 0755 "$RUNNER_TEMP/gitleaks" /usr/local/bin/gitleaks
+          gitleaks version
+
+      - name: Scan history and working tree
+        run: |
+          gitleaks detect --source . --redact --no-banner
+          gitleaks detect --source . --no-git --redact --no-banner
+
+  workflows:
+    name: Workflow audit
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Audit workflows with zizmor
+        run: |
+          pipx install zizmor || pip install --user zizmor
+          zizmor --persona=regular .github/workflows/

@@ -1,13 +1,13 @@
 ---
 title: "Wireframing and Prototyping"
-description: "Sketch before you build. Wireframes and prototypes help you think through the interface before writing code—catching problems when they're cheap to fix."
+description: "Sketch before you build. Wireframes and prototypes help you think through the interface before writing code - catching problems when they're cheap to fix."
 date: 2026-07-30
 level: 1
 categories: [Basics]
 tags: [beginner, design, wireframes, prototypes, ui, ux, planning]
 faqs:
   - question: "Do I really need wireframes if AI can generate UI quickly?"
-    answer: "Yes, even more so. AI generates what you describe—describe poorly, get poor UI. A quick wireframe forces you to think through the flow before prompting. 5 minutes sketching saves hours of regenerating."
+    answer: "Yes, even more so. AI generates what you describe - describe poorly, get poor UI. A quick wireframe forces you to think through the flow before prompting. 5 minutes sketching saves hours of regenerating."
   - question: "What tools should I use?"
     answer: "Paper and pen for speed. Excalidraw or Figma for digital. The tool matters less than the habit. Start with whatever removes friction."
   - question: "When should I skip wireframing?"
@@ -18,7 +18,7 @@ last_verified: 2026-09-25
 ---
 
 {{< quickanswer >}}
-Wireframes are rough sketches of your interface—boxes, lines, labels. They help you think through layout and flow before writing code. Start with paper sketches (fastest), move to digital tools when you need to share or iterate. The goal isn't pretty pictures—it's catching problems early when they're cheap to fix.
+Wireframes are rough sketches of your interface - boxes, lines, labels. They help you think through layout and flow before writing code. Start with paper sketches (fastest), move to digital tools when you need to share or iterate. The goal isn't pretty pictures - it's catching problems early when they're cheap to fix.
 {{< /quickanswer >}}
 
 ## Why sketch first
@@ -279,7 +279,7 @@ For each screen, verify:
 
 ## The honest take
 
-**Most vibecoders skip wireframing** and pay for it in rework. AI makes this worse—bad prompts produce bad UI, then you iterate in code instead of on paper.
+**Most vibecoders skip wireframing** and pay for it in rework. AI makes this worse - bad prompts produce bad UI, then you iterate in code instead of on paper.
 
 **5 minutes of sketching saves hours of coding.** Not every screen needs wireframes, but complex flows and novel interfaces do.
 

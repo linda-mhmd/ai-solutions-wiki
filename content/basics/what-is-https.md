@@ -1,6 +1,6 @@
 ---
 title: "What is HTTPS?"
-description: "HTTPS is HTTP with encryption—it means the connection between your browser and the server is secure. The padlock icon means your data can't be intercepted."
+description: "HTTPS is HTTP with encryption - it means the connection between your browser and the server is secure. The padlock icon means your data can't be intercepted."
 date: 2026-07-30
 lastmod: 2026-09-25
 last_verified: 2026-09-25
@@ -9,16 +9,16 @@ categories: [Basics]
 tags: [beginner, https, ssl, tls, security, certificates, encryption]
 faqs:
   - question: "What's the difference between HTTP and HTTPS?"
-    answer: "HTTP sends data in plain text—anyone monitoring the network can read it. HTTPS encrypts everything, so even if someone intercepts the traffic, they can't understand it. The 'S' stands for 'Secure'."
+    answer: "HTTP sends data in plain text - anyone monitoring the network can read it. HTTPS encrypts everything, so even if someone intercepts the traffic, they can't understand it. The 'S' stands for 'Secure'."
   - question: "Do I need HTTPS for my site?"
-    answer: "Yes. Browsers now mark HTTP sites as 'Not Secure'. Search engines penalize HTTP. APIs require HTTPS. There's no good reason to use plain HTTP in 2026—free certificates from Let's Encrypt make the cost argument moot."
+    answer: "Yes. Browsers now mark HTTP sites as 'Not Secure'. Search engines penalize HTTP. APIs require HTTPS. There's no good reason to use plain HTTP in 2026 - free certificates from Let's Encrypt make the cost argument moot."
   - question: "What does the padlock icon mean?"
-    answer: "It means the connection is encrypted and the site has a valid certificate. It does NOT mean the site is trustworthy or safe—a scam site can have HTTPS too. It just means your communication with that server is private."
+    answer: "It means the connection is encrypted and the site has a valid certificate. It does NOT mean the site is trustworthy or safe - a scam site can have HTTPS too. It just means your communication with that server is private."
 last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-HTTPS (HyperText Transfer Protocol Secure) encrypts the connection between your browser and a website. When you see the padlock icon, it means your data—passwords, credit cards, messages—is encrypted in transit and can't be read by anyone intercepting the network traffic.
+HTTPS (HyperText Transfer Protocol Secure) encrypts the connection between your browser and a website. When you see the padlock icon, it means your data - passwords, credit cards, messages - is encrypted in transit and can't be read by anyone intercepting the network traffic.
 {{< /quickanswer >}}
 
 ## Why HTTPS matters
@@ -43,7 +43,7 @@ Your laptop → Coffee shop WiFi → Internet → Server
              "xK9#mQ!zP2@vN8..."
 ```
 
-Even if someone is monitoring the network—at a coffee shop, airport, or compromised router—they can't read your data.
+Even if someone is monitoring the network - at a coffee shop, airport, or compromised router - they can't read your data.
 
 ## How HTTPS works (simplified)
 
@@ -80,7 +80,7 @@ Everyone still says "SSL certificate" out of habit, but the actual protocol is T
 
 Clicking the padlock shows certificate details: who issued it, when it expires, and what domain it covers.
 
-**Important**: The padlock means the *connection* is secure. It does NOT mean the *website* is safe. Phishing sites can have HTTPS too. The padlock only guarantees privacy between you and the server—it doesn't vouch for what the server does with your data.
+**Important**: The padlock means the *connection* is secure. It does NOT mean the *website* is safe. Phishing sites can have HTTPS too. The padlock only guarantees privacy between you and the server - it doesn't vouch for what the server does with your data.
 
 ## Getting HTTPS for your site
 
@@ -167,7 +167,7 @@ Fix mixed content by ensuring all resources use HTTPS.
 | `NET::ERR_CERT_AUTHORITY_INVALID` | Untrusted certificate authority | Use a recognized CA |
 | `SSL_ERROR_HANDSHAKE_FAILURE` | TLS version mismatch | Update server TLS config |
 
-If you see these on sites you own, check your certificate configuration. If you see them on other sites, it might be a man-in-the-middle attack—don't proceed.
+If you see these on sites you own, check your certificate configuration. If you see them on other sites, it might be a man-in-the-middle attack - don't proceed.
 
 ## HTTPS is the default now
 

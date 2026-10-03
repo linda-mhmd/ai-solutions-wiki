@@ -34,6 +34,6 @@ The decision framework: start with prompt engineering (zero transfer learning co
 
 ## Sources
 
-- Pan, S.J., & Yang, Q. (2010). A survey on transfer learning. *IEEE Transactions on Knowledge and Data Engineering, 22*(10), 1345–1359. (Comprehensive survey formalizing transfer learning terminology and taxonomy.)
+- Pan, S.J., & Yang, Q. (2010). A survey on transfer learning. *IEEE Transactions on Knowledge and Data Engineering, 22*(10), 1345-1359. (Comprehensive survey formalizing transfer learning terminology and taxonomy.)
 - Yosinski, J., et al. (2014). How transferable are features in deep neural networks? *NeurIPS 2014*. (Empirical analysis of which layers transfer and which are task-specific.)
 - Howard, J., & Ruder, S. (2018). Universal language model fine-tuning for text classification. *ACL 2018*. (ULMFiT; established fine-tuning pre-trained LMs as the standard NLP transfer learning paradigm.)

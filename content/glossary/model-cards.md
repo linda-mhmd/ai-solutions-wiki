@@ -48,5 +48,5 @@ For third-party models, the provider's model card (Anthropic publishes model car
 ## Sources
 
 - Mitchell, M., et al. (2019). Model cards for model reporting. *FAccT 2019*. (Original model card paper by Google researchers; defined the format and rationale.)
-- Gebru, T., et al. (2021). Datasheets for datasets. *Communications of the ACM, 64*(12), 86–92. (Companion standard for training data documentation; used alongside model cards for full provenance.)
+- Gebru, T., et al. (2021). Datasheets for datasets. *Communications of the ACM, 64*(12), 86-92. (Companion standard for training data documentation; used alongside model cards for full provenance.)
 - European Parliament and Council. (2024). *Regulation (EU) 2024/1689 (EU AI Act)*, Article 13 and Annex IV: Transparency and Technical Documentation. (Regulatory requirement driving model card adoption for high-risk AI systems in the EU.)

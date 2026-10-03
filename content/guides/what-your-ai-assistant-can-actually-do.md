@@ -12,7 +12,7 @@ last_updated: 2026-09-02
 "Can you just open a tab and click it?"
 
 It is a reasonable question, and the answer is genuinely different depending on
-which product you are typing into — even when the model is identical. That
+which product you are typing into - even when the model is identical. That
 distinction is invisible in the interface, which is why it causes so much
 frustration.
 
@@ -24,9 +24,9 @@ the failure modes generalise.
 
 The thing people call "the AI" is at least three separate things:
 
-1. **The model** — the weights. Identical across products.
-2. **The tools** — what it can actually do. Wildly different across products.
-3. **The scopes** — what those tools are permitted to do in your environment.
+1. **The model** - the weights. Identical across products.
+2. **The tools** - what it can actually do. Wildly different across products.
+3. **The scopes** - what those tools are permitted to do in your environment.
 
 Almost every surprising limitation comes from layers two and three. When
 something "can't" be done, the model has usually understood the request perfectly
@@ -59,7 +59,7 @@ and almost never surfaced in the interface.
 
 **Permission systems intervene without explaining themselves.** A coding agent
 may be blocked from certain actions by a policy layer sitting between it and the
-tool — merging a pull request, changing a repository setting, writing to a shared
+tool - merging a pull request, changing a repository setting, writing to a shared
 resource. From the outside this looks like the assistant declining. It is not.
 Something else refused, and it usually cannot say much about why. If an assistant
 suddenly cannot do something it plainly did five minutes ago, suspect this first.
@@ -81,7 +81,7 @@ mistaken for evidence of the second.
 
 **Credentials are inherited, not held.** A terminal agent uses the CLI tools you
 have already authenticated. If your cloud CLI is not installed or your session has
-expired, the agent cannot do cloud work — not because it lacks permission, but
+expired, the agent cannot do cloud work - not because it lacks permission, but
 because the instrument is not there. "It's not installed" and "you're not
 authorised" produce very similar-looking failures and need completely different
 fixes.
@@ -119,7 +119,7 @@ knowledge and rediscovering the same facts weekly.
 
 **Ask for verification, not assurance.** "Did the build pass" invites a
 plausible answer. "Show me the build output" produces evidence. Anything an agent
-cannot verify, it is inferring — and an assistant that reports inference as fact
+cannot verify, it is inferring - and an assistant that reports inference as fact
 is a much bigger problem than one that lacks a capability.
 
 **Treat "I can't" as a beginning.** It is rarely the end of the conversation.
@@ -130,6 +130,6 @@ form, a token instead of a session. Ask what the alternative is.
 
 The model is the same everywhere. The tools are not. Most of what feels like the
 assistant being obtuse is a missing instrument, an invisible policy layer, or a
-session boundary — and each of those has a different workaround.
+session boundary - and each of those has a different workaround.
 
 Knowing which one you have hit is most of the skill.

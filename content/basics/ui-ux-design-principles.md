@@ -1,22 +1,22 @@
 ---
 title: "UI/UX Design Principles for Developers"
-description: "The core design principles that make interfaces usable. Visual hierarchy, consistency, feedback, and accessibility—without needing to become a designer."
+description: "The core design principles that make interfaces usable. Visual hierarchy, consistency, feedback, and accessibility - without needing to become a designer."
 date: 2026-07-30
 level: 1
 categories: [Basics]
 tags: [beginner, design, ui, ux, accessibility, product]
 faqs:
   - question: "Do I need to be a designer to build good UI?"
-    answer: "No, but you need to understand basic principles. Most usability problems come from violating simple rules—no feedback on actions, inconsistent patterns, poor contrast. Following these principles gets you 80% of the way to good design."
+    answer: "No, but you need to understand basic principles. Most usability problems come from violating simple rules - no feedback on actions, inconsistent patterns, poor contrast. Following these principles gets you 80% of the way to good design."
   - question: "Should I design first or code first?"
-    answer: "Sketch first, even on paper. It's faster to iterate on wireframes than code. But don't over-design—a rough sketch is enough to start. You'll learn what works by building and testing."
+    answer: "Sketch first, even on paper. It's faster to iterate on wireframes than code. But don't over-design - a rough sketch is enough to start. You'll learn what works by building and testing."
   - question: "What's the difference between UI and UX?"
-    answer: "UI (User Interface) is what users see and interact with—buttons, forms, layouts. UX (User Experience) is how the whole experience feels—is it frustrating or delightful? Good UI is part of good UX, but UX includes everything from page load speed to error messages to onboarding."
+    answer: "UI (User Interface) is what users see and interact with - buttons, forms, layouts. UX (User Experience) is how the whole experience feels - is it frustrating or delightful? Good UI is part of good UX, but UX includes everything from page load speed to error messages to onboarding."
 last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-Good UI follows predictable principles: establish visual hierarchy so users know what's important, be consistent so they learn once and apply everywhere, give feedback on every action, and make it accessible to everyone. You don't need design talent—you need to follow the rules and test with real users.
+Good UI follows predictable principles: establish visual hierarchy so users know what's important, be consistent so they learn once and apply everywhere, give feedback on every action, and make it accessible to everyone. You don't need design talent - you need to follow the rules and test with real users.
 {{< /quickanswer >}}
 
 ## The principles that matter most
@@ -222,7 +222,7 @@ Don't show blank screens. Guide users on what to do.
 
 ### Modals and dialogs
 
-- Use sparingly—they interrupt flow
+- Use sparingly - they interrupt flow
 - Always have a clear way to close (X, click outside, Escape)
 - Don't nest modals
 - Keep content focused on one decision
@@ -238,7 +238,7 @@ Don't show blank screens. Guide users on what to do.
 ## The design process (simplified)
 
 1. **Understand the problem**: What are users trying to do?
-2. **Sketch solutions**: Paper, whiteboard, Figma—rough is fine
+2. **Sketch solutions**: Paper, whiteboard, Figma - rough is fine
 3. **Build minimal version**: Just enough to test the idea
 4. **Test with real users**: Watch them use it (don't explain)
 5. **Iterate**: Fix what confused them

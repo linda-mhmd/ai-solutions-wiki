@@ -45,6 +45,6 @@ KNN works well for small-to-medium datasets with low-to-moderate dimensionality,
 
 ## Sources
 
-- Cover, T., & Hart, P. (1967). Nearest neighbor pattern classification. *IEEE Transactions on Information Theory, 13*(1), 21–27. (Foundational KNN paper; proved that the nearest neighbor error rate is asymptotically bounded by twice the Bayes error rate.)
+- Cover, T., & Hart, P. (1967). Nearest neighbor pattern classification. *IEEE Transactions on Information Theory, 13*(1), 21-27. (Foundational KNN paper; proved that the nearest neighbor error rate is asymptotically bounded by twice the Bayes error rate.)
 - Bellman, R. (1957). *Dynamic Programming*. Princeton University Press. (Coined the "curse of dimensionality"; directly explains why KNN degrades in high-dimensional spaces.)
-- Muja, M., & Lowe, D. G. (2014). Scalable nearest neighbor algorithms for high dimensional data. *IEEE Transactions on Pattern Analysis and Machine Intelligence, 36*(11), 2227–2240. (FLANN; approximate nearest neighbor algorithms that make KNN practical in higher dimensions.)
+- Muja, M., & Lowe, D. G. (2014). Scalable nearest neighbor algorithms for high dimensional data. *IEEE Transactions on Pattern Analysis and Machine Intelligence, 36*(11), 2227-2240. (FLANN; approximate nearest neighbor algorithms that make KNN practical in higher dimensions.)

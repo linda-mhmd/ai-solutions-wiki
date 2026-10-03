@@ -39,7 +39,7 @@ more painful.
 
 **Build time is usually underestimated by a factor of two or three,** because the
 estimate covers the happy path. The error handling, the input validation, the
-thing that only fails in the real environment — those are the second half, and
+thing that only fails in the real environment - those are the second half, and
 they are the half nobody quotes.
 
 ## The cost the table leaves out
@@ -60,7 +60,7 @@ point.
 
 There is a worse failure than not automating: automation that decays unnoticed.
 A pipeline nobody has run in two years is not a time saving, it is a liability
-with a green badge on it — and you discover its true state at the moment you
+with a green badge on it - and you discover its true state at the moment you
 urgently need it.
 
 ## When to automate anyway, despite the arithmetic
@@ -73,7 +73,7 @@ with validation even if you do it three times, because the cost of getting it
 wrong is not measured in minutes.
 
 **Access, not effort.** If only one person can do the task, automation is not
-saving ten minutes — it is removing a bottleneck and a single point of failure.
+saving ten minutes - it is removing a bottleneck and a single point of failure.
 That is worth real money regardless of run count.
 
 **Auditability.** A manual change leaves a person's memory as the record. A
@@ -149,7 +149,7 @@ the only argument had been "it saves ten minutes", the correct answer would have
 been a checklist.
 
 Notice also what automation did *not* remove. Contacts, root multi-factor,
-recovery documentation, verifying the regions you need — the majority of the
+recovery documentation, verifying the regions you need - the majority of the
 checklist stayed manual. Automating the tractable fraction and describing the
 work as done is its own failure mode, and a common one.
 
@@ -164,5 +164,5 @@ Before building anything, answer three things:
    and nothing exercises it on a schedule, it will be broken when you next need
    it, and you will not know until then.
 
-If the answers are "twice", "not much", and "nobody" — write a checklist and go
+If the answers are "twice", "not much", and "nobody" - write a checklist and go
 do something else.

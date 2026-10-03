@@ -1,6 +1,6 @@
 ---
 title: "What Are Containers?"
-description: "Containers package your app with everything it needs to run—same everywhere. Like shipping containers for software: standardized, portable, isolated."
+description: "Containers package your app with everything it needs to run - same everywhere. Like shipping containers for software: standardized, portable, isolated."
 date: 2026-07-30
 level: 2
 categories: [Basics]
@@ -16,7 +16,7 @@ last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-A container packages your application with all its dependencies—code, libraries, runtime, settings—into a single unit that runs the same everywhere. Like a shipping container that can be loaded onto any truck, ship, or train, a software container runs identically on your laptop, a test server, or production cloud. This solves the "works on my machine" problem.
+A container packages your application with all its dependencies - code, libraries, runtime, settings - into a single unit that runs the same everywhere. Like a shipping container that can be loaded onto any truck, ship, or train, a software container runs identically on your laptop, a test server, or production cloud. This solves the "works on my machine" problem.
 {{< /quickanswer >}}
 
 ## The problem containers solve
@@ -35,9 +35,9 @@ This happens constantly. Developers spend hours debugging environment difference
 
 ### The old solutions
 
-**Virtual machines**: Emulate an entire computer. Works, but heavy—each VM runs a full operating system. Starting a VM takes minutes. Running ten VMs needs significant resources.
+**Virtual machines**: Emulate an entire computer. Works, but heavy - each VM runs a full operating system. Starting a VM takes minutes. Running ten VMs needs significant resources.
 
-**Configuration management** (Ansible, Chef): Automate server setup. Better, but configuration drifts over time. Servers become "snowflakes"—unique, fragile, hard to reproduce.
+**Configuration management** (Ansible, Chef): Automate server setup. Better, but configuration drifts over time. Servers become "snowflakes" - unique, fragile, hard to reproduce.
 
 **Documentation**: "Make sure you have Python 3.11 and run `pip install -r requirements.txt`." Doesn't scale. People miss steps. Versions drift.
 
@@ -190,7 +190,7 @@ Linux has features that enable containers:
 
 **Union filesystems**: Layer images efficiently. Changes are stored as layers; unchanged parts are shared.
 
-Docker (and other container tools) combine these features into a usable interface. You don't need to understand the Linux internals—Docker handles it.
+Docker (and other container tools) combine these features into a usable interface. You don't need to understand the Linux internals - Docker handles it.
 
 ## Common container patterns
 

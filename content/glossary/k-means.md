@@ -42,5 +42,5 @@ K-means is used for customer segmentation (grouping users by behavior), image co
 
 ## Sources
 
-- Lloyd, S.P. (1982). Least squares quantization in PCM. *IEEE Transactions on Information Theory, 28*(2), 129–137. (K-means algorithm; original publication predating the 1982 journal article.)
+- Lloyd, S.P. (1982). Least squares quantization in PCM. *IEEE Transactions on Information Theory, 28*(2), 129-137. (K-means algorithm; original publication predating the 1982 journal article.)
 - Arthur, D., & Vassilvitskii, S. (2007). K-means++: The advantages of careful seeding. *ACM SODA 2007*. (K-means++ initialization; reduces sensitivity to random starting points.)

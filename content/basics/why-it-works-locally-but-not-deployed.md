@@ -7,7 +7,7 @@ categories: [Basics]
 tags: [beginner, deployment, debugging, environment, production]
 faqs:
   - question: "Why is deployment so different from local?"
-    answer: "Your laptop has months of accumulated state—installed tools, environment variables, cached files, specific versions. A fresh deployment has none of that. It only has what you explicitly configured."
+    answer: "Your laptop has months of accumulated state - installed tools, environment variables, cached files, specific versions. A fresh deployment has none of that. It only has what you explicitly configured."
   - question: "How do I prevent this?"
     answer: "Use environment variables properly, lock dependency versions, test in a staging environment, and automate deployments so they're reproducible. Docker helps by making environments identical."
   - question: "My API works locally but fails deployed. Why?"
@@ -18,7 +18,7 @@ last_verified: 2026-09-25
 ---
 
 {{< quickanswer >}}
-"Works on my machine" usually means: missing environment variables, hardcoded localhost URLs, different Node/Python versions, files that exist locally but weren't committed, or APIs only accessible from your network. The production environment doesn't have your laptop's accumulated state—it only has what you explicitly deployed.
+"Works on my machine" usually means: missing environment variables, hardcoded localhost URLs, different Node/Python versions, files that exist locally but weren't committed, or APIs only accessible from your network. The production environment doesn't have your laptop's accumulated state - it only has what you explicitly deployed.
 {{< /quickanswer >}}
 
 ## Why this happens
@@ -133,7 +133,7 @@ git status
 ```
 
 **Common culprits:**
-- `.env` files (correct—shouldn't commit, but vars need to be set elsewhere)
+- `.env` files (correct - shouldn't commit, but vars need to be set elsewhere)
 - Generated files that should be built
 - Large files added to `.gitignore`
 

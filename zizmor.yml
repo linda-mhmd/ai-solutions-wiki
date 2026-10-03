@@ -1,0 +1,19 @@
+# zizmor configuration for ai-solutions.wiki
+#
+# Every action in this repository is pinned to a commit hash, which is what
+# unpinned-uses wants, with one deliberate exception.
+#
+# .github/workflows/weekly-update.yml uses anthropics/claude-code-action@v1.
+# That is Anthropic's own action and v1 is its maintained major tag. Pinning it
+# to a hash would freeze the agent that writes the wiki's content against fixes
+# to that action, including security fixes, and the hash would have to be
+# chased by hand. The trust boundary here is "do we trust Anthropic to move
+# their own v1 tag", and if the answer were no, the action would not be running
+# with repository write access in the first place.
+#
+# This is scoped to that one audit and that one file. Everything else, including
+# every other finding in that same file, is still audited normally.
+rules:
+  unpinned-uses:
+    ignore:
+      - weekly-update.yml

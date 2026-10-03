@@ -11,7 +11,7 @@ faqs:
   - question: "Is TypeScript harder to learn?"
     answer: "There's a learning curve, but it's JavaScript plus type annotations. Start with basic types (string, number, boolean) and let the IDE guide you. You can gradually add more types as you learn."
   - question: "Can I use JavaScript libraries in TypeScript?"
-    answer: "Yes. Most popular libraries include types or have community type definitions (@types/library-name). If there are no types, you can use the library anyway—TypeScript will treat it as 'any'."
+    answer: "Yes. Most popular libraries include types or have community type definitions (@types/library-name). If there are no types, you can use the library anyway - TypeScript will treat it as 'any'."
 last_updated: 2026-09-25
 lastmod: 2026-09-25
 last_verified: 2026-09-25

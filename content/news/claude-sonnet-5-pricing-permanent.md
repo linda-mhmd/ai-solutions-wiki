@@ -13,7 +13,7 @@ related:
   - tools/claude-anthropic
 ---
 
-Claude Sonnet 5 launched with introductory API pricing of **$2 per million input tokens and $10 per million output tokens**, scheduled to rise to **$3/$15** — a 50% increase across the board — on **1 September 2026**. On **10 August 2026** Anthropic cancelled the increase and made the introductory rate permanent.
+Claude Sonnet 5 launched with introductory API pricing of **$2 per million input tokens and $10 per million output tokens**, scheduled to rise to **$3/$15** - a 50% increase across the board - on **1 September 2026**. On **10 August 2026** Anthropic cancelled the increase and made the introductory rate permanent.
 
 ## What happened
 
@@ -31,11 +31,11 @@ A scheduled price rise being cancelled is unusual enough to be worth recording p
 
 ## Why it matters for builders
 
-**Delete the September increase from your 2026 forecast.** If you built a cost model for Sonnet 5 workloads that steps up on 1 September — which was the correct thing to do at launch — that step is gone. For a workload running at, say, 500M input and 100M output tokens a month, the cancelled rise is roughly **$1,000/month** that will not now be spent. Check your [FinOps](/guides/finops-for-ai/) assumptions and your reserved-budget alerts.
+**Delete the September increase from your 2026 forecast.** If you built a cost model for Sonnet 5 workloads that steps up on 1 September - which was the correct thing to do at launch - that step is gone. For a workload running at, say, 500M input and 100M output tokens a month, the cancelled rise is roughly **$1,000/month** that will not now be spent. Check your [FinOps](/guides/finops-for-ai/) assumptions and your reserved-budget alerts.
 
 **Inference pricing is now a competitive instrument, and it moves in both directions.** Within the same month, Anthropic removed a scheduled increase and Google shipped [Gemini 3.7 Flash](/news/gemini-3-7-flash/) at an introductory $0.75/$3.75 that **expires on 31 December 2026** and doubles in January. The lesson is symmetrical: do not treat an introductory rate as permanent, and do not assume a scheduled increase will actually land. Both are marketing decisions taken against a competitor's price sheet, not costs passed through.
 
-**Model your bill against list price, with a dated review.** The defensible practice is to budget on the standard rate, record the date any introductory or promotional rate expires, and re-check before that date. Anything else leaves you exposed to a doubling you did not plan for — or, more happily, blind to a saving you already had.
+**Model your bill against list price, with a dated review.** The defensible practice is to budget on the standard rate, record the date any introductory or promotional rate expires, and re-check before that date. Anything else leaves you exposed to a doubling you did not plan for - or, more happily, blind to a saving you already had.
 
 **Price stability is worth something on its own.** Anthropic making a rate permanent, weeks before a rise it had already announced, is a signal aimed at enterprise buyers who need to commit to unit economics over a contract term. Read it alongside the competitive pressure on business users described in [OpenAI's enterprise crossover](/news/openai-enterprise-revenue-overtakes-consumer/).
 

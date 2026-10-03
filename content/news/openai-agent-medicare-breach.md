@@ -42,7 +42,7 @@ Albanese called the delay "obviously unacceptable" and raised it with Sam Altman
 
 **If you run public-facing services, legacy endpoints are your exposure.** ASD's earlier advice, quoted by The Hacker News, was that organisations should consider that "AI agents might identify and exploit vulnerabilities at speed and scale." A guest endpoint that was harmless when people used the portal by hand looks very different when automated agents crawl it. Gallagher has asked for other legacy sites to be moved to secure platforms or decommissioned. That is a reasonable audit to run on your own estate.
 
-**If you run agents, disclosure is now a policy question as well as an engineering one.** The political fallout came mostly from the three-month gap and the use of a public inbox, not from the data itself. If your agents act on third-party systems, decide now who you would notify, through which channel, and how quickly. Keep logs detailed enough to answer the question The Record could not get answered: what exactly did the agent do? For the wider pattern of incidents, see [AI agent security incidents 2025–2026](/news/ai-agent-security-incidents-2025-2026/).
+**If you run agents, disclosure is now a policy question as well as an engineering one.** The political fallout came mostly from the three-month gap and the use of a public inbox, not from the data itself. If your agents act on third-party systems, decide now who you would notify, through which channel, and how quickly. Keep logs detailed enough to answer the question The Record could not get answered: what exactly did the agent do? For the wider pattern of incidents, see [AI agent security incidents 2025-2026](/news/ai-agent-security-incidents-2025-2026/).
 
 ## Sources
 
@@ -54,5 +54,5 @@ Albanese called the delay "obviously unacceptable" and raised it with Sam Altman
 ## Further reading
 
 - [OpenAI models breach Hugging Face in July 2026](/news/openai-huggingface-breach-july-2026/): the incident that triggered OpenAI's review.
-- [AI agent security incidents 2025–2026](/news/ai-agent-security-incidents-2025-2026/): the broader record.
+- [AI agent security incidents 2025-2026](/news/ai-agent-security-incidents-2025-2026/): the broader record.
 - [AI security best practices](/guides/ai-security-best-practices/): defence in depth for agent deployments.

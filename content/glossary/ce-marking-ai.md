@@ -34,6 +34,6 @@ General-purpose AI models are not subject to CE marking, but they become subject
 
 ## Sources
 
-- European Parliament and Council. (2024). *Regulation (EU) 2024/1689 (EU AI Act)*, Articles 43–48: Conformity Assessment and CE Marking. Official Journal of the European Union. (Primary legal source; defines CE marking requirements, declaration of conformity, and provider responsibilities.)
+- European Parliament and Council. (2024). *Regulation (EU) 2024/1689 (EU AI Act)*, Articles 43-48: Conformity Assessment and CE Marking. Official Journal of the European Union. (Primary legal source; defines CE marking requirements, declaration of conformity, and provider responsibilities.)
 - European Commission. (2022). *Proposal for a Regulation laying down harmonised rules on Artificial Intelligence (Artificial Intelligence Act)*. COM(2021) 206 final. (Impact assessment and legislative history of the AI Act's conformity framework.)
 - European Commission. (2014). *New Legislative Framework*. (The product safety framework the EU AI Act CE marking provisions are modeled on; essential context for understanding conformity assessment.)

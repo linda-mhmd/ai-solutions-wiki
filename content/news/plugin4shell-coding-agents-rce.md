@@ -63,5 +63,5 @@ It has to check the resolved `HEAD`, not the ref that was requested. That differ
 ## Further reading
 
 - [Claude Code](/tools/claude-code/) and [GitHub Copilot](/tools/github-copilot/): tool pages for two of the affected agents.
-- [AI agent security incidents 2025–2026](/news/ai-agent-security-incidents-2025-2026/): the broader record of agent-related incidents.
+- [AI agent security incidents 2025-2026](/news/ai-agent-security-incidents-2025-2026/): the broader record of agent-related incidents.
 - [AI supply chain security](/patterns/ai-supply-chain-security/): controls for third-party models, packages and extensions.

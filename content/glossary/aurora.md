@@ -36,6 +36,6 @@ Use Aurora Serverless v2 for variable workloads. Create read replicas in differe
 
 ## Sources
 
-- Verbitski, A., Gupta, A., Saha, D., Brahmadesam, M., Gupta, K., Mittal, R., Krishnamurthy, S., Maurice, S., Kharatishvili, T., & Bao, X. (2017). Amazon Aurora: Design considerations for high throughput cloud-native relational databases. *Proceedings of ACM SIGMOD*, 1041–1052. (Original Aurora paper; storage/compute separation, six-way replication, and fast crash recovery.)
-- Stonebraker, M., & Cattell, R. (2011). Ten rules for scalable performance in 'simple operation' datastores. *Communications of the ACM*, 54(6), 72–80. (Relational vs. NoSQL trade-offs; when relational databases remain the right choice.)
+- Verbitski, A., Gupta, A., Saha, D., Brahmadesam, M., Gupta, K., Mittal, R., Krishnamurthy, S., Maurice, S., Kharatishvili, T., & Bao, X. (2017). Amazon Aurora: Design considerations for high throughput cloud-native relational databases. *Proceedings of ACM SIGMOD*, 1041-1052. (Original Aurora paper; storage/compute separation, six-way replication, and fast crash recovery.)
+- Stonebraker, M., & Cattell, R. (2011). Ten rules for scalable performance in 'simple operation' datastores. *Communications of the ACM*, 54(6), 72-80. (Relational vs. NoSQL trade-offs; when relational databases remain the right choice.)
 - pgvector. (2021). *Open-source vector similarity search for Postgres*. GitHub. (pgvector extension enabling vector similarity search in PostgreSQL/Aurora; used for RAG applications avoiding separate vector databases.)

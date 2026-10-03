@@ -37,6 +37,6 @@ Use individual decision trees when interpretability is the primary requirement a
 
 ## Sources
 
-- Quinlan, J.R. (1986). Induction of decision trees. *Machine Learning, 1*(1), 81–106. (ID3 algorithm; foundational decision tree induction method.)
+- Quinlan, J.R. (1986). Induction of decision trees. *Machine Learning, 1*(1), 81-106. (ID3 algorithm; foundational decision tree induction method.)
 - Quinlan, J.R. (1993). *C4.5: Programs for Machine Learning.* Morgan Kaufmann. (C4.5; introduced continuous features, pruning, and missing value handling.)
 - Breiman, L., Friedman, J., Stone, C.J., & Olshen, R.A. (1984). *Classification and Regression Trees.* Wadsworth. (CART algorithm; Gini impurity criterion.)

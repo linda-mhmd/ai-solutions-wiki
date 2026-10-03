@@ -1,22 +1,22 @@
 ---
 title: "Volunteering in Tech"
-description: "Why so much of the tech industry runs on volunteers—from open source to meetups to conferences—and how to participate in this unique culture."
+description: "Why so much of the tech industry runs on volunteers - from open source to meetups to conferences - and how to participate in this unique culture."
 date: 2026-07-30
 level: 2
 categories: [Basics]
 tags: [volunteering, community, open-source, meetups, conferences, career]
 faqs:
   - question: "Is volunteering in tech just free labor for corporations?"
-    answer: "Sometimes, yes—and that's worth being aware of. But much tech volunteering benefits communities, not corporations: local meetups, educational content, helping beginners, maintaining community infrastructure. Choose where your energy goes with open eyes."
+    answer: "Sometimes, yes - and that's worth being aware of. But much tech volunteering benefits communities, not corporations: local meetups, educational content, helping beginners, maintaining community infrastructure. Choose where your energy goes with open eyes."
   - question: "Will volunteering help my career?"
-    answer: "Often, yes. You build skills, make connections, demonstrate expertise publicly, and differentiate yourself from candidates who only have job experience. But it's not guaranteed—volunteer strategically, not desperately, and don't let it substitute for rest."
+    answer: "Often, yes. You build skills, make connections, demonstrate expertise publicly, and differentiate yourself from candidates who only have job experience. But it's not guaranteed - volunteer strategically, not desperately, and don't let it substitute for rest."
   - question: "How much time should I volunteer?"
-    answer: "Whatever is sustainable for you. A few hours per month is meaningful. Consistent small contributions beat sporadic heroic efforts. Protect your time—the tech industry's volunteer culture can become exploitative if you don't set boundaries."
+    answer: "Whatever is sustainable for you. A few hours per month is meaningful. Consistent small contributions beat sporadic heroic efforts. Protect your time - the tech industry's volunteer culture can become exploitative if you don't set boundaries."
 last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-The tech industry runs on an unusual amount of volunteer work: open-source contributions, meetup organizing, conference speaking, mentoring, documentation, and community building. This creates opportunities to learn, connect, and build reputation outside of employment. But it also creates exploitation risks—volunteer with intention, set boundaries, and recognize when "community" is actually unpaid labor for someone else's profit.
+The tech industry runs on an unusual amount of volunteer work: open-source contributions, meetup organizing, conference speaking, mentoring, documentation, and community building. This creates opportunities to learn, connect, and build reputation outside of employment. But it also creates exploitation risks - volunteer with intention, set boundaries, and recognize when "community" is actually unpaid labor for someone else's profit.
 {{< /quickanswer >}}
 
 ## Why tech has a volunteer culture
@@ -187,7 +187,7 @@ Tangible career benefits:
 
 Companies use open source without paying maintainers. Conference sponsors get recruiting access from volunteer organizers. Platforms profit from creator content.
 
-This isn't always exploitative—true community benefit exists—but be aware of who captures value from your work.
+This isn't always exploitative - true community benefit exists - but be aware of who captures value from your work.
 
 ### "Volunteer" can mean "unpaid work"
 

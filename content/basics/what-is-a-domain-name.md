@@ -18,7 +18,7 @@ last_updated: 2026-09-25
 ---
 
 {{< quickanswer >}}
-A domain name is the address people type to reach your website—like google.com or myawesomeapp.io. It's a human-friendly name that points to a server's actual IP address. You buy domains from registrars like Namecheap, Porkbun, or Cloudflare, and you have to renew them yearly to keep them.
+A domain name is the address people type to reach your website - like google.com or myawesomeapp.io. It's a human-friendly name that points to a server's actual IP address. You buy domains from registrars like Namecheap, Porkbun, or Cloudflare, and you have to renew them yearly to keep them.
 {{< /quickanswer >}}
 
 ## Why domain names exist
@@ -79,7 +79,7 @@ myapp.com → cname.vercel-dns.com
 
 Most hosting platforms (Vercel, Netlify, Railway) give you instructions: "Add this CNAME record to your DNS settings." You do that in your registrar's dashboard.
 
-After adding the record, wait. DNS changes take time to spread across the internet—anywhere from a few minutes to 48 hours (usually closer to minutes these days).
+After adding the record, wait. DNS changes take time to spread across the internet - anywhere from a few minutes to 48 hours (usually closer to minutes these days).
 
 ## Subdomains are free
 
@@ -107,7 +107,7 @@ If you're managing your own server, you'll need to set up certificates yourself 
 
 **Buying from your hosting provider**: Keep domains and hosting separate. If you want to switch hosts, you don't want your domain locked in.
 
-**Ignoring WHOIS privacy**: Domain registration is public by default. Your name, address, and phone number will be visible. Most registrars offer free WHOIS privacy—enable it.
+**Ignoring WHOIS privacy**: Domain registration is public by default. Your name, address, and phone number will be visible. Most registrars offer free WHOIS privacy - enable it.
 
 **Picking a hard-to-spell name**: If people can't type it correctly, they can't find you.
 
@@ -117,7 +117,7 @@ If you're managing your own server, you'll need to set up certificates yourself 
 1. Pick one as your canonical (official) version
 2. Redirect the other to it
 
-Most modern sites use the non-www version (`myapp.com`) as canonical. It's shorter and cleaner. But either works—just be consistent.
+Most modern sites use the non-www version (`myapp.com`) as canonical. It's shorter and cleaner. But either works - just be consistent.
 
 ## Further reading
 

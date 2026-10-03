@@ -41,5 +41,5 @@ XGBoost and its relatives (LightGBM, CatBoost) consistently win machine learning
 ## Sources
 
 - Chen, T., & Guestrin, C. (2016). XGBoost: A scalable tree boosting system. *KDD 2016*. (Original XGBoost paper; describes the regularized objective, weighted quantile sketch, sparsity-aware splitting, and cache-aware computation.)
-- Friedman, J. H. (2001). Greedy function approximation: A gradient boosting machine. *Annals of Statistics, 29*(5), 1189–1232. (Gradient boosting framework; the theoretical foundation XGBoost implements and extends.)
+- Friedman, J. H. (2001). Greedy function approximation: A gradient boosting machine. *Annals of Statistics, 29*(5), 1189-1232. (Gradient boosting framework; the theoretical foundation XGBoost implements and extends.)
 - Ke, G., et al. (2017). LightGBM: A highly efficient gradient boosting decision tree. *NeurIPS 2017*. (LightGBM; introduced GOSS and EFB for faster boosting on large datasets; the main XGBoost alternative.)

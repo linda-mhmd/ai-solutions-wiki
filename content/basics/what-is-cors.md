@@ -1,13 +1,13 @@
 ---
 title: "What is CORS?"
-description: "CORS is why your frontend can't talk to your backend. It's a browser security feature that blocks requests between different domains—and understanding it saves hours of frustration."
+description: "CORS is why your frontend can't talk to your backend. It's a browser security feature that blocks requests between different domains - and understanding it saves hours of frustration."
 date: 2026-07-30
 level: 2
 categories: [Basics]
 tags: [beginner, cors, security, api, frontend, backend]
 faqs:
   - question: "Why do I get CORS errors locally but not in Postman?"
-    answer: "CORS is enforced by browsers, not servers. Postman is not a browser—it doesn't implement CORS. Your terminal, curl, and server-to-server requests also skip CORS. Only browser-based JavaScript hits this wall."
+    answer: "CORS is enforced by browsers, not servers. Postman is not a browser - it doesn't implement CORS. Your terminal, curl, and server-to-server requests also skip CORS. Only browser-based JavaScript hits this wall."
   - question: "Should I just set Access-Control-Allow-Origin to * in production?"
     answer: "Probably not. * means 'allow requests from anywhere,' which is fine for public APIs but risky for anything with authentication or private data. Be specific: allow only the origins you trust."
   - question: "My frontend and backend are both on localhost but different ports. Why is that cross-origin?"
@@ -25,7 +25,7 @@ Imagine you're logged into your bank at `bank.com`. A malicious site at `evil.co
 
 CORS prevents this. By default, browsers block requests from one origin to another unless the target server explicitly says "I allow requests from this origin."
 
-This is why CORS errors only happen in browsers. Postman, curl, and server-to-server requests don't have this restriction—they're not protecting a user session.
+This is why CORS errors only happen in browsers. Postman, curl, and server-to-server requests don't have this restriction - they're not protecting a user session.
 
 ## What's an "origin"?
 
@@ -162,7 +162,7 @@ Some APIs allow browser access, some don't. If they don't have CORS headers, you
 
 ## What CORS doesn't do
 
-CORS is not authentication. It doesn't verify who's making the request—only where the request is coming from (based on browser headers that can be spoofed outside browsers).
+CORS is not authentication. It doesn't verify who's making the request - only where the request is coming from (based on browser headers that can be spoofed outside browsers).
 
 CORS is not encryption. It doesn't protect data in transit. That's HTTPS.
 

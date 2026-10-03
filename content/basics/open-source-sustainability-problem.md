@@ -18,7 +18,7 @@ last_updated: 2026-09-25
 ---
 
 {{< quickanswer >}}
-Much of the internet's critical infrastructure is maintained by unpaid volunteers. This creates a sustainability problem: companies worth billions depend on software maintained by individuals in their spare time, often without compensation. Maintainers burn out, security vulnerabilities go unpatched, and critical projects get abandoned. There's no clear solution—funding mechanisms exist but don't scale, and the culture of free software makes compensation complex.
+Much of the internet's critical infrastructure is maintained by unpaid volunteers. This creates a sustainability problem: companies worth billions depend on software maintained by individuals in their spare time, often without compensation. Maintainers burn out, security vulnerabilities go unpatched, and critical projects get abandoned. There's no clear solution - funding mechanisms exist but don't scale, and the culture of free software makes compensation complex.
 {{< /quickanswer >}}
 
 ## The problem in one image
@@ -27,7 +27,7 @@ The XKCD "Dependency" comic (xkcd.com/2347) shows "All modern digital infrastruc
 
 This is not exaggeration. Real examples:
 
-**OpenSSL (Heartbleed)**: For years, one of the internet's most critical security libraries was maintained by one full-time developer earning $20,000/year. The Heartbleed bug in 2014 exposed this—a security flaw in software used by hundreds of millions of servers, maintained on a shoestring.
+**OpenSSL (Heartbleed)**: For years, one of the internet's most critical security libraries was maintained by one full-time developer earning $20,000/year. The Heartbleed bug in 2014 exposed this - a security flaw in software used by hundreds of millions of servers, maintained on a shoestring.
 
 **left-pad (2016)**: An 11-line npm package was unpublished, breaking builds across the JavaScript ecosystem. Trivial code, but thousands of projects depended on it. One person's decision disrupted global software development.
 
@@ -122,7 +122,7 @@ Project gets acquired or commercialized aggressively. Free version degrades. Ope
 
 ### Single point of failure
 
-One maintainer, one person's life circumstances change. Health issue, new job, new child, losing interest—any life event can end a project.
+One maintainer, one person's life circumstances change. Health issue, new job, new child, losing interest - any life event can end a project.
 
 ### Corporate capture
 
@@ -190,7 +190,7 @@ If everyone thinks this, no one funds it. Classic collective action problem.
 
 - **Audit dependencies**: Know what open source you use
 - **Budget for funding**: Treat it like infrastructure cost
-- **Contribute back**: Code, docs, triage—not just money
+- **Contribute back**: Code, docs, triage - not just money
 - **Sponsor strategically**: Fund critical dependencies, not just popular ones
 - **Hire maintainers**: Paying people to do open-source work full-time
 
@@ -237,7 +237,7 @@ Instead of asking "how do we fund open source?" consider:
 - Some is hobby/exploration (funded by intrinsic motivation)
 - The lines between these are blurry
 
-Open source isn't inherently a business model. It's a development methodology. The business model—how maintenance gets funded—is a separate question that the open-source movement never fully answered.
+Open source isn't inherently a business model. It's a development methodology. The business model - how maintenance gets funded - is a separate question that the open-source movement never fully answered.
 
 ## Further reading
 

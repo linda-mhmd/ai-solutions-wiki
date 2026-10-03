@@ -76,7 +76,7 @@ NVIDIA published **Nemotron-3-Labs-Ultra-Math-RL** and **-SFT**. They are math-r
 |---|---|---|---|
 | MiMo-V2.6-Pro-RL / Flash-RL | 1.02T / 42B; 310B / 15B | MIT | Yes |
 | Tencent Hy4-preview | 770B / 49B | Apache 2.0 | Yes |
-| DeepSeek-V4.1-Flash | 552B / 8B–16B | MIT | Yes |
+| DeepSeek-V4.1-Flash | 552B / 8B - 16B | MIT | Yes |
 | Intern-S2-397B | 397B | Apache 2.0 | Yes |
 | Nemotron-3-Labs-Ultra-Math | 550B / 55B | OpenMDW-1.1 | Yes |
 | GLM-5.3-Flash | 320B / 18B | MIT | Yes |
@@ -90,7 +90,7 @@ NVIDIA published **Nemotron-3-Labs-Ultra-Math-RL** and **-SFT**. They are math-r
 
 **Hugging Face metadata is not a licence review.** Qwen-Image-2.1 shows up as "other", and you only find "research or evaluation purposes only" in the LICENSE file. North Small Translate is available on a free API tier, which makes it easy to assume the weights are free to use commercially. They are not. Make "open the LICENSE file" a required step in model intake. See [software licensing and vendor lock-in](/guides/software-licensing-and-vendor-lock-in/).
 
-**The permissive frontier is now very large and very cyber-capable.** MIT and Apache 2.0 now cover 500B–1T-parameter models with self-reported CyberGym scores near or above 90 (MiMo-V2.6, DeepSeek-V4.1-Flash). Security teams should assume attackers can download these capabilities and use them without restriction. This is the downloadable counterpart to the gated cyber tiers closed labs launched this month.
+**The permissive frontier is now very large and very cyber-capable.** MIT and Apache 2.0 now cover 500B - 1T-parameter models with self-reported CyberGym scores near or above 90 (MiMo-V2.6, DeepSeek-V4.1-Flash). Security teams should assume attackers can download these capabilities and use them without restriction. This is the downloadable counterpart to the gated cyber tiers closed labs launched this month.
 
 **Sizes still decide who can run what.** Every flagship here needs multi-GPU serving. The practical self-hosting tier is still around 30B total or less, or low-active MoEs like Ling-3.0-flash-VL. [Quantization](/glossary/quantization/) (NVIDIA's NVFP4 builds, Cohere's W4A16) is how the larger models become deployable. See [small vs large language models](/comparisons/small-vs-large-language-models/).
 

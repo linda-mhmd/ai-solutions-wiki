@@ -104,7 +104,7 @@ Nova Micro, Nova Lite, and Nova Pro remain **Active** in Bedrock and are **not**
 
 ### The models retired and retiring this month
 
-Five Nova model versions — and only these five — are on the Bedrock legacy list. Two have **already reached end of life (14 September 2026)**; the other three are switched off on **30 September 2026**. After the end-of-life date, the model ID stops serving requests in every Region, and there is no automatic migration. Do not read this as "Nova 1 is retiring": Nova Micro, Lite and Pro are not on the list.
+Five Nova model versions - and only these five - are on the Bedrock legacy list. Two have **already reached end of life (14 September 2026)**; the other three are switched off on **30 September 2026**. After the end-of-life date, the model ID stops serving requests in every Region, and there is no automatic migration. Do not read this as "Nova 1 is retiring": Nova Micro, Lite and Pro are not on the list.
 
 | Model | Legacy since | End of life | Successor |
 |---|---|---|---|
@@ -114,7 +114,7 @@ Five Nova model versions — and only these five — are on the Bedrock legacy l
 | **Nova Reel** (`amazon.nova-reel-v1:0`) | 2026-03-30 | 2026-09-30 | None from Amazon. |
 | **Nova Reel** (`amazon.nova-reel-v1:1`) | 2026-03-30 | 2026-09-30 | None from Amazon. Both Reel versions retire on the same day. |
 
-Two consequences are worth being blunt about. First, **Nova Premier is not the top of the family any more** — its end-of-life date of 14 September 2026 has passed. Any design that treats it as the model to step up to, or as the teacher model to distil from, needs rewriting. Second, **Amazon will have no first-party creative models after 30 September 2026.** With Canvas and both Reel versions gone and no Nova 2 image or video model shipped, the Bedrock-native replacements are third-party — Stability AI's Stable Image models for images, Luma Ray v2 for video — or Nova 2 Omni's image output, which is still preview-gated. There is no "newer Nova Canvas" or "newer Nova Reel" to migrate to.
+Two consequences are worth being blunt about. First, **Nova Premier is not the top of the family any more** - its end-of-life date of 14 September 2026 has passed. Any design that treats it as the model to step up to, or as the teacher model to distil from, needs rewriting. Second, **Amazon will have no first-party creative models after 30 September 2026.** With Canvas and both Reel versions gone and no Nova 2 image or video model shipped, the Bedrock-native replacements are third-party - Stability AI's Stable Image models for images, Luma Ray v2 for video - or Nova 2 Omni's image output, which is still preview-gated. There is no "newer Nova Canvas" or "newer Nova Reel" to migrate to.
 
 Press reporting in late July 2026 (Business Insider, relayed by eWeek and others) said Amazon had moved Nova Premier, Nova 2 Omni, Nova Reel, and Nova Canvas to maintenance-only development and shifted staff toward a new frontier-model research group. AWS has published nothing to confirm this, and the secondary accounts disagree on which models are affected, so treat it as reporting rather than fact. The retirement dates above, by contrast, come from the Bedrock model lifecycle documentation (re-checked 25 September 2026). Models launched on Bedrock from 7 September 2026 onwards fall under a newer lifecycle policy with an "EOL no sooner than" date and a 6-month or 45-day Legacy period on every model card; all current Nova models predate it and stay under the older policy.
 

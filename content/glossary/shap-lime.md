@@ -51,5 +51,5 @@ Use SHAP for systematic model analysis, feature importance ranking, bias detecti
 
 - Ribeiro, M.T., Singh, S., & Guestrin, C. (2016). "Why should I trust you?": Explaining the predictions of any classifier. *KDD 2016*. (LIME original paper.)
 - Lundberg, S.M., & Lee, S.I. (2017). A unified approach to interpreting model predictions. *NeurIPS 2017*. (SHAP original paper; unified framework based on Shapley values.)
-- Lundberg, S.M., et al. (2020). From local explanations to global understanding with explainable AI for trees. *Nature Machine Intelligence, 2*(1), 56–67. (TreeSHAP; polynomial-time exact Shapley values for tree models.)
-- Shapley, L.S. (1953). A value for n-person games. *Contributions to the Theory of Games, 2*, 307–317. (Shapley values; the game theory foundation for SHAP.)
+- Lundberg, S.M., et al. (2020). From local explanations to global understanding with explainable AI for trees. *Nature Machine Intelligence, 2*(1), 56-67. (TreeSHAP; polynomial-time exact Shapley values for tree models.)
+- Shapley, L.S. (1953). A value for n-person games. *Contributions to the Theory of Games, 2*, 307-317. (Shapley values; the game theory foundation for SHAP.)

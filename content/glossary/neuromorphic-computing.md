@@ -32,6 +32,6 @@ Neuromorphic computing is still primarily a research and early-commercial techno
 
 ## Sources
 
-- Mead, C. (1990). Neuromorphic electronic systems. *Proceedings of the IEEE, 78*(10), 1629–1636. (Coined "neuromorphic computing"; foundational paper by Carver Mead.)
-- Mahowald, M., & Douglas, R. (1991). A silicon neuron. *Nature, 354*, 515–518. (First VLSI spiking neuron circuit.)
-- Davies, M., et al. (2018). Loihi: A neuromorphic manycore processor with on-chip learning. *IEEE Micro, 38*(1), 82–99. (Intel Loihi chip; practical neuromorphic hardware for research.)
+- Mead, C. (1990). Neuromorphic electronic systems. *Proceedings of the IEEE, 78*(10), 1629-1636. (Coined "neuromorphic computing"; foundational paper by Carver Mead.)
+- Mahowald, M., & Douglas, R. (1991). A silicon neuron. *Nature, 354*, 515-518. (First VLSI spiking neuron circuit.)
+- Davies, M., et al. (2018). Loihi: A neuromorphic manycore processor with on-chip learning. *IEEE Micro, 38*(1), 82-99. (Intel Loihi chip; practical neuromorphic hardware for research.)

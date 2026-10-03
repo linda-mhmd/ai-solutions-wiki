@@ -17,7 +17,7 @@ Most cloud cost analysis models the cost of *running*. Far less models the cost 
 
 ## Egress: the shrinking half of the problem
 
-Outbound data transfer has historically been asymmetric. Uploading to a cloud is free; retrieving at scale is billed per gigabyte, commonly in the region of $0.05–$0.09/GB to the internet for major providers, with lower rates for cross-region transfer. Inbound free, outbound charged, is what makes a dataset easier to accumulate than to reclaim.
+Outbound data transfer has historically been asymmetric. Uploading to a cloud is free; retrieving at scale is billed per gigabyte, commonly in the region of $0.05-$0.09/GB to the internet for major providers, with lower rates for cross-region transfer. Inbound free, outbound charged, is what makes a dataset easier to accumulate than to reclaim.
 
 Three things have changed this since 2024.
 
@@ -27,10 +27,10 @@ Three things have changed this since 2024.
 
 | Period | Rule |
 |---|---|
-| 11 Jan 2024 – 12 Jan 2027 | Reduced switching charges permitted, but they **must not exceed the costs directly linked to the switching process** |
+| 11 Jan 2024 - 12 Jan 2027 | Reduced switching charges permitted, but they **must not exceed the costs directly linked to the switching process** |
 | From **12 January 2027** | Providers **may not impose any switching charges** for the switching process |
 
-**The distinction that gets lost.** This applies to *switching*. Regular operational egress — serving your data to your own users, replicating between regions, pulling results back for processing — is untouched and remains billable indefinitely. Reading "egress fees are abolished in 2027" as "data transfer becomes free" is a costly misreading. Providers may also still charge for services beyond the Act's minimum, such as accelerating a migration or converting data into a specific format.
+**The distinction that gets lost.** This applies to *switching*. Regular operational egress - serving your data to your own users, replicating between regions, pulling results back for processing - is untouched and remains billable indefinitely. Reading "egress fees are abolished in 2027" as "data transfer becomes free" is a costly misreading. Providers may also still charge for services beyond the Act's minimum, such as accelerating a migration or converting data into a specific format.
 
 ## Data gravity: the half that is not going away
 
@@ -44,11 +44,11 @@ Three mechanisms, none of which a price change addresses:
 hours = (TB × 8,000) / (Gbps × 3,600) ÷ efficiency
 ```
 
-At a sustained 1 Gbps with 70% efficiency, 100 TB takes roughly 320 hours — about 13 days of continuous transfer. At 10 Gbps, a day and a half. Most organisations do not have a dedicated 10 Gbps path they can saturate for days without affecting production. This is why providers sell physical transfer appliances (AWS Snowball, Azure Data Box, Google Transfer Appliance): past a certain size, shipping disks is genuinely faster than the internet, and it is a real line item, not a joke.
+At a sustained 1 Gbps with 70% efficiency, 100 TB takes roughly 320 hours - about 13 days of continuous transfer. At 10 Gbps, a day and a half. Most organisations do not have a dedicated 10 Gbps path they can saturate for days without affecting production. This is why providers sell physical transfer appliances (AWS Snowball, Azure Data Box, Google Transfer Appliance): past a certain size, shipping disks is genuinely faster than the internet, and it is a real line item, not a joke.
 
 **2. Coupling.** The data is rarely the hard part. Identity, event wiring, managed database dialects, proprietary serverless runtimes, and IAM policy all have to be rebuilt. A dataset in object storage is portable; the forty Lambda functions, the event bus, and the queue semantics around it are not.
 
-**3. Continuity.** You cannot usually stop writing for thirteen days. Real migrations run dual-write or continuous replication with a cutover, which means paying for both platforms simultaneously for the overlap — often the single largest line in the migration budget, and the one most often omitted.
+**3. Continuity.** You cannot usually stop writing for thirteen days. Real migrations run dual-write or continuous replication with a cutover, which means paying for both platforms simultaneously for the overlap - often the single largest line in the migration budget, and the one most often omitted.
 
 ## What this means in practice
 
@@ -60,7 +60,7 @@ At a sustained 1 Gbps with 70% efficiency, 100 TB takes roughly 320 hours — ab
 
 **Treat the 2027 date as a planning input, not a solution.** It removes a fee. It does not move your data, decouple your services, or pay for the overlap period.
 
-**Measure egress continuously.** Unexpected egress growth is one of the most common cloud cost surprises and often signals an architectural mistake — a chatty cross-region call, an unintended public download path, an analytics job pulling raw data out rather than pushing compute in. See [FinOps for AI](/guides/finops-for-ai/).
+**Measure egress continuously.** Unexpected egress growth is one of the most common cloud cost surprises and often signals an architectural mistake - a chatty cross-region call, an unintended public download path, an analytics job pulling raw data out rather than pushing compute in. See [FinOps for AI](/guides/finops-for-ai/).
 
 ## Why AI workloads make this sharper
 
@@ -82,7 +82,7 @@ The practical consequence is that where you put the training data and the vector
 
 ## Sources
 
-1. European Union. "Regulation (EU) 2023/2854 (Data Act)," Article 29 — Gradual withdrawal of switching charges. [https://eur-lex.europa.eu/eli/reg/2023/2854/oj](https://eur-lex.europa.eu/eli/reg/2023/2854/oj)
+1. European Union. "Regulation (EU) 2023/2854 (Data Act)," Article 29 - Gradual withdrawal of switching charges. [https://eur-lex.europa.eu/eli/reg/2023/2854/oj](https://eur-lex.europa.eu/eli/reg/2023/2854/oj)
 2. European Commission. "Data Act" overview and application dates. [https://digital-strategy.ec.europa.eu/en/policies/data-act](https://digital-strategy.ec.europa.eu/en/policies/data-act)
 3. Latham & Watkins. "EU Data Act: Significant New Switching Requirements Due to Take Effect for Data Processing Services." [https://www.lw.com/en/insights/eu-data-act-significant-new-switching-requirements-due-to-take-effect-for-data-processing-services](https://www.lw.com/en/insights/eu-data-act-significant-new-switching-requirements-due-to-take-effect-for-data-processing-services)
 4. DataCenterDynamics. "Google Cloud removes exit fees" (January 2024). [https://www.datacenterdynamics.com/en/news/google-cloud-removes-exit-fees/](https://www.datacenterdynamics.com/en/news/google-cloud-removes-exit-fees/)

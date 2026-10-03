@@ -16,14 +16,14 @@ last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-Localhost is your own computer acting as a server. When you run `npm run dev` and visit `localhost:3000`, you're not on the internet—you're talking to a server running on your machine. It's where you test your app before putting it online for real.
+Localhost is your own computer acting as a server. When you run `npm run dev` and visit `localhost:3000`, you're not on the internet - you're talking to a server running on your machine. It's where you test your app before putting it online for real.
 {{< /quickanswer >}}
 
 ## Why localhost exists
 
 When you're building a website or app, you need to see it running somewhere. But you don't want to put unfinished code on the actual internet where anyone can see it (and break it, and judge it).
 
-Localhost solves this. Your computer runs a local server that only you can access. You build, you test, you break things, you fix them—all in private. When it's ready, you deploy to a real server.
+Localhost solves this. Your computer runs a local server that only you can access. You build, you test, you break things, you fix them - all in private. When it's ready, you deploy to a real server.
 
 ## The anatomy of a localhost URL
 
@@ -97,7 +97,7 @@ When you run these commands, you're starting a local server:
 
 ## Why localhost works without internet
 
-Your computer has a built-in loopback network interface. When you connect to localhost, traffic never leaves your machine—it loops back internally. This is why:
+Your computer has a built-in loopback network interface. When you connect to localhost, traffic never leaves your machine - it loops back internally. This is why:
 
 - Localhost works with WiFi off
 - Localhost is fast (no network latency)

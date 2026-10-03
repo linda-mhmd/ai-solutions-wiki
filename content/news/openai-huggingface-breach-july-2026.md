@@ -42,7 +42,7 @@ METR notes the limits of its own work: some related activity was not captured in
 
 ## Sources
 
-- Hugging Face Security Team, "Security incident disclosure — July 2026" (16 July 2026): https://huggingface.co/blog/security-incident-july-2026
+- Hugging Face Security Team, "Security incident disclosure - July 2026" (16 July 2026): https://huggingface.co/blog/security-incident-july-2026
 - OpenAI & Hugging Face, "OpenAI and Hugging Face partner to address security incident during model evaluation" (21 July 2026): https://openai.com/index/hugging-face-security-incident/
 - Reuters, "Its AI agent spent days hacking a company. Sources say OpenAI did not notice for a week" (24 July 2026)
 - TechCrunch, "How an OpenAI's human mistake led to the AI-powered hack on Hugging Face" (22 July 2026): https://techcrunch.com/2026/07/22/how-an-openais-human-mistake-led-to-the-ai-powered-hack-on-hugging-face/

@@ -33,6 +33,6 @@ Use ALB for HTTP/HTTPS workloads (the vast majority of cases). Use NLB only when
 
 ## Sources
 
-- Alizadeh, M., Greenberg, A., Maltz, D. A., Padhye, J., Patel, P., Poutievski, L., ... & Wetherall, D. (2010). Data center TCP (DCTCP). *Proceedings of ACM SIGCOMM*, 63–74. (Load balancing at data center scale; incast, buffer pressure, and the network-level challenges that application load balancers must handle.)
-- Patel, P., Bansal, D., Yuan, L., Murthy, A., Greenberg, A., Maltz, D. A., ... & Karri, N. (2013). Ananta: Cloud scale load balancing. *Proceedings of ACM SIGCOMM*, 207–218. (Architecture of a production cloud load balancer; direct server return, consistent hashing, and Layer 4/7 processing at scale.)
+- Alizadeh, M., Greenberg, A., Maltz, D. A., Padhye, J., Patel, P., Poutievski, L., ... & Wetherall, D. (2010). Data center TCP (DCTCP). *Proceedings of ACM SIGCOMM*, 63-74. (Load balancing at data center scale; incast, buffer pressure, and the network-level challenges that application load balancers must handle.)
+- Patel, P., Bansal, D., Yuan, L., Murthy, A., Greenberg, A., Maltz, D. A., ... & Karri, N. (2013). Ananta: Cloud scale load balancing. *Proceedings of ACM SIGCOMM*, 207-218. (Architecture of a production cloud load balancer; direct server return, consistent hashing, and Layer 4/7 processing at scale.)
 - AWS. (2024). *AWS Elastic Load Balancing User Guide*. Amazon Web Services. (ALB, NLB, and GWLB feature comparison; target groups, health checks, and routing rules.)

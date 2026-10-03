@@ -40,5 +40,5 @@ Use sidecars for cross-cutting concerns that are shared across many services and
 ## Sources
 
 - Burns, B., & Oppenheimer, D. (2016). Design patterns for container-based distributed systems. *8th USENIX Workshop on Hot Topics in Cloud Computing (HotCloud 16)*. (Original paper describing sidecar, ambassador, and adapter container patterns; the foundational taxonomy for sidecar design.)
-- Burns, B., Grant, B., Oppenheimer, D., Brewer, E., & Wilkes, J. (2016). Borg, Omega, and Kubernetes. *ACM Queue*, 14(1), 70–93. (Container co-location and the pod model that enables sidecar deployment in Kubernetes.)
+- Burns, B., Grant, B., Oppenheimer, D., Brewer, E., & Wilkes, J. (2016). Borg, Omega, and Kubernetes. *ACM Queue*, 14(1), 70-93. (Container co-location and the pod model that enables sidecar deployment in Kubernetes.)
 - Beyer, B., Jones, C., Petoff, J., & Murphy, N. R. (Eds.). (2016). *Site Reliability Engineering*. O'Reilly Media. Chapter 16: Tracking Outages. (Sidecar-based logging and observability as an operational concern separate from application logic.)

@@ -68,12 +68,12 @@ Using AI as a drafting tool, then reviewing and refining the output, is a workfl
 - Associated Press, "'Slop' is Merriam-Webster's 2025 word of the year" (15 December 2025): https://apnews.com/article/2dffb2379cac6001aa30e148669e3393
 - CBS News, "'Slop' chosen as Merriam-Webster's 2025 word of the year" (15 December 2025): https://www.cbsnews.com/news/slop-merriam-webster-2025-word-of-the-year/
 - PBS NewsHour, "Merriam-Webster's word of the year for 2025 is AI 'slop'" (15 December 2025): https://www.pbs.org/newshour/nation/merriam-websters-word-of-the-year-for-2025-is-ais-slop
-- Scientific American, "AI Slop—How Every Media Revolution Breeds Rubbish and Art" (2025): https://www.scientificamerican.com/article/ai-slop-how-every-media-revolution-breeds-rubbish-and-art/
+- Scientific American, "AI Slop - How Every Media Revolution Breeds Rubbish and Art" (2025): https://www.scientificamerican.com/article/ai-slop-how-every-media-revolution-breeds-rubbish-and-art/
 - Columbia Institute for Global Politics, "AI Slop and the Information Ecosystem: Insights from a Cross-Sector Convening" (June 2026): https://igp.sipa.columbia.edu/news/ai-slop-and-information-ecosystem-insights-crosssector-convening
 
 ## Further reading
 
-- [Model collapse](/glossary/model-collapse/): what happens when AI trains on AI-generated content — progressive quality degradation.
+- [Model collapse](/glossary/model-collapse/): what happens when AI trains on AI-generated content - progressive quality degradation.
 - [Dead internet theory confirmed](/news/dead-internet-theory-confirmed-2026/): bots now generate 57% of web traffic, accelerating the slop problem.
 - [AI washing](/glossary/ai-washing/): a related phenomenon where companies overclaim AI capabilities.
 - [Hallucination](/glossary/hallucination/): when AI generates plausible but false information.

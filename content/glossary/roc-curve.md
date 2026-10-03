@@ -39,6 +39,6 @@ Use AUC for model comparison during development. Use precision-recall analysis f
 
 ## Sources
 
-- Fawcett, T. (2006). An introduction to ROC analysis. *Pattern Recognition Letters, 27*(8), 861–874. (Canonical ROC analysis reference; defines AUC, threshold analysis, and when to use ROC vs. precision-recall.)
-- Hanley, J. A., & McNeil, B. J. (1982). The meaning and use of the area under a receiver operating characteristic (ROC) curve. *Radiology, 143*(1), 29–36. (Defined the probabilistic interpretation of AUC; the foundational clinical biostatistics reference.)
-- Bradley, A. P. (1997). The use of the area under the ROC curve in the evaluation of machine learning algorithms. *Pattern Recognition, 30*(7), 1145–1159. (Applied AUC to ML classifier comparison; established it as the standard threshold-independent metric.)
+- Fawcett, T. (2006). An introduction to ROC analysis. *Pattern Recognition Letters, 27*(8), 861-874. (Canonical ROC analysis reference; defines AUC, threshold analysis, and when to use ROC vs. precision-recall.)
+- Hanley, J. A., & McNeil, B. J. (1982). The meaning and use of the area under a receiver operating characteristic (ROC) curve. *Radiology, 143*(1), 29-36. (Defined the probabilistic interpretation of AUC; the foundational clinical biostatistics reference.)
+- Bradley, A. P. (1997). The use of the area under the ROC curve in the evaluation of machine learning algorithms. *Pattern Recognition, 30*(7), 1145-1159. (Applied AUC to ML classifier comparison; established it as the standard threshold-independent metric.)

@@ -39,6 +39,6 @@ Always set a maximum capacity limit to prevent runaway costs from unexpected tra
 
 ## Sources
 
-- Herbst, N. R., Kounev, S., & Reussner, R. (2013). Elasticity in cloud computing: What it is, and what it is not. *Proceedings of the 10th International Conference on Autonomic Computing (ICAC)*, 23–27. (Formal definition of elasticity; distinction between scalability, elasticity, and provisioning efficiency.)
-- Lorido-Botran, T., Miguel-Alonso, J., & Lozano, J. A. (2014). A review of auto-scaling techniques for elastic applications in cloud environments. *Journal of Grid Computing*, 12(4), 559–592. (Survey of auto-scaling algorithms; reactive vs. proactive vs. predictive approaches.)
+- Herbst, N. R., Kounev, S., & Reussner, R. (2013). Elasticity in cloud computing: What it is, and what it is not. *Proceedings of the 10th International Conference on Autonomic Computing (ICAC)*, 23-27. (Formal definition of elasticity; distinction between scalability, elasticity, and provisioning efficiency.)
+- Lorido-Botran, T., Miguel-Alonso, J., & Lozano, J. A. (2014). A review of auto-scaling techniques for elastic applications in cloud environments. *Journal of Grid Computing*, 12(4), 559-592. (Survey of auto-scaling algorithms; reactive vs. proactive vs. predictive approaches.)
 - AWS. (2023). *AWS Auto Scaling User Guide*. Amazon Web Services. (Target tracking, step scaling, scheduled scaling, and predictive scaling policy documentation.)

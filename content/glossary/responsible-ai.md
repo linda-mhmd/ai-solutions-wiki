@@ -43,8 +43,8 @@ Responsible AI principles are increasingly codified in regulation. The EU AI Act
 
 ## Sources
 
-- Jobin, A., Ienca, M., & Vayena, E. (2019). The global landscape of AI ethics guidelines. *Nature Machine Intelligence, 1*(9), 389–399. (Systematic review of 84 AI ethics guidelines; identifies convergent principles.)
-- Gebru, T., et al. (2021). Datasheets for datasets. *Communications of the ACM, 64*(12), 86–92. (Dataset documentation standard; enables transparency about training data.)
+- Jobin, A., Ienca, M., & Vayena, E. (2019). The global landscape of AI ethics guidelines. *Nature Machine Intelligence, 1*(9), 389-399. (Systematic review of 84 AI ethics guidelines; identifies convergent principles.)
+- Gebru, T., et al. (2021). Datasheets for datasets. *Communications of the ACM, 64*(12), 86-92. (Dataset documentation standard; enables transparency about training data.)
 - Mitchell, M., et al. (2019). Model cards for model reporting. *FAT* 2019*. (Model cards; standardized AI system documentation for transparency.)
 - National Institute of Standards and Technology. (2023). *AI Risk Management Framework (AI RMF 1.0)*. NIST.
 - European Parliament and Council. (2024). *Regulation (EU) 2024/1689 (EU AI Act)*. (Binding regulation operationalizing responsible AI principles.)
@@ -52,8 +52,8 @@ Responsible AI principles are increasingly codified in regulation. The EU AI Act
 
 ## Further reading
 
-- [AI washing](/glossary/ai-washing/): When companies overclaim AI capabilities — the opposite of responsible disclosure.
-- [Model collapse](/glossary/model-collapse/): A sustainability concern — AI training on AI content degrades quality over generations.
+- [AI washing](/glossary/ai-washing/): When companies overclaim AI capabilities - the opposite of responsible disclosure.
+- [Model collapse](/glossary/model-collapse/): A sustainability concern - AI training on AI content degrades quality over generations.
 - [AI slop](/glossary/ai-slop/): Low-quality AI content that undermines the information environment.
 - [Hallucination](/glossary/hallucination/): AI-generated misinformation that responsible AI practices aim to mitigate.
 - [Shadow AI](/glossary/shadow-ai/): Unauthorized AI use that bypasses responsible AI governance.

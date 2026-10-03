@@ -43,7 +43,7 @@ Attack patterns include:
 
 ## Why the surge now
 
-Three factors converged to make 2025–2026 the inflection point:
+Three factors converged to make 2025-2026 the inflection point:
 
 **Cost collapse.** The cost of creating convincing deepfakes dropped by an order of magnitude. Tools that once required specialized hardware and expertise became accessible as consumer-grade software. A convincing video deepfake that cost thousands of dollars in 2022 can now be generated for under $100 or with free tools.
 
@@ -75,14 +75,14 @@ The Arup case is a reference point for any AI safety or security discussion. It 
 
 ## Sources
 
-- Surfshark, "Global deepfake fraud reaches $2.19B — US leads in losses" (2026): https://surfshark.com/research/chart/deepfake-fraud-countries
+- Surfshark, "Global deepfake fraud reaches $2.19B - US leads in losses" (2026): https://surfshark.com/research/chart/deepfake-fraud-countries
 - Surfshark, "$3.7B lost to deepfakes, social media is the primary origin" (2026): https://surfshark.com/research/chart/deepfake-fraud-origins
 - Financial Times, "Arup lost $25mn in Hong Kong deepfake video conference scam" (February 2025): https://www.ft.com/content/b977e8d4-664c-4ae4-8a8e-eb93bdf785ea
 - CNN, "British engineering giant Arup revealed as $25 million deepfake scam victim" (May 2024): https://www.cnn.com/2024/05/16/tech/arup-deepfake-scam-loss-hong-kong-intl-hnk
 - South China Morning Post, "UK multinational Arup confirmed as victim of HK$200 million deepfake scam" (May 2024): https://www.scmp.com/news/hong-kong/law-and-crime/article/3263151
 - World Economic Forum, "Cybercrime: Lessons learned from a $25m deepfake attack" (February 2025): https://www.weforum.org/stories/2025/02/deepfake-ai-cybercrime-arup/
 - Shufti Pro, "Deepfake Identity Fraud Index Report 2026": https://shuftipro.com/resources/whitepapers-reports/deepfake-identity-fraud-index-report-2026/
-- Veriff, "What deepfake fraud actually costs businesses in 2025–2026": https://www.veriff.com/fraud/deepfake-fraud-cost-2026
+- Veriff, "What deepfake fraud actually costs businesses in 2025-2026": https://www.veriff.com/fraud/deepfake-fraud-cost-2026
 - ASIS International, "Deepfake Identity Fraud Poised to Increase Nearly 500 Percent in 2026" (June 2026): https://www.asisonline.org/security-management-magazine/latest-news/today-in-security/2026/june/deepfake-identity-fraud/
 
 ## Further reading

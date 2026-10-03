@@ -35,5 +35,5 @@ Monitor cache hit ratio to measure CDN effectiveness. A low hit ratio suggests T
 ## Sources
 
 - Pathan, A.-M. K., & Buyya, R. (2008). A taxonomy and survey of content delivery networks. *Grid Computing and Distributed Systems Laboratory Technical Report*. University of Melbourne. (Taxonomy of CDN architectures; caching strategies, replica placement, and request routing algorithms.)
-- Nygren, E., Sitaraman, R. K., & Sun, J. (2010). The Akamai network: A platform for high-performance internet applications. *ACM SIGOPS Operating Systems Review*, 44(3), 2–19. (Architecture of a production CDN; edge caching, request routing, and origin offload at global scale.)
+- Nygren, E., Sitaraman, R. K., & Sun, J. (2010). The Akamai network: A platform for high-performance internet applications. *ACM SIGOPS Operating Systems Review*, 44(3), 2-19. (Architecture of a production CDN; edge caching, request routing, and origin offload at global scale.)
 - AWS. (2024). *Amazon CloudFront Developer Guide*. Amazon Web Services. (CloudFront edge locations, cache behaviors, origin access control, and Lambda@Edge configuration.)

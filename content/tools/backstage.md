@@ -14,7 +14,7 @@ related:
 last_updated: 2026-09-03
 ---
 
-Backstage is an open-source framework for building internal developer portals (IDPs). It was built at Spotify, open-sourced on March 16, 2020, and is now hosted by the Cloud Native Computing Foundation (CNCF). Backstage's core proposition is a centralized software catalog plus a set of tools — a project scaffolder, a documentation system, and a plugin API — that engineering organizations use to build a portal tailored to their own services, infrastructure, and workflows, rather than adopt a fixed, pre-built product.
+Backstage is an open-source framework for building internal developer portals (IDPs). It was built at Spotify, open-sourced on March 16, 2020, and is now hosted by the Cloud Native Computing Foundation (CNCF). Backstage's core proposition is a centralized software catalog plus a set of tools - a project scaffolder, a documentation system, and a plugin API - that engineering organizations use to build a portal tailored to their own services, infrastructure, and workflows, rather than adopt a fixed, pre-built product.
 
 Official documentation: https://backstage.io/docs/overview/what-is-backstage/
 
@@ -33,7 +33,7 @@ Backstage ships as source code and npm packages you assemble into an application
 
 ## Origins and History
 
-Backstage was built internally at Spotify to address the coordination cost of a large microservices estate — discovering what services exist, who owns them, and how to create a new one that follows house conventions. Spotify open-sourced it on March 16, 2020, describing it as the company's first major open-source infrastructure platform. Spotify donated the project to the CNCF, which accepted it into the Sandbox on September 8, 2020; the project moved up to CNCF Incubating status on March 15, 2022, where it remains as of this writing (it has not reached CNCF Graduated status). Backstage is licensed under the Apache License 2.0 and is governed as a CNCF project with contributions from Spotify, Red Hat, Roadie, and other companies alongside individual maintainers.
+Backstage was built internally at Spotify to address the coordination cost of a large microservices estate - discovering what services exist, who owns them, and how to create a new one that follows house conventions. Spotify open-sourced it on March 16, 2020, describing it as the company's first major open-source infrastructure platform. Spotify donated the project to the CNCF, which accepted it into the Sandbox on September 8, 2020; the project moved up to CNCF Incubating status on March 15, 2022, where it remains as of this writing (it has not reached CNCF Graduated status). Backstage is licensed under the Apache License 2.0 and is governed as a CNCF project with contributions from Spotify, Red Hat, Roadie, and other companies alongside individual maintainers.
 
 On its fifth anniversary in April 2025, Spotify's engineering blog reported that Backstage was in use at more than 3,000 companies to build their own developer portals, and that more than 700 R&D squads at Spotify itself relied on it daily. The plugin ecosystem, initially built almost entirely by Spotify, now includes substantial community-contributed plugins alongside the small set of core plugins maintained by the Backstage team.
 

@@ -1,6 +1,6 @@
 ---
 title: "What is Caching?"
-description: "Why your changes don't appear immediately. Browser cache, CDN cache, server cache—what gets cached, why, and how to bust through it."
+description: "Why your changes don't appear immediately. Browser cache, CDN cache, server cache - what gets cached, why, and how to bust through it."
 date: 2026-07-30
 level: 1
 categories: [Basics]
@@ -89,7 +89,7 @@ Your app might cache database queries, computed results, or rendered pages.
 
 Databases cache query results and data in memory.
 
-This is usually transparent—you don't manage it directly.
+This is usually transparent - you don't manage it directly.
 
 ## Cache headers
 
@@ -119,7 +119,7 @@ Cache-Control: no-store
 | HTML pages | Short or no cache (content changes) |
 | CSS/JS with hashed filenames | Long cache (filename changes = new file) |
 | Images | Long cache |
-| API responses | Varies—often no cache or short cache |
+| API responses | Varies - often no cache or short cache |
 | User-specific data | No cache |
 
 ## Why your changes aren't showing
