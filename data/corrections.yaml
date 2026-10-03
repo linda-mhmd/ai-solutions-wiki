@@ -10,6 +10,42 @@
 #
 # `date` is when the correction landed. `page` must resolve to a real page.
 
+- date: 2026-10-03
+  page: /tools/claude-anthropic/
+  headline: Claude Sonnet 5.5 had already shipped while this page said it had not
+  body: >
+    This page said Anthropic had announced Sonnet 5.5 on 22 September with no
+    price, model ID or date published, and that it had not shipped. It shipped on
+    28 September 2026 as claude-sonnet-5-5 at $2/$10 per MTok, the same rate as
+    Sonnet 5. The page was last verified on 25 September, three days before the
+    release, so the statement was true when written and wrong by the time anyone
+    read it. Haiku 5.5, announced in the same breath, genuinely has not shipped.
+    A dated "as of" line is not a substitute for re-checking the vendor's
+    newsroom.
+
+- date: 2026-10-03
+  page: /tools/openai-api/
+  headline: GPT-6 has four shipping models, not three
+  body: >
+    The lineup section said GPT-6 has three tiers, Astra, Sol and Luna. GPT-6.1
+    Sol shipped on 29 September 2026 at DevDay. It is a point upgrade to Sol
+    rather than a fourth tier, but it has its own model ID and its own price row,
+    and its cached input is half Sol's at $0.10 per MTok. The headline $2/$10
+    rate did not change, which is why this one is easy to miss: the number that
+    moved is the one that dominates prompt-heavy bills.
+
+- date: 2026-10-03
+  page: /tools/google-gemini/
+  headline: Gemini 4 Argon is announced, and still not something you can call
+  body: >
+    Argon was announced on 30 September 2026 and several write-ups read as though
+    it were available. It is not. It is going first to vetted cyber defenders
+    through the Fairwind Program, without cyber guardrails for them and Google's
+    internal teams, and general access starts later with paid API customers and
+    AI Ultra subscribers. Gemini 3.8 Flash is still the model to build on. The
+    detail worth keeping: Argon's million-token limit is on output, not input,
+    which is the first time that ceiling has moved from 64K.
+
 - date: 2026-09-25
   page: /tools/deepseek/
   headline: DeepSeek V4-Pro was never being folded into the new Flash model

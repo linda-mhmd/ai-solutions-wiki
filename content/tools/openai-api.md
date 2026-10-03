@@ -1,6 +1,6 @@
 ---
 title: "OpenAI API - GPT and Image Generation"
-description: "A comprehensive reference for the OpenAI API: the GPT-6 (Astra/Sol/Luna) and GPT-5.6 (Sol/Terra/Luna) model lineup, current pricing, prompt caching, the Agents and Live APIs, retirements, and integration patterns for enterprise AI applications."
+description: "A comprehensive reference for the OpenAI API: the GPT-6 (Astra/Sol/Luna), GPT-6.1 Sol and GPT-5.6 (Sol/Terra/Luna) model lineup, current pricing, prompt caching, the Agents and Live APIs, retirements, and integration patterns for enterprise AI applications."
 date: 2026-03-28
 categories: [Tools]
 tags: [openai, GPT, API, LLM, embeddings, function-calling, gpt-6-astra, gpt-6-sol, gpt-6-luna, gpt-5.6, prompt-caching]
@@ -8,9 +8,9 @@ related:
   - tools/azure-openai
   - tools/amazon-bedrock
   - tools/langchain
-last_updated: 2026-09-25
-lastmod: 2026-09-25
-last_verified: 2026-09-25
+last_updated: 2026-10-03
+lastmod: 2026-10-03
+last_verified: 2026-10-03
 ---
 
 The OpenAI API provides programmatic access to OpenAI's GPT model family, image generation, speech, and embedding models. It is the most widely used LLM API and has become the de facto standard that other providers emulate — chat-completions-style message arrays and function-calling schemas are now conventions the rest of the industry follows too. For enterprise AI projects, the OpenAI API is often the first integration point for proof-of-concept work, though production deployments may migrate to Azure OpenAI or Amazon Bedrock for compliance and enterprise support reasons.
@@ -47,7 +47,7 @@ The `response_format` parameter constrains model output to valid JSON matching a
 
 ## Current Model Lineup
 
-Here is the lineup as of 25 September 2026. The short version: **GPT-6 now has three tiers — Astra (3 September), Sol and Luna (22 September)** — and there is no GPT-6 Terra. The GPT-5.6 Sol/Terra/Luna family remains available alongside it with no retirement date. Context for how we got here: the GPT-5 family superseded GPT-4o and GPT-4 Turbo and folded the earlier "o-series" reasoning models (o1, o3) into unified models that reason natively rather than requiring a separate model choice. Point releases 5.1, 5.2 (including 5.2-codex and 5.2-chat), 5.3 (chat/codex) and 5.4 (mini/nano/pro) followed in between — the 5.1 variants retired on 23 July 2026 and `gpt-5.2-chat-latest` on 10 August 2026 — before GPT-5.5 in April 2026 and the named GPT-5.6 tiers in July.
+Here is the lineup as of 3 October 2026. The short version: **GPT-6 has four shipping models, Astra (3 September), Sol and Luna (22 September) and GPT-6.1 Sol (29 September)**, and there is no GPT-6 Terra. The GPT-5.6 Sol/Terra/Luna family remains available alongside it with no retirement date. Context for how we got here: the GPT-5 family superseded GPT-4o and GPT-4 Turbo and folded the earlier "o-series" reasoning models (o1, o3) into unified models that reason natively rather than requiring a separate model choice. Point releases 5.1, 5.2 (including 5.2-codex and 5.2-chat), 5.3 (chat/codex) and 5.4 (mini/nano/pro) followed in between, and the 5.1 variants retired on 23 July 2026 and `gpt-5.2-chat-latest` on 10 August 2026, all before GPT-5.5 in April 2026 and the named GPT-5.6 tiers in July.
 
 **GPT-6 Astra** — launched 3 September 2026 and the most capable model in the API, under model ID `gpt-6-astra`. It carries a 1,050,000-token context window (922,000 max input, 128,000 max output), a 30 April 2026 knowledge cutoff, and text-plus-image input with text-only output — no audio or video. Reasoning effort runs low / medium / high / xhigh / max; there is no `none` level, and custom `temperature`, `top_p` and `logprobs` are not accepted. It is served through the Responses API and Chat Completions, with tool calling available only on Responses, and supports web search, file search, code interpreter and computer use. Multiple outlets reported it as the first OpenAI model classified at the "Critical" cybersecurity threshold under OpenAI's own Preparedness Framework; OpenAI's launch post is not machine-retrievable, so treat that classification and the widely-repeated account of it chaining two unknown vulnerabilities into a working exploit as secondary-sourced rather than confirmed from OpenAI's own words. See this wiki's full writeup: [Astra becomes the first OpenAI model to cross the "Critical" cyber threshold](/news/openai-astra-critical-cyber-threshold/).
 
@@ -58,6 +58,10 @@ Astra also introduces in-flight safety stops. OpenAI's name for the mechanism is
 ChatGPT access to Astra is per-surface, not simply per-plan, and it is not the default anywhere. Per secondary reporting (OpenAI's help center is not machine-retrievable, so this is not primary-verified): Pro, Business and Enterprise see it in the regular chat picker labelled "GPT-6 Pro" — Enterprise off by default until an admin enables it, Business limited on Standard and full on Premium — while Plus gets it only inside ChatGPT Work and Codex rather than the chat picker, and Free and Go are excluded. At the time of that reporting GPT-5.6 Sol was the ChatGPT default across every tier. That picture predates the 22 September launch of GPT-6 Sol and Luna, and this page has not verified the ChatGPT defaults since, so check them before relying on them. The Plus position was consistent across sources through 7 September but nothing dated 8-9 September confirms it either way, so verify before relying on it.
 
 **GPT-6 Sol and GPT-6 Luna** — released **22 September 2026** under model IDs `gpt-6-sol` and `gpt-6-luna`. Both are reasoning models with text-plus-image input and text output, served through the Responses API, Chat Completions and Batch. Both have the same 1,050,000-token context window as Astra (922,000 max input, 128,000 max output). Knowledge cutoffs are **20 April 2026 for Sol** and **18 May 2026 for Luna**. Unlike Astra, both accept every reasoning-effort level: `none`, `low`, `medium` (the default), `high`, `xhigh` and `max`. Within GPT-6, **Astra is the flagship, Sol is the mid tier and Luna the efficient tier**. OpenAI describes Sol as built for complex coding and agentic workflows, and Luna as its "most efficient model for focused, high-volume tasks". In the Responses API both support the full hosted tool set (web search, file search, image generation, code interpreter, hosted shell, apply_patch, skills, computer use, MCP and tool search). EU data residency is available only with Standard processing.
+
+**GPT-6.1 Sol** - released **29 September 2026** at DevDay under model ID `gpt-6-1-sol`. It is a point upgrade to GPT-6 Sol rather than a new tier, and OpenAI positions it as approaching GPT-6 Astra on complex professional work at roughly one fifth of Astra's token cost. Pricing is unchanged from GPT-6 Sol at $2/$10 per MTok, but cached input halves to **$0.10** (OpenAI describes it as 95% below the standard input rate), which is the change that actually moves the bill on prompt-heavy workloads. OpenAI's reported figures: matches GPT-6 Astra on DeepSWE v1.1 coding, approaches Astra's state of the art on the GDP.pdf professional-document benchmark, scores 4.8 points above GPT-6 Sol on AutomationBench and 7 points above it on OSWorld 2.0 computer use, more than doubles GPT-6 Sol on Terminal-Bench Science, and cuts the factuality error rate from 11.4% to 7.7% at low reasoning effort. OpenAI notes its evaluations may differ from production ChatGPT output and that the tested scenarios do not represent typical usage. Even at 7.7%, roughly one claim in thirteen is wrong at that setting, so it is not a substitute for verification. At release it was in ChatGPT Work and Codex for Plus, Pro, Business, Enterprise and Edu, and in the API; it was **not** yet in standard Chat. OpenAI has not published its context window or rate limits. See [GPT-6.1 Sol and DevDay 2026](/news/openai-gpt-6-1-sol/).
+
+DevDay 2026, the same day, also shipped **GPT-6 Astra Ultrafast** (up to 8x faster token generation in Codex at around 300 tokens per second, up to 6x in the API), a **Decisions API** that constrains Luna to a defined set of user-specified questions with text and image input, an **Agents API with computer use**, **managed OpenAI agents on Amazon Bedrock** through an AWS partnership, **Codex Cloud** and **Codex Security Cloud**, **dots** (always-on agents for Pro, Business and eligible Enterprise and Education plans), a **Pro 500** tier, and a **Private Inference** confidential-computing preview for autumn 2026. The Bedrock item is the one that changes architecture decisions: OpenAI agents running natively in AWS removes the egress and data-residency objections that previously pushed AWS-based teams towards Azure OpenAI or Bedrock-native models.
 
 The pricing is the headline. GPT-6 Sol lists at **$2 / $10 per 1M tokens**, the same input price as GPT-5.6 Terra ($2 / $12) with cheaper output. GPT-6 Luna lists at **$0.10 / $0.50**, half of GPT-5.6 Luna's $0.20 / $1.20. So on list price the newer generation is the cheaper one at each tier (see Pricing). Launch coverage: [GPT-6 Sol and Luna](/news/gpt-6-sol-and-luna/). Run your own evals before you switch: OpenAI has not retired or repriced the 5.6 tiers, and GPT-6 Sol at medium effort may spend a different number of reasoning tokens per task than 5.6 Sol, so the per-token saving may not match your per-task saving. Tier 1 rate limits for `gpt-6-sol` start at 500 RPM / 500,000 TPM and rise to 15,000 RPM / 40,000,000 TPM at Tier 5.
 
@@ -75,12 +79,13 @@ Prices fell twice over the summer: Luna and Terra were cut on 30 July 2026 (repo
 
 ## Pricing
 
-OpenAI bills per token, input and output separately, with a discount for cached input (repeated prompt prefixes) and a "long-context" surcharge once a request's input exceeds 272K tokens. Verified against OpenAI's own pricing and model documentation on 25 September 2026:
+OpenAI bills per token, input and output separately, with a discount for cached input (repeated prompt prefixes) and a "long-context" surcharge once a request's input exceeds 272K tokens. Verified against OpenAI's own pricing and model documentation on 25 September 2026, with the GPT-6.1 Sol row added from its 29 September release post on 3 October 2026:
 
 | Model | Input | Cached input | Output | Long-context (input/cached/output) |
 |---|---|---|---|---|
 | GPT-6 Astra (standard) | $10.00 | $1.00 | $50.00 | $20.00 / $2.00 / $75.00 |
 | GPT-6 Astra (Fast mode) | $20.00 | $2.00 | $100.00 | $40.00 / $4.00 / $150.00 † |
+| GPT-6.1 Sol | $2.00 | $0.10 | $10.00 | not published |
 | GPT-6 Sol | $2.00 | $0.20 | $10.00 | $4.00 / $0.40 / $15.00 |
 | GPT-6 Luna | $0.10 | $0.01 | $0.50 | $0.20 / $0.02 / $0.75 |
 | GPT-5.6 Sol | $4.00* | $0.40* | $20.00* | $8.00 / $0.80 / $30.00 |
@@ -178,3 +183,6 @@ OpenAI's commercial center of gravity has shifted alongside the model lineup: CF
 38. OpenAI, `gpt-image-2.5-flare` model page (quality settings, snapshot `gpt-image-2.5-flare-2026-09-08`): [https://developers.openai.com/api/docs/models/gpt-image-2.5-flare](https://developers.openai.com/api/docs/models/gpt-image-2.5-flare)
 39. Microsoft Azure blog, 22 September 2026, "GPT-6 Astra, Sol, and Luna: For production agents in Microsoft Foundry" (regions, Data Zones, PTU, Priority Processing, pricing): [https://azure.microsoft.com/en-us/blog/gpt-6-astra-sol-and-luna-for-production-agents-in-microsoft-foundry/](https://azure.microsoft.com/en-us/blog/gpt-6-astra-sol-and-luna-for-production-agents-in-microsoft-foundry/)
 40. This wiki, "GPT-6 Sol and Luna": [/news/gpt-6-sol-and-luna/](/news/gpt-6-sol-and-luna/)
+41. OpenAI, "Introducing GPT-6.1 Sol" (29 September 2026, fetched 3 October 2026 - $2/$0.10/$10 pricing, the one-fifth-of-Astra cost claim, the benchmark figures, the factuality error rates and the ChatGPT and API availability): [https://openai.com/index/introducing-gpt-6-1-sol/](https://openai.com/index/introducing-gpt-6-1-sol/)
+42. OpenAI, "DevDay 2026 Recap" (29 September 2026, fetched 3 October 2026 - Astra Ultrafast, Decisions API, Agents API with computer use, managed agents on Amazon Bedrock, Codex Cloud and Security Cloud, dots, Pro 500, Private Inference): [https://openai.com/index/devday-2026-recap/](https://openai.com/index/devday-2026-recap/)
+43. OpenAI, "Addendum: GPT-6.1 Sol" deployment safety (29 September 2026): [https://deploymentsafety.openai.com/gpt-6-1-sol](https://deploymentsafety.openai.com/gpt-6-1-sol)

@@ -1,6 +1,6 @@
 ---
 title: "Google Gemini"
-description: "Google's family of frontier multimodal models: the current lineup as of September 2026 (3.8 Flash, 3.1 Pro, Flash-Lite, Omni, Deep Think, 3.8 Live and TTS), what each tier costs, and how Gemma 4 fits alongside it."
+description: "Google's family of frontier multimodal models: the current lineup as of October 2026 (4 Argon, 3.8 Flash, 3.1 Pro, Flash-Lite, Omni, Deep Think, 3.8 Live and TTS), what each tier costs, and how Gemma 4 fits alongside it."
 date: 2026-09-03
 tags: ["gemini", "google", "multimodal", "foundation-models", "llm", "gemma"]
 tool_category: "AI"
@@ -12,9 +12,9 @@ related:
   - tools/google-vertex-ai
   - comparisons/llm-landscape-2026
   - news/gemini-3-8-flash-cyber
-last_updated: 2026-09-25
-lastmod: 2026-09-25
-last_verified: 2026-09-25
+last_updated: 2026-10-03
+lastmod: 2026-10-03
+last_verified: 2026-10-03
 ---
 
 <figure class="bz-figure">
@@ -31,6 +31,8 @@ Gemini is one of the three widely used frontier model families alongside OpenAI'
 Google ships Gemini as tiers, not a single model. The naming follows a generation number plus a tier label — but the generation numbers no longer line up across tiers, and that is the most important thing to understand about the lineup as it stands on 25 September 2026.
 
 **The Flash line has run ahead of the Pro line.** Google shipped three Flash releases in six weeks — Gemini 3.6 Flash on 21 July 2026, Gemini 3.7 Flash on 13 August, and Gemini 3.8 Flash on 2 September — while the Pro tier is still on Gemini 3.1 Pro from 19 February 2026. Gemini 3.5 Pro was trailed at Google I/O on 19 May 2026 for a June launch and has not shipped; DeepMind's Pro page carries only a "3.5 Pro coming soon" note, and press reporting (Bloomberg, Axios, Forbes, 9to5Google) attributes the repeated slips to coding-benchmark shortfalls. In practice, **Gemini 3.8 Flash is Google's current flagship shipping model**, and any guidance written since mid-2026 that assumes a 3.5 Pro exists is wrong.
+
+**Gemini 4 Argon, announced 30 September 2026, does not change that yet.** Argon is Google's new frontier model and its headline is an output limit of one million tokens, up from a 64K maximum, with introductory pricing of $2 per million input tokens and $10 per million output and cached input discounted 95%. But it is not generally available. It is going first to vetted cyber defenders through the Fairwind Program, and for those defenders and Google's internal teams it is released **without cyber guardrails** so they can use its full cybersecurity capability; the guarded build is what everyone else gets later. Google says a phased approach is required at this capability level, that it is gathering feedback while it iterates on guardrails, and that it is taking part in the United States government's voluntary pre-release model access process. Broader availability starts with paid API customers and Google AI Ultra subscribers. Until then, 3.8 Flash remains the model to build on. See [Gemini 4 Argon ships to cyber defenders first](/news/gemini-4-argon/).
 
 <div class="bz-arch">
   <div class="bz-arch-layer">
@@ -129,10 +131,11 @@ The headline is the licence. **Gemma 4 is Apache 2.0**, replacing the bespoke Ge
 
 ## What it costs
 
-Gemini API rates, per million tokens, as published on 25 September 2026:
+Gemini API rates, per million tokens, as published on 25 September 2026, with the Gemini 4 Argon row added from its 30 September announcement on 3 October 2026:
 
 | Model | Model ID | Status | Input / output per MTok |
 |---|---|---|---|
+| Gemini 4 Argon | not published | Announced 30 Sep 2026, Fairwind defenders only | $2.00 / $10.00 introductory |
 | Gemini 3.8 Flash | `gemini-3.8-flash` | GA, 2 Sep 2026 | $0.75 / $3.75 introductory |
 | Gemini 3.7 Flash | `gemini-3.7-flash` | GA, 13 Aug 2026 | $0.75 / $3.75 introductory |
 | Gemini 3.6 Flash | `gemini-3.6-flash` | GA, 21 Jul 2026 | $0.75 / $3.75 introductory |
@@ -243,3 +246,5 @@ Match the tier to the task even when Gemini is the right family. Flash-Lite for 
 - Gemma 4 model card: https://ai.google.dev/gemma/docs/core/model_card_4 — sizes, parameter counts, context windows, modalities, and the Apache 2.0 licence.
 - Gemma 4 12B developer guide, 3 June 2026: https://developers.googleblog.com/gemma-4-12b-the-developer-guide/
 - Google Cloud model docs under the renamed platform: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro
+- Google, "Gemini 4 Argon: our next era of frontier intelligence", 30 September 2026, fetched 3 October 2026: https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/ - the one million token output limit, the $2/$10 introductory pricing, the 95% cached-input discount, the Fairwind-first rollout, the guardrail-free defender build, and the US government voluntary pre-release access process.
+- Google, "The latest AI news we announced in September 2026", 2 October 2026: https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/ - the Gemini 3.8 series line-up alongside Argon.
