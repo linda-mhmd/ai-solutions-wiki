@@ -1,6 +1,6 @@
 ---
 title: "Databases Compared"
-description: "PostgreSQL, MySQL, MongoDB, Redis, SQLite, Supabase, PlanetScale—which database should you use? An honest comparison of use cases, tradeoffs, and when to choose each."
+description: "PostgreSQL, MySQL, MongoDB, Redis, SQLite, Supabase, PlanetScale - which database should you use? An honest comparison of use cases, tradeoffs, and when to choose each."
 date: 2026-07-30
 level: 1
 categories: [Basics]
@@ -9,7 +9,7 @@ faqs:
   - question: "Which database should I use for my first project?"
     answer: "PostgreSQL via Supabase or Railway. It's the most versatile, well-documented, and has the best tooling. You can't go wrong starting with Postgres."
   - question: "When should I use NoSQL over SQL?"
-    answer: "NoSQL shines for: document storage with varying schemas, caching (Redis), real-time subscriptions, and when your data doesn't have relationships. For most apps with users, orders, products—SQL is simpler."
+    answer: "NoSQL shines for: document storage with varying schemas, caching (Redis), real-time subscriptions, and when your data doesn't have relationships. For most apps with users, orders, products - SQL is simpler."
   - question: "Is SQLite good enough for production?"
     answer: "Yes, for many apps. SQLite handles thousands of concurrent users on a single server. It's used by Pieter Levels for apps with millions of users. Consider it for read-heavy apps or when simplicity matters."
 last_updated: 2026-09-25
@@ -571,7 +571,7 @@ Not sure?
 
 **For simplicity**: Consider SQLite. It handles more than people think.
 
-**Don't overthink it**: Pick Postgres, start building. Database choice rarely makes or breaks an app—your code and product matter more.
+**Don't overthink it**: Pick Postgres, start building. Database choice rarely makes or breaks an app - your code and product matter more.
 
 **Avoid premature optimization**: You probably don't need sharding, read replicas, or fancy scaling until you have real traffic problems.
 

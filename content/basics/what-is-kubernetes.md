@@ -1,6 +1,6 @@
 ---
 title: "What is Kubernetes?"
-description: "Kubernetes manages containers at scale—deciding where they run, restarting them when they fail, and scaling them up when traffic spikes. The operating system for the cloud."
+description: "Kubernetes manages containers at scale - deciding where they run, restarting them when they fail, and scaling them up when traffic spikes. The operating system for the cloud."
 date: 2026-07-30
 level: 3
 categories: [Basics]
@@ -11,7 +11,7 @@ faqs:
   - question: "Why is Kubernetes so complicated?"
     answer: "Because it solves complicated problems: running thousands of containers across hundreds of machines, handling failures, managing networking and storage, securing everything. The complexity matches the problem scope. For simpler problems, use simpler tools."
   - question: "What does K8s mean?"
-    answer: "K8s is shorthand for Kubernetes—K, followed by 8 letters (ubernete), followed by s. Numeronyms like this are common in tech (i18n for internationalization, a11y for accessibility)."
+    answer: "K8s is shorthand for Kubernetes - K, followed by 8 letters (ubernete), followed by s. Numeronyms like this are common in tech (i18n for internationalization, a11y for accessibility)."
 last_updated: 2026-09-25
 lastmod: 2026-09-25
 last_verified: 2026-09-25
@@ -38,7 +38,7 @@ Now imagine:
 - 50 different services (microservices architecture)
 - Each needs multiple copies for redundancy
 - Running across 20 servers
-- Traffic varies—sometimes 10x normal load
+- Traffic varies - sometimes 10x normal load
 - Servers sometimes fail
 - You need to update services without downtime
 
@@ -63,7 +63,7 @@ You don't pick servers. Kubernetes does.
 
 ### Self-healing
 
-A container crashes. Kubernetes notices and starts a replacement—automatically, within seconds.
+A container crashes. Kubernetes notices and starts a replacement - automatically, within seconds.
 
 A server dies. Kubernetes moves its containers to healthy servers.
 
@@ -230,7 +230,7 @@ Google ran containers at massive scale using internal systems called **Borg** an
 
 ### Open-sourced in 2014
 
-Google open-sourced Kubernetes in 2014 and donated it to the Cloud Native Computing Foundation (CNCF) in 2015. This neutral governance helped adoption—companies could use it without depending on Google.
+Google open-sourced Kubernetes in 2014 and donated it to the Cloud Native Computing Foundation (CNCF) in 2015. This neutral governance helped adoption - companies could use it without depending on Google.
 
 ### Why Google did this
 

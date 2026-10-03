@@ -57,7 +57,7 @@ The consensus defense is architectural, not prompt-engineering:
 
 ## Incident catalog
 
-The airekt.fail security incident catalog documents **817 AI-related incidents from February–July 2026**, with root causes, attack chains, and prevention guidance for each ([airekt.fail, 2026](https://airekt.fail/)).
+The airekt.fail security incident catalog documents **817 AI-related incidents from February - July 2026**, with root causes, attack chains, and prevention guidance for each ([airekt.fail, 2026](https://airekt.fail/)).
 
 AIMultiple's catalog documents **192 real-life AI agent incidents** through mid-2026, with 2025 as the peak year (104 incidents). The breakdown: 51 safety failures, 47 security exploits, and 6 data-exposure cases ([AIMultiple, 2026](https://aimultiple.com/ai-agent-vulnerability)).
 

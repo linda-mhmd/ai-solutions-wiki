@@ -1,6 +1,6 @@
 ---
 title: "What is Rate Limiting?"
-description: "Rate limiting is why the AI stops responding with '429 Too Many Requests.' It's how services protect themselves from being overwhelmed—and why you need to build your app to handle it gracefully."
+description: "Rate limiting is why the AI stops responding with '429 Too Many Requests.' It's how services protect themselves from being overwhelmed - and why you need to build your app to handle it gracefully."
 date: 2026-07-30
 lastmod: 2026-09-25
 last_verified: 2026-09-25
@@ -11,14 +11,14 @@ faqs:
   - question: "Why do I hit rate limits even though I'm not doing much?"
     answer: "Check if you're in a loop, making requests on every keystroke, or have multiple tabs/instances running. Also check if you're on a free tier with strict limits. One user testing might be fine; ten users simultaneously might exceed your quota."
   - question: "How do I know what the rate limit is?"
-    answer: "Check the API's documentation. Also check response headers—many APIs include headers like X-RateLimit-Remaining and X-RateLimit-Reset that tell you how many requests you have left and when the limit resets."
+    answer: "Check the API's documentation. Also check response headers - many APIs include headers like X-RateLimit-Remaining and X-RateLimit-Reset that tell you how many requests you have left and when the limit resets."
   - question: "Should I retry immediately when I get a 429?"
-    answer: "No. That makes things worse. Wait before retrying. The Retry-After header tells you how long. If there's no header, use exponential backoff—wait 1 second, then 2, then 4, etc."
+    answer: "No. That makes things worse. Wait before retrying. The Retry-After header tells you how long. If there's no header, use exponential backoff - wait 1 second, then 2, then 4, etc."
 last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-Rate limiting is when a service restricts how many requests you can make in a time period. Hit the limit and you get a 429 "Too Many Requests" error. It's how APIs protect themselves from being overwhelmed—and why your app needs to handle "slow down" responses gracefully.
+Rate limiting is when a service restricts how many requests you can make in a time period. Hit the limit and you get a 429 "Too Many Requests" error. It's how APIs protect themselves from being overwhelmed - and why your app needs to handle "slow down" responses gracefully.
 {{< /quickanswer >}}
 
 ## Why rate limits exist
@@ -149,7 +149,7 @@ async function getCached(key, fetchFn) {
 ## Why vibecoders hit rate limits
 
 **Calling the API on every keystroke**:
-User types "hello"—that's 5 API calls if you call on each letter. Debounce inputs.
+User types "hello" - that's 5 API calls if you call on each letter. Debounce inputs.
 
 **No caching**:
 Same question asked 100 times = 100 API calls. Cache identical requests.

@@ -20,7 +20,7 @@ AI inference workloads have different capacity planning requirements than tradit
 A model's GPU memory consumption includes:
 
 - **Model weights** - The base memory requirement. A 7B parameter model in FP16 (2 bytes/parameter) requires approximately 14 GB for weights alone. A 70B model requires approximately 140 GB. These figures cover only the stored parameters, they are not the total GPU memory required for inference.
-- **KV cache** - Memory required to store key-value attention pairs during generation. Scales with batch size × sequence length × number of layers × head dimension × 2 (K and V). At batch size 8 and 2048-token sequences on a 32-layer model, KV cache adds approximately 4–8 GB. At batch size 32 or 8192-token contexts, KV cache can exceed model weight memory. vLLM's PagedAttention manages KV cache in non-contiguous blocks to improve utilisation, but does not eliminate this constraint [1].
+- **KV cache** - Memory required to store key-value attention pairs during generation. Scales with batch size × sequence length × number of layers × head dimension × 2 (K and V). At batch size 8 and 2048-token sequences on a 32-layer model, KV cache adds approximately 4-8 GB. At batch size 32 or 8192-token contexts, KV cache can exceed model weight memory. vLLM's PagedAttention manages KV cache in non-contiguous blocks to improve utilisation, but does not eliminate this constraint [1].
 - **Activation memory** - Temporary memory during forward pass computation.
 - **Framework overhead** - CUDA context, library allocations, and buffer space.
 
@@ -31,7 +31,7 @@ Calculate the total memory budget before selecting GPU types:
 | NVIDIA T4 | 16 GB | Small models (≤3B FP16), embeddings, INT8 classification |
 | NVIDIA A10G | 24 GB | 7B INT8/INT4 models, embeddings, small-batch FP16 |
 | NVIDIA A100 40 GB | 40 GB | 7B FP16 production inference, 13B with quantisation |
-| NVIDIA A100 80 GB | 80 GB | 13–70B models, long-context inference |
+| NVIDIA A100 80 GB | 80 GB | 13-70B models, long-context inference |
 | NVIDIA H100 | 80 GB | 70B+ models, high-throughput production inference |
 
 ### Throughput Estimation

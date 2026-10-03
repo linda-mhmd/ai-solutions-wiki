@@ -15,7 +15,7 @@ lastmod: 2026-09-25
 last_verified: 2026-09-25
 ---
 
-Any AI application that does real work will quickly encounter the same problem: some operations take far too long to complete inside an HTTP request. AI image generation takes 10–60 seconds. Video processing can run for minutes. Large file analysis, batch embeddings, sending thousands of emails, none of these belong in a synchronous request handler. Async job queues are the production pattern that solves this class of problem.
+Any AI application that does real work will quickly encounter the same problem: some operations take far too long to complete inside an HTTP request. AI image generation takes 10-60 seconds. Video processing can run for minutes. Large file analysis, batch embeddings, sending thousands of emails, none of these belong in a synchronous request handler. Async job queues are the production pattern that solves this class of problem.
 
 ## What Is an Async Job Queue?
 
@@ -111,13 +111,13 @@ Not every background task needs a full queue system. If you are using a cron job
   <div class="bz-flow-step">
     <span class="bz-flow-step-tag">4</span>
     <span class="bz-flow-step-name">Worker processes</span>
-    <span class="bz-flow-step-desc">Calls AI service, runs computation; may take 10–60 seconds; writes result to storage</span>
+    <span class="bz-flow-step-desc">Calls AI service, runs computation; may take 10-60 seconds; writes result to storage</span>
   </div>
   <div class="bz-flow-arrow">→</div>
   <div class="bz-flow-step">
     <span class="bz-flow-step-tag">5</span>
     <span class="bz-flow-step-name">Client polls for completion</span>
-    <span class="bz-flow-step-desc">GET /jobs/abc123 every 3–5 seconds; API reads status from DB and returns it</span>
+    <span class="bz-flow-step-desc">GET /jobs/abc123 every 3-5 seconds; API reads status from DB and returns it</span>
   </div>
   <div class="bz-flow-arrow">→</div>
   <div class="bz-flow-step">
@@ -326,7 +326,7 @@ For BullMQ, the Bull Board dashboard provides real-time queue metrics. For Celer
 
 ## Real Example: Virtual Try-On Job Flow
 
-An AI application where users upload a photo and try on clothing virtually. The AI inference takes 15–45 seconds per image pair, far too slow for a synchronous endpoint.
+An AI application where users upload a photo and try on clothing virtually. The AI inference takes 15-45 seconds per image pair, far too slow for a synchronous endpoint.
 
 <div class="bz-flow">
   <div class="bz-flow-step">

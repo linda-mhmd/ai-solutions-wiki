@@ -83,7 +83,7 @@ For these tasks, prefer a conventional model and reserve the reasoning model for
 
 ## Open vs Closed
 
-The reasoning-model class went from closed-only (o1, September 2024) to open-replicable (DeepSeek-R1, January 2025) within four months. R1 (671B MoE), R1-Distill variants (1.5B–70B dense), and the open-source GRPO recipe enable any team with adequate compute to train reasoning capability into existing base models. Subsequent open releases (Qwen3, GLM-Z1, Llama Nemotron Reasoning) confirm that the recipe transfers across model families.
+The reasoning-model class went from closed-only (o1, September 2024) to open-replicable (DeepSeek-R1, January 2025) within four months. R1 (671B MoE), R1-Distill variants (1.5B - 70B dense), and the open-source GRPO recipe enable any team with adequate compute to train reasoning capability into existing base models. Subsequent open releases (Qwen3, GLM-Z1, Llama Nemotron Reasoning) confirm that the recipe transfers across model families.
 
 ## Related Concepts
 

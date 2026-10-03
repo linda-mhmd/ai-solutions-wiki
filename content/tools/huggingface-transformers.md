@@ -31,7 +31,7 @@ Transformers has fundamentally changed how the ML community shares and consumes 
 
 ## Cloud Equivalents
 
-Hugging Face Transformers is the open-source alternative to model access in AWS Bedrock, Azure OpenAI Service, and Google Vertex AI Model Garden (Vertex AI was rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story). Cloud model services provide API-based access to curated models with managed infrastructure, while Transformers provides direct access to a vastly larger model ecosystem with full customization and fine-tuning capabilities.
+Hugging Face Transformers is the open-source alternative to model access in AWS Bedrock, Azure OpenAI Service, and Google Vertex AI Model Garden (Vertex AI was rebranded Gemini Enterprise Agent Platform in April 2026 - see [Google Vertex AI](/tools/google-vertex-ai/) for the full story). Cloud model services provide API-based access to curated models with managed infrastructure, while Transformers provides direct access to a vastly larger model ecosystem with full customization and fine-tuning capabilities.
 
 ## Origins and History
 

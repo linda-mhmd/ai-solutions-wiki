@@ -34,4 +34,4 @@ SSMs are still maturing relative to transformers in terms of ecosystem support a
 
 - Gu, A., Goel, K., & Ré, C. (2022). Efficiently modeling long sequences with structured state spaces. *ICLR 2022*. (S4; foundational structured SSM with HiPPO initialization.)
 - Gu, A., & Dao, T. (2023). Mamba: Linear-time sequence modeling with selective state spaces. *arXiv:2312.00752*. (Mamba; selective SSM achieving transformer-level language modeling quality at linear complexity.)
-- Kalman, R.E. (1960). A new approach to linear filtering and prediction problems. *ASME Journal of Basic Engineering, 82*, 35–45. (Classical state space model; theoretical ancestor of deep SSMs.)
+- Kalman, R.E. (1960). A new approach to linear filtering and prediction problems. *ASME Journal of Basic Engineering, 82*, 35-45. (Classical state space model; theoretical ancestor of deep SSMs.)

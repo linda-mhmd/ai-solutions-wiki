@@ -68,7 +68,7 @@ The most widely cited example of hallucination causing real harm is [Mata v. Avi
 
 - [What is AI hallucination?](/basics/what-is-ai-hallucination/): A beginner-friendly introduction to why AI makes things up.
 - [Model collapse](/glossary/model-collapse/): When AI trains on AI-generated content (including hallucinations), quality progressively degrades.
-- [AI slop](/glossary/ai-slop/): Low-quality AI content mass-produced with minimal curation — often contains hallucinations.
+- [AI slop](/glossary/ai-slop/): Low-quality AI content mass-produced with minimal curation - often contains hallucinations.
 - [Slopsquatting](/glossary/slopsquatting/): Attackers exploit hallucinated package names to distribute malware.
-- [AI washing](/glossary/ai-washing/): Companies making false claims about AI capabilities — a corporate form of hallucination.
+- [AI washing](/glossary/ai-washing/): Companies making false claims about AI capabilities - a corporate form of hallucination.
 - [RAG](/glossary/rag/): Retrieval-Augmented Generation grounds responses in real documents to reduce hallucination.

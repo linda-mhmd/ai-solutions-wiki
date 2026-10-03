@@ -32,7 +32,7 @@ He said neither Anthropic nor OpenAI is acting responsibly. In a Wall Street Jou
 
 **Hubinger**, replying to the resignation:
 
-> "Jacob is correct here — we really do earnestly believe AI could kill all humans! I personally think it is >10% within the next decade."
+> "Jacob is correct here - we really do earnestly believe AI could kill all humans! I personally think it is >10% within the next decade."
 
 He added a second statement that received less attention but is arguably the more substantive one:
 
@@ -42,11 +42,11 @@ Hubinger was explicit that his concern is about superintelligence arriving throu
 
 ## Where the number comes from
 
-The "over 10 percent" is not drawn from a study, a model, or a statistical calculation. It is one person's stated probability estimate — a *subjective credence*. Hubinger presents it as such, in the first person, in a post replying to a colleague.
+The "over 10 percent" is not drawn from a study, a model, or a statistical calculation. It is one person's stated probability estimate - a *subjective credence*. Hubinger presents it as such, in the first person, in a post replying to a colleague.
 
 The reasoning behind that class of estimate runs roughly as follows: models could match or exceed human capability in research, software engineering, and strategic planning; they could then contribute to building more capable systems, compounding the effect; a sufficiently capable autonomous system might pursue goals that do not reliably match human interests; once such a system has access to cyber infrastructure, research capacity, money, communications, or biological tools, humans might be unable to regain control; and there is currently no alignment approach that convincingly solves control for a hypothetical superintelligence.
 
-There is real research bearing on individual links in that chain — scaling behaviour, documented deception and scheming in evaluations, control problems, and measured dangerous cyber capabilities. What does not exist is an empirical model that yields a specific extinction probability. There are no historical base rates for "superintelligence takes control," and no frequency data to fit. The number expresses how one senior safety researcher weighs the risk. It is not a measurement, and it is not presented by its author as one.
+There is real research bearing on individual links in that chain - scaling behaviour, documented deception and scheming in evaluations, control problems, and measured dangerous cyber capabilities. What does not exist is an empirical model that yields a specific extinction probability. There are no historical base rates for "superintelligence takes control," and no frequency data to fit. The number expresses how one senior safety researcher weighs the risk. It is not a measurement, and it is not presented by its author as one.
 
 ## The survey that is often used as corroboration
 
@@ -56,17 +56,17 @@ That survey is real and the figures are reported accurately. It does not, howeve
 
 ## Why the framing matters
 
-Several outlets merged the two men's statements into warnings from "Anthropic insiders" or "Anthropic researchers" — one senior researcher's personal estimate and a departing colleague's accusation against his own employer and its competitor, presented as a shared institutional position. Neither man claimed to speak for Anthropic; Hubinger's second quote is explicitly a criticism of his employer's readiness while defending its intent.
+Several outlets merged the two men's statements into warnings from "Anthropic insiders" or "Anthropic researchers" - one senior researcher's personal estimate and a departing colleague's accusation against his own employer and its competitor, presented as a shared institutional position. Neither man claimed to speak for Anthropic; Hubinger's second quote is explicitly a criticism of his employer's readiness while defending its intent.
 
 A more precise rendering would be: *a senior Anthropic safety researcher personally estimates the risk at more than ten percent; that is a judgement, not a computed probability.*
 
-The correction cuts both ways, and this is the part that usually gets dropped. That a risk cannot be quantified does not make it zero. The absence of a base rate is not evidence of safety — it is the reason the estimate has to be a judgement in the first place. Several people with the most direct view of frontier training runs are willing to put that judgement in public and attach their names to it, and one of them left his job over it. That is the actual news, and it survives without the decimal point.
+The correction cuts both ways, and this is the part that usually gets dropped. That a risk cannot be quantified does not make it zero. The absence of a base rate is not evidence of safety - it is the reason the estimate has to be a judgement in the first place. Several people with the most direct view of frontier training runs are willing to put that judgement in public and attach their names to it, and one of them left his job over it. That is the actual news, and it survives without the decimal point.
 
 ## Why it matters for builders
 
 Little of this changes what to do on Monday, and it is worth being honest about that rather than manufacturing an action item. Nothing in either statement concerns the behaviour of models currently in production; Hubinger said so directly.
 
-What it does change is how to read the next round of coverage. The pattern here — a named individual's subjective credence, restated as an institutional finding, then rounded into a headline number — will repeat, because the underlying statements are genuinely alarming and the precise version is less shareable than the imprecise one. The habit worth building is checking three things: who said it, whether they claimed to speak for their employer, and whether the number came from a measurement or a judgement.
+What it does change is how to read the next round of coverage. The pattern here - a named individual's subjective credence, restated as an institutional finding, then rounded into a headline number - will repeat, because the underlying statements are genuinely alarming and the precise version is less shareable than the imprecise one. The habit worth building is checking three things: who said it, whether they claimed to speak for their employer, and whether the number came from a measurement or a judgement.
 
 For the risks that *are* measurable and already relevant to systems in production, see [AI risk assessment](/guides/ai-risk-assessment-guide/), [red-teaming AI systems](/guides/red-teaming-ai/), and the documented incident record in [AI agent security incidents](/news/ai-agent-security-incidents-2025-2026/).
 
@@ -78,7 +78,7 @@ For the risks that *are* measurable and already relevant to systems in productio
 4. CBS News, on Hubinger's full statements: [https://www.cbsnews.com/news/ai-kill-humans-anthropic-researcher-more-than-ten-percent-chance/](https://www.cbsnews.com/news/ai-kill-humans-anthropic-researcher-more-than-ten-percent-chance/)
 5. The Guardian, on the original debate (9 September 2026): [https://www.theguardian.com/technology/2026/sep/09/anthropic-researchers-ai-human-extinction](https://www.theguardian.com/technology/2026/sep/09/anthropic-researchers-ai-human-extinction)
 6. Deadline, "A.I. Researcher Jacob Coxon Resigns, Warns Industry 'Gambling With Our Lives'": [https://deadline.com/2026/09/anthropic-jacob-coxon-resignation-artificial-intelligence-1237072134/](https://deadline.com/2026/09/anthropic-jacob-coxon-resignation-artificial-intelligence-1237072134/)
-7. Newsweek, "Who Is Jacob Coxon? Anthropic Researcher Quits — Warns AI Could Kill Everyone": [https://www.newsweek.com/anthropic-researcher-quits-warns-ai-could-kill-everyone-12418798](https://www.newsweek.com/anthropic-researcher-quits-warns-ai-could-kill-everyone-12418798)
+7. Newsweek, "Who Is Jacob Coxon? Anthropic Researcher Quits - Warns AI Could Kill Everyone": [https://www.newsweek.com/anthropic-researcher-quits-warns-ai-could-kill-everyone-12418798](https://www.newsweek.com/anthropic-researcher-quits-warns-ai-could-kill-everyone-12418798)
 8. Grace, K., et al., "Thousands of AI Authors on the Future of AI" (January 2024), the 2,778-author survey: [https://arxiv.org/abs/2401.02843](https://arxiv.org/abs/2401.02843)
 
 ## Further reading

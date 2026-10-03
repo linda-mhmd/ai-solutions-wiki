@@ -29,7 +29,7 @@ Kubeflow is used by organizations that want to build standardized, cloud-agnosti
 
 ## Cloud Equivalents
 
-Kubeflow is the open-source alternative to AWS SageMaker, Google Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story), and Azure Machine Learning. Managed ML platforms provide tighter integration with cloud-native services and simpler setup, while Kubeflow offers full portability across clouds and on-premises environments at the cost of greater operational complexity.
+Kubeflow is the open-source alternative to AWS SageMaker, Google Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 - see [Google Vertex AI](/tools/google-vertex-ai/) for the full story), and Azure Machine Learning. Managed ML platforms provide tighter integration with cloud-native services and simpler setup, while Kubeflow offers full portability across clouds and on-premises environments at the cost of greater operational complexity.
 
 ## Origins and History
 

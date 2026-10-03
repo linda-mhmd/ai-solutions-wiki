@@ -1,6 +1,6 @@
 ---
 title: "Open Source Foundations"
-description: "Linux Foundation, Apache, CNCF, OpenJS—organizations that govern and fund open source projects. What they do, why they exist, and how they work."
+description: "Linux Foundation, Apache, CNCF, OpenJS - organizations that govern and fund open source projects. What they do, why they exist, and how they work."
 date: 2026-07-30
 lastmod: 2026-09-25
 last_verified: 2026-09-25
@@ -97,7 +97,7 @@ Beyond code:
 - Provides infrastructure, marketing, events
 - KubeCon is one of the largest open-source conferences
 
-**Focus**: Cloud-native technologies—containers, microservices, orchestration, observability
+**Focus**: Cloud-native technologies - containers, microservices, orchestration, observability
 
 ### Apache Software Foundation (ASF)
 
@@ -112,7 +112,7 @@ Beyond code:
 - Projects governed by elected Project Management Committees (PMCs)
 - All decisions made on public mailing lists
 
-**Philosophy**: "Community over code"—prioritizes healthy communities over individual projects. Individuals vote, not companies.
+**Philosophy**: "Community over code" - prioritizes healthy communities over individual projects. Individuals vote, not companies.
 
 **Criticism**: Governance can be slow, process-heavy compared to nimbler organizations
 
@@ -338,7 +338,7 @@ Board members often work for competing companies. Decisions may reflect corporat
 
 ### Marketing over substance
 
-Some see foundations as marketing vehicles—providing legitimacy badges rather than genuine support.
+Some see foundations as marketing vehicles - providing legitimacy badges rather than genuine support.
 
 ### Sustainability gap
 

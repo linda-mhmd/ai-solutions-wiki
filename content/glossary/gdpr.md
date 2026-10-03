@@ -44,5 +44,5 @@ GDPR works alongside the EU AI Act, NIS2 Directive, and DORA. Organizations buil
 
 - European Parliament and Council. (2016). *Regulation (EU) 2016/679 (General Data Protection Regulation)*. Official Journal of the European Union, L 119/1. (The regulation itself; all compliance obligations derive from this primary source.)
 - Article 29 Working Party. (2018). *Guidelines on Data Protection Impact Assessment (DPIA)*. WP248rev.01. (Authoritative guidance on when DPIAs are mandatory; directly applicable to AI systems that profile individuals.)
-- Wachter, S., Mittelstadt, B., & Floridi, L. (2017). Why a right to explanation of automated decision-making does not exist in the general data protection regulation. *International Data Privacy Law, 7*(2), 76–99. (Influential academic analysis of GDPR's AI provisions; frames the Article 22 debate.)
+- Wachter, S., Mittelstadt, B., & Floridi, L. (2017). Why a right to explanation of automated decision-making does not exist in the general data protection regulation. *International Data Privacy Law, 7*(2), 76-99. (Influential academic analysis of GDPR's AI provisions; frames the Article 22 debate.)
 - Information Commissioner's Office. (2022). *Guidance on AI and Data Protection*. ICO. (Practical regulator guidance on applying GDPR principles to machine learning systems.)

@@ -7,7 +7,7 @@ categories: [Basics]
 tags: [beginner, agile, product, planning, productivity, solo]
 faqs:
   - question: "Isn't agile for teams? Can I really use it solo?"
-    answer: "The core ideas—working in short cycles, regular reflection, adapting to feedback—work for anyone. Skip the meetings that need multiple people. Keep the practices that help you focus and improve."
+    answer: "The core ideas - working in short cycles, regular reflection, adapting to feedback - work for anyone. Skip the meetings that need multiple people. Keep the practices that help you focus and improve."
   - question: "How long should my sprints be?"
     answer: "One week is usually right for solo builders. Long enough to finish something meaningful, short enough to course-correct quickly. Some prefer 2-week cycles for bigger projects. Try one and adjust."
   - question: "This still sounds like overhead. Is it worth it?"
@@ -75,7 +75,7 @@ Pick 3-5 items that achieve the goal. That's your sprint.
 ### During the sprint
 
 - Focus on sprint items first, before other work
-- If something takes longer than expected, cut scope—don't extend the sprint
+- If something takes longer than expected, cut scope - don't extend the sprint
 - New ideas go to the backlog, not into the current sprint
 - Ship something every day if possible (even small)
 

@@ -109,7 +109,7 @@ Specific feedback produces specific results:
 
 **5. Iterate relentlessly**
 
-Most good vibe coding is 80% iteration and 20% initial description. Expect 10–20 cycles before something is genuinely usable. This is normal.
+Most good vibe coding is 80% iteration and 20% initial description. Expect 10-20 cycles before something is genuinely usable. This is normal.
 
 **6. Ask the AI to explain its choices**
 

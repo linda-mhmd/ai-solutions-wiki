@@ -7,11 +7,11 @@ categories: [Basics]
 tags: [beginner, git, branch, version control, merge, collaboration]
 faqs:
   - question: "What's the difference between main and master?"
-    answer: "They're the same concept—the primary branch. 'master' was the historical default; 'main' is the modern convention. GitHub and most tools now default to 'main'. Use whatever your project uses."
+    answer: "They're the same concept - the primary branch. 'master' was the historical default; 'main' is the modern convention. GitHub and most tools now default to 'main'. Use whatever your project uses."
   - question: "When should I create a new branch?"
-    answer: "Create a branch for any change that takes more than a few minutes or that you want to review before merging. Features, bug fixes, experiments—each gets a branch. Working directly on main is risky because you can break things for everyone."
+    answer: "Create a branch for any change that takes more than a few minutes or that you want to review before merging. Features, bug fixes, experiments - each gets a branch. Working directly on main is risky because you can break things for everyone."
   - question: "What happens if two people edit the same file?"
-    answer: "Git handles different parts of the same file automatically. If you edit different sections, the merge just works. If you edit the same lines, you get a 'merge conflict'—Git shows both versions and you choose which to keep."
+    answer: "Git handles different parts of the same file automatically. If you edit different sections, the merge just works. If you edit the same lines, you get a 'merge conflict' - Git shows both versions and you choose which to keep."
 last_updated: 2026-07-30
 ---
 

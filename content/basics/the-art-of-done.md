@@ -1,6 +1,6 @@
 ---
 title: "The Art of Done"
-description: "Good enough vs perfect. When to ship, when to polish, and when to stop. Finishing things is a skill—and perfectionism is often procrastination."
+description: "Good enough vs perfect. When to ship, when to polish, and when to stop. Finishing things is a skill - and perfectionism is often procrastination."
 date: 2026-07-30
 level: 1
 categories: [Basics]
@@ -16,7 +16,7 @@ last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-"Done" is a decision, not a state. Perfect doesn't exist—there's always another improvement. The skill is knowing when additional polish stops delivering value. Ship when it's good enough to be useful, learn from real usage, and iterate. Unshipped features help no one. Perfect is the enemy of done.
+"Done" is a decision, not a state. Perfect doesn't exist - there's always another improvement. The skill is knowing when additional polish stops delivering value. Ship when it's good enough to be useful, learn from real usage, and iterate. Unshipped features help no one. Perfect is the enemy of done.
 {{< /quickanswer >}}
 
 ## The completion problem
@@ -171,7 +171,7 @@ Perfectionism feels productive. It isn't.
 - Fear of commitment
 - Fear of the unknown
 
-Shipping feels vulnerable. Polishing feels safe. But safety is an illusion—unshipped work helps no one.
+Shipping feels vulnerable. Polishing feels safe. But safety is an illusion - unshipped work helps no one.
 
 ## "We'll fix it later" (and actually do)
 

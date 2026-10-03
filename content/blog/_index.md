@@ -14,7 +14,7 @@ This section is the everything else. Open questions. Thought experiments that ca
 
 Two reasons this exists rather than living on a separate blog.
 
-**Thinking is how you find the gaps.** Writing out a question properly exposes which concepts the reference layer is missing. That is not a side effect to be tidied away — it is the most reliable gap-finder available, and the notes link forward into the reference pages they lean on.
+**Thinking is how you find the gaps.** Writing out a question properly exposes which concepts the reference layer is missing. That is not a side effect to be tidied away - it is the most reliable gap-finder available, and the notes link forward into the reference pages they lean on.
 
 **Not every useful thing is a fact.** A great deal of what matters in this field right now is contested: how fast capability is moving, what the failure modes will look like, which risks are real and which are marketing. Pretending otherwise, by only publishing what can be footnoted, leaves out most of the actual conversation.
 

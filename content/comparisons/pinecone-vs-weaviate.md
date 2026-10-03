@@ -286,7 +286,7 @@ Multi-tenancy is important for SaaS applications where each customer's data must
 
 ## Pricing model
 
-**Pinecone Serverless:** Charged for reads (read units), writes (write units), and storage (per GB per month); on the Standard plan, roughly $16–18 per million read units, $4–4.50 per million write units, and $0.33/GB/month, with a $50/month minimum. Low-traffic projects stay inexpensive. High-traffic projects can become expensive quickly because each query incurs a cost. A free Starter tier provides 2GB storage and limited query throughput with no credit card required.
+**Pinecone Serverless:** Charged for reads (read units), writes (write units), and storage (per GB per month); on the Standard plan, roughly $16-18 per million read units, $4-4.50 per million write units, and $0.33/GB/month, with a $50/month minimum. Low-traffic projects stay inexpensive. High-traffic projects can become expensive quickly because each query incurs a cost. A free Starter tier provides 2GB storage and limited query throughput with no credit card required.
 
 **Pinecone Pod-based (legacy):** Reserved capacity at a fixed hourly rate per pod. Predictable cost but you pay for idle capacity. Only available to accounts that predate 18 August 2025 on Standard or Enterprise; newer accounts use serverless, with dedicated read nodes for sustained high query rates.
 

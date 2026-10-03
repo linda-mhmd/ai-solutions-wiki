@@ -32,6 +32,6 @@ When a processor starts making its own decisions about data use, such as trainin
 
 ## Sources
 
-- European Parliament and Council. (2016). *Regulation (EU) 2016/679 (GDPR)*, Articles 4(8), 28–29. Official Journal of the European Union. (Primary legal source; defines data processor and processor obligations, including data processing agreement requirements.)
+- European Parliament and Council. (2016). *Regulation (EU) 2016/679 (GDPR)*, Articles 4(8), 28-29. Official Journal of the European Union. (Primary legal source; defines data processor and processor obligations, including data processing agreement requirements.)
 - European Data Protection Board. (2021). *Guidelines 07/2020 on the concepts of controller and processor in the GDPR*. EDPB. (Authoritative guidance interpreting Article 28; addresses sub-processing chains and reclassification scenarios.)
 - Information Commissioner's Office. (2021). *Controllers and processors*. ICO guidance. (Practical regulator interpretation of processor obligations in cloud and AI service contexts.)

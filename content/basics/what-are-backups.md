@@ -9,14 +9,14 @@ faqs:
   - question: "How often should I back up my database?"
     answer: "Depends on how much data you can afford to lose. For most apps, daily backups are the minimum. For apps with constant writes (e-commerce, chat, etc.), hourly or continuous backup (point-in-time recovery) is better. If losing an hour of data would be catastrophic, you need real-time replication."
   - question: "Is pushing to GitHub a backup?"
-    answer: "For your code, yes—GitHub stores your repository history and you can recover from it. But GitHub is not a backup for your database, uploaded files, environment variables, or any user data. Those need separate backup strategies."
+    answer: "For your code, yes - GitHub stores your repository history and you can recover from it. But GitHub is not a backup for your database, uploaded files, environment variables, or any user data. Those need separate backup strategies."
   - question: "Do I need to manage backups myself?"
     answer: "Not usually. Most managed database services (Railway, Supabase, PlanetScale, AWS RDS) include automatic backups. Check that backups are enabled and test a restore occasionally. For custom setups, you'll need to configure backups yourself."
 last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-A backup is a copy of your data stored separately from the original. When your database gets corrupted, your server catches fire, or you accidentally delete everything, backups let you restore to a working state. The question isn't whether you'll need backups—it's whether you'll have them when you do.
+A backup is a copy of your data stored separately from the original. When your database gets corrupted, your server catches fire, or you accidentally delete everything, backups let you restore to a working state. The question isn't whether you'll need backups - it's whether you'll have them when you do.
 {{< /quickanswer >}}
 
 ## Why backups matter
@@ -36,7 +36,7 @@ The only protection against all of these is having copies of your data stored so
 
 ### 1. Your database
 
-This is the most critical backup. User accounts, orders, posts, settings—everything your app stores lives in the database. Losing it means losing your business.
+This is the most critical backup. User accounts, orders, posts, settings - everything your app stores lives in the database. Losing it means losing your business.
 
 **How managed databases handle it:**
 - **Railway, Render**: Automatic daily backups (check your plan)
@@ -59,7 +59,7 @@ If users upload images, documents, or any files, those need backups too.
 - Most providers have built-in redundancy, but versioning protects against accidental deletion
 
 **If files are on your server's disk:**
-- That's a single point of failure—move them to object storage
+- That's a single point of failure - move them to object storage
 - Or at minimum, back up the disk to another location
 
 ### 3. Your code
@@ -74,7 +74,7 @@ Git itself is a backup system. Every clone contains the full history. But only i
 
 ### 4. Configuration and secrets
 
-Environment variables, API keys, infrastructure configs—losing these can lock you out of your own systems.
+Environment variables, API keys, infrastructure configs - losing these can lock you out of your own systems.
 
 **Where to store them:**
 - Password manager (1Password, Bitwarden) for manual backup
@@ -131,7 +131,7 @@ A backup you've never restored is a backup you hope works. Hope is not a strateg
 - Missing dependencies or config
 - Backup is incomplete (missing tables, files)
 
-Finding out your backups don't work when you need them is worse than not having backups—you thought you were protected.
+Finding out your backups don't work when you need them is worse than not having backups - you thought you were protected.
 
 ## Backup strategies for vibecoders
 

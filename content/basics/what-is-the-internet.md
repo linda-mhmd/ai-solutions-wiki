@@ -151,7 +151,7 @@ These all make more sense knowing the underlying model: computers sending struct
 - [Cloudflare Learning Center](https://www.cloudflare.com/learning/), free articles on networking, security, and web performance
 - [Submarine Cable Map](https://www.submarinecablemap.com/), visualise the physical cables that carry the internet
 - [HTTP, MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTTP), everything about HTTP requests, responses, and status codes
-- [Networks, Crash Course Computer Science](https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo), episodes 28–30 cover networking clearly
+- [Networks, Crash Course Computer Science](https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo), episodes 28-30 cover networking clearly
 
 ## What's next
 

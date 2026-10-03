@@ -7,7 +7,7 @@ categories: [Basics]
 tags: [beginner, serverless, lambda, cloud, deployment, functions]
 faqs:
   - question: "Is serverless actually serverless?"
-    answer: "No—there are still servers. You just don't manage them. The cloud provider handles provisioning, scaling, and maintenance. You write code, they run it. The servers are someone else's problem."
+    answer: "No - there are still servers. You just don't manage them. The cloud provider handles provisioning, scaling, and maintenance. You write code, they run it. The servers are someone else's problem."
   - question: "When should I use serverless vs a traditional server?"
     answer: "Serverless is great for: APIs with variable traffic, background jobs, webhooks, scheduled tasks, and getting started quickly. Traditional servers are better for: long-running processes, consistent high traffic, WebSocket connections, and when you need more control."
   - question: "Why does my serverless function sometimes respond slowly?"
@@ -16,7 +16,7 @@ last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-Serverless lets you run code without managing servers. You upload a function, and the cloud provider runs it when needed, scales it automatically, and charges you only for what you use. Vercel functions, AWS Lambda, and Cloudflare Workers are serverless—you write code, deploy, and it just works.
+Serverless lets you run code without managing servers. You upload a function, and the cloud provider runs it when needed, scales it automatically, and charges you only for what you use. Vercel functions, AWS Lambda, and Cloudflare Workers are serverless - you write code, deploy, and it just works.
 {{< /quickanswer >}}
 
 ## The idea

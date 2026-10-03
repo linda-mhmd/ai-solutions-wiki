@@ -49,7 +49,7 @@ Use active learning when labeling is expensive (medical imaging, legal document 
 
 ## Sources
 
-- Settles, B. (2010). Active learning literature survey. *University of Wisconsin–Madison Computer Sciences Technical Report 1648*. (Comprehensive survey; standard reference for query strategies.)
+- Settles, B. (2010). Active learning literature survey. *University of Wisconsin - Madison Computer Sciences Technical Report 1648*. (Comprehensive survey; standard reference for query strategies.)
 - Lewis, D.D., & Gale, W.A. (1994). A sequential algorithm for training text classifiers. *ACM SIGIR 1994*. (Uncertainty sampling; original formulation.)
 - Seung, H.S., Opper, M., & Sompolinsky, H. (1992). Query by committee. *ACM Workshop on Computational Learning Theory*. (QBC original paper.)
 - Ren, P., et al. (2021). A survey of deep active learning. *ACM Computing Surveys, 54*(9). (Extension of classical methods to deep learning settings.)

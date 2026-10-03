@@ -1,6 +1,6 @@
 ---
 title: "What is Authentication vs. Authorization?"
-description: "Authentication is proving who you are (logging in). Authorization is checking what you're allowed to do (permissions). Both are essential—and confusing them breaks security."
+description: "Authentication is proving who you are (logging in). Authorization is checking what you're allowed to do (permissions). Both are essential - and confusing them breaks security."
 date: 2026-07-30
 lastmod: 2026-09-25
 last_verified: 2026-09-25
@@ -9,7 +9,7 @@ categories: [Basics]
 tags: [beginner, authentication, authorization, security, login, permissions, auth]
 faqs:
   - question: "Why do I get 401 vs 403 errors?"
-    answer: "401 Unauthorized means you're not authenticated—the server doesn't know who you are. 403 Forbidden means you're authenticated but not authorized—the server knows who you are but won't let you do that action."
+    answer: "401 Unauthorized means you're not authenticated - the server doesn't know who you are. 403 Forbidden means you're authenticated but not authorized - the server knows who you are but won't let you do that action."
   - question: "What's the difference between OAuth and API keys?"
     answer: "API keys are simple: one key, one identity, often all-or-nothing access. OAuth is a protocol where users grant limited permissions to apps without sharing passwords. OAuth is for 'let this app access my Google Drive' scenarios."
   - question: "Should I build my own auth system?"
@@ -18,7 +18,7 @@ last_updated: 2026-09-25
 ---
 
 {{< quickanswer >}}
-**Authentication** answers "Who are you?" — proving your identity through passwords, tokens, or biometrics. **Authorization** answers "What can you do?" — checking if you have permission for the action you're attempting. You must authenticate before the system can authorize.
+**Authentication** answers "Who are you?" - proving your identity through passwords, tokens, or biometrics. **Authorization** answers "What can you do?" - checking if you have permission for the action you're attempting. You must authenticate before the system can authorize.
 {{< /quickanswer >}}
 
 ## The two questions
@@ -107,7 +107,7 @@ const decoded = jwt.verify(token, process.env.JWT_SECRET);
 console.log(decoded.userId);  // "123456"
 ```
 
-**Benefit**: Stateless—no session database needed. **Risk**: Can't revoke until expiration (use short lifetimes).
+**Benefit**: Stateless - no session database needed. **Risk**: Can't revoke until expiration (use short lifetimes).
 
 ## Authorization patterns
 
@@ -222,7 +222,7 @@ Never:
 
 ## Middleware pattern
 
-Most frameworks support auth middleware—check authentication once, apply to many routes:
+Most frameworks support auth middleware - check authentication once, apply to many routes:
 
 ```javascript
 // Express middleware

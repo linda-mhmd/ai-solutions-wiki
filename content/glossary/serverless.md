@@ -70,6 +70,6 @@ For AI applications where users notice latency, mitigate cold starts with:
 ## Further reading
 
 - [When do I need a server?](/basics/when-do-i-need-a-server/): A vibecoder's guide to deciding between serverless and traditional servers.
-- [What is hosting?](/basics/what-is-hosting/): Where your code lives on the internet — serverless is one option.
+- [What is hosting?](/basics/what-is-hosting/): Where your code lives on the internet - serverless is one option.
 - [What is a server?](/basics/what-is-a-server/): The underlying concept that serverless abstracts away.
-- [What is scaling?](/basics/what-is-scaling/): Serverless handles scaling automatically — here's what that means.
+- [What is scaling?](/basics/what-is-scaling/): Serverless handles scaling automatically - here's what that means.

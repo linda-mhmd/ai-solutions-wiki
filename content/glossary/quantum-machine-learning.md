@@ -34,6 +34,6 @@ Current quantum hardware (50-1000+ qubits) is noisy and limited in circuit depth
 
 ## Sources
 
-- Biamonte, J., et al. (2017). Quantum machine learning. *Nature, 549*, 195–202. (Survey of QML algorithms and potential quantum advantages.)
-- Cerezo, M., et al. (2021). Variational quantum algorithms. *Nature Reviews Physics, 3*, 625–644. (Comprehensive review of variational quantum circuits and their limitations.)
+- Biamonte, J., et al. (2017). Quantum machine learning. *Nature, 549*, 195-202. (Survey of QML algorithms and potential quantum advantages.)
+- Cerezo, M., et al. (2021). Variational quantum algorithms. *Nature Reviews Physics, 3*, 625-644. (Comprehensive review of variational quantum circuits and their limitations.)
 - Harrow, A.W., Hassidim, A., & Lloyd, S. (2009). Quantum algorithm for linear systems of equations. *Physical Review Letters, 103*(15). (HHL algorithm; theoretical quantum speedup for linear algebra underlying quantum ML claims.)

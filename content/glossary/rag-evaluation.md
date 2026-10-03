@@ -40,7 +40,7 @@ RAG systems degrade over time as source documents change, user query patterns sh
 - Es, S., James, J., Espinosa-Anke, L., & Schockaert, S. (2023). RAGAS: Automated evaluation of retrieval augmented generation. *arXiv:2309.15217*. (RAGAS framework; defines and implements the faithfulness, answer relevance, and context precision metrics.)
 - Saad-Falcon, J., et al. (2023). ARES: An automated evaluation framework for retrieval-augmented generation systems. *arXiv:2311.09476*. (ARES; alternative automated RAG evaluation using LLM-as-judge with statistical confidence intervals.)
 - Gao, Y., et al. (2024). Retrieval-augmented generation for large language models: A survey. *arXiv:2312.10997*. (Comprehensive RAG survey including retrieval, generation, and evaluation methodologies.)
-- Robertson, S., & Zaragoza, H. (2009). The probabilistic relevance framework: BM25 and beyond. *Foundations and Trends in Information Retrieval, 3*(4), 333–389. (BM25; the standard sparse retrieval baseline against which all RAG retrieval is benchmarked.)
+- Robertson, S., & Zaragoza, H. (2009). The probabilistic relevance framework: BM25 and beyond. *Foundations and Trends in Information Retrieval, 3*(4), 333-389. (BM25; the standard sparse retrieval baseline against which all RAG retrieval is benchmarked.)
 
 ## Further reading
 

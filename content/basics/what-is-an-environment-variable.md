@@ -7,7 +7,7 @@ categories: [Basics]
 tags: [beginner, environment-variables, secrets, configuration, security]
 faqs:
   - question: "Why can't I just put the API key directly in my code?"
-    answer: "Because code gets shared—Git, GitHub, Stack Overflow questions, pair programming. The moment your key is in code, it's one push away from being public. Environment variables keep secrets separate from code so you can share your code without sharing your secrets."
+    answer: "Because code gets shared - Git, GitHub, Stack Overflow questions, pair programming. The moment your key is in code, it's one push away from being public. Environment variables keep secrets separate from code so you can share your code without sharing your secrets."
   - question: "How do environment variables work on Vercel/Netlify?"
     answer: "Every hosting platform has a settings page where you add environment variables. They're stored encrypted on their servers. When your code runs, it can read them with process.env.VARIABLE_NAME. You never commit them to Git."
   - question: "My .env file isn't working. What's wrong?"
@@ -75,7 +75,7 @@ import 'dotenv/config';
 console.log(process.env.OPENAI_API_KEY);
 ```
 
-**Note**: Many frameworks (Next.js, Vite, Create React App) load `.env` files automatically—you don't need dotenv.
+**Note**: Many frameworks (Next.js, Vite, Create React App) load `.env` files automatically - you don't need dotenv.
 
 ## The environment part
 
@@ -164,7 +164,7 @@ The whole point is to NOT commit them. Check your `.gitignore`.
 Your app works locally, you deploy, it breaks. You forgot to add the variables to your hosting platform.
 
 **Typos in variable names**:
-`OPENAI_API_KEY` vs `OPENAI_APIKEY`. JavaScript won't error—it'll just be `undefined`.
+`OPENAI_API_KEY` vs `OPENAI_APIKEY`. JavaScript won't error - it'll just be `undefined`.
 
 **Not restarting after changes**:
 Most dev servers don't hot-reload environment variables. Restart after editing `.env`.

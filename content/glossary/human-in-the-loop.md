@@ -49,5 +49,5 @@ A HITL system where 99.8% of recommendations are approved without modification m
 ## Sources
 
 - Cummings, M.L. (2004). Automation bias in intelligent time critical decision support systems. *AIAA 1st Intelligent Systems Technical Conference*. (Automation bias; foundational paper on human over-reliance on automated recommendations.)
-- Parasuraman, R., & Riley, V. (1997). Humans and automation: Use, misuse, disuse, abuse. *Human Factors, 39*(2), 230–253. (Taxonomy of human-automation interaction failures.)
+- Parasuraman, R., & Riley, V. (1997). Humans and automation: Use, misuse, disuse, abuse. *Human Factors, 39*(2), 230-253. (Taxonomy of human-automation interaction failures.)
 - European Parliament and Council. (2024). *Regulation (EU) 2024/1689 (EU AI Act)*, Articles 14 and 22. (Human oversight requirements for high-risk AI systems and prohibitions on fully automated decisions.)

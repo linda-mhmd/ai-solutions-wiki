@@ -9,14 +9,14 @@ faqs:
   - question: "How do I know if a decision is reversible?"
     answer: "Ask: Can I change this later? At what cost? If change is cheap and easy, it's reversible. If change requires significant rework, data migration, or user disruption, it's less reversible. Most decisions are more reversible than they feel in the moment."
   - question: "Does irreversible mean I should avoid the decision?"
-    answer: "No—it means invest more time in analysis. You can't avoid all irreversible decisions. But you can be intentional: gather information, consider alternatives, accept the tradeoffs consciously, and document your reasoning."
+    answer: "No - it means invest more time in analysis. You can't avoid all irreversible decisions. But you can be intentional: gather information, consider alternatives, accept the tradeoffs consciously, and document your reasoning."
   - question: "What about decisions that feel irreversible but aren't?"
-    answer: "Many. 'We chose React' feels permanent but isn't—you can migrate. 'We hired this person' feels permanent but isn't—you can part ways. Check your assumptions about what's truly hard to undo."
+    answer: "Many. 'We chose React' feels permanent but isn't - you can migrate. 'We hired this person' feels permanent but isn't - you can part ways. Check your assumptions about what's truly hard to undo."
 last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-One-way door (irreversible): Hard or impossible to undo. Database architecture, public API contracts, major pricing changes. Invest time in analysis. Two-way door (reversible): Easy to undo or change. Most feature decisions, UI choices, internal tooling. Decide quickly and learn. Most decisions are two-way doors—treat them that way instead of agonizing.
+One-way door (irreversible): Hard or impossible to undo. Database architecture, public API contracts, major pricing changes. Invest time in analysis. Two-way door (reversible): Easy to undo or change. Most feature decisions, UI choices, internal tooling. Decide quickly and learn. Most decisions are two-way doors - treat them that way instead of agonizing.
 {{< /quickanswer >}}
 
 ## The one-way/two-way door framework
@@ -172,7 +172,7 @@ Ask these questions:
 - Training and ramp-up time is sunk cost
 - Team dynamics affected
 
-**Approach:** Don't treat it as a two-way door. Invest in the process. But also don't agonize for months—you can't know everything upfront.
+**Approach:** Don't treat it as a two-way door. Invest in the process. But also don't agonize for months - you can't know everything upfront.
 
 ## Decision time proportional to stakes
 

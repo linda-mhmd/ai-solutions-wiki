@@ -40,5 +40,5 @@ Treat containers as immutable. Configuration should come from environment variab
 ## Sources
 
 - Merkel, D. (2014). Docker: Lightweight Linux containers for consistent development and deployment. *Linux Journal*, 239. (Original Docker paper; container image layering, copy-on-write filesystem, and the Dockerfile build process.)
-- Felter, W., Ferreira, A., Rajamony, R., & Rubio, J. (2015). An updated performance comparison of virtual machines and Linux containers. *2015 IEEE International Symposium on Performance Analysis of Systems and Software (ISPASS)*, 171–172. (Performance comparison showing containers add minimal overhead versus VMs; justification for containers in AI inference workloads.)
-- Boettiger, C. (2015). An introduction to Docker for reproducible research. *ACM SIGOPS Operating Systems Review*, 49(1), 71–79. (Containers for scientific reproducibility; directly applicable to reproducible ML training environments.)
+- Felter, W., Ferreira, A., Rajamony, R., & Rubio, J. (2015). An updated performance comparison of virtual machines and Linux containers. *2015 IEEE International Symposium on Performance Analysis of Systems and Software (ISPASS)*, 171-172. (Performance comparison showing containers add minimal overhead versus VMs; justification for containers in AI inference workloads.)
+- Boettiger, C. (2015). An introduction to Docker for reproducible research. *ACM SIGOPS Operating Systems Review*, 49(1), 71-79. (Containers for scientific reproducibility; directly applicable to reproducible ML training environments.)

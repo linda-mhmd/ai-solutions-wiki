@@ -49,6 +49,6 @@ Use Naive Bayes as a fast baseline for text classification, when training data i
 
 ## Sources
 
-- Bayes, T. (1763). An essay towards solving a problem in the doctrine of chances. *Philosophical Transactions of the Royal Society, 53*, 370–418. (Bayes' theorem; foundational.)
-- Domingos, P., & Pazzani, M. (1997). On the optimality of the simple Bayesian classifier under zero-one loss. *Machine Learning, 29*(2-3), 103–130. (Theoretical analysis of when Naive Bayes is optimal despite violated independence assumption.)
+- Bayes, T. (1763). An essay towards solving a problem in the doctrine of chances. *Philosophical Transactions of the Royal Society, 53*, 370-418. (Bayes' theorem; foundational.)
+- Domingos, P., & Pazzani, M. (1997). On the optimality of the simple Bayesian classifier under zero-one loss. *Machine Learning, 29*(2-3), 103-130. (Theoretical analysis of when Naive Bayes is optimal despite violated independence assumption.)
 - Manning, C.D., Raghavan, P., & Schütze, H. (2008). *Introduction to Information Retrieval.* Cambridge University Press. Chapter 13: Text Classification and Naive Bayes. Free online at nlp.stanford.edu/IR-book.

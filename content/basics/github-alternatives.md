@@ -1,17 +1,17 @@
 ---
 title: "GitHub Alternatives"
-description: "GitLab, Bitbucket, Gitea, and self-hosted options—why developers choose different platforms, when GitHub isn't the right choice, and what the tradeoffs are."
+description: "GitLab, Bitbucket, Gitea, and self-hosted options - why developers choose different platforms, when GitHub isn't the right choice, and what the tradeoffs are."
 date: 2026-07-30
 level: 2
 categories: [Basics]
 tags: [git, github, gitlab, bitbucket, version-control, self-hosted, enterprise]
 faqs:
   - question: "Is GitHub the best option for most people?"
-    answer: "For most individual developers and small teams, yes. It has the largest community, best integrations, and generous free tier. But 'best' depends on your specific needs—enterprise compliance, CI/CD preferences, cost at scale, or philosophical positions about open source."
+    answer: "For most individual developers and small teams, yes. It has the largest community, best integrations, and generous free tier. But 'best' depends on your specific needs - enterprise compliance, CI/CD preferences, cost at scale, or philosophical positions about open source."
   - question: "Can I move my code from GitHub to GitLab later?"
     answer: "Yes. Git repositories are portable. All platforms support importing from each other. Your commit history, branches, and tags transfer completely. Issues, pull requests, and CI configurations need more manual work but migration tools exist."
   - question: "Should I self-host my own Git server?"
-    answer: "Only if you have a specific reason: regulatory compliance, air-gapped networks, extreme cost optimization at scale, or philosophical commitment. Self-hosting adds operational burden—backups, security updates, availability. For most teams, managed services are worth the cost."
+    answer: "Only if you have a specific reason: regulatory compliance, air-gapped networks, extreme cost optimization at scale, or philosophical commitment. Self-hosting adds operational burden - backups, security updates, availability. For most teams, managed services are worth the cost."
 last_updated: 2026-09-25
 lastmod: 2026-09-25
 last_verified: 2026-09-25
@@ -256,7 +256,7 @@ For most vibecoders building side projects or early startups:
 - You work on a project with compliance requirements
 - You want to self-host for learning or philosophy
 
-The core skill—using Git—is the same everywhere. The platform is just where repositories are hosted.
+The core skill - using Git - is the same everywhere. The platform is just where repositories are hosted.
 
 ## Further reading
 

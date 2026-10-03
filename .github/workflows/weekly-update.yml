@@ -1,0 +1,125 @@
+name: Weekly wiki update
+
+# The weekly news and verification pass, run by Claude Code inside GitHub
+# Actions. It needs nothing on anyone's computer: it runs whether or not Linda
+# is at a desk, whether or not the laptop is awake.
+#
+# The procedure and the editorial rules live in the skill at
+# .claude/skills/weekly-wiki-update/. The readable version of the runbook lives
+# in Linda's Notion, on the "ai-solutions.wiki weekly update" page, which is
+# where the rules are decided; the skill is the copy the runner follows, because
+# the runner has no access to Notion.
+#
+# It opens a pull request. It never merges. pr-checks.yml and pr-preview.yml
+# then run against that pull request on their own, and the preview comment
+# carries the link to review.
+#
+# Setup, once: ci/setup-automation.sh, or `/install-github-app` from Claude Code
+# in this repository, which installs the Claude GitHub App and saves the
+# authentication secret. A Claude subscription works through
+# CLAUDE_CODE_OAUTH_TOKEN; an API key through ANTHROPIC_API_KEY. This workflow
+# prefers the subscription token when both are present, so the run bills against
+# the subscription rather than API credit.
+#
+# Note on scheduling: GitHub runs scheduled workflows only from the default
+# branch, and on a public repository it disables the schedule after 60 days with
+# no repository activity. A weekly merge counts as activity, so this stays alive
+# while it is doing its job and stops when it stops being used.
+
+on:
+  schedule:
+    # Tuesday 05:47 Europe/Vienna. Cron here is UTC and does not follow
+    # daylight saving, so this is 04:47 UTC in summer and 05:47 in winter;
+    # both entries exist so the run lands at the right local hour year round
+    # and the duplicate is skipped by the guard in the first step.
+    - cron: "47 3 * * 2"
+    - cron: "47 4 * * 2"
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "Why this run was started by hand"
+        required: false
+        default: "manual run"
+
+permissions: {}
+
+concurrency:
+  group: weekly-wiki-update
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  update:
+    name: Research, write and open the pull request
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+      actions: read
+    steps:
+      - name: Run only at the right local hour
+        id: guard
+        env:
+          EVENT: ${{ github.event_name }}
+        run: |
+          if [ "$EVENT" != "schedule" ]; then
+            echo "go=yes" >> "$GITHUB_OUTPUT"
+            echo "Started by hand; running."
+            exit 0
+          fi
+          # Two cron entries fire each Tuesday, one for summer time and one for
+          # winter. Keep whichever is 05:47 in Vienna right now, drop the other.
+          local_hm=$(TZ=Europe/Vienna date +%H%M)
+          if [ "$local_hm" = "0547" ]; then
+            echo "go=yes" >> "$GITHUB_OUTPUT"
+            echo "Vienna local time is $local_hm; running."
+          else
+            echo "go=no" >> "$GITHUB_OUTPUT"
+            echo "Vienna local time is $local_hm, not 0547. This is the other daylight-saving cron entry; skipping."
+          fi
+
+      - name: Check an authentication secret exists
+        if: steps.guard.outputs.go == 'yes'
+        env:
+          OAUTH: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          APIKEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$OAUTH" ] && [ -z "$APIKEY" ]; then
+            echo "::error::Neither CLAUDE_CODE_OAUTH_TOKEN nor ANTHROPIC_API_KEY is set. Run ci/setup-automation.sh, or /install-github-app from Claude Code in this repository."
+            exit 1
+          fi
+
+      - name: Checkout
+        if: steps.guard.outputs.go == 'yes'
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          # The action authenticates as the Claude GitHub App and sets up its
+          # own git credentials, so the default GITHUB_TOKEN does not need to be
+          # left in .git/config where it can reach an artifact. That difference
+          # is also why Claude's pushes trigger pr-checks and pr-preview, which
+          # GITHUB_TOKEN pushes would not. If a run ever fails at the push step,
+          # this line is the first thing to try removing.
+          persist-credentials: false
+
+      - name: Weekly update
+        if: steps.guard.outputs.go == 'yes'
+        uses: anthropics/claude-code-action@v1
+        with:
+          # Whichever secret is set; the subscription token wins when both are.
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          # github_token is deliberately NOT passed, so the action authenticates
+          # as the Claude GitHub App. Pushes made with the default GITHUB_TOKEN
+          # do not trigger workflows, which would leave the pull request with no
+          # checks and no preview.
+          prompt: "/weekly-wiki-update"
+          claude_args: |
+            --model claude-opus-5
+            --max-turns 120

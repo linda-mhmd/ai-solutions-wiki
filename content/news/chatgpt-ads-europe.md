@@ -25,7 +25,7 @@ On **24 August 2026** OpenAI began serving ads in ChatGPT across **31 European m
 
 ## Why unpersonalised matters more than it sounds
 
-An unpersonalised ad in a conversational product is a genuinely different object from an unpersonalised banner. The conversation itself supplies context: what you asked about a minute ago is a far stronger commercial signal than a third-party cookie ever was. So the interesting question is not whether OpenAI uses a profile built from your history — it says it does not — but **whether the current conversation is treated as targeting input**, and under the GDPR whether that would need a lawful basis of its own.
+An unpersonalised ad in a conversational product is a genuinely different object from an unpersonalised banner. The conversation itself supplies context: what you asked about a minute ago is a far stronger commercial signal than a third-party cookie ever was. So the interesting question is not whether OpenAI uses a profile built from your history - it says it does not - but **whether the current conversation is treated as targeting input**, and under the GDPR whether that would need a lawful basis of its own.
 
 This is the live regulatory question, and it lands in the same month the AI Act's [Article 50 transparency duties became enforceable](/news/eu-ai-act-enforcement-begins-2026/). A user needs to be able to tell an answer from an advertisement. Where a commercial placement is generated or arranged by an AI system inside a conversational response, disclosure obligations and advertising law both apply, and neither is fully settled for this format.
 
@@ -33,11 +33,11 @@ This is the live regulatory question, and it lands in the same month the AI Act'
 
 **A monetised free tier changes what "free tier" means for your users.** If your product embeds ChatGPT, or if your staff use free ChatGPT accounts for work, ads are now part of that surface in Europe. That is a procurement and acceptable-use question, not just an aesthetic one.
 
-**The tier split is the actual product signal.** Enterprise, Business, Education, Plus and Pro stay ad-free. OpenAI is monetising the tiers it cannot monetise by subscription, and protecting the tiers that [now out-earn consumer](/news/openai-enterprise-revenue-overtakes-consumer/). If you are on a paid business tier, nothing changed for you — which is the point.
+**The tier split is the actual product signal.** Enterprise, Business, Education, Plus and Pro stay ad-free. OpenAI is monetising the tiers it cannot monetise by subscription, and protecting the tiers that [now out-earn consumer](/news/openai-enterprise-revenue-overtakes-consumer/). If you are on a paid business tier, nothing changed for you - which is the point.
 
-**Watch for the commercial-content boundary in your own products.** The wider lesson of 2026 has been that AI-mediated commercial content degrades in predictable ways when incentives and ranking interact — see [Google's Performance Max spam-lead problem](/news/google-performance-max-spam-leads/) and [model collapse and AI slop](/news/model-collapse-ai-slop/). If you are building anything that mixes generated answers with paid placement, separate them structurally and label them, rather than relying on the model to keep them apart.
+**Watch for the commercial-content boundary in your own products.** The wider lesson of 2026 has been that AI-mediated commercial content degrades in predictable ways when incentives and ranking interact - see [Google's Performance Max spam-lead problem](/news/google-performance-max-spam-leads/) and [model collapse and AI slop](/news/model-collapse-ai-slop/). If you are building anything that mixes generated answers with paid placement, separate them structurally and label them, rather than relying on the model to keep them apart.
 
-**Personalisation will be the next announcement.** Unpersonalised launches in Europe are typically a starting posture, not an end state. Whatever consent mechanism appears later is where the real privacy question gets decided — track it against [AI privacy regulation](/news/ai-privacy-regulation-2026/).
+**Personalisation will be the next announcement.** Unpersonalised launches in Europe are typically a starting posture, not an end state. Whatever consent mechanism appears later is where the real privacy question gets decided - track it against [AI privacy regulation](/news/ai-privacy-regulation-2026/).
 
 ## Sources
 

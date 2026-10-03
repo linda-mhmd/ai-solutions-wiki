@@ -1,6 +1,6 @@
 ---
 title: "Full-Stack Frameworks Compared"
-description: "Next.js, React Router (formerly Remix), Nuxt, SvelteKit, Astro—which full-stack framework should you use? An honest comparison of rendering strategies, tradeoffs, and when to choose each."
+description: "Next.js, React Router (formerly Remix), Nuxt, SvelteKit, Astro - which full-stack framework should you use? An honest comparison of rendering strategies, tradeoffs, and when to choose each."
 date: 2026-07-30
 lastmod: 2026-09-25
 last_verified: 2026-09-25
@@ -13,7 +13,7 @@ faqs:
   - question: "Do I need a full-stack framework?"
     answer: "Not always. If you're building a simple static site, a basic frontend framework is fine. Full-stack frameworks shine when you need server-side rendering, API routes, or complex data fetching patterns."
   - question: "Can I use these with a separate backend?"
-    answer: "Yes. Many teams use Next.js or similar as a 'backend for frontend' that talks to separate APIs. The built-in API routes are optional—you can fetch from any backend."
+    answer: "Yes. Many teams use Next.js or similar as a 'backend for frontend' that talks to separate APIs. The built-in API routes are optional - you can fetch from any backend."
 last_updated: 2026-09-25
 ---
 
@@ -91,7 +91,7 @@ export async function GET() {
 
 ### Strengths
 - **Ecosystem**: Largest, most tutorials, most examples
-- **Flexibility**: SSR, SSG, ISR, CSR—all available
+- **Flexibility**: SSR, SSG, ISR, CSR - all available
 - **Vercel integration**: Seamless deployment
 - **React Server Components**: Latest React features first
 - **AI support**: Best coverage from coding assistants

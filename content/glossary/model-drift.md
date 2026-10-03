@@ -41,6 +41,6 @@ Organizations should establish clear ownership and response procedures for model
 
 ## Sources
 
-- Gama, J., et al. (2014). A survey on concept drift adaptation. *ACM Computing Surveys, 46*(4), 1–37. (Comprehensive survey of drift types and detection methods; standard reference for model drift literature.)
+- Gama, J., et al. (2014). A survey on concept drift adaptation. *ACM Computing Surveys, 46*(4), 1-37. (Comprehensive survey of drift types and detection methods; standard reference for model drift literature.)
 - Baena-García, M., et al. (2006). Early drift detection method. *ECML/PKDD International Workshop on Knowledge Discovery from Data Streams*. (EDDM; statistical method for detecting drift from error rates; one of the foundational drift detection algorithms.)
 - Breck, E., et al. (2017). The ML test score: A rubric for ML production readiness. *IEEE Big Data 2017*. (Production ML quality criteria including model monitoring and drift response procedures.)

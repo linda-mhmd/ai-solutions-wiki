@@ -16,13 +16,13 @@ lastmod: 2026-09-25
 last_verified: 2026-09-25
 ---
 
-LLM routing is the architectural pattern of dispatching each incoming request to one of several available language models, chosen at runtime based on the request's characteristics and the models' cost, capability, latency, and reliability profiles. Routing is the production answer to a market with heterogeneous models: cheap fast models (Haiku, Luna or Mini tiers, Flash, 8B-class open models) handle the majority of traffic, while expensive capable models are reserved for the queries that need them. At the time of writing (September 2026) that top tier includes Claude Opus 5.5 and Fable 5.1, GPT-6 Astra and Sol, Gemini 3.1 Pro, and DeepSeek V4-Pro; see the [LLM landscape](/comparisons/llm-landscape-2026/) for the current line-ups. A well-tuned router reduces aggregate cost by 5–20× over an "always use the most capable model" baseline while preserving end-to-end quality.
+LLM routing is the architectural pattern of dispatching each incoming request to one of several available language models, chosen at runtime based on the request's characteristics and the models' cost, capability, latency, and reliability profiles. Routing is the production answer to a market with heterogeneous models: cheap fast models (Haiku, Luna or Mini tiers, Flash, 8B-class open models) handle the majority of traffic, while expensive capable models are reserved for the queries that need them. At the time of writing (September 2026) that top tier includes Claude Opus 5.5 and Fable 5.1, GPT-6 Astra and Sol, Gemini 3.1 Pro, and DeepSeek V4-Pro; see the [LLM landscape](/comparisons/llm-landscape-2026/) for the current line-ups. A well-tuned router reduces aggregate cost by 5-20× over an "always use the most capable model" baseline while preserving end-to-end quality.
 
 ## Why Routing Matters
 
-The cost gap between flagship and economy tier models within the same provider is typically 10–30× per token; cross-provider it can exceed 100×. Most production traffic is dominated by simple queries, extractions, classifications, lookups, formatted summaries, that economy-tier models handle indistinguishably from flagship models. Sending all traffic to the flagship is a structural waste; sending all traffic to the economy tier degrades quality on the hard subset. Routing recovers the Pareto frontier.
+The cost gap between flagship and economy tier models within the same provider is typically 10-30× per token; cross-provider it can exceed 100×. Most production traffic is dominated by simple queries, extractions, classifications, lookups, formatted summaries, that economy-tier models handle indistinguishably from flagship models. Sending all traffic to the flagship is a structural waste; sending all traffic to the economy tier degrades quality on the hard subset. Routing recovers the Pareto frontier.
 
-The empirical result (Ong et al., 2024, RouteLLM; Šakota et al., 2024, FORC; Hu et al., 2024, RouterBench) is that learned routers can match flagship-only quality at 30–80% of the cost on representative production workloads.
+The empirical result (Ong et al., 2024, RouteLLM; Šakota et al., 2024, FORC; Hu et al., 2024, RouterBench) is that learned routers can match flagship-only quality at 30-80% of the cost on representative production workloads.
 
 ## Routing Strategies
 

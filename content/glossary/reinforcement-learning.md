@@ -38,6 +38,6 @@ RL is harder to deploy than supervised learning. It requires a well-defined rewa
 ## Sources
 
 - Sutton, R.S., & Barto, A.G. (2018). *Reinforcement Learning: An Introduction*, 2nd ed. MIT Press. (Standard RL textbook; free online at incompleteideas.net.)
-- Mnih, V., et al. (2015). Human-level control through deep reinforcement learning. *Nature, 518*, 529–533. (DQN; landmark deep RL result on Atari games.)
+- Mnih, V., et al. (2015). Human-level control through deep reinforcement learning. *Nature, 518*, 529-533. (DQN; landmark deep RL result on Atari games.)
 - Schulman, J., et al. (2017). Proximal policy optimization algorithms. *arXiv:1707.06347*. (PPO; de facto standard policy gradient algorithm for RLHF.)
 - Ouyang, L., et al. (2022). Training language models to follow instructions with human feedback. *NeurIPS 2022*. (RLHF applied to LLMs; InstructGPT.)

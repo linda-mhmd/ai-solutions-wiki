@@ -1,13 +1,13 @@
 ---
 title: "Choosing Where to Deploy Your App"
-description: "Static sites, SPAs, SSR apps, APIs, workers, scheduled jobs—different workloads need different platforms. Learn how to match your app type to the right deployment option."
+description: "Static sites, SPAs, SSR apps, APIs, workers, scheduled jobs - different workloads need different platforms. Learn how to match your app type to the right deployment option."
 date: 2026-07-30
 level: 1
 categories: [Basics]
 tags: [beginner, deployment, hosting, architecture, workloads, serverless, containers]
 faqs:
   - question: "Can I deploy everything to one platform?"
-    answer: "Often yes. Platforms like Railway, Render, and Fly.io can handle frontends, APIs, databases, and workers together. But sometimes splitting makes sense—e.g., frontend on Vercel, API on Railway."
+    answer: "Often yes. Platforms like Railway, Render, and Fly.io can handle frontends, APIs, databases, and workers together. But sometimes splitting makes sense - e.g., frontend on Vercel, API on Railway."
   - question: "What if I choose wrong?"
     answer: "You can migrate. Start simple and move when you hit real limitations. Premature optimization of infrastructure is as wasteful as premature code optimization."
   - question: "Should I use serverless or containers?"
@@ -122,7 +122,7 @@ Budget constrained? → Render
 ```
 
 ### Cost considerations
-SSR costs more than static—servers run for each request:
+SSR costs more than static - servers run for each request:
 - **Serverless**: Pay per request (can spike)
 - **Containers**: Predictable monthly cost
 - **Edge**: Fast but can be expensive

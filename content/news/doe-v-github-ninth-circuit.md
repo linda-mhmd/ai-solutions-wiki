@@ -32,7 +32,7 @@ The other panel members were Senior Circuit Judge Sidney Thomas and District Jud
 
 ## Why it matters for builders
 
-**Code-generation tools get a clearer defence against one kind of claim.** A DMCA §1202(b) claim based only on an AI output lacking attribution now needs facts showing CMI was actually removed from a copy of an existing work. For tools that generate code probabilistically, that is a significant bar, and it takes the risk of $2,500–$25,000 per-violation statutory damages off the table for this theory.
+**Code-generation tools get a clearer defence against one kind of claim.** A DMCA §1202(b) claim based only on an AI output lacking attribution now needs facts showing CMI was actually removed from a copy of an existing work. For tools that generate code probabilistically, that is a significant bar, and it takes the risk of $2,500-$25,000 per-violation statutory damages off the table for this theory.
 
 **It is not a win on copyright generally.** The court said nothing about whether substantially similar output infringes. It did not decide the training-stage CMI theory, and it made it *easier* to bring §1202(b) claims where copying is substantial but not exact. Gibson Dunn's advice to AI developers is to understand what CMI accompanies source materials, whether collection or preprocessing steps remove it, and what happens to the resulting copies. That means pipelines that strip licence headers during data preparation are the place to look.
 

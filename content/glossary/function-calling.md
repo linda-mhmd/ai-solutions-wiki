@@ -71,7 +71,7 @@ Production function-calling systems exhibit several recurring failure modes that
 - **Premature termination.** The model returns a natural-language answer without calling the required tool. Mitigation: tool-choice forcing (`tool_choice: "required"` in OpenAI; `tool_choice: {"type": "tool"}` in Anthropic).
 - **Tool-loop divergence.** The model repeatedly calls the same tool with the same arguments. Mitigation: deduplicate identical calls in the agent loop and bound the iteration count.
 
-Patil et al. (2023), Gorilla, quantified the gap between closed and open models on tool-use benchmarks; subsequent work (Berkeley Function Calling Leaderboard, 2024–2025) tracks this systematically.
+Patil et al. (2023), Gorilla, quantified the gap between closed and open models on tool-use benchmarks; subsequent work (Berkeley Function Calling Leaderboard, 2024-2025) tracks this systematically.
 
 ## Function Calling vs Alternatives
 

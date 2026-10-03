@@ -20,7 +20,7 @@ On February 15, 2024, Google announced Gemini 1.5, the next generation of its AI
 
 Gemini 1.5 Pro was a mid-size multimodal model that performed at a similar level to Gemini 1.0 Ultra (Google's largest model) while using less compute. The model was built on a Mixture-of-Experts (MoE) architecture, where different "expert" neural networks activate depending on the type of input. This specialization made the model more efficient than traditional Transformer architectures.
 
-Google CEO Sundar Pichai wrote in his announcement: "We've been able to significantly increase the amount of information our models can process — running up to 1 million tokens consistently, achieving the longest context window of any large-scale foundation model yet."
+Google CEO Sundar Pichai wrote in his announcement: "We've been able to significantly increase the amount of information our models can process - running up to 1 million tokens consistently, achieving the longest context window of any large-scale foundation model yet."
 
 The research team had also successfully tested the model at 10 million tokens internally.
 

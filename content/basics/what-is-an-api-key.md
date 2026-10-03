@@ -7,7 +7,7 @@ categories: [Basics]
 tags: [beginner, api, security, secrets, authentication]
 faqs:
   - question: "I accidentally pushed my API key to GitHub. What do I do?"
-    answer: "Revoke it immediately. Go to your provider's dashboard (OpenAI, Anthropic, Stripe, whatever) and delete that key. Generate a new one. The old key is compromised the moment it hits a public repo—bots scan GitHub constantly for leaked keys."
+    answer: "Revoke it immediately. Go to your provider's dashboard (OpenAI, Anthropic, Stripe, whatever) and delete that key. Generate a new one. The old key is compromised the moment it hits a public repo - bots scan GitHub constantly for leaked keys."
   - question: "Can I use the same API key for my local development and production app?"
     answer: "You can, but you shouldn't. Use separate keys for development and production. That way if your dev key leaks, your production app keeps running. Most providers let you create multiple keys for free."
   - question: "Why doesn't my API key work?"
@@ -80,7 +80,7 @@ See [What is an environment variable?](/basics/what-is-an-environment-variable/)
 ## What happens if your key leaks
 
 **Scenario 1: AI API key (OpenAI, Anthropic)**
-Someone uses your key to make API calls. You get billed. They might run up thousands of dollars in usage before you notice. Most providers now have spending limits you can set—do this immediately.
+Someone uses your key to make API calls. You get billed. They might run up thousands of dollars in usage before you notice. Most providers now have spending limits you can set - do this immediately.
 
 **Scenario 2: Payment API key (Stripe)**
 This is worse. Depending on which key leaked (publishable vs secret), they might be able to view your customer data, issue refunds, or access sensitive financial information.

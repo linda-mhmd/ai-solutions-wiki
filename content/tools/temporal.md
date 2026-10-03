@@ -36,18 +36,18 @@ Temporal is the open-source alternative to AWS Step Functions, Azure Durable Fun
 An AI agent's own process is not a safe place to hold multi-step state. If the
 agent crashes, is killed for a context-window limit, or the host process dies
 mid-task, whatever it was doing is normally gone with no recovery. Temporal's
-Event History mechanism — every step, decision, and outcome persisted so a new
-Worker can replay up to the last known point and continue — solves this
+Event History mechanism - every step, decision, and outcome persisted so a new
+Worker can replay up to the last known point and continue - solves this
 independent of the agent's own lifetime, the same way it does for any other
 long-running workflow.
 
 Temporal shipped an official OpenAI Agents SDK integration for exactly this.
 Announced in Public Preview on 30 July 2025, it reached **General Availability
-on 23 March 2026** for the Python SDK. The orchestration logic — the agent
-loop, tool selection, and handoffs — runs inside a Temporal **Workflow**; each
+on 23 March 2026** for the Python SDK. The orchestration logic - the agent
+loop, tool selection, and handoffs - runs inside a Temporal **Workflow**; each
 individual model call executes as a Temporal **Activity**. Because Activity
 results are recorded in Event History as part of Temporal's normal mechanism,
-a Worker restart does not re-invoke the model for steps already completed — it
+a Worker restart does not re-invoke the model for steps already completed - it
 resumes from the last recorded Activity result, the same guarantee any
 Temporal Activity gets. An OpenAI Agents SDK sandbox integration entered its
 own Public Preview on 16 April 2026, extending the pattern to sandboxed tool

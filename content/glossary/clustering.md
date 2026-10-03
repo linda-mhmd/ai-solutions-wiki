@@ -39,8 +39,8 @@ Choosing K (the number of clusters) is the hardest part. Use the elbow method, s
 
 ## Sources
 
-- Lloyd, S.P. (1982). Least squares quantization in PCM. *IEEE Transactions on Information Theory, 28*(2), 129–137. (K-means algorithm; original publication.)
-- MacQueen, J.B. (1967). Some methods for classification and analysis of multivariate observations. *5th Berkeley Symposium on Mathematical Statistics and Probability*, 281–297. (K-means early formulation.)
+- Lloyd, S.P. (1982). Least squares quantization in PCM. *IEEE Transactions on Information Theory, 28*(2), 129-137. (K-means algorithm; original publication.)
+- MacQueen, J.B. (1967). Some methods for classification and analysis of multivariate observations. *5th Berkeley Symposium on Mathematical Statistics and Probability*, 281-297. (K-means early formulation.)
 - Ester, M., et al. (1996). A density-based algorithm for discovering clusters in large spatial databases with noise. *KDD 1996*. (DBSCAN original paper.)
-- Rousseeuw, P.J. (1987). Silhouettes: A graphical aid to the interpretation and validation of cluster analysis. *Journal of Computational and Applied Mathematics, 20*, 53–65. (Silhouette coefficient for cluster validation.)
-- Dempster, A.P., Laird, N.M., & Rubin, D.B. (1977). Maximum likelihood from incomplete data via the EM algorithm. *Journal of the Royal Statistical Society B, 39*(1), 1–38. (EM algorithm underlying Gaussian Mixture Models.)
+- Rousseeuw, P.J. (1987). Silhouettes: A graphical aid to the interpretation and validation of cluster analysis. *Journal of Computational and Applied Mathematics, 20*, 53-65. (Silhouette coefficient for cluster validation.)
+- Dempster, A.P., Laird, N.M., & Rubin, D.B. (1977). Maximum likelihood from incomplete data via the EM algorithm. *Journal of the Royal Statistical Society B, 39*(1), 1-38. (EM algorithm underlying Gaussian Mixture Models.)

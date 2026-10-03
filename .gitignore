@@ -21,8 +21,11 @@ node_modules/
 .kiro/
 .idea/
 
-# Claude Code session and project files
-.claude/
+# Claude Code session and project files. The skills directory is committed on
+# purpose: .claude/skills/weekly-wiki-update is what the scheduled workflow
+# runs, so it has to be in the repository the runner checks out.
+.claude/*
+!.claude/skills/
 CLAUDE.md
 
 # Scripts with sensitive operations
@@ -37,3 +40,10 @@ ai-solutions (1).zip
 .playwright-mcp/
 perplexity-snapshot.md
 blog-screenshots/ai-solutions-wiki-post.html
+
+# Review and session leftovers: screenshots, superseded drafts and setup
+# scripts that never belong in the repository
+Claude outputs/
+/weekly-update.yml
+docs/weekly-update.md
+ci/bootstrap-preview-repo.sh

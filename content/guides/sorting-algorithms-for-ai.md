@@ -37,7 +37,7 @@ For AI applications, the choice between these matters less than understanding th
 
 ## Real-World Application: Multi-Signal Video Scoring
 
-A representative example is an AI video pipeline that analyzes hours of footage to identify the best 3–5 second clips for highlight compilations. The core challenge is algorithmic: given thousands of candidate clips, identify the most engaging ones efficiently.
+A representative example is an AI video pipeline that analyzes hours of footage to identify the best 3-5 second clips for highlight compilations. The core challenge is algorithmic: given thousands of candidate clips, identify the most engaging ones efficiently.
 
 The pipeline uses a multi-signal scoring system:
 
@@ -92,5 +92,5 @@ top_indices = np.argpartition(scores, -5)[-5:]  # O(n) partial sort for top-k
 
 - Cormen, T. H., Leiserson, C. E., Rivest, R. L., and Stein, C. *Introduction to Algorithms* (4th ed., 2022). MIT Press. https://mitpress.mit.edu/9780262046305/, The definitive reference for algorithm complexity analysis, sorting, and search data structures.
 - Peters, T. "Timsort." CPython source and original description (2002). https://bugs.python.org/issue4585, Original description of the algorithm behind Python's `sorted()`.
-- Malkov, Y. A., and Yashunin, D. A. "Efficient and Robust Approximate Nearest Neighbor Search Using Hierarchical Navigable Small World Graphs." *IEEE Transactions on Pattern Analysis and Machine Intelligence* 42, no. 4 (2020): 824–836. https://arxiv.org/abs/1603.09320, The HNSW algorithm used in production vector databases for approximate nearest-neighbor search.
+- Malkov, Y. A., and Yashunin, D. A. "Efficient and Robust Approximate Nearest Neighbor Search Using Hierarchical Navigable Small World Graphs." *IEEE Transactions on Pattern Analysis and Machine Intelligence* 42, no. 4 (2020): 824-836. https://arxiv.org/abs/1603.09320, The HNSW algorithm used in production vector databases for approximate nearest-neighbor search.
 - Scaled Agile Framework. "Weighted Shortest Job First (WSJF)." https://scaledagileframework.com/wsjf/, The prioritization model referenced for multi-signal composite scoring.

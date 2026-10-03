@@ -11,7 +11,7 @@ faqs:
   - question: "Can I use Git without GitHub?"
     answer: "Yes. Git works entirely on your computer with no internet. You can commit, branch, merge, and view history offline. GitHub is just one place to store and share repositories. Many developers use Git locally for months before pushing anywhere."
   - question: "Which should I learn first?"
-    answer: "Learn them together in practice, but understand the distinction. Start with GitHub's web interface to create repos and see changes visually. Then learn Git commands for the actions GitHub can't do—or for when you need to fix something that went wrong."
+    answer: "Learn them together in practice, but understand the distinction. Start with GitHub's web interface to create repos and see changes visually. Then learn Git commands for the actions GitHub can't do - or for when you need to fix something that went wrong."
 last_updated: 2026-07-30
 ---
 
@@ -38,7 +38,7 @@ Think of it like this:
 
 You can have MP4 files without YouTube. You can have documents without Google Drive. You can have Git repositories without GitHub.
 
-YouTube doesn't create videos—it hosts them. GitHub doesn't version your code—it hosts repositories that Git manages.
+YouTube doesn't create videos - it hosts them. GitHub doesn't version your code - it hosts repositories that Git manages.
 
 ## Why does this confusion exist?
 
@@ -123,7 +123,7 @@ For most vibecoders, GitHub is the right choice. It's where the community is, wh
 
 **2018**: Microsoft acquires GitHub for $7.5 billion. Many developers worried, but GitHub has continued operating independently with increased investment.
 
-**Today**: GitHub has 100+ million developers. Git is the standard—no serious alternative exists for version control.
+**Today**: GitHub has 100+ million developers. Git is the standard - no serious alternative exists for version control.
 
 Git was Torvalds' "side project" to support Linux. It became one of the most important tools in software development.
 

@@ -37,6 +37,6 @@ Start small: terminate a single container in a non-production environment and ve
 
 ## Sources
 
-- Basiri, A., et al. (2016). Chaos engineering. *IEEE Software, 33*(3), 35–41. (Netflix; foundational paper that defined and named chaos engineering as a discipline.)
+- Basiri, A., et al. (2016). Chaos engineering. *IEEE Software, 33*(3), 35-41. (Netflix; foundational paper that defined and named chaos engineering as a discipline.)
 - Nygard, M. T. (2018). *Release It!: Design and Deploy Production-Ready Software* (2nd ed.). Pragmatic Bookshelf. (Stability patterns including circuit breakers, timeouts, and bulkheads that chaos engineering validates.)
 - Principles of Chaos Engineering. (2019). *Principles of chaos engineering*. principlesofchaos.org. (Community-authored specification defining steady-state hypothesis and experiment methodology.)

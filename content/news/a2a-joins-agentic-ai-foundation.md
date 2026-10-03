@@ -26,7 +26,7 @@ A2A's acceptance as a Growth Stage project puts the two halves of the agent inte
 | Agent → tools and data | **MCP** | How does one agent reach a database, an API, a file? |
 | Agent → agent | **A2A** | How do agents from different vendors discover each other and delegate work? |
 
-A2A itself is unchanged: HTTP and JSON messaging, **Agent Cards** as the capability-description format, TLS and OIDC for security, Apache 2.0. It is governed by a technical steering committee drawn from eight companies. Reporting puts AAIF membership growth from fewer than 40 at launch to more than 250 by August 2026 — a figure worth treating as approximate, since foundation membership tiers are counted differently by different sources.
+A2A itself is unchanged: HTTP and JSON messaging, **Agent Cards** as the capability-description format, TLS and OIDC for security, Apache 2.0. It is governed by a technical steering committee drawn from eight companies. Reporting puts AAIF membership growth from fewer than 40 at launch to more than 250 by August 2026 - a figure worth treating as approximate, since foundation membership tiers are counted differently by different sources.
 
 ## Why it matters for builders
 
@@ -34,7 +34,7 @@ A2A itself is unchanged: HTTP and JSON messaging, **Agent Cards** as the capabil
 
 **Neutral governance is the substantive change, not the technical one.** Nothing about A2A's wire format changed on 17 August. What changed is that Google no longer sits at the top of its escalation path, and the same is true of Anthropic and MCP. For anyone whose procurement or architecture review asks "what happens if the vendor deprecates this," a Linux Foundation project with a multi-company TSC is a materially better answer than a vendor specification.
 
-**One governance body is also one concentration point.** Consolidation reduces fragmentation and increases the consequence of the foundation's decisions. The security record here is not clean — MCP accumulated [more than 40 CVEs and a tool-poisoning attack class](/news/mcp-security-vulnerabilities-2026/) during its first year of rapid adoption, and A2A's cross-organisational trust model is a strictly harder problem than MCP's. Watch what the AAIF does about authorization and agent identity across the two specs; that is where the next round of vulnerabilities will be.
+**One governance body is also one concentration point.** Consolidation reduces fragmentation and increases the consequence of the foundation's decisions. The security record here is not clean - MCP accumulated [more than 40 CVEs and a tool-poisoning attack class](/news/mcp-security-vulnerabilities-2026/) during its first year of rapid adoption, and A2A's cross-organisational trust model is a strictly harder problem than MCP's. Watch what the AAIF does about authorization and agent identity across the two specs; that is where the next round of vulnerabilities will be.
 
 **Anthropic's [Model Hardware Standard](/news/anthropic-model-hardware-standard/), previewed ten days later, uses MCP as one of its transports.** The stack is stratifying: hardware under tools under agents, each with its own spec, increasingly under one roof.
 

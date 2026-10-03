@@ -124,7 +124,7 @@ Most people and applications use inference via APIs. Only a handful of labs trai
     <span class="bz-arch-chip">Trillions of tokens</span>
     <span class="bz-arch-chip">Thousands of GPUs</span>
     <span class="bz-arch-chip">Weeks → months</span>
-    <span class="bz-arch-chip-note">Done by AI labs (Anthropic, OpenAI, Google). Cost: $50M–$500M+</span>
+    <span class="bz-arch-chip-note">Done by AI labs (Anthropic, OpenAI, Google). Cost: $50M - $500M+</span>
   </div>
 </div>
 <div class="bz-arch-layer">

@@ -17,7 +17,7 @@ On **27 August 2026** Anthropic published a research preview of the **Model Hard
 
 ## What happened
 
-MHS defines **drivers**: a device exposes itself in a standard format, described by natural-language tags covering the machine's characteristics and its safety limits, and driven through simple primitives — read, write. Control reaches the device through three mechanisms Anthropic already ships: the Model Context Protocol, command-line interfaces, and code files exposed as APIs. An agent can operate multiple instruments in parallel.
+MHS defines **drivers**: a device exposes itself in a standard format, described by natural-language tags covering the machine's characteristics and its safety limits, and driven through simple primitives - read, write. Control reaches the device through three mechanisms Anthropic already ships: the Model Context Protocol, command-line interfaces, and code files exposed as APIs. An agent can operate multiple instruments in parallel.
 
 The preview is limited, and the partner list is specific. Research and industry partners include **Genentech**, the **University of Washington** Baker and Pinglay labs, **Carnegie Mellon University**, **HHMI Janelia Research Campus**, **QuEra Computing**, and **Tetsuwan Scientific**. Hardware and platform vendors include **AWS, Automata, Danaher, Doosan Robotics, MBF Bioscience, QIAGEN, Tecan**, and **Universal Robots**. The presence of the instrument makers matters more than the labs: a hardware standard without vendor drivers is a proposal, not a standard.
 
@@ -28,15 +28,15 @@ The preview is limited, and the partner list is specific. Research and industry 
 | QuEra Computing | Laser stabilisation recovery on a quantum computer | success rate **58% → 99.3%**; recovery time **150s → 6s** |
 | Carnegie Mellon | Serial dilution experiment | **8 hours** versus weeks; **R² > 0.98** |
 | Genentech | Liquid-handling flow-rate optimisation | **0.016 RMSE** for water, tuned autonomously |
-| Tetsuwan Scientific | Transfer precision prediction | **12–17%** more accurate than manufacturer specifications |
+| Tetsuwan Scientific | Transfer precision prediction | **12-17%** more accurate than manufacturer specifications |
 
-The QuEra number is the one to sit with. Laser recovery is a narrow, well-instrumented, tightly-bounded control problem with a fast feedback signal — close to the ideal case for this approach. Read the table as evidence that agents do well on repetitive calibration and optimisation loops with crisp measurement, not as evidence that they run laboratories.
+The QuEra number is the one to sit with. Laser recovery is a narrow, well-instrumented, tightly-bounded control problem with a fast feedback signal - close to the ideal case for this approach. Read the table as evidence that agents do well on repetitive calibration and optimisation loops with crisp measurement, not as evidence that they run laboratories.
 
 ## The safety framing
 
 Anthropic is unusually direct about the limits. From the announcement: **"Claude learns about the physical world through text and images, meaning its spatial and physical reasoning have limitations."** That is a real statement about a model driving machinery that can break, spill, or injure.
 
-The mitigation is in the standard rather than the model. MHS enforces **device-level safety limits**, and the described failure modes it blocks before hardware moves are mundane and physical: a missing plate, a rotated plate, a disconnected device. This is the correct place to put the constraint — in the driver, not in the prompt — because a limit the model could reason its way past is not a limit.
+The mitigation is in the standard rather than the model. MHS enforces **device-level safety limits**, and the described failure modes it blocks before hardware moves are mundane and physical: a missing plate, a rotated plate, a disconnected device. This is the correct place to put the constraint - in the driver, not in the prompt - because a limit the model could reason its way past is not a limit.
 
 Anthropic frames the research preview itself as the safety mechanism: it is using the restricted rollout to develop safety evaluations and best practice for AI systems operating physical equipment, and says it will publish those findings **ahead of making the standard open source**.
 
@@ -44,9 +44,9 @@ Anthropic frames the research preview itself as the safety mechanism: it is usin
 
 **This is the same architectural bet as MCP, one layer down.** Anthropic's pattern is now legible: define a thin, boring interface; get vendors to implement it; let capability arrive through the model rather than the protocol. MCP went from Anthropic specification to a [Linux Foundation project under the AAIF](/news/a2a-joins-agentic-ai-foundation/) in about a year. If MHS follows that path, the driver ecosystem is the thing worth tracking, not the spec.
 
-**It also inherits MCP's security shape.** A driver's natural-language tags are model-read input describing a machine's capabilities and safety limits. That is structurally the same surface as an MCP tool description — the surface that produced [tool poisoning](/news/mcp-security-vulnerabilities-2026/). The consequence of a poisoned description here is not a leaked API key; it is a physical device moving. Anyone building on MHS should treat driver metadata as untrusted input from day one and enforce limits in hardware or firmware, not in text. See [prompt injection](/glossary/prompt-injection/) and [AI supply chain security](/patterns/ai-supply-chain-security/).
+**It also inherits MCP's security shape.** A driver's natural-language tags are model-read input describing a machine's capabilities and safety limits. That is structurally the same surface as an MCP tool description - the surface that produced [tool poisoning](/news/mcp-security-vulnerabilities-2026/). The consequence of a poisoned description here is not a leaked API key; it is a physical device moving. Anyone building on MHS should treat driver metadata as untrusted input from day one and enforce limits in hardware or firmware, not in text. See [prompt injection](/glossary/prompt-injection/) and [AI supply chain security](/patterns/ai-supply-chain-security/).
 
-**The near-term value is unglamorous.** Calibration, dilution series, flow-rate tuning, plate handling: bounded loops with fast, numeric feedback that currently consume skilled human time. If you run a wet lab, a fab, or a production line, that is the shape of the first useful application — not autonomous experimental design.
+**The near-term value is unglamorous.** Calibration, dilution series, flow-rate tuning, plate handling: bounded loops with fast, numeric feedback that currently consume skilled human time. If you run a wet lab, a fab, or a production line, that is the shape of the first useful application - not autonomous experimental design.
 
 ## Sources
 

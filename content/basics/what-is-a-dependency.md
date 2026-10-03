@@ -9,14 +9,14 @@ faqs:
   - question: "Why does npm install download so many packages?"
     answer: "Your project depends on package A. Package A depends on packages B, C, D. Those depend on E, F, G, H... Dependencies have dependencies. It's turtles all the way down. A simple React app can easily have 500+ packages in node_modules."
   - question: "Why did my project stop working when I came back to it?"
-    answer: "Probably a dependency updated and broke something. Or you updated Node.js. Or a transitive dependency (a dependency of a dependency) changed. This is why lock files exist—to freeze exact versions."
+    answer: "Probably a dependency updated and broke something. Or you updated Node.js. Or a transitive dependency (a dependency of a dependency) changed. This is why lock files exist - to freeze exact versions."
   - question: "Should I commit node_modules to Git?"
     answer: "No. node_modules can contain hundreds of megabytes and thousands of files. Commit package.json and package-lock.json instead. Anyone can run 'npm install' to recreate node_modules from those files."
 last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-A dependency is a package of code that your project needs to work. When you `npm install react`, React becomes a dependency. You didn't write React, but your code won't work without it. Dependencies save you from reinventing the wheel—and introduce the risk that someone else's wheel breaks your car.
+A dependency is a package of code that your project needs to work. When you `npm install react`, React becomes a dependency. You didn't write React, but your code won't work without it. Dependencies save you from reinventing the wheel - and introduce the risk that someone else's wheel breaks your car.
 {{< /quickanswer >}}
 
 ## Why dependencies exist

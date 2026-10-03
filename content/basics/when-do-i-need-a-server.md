@@ -18,7 +18,7 @@ last_verified: 2026-09-25
 ---
 
 {{< quickanswer >}}
-You need a server when your app requires persistent processes, long-running tasks, websockets, or custom system-level access. For most vibecoder projects—landing pages, dashboards, AI wrappers, simple APIs—serverless platforms like Vercel or Netlify are enough. Only add server complexity when you hit a wall that serverless can't solve.
+You need a server when your app requires persistent processes, long-running tasks, websockets, or custom system-level access. For most vibecoder projects - landing pages, dashboards, AI wrappers, simple APIs - serverless platforms like Vercel or Netlify are enough. Only add server complexity when you hit a wall that serverless can't solve.
 {{< /quickanswer >}}
 
 ## The decision tree
@@ -113,7 +113,7 @@ But if you need true bidirectional websockets you control, you need a server.
 
 ### Cold starts
 
-Serverless functions "wake up" when called. The first request after idle time is slower—sometimes 1-5 seconds slower. This is a cold start.
+Serverless functions "wake up" when called. The first request after idle time is slower - sometimes 1-5 seconds slower. This is a cold start.
 
 For user-facing requests where latency matters, cold starts feel bad. A server that's always running doesn't have this problem.
 
@@ -135,7 +135,7 @@ Options:
 
 ### You need persistent connections
 
-A Discord bot, a Slack app with real-time features, a trading system that streams market data—these need processes that stay alive and connected.
+A Discord bot, a Slack app with real-time features, a trading system that streams market data - these need processes that stay alive and connected.
 
 ### You're running custom binaries
 
@@ -169,7 +169,7 @@ If you decide you need a server:
 | **DigitalOcean App Platform** | Low | Simple deployments |
 | **DigitalOcean Droplets** | Medium | Full control, SSH access |
 
-Railway and Render are the "Vercel of servers"—connect GitHub, deploy. You don't manage the OS, you just deploy your code or container.
+Railway and Render are the "Vercel of servers" - connect GitHub, deploy. You don't manage the OS, you just deploy your code or container.
 
 DigitalOcean Droplets give you a Linux machine you SSH into and configure yourself. More control, more responsibility.
 

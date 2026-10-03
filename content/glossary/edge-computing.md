@@ -39,7 +39,7 @@ The common pattern is a hybrid architecture: lightweight models run at the edge 
 
 ## Sources
 
-- Satyanarayanan, M. (2017). The emergence of edge computing. *Computer, 50*(1), 30–39. (Foundational paper defining edge computing and its relationship to cloud; coined "cloudlet" architecture.)
-- Shi, W., et al. (2016). Edge computing: Vision and challenges. *IEEE Internet of Things Journal, 3*(5), 637–646. (Widely cited survey establishing edge computing terminology and architecture principles.)
-- Li, H., Ota, K., & Dong, M. (2018). Learning IoT in edge: Deep learning for the Internet of Things with edge computing. *IEEE Network, 32*(1), 96–101. (Edge AI inference patterns; how deep learning is adapted for resource-constrained edge deployment.)
+- Satyanarayanan, M. (2017). The emergence of edge computing. *Computer, 50*(1), 30-39. (Foundational paper defining edge computing and its relationship to cloud; coined "cloudlet" architecture.)
+- Shi, W., et al. (2016). Edge computing: Vision and challenges. *IEEE Internet of Things Journal, 3*(5), 637-646. (Widely cited survey establishing edge computing terminology and architecture principles.)
+- Li, H., Ota, K., & Dong, M. (2018). Learning IoT in edge: Deep learning for the Internet of Things with edge computing. *IEEE Network, 32*(1), 96-101. (Edge AI inference patterns; how deep learning is adapted for resource-constrained edge deployment.)
 - AWS. *AWS Snow Family* (end-of-support notice, accessed 25 September 2026). [https://aws.amazon.com/snow/](https://aws.amazon.com/snow/)

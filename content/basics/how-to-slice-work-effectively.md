@@ -1,6 +1,6 @@
 ---
 title: "How to Slice Work Effectively"
-description: "Break big features into small, valuable pieces. Vertical slicing, MVP thinking, and why shipping small beats planning big—especially with AI development."
+description: "Break big features into small, valuable pieces. Vertical slicing, MVP thinking, and why shipping small beats planning big - especially with AI development."
 date: 2026-07-30
 level: 1
 categories: [Basics]
@@ -16,7 +16,7 @@ last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-Slicing means breaking a big feature into small pieces that each deliver value. The key is vertical slicing—each slice works end-to-end (UI to database), not horizontal layers (build all the UI, then all the API, then database). With AI building your code, small well-defined slices get implemented correctly; big ambiguous features don't.
+Slicing means breaking a big feature into small pieces that each deliver value. The key is vertical slicing - each slice works end-to-end (UI to database), not horizontal layers (build all the UI, then all the API, then database). With AI building your code, small well-defined slices get implemented correctly; big ambiguous features don't.
 {{< /quickanswer >}}
 
 ## Vertical vs horizontal slicing
@@ -61,7 +61,7 @@ Result: Working software every day.
 
 Ask: **"What's the smallest thing I can ship that someone can actually use?"**
 
-Not "use" as in "the code runs"—use as in "accomplishes something real."
+Not "use" as in "the code runs" - use as in "accomplishes something real."
 
 ### Example: Building a notes app
 

@@ -1,5 +1,5 @@
 ---
-title: "Nvidia Backstops $105B of OpenAI's Ohio Data Centre — $145B Less Than Reported"
+title: "Nvidia Backstops $105B of OpenAI's Ohio Data Centre - $145B Less Than Reported"
 description: "Nvidia disclosed a capped $105 billion aggregate payment obligation supporting an 8 GW OpenAI campus in Pike County, Ohio. The structure is a guarantee, not a purchase, and the final number came in far below July's reported $250 billion."
 date: 2026-08-18
 lastmod: 2026-09-02
@@ -13,7 +13,7 @@ related:
   - guides/scaling-ai-infrastructure
 ---
 
-On **18 August 2026** Nvidia disclosed, in an SEC filing accompanying the partnership announcement, an **aggregate payment obligation capped at $105 billion** supporting a new OpenAI data centre campus in Pike County, Ohio. Two details matter more than the headline number: the figure landed roughly **$145 billion below** what was reported as under consideration in July, and Nvidia is not buying the campus — it is guaranteeing someone else's payments on it.
+On **18 August 2026** Nvidia disclosed, in an SEC filing accompanying the partnership announcement, an **aggregate payment obligation capped at $105 billion** supporting a new OpenAI data centre campus in Pike County, Ohio. Two details matter more than the headline number: the figure landed roughly **$145 billion below** what was reported as under consideration in July, and Nvidia is not buying the campus - it is guaranteeing someone else's payments on it.
 
 ## What happened
 
@@ -40,7 +40,7 @@ That structure is the reason the number is scrutinised. It is the clearest insta
 
 The downward revision cuts both ways. Read charitably, it is discipline: a deal negotiated to a defensible size rather than a headline. Read sceptically, it is the market repricing a number that was floated when sentiment was warmer. Both readings are consistent with the facts on record.
 
-Note also the electricity. **9.2 GW of planned natural-gas generation** for a single campus is a power project with a data centre attached, not the reverse — and it is a fossil build-out, which sits awkwardly against most of the operators' own climate commitments.
+Note also the electricity. **9.2 GW of planned natural-gas generation** for a single campus is a power project with a data centre attached, not the reverse - and it is a fossil build-out, which sits awkwardly against most of the operators' own climate commitments.
 
 ## Why it matters for builders
 
@@ -48,7 +48,7 @@ You are not signing gigawatt leases, but three things follow for anyone budgetin
 
 **Capacity you can buy in 2026 was contracted in 2024.** The first 800 MW here lands in **2028**. Frontier training and inference capacity is a multi-year pipeline, and the reason your provider's rate limits move the way they do is upstream of any conversation you can have with your account team.
 
-**Price stability is now a financing question.** When inference pricing is set by vendors carrying long-dated, leveraged capacity commitments, per-token prices are not simply a function of model efficiency. Both directions of the August price moves — Google's expiring introductory rate on [Gemini 3.7 Flash](/news/gemini-3-7-flash/), Anthropic making [Sonnet 5's introductory price permanent](/news/claude-sonnet-5-pricing-permanent/) — are competitive decisions taken against these balance sheets. Budget with headroom and see [FinOps for AI](/guides/finops-for-ai/).
+**Price stability is now a financing question.** When inference pricing is set by vendors carrying long-dated, leveraged capacity commitments, per-token prices are not simply a function of model efficiency. Both directions of the August price moves - Google's expiring introductory rate on [Gemini 3.7 Flash](/news/gemini-3-7-flash/), Anthropic making [Sonnet 5's introductory price permanent](/news/claude-sonnet-5-pricing-permanent/) - are competitive decisions taken against these balance sheets. Budget with headroom and see [FinOps for AI](/guides/finops-for-ai/).
 
 **Concentration risk is structural, not hypothetical.** One vendor's credit now sits underneath a meaningful share of frontier compute. That is an argument for keeping a [multi-provider failover path](/patterns/multi-provider-llm-failover/) genuinely exercised rather than merely documented.
 

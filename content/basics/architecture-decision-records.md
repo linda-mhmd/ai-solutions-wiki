@@ -1,6 +1,6 @@
 ---
 title: "Architecture Decision Records"
-description: "Document the why behind technical choices. ADRs capture context, options considered, and reasoning—so future you (and your team) understands decisions."
+description: "Document the why behind technical choices. ADRs capture context, options considered, and reasoning - so future you (and your team) understands decisions."
 date: 2026-07-30
 level: 1
 categories: [Basics]
@@ -16,7 +16,7 @@ last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-Architecture Decision Records (ADRs) document significant technical decisions: what you decided, why you decided it, what alternatives you considered, and what context led to the choice. They're not bureaucracy—they're a gift to future you who will wonder "why did we do it this way?" Good ADRs make decisions defensible, onboarding easier, and changes less scary.
+Architecture Decision Records (ADRs) document significant technical decisions: what you decided, why you decided it, what alternatives you considered, and what context led to the choice. They're not bureaucracy - they're a gift to future you who will wonder "why did we do it this way?" Good ADRs make decisions defensible, onboarding easier, and changes less scary.
 {{< /quickanswer >}}
 
 ## Why document decisions?

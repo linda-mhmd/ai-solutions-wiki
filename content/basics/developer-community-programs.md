@@ -1,6 +1,6 @@
 ---
 title: "Developer Community Programs"
-description: "AWS Community Builders, GitHub Stars, Google Developer Experts, Microsoft MVPs—what these programs are, why they exist, and how to join them."
+description: "AWS Community Builders, GitHub Stars, Google Developer Experts, Microsoft MVPs - what these programs are, why they exist, and how to join them."
 date: 2026-07-30
 lastmod: 2026-09-25
 last_verified: 2026-09-25
@@ -9,7 +9,7 @@ categories: [Basics]
 tags: [community, aws, google, microsoft, github, developer-relations, advocacy]
 faqs:
   - question: "Are these programs just marketing?"
-    answer: "Partially, but not entirely. Companies benefit from community advocates, yes. But programs also provide real value: early access to products, networking, free credits, conference speaking opportunities. The relationship is symbiotic—both sides benefit."
+    answer: "Partially, but not entirely. Companies benefit from community advocates, yes. But programs also provide real value: early access to products, networking, free credits, conference speaking opportunities. The relationship is symbiotic - both sides benefit."
   - question: "How do I get accepted?"
     answer: "Most programs want demonstrated, public activity: blog posts, talks, open-source contributions, community leadership. Build a track record first, then apply. Quality matters more than quantity. Applications without evidence of community involvement rarely succeed."
   - question: "Is it worth the time commitment?"
@@ -119,7 +119,7 @@ You create content and build community around their technology. They give you re
 - Nomination-based (can self-nominate through contributions)
 - Renewed annually based on continued contribution
 
-**Commitment**: Sustained community contributions—12 months of activity considered for each renewal.
+**Commitment**: Sustained community contributions - 12 months of activity considered for each renewal.
 
 **Website**: [mvp.microsoft.com](https://mvp.microsoft.com/)
 

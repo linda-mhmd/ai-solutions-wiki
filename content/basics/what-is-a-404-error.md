@@ -1,6 +1,6 @@
 ---
 title: "What is a 404 Error?"
-description: "404 means 'page not found'—the server understood your request but couldn't find what you asked for. Here's why they happen and what the other HTTP status codes mean."
+description: "404 means 'page not found' - the server understood your request but couldn't find what you asked for. Here's why they happen and what the other HTTP status codes mean."
 date: 2026-07-30
 level: 1
 categories: [Basics]
@@ -9,14 +9,14 @@ faqs:
   - question: "Why is it called 404?"
     answer: "HTTP status codes are organized by category. 1xx = informational, 2xx = success, 3xx = redirect, 4xx = client error, 5xx = server error. 404 is the fourth code in the 4xx category, meaning 'Not Found'."
   - question: "Is a 404 error my fault or the server's fault?"
-    answer: "4xx errors are 'client errors'—something about your request was wrong (bad URL, unauthorized, etc.). 5xx errors are 'server errors'—the server broke trying to handle a valid request. 404 usually means you requested something that doesn't exist."
+    answer: "4xx errors are 'client errors' - something about your request was wrong (bad URL, unauthorized, etc.). 5xx errors are 'server errors' - the server broke trying to handle a valid request. 404 usually means you requested something that doesn't exist."
   - question: "How do I create a custom 404 page for my app?"
     answer: "Every framework handles this differently. In Next.js, create a `not-found.tsx` file. In Express, add a catch-all route at the end. The goal is showing users a helpful page instead of a generic error."
 last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-A 404 error means "Not Found"—the server received your request, understood what you wanted, but couldn't find it. Maybe the page was deleted, the URL has a typo, or the link is broken. It's the most famous HTTP status code because everyone has seen it.
+A 404 error means "Not Found" - the server received your request, understood what you wanted, but couldn't find it. Maybe the page was deleted, the URL has a typo, or the link is broken. It's the most famous HTTP status code because everyone has seen it.
 {{< /quickanswer >}}
 
 ## Why 404s happen
@@ -30,7 +30,7 @@ When you visit a URL, your browser asks a server: "Give me this page." The serve
 - The site restructured and old URLs no longer work
 - You're trying to access a resource that requires different permissions
 
-The server isn't broken—it just can't find what you asked for.
+The server isn't broken - it just can't find what you asked for.
 
 ## HTTP status codes explained
 
@@ -82,7 +82,7 @@ The server isn't broken—it just can't find what you asked for.
 
 **429**: You hit the rate limit. Slow down, implement backoff, or upgrade your plan.
 
-**500**: The server broke. Usually not your fault—try again later or check the service's status page.
+**500**: The server broke. Usually not your fault - try again later or check the service's status page.
 
 ## Debugging API errors
 
@@ -189,7 +189,7 @@ When something isn't working:
 3. Refresh the page or retry the action
 4. Look at the status codes
 
-This shows you exactly what's happening at the HTTP level—which requests succeeded, which failed, and why.
+This shows you exactly what's happening at the HTTP level - which requests succeeded, which failed, and why.
 
 ## Further reading
 

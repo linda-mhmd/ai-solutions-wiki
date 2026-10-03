@@ -58,7 +58,7 @@ All three services offer similar accuracy on common tasks. Choose based on your 
 
 ## Sources
 
-- LeCun, Y., Bottou, L., Bengio, Y., & Haffner, P. (1998). Gradient-based learning applied to document recognition. *Proceedings of the IEEE, 86*(11), 2278–2324. (LeNet; foundational CNN paper for image recognition.)
+- LeCun, Y., Bottou, L., Bengio, Y., & Haffner, P. (1998). Gradient-based learning applied to document recognition. *Proceedings of the IEEE, 86*(11), 2278-2324. (LeNet; foundational CNN paper for image recognition.)
 - Krizhevsky, A., Sutskever, I., & Hinton, G.E. (2012). ImageNet classification with deep convolutional neural networks. *Advances in Neural Information Processing Systems 25*. (AlexNet; demonstrated deep CNN superiority on large-scale image classification.)
 - Simonyan, K., & Zisserman, A. (2015). Very deep convolutional networks for large-scale image recognition. *ICLR 2015*. (VGGNet; depth vs. performance analysis.)
 - He, K., et al. (2016). Deep residual learning for image recognition. *CVPR 2016*. (ResNet; introduced skip connections enabling much deeper networks.)

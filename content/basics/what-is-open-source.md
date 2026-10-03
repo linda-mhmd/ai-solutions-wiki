@@ -9,19 +9,19 @@ faqs:
   - question: "Is open source free?"
     answer: "Free as in freedom, not always free as in beer. You can use most open-source software without paying, but 'open source' really means you have freedom to view, modify, and distribute the code. Some companies build businesses on open-source software through support, hosting, or premium features."
   - question: "Can I use open source in my commercial product?"
-    answer: "Usually yes, but it depends on the license. MIT and Apache licenses are very permissive—do almost anything. GPL requires you to share your modifications. Always check the license. When in doubt, stick to MIT/Apache licensed dependencies."
+    answer: "Usually yes, but it depends on the license. MIT and Apache licenses are very permissive - do almost anything. GPL requires you to share your modifications. Always check the license. When in doubt, stick to MIT/Apache licensed dependencies."
   - question: "Why would anyone give away their code for free?"
     answer: "Many reasons: building reputation, solving a shared problem, believing in open collaboration, employer sponsors it, building community around a product, or simply enjoying the work. The Linux kernel is maintained by thousands of contributors, many paid by companies that depend on it."
 last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-Open source software has publicly available source code that anyone can view, use, modify, and distribute. This isn't just about price—it's about freedom and collaboration. Linux, Python, React, Kubernetes, and most of the internet's infrastructure are open source. A license defines what you can do with the code. A community maintains and evolves it.
+Open source software has publicly available source code that anyone can view, use, modify, and distribute. This isn't just about price - it's about freedom and collaboration. Linux, Python, React, Kubernetes, and most of the internet's infrastructure are open source. A license defines what you can do with the code. A community maintains and evolves it.
 {{< /quickanswer >}}
 
 ## The core idea
 
-When you download an app, you usually get compiled code—the machine-readable version. You can run it, but you can't see how it works or change it.
+When you download an app, you usually get compiled code - the machine-readable version. You can run it, but you can't see how it works or change it.
 
 Open source means:
 - The **source code** is publicly available
@@ -77,11 +77,11 @@ A license is the legal document that defines permissions. No license = all right
 **GPL (GNU General Public License)**
 - Must release your changes under GPL
 - If you distribute modified GPL code, recipients get the same freedoms
-- "Viral" license—derived works must also be GPL
+- "Viral" license - derived works must also be GPL
 - Used by: Linux kernel, GCC, WordPress
 
 **LGPL (Lesser GPL)**
-- Weaker copyleft—linking is allowed without sharing your code
+- Weaker copyleft - linking is allowed without sharing your code
 - Used by: Many libraries
 
 **AGPL (Affero GPL)**
@@ -89,7 +89,7 @@ A license is the legal document that defines permissions. No license = all right
 - If you run modified AGPL code as a service, you must share source
 - Used by: MongoDB (historically), some privacy-focused projects
 
-**What this means for you**: Be careful using GPL code in proprietary products. AGPL is especially strict—even running it as a SaaS may require sharing your code.
+**What this means for you**: Be careful using GPL code in proprietary products. AGPL is especially strict - even running it as a SaaS may require sharing your code.
 
 ### License compatibility
 
@@ -135,7 +135,7 @@ Anyone can contribute to most open-source projects:
 3. **Make changes** in a branch
 4. **Open a pull request** proposing your changes
 5. **Respond to feedback** from maintainers
-6. **Get merged** (or not—rejection is normal)
+6. **Get merged** (or not - rejection is normal)
 
 Contributions aren't just code:
 - Documentation improvements
@@ -170,7 +170,7 @@ Governance matters because it determines who decides the project's future.
 
 ### How projects sustain themselves
 
-**Volunteer labor**: Many projects run on donated time. This is fragile—maintainers burn out or move on.
+**Volunteer labor**: Many projects run on donated time. This is fragile - maintainers burn out or move on.
 
 **Corporate sponsorship**: Companies pay developers to work on open source. Google, Microsoft, Red Hat, and others employ many open-source contributors.
 

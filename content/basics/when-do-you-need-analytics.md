@@ -1,6 +1,6 @@
 ---
 title: "When Do You Need Analytics?"
-description: "Logs, metrics, analytics, observability—when does each become necessary, what do they cost, and how do you know you're ready for proper tooling?"
+description: "Logs, metrics, analytics, observability - when does each become necessary, what do they cost, and how do you know you're ready for proper tooling?"
 date: 2026-07-30
 level: 3
 categories: [Basics]
@@ -11,7 +11,7 @@ faqs:
   - question: "Can I just use console.log forever?"
     answer: "Until your first real debugging session in production with actual users, yes. After that, no. Console logs disappear when containers restart, aren't searchable, and don't correlate across services. You'll realize you need proper logging the first time something breaks and you can't figure out why."
   - question: "How much should I budget for observability?"
-    answer: "Early stage: $0-50/month (free tiers). Growth stage: $100-300/month. Scale: $500-2000/month. It's typically 5-15% of your infrastructure budget. The cost of NOT having it—hours of debugging, missed issues—usually exceeds the tooling cost."
+    answer: "Early stage: $0-50/month (free tiers). Growth stage: $100-300/month. Scale: $500-2000/month. It's typically 5-15% of your infrastructure budget. The cost of NOT having it - hours of debugging, missed issues - usually exceeds the tooling cost."
 last_updated: 2026-07-30
 ---
 

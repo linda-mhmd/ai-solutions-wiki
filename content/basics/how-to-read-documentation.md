@@ -181,7 +181,7 @@ Comprehensive but can be overwhelming. Has everything, organized by topic.
 
 Lists every function and parameter. Useful for looking up specifics, not for learning.
 
-Often generated from code comments—can be sparse on explanation.
+Often generated from code comments - can be sparse on explanation.
 
 ### Guides/Tutorials
 

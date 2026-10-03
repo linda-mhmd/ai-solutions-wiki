@@ -11,12 +11,12 @@ faqs:
   - question: "Why are so many tech events volunteer-run?"
     answer: "Historical culture, economics, and mission. Early tech communities were hobbyist-driven. Even now, many events exist to educate and connect, not profit. Volunteers care about the community and accept that professional production isn't worth the ticket price increase."
   - question: "Should I attend meetups if I'm a beginner?"
-    answer: "Yes. Most meetups welcome beginners. You'll learn, meet people, and discover opportunities. Don't worry about not knowing enough—everyone started somewhere. Just show up."
+    answer: "Yes. Most meetups welcome beginners. You'll learn, meet people, and discover opportunities. Don't worry about not knowing enough - everyone started somewhere. Just show up."
 last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-Tech meetups are regular local gatherings—typically free, often monthly—where developers learn and connect. Conferences are larger, multi-day events with talks, workshops, and networking. Both are often volunteer-run because tech culture values community contribution. Meetup.com dominates discovery, but alternatives like Luma, Eventbrite, and guild-specific platforms exist.
+Tech meetups are regular local gatherings - typically free, often monthly - where developers learn and connect. Conferences are larger, multi-day events with talks, workshops, and networking. Both are often volunteer-run because tech culture values community contribution. Meetup.com dominates discovery, but alternatives like Luma, Eventbrite, and guild-specific platforms exist.
 {{< /quickanswer >}}
 
 ## Meetups
@@ -371,7 +371,7 @@ If your company benefits from the tech community, sponsoring events is a good in
 
 Many developers stay home. They learn online, work remotely, and never meet their community.
 
-Showing up—even occasionally—provides:
+Showing up - even occasionally - provides:
 - **Serendipitous connections**: Jobs, collaborators, friends
 - **Unfiltered information**: Things people say in person that they don't write
 - **Motivation**: Energy from being around passionate people

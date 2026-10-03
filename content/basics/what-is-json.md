@@ -11,7 +11,7 @@ faqs:
   - question: "Why is JSON so popular?"
     answer: "It's human-readable (you can look at it and understand it), lightweight (not much extra formatting), and supported by every programming language. It hit the sweet spot between 'easy for humans' and 'easy for computers'."
   - question: "What's the difference between JSON and a JavaScript object?"
-    answer: "JSON is a text format—a string. A JavaScript object is actual code in memory. JSON has stricter rules: keys must be quoted, no trailing commas, no comments. You parse JSON to get an object; you stringify an object to get JSON."
+    answer: "JSON is a text format - a string. A JavaScript object is actual code in memory. JSON has stricter rules: keys must be quoted, no trailing commas, no comments. You parse JSON to get an object; you stringify an object to get JSON."
   - question: "Can JSON include functions or dates?"
     answer: "No. JSON only supports strings, numbers, booleans, null, arrays, and objects. Dates are typically sent as strings (like '2026-07-30') and parsed on the receiving end. Functions can't be represented in JSON at all."
 last_updated: 2026-07-30

@@ -7,11 +7,11 @@ categories: [Basics]
 tags: [microservices, architecture, monolith, api, distributed-systems, cloud-native]
 faqs:
   - question: "Should I start with microservices?"
-    answer: "Almost never. Start with a monolith. It's simpler to develop, deploy, and debug. Extract services later when you have clear reasons—scaling needs, team organization, or specific components that benefit from independence. Premature microservices cause more problems than they solve."
+    answer: "Almost never. Start with a monolith. It's simpler to develop, deploy, and debug. Extract services later when you have clear reasons - scaling needs, team organization, or specific components that benefit from independence. Premature microservices cause more problems than they solve."
   - question: "How many services is too many?"
     answer: "There's no fixed number, but complexity grows with service count. A 'microservice' that only one other service calls might not need to be separate. If you can't explain why something is a separate service, it probably shouldn't be."
   - question: "What's the difference between microservices and an API?"
-    answer: "An API is an interface—how you talk to something. A microservice is an architecture pattern—how you structure your application. Microservices expose APIs to communicate with each other. A monolith can also have APIs."
+    answer: "An API is an interface - how you talk to something. A microservice is an architecture pattern - how you structure your application. Microservices expose APIs to communicate with each other. A monolith can also have APIs."
 last_updated: 2026-07-30
 ---
 
@@ -314,7 +314,7 @@ Thousands of microservices. Pioneered many patterns (circuit breakers, chaos eng
 
 ### Amazon
 
-Famously moved from monolith to services. The "two-pizza team" rule—services small enough for teams that two pizzas can feed.
+Famously moved from monolith to services. The "two-pizza team" rule - services small enough for teams that two pizzas can feed.
 
 ### Spotify
 

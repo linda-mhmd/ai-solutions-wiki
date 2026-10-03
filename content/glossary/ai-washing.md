@@ -1,6 +1,6 @@
 ---
 title: "AI Washing"
-description: "When companies exaggerate or fabricate their use of artificial intelligence in marketing, investor communications, or product claims to capitalize on AI hype — the new greenwashing."
+description: "When companies exaggerate or fabricate their use of artificial intelligence in marketing, investor communications, or product claims to capitalize on AI hype - the new greenwashing."
 date: 2026-07-30
 lastmod: 2026-09-25
 last_verified: 2026-09-25
@@ -57,7 +57,7 @@ The FTC has pursued AI washing under its existing authority against unfair and d
 
 ([FTC, March 2026](https://www.ftc.gov/news-events/news/press-releases/2026/03/air-ai-its-owners-will-be-banned-marketing-business-opportunities-settle-ftc-charges-company-misled))
 
-**Cox Media Group "Active Listening" ($930,000, May 2026)**: The FTC required Cox Media Group and two affiliate companies to pay $930,000 for deceiving customers about an "AI-powered" marketing service that supposedly captured conversations from consumers' devices. The technology did not exist — the companies were reselling standard email marketing lists.
+**Cox Media Group "Active Listening" ($930,000, May 2026)**: The FTC required Cox Media Group and two affiliate companies to pay $930,000 for deceiving customers about an "AI-powered" marketing service that supposedly captured conversations from consumers' devices. The technology did not exist - the companies were reselling standard email marketing lists.
 
 ([FTC, May 2026](https://www.ftc.gov/news-events/news/press-releases/2026/05/ftc-require-cox-media-group-two-other-firms-pay-nearly-1-million-settle-charges-they-deceived))
 
@@ -100,7 +100,7 @@ AI washing enforcement is accelerating:
 - The FTC's July 2026 policy statement treats undisclosed AI modifications as potential consumer deception
 - The EU AI Act's Article 50 transparency obligations, which have applied since 2 August 2026, overlap with AI washing concerns (see [EU AI Act enforcement begins](/news/eu-ai-act-enforcement-begins-2026/))
 
-For any company making AI claims — especially to investors — the regulatory environment now assumes these claims will be verified.
+For any company making AI claims - especially to investors - the regulatory environment now assumes these claims will be verified.
 
 ## Sources
 

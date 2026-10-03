@@ -11,7 +11,7 @@ faqs:
   - question: "How do I test webhooks locally?"
     answer: "Use a tool like ngrok, localtunnel, or Stripe CLI. These create a public URL that tunnels to your localhost. The service sends the webhook to that URL, and it reaches your local server."
   - question: "What happens if my webhook endpoint is down?"
-    answer: "Most services retry failed webhook deliveries—typically with exponential backoff over hours or days. Stripe, for example, retries up to 3 days. But you should build your system to handle missed webhooks gracefully."
+    answer: "Most services retry failed webhook deliveries - typically with exponential backoff over hours or days. Stripe, for example, retries up to 3 days. But you should build your system to handle missed webhooks gracefully."
 last_updated: 2026-07-30
 ---
 
@@ -171,7 +171,7 @@ app.post('/api/webhooks/stripe', async (req, res) => {
 });
 ```
 
-**Handle duplicates**: Services may retry webhooks if they don't get a response. Your code should be idempotent—processing the same event twice shouldn't cause problems.
+**Handle duplicates**: Services may retry webhooks if they don't get a response. Your code should be idempotent - processing the same event twice shouldn't cause problems.
 
 ```javascript
 // Track processed events

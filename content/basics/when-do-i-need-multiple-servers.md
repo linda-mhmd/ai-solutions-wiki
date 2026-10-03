@@ -9,9 +9,9 @@ faqs:
   - question: "At what traffic level do I need multiple servers?"
     answer: "There's no magic number. A well-optimized app on a $20/month server can handle thousands of concurrent users. A poorly written one might struggle with 50. Monitor your CPU, memory, and response times. When you're consistently at 70-80% resource usage and response times are degrading, it's time to scale."
   - question: "Can I just get a bigger server instead?"
-    answer: "Yes, up to a point. 'Scaling up' (bigger server) is simpler than 'scaling out' (more servers). But there's a ceiling—you can't buy infinite CPU. And a single big server is still a single point of failure. Most production systems eventually need multiple servers for reliability even if not for capacity."
+    answer: "Yes, up to a point. 'Scaling up' (bigger server) is simpler than 'scaling out' (more servers). But there's a ceiling - you can't buy infinite CPU. And a single big server is still a single point of failure. Most production systems eventually need multiple servers for reliability even if not for capacity."
   - question: "Do I need to think about this for my side project?"
-    answer: "Probably not yet. Platforms like Vercel, Railway, and Render handle scaling for you. Focus on building something people want. Scale problems are good problems—they mean you have users. Don't prematurely optimize for traffic you don't have."
+    answer: "Probably not yet. Platforms like Vercel, Railway, and Render handle scaling for you. Focus on building something people want. Scale problems are good problems - they mean you have users. Don't prematurely optimize for traffic you don't have."
 last_updated: 2026-07-30
 ---
 
@@ -96,7 +96,7 @@ If user A logs in on Server 1, their session lives on Server 1. If the load bala
 **Solutions:**
 - Store sessions in a shared database (PostgreSQL, Redis)
 - Use stateless authentication (JWTs)
-- Use sticky sessions (same user always hits same server—but this defeats some benefits)
+- Use sticky sessions (same user always hits same server - but this defeats some benefits)
 
 ### File uploads
 
@@ -133,7 +133,7 @@ Good news: most modern platforms abstract this complexity.
 
 **Fly.io**: Deploy to multiple regions, specify instance count, they handle the rest.
 
-**Render**: Similar—choose instance count, they load balance.
+**Render**: Similar - choose instance count, they load balance.
 
 You still need to write stateless code (don't rely on local files or in-memory sessions), but you don't have to configure nginx or HAProxy.
 
@@ -162,7 +162,7 @@ Multiple servers cost more, obviously. But not always as much as you'd think:
 
 - 1 large server ($40/month) vs. 2 small servers ($10/month each) = same cost, better reliability
 - Pay-per-use serverless scales with actual traffic, potentially cheaper than always-on servers
-- Downtime has costs too—lost revenue, lost users, reputation damage
+- Downtime has costs too - lost revenue, lost users, reputation damage
 
 For a side project with no paying users, one server is fine. For a product with customers depending on it, redundancy is worth the cost.
 

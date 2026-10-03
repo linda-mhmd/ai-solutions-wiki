@@ -2,7 +2,7 @@
 #
 # These are hand-picked, not measured. The homepage labels them "Most looked up"
 # and "Start here" rather than "Trending", because nothing here is derived from
-# traffic data — claiming otherwise would be a label the page cannot back up.
+# traffic data - claiming otherwise would be a label the page cannot back up.
 #
 # If you ever want real trending, the options are a Plausible API call at build
 # time (needs an API key as a repo secret plus a fallback for build failures)

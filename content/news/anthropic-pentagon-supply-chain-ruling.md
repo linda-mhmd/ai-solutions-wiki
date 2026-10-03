@@ -21,7 +21,7 @@ The ruling is a significant win for Anthropic and it does not end the matter: a 
 
 Anthropic sued the Pentagon in **March 2026**, describing what it called an unlawful campaign of retaliation. The underlying dispute is about **usage policy, not capability**: Anthropic declines to permit Claude to be used for **fully autonomous weapons** or for **mass domestic surveillance**, and would not lift those restrictions for military use.
 
-The DoD responded by designating Anthropic a supply-chain risk — a label that, in federal procurement, functions as an effective bar on doing business across government, well beyond the specific programme in dispute. Reporting on the case notes the designation rested in part on characterisations of Claude's capabilities that the company disputes.
+The DoD responded by designating Anthropic a supply-chain risk - a label that, in federal procurement, functions as an effective bar on doing business across government, well beyond the specific programme in dispute. Reporting on the case notes the designation rested in part on characterisations of Claude's capabilities that the company disputes.
 
 Judge Lin's holdings, as reported:
 
@@ -31,7 +31,7 @@ Judge Lin's holdings, as reported:
 | Fifth Amendment | **Due process** violation |
 | Administrative Procedure Act | **Arbitrary and capricious** agency action |
 
-The First Amendment holding is the consequential one. It treats a company's published usage policy — its statement of what it will not allow its product to do — as protected expression that the government may not punish through procurement.
+The First Amendment holding is the consequential one. It treats a company's published usage policy - its statement of what it will not allow its product to do - as protected expression that the government may not punish through procurement.
 
 ## Why it matters for builders
 
@@ -39,9 +39,9 @@ The First Amendment holding is the consequential one. It treats a company's publ
 
 **Procurement designations are a policy instrument, and they are reviewable.** A supply-chain-risk label is not a conviction or a contract termination; it is an administrative act with sweeping commercial effect and, as this decision shows, thin procedural protection when misused. If you sell AI into government, the operative lesson is that the designation power exists, moves fast, and is contestable after the damage is done.
 
-**Vendor-restriction risk runs in both directions, and you should plan for both.** In 2026 alone, providers have restricted access on their own terms and governments have restricted providers — see [Anthropic's Fable Mythos US restriction](/news/anthropic-fable-mythos-us-restriction/) and [Fable 5 export controls being lifted](/news/fable-5-export-controls-lifted/). Whether the disruption originates with the vendor or the state, the mitigation is the same: know which of your workloads would survive losing a provider on short notice. [Preparing for AI provider restrictions](/guides/preparing-for-ai-provider-restrictions/) and [multi-provider LLM failover](/patterns/multi-provider-llm-failover/) cover the mechanics.
+**Vendor-restriction risk runs in both directions, and you should plan for both.** In 2026 alone, providers have restricted access on their own terms and governments have restricted providers - see [Anthropic's Fable Mythos US restriction](/news/anthropic-fable-mythos-us-restriction/) and [Fable 5 export controls being lifted](/news/fable-5-export-controls-lifted/). Whether the disruption originates with the vendor or the state, the mitigation is the same: know which of your workloads would survive losing a provider on short notice. [Preparing for AI provider restrictions](/guides/preparing-for-ai-provider-restrictions/) and [multi-provider LLM failover](/patterns/multi-provider-llm-failover/) cover the mechanics.
 
-**The dispute is not resolved.** Reporting indicates the DC litigation continues and that Anthropic technically remains designated until it concludes. Treat this as a first ruling in an ongoing matter, not a settled outcome — and note it sits inside the broader pattern of federal AI policy assertion documented in [the US preemption push](/news/us-ai-policy-preemption-2026/).
+**The dispute is not resolved.** Reporting indicates the DC litigation continues and that Anthropic technically remains designated until it concludes. Treat this as a first ruling in an ongoing matter, not a settled outcome - and note it sits inside the broader pattern of federal AI policy assertion documented in [the US preemption push](/news/us-ai-policy-preemption-2026/).
 
 ## Sources
 

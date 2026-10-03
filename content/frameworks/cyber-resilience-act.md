@@ -49,5 +49,5 @@ AI product companies must integrate security into the development lifecycle (sec
 
 ## Sources
 
-1. European Commission, "Cyber Resilience Act – Summary": [https://digital-strategy.ec.europa.eu/en/policies/cra-summary](https://digital-strategy.ec.europa.eu/en/policies/cra-summary)
+1. European Commission, "Cyber Resilience Act - Summary": [https://digital-strategy.ec.europa.eu/en/policies/cra-summary](https://digital-strategy.ec.europa.eu/en/policies/cra-summary)
 2. Regulation (EU) 2024/2847, EUR-Lex: [https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng](https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng)

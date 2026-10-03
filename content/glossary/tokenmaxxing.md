@@ -58,7 +58,7 @@ AI efficiency is becoming an engineering skill. Developers should think about to
 
 ## Further reading
 
-- [What is a token?](/basics/what-is-a-token/): Understanding the units being "maxxed" — what tokens are and why they cost money.
+- [What is a token?](/basics/what-is-a-token/): Understanding the units being "maxxed" - what tokens are and why they cost money.
 - [What is rate limiting?](/basics/what-is-rate-limiting/): How excessive token consumption also triggers rate limits.
 - [Context engineering](/glossary/context-engineering/): The skill of using tokens effectively rather than maximally.
 - [Model collapse](/glossary/model-collapse/): A systemic problem that excess AI usage can contribute to.

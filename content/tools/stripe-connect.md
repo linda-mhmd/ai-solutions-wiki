@@ -156,7 +156,7 @@ Stripe Connect pricing layers on top of Stripe's standard processing fees. As of
 - **Cross-border payouts**: from 0.25% of payout volume
 - **Stripe Tax** (for 1099/DAC7 filing): Priced separately per tax form filed
 
-For high-volume platforms, Stripe offers custom pricing negotiated directly. The economics work well for platforms taking 5–20% fees from sellers; at lower platform margins, Stripe's Connect fee becomes meaningful relative to your revenue.
+For high-volume platforms, Stripe offers custom pricing negotiated directly. The economics work well for platforms taking 5-20% fees from sellers; at lower platform margins, Stripe's Connect fee becomes meaningful relative to your revenue.
 
 ## The Stripe Dashboard for Marketplace Operators
 

@@ -1,13 +1,13 @@
 ---
 title: "What is a Build Process?"
-description: "Why 'npm run build' exists. Bundling, transpiling, and minifying—turning your source code into something browsers and servers can run."
+description: "Why 'npm run build' exists. Bundling, transpiling, and minifying - turning your source code into something browsers and servers can run."
 date: 2026-07-30
 level: 1
 categories: [Basics]
 tags: [beginner, build, bundling, webpack, deployment, javascript]
 faqs:
   - question: "Why can't browsers just run my code directly?"
-    answer: "Sometimes they can—simple HTML/CSS/JS works fine. But modern development uses things browsers don't understand: TypeScript, JSX, npm packages, CSS modules. The build process converts these into standard code browsers recognize."
+    answer: "Sometimes they can - simple HTML/CSS/JS works fine. But modern development uses things browsers don't understand: TypeScript, JSX, npm packages, CSS modules. The build process converts these into standard code browsers recognize."
   - question: "What's the difference between dev mode and production build?"
     answer: "Dev mode is optimized for development: fast rebuilds, detailed errors, source maps. Production builds are optimized for users: minified code, removed debug info, optimized assets. Production is smaller and faster but harder to debug."
   - question: "Why does my build take so long?"
@@ -42,7 +42,7 @@ The build process bridges this gap.
 
 ### 1. Bundling
 
-You have 200 JavaScript files. The browser doesn't want to download 200 files—that's slow.
+You have 200 JavaScript files. The browser doesn't want to download 200 files - that's slow.
 
 Bundling combines them:
 ```
@@ -188,7 +188,7 @@ dist/
     logo.7g8h9i.png    # Optimized images
 ```
 
-The random characters in filenames are content hashes—they change when content changes, busting caches.
+The random characters in filenames are content hashes - they change when content changes, busting caches.
 
 ## Dev mode vs production
 
@@ -298,7 +298,7 @@ module.exports = {
 };
 ```
 
-Usually you don't need to touch these—defaults work for most cases.
+Usually you don't need to touch these - defaults work for most cases.
 
 ## The build in deployment
 

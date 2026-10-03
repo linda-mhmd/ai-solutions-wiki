@@ -33,5 +33,5 @@ Data products are typically implemented as curated tables or views in a lakehous
 
 ## Sources
 
-- Dehghani, Z. (2022). *Data Mesh: Delivering Data-Driven Value at Scale.* O'Reilly Media. (Chapters 3–4 define data-as-a-product and the eight data product characteristics.)
+- Dehghani, Z. (2022). *Data Mesh: Delivering Data-Driven Value at Scale.* O'Reilly Media. (Chapters 3-4 define data-as-a-product and the eight data product characteristics.)
 - Dehghani, Z. (2019). How to move beyond a monolithic data lake to a distributed data mesh. *martinfowler.com*. (Original introduction of the data product concept.)

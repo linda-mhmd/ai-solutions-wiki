@@ -63,8 +63,8 @@ For small-scale RAG (under a few hundred documents), loading all content directl
 
 ## Sources
 
-- Johnson, J., Douze, M., & Jégou, H. (2019). Billion-scale similarity search with GPUs. *IEEE Transactions on Big Data, 7*(3), 535–547. (FAISS; foundational ANN search library powering most vector databases.)
-- Malkov, Y.A., & Yashunin, D.A. (2020). Efficient and robust approximate nearest neighbor search using hierarchical navigable small world graphs. *IEEE TPAMI, 42*(4), 824–836. (HNSW; the primary indexing algorithm used in Pinecone, Weaviate, Qdrant, and pgvector.)
+- Johnson, J., Douze, M., & Jégou, H. (2019). Billion-scale similarity search with GPUs. *IEEE Transactions on Big Data, 7*(3), 535-547. (FAISS; foundational ANN search library powering most vector databases.)
+- Malkov, Y.A., & Yashunin, D.A. (2020). Efficient and robust approximate nearest neighbor search using hierarchical navigable small world graphs. *IEEE TPAMI, 42*(4), 824-836. (HNSW; the primary indexing algorithm used in Pinecone, Weaviate, Qdrant, and pgvector.)
 - AWS. *Working with S3 Vectors and vector buckets*, Amazon S3 User Guide (accessed 25 September 2026). [https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html)
 - AWS. "Amazon S3 Vectors is now generally available" (2 December 2025). [https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-s3-vectors-generally-available/](https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-s3-vectors-generally-available/)
 - Lewis, P., et al. (2020). Retrieval-augmented generation for knowledge-intensive NLP tasks. *NeurIPS 2020*. (RAG; established vector retrieval as the standard approach for grounding LLM responses.)

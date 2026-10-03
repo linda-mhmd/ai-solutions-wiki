@@ -1,6 +1,6 @@
 ---
 title: "Frontend Frameworks Compared"
-description: "React, Vue, Svelte, Angular, Solid—which frontend framework should you use? An honest comparison of tradeoffs, ecosystems, and when to choose each."
+description: "React, Vue, Svelte, Angular, Solid - which frontend framework should you use? An honest comparison of tradeoffs, ecosystems, and when to choose each."
 date: 2026-07-30
 lastmod: 2026-09-25
 last_verified: 2026-09-25
@@ -11,14 +11,14 @@ faqs:
   - question: "Which framework should I learn first?"
     answer: "React. It has the largest ecosystem, most job opportunities, best AI tooling support, and most learning resources. Once you know React, learning others is easier because the concepts transfer."
   - question: "Is framework choice really that important?"
-    answer: "Less than you think. All major frameworks can build excellent apps. The differences matter at the margins—team experience, specific requirements, ecosystem needs. Pick one and become proficient rather than agonizing over the choice."
+    answer: "Less than you think. All major frameworks can build excellent apps. The differences matter at the margins - team experience, specific requirements, ecosystem needs. Pick one and become proficient rather than agonizing over the choice."
   - question: "What about vanilla JavaScript?"
     answer: "Perfectly valid for small projects and learning. But for anything interactive beyond a few elements, a framework handles state, updates, and component organization better than manual DOM manipulation."
 last_updated: 2026-09-25
 ---
 
 {{< quickanswer >}}
-**React** is the safe default—largest ecosystem, most jobs, best AI support. **Vue** is easier to learn with great docs. **Svelte** compiles away for best performance. **Angular** is enterprise-focused with everything built-in. **Solid** is React-like with better performance. For most beginners and vibecoders: start with React or Vue.
+**React** is the safe default - largest ecosystem, most jobs, best AI support. **Vue** is easier to learn with great docs. **Svelte** compiles away for best performance. **Angular** is enterprise-focused with everything built-in. **Solid** is React-like with better performance. For most beginners and vibecoders: start with React or Vue.
 {{< /quickanswer >}}
 
 ## The landscape
@@ -148,7 +148,7 @@ const count = ref(0);
 The compiler framework. Shifts work from runtime to compile time.
 
 ### Philosophy
-- No virtual DOM—compiles to vanilla JS
+- No virtual DOM - compiles to vanilla JS
 - Less code to write
 - Truly reactive
 - Built-in state management

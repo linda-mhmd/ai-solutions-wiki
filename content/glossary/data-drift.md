@@ -41,5 +41,5 @@ When data drift is detected, evaluate whether model performance has actually deg
 
 - Quiñonero-Candela, J., et al. (Eds.). (2009). *Dataset Shift in Machine Learning.* MIT Press. (Comprehensive treatment of covariate, prior probability, and concept shifts.)
 - Sugiyama, M., & Kawanabe, M. (2012). *Machine Learning in Non-Stationary Environments.* MIT Press.
-- Gretton, A., et al. (2012). A kernel two-sample test. *JMLR, 13*, 723–773. (Maximum Mean Discrepancy; standard multivariate drift detection test.)
+- Gretton, A., et al. (2012). A kernel two-sample test. *JMLR, 13*, 723-773. (Maximum Mean Discrepancy; standard multivariate drift detection test.)
 - Klaise, J., et al. (2020). Alibi Detect: Algorithms for outlier, adversarial and drift detection. *JMLR, 23*(1). (Open-source drift detection library with reference implementations.)

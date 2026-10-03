@@ -42,6 +42,6 @@ Start without a service mesh and add one when communication complexity becomes a
 
 ## Sources
 
-- Burns, B., Grant, B., Oppenheimer, D., Brewer, E., & Wilkes, J. (2016). Borg, Omega, and Kubernetes. *ACM Queue*, 14(1), 70–93. (Container orchestration history; the networking and service discovery challenges that motivated service mesh development.)
+- Burns, B., Grant, B., Oppenheimer, D., Brewer, E., & Wilkes, J. (2016). Borg, Omega, and Kubernetes. *ACM Queue*, 14(1), 70-93. (Container orchestration history; the networking and service discovery challenges that motivated service mesh development.)
 - Klein, M., & Macías, A. (2017). The service mesh: What every software engineer needs to know about the world's most over-hyped technology. *CNCF*. (Service mesh architecture; data plane, control plane, and the trade-offs of moving cross-cutting concerns to infrastructure.)
 - Morgan, W. (2017). What's a service mesh? And why do I need one? *Buoyant Engineering Blog*. (Practical explanation of service mesh value; mutual TLS, observability, and traffic management in distributed systems.)

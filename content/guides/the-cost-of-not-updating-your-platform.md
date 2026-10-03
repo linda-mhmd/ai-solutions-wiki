@@ -12,7 +12,7 @@ last_updated: 2026-09-02
 An internal developer portal sat untouched for two years. It was running. People
 used it. Nothing appeared to be wrong.
 
-It could not be built. Not "would fail its tests" — the container image could not
+It could not be built. Not "would fail its tests" - the container image could not
 be produced at all. Nobody knew, because the pipeline that would have discovered
 it had never successfully run, and the running service had been deployed by hand
 from a laptop.
@@ -26,7 +26,7 @@ invisibly.
 
 Nothing changed in the repository. That is the point.
 
-The application pinned its own toolchain with a caret range — the ordinary,
+The application pinned its own toolchain with a caret range - the ordinary,
 recommended way to express "this minor version or newer". Over two years, the
 transitive dependency graph beneath that range moved. Eventually something deep
 in it required a newer language runtime than the container image provided.
@@ -50,7 +50,7 @@ already broken while continuing to serve traffic.
 dependency tree that drifted also collected vulnerabilities. On this project, an
 audit found two critical and seventeen high severity advisories, all reached
 transitively. None came from application code. All were closed by pinning two
-packages — a change measured in minutes, available at any point in the preceding
+packages - a change measured in minutes, available at any point in the preceding
 two years, taken by nobody because no one was looking.
 
 **Your runtime goes out of support.** A pinned base image is stable until the
@@ -77,7 +77,7 @@ would have solved problems your team worked around by hand. Those workarounds
 become load-bearing. Removing them later is its own project.
 
 In this case the two years included a mechanism for granting scoped access to
-automated callers — the thing needed to let an agent use the platform at all.
+automated callers - the thing needed to let an agent use the platform at all.
 That existed upstream for a year while the team believed it was impossible.
 
 ## The pipeline that never ran
@@ -87,8 +87,8 @@ pipeline had existed the whole time, correctly configured, and had never produce
 a usable artefact.
 
 It pushed images to a registry the runtime could not read. The registry was
-correct for the organisation's other repositories. The runtime — a managed
-container service — could only pull from its cloud provider's own registry. The
+correct for the organisation's other repositories. The runtime - a managed
+container service - could only pull from its cloud provider's own registry. The
 two were never reconciled because nothing forced them to be. The service was
 running an image someone had pushed manually, once.
 
@@ -112,7 +112,7 @@ report someone reads. A failure someone must act on.
 
 **Verify the artefact reaches production.** A deployment is proven by the running
 system reporting the new version, not by a green pipeline. Have something you can
-check from outside — a version endpoint, an asset fingerprint — and check it.
+check from outside - a version endpoint, an asset fingerprint - and check it.
 
 **Keep runtime versions in one place.** When the language version appears in a
 package manifest and separately in a container image, they will diverge. Derive
@@ -135,5 +135,5 @@ years it would likely have become a rewrite, because the migration path would
 have expired.
 
 The cost of maintenance is not the hours. It is that those hours are unglamorous,
-never urgent, and always losing to something with a deadline — right up to the
+never urgent, and always losing to something with a deadline - right up to the
 moment the system is simultaneously unbuildable, unpatchable, and load-bearing.

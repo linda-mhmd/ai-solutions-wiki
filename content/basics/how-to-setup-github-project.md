@@ -141,7 +141,7 @@ The `-u` flag sets up tracking so future pushes just need `git push`.
 
 ## Setting up .gitignore
 
-The `.gitignore` file tells Git which files to ignore—files that should never be committed.
+The `.gitignore` file tells Git which files to ignore - files that should never be committed.
 
 **Always ignore:**
 ```
@@ -306,7 +306,7 @@ git checkout feature/my-work
 
 ### "I pushed secrets by accident"
 1. Immediately revoke/rotate the exposed credentials
-2. Remove from history (complex—look up `git filter-branch` or BFG Repo-Cleaner)
+2. Remove from history (complex - look up `git filter-branch` or BFG Repo-Cleaner)
 3. Force push the cleaned history
 4. Consider the secret permanently compromised
 
@@ -320,7 +320,7 @@ If you use VS Code, Git is built in:
 - **GitLens extension**: Rich history, blame annotations, visual diffs
 - **Terminal**: All Git commands work here too
 
-You can do everything through the GUI or the terminal—whatever feels right.
+You can do everything through the GUI or the terminal - whatever feels right.
 
 ## Checklist for new projects
 

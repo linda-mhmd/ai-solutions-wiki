@@ -6,17 +6,17 @@ level: 1
 categories: [Basics]
 tags: [beginner, react, nextjs, rendering, web, performance]
 faqs:
-  - question: "Which should I use—SSR or CSR?"
+  - question: "Which should I use - SSR or CSR?"
     answer: "For most apps, start with the framework defaults (Next.js does SSR/SSG by default). Use SSR for SEO-important pages, content sites, and e-commerce. Use CSR for dashboards, admin panels, and highly interactive apps behind login."
   - question: "What is hydration?"
-    answer: "Hydration is when React takes over a server-rendered page. The HTML arrives from the server (fast, visible immediately), then React loads and 'hydrates' it—attaching event listeners and making it interactive. The page is visible before it's interactive."
+    answer: "Hydration is when React takes over a server-rendered page. The HTML arrives from the server (fast, visible immediately), then React loads and 'hydrates' it - attaching event listeners and making it interactive. The page is visible before it's interactive."
   - question: "Why do I get hydration errors?"
     answer: "The server rendered one thing, but React on the client tried to render something different. Common causes: using browser-only APIs during render (window, localStorage), dates/random values that differ, browser extensions modifying the HTML."
 last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-SSR (Server-Side Rendering) generates HTML on the server for each request—pages load fast and work for SEO. CSR (Client-Side Rendering) sends a blank page and JavaScript builds it in the browser—better for interactive apps but slower initial load and invisible to search engines. Most modern frameworks like Next.js blend both approaches.
+SSR (Server-Side Rendering) generates HTML on the server for each request - pages load fast and work for SEO. CSR (Client-Side Rendering) sends a blank page and JavaScript builds it in the browser - better for interactive apps but slower initial load and invisible to search engines. Most modern frameworks like Next.js blend both approaches.
 {{< /quickanswer >}}
 
 ## The core difference
@@ -313,7 +313,7 @@ export default async function ProductPage({ params }) {
 | SSR | Server builds HTML for each request |
 | SSG | HTML built once at deploy time |
 | Hydration | React takes over server-rendered HTML |
-| ISR | Incremental Static Regeneration—SSG that updates |
+| ISR | Incremental Static Regeneration - SSG that updates |
 
 ## Further reading
 

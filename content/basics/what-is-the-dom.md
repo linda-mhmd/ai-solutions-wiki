@@ -1,13 +1,13 @@
 ---
 title: "What is the DOM?"
-description: "The Document Object Model—the tree structure browsers build from HTML that JavaScript manipulates. Why 'document.getElementById' works."
+description: "The Document Object Model - the tree structure browsers build from HTML that JavaScript manipulates. Why 'document.getElementById' works."
 date: 2026-07-30
 level: 1
 categories: [Basics]
 tags: [beginner, javascript, web, html, browser, dom]
 faqs:
   - question: "Do I need to know DOM manipulation if I use React?"
-    answer: "Not much. React handles DOM manipulation for you—that's the point. But understanding what React is doing under the hood helps when debugging, dealing with refs, or integrating non-React libraries."
+    answer: "Not much. React handles DOM manipulation for you - that's the point. But understanding what React is doing under the hood helps when debugging, dealing with refs, or integrating non-React libraries."
   - question: "Why is direct DOM manipulation 'bad' in React?"
     answer: "React tracks what the DOM should look like. If you change the DOM directly, React doesn't know, and things can get out of sync. Use React's state and refs instead. Direct DOM manipulation is fine in vanilla JS or when absolutely necessary."
   - question: "What's the difference between the DOM and HTML?"
@@ -218,7 +218,7 @@ React tracks state, calculates what changed, and updates only the necessary DOM 
 
 ## The Virtual DOM
 
-React (and Vue) use a "virtual DOM"—a JavaScript object representing what the DOM should look like.
+React (and Vue) use a "virtual DOM" - a JavaScript object representing what the DOM should look like.
 
 ```
 1. State changes

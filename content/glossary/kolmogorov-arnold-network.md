@@ -30,6 +30,6 @@ KANs are still early-stage technology. Training is slower than MLPs due to the o
 
 ## Sources
 
-- Kolmogorov, A.N. (1957). On the representation of continuous functions of many variables by superposition of continuous functions of one variable and addition. *Doklady Akademii Nauk SSSR, 114*(5), 953–956. (Kolmogorov's original representation theorem.)
-- Arnold, V.I. (1963). On functions of three variables. *American Mathematical Society Translations, 28*, 51–54. (Arnold's completion of the Kolmogorov-Arnold theorem.)
+- Kolmogorov, A.N. (1957). On the representation of continuous functions of many variables by superposition of continuous functions of one variable and addition. *Doklady Akademii Nauk SSSR, 114*(5), 953-956. (Kolmogorov's original representation theorem.)
+- Arnold, V.I. (1963). On functions of three variables. *American Mathematical Society Translations, 28*, 51-54. (Arnold's completion of the Kolmogorov-Arnold theorem.)
 - Liu, Z., et al. (2024). KAN: Kolmogorov-Arnold Networks. *arXiv:2404.19756*. (Original KAN paper introducing learnable B-spline activations on edges.)

@@ -7,7 +7,7 @@ categories: [Basics]
 tags: [devops, ci-cd, automation, deployment, github-actions, infrastructure]
 faqs:
   - question: "Is DevOps a job title or a practice?"
-    answer: "Both. DevOps started as a philosophy of breaking down silos between dev and ops teams. Now there are also 'DevOps engineers'—people who build and maintain the automation infrastructure. The title and the practice coexist."
+    answer: "Both. DevOps started as a philosophy of breaking down silos between dev and ops teams. Now there are also 'DevOps engineers' - people who build and maintain the automation infrastructure. The title and the practice coexist."
   - question: "Do I need CI/CD for my small project?"
     answer: "Not necessarily, but it helps even at small scale. Setting up a simple pipeline (run tests, deploy if they pass) takes an hour and saves countless manual steps. Start simple: GitHub Actions or Vercel's built-in automation."
   - question: "What's the difference between CI and CD?"
@@ -326,7 +326,7 @@ Buying tools without cultural change just adds complexity.
 
 ## The DevOps engineer role
 
-DevOps started as a philosophy, but now there are DevOps engineers—people who:
+DevOps started as a philosophy, but now there are DevOps engineers - people who:
 
 - Build and maintain CI/CD pipelines
 - Manage infrastructure as code

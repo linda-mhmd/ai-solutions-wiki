@@ -1,13 +1,13 @@
 ---
 title: "Why Different Programming Languages Exist"
-description: "Python, JavaScript, Rust, Go, Java—why there are hundreds of languages, what makes each good at different things, and why new ones keep appearing."
+description: "Python, JavaScript, Rust, Go, Java - why there are hundreds of languages, what makes each good at different things, and why new ones keep appearing."
 date: 2026-07-30
 level: 2
 categories: [Basics]
 tags: [programming, languages, python, javascript, rust, go, java, beginners]
 faqs:
   - question: "Which programming language should I learn first?"
-    answer: "For vibecoders working with AI tools: Python (most AI/ML libraries) or JavaScript (web development). Both have huge communities, lots of tutorials, and AI assistants are best at generating code in these languages. Don't stress the choice—concepts transfer between languages."
+    answer: "For vibecoders working with AI tools: Python (most AI/ML libraries) or JavaScript (web development). Both have huge communities, lots of tutorials, and AI assistants are best at generating code in these languages. Don't stress the choice - concepts transfer between languages."
   - question: "Why do new programming languages keep being created?"
     answer: "Technology changes. Languages designed in the 1990s didn't anticipate modern CPUs, cloud computing, or current security threats. New languages address new problems: Go was created for cloud services, Rust for memory safety, Swift for modern iOS. Each generation learns from the last."
   - question: "Do I need to know multiple languages?"
@@ -16,7 +16,7 @@ last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-Different programming languages exist because different problems have different requirements. Python excels at data science and scripting. JavaScript runs in browsers. Rust prevents memory bugs. Go handles concurrent servers well. C gives you direct hardware control. Each language makes tradeoffs—ease of use, performance, safety, expressiveness—optimized for particular domains and developer priorities.
+Different programming languages exist because different problems have different requirements. Python excels at data science and scripting. JavaScript runs in browsers. Rust prevents memory bugs. Go handles concurrent servers well. C gives you direct hardware control. Each language makes tradeoffs - ease of use, performance, safety, expressiveness - optimized for particular domains and developer priorities.
 {{< /quickanswer >}}
 
 ## The fundamental tradeoffs

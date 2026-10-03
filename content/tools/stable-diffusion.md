@@ -191,8 +191,8 @@ Stability bills in credits: 1 credit = $0.01 ([platform.stability.ai/pricing](ht
 | **Stable Image Ultra** | 8 | $0.08 |
 | **SD 3.5 Large** | 6.5 | $0.065 |
 | **Stable Image Core** | 3 | $0.03 |
-| **SD 3.5 Medium** | — | ~$0.035 (June 2026, not re-checked) |
-| **SDXL 1.0** | — | ~$0.002 (June 2026, not re-checked) |
+| **SD 3.5 Medium** | - | ~$0.035 (June 2026, not re-checked) |
+| **SDXL 1.0** | - | ~$0.002 (June 2026, not re-checked) |
 
 Local inference is free after the one-time cost of a GPU. An NVIDIA RTX 3080 (€500-700 used) generates 1,000+ images per day.
 

@@ -28,4 +28,4 @@ PMBOK underpins the PMP (Project Management Professional) certification, held by
 1. Project Management Institute (2021). *A Guide to the Project Management Body of Knowledge (PMBOK Guide)*, 7th ed. PMI.
 2. Project Management Institute (2017). *A Guide to the Project Management Body of Knowledge (PMBOK Guide)*, 6th ed. PMI.
 3. Project Management Institute (2022). *Process Groups: A Practice Guide*. PMI.
-4. ProjectManagement.com (2025). "PMI Launches the PMBOK Guide – Eighth Edition." November 13, 2025. Summarized in Wikipedia, "Project Management Body of Knowledge" (accessed 25 September 2026). [https://en.wikipedia.org/wiki/Project_Management_Body_of_Knowledge](https://en.wikipedia.org/wiki/Project_Management_Body_of_Knowledge)
+4. ProjectManagement.com (2025). "PMI Launches the PMBOK Guide - Eighth Edition." November 13, 2025. Summarized in Wikipedia, "Project Management Body of Knowledge" (accessed 25 September 2026). [https://en.wikipedia.org/wiki/Project_Management_Body_of_Knowledge](https://en.wikipedia.org/wiki/Project_Management_Body_of_Knowledge)

@@ -131,7 +131,7 @@ Real-time pipelines are more complex to operate than batch. Start with the use c
 
 ## Sources
 
-- Kleppmann, M. *Designing Data-Intensive Applications.* O'Reilly Media, 2017., Chapters 10–11 cover stream processing, exactly-once semantics, and the trade-offs between batch and streaming architectures. The standard reference for distributed data systems.
+- Kleppmann, M. *Designing Data-Intensive Applications.* O'Reilly Media, 2017., Chapters 10-11 cover stream processing, exactly-once semantics, and the trade-offs between batch and streaming architectures. The standard reference for distributed data systems.
 - Apache Flink Documentation. "Release Notes - Flink 2.0." https://nightlies.apache.org/flink/flink-docs-stable/release-notes/flink-2.0/, Lists the removed `Time` and `SinkFunction` APIs and the migration to `Duration` and Sink V2.
 - Apache Flink Documentation. "Event Time and Watermarks." https://nightlies.apache.org/flink/flink-docs-stable/docs/concepts/time/, Authoritative reference for the watermark and late-data handling patterns described above.
 - Confluent Documentation. "Schema Registry." https://docs.confluent.io/platform/current/schema-registry/index.html, Schema evolution strategy referenced in the Operational Considerations section.

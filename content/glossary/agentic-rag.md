@@ -51,7 +51,7 @@ The right architecture when:
 - Retrieval quality is high-variance and benefits from re-querying
 - Evidence sufficiency check is required (compliance, citation-bearing answers)
 - Multiple sources / indices are available and the agent can pick
-- The latency budget tolerates 2–5× the inference cost of pipeline RAG
+- The latency budget tolerates 2-5× the inference cost of pipeline RAG
 
 *Not* the right architecture when:
 

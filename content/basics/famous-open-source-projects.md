@@ -1,6 +1,6 @@
 ---
 title: "Famous Open Source Projects"
-description: "Linux, Git, Python, Kubernetes, React—the origin stories of projects that changed computing. Who built them, why, and how they became essential infrastructure."
+description: "Linux, Git, Python, Kubernetes, React - the origin stories of projects that changed computing. Who built them, why, and how they became essential infrastructure."
 date: 2026-07-30
 lastmod: 2026-09-25
 last_verified: 2026-09-25
@@ -72,7 +72,7 @@ The software that runs the modern world is mostly open source, created by indivi
 
 **Created by**: Richard Stallman and the GNU Project
 
-**The story**: The GNU Compiler Collection was created as a free replacement for proprietary compilers. It was crucial to making Linux viable—you need a compiler to compile an operating system.
+**The story**: The GNU Compiler Collection was created as a free replacement for proprietary compilers. It was crucial to making Linux viable - you need a compiler to compile an operating system.
 
 **Impact today**: GCC compiles code for most platforms. LLVM/Clang has emerged as a competitor, but GCC remains essential infrastructure.
 
@@ -241,7 +241,7 @@ The software that runs the modern world is mostly open source, created by indivi
 
 **Created by**: Apache Group (community of developers)
 
-**The story**: NCSA HTTPd was an early web server. When its primary developer left NCSA, a group continued maintaining it with patches—"a patchy server" became Apache (possibly apocryphal etymology). It became the dominant web server for years.
+**The story**: NCSA HTTPd was an early web server. When its primary developer left NCSA, a group continued maintaining it with patches - "a patchy server" became Apache (possibly apocryphal etymology). It became the dominant web server for years.
 
 **Impact today**: Still widely used, though nginx has grown. Apache Software Foundation now hosts hundreds of projects beyond the web server.
 
@@ -249,7 +249,7 @@ The software that runs the modern world is mostly open source, created by indivi
 
 **Created by**: Igor Sysoev
 
-**The story**: Sysoev created nginx (pronounced "engine-x") to solve the C10K problem—handling 10,000+ concurrent connections. Its event-driven architecture handled high concurrency better than Apache's process-per-connection model.
+**The story**: Sysoev created nginx (pronounced "engine-x") to solve the C10K problem - handling 10,000+ concurrent connections. Its event-driven architecture handled high concurrency better than Apache's process-per-connection model.
 
 **Impact today**: Powers many of the web's busiest sites. Often used as a reverse proxy in front of application servers.
 

@@ -73,7 +73,7 @@ When you call an async operation:
 3. **Operation completes** (response received)
 4. **Promise resolves** (result is available)
 
-Without `await`, step 2 happens immediately—before you have the result.
+Without `await`, step 2 happens immediately - before you have the result.
 
 With `await`, JavaScript pauses that function until step 4.
 

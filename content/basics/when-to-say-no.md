@@ -16,7 +16,7 @@ last_updated: 2026-07-30
 ---
 
 {{< quickanswer >}}
-Every feature you add has ongoing costs: maintenance, complexity, cognitive load, and opportunity cost. Saying no isn't being difficult—it's being focused. The best products do fewer things better. Learn to say no to requests that don't align with your core purpose, that serve edge cases over common cases, or that add complexity without proportional value.
+Every feature you add has ongoing costs: maintenance, complexity, cognitive load, and opportunity cost. Saying no isn't being difficult - it's being focused. The best products do fewer things better. Learn to say no to requests that don't align with your core purpose, that serve edge cases over common cases, or that add complexity without proportional value.
 {{< /quickanswer >}}
 
 ## The hidden cost of yes
@@ -105,7 +105,7 @@ Often the first request isn't the real need. Dig deeper.
 
 ### "We intentionally don't do that"
 
-"We're a simple task manager. We don't do project management features—there are great tools for that. We focus on individual productivity."
+"We're a simple task manager. We don't do project management features - there are great tools for that. We focus on individual productivity."
 
 States your positioning clearly. Some users aren't your users.
 

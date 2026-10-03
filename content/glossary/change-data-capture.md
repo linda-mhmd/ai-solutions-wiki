@@ -39,4 +39,4 @@ AI systems depend on fresh data. A recommendation model using day-old user activ
 
 - Kleppmann, M. (2017). *Designing Data-Intensive Applications*. O'Reilly Media. Chapter 11: Stream Processing. (Definitive treatment of log-based CDC; describes transaction log tailing as the foundation of reliable change propagation.)
 - Debezium Project. (2019). Debezium: Change data capture for microservices. *Red Hat engineering blog*. (Debezium architecture; explains log-based CDC implementation across PostgreSQL, MySQL, and MongoDB.)
-- Zaharia, M., et al. (2016). Apache Spark: A unified engine for big data processing. *Communications of the ACM, 59*(11), 56–65. (Stream processing context for downstream CDC consumers.)
+- Zaharia, M., et al. (2016). Apache Spark: A unified engine for big data processing. *Communications of the ACM, 59*(11), 56-65. (Stream processing context for downstream CDC consumers.)

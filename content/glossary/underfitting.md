@@ -47,6 +47,6 @@ Underfitting is generally easier to diagnose and fix than overfitting. If a mode
 
 ## Sources
 
-- Geman, S., Bienenstock, E., & Doursat, R. (1992). Neural networks and the bias/variance dilemma. *Neural Computation, 4*(1), 1–58. (Formalized the bias-variance tradeoff; underfitting corresponds to the high-bias regime.)
+- Geman, S., Bienenstock, E., & Doursat, R. (1992). Neural networks and the bias/variance dilemma. *Neural Computation, 4*(1), 1-58. (Formalized the bias-variance tradeoff; underfitting corresponds to the high-bias regime.)
 - Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The Elements of Statistical Learning* (2nd ed.). Springer. (Chapter 7 covers model selection, bias-variance, and the theoretical framework for underfitting.)
 - Goodfellow, I., Bengio, Y., & Courville, A. (2016). *Deep Learning*. MIT Press. Chapter 5: Machine Learning Basics. (Standard graduate reference; covers capacity, underfitting, and the relationship between hypothesis space and generalization.)

@@ -17,11 +17,11 @@ The term derives from "shadow IT," the long-standing problem of employees adopti
 
 ## Scale of the problem
 
-Shadow AI is not a niche concern. According to Gartner's survey of 302 cybersecurity leaders (March–May 2025), **69% of organizations suspect or have evidence that employees are using prohibited public GenAI tools** ([NeuralTrust, citing Gartner 2025](https://neuraltrust.ai/blog/shadow-ai-risks-detection-prevention)).
+Shadow AI is not a niche concern. According to Gartner's survey of 302 cybersecurity leaders (March - May 2025), **69% of organizations suspect or have evidence that employees are using prohibited public GenAI tools** ([NeuralTrust, citing Gartner 2025](https://neuraltrust.ai/blog/shadow-ai-risks-detection-prevention)).
 
 The Verizon 2026 Data Breach Investigations Report found that **45% of employees are regular AI users on corporate devices**, up from 15% the year before. Shadow AI is now the third most common non-malicious insider action in data loss prevention (DLP) data ([Kiteworks, citing Verizon DBIR 2026](https://www.kiteworks.com/cybersecurity-risk-management/shadow-ai-data-leakage-governance/)).
 
-The average enterprise has **14 distinct AI tools in use**, but IT teams are aware of only 4–5 ([NeuralTrust, citing Productiv 2026](https://neuraltrust.ai/blog/shadow-ai-risks-detection-prevention)).
+The average enterprise has **14 distinct AI tools in use**, but IT teams are aware of only 4-5 ([NeuralTrust, citing Productiv 2026](https://neuraltrust.ai/blog/shadow-ai-risks-detection-prevention)).
 
 ## Why employees adopt unsanctioned AI
 

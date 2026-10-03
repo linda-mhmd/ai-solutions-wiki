@@ -34,9 +34,9 @@ The version of this that hurts is the workflow that performs several successful 
 
 Because validation is free, be exhaustive about it:
 
-- Do all referenced identifiers exist — the group, the role, the permission set, the parent container?
+- Do all referenced identifiers exist - the group, the role, the permission set, the parent container?
 - Does the caller hold the permissions the later stages need? Check this at the start, not at the moment of use.
-- Is the input plausible — a well-formed address, a name that is not already taken, a quota that has room?
+- Is the input plausible - a well-formed address, a name that is not already taken, a quota that has room?
 - Are the downstream systems reachable at all?
 
 ## Rule 2: resolve names against the live system, not a hardcoded list
@@ -78,15 +78,15 @@ The general principle: **a hardcoded list of things that live in another system 
 
 **Report what succeeded, not only what failed.** When a run does stop midway, the error message should list the steps that completed and the resources they created. This is the difference between a five-minute cleanup and an afternoon of investigation.
 
-**Put a human decision before the irreversible step, not after it.** Where an action cannot be undone and cannot be fully validated, a confirmation that names the specific thing about to happen is worth more than any amount of prior checking. The confirmation has to be legible — "create account with root address `x@y`, in container `z`" — not "proceed? y/n". See [human in the loop](/glossary/human-in-the-loop/).
+**Put a human decision before the irreversible step, not after it.** Where an action cannot be undone and cannot be fully validated, a confirmation that names the specific thing about to happen is worth more than any amount of prior checking. The confirmation has to be legible - "create account with root address `x@y`, in container `z`" - not "proceed? y/n". See [human in the loop](/glossary/human-in-the-loop/).
 
-**Validate the fields that cannot be changed afterwards, hardest.** Some inputs are effectively permanent once set — a primary identifier, a recovery address, a region. These deserve validation out of proportion to their apparent importance, because the cost of getting them wrong is not a re-run, it is a support case.
+**Validate the fields that cannot be changed afterwards, hardest.** Some inputs are effectively permanent once set - a primary identifier, a recovery address, a region. These deserve validation out of proportion to their apparent importance, because the cost of getting them wrong is not a re-run, it is a support case.
 
 ## Why this matters more for self-service
 
 A script one author runs occasionally can rely on that author's judgement. A template published for others to run cannot: it will be used by people who do not know its internals, on inputs its author never anticipated, and its error messages are the entire support experience. The two rules above are what let a template fail in a way the operator can act on, rather than in a way that produces a ticket.
 
-This is also the point at which automation stops being a time-saving exercise and starts being a **bottleneck-removal** one — the case for building it no longer rests on the [break-even arithmetic](/guides/when-automation-pays-for-itself/) at all.
+This is also the point at which automation stops being a time-saving exercise and starts being a **bottleneck-removal** one - the case for building it no longer rests on the [break-even arithmetic](/guides/when-automation-pays-for-itself/) at all.
 
 ## Further reading
 
@@ -99,7 +99,7 @@ This is also the point at which automation stops being a time-saving exercise an
 
 ## Sources
 
-1. HashiCorp. "Custom conditions — preconditions and postconditions." [https://developer.hashicorp.com/terraform/language/expressions/custom-conditions](https://developer.hashicorp.com/terraform/language/expressions/custom-conditions)
+1. HashiCorp. "Custom conditions - preconditions and postconditions." [https://developer.hashicorp.com/terraform/language/expressions/custom-conditions](https://developer.hashicorp.com/terraform/language/expressions/custom-conditions)
 2. Google. *Site Reliability Engineering*, Chapter 5: "Eliminating Toil." [https://sre.google/sre-book/eliminating-toil/](https://sre.google/sre-book/eliminating-toil/)
 3. Amazon Web Services. "Making retries safe with idempotent APIs." Builders' Library. [https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)
 4. The Twelve-Factor App. "Config." [https://12factor.net/config](https://12factor.net/config)

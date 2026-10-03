@@ -36,7 +36,7 @@ Official documentation: https://docs.langchain.com/ (the legacy site at https://
 
 **Prompts** - Template management for model inputs. PromptTemplate and ChatPromptTemplate handle variable interpolation, message formatting, and prompt versioning. Few-shot templates dynamically select examples based on the input.
 
-**Retrievers** - Abstractions for fetching relevant context. Retrievers connect to vector stores (Pinecone, Weaviate, Chroma, pgvector), search engines (Elasticsearch, Amazon Kendra — note that Kendra has been closed to new customers since 30 July 2026, with AWS recommending Amazon Bedrock Knowledge Bases instead), and custom data sources. The retriever interface standardizes the pattern of query-in, documents-out.
+**Retrievers** - Abstractions for fetching relevant context. Retrievers connect to vector stores (Pinecone, Weaviate, Chroma, pgvector), search engines (Elasticsearch, Amazon Kendra - note that Kendra has been closed to new customers since 30 July 2026, with AWS recommending Amazon Bedrock Knowledge Bases instead), and custom data sources. The retriever interface standardizes the pattern of query-in, documents-out.
 
 **Chains** - Sequences of operations composed together. A basic RAG chain: retrieve relevant documents, format them into a prompt, send to the LLM, parse the output. Chains can be simple (sequential steps) or complex (branching, parallel execution).
 

@@ -51,14 +51,14 @@ Other results include 90.9 on GPQA Diamond and 31.2 on Terminal-Bench 4.0. On De
 
 ### Flash price cuts (per 1M tokens, off-peak / peak)
 
-| | Before (V4-Flash, 16 Aug–10 Sep) | Now (V4.1-Flash) | Change |
+| | Before (V4-Flash, 16 Aug - 10 Sep) | Now (V4.1-Flash) | Change |
 |---|---|---|---|
 | Input, cache hit | $0.007 / $0.014 | **$0.003 / $0.006** | about −57% |
 | Input, cache miss | $0.22 / $0.44 | **$0.15 / $0.30** | about −32% |
 | Output | $0.66 / $1.32 | **$0.60 / $1.20** | about −9% |
 | *V4-Pro (unchanged)* | *$0.022 / $0.044 hit, $0.66 / $1.32 miss, $1.98 / $3.96 output* | | |
 
-Off-peak rates are half the peak rates. Peak hours are 01:00–04:00 and 06:00–10:00 UTC, Monday to Friday. Weekends and Chinese public holidays are now off-peak in full. The Flash concurrency limit is 2,500, against 500 for V4-Pro.
+Off-peak rates are half the peak rates. Peak hours are 01:00-04:00 and 06:00-10:00 UTC, Monday to Friday. Weekends and Chinese public holidays are now off-peak in full. The Flash concurrency limit is 2,500, against 500 for V4-Pro.
 
 ### Third-party availability
 

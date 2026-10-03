@@ -36,5 +36,5 @@ Use SNS with SQS subscriptions for reliable fan-out (each subscriber gets its ow
 ## Sources
 
 - Hohpe, G., & Woolf, B. (2003). *Enterprise Integration Patterns*. Addison-Wesley. Chapter 6: Publish-Subscribe Channel. (Publish-subscribe pattern; topic-based routing, content-based filtering, and the fan-out pattern underlying modern pub/sub systems.)
-- Eugster, P. T., Felber, P. A., Guerraoui, R., & Kermarrec, A.-M. (2003). The many faces of publish/subscribe. *ACM Computing Surveys*, 35(2), 114–131. (Survey of pub/sub systems; topic-based vs. content-based vs. type-based models; the theoretical foundation for modern event brokers.)
+- Eugster, P. T., Felber, P. A., Guerraoui, R., & Kermarrec, A.-M. (2003). The many faces of publish/subscribe. *ACM Computing Surveys*, 35(2), 114-131. (Survey of pub/sub systems; topic-based vs. content-based vs. type-based models; the theoretical foundation for modern event brokers.)
 - Kleppmann, M. (2017). *Designing Data-Intensive Applications*. O'Reilly Media. Chapter 11: Stream Processing. (Event streams and pub/sub in the context of data systems; SNS, Kafka, and Kinesis compared.)

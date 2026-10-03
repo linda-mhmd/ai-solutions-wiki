@@ -69,7 +69,7 @@ The feature pipeline computes features from raw data and writes them to both sto
 
 **Databricks Feature Store.** Integrated with Databricks ML. Features are Delta tables with automatic versioning. Good choice for Databricks-centric organizations.
 
-**Google Vertex AI Feature Store.** Managed service on GCP, part of Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story). Integrates with Vertex AI training pipelines.
+**Google Vertex AI Feature Store.** Managed service on GCP, part of Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 - see [Google Vertex AI](/tools/google-vertex-ai/) for the full story). Integrates with Vertex AI training pipelines.
 
 ### Open Source Options
 

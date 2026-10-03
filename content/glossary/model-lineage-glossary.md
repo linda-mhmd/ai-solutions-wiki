@@ -36,6 +36,6 @@ Lineage for fine-tuned foundation models is inherently incomplete because the ba
 ## Sources
 
 - Buneman, P., Khanna, S., & Tan, W. C. (2001). Why and where: A characterization of data provenance. *ICDT 2001*. (Foundational data provenance paper; the "why-provenance" and "where-provenance" concepts directly apply to model lineage.)
-- Bose, R., & Frew, J. (2005). Lineage retrieval for scientific data processing: A survey. *ACM Computing Surveys, 37*(1), 1–28. (Survey of lineage tracking in scientific workflows; directly applicable to ML experiment tracking.)
+- Bose, R., & Frew, J. (2005). Lineage retrieval for scientific data processing: A survey. *ACM Computing Surveys, 37*(1), 1-28. (Survey of lineage tracking in scientific workflows; directly applicable to ML experiment tracking.)
 - Sculley, D., et al. (2015). Hidden technical debt in machine learning systems. *NeurIPS 2015*. (Identified undocumented model dependencies as a primary ML technical debt; motivates systematic lineage tracking.)
 - neptune.ai. "Neptune Service Shutdown - March 5, 2026" (accessed 25 September 2026). [https://docs.neptune.ai/](https://docs.neptune.ai/)

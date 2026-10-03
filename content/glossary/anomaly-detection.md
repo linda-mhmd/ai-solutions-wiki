@@ -50,7 +50,7 @@ Use Isolation Forest as the default for tabular anomaly detection. Use autoencod
 ## Sources
 
 - Liu, F.T., Ting, K.M., & Zhou, Z.H. (2008). Isolation Forest. *IEEE International Conference on Data Mining (ICDM)*. (Original Isolation Forest paper.)
-- Schölkopf, B., et al. (2001). Estimating the support of a high-dimensional distribution. *Neural Computation, 13*(7), 1443–1471. (One-Class SVM for novelty detection.)
-- Breunig, M.M., et al. (2000). LOF: Identifying density-based local outliers. *ACM SIGMOD*, 29(2), 93–104. (Local Outlier Factor algorithm.)
-- Hawkins, S., et al. (2002). Outlier detection using replicator neural networks. *Data Warehousing and Knowledge Discovery*, 170–180. (Autoencoder-based anomaly detection.)
+- Schölkopf, B., et al. (2001). Estimating the support of a high-dimensional distribution. *Neural Computation, 13*(7), 1443-1471. (One-Class SVM for novelty detection.)
+- Breunig, M.M., et al. (2000). LOF: Identifying density-based local outliers. *ACM SIGMOD*, 29(2), 93-104. (Local Outlier Factor algorithm.)
+- Hawkins, S., et al. (2002). Outlier detection using replicator neural networks. *Data Warehousing and Knowledge Discovery*, 170-180. (Autoencoder-based anomaly detection.)
 - Chandola, V., Banerjee, A., & Kumar, V. (2009). Anomaly detection: A survey. *ACM Computing Surveys, 41*(3). (Comprehensive review covering all major methods.)

@@ -36,7 +36,7 @@ vLLM has become the industry standard for production LLM serving, used by compan
 
 ## Cloud Equivalents
 
-vLLM is the open-source alternative to the inference backends powering AWS Bedrock, Azure OpenAI Service, and Google Vertex AI model endpoints (Vertex AI was rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story). Cloud services abstract away serving infrastructure entirely, while vLLM gives organizations full control over serving optimization, GPU utilization, and cost per token at the expense of managing infrastructure.
+vLLM is the open-source alternative to the inference backends powering AWS Bedrock, Azure OpenAI Service, and Google Vertex AI model endpoints (Vertex AI was rebranded Gemini Enterprise Agent Platform in April 2026 - see [Google Vertex AI](/tools/google-vertex-ai/) for the full story). Cloud services abstract away serving infrastructure entirely, while vLLM gives organizations full control over serving optimization, GPU utilization, and cost per token at the expense of managing infrastructure.
 
 ## Origins and History
 

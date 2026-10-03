@@ -27,7 +27,7 @@ Official documentation: https://aws.amazon.com/opensearch-service/
 Pricing: https://aws.amazon.com/opensearch-service/pricing/
 Service quotas: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html
 
-**Azure equivalent:** Azure AI Search (formerly Cognitive Search). **GCP equivalent:** Vertex AI Search, part of Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 — see [Google Vertex AI](/tools/google-vertex-ai/) for the full story).
+**Azure equivalent:** Azure AI Search (formerly Cognitive Search). **GCP equivalent:** Vertex AI Search, part of Vertex AI (rebranded Gemini Enterprise Agent Platform in April 2026 - see [Google Vertex AI](/tools/google-vertex-ai/) for the full story).
 
 ## Foundations first
 

@@ -35,9 +35,9 @@ For most organizations, NVIDIA GPUs offer the safest choice due to ecosystem mat
 ## Sources
 
 - Jouppi, N., et al. (2017). In-datacenter performance analysis of a tensor processing unit. *ISCA 2017*. (Original Google TPU paper; established domain-specific accelerators as the standard for ML compute.)
-- Dally, W., Turakhia, Y., & Han, S. (2020). Domain-specific hardware accelerators. *Communications of the ACM, 63*(7), 48–57. (Survey explaining why custom hardware beats general-purpose CPUs/GPUs for neural network workloads.)
+- Dally, W., Turakhia, Y., & Han, S. (2020). Domain-specific hardware accelerators. *Communications of the ACM, 63*(7), 48-57. (Survey explaining why custom hardware beats general-purpose CPUs/GPUs for neural network workloads.)
 - Reuther, A., et al. (2020). Survey of machine learning accelerators. *IEEE High Performance Extreme Computing Conference (HPEC)*. (Comprehensive landscape survey of GPU, TPU, and ASIC alternatives for ML.)
-- Patterson, D., et al. (2022). The carbon footprint of machine learning training will plateau, then shrink. *Computer, 55*(7), 18–28. (Analysis of hardware efficiency gains; informs sustainability and cost-per-FLOP decisions.)
+- Patterson, D., et al. (2022). The carbon footprint of machine learning training will plateau, then shrink. *Computer, 55*(7), 18-28. (Analysis of hardware efficiency gains; informs sustainability and cost-per-FLOP decisions.)
 - Google. *Ironwood: The first Google TPU for the age of inference.* [https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/ironwood-tpu-age-of-inference/](https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/ironwood-tpu-age-of-inference/)
 - NVIDIA. *NVIDIA Vera Rubin platform* (GTC 2026, 16 March 2026). [https://nvidianews.nvidia.com/news/nvidia-vera-rubin-platform](https://nvidianews.nvidia.com/news/nvidia-vera-rubin-platform)
 - Groq. *Groq and Nvidia Enter Non-Exclusive Inference Technology Licensing Agreement* (24 December 2025). [https://groq.com/newsroom/groq-and-nvidia-enter-non-exclusive-inference-technology-licensing-agreement-to-accelerate-ai-inference-at-global-scale](https://groq.com/newsroom/groq-and-nvidia-enter-non-exclusive-inference-technology-licensing-agreement-to-accelerate-ai-inference-at-global-scale)
