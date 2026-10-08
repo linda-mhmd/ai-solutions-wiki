@@ -2,9 +2,9 @@
 title: "Claude Sonnet 5.5 Lands at $2/$10, Faster and Cheaper Than Sonnet 5"
 description: "Anthropic released Claude Sonnet 5.5 on 28 September 2026 at $2 per million input tokens and $10 per million output, saying it runs over 30 percent faster than Sonnet 5 and needs fewer tokens per task. It also ships classifiers aimed at distillation attacks."
 date: 2026-09-28
-lastmod: 2026-10-03
-last_updated: 2026-10-03
-last_verified: 2026-10-03
+lastmod: 2026-10-08
+last_updated: 2026-10-08
+last_verified: 2026-10-08
 categories: [News]
 tags: [anthropic, claude, sonnet, model-release, pricing, bedrock, distillation]
 related:
@@ -19,7 +19,7 @@ Anthropic released Claude Sonnet 5.5 on 28 September 2026. The headline for anyo
 
 ## What is actually different
 
-Pricing is $2 per million input tokens and $10 per million output tokens, with cache reads at $0.20 and cache writes at $2.50. The model id is `claude-sonnet-5-5`. It is available on the Claude Platform and through Amazon Web Services, Google Cloud and Microsoft Azure, with a zero data retention option.
+Pricing is $2 per million input tokens and $10 per million output tokens, with cache reads at $0.20 and cache writes at $2.50. (Update, 8 October 2026: Anthropic halved Sonnet 5.5 cache reads to $0.10 on 7 October, alongside the [Haiku 5.5 release](/news/claude-haiku-5-5/). Anthropic's pricing page and models overview now also publish the 1M-token context window and 128K maximum output that the release post left out.) The model id is `claude-sonnet-5-5`. It is available on the Claude Platform and through Amazon Web Services, Google Cloud and Microsoft Azure, with a zero data retention option.
 
 The benchmark numbers below are Anthropic's own, published with the release, and have not been independently reproduced:
 
@@ -50,6 +50,7 @@ Third, the safeguards. Anthropic says Sonnet 5.5 ships with cybersecurity safegu
 
 - Anthropic, "Introducing Claude Sonnet 5.5" (28 September 2026): https://www.anthropic.com/claude-sonnet-5-5
 - Anthropic newsroom index (accessed 3 October 2026): https://www.anthropic.com/news
+- Anthropic, "Pricing" (fetched 8 October 2026), for the 7 October cache-read cut: https://platform.claude.com/docs/en/about-claude/pricing
 
 ## Further reading
 

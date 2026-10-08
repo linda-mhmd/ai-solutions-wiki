@@ -2,8 +2,8 @@
 title: "Meta Muse Spark and Llama"
 description: "Meta's model line-up in 2026: the proprietary Muse Spark flagship sold through the Meta Model API, the Apache 2.0 Muse Glimmer open-weight model, and the legacy Llama family."
 date: 2026-06-29
-last_updated: 2026-09-25
-lastmod: 2026-09-25
+last_updated: 2026-10-08
+lastmod: 2026-10-08
 last_verified: 2026-09-25
 tags: ["open-weight", "llm", "foundation-models", "meta", "muse-spark", "muse-glimmer", "self-hosting"]
 tool_category: "AI"
@@ -18,6 +18,7 @@ related:
   - comparisons/meta-ai-vs-chatgpt
   - news/meta-muse-spark-model-api
   - news/ai-agent-security-roundup-september-2026
+  - tools/meta-muse
 ---
 
 <figure class="bz-figure">
@@ -79,7 +80,7 @@ Muse Spark versions have arrived roughly every four weeks, so check Meta's devel
 - **Muse Spark 1.1** (9 July 2026): the release that opened the Meta Model API to developers in public preview, OpenAI-compatible and US-first at launch. It introduced native tool use, MCP server support and custom skills, and shipped as "Thinking" mode in the Meta AI app.
 - **Muse Glimmer** (10 August 2026): Meta's current open-weight model. A 30 billion parameter dense multimodal model with a 128,000 token context, distilled from Muse Spark and then mid-trained, fine-tuned and reinforcement-trained for long-context agent work rather than chat. Weights are ungated on Hugging Face under **Apache 2.0**, with quantized variants and a speculative-decoding drafter; at roughly 4-bit it fits under 20GB, so it runs on a single 24GB or 32GB GPU or an Apple silicon Mac. Also served through Ollama, LM Studio, vLLM and OpenRouter.
 - **Muse Code** (5 August 2026, beta): a terminal coding agent for macOS and Linux that plans changes, writes code and validates results across large repositories, with background subagents and a local event log for replay-exact restarts. It bills against Meta Model API tokens at Muse Spark rates. This is Meta's entry into the same category as Claude Code and Codex.
-- **Muse** (8 September 2026): a consumer personal AI agent, not a model, rolling out in the US on iOS, Android and the muse.ai website, also reachable by messaging it in WhatsApp, with AI glasses support to follow. It runs on Muse Spark inside a dedicated VM ("Muse Secure VM") in Meta's cloud, with a separate Sentinel agent approving internet-bound actions, and connects to email, calendar, payments, shopping and smart home. Meta's own announcement describes a free tier "for most of what people need" plus subscription plans without naming prices; launch coverage across several outlets consistently quotes $20/month and $100/month tiers. Treat those figures as well corroborated but not stated by Meta. A macOS app is also available. At **Connect 2026 (23-24 September)** Meta said Muse is coming to its AI glasses "in the coming months" (able to act on what the wearer is looking at), added a voice mode that keeps working in the background during a conversation, gave Muse its own email address, and added connectors including Walmart, Best Buy, Sephora, Wayfair, Shop Pay and PayPal for shopping and Notion, Granola, GitHub and Box for work. It also previewed **Muse Charm**, a pocket device for talking to Muse with a real-time voice model, with details promised later in 2026.
+- **Muse** (8 September 2026): a consumer personal AI agent, not a model, now covered in full on its own page, [Meta Muse, explained](/tools/meta-muse/), including its Sentinel security design, the controversies of its first month and why it is not available in the EU. In short: it is rolling out in the US on iOS, Android and the muse.ai website, also reachable by messaging it in WhatsApp, with AI glasses support to follow. It runs on Muse Spark inside a dedicated VM ("Muse Secure VM") in Meta's cloud, with a separate Sentinel agent approving internet-bound actions, and connects to email, calendar, payments, shopping and smart home. Meta's own announcement describes a free tier "for most of what people need" plus subscription plans without naming prices; launch coverage across several outlets consistently quotes $20/month and $100/month tiers. Treat those figures as well corroborated but not stated by Meta. A macOS app is also available. At **Connect 2026 (23-24 September)** Meta said Muse is coming to its AI glasses "in the coming months" (able to act on what the wearer is looking at), added a voice mode that keeps working in the background during a conversation, gave Muse its own email address, and added connectors including Walmart, Best Buy, Sephora, Wayfair, Shop Pay and PayPal for shopping and Notion, Granola, GitHub and Box for work. It also previewed **Muse Charm**, a pocket device for talking to Muse with a real-time voice model, with details promised later in 2026.
 - **Muse security, September 2026**: on 21 September Ars Technica reported a zero-day in the **Muse macOS app**, found by macOS security researcher Patrick Wardle: any locally running app or terminal command could change undocumented Muse settings, including the endpoint used for cloud transcription, and so capture the token that authenticates the user's Muse account - giving malware on the Mac full control of an agent that holds the user's email, calendar, payment and device permissions. Meta shipped a hotfix more than 12 hours after the report was published. The flaw was in the Mac client rather than the model, but it is a concrete example of the risk of giving one agent broad delegated access. See [AI agent security, September 2026](/news/ai-agent-security-roundup-september-2026/).
 - **Meta One** (15 September 2026): a subscription umbrella, not a model. The Core ($7.99/month) and Premium bundles add higher usage of compute-intensive Meta AI features, including image and video generation powered by Muse models; single-app plans start at $2.99/month and creator and business bundles at $14.99/month. Meta says the core Meta AI experience stays free. For developers it changes nothing about Meta Model API pricing, which is billed separately per token.
 - **Muse Image** and **Muse Voice Transcribe**: listed on Meta's developer site at $0.01 per image and $0.18 per hour respectively. We could not establish release dates or specifications for either.
@@ -170,6 +171,7 @@ See [Alibaba Qwen](/tools/alibaba-qwen/), [Mistral AI](/tools/mistral-ai/), and 
 - [What is a large language model?](/glossary/llm/): the core concept behind every model on this page.
 - [What is mixture of experts?](/glossary/mixture-of-experts/): the architecture Llama 4 uses.
 - [Meta AI vs ChatGPT](/comparisons/meta-ai-vs-chatgpt/): what actually runs inside the consumer assistant, and what it costs.
+- [Meta Muse, explained](/tools/meta-muse/): the personal agent built on Muse Spark, in depth.
 - [Meta ships Muse Spark 1.1 and opens the Meta Model API](/news/meta-muse-spark-model-api/): how Meta's first-party API changed the build-versus-download decision.
 - [Alibaba Qwen](/tools/alibaba-qwen/): a permissively licensed open-weight alternative.
 - [LLM landscape 2026](/comparisons/llm-landscape-2026/): how open and closed models compare.
