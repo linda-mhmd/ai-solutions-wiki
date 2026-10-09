@@ -10,6 +10,32 @@
 #
 # `date` is when the correction landed. `page` must resolve to a real page.
 
+- date: 2026-10-08
+  page: /tools/claude-anthropic/
+  headline: Haiku 5.5 shipped, and Sonnet 5.5's cache-read price in our table was out of date
+  body: >
+    This page said Haiku 5.5 had not shipped. It shipped on 7 October 2026 as
+    claude-haiku-5-5, at $0.10/$0.50 per MTok for prompts up to 100,000 tokens
+    and $0.50/$2.50 above, the first Claude model priced by prompt length. The
+    same release halved Sonnet 5.5 cache reads from $0.20 to $0.10 per MTok, so
+    our pricing table, correct on 3 October, was wrong four days later. Sonnet
+    5.5's 1M context and 128K maximum output, which we had left as "not
+    published", are now published on Anthropic's pricing page and models
+    overview, and are filled in from there rather than inherited from Sonnet 5.
+
+- date: 2026-10-08
+  page: /tools/meta-muse/
+  headline: Muse is an agent, not a model, and it is not available in the EU
+  body: >
+    Much of the coverage of Meta's Muse, including the trending explainers,
+    blurs the Muse agent with the Muse Spark model and implies Muse can be used
+    anywhere. Muse is a personal agent that runs on Muse Spark, available only in
+    the US (from 8 September 2026) and Canada (from 18 September). App store
+    listings across six EU countries show nothing and Meta has given no European
+    date. The new page separates the two, and marks which Muse claims come from
+    Meta and which only from reporting, including the widely quoted $20 and $100
+    plan prices, which Meta's own announcement does not state.
+
 - date: 2026-10-03
   page: /tools/claude-anthropic/
   headline: Claude Sonnet 5.5 had already shipped while this page said it had not
