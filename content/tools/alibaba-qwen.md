@@ -11,8 +11,8 @@ related:
   - tools/deepseek
   - tools/mistral-ai
   - comparisons/llm-landscape-2026
-last_updated: 2026-09-25
-lastmod: 2026-09-25
+last_updated: 2026-10-25
+lastmod: 2026-10-25
 ---
 
 <figure class="bz-figure">
@@ -98,6 +98,7 @@ September added a set of API-only multimodal and speech models on Model Studio (
 ### Specialist open weights
 
 - **Qwen-Image-2.1** (Hugging Face, 14 September 2026): a unified text-to-image and image-editing model with a **7B DiT image generator** (32 single-stream layers). It can output transparent **RGBA** images, edit transparent layers, and take **up to 10 reference images** for editing, with local edits marked by circles, annotations or masks. It runs through a new `QwenImage21Pipeline` in diffusers. Check the licence carefully: the weights ship under the **Qwen Research License Agreement, which is non-commercial** (research and evaluation only); commercial use needs a separate licence from Alibaba.
+- **Qwen-Image-2.1-Turbo** (Hugging Face, 9 October 2026): "an accelerated checkpoint of Qwen-Image-2.1 for text-to-image generation and image editing with 8 denoising steps", with the same 7B visual generation architecture and the 8-step schedule saved in the checkpoint. Like Qwen-Image-2.1 it is under the **Qwen Research License Agreement**, so non-commercial. A hosted, API-only **`qwen-image-2.1-pro`** appeared in Model Studio on 2 October 2026, and `qwen-image-2.1-turbo` on 9 October.
 - **Qwen-Drive-1.0-4B** (Hugging Face, 27 August 2026, Apache 2.0): an autonomous-driving model built on Qwen3.5-4B that combines 3D perception (a bird's-eye-view head), visual question answering and motion planning.
 
 The important nuance for 2026 is that **open weights at the Max tier are not the same product as the Max API**. On 2026-08-12 Alibaba published Max-class weights for the first time, as Qwen3.8-2.4T-A95B, reversing the closed-flagship posture it had held since Qwen3-Max. But the downloadable checkpoint is trimmed: it is text-only where the hosted model accepts image and video, its native context is 262K rather than the API's 1M, thinking mode is forced on, and it ships without built-in tools. If you benchmark the open checkpoint and plan around the API, or the reverse, you will be surprised.
@@ -110,9 +111,13 @@ Qwen's licensing is now the part most likely to trip up a procurement review. Of
 
 - **Qwen3.8-Max License** (Qwen3.8-2.4T-A95B): the model name must be displayed prominently once you pass 100 million monthly active users or US$20 million in monthly revenue, and a separate licence is required for Model-as-a-Service or AI-assistant businesses above US$50 million in revenue over any consecutive twelve months. Purely internal use with no third-party exposure is exempt.
 - **Qwen Community License 1.0** (Qwen3.8-Flash-Next): equivalent attribution and Model-as-a-Service triggers.
-- **Qwen Research License Agreement** (Qwen-Image-2.1): non-commercial use only. Qwen-Drive-1.0-4B, by contrast, is Apache 2.0.
+- **Qwen Research License Agreement** (Qwen-Image-2.1 and Qwen-Image-2.1-Turbo): non-commercial use only. Qwen-Drive-1.0-4B, by contrast, is Apache 2.0.
 
 The old advice to check the licence on each model card still holds. What has changed is the default assumption behind it: for the current flagship generation, permissive is the exception rather than the rule. This is an ecosystem-wide shift, not a Qwen quirk - Kimi K3, GLM-5.3 and MiniMax-M3 all landed under bespoke licences in the same window, and DeepSeek's V4 line (MIT), Qwen3.8-27B (Apache 2.0) and GLM-5.3-Flash (MIT) are the current permissive exceptions.
+
+### October 2026: no new LLM weights
+
+Between 9 and 25 October 2026 Qwen published no new LLM weights on Hugging Face; the only new repository was Qwen-Image-2.1-Turbo. The hosted side moved instead: Model Studio's US (Virginia) region gained `qwen3.8-flash` on 3 October and `qwen3.8-max` and `qwen3.7-flash` on 8 October, with `qwen3.8-max` listed "with a native 1M token context window" (see [Alibaba Model Studio](/tools/alibaba-model-studio/)). The **Qwen Code** CLI shipped v0.26.0 on 21 October and v0.26.1 on 24 October 2026; the v0.26.1 notes flag one breaking change, restoring per-group session isolation in its QQ bot integration.
 
 ## How to access it
 
@@ -204,3 +209,6 @@ For a broader view of where these families sit, see the [2026 LLM landscape comp
 - Qwen team post quoting Qwen3.8-Flash rates ($0.15 in, $0.47 out, $0.016 cache hit, per 1M tokens): https://x.com/Alibaba_Qwen/status/2092867093385613760
 - DataCamp on Qwen3.8-Max (reported per-token pricing, secondary source): https://www.datacamp.com/blog/qwen3-8-max
 - Qwen on Wikipedia: https://en.wikipedia.org/wiki/Qwen
+- Qwen-Image-2.1-Turbo model card (9 October 2026; 8 denoising steps, Qwen Research License): https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo
+- Alibaba Cloud Model Studio, newly released models (updated 22 October 2026; US (Virginia) entries for qwen3.8-flash, qwen3.8-max and qwen3.7-flash, qwen-image-2.1-pro and -turbo): https://www.alibabacloud.com/help/en/model-studio/newly-released-models
+- Qwen Code releases (v0.26.0, 21 October 2026; v0.26.1, 24 October 2026): https://github.com/QwenLM/qwen-code/releases

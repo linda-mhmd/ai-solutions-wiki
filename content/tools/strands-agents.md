@@ -11,8 +11,8 @@ related:
   - comparisons/crewai-vs-strands
   - patterns/agentic-workflows
   - guides/multi-agent-systems-101
-last_updated: 2026-09-25
-lastmod: 2026-09-25
+last_updated: 2026-10-25
+lastmod: 2026-10-25
 last_verified: 2026-09-25
 ---
 
@@ -66,6 +66,10 @@ Strands supports MCP servers as tool sources. Rather than writing individual `@t
 
 Strands agents deploy to Bedrock AgentCore without modification. The same agent code that runs locally runs in production on AgentCore's managed infrastructure. This is the primary deployment advantage over LangGraph and CrewAI, which require more work to fit the AgentCore model.
 
+## Security note: A2A server isolation (October 2026)
+
+Upgrade to **`strands-agents` 1.43.0** (Python) or **`@strands-agents/sdk` 1.5.0** (TypeScript) if you run the Agent2Agent (A2A) server. Advisory GHSA-4v6f-7vjh-6x4m / CVE-2026-115419 (High, CVSS 4.0 8.6) says the A2A server "shares conversation history across callers with different context_id values, allowing one caller to read and influence another caller's session". It affects any deployment where an A2A server is reachable by more than one user or tenant. The fix gives each A2A `context_id` its own agent through an agent factory. The advisory states there is "no workaround that fully addresses this issue" short of upgrading; until then, do not expose an A2A server to more than one user or tenant. See the [AI agent security roundup, October 2026](/news/ai-agent-security-roundup-october-2026/).
+
 ## Related Articles
 
 - [Bedrock AgentCore]({{< relref "bedrock-agentcore.md" >}}) - deployment target for Strands agents
@@ -77,3 +81,4 @@ Strands agents deploy to Bedrock AgentCore without modification. The same agent 
 1. Strands Agents monorepo README (Python and TypeScript SDKs, Strands harness, model providers; accessed 25 September 2026): https://github.com/strands-agents/harness-sdk
 2. strands-agents on PyPI: https://pypi.org/project/strands-agents/
 3. Anthropic, "Models overview" (Sonnet 5 on Bedrock is called through an inference profile such as `us.anthropic.claude-sonnet-5`; see the Bedrock model card): https://platform.claude.com/docs/en/about-claude/models/overview
+4. Strands Agents, GitHub security advisory GHSA-4v6f-7vjh-6x4m, "Exposure of data element to wrong session in the A2A Server" (CVE-2026-115419; reviewed in the GitHub Advisory Database 23 October 2026): https://github.com/strands-agents/sdk-python/security/advisories/GHSA-4v6f-7vjh-6x4m

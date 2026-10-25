@@ -2,8 +2,8 @@
 title: "Meta Muse: The Personal AI Agent, Explained in Full"
 description: "Muse is Meta's personal AI agent, launched in the US on 8 September 2026. How it works, what it costs, its Sentinel security design, the privacy controversies, why it is not available in the EU, and how it compares with OpenAI dots and the Gemini agent."
 date: 2026-10-08
-lastmod: 2026-10-08
-last_updated: 2026-10-08
+lastmod: 2026-10-25
+last_updated: 2026-10-25
 last_verified: 2026-10-08
 categories: [Tools]
 tags: ["meta", "muse", "muse-spark", "ai-agents", "personal-agent", "agent-security", "privacy", "gdpr", "eu-availability"]
@@ -67,13 +67,16 @@ Meta now uses the Muse name for a whole family, which causes real confusion:
 | Name | What it is | Who it is for |
 | --- | --- | --- |
 | **Muse** | The personal agent this page covers | Consumers, and small businesses |
-| **Muse Spark** (1.1, 1.2, 1.3) | Meta's proprietary frontier model that powers Muse | Developers, via the Meta Model API |
-| **Muse Glimmer** | A 30B open-weight model, Apache 2.0 | Developers who self-host |
+| **Muse Wonder** (`muse-wonder-1.0`, since 12 October 2026) | Meta's "most capable" proprietary model; Meta Model API at $4.00 input / $0.20 cached / $20.00 output per MTok, 1M context | Developers, via the Meta Model API and Muse Code |
+| **Muse Wonder Full** (`muse-wonder-full-1.0`) | The higher-capability variant, 1M context, no per-token API price | Muse Code subscribers on the Power Usage and Maximum Usage plans only |
+| **Muse Spark** (1.1, 1.2, 1.3) | Meta's proprietary model that powers Muse today | Developers, via the Meta Model API |
+| **Muse Spark Open** (since 15 October 2026) | An 816B-total, 42B-active open-weight Muse Spark, under the bespoke Muse Model License, gated download | Developers who self-host at scale |
+| **Muse Glimmer** | A 30B open-weight model, Apache 2.0, ungated | Developers who self-host |
 | **Muse Code** | A terminal coding agent, beta | Developers |
 | **Muse Image**, **Muse Voice Transcribe** | Media models on Meta's developer site | Developers |
 | **Muse Charm** | A pocket voice device for talking to Muse, previewed at Connect 2026 | Consumers, details later in 2026 |
 
-The models are covered on [Meta Muse Spark and Llama](/tools/meta-llama/). This page is about the agent.
+The models are covered on [Meta Muse Spark and Llama](/tools/meta-llama/). This page is about the agent. On the agent's model: Meta says "Muse Wonder will soon power experiences in Muse, and will roll out first to subscribers" (12 October 2026). Until that happens Muse runs on Muse Spark, and Meta has given no date. Meta's Muse Code subscriptions page does not state the plan prices, so the prices of the plans that include Muse Wonder Full are not published there.
 
 Muse is an applied [AI agent](/glossary/ai-agents/): it plans, uses tools and acts over many steps instead of answering one prompt. The difference from the Meta AI assistant that already lives in Facebook, Instagram and WhatsApp is that Muse is allowed to *do* things in your accounts, and it keeps working in the background after you close the app.
 
@@ -93,6 +96,8 @@ Muse is an applied [AI agent](/glossary/ai-agents/): it plans, uses tools and ac
 | 22 September | Reuters reports Meta tested **human call-centre workers** behind Muse calls; Meta rolls the test back |
 | 23 to 24 September | **Connect 2026**: glasses, background voice mode, Muse's own email address, new connectors, Muse Charm |
 | 29 September | **Muse for Small Business** (US) |
+| 12 October | **Muse Wonder** and **Muse Wonder Full** announced; Meta says Muse Wonder will power Muse "soon", subscribers first |
+| 15 October | **Muse Spark Open** weights released under the Muse Model License |
 | 30 September | Sensor Tower: **5 million downloads** in 22 days |
 | 6 October | TIME reports Muse keeps **hourly-updated profiles** of users and the people they mention |
 | **8 October** | Cleo Abram publishes her interview with Alexandr Wang |
@@ -280,6 +285,9 @@ Read the table as a snapshot; every column is changing month to month. See [Open
 
 Meta's own pages are primary sources for what Meta states. Everything else is reporting, used for what Meta has not said, and named as such in the text. Several news sites were not reachable from our research environment on 8 October 2026; claims we could only see through search summaries are marked "reported" in the text.
 
+- [Introducing Muse Wonder and Muse Wonder Full, Meta newsroom, 12 October 2026](https://about.fb.com/news/2026/10/introducing-muse-wonder-models/): the two models, API and Muse Code availability, and the "soon" rollout to the Muse agent.
+- [Muse Wonder on the Meta developer site, fetched 25 October 2026](https://developer.meta.ai/models/muse-wonder/): model IDs, price and context; and [Muse Code subscriptions, fetched 25 October 2026](https://dev.meta.ai/docs/muse-code/subscriptions/): the four plans and which include Muse Wonder Full.
+- [Introducing Muse Spark Open, Meta AI Research, 15 October 2026](https://research.meta.ai/blog/muse-spark-open): parameters, context and licence.
 - [Introducing Muse, Meta newsroom, 8 September 2026](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/): the launch, platforms, the Muse Spark basis and the free-plus-subscription framing without prices.
 - [How We Built Safety Into Muse, Meta AI Research](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse): the runtime cell, Sentinel, credential service, classifiers, approval UI and bug bounty.
 - [The biggest news from Connect 2026, Meta newsroom, 24 September 2026](https://about.fb.com/news/2026/09/the-biggest-news-from-connect-2026/): glasses, voice mode, Muse's own email, connectors and Muse Charm.

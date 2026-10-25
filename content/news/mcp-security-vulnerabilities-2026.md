@@ -2,7 +2,8 @@
 title: "MCP Security Vulnerabilities 2026: The Protocol That Connected Everything Got 40+ CVEs"
 description: "The Model Context Protocol became the universal standard for AI agent integrations, and security researchers found it vulnerable by default. Over 40 CVEs, 492 exposed servers, and tool poisoning attacks."
 date: 2026-07-30
-lastmod: 2026-09-25
+lastmod: 2026-10-25
+last_updated: 2026-10-25
 categories: [News]
 tags: [MCP, AI security, vulnerabilities, CVE, tool poisoning, prompt injection]
 related:
@@ -85,6 +86,10 @@ On **2 September 2026**, CISA added **CVE-2026-59822** (CVSS 8.8) to its [Known 
 
 On **10 September**, Wiz research reported that **294 of 3,074** internet-facing LiteLLM gateways it scanned in February accepted the example admin key `sk-1234` or had no master key set at all. That admin credential also controls the gateway's MCP-connected tools. If you run an MCP-capable gateway, patch it, set a strong unique master key, and keep its admin interface off the public internet. The [September 2026 AI agent security roundup](/news/ai-agent-security-roundup-september-2026/) covers these and four other disclosures from the month.
 
+## Update, October 2026: three SDK advisories
+
+In October the MCP SDKs themselves published three advisories. The TypeScript server SDK could route one HTTP client's responses to another when a transport or server instance was shared (GHSA-jm63-cq47-j5jp, High, fixed in `@modelcontextprotocol/server` 2.3.0), a pattern its own README examples had shown. The TypeScript SDK's bearer authentication could not check a token's audience (GHSA-rvq5-wwqv-78pq, fixed in `@modelcontextprotocol/sdk` 1.32.0 and `@modelcontextprotocol/server` 2.3.0, but only once you set `expectedResource`). The Python SDK's Streamable HTTP transport never reclaimed sessions in its default stateful mode (GHSA-84m7-p3x7-pcfv, fixed in `mcp` 1.30.0 and 2.2.0). Minimum safe versions and the code changes are on [MCP protocol](/tools/mcp-protocol/#security-notes-minimum-safe-sdk-versions-october-2026); the [October 2026 agent security roundup](/news/ai-agent-security-roundup-october-2026/) covers them with the month's other agent advisories.
+
 ## Sources
 
 1. Microsoft. "The state of MCP security in 2026." Microsoft Security Blog. [https://techcommunity.microsoft.com/blog/microsoft-security-blog/the-state-of-mcp-security-in-2026/4531327](https://techcommunity.microsoft.com/blog/microsoft-security-blog/the-state-of-mcp-security-in-2026/4531327)
@@ -95,3 +100,6 @@ On **10 September**, Wiz research reported that **294 of 3,074** internet-facing
 6. AgentsID. "State of Agent Security 2026." [https://github.com/AgentsID-dev/agentsid-scanner/blob/master/docs/state-of-agent-security-2026.md](https://github.com/AgentsID-dev/agentsid-scanner/blob/master/docs/state-of-agent-security-2026.md)
 7. The Hacker News. "CISA Adds Seven Exploited Flaws as Attackers Deploy Reverse Shells and Crypto Miners." (3 September 2026). [https://thehackernews.com/2026/09/cisa-adds-seven-exploited-flaws-as.html](https://thehackernews.com/2026/09/cisa-adds-seven-exploited-flaws-as.html)
 8. The Hacker News. "Nearly 1 in 10 Exposed LiteLLM Gateways Accepted the Example 'sk-1234' Admin Key." (10 September 2026). [https://thehackernews.com/2026/09/nearly-1-in-10-exposed-litellm-gateways.html](https://thehackernews.com/2026/09/nearly-1-in-10-exposed-litellm-gateways.html)
+9. MCP Python SDK maintainers, GitHub security advisory GHSA-84m7-p3x7-pcfv (CVE-2026-59951, 15 October 2026): [https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-84m7-p3x7-pcfv](https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-84m7-p3x7-pcfv)
+10. MCP TypeScript SDK maintainers, GitHub security advisory GHSA-jm63-cq47-j5jp (CVE-2026-111770, 20 October 2026): [https://github.com/modelcontextprotocol/typescript-sdk/security/advisories/GHSA-jm63-cq47-j5jp](https://github.com/modelcontextprotocol/typescript-sdk/security/advisories/GHSA-jm63-cq47-j5jp)
+11. MCP TypeScript SDK maintainers, GitHub security advisory GHSA-rvq5-wwqv-78pq (CVE-2026-111771, 20 October 2026): [https://github.com/modelcontextprotocol/typescript-sdk/security/advisories/GHSA-rvq5-wwqv-78pq](https://github.com/modelcontextprotocol/typescript-sdk/security/advisories/GHSA-rvq5-wwqv-78pq)

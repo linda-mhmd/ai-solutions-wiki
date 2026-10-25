@@ -13,8 +13,8 @@ related:
   - glossary/rag
   - glossary/fine-tuning
   - guides/multi-cloud-ai-strategy
-last_updated: 2026-09-25
-lastmod: 2026-09-25
+last_updated: 2026-10-25
+lastmod: 2026-10-25
 ---
 
 <figure class="bz-figure">
@@ -92,6 +92,9 @@ Alibaba's "Model lifecycle and updates" page (International / Singapore service 
 | 17 September 2026 | `qwen3.8-omni-flash` | Qwen3.8-Omni-Flash: text, image, audio and video in, text out; thinking and non-thinking modes |
 | 20 September 2026 | `qwen-audio-3.1-realtime-plus` | Full-duplex speech conversation, 262,144-token context, function calling, web search, voice cloning |
 | 21 September 2026 | `qwen3.8-omni-flash-realtime` | Real-time audio and video with text and audio output, remote MCP tools; WebSocket, WebRTC and AOQ access |
+| 2 October 2026 | `qwen-image-2.1-pro` | API-only Qwen-Image-2.1 image generation and editing model |
+| 9 October 2026 | `qwen-image-2.1-turbo` | The hosted 8-step Qwen-Image-2.1-Turbo (open weights under the non-commercial Qwen Research License) |
+| 17 October 2026 | `deepseek-v4.1-flash-1017` | DeepSeek-V4.1-Flash-1017, released by DeepSeek the same day; same 552B MoE, 1M context and 384K max output as V4.1-Flash |
 
 The same list includes Vidu video and image models (14 September), HappyOyster world models (17 September) and a structured `decision-model-preview` for classification and scoring (24 September). Availability differs by region, so check the entry for your deployment region; the Model Studio id for DeepSeek's model is `deepseek-v4.1-flash`, not DeepSeek's own `deepseek-flash`, and Model Studio sets its own price for it. The catalog spans several modalities: text generation, visual understanding, image generation, video generation, speech recognition and synthesis, and embeddings. Embedding and reranking models exist specifically to support retrieval, which feeds the RAG features below.
 
@@ -135,7 +138,7 @@ A typical build follows this sequence.
   </div>
 </div>
 
-Model Studio is available in several regions, including Singapore, US (Virginia), Japan (Tokyo), Germany (Frankfurt), and mainland China and Hong Kong regions. Region choice matters for latency and for where your data is processed.
+Model Studio is available in several regions, including Singapore, US (Virginia), Japan (Tokyo), Germany (Frankfurt), and mainland China and Hong Kong regions. In October 2026 the **US (Virginia)** region gained Qwen's current hosted text models with the "US" deployment scope: `qwen3.8-flash` (3 October) and `qwen3.8-max` and `qwen3.7-flash` (8 October), each with deep thinking, visual understanding, function calling, structured output and context caching; Alibaba lists `qwen3.8-max` there "with a native 1M token context window". `deepseek-v4.1-flash-1017` is listed in Virginia with Global scope from 17 October. Region choice matters for latency and for where your data is processed.
 
 ### Snapshots and decommissioning
 
@@ -187,6 +190,7 @@ Model Studio is a strong fit when Qwen suits your workload or you already run on
 - [RAG knowledge base, Alibaba Cloud docs](https://www.alibabacloud.com/help/en/model-studio/rag-knowledge-base)
 - [Agent application architecture, Alibaba Cloud docs](https://www.alibabacloud.com/help/en/model-studio/single-agent-application)
 - [Model lifecycle and updates, newly released models (kimi-k3 19 Aug; qwen3.8-max-0902 2 Sep; deepseek-v4.1-flash 13 Sep; qwen3.8-omni-flash 17 Sep; qwen-audio-3.1-realtime-plus 20 Sep; qwen3.8-omni-flash-realtime 21 Sep 2026; page updated 24 September 2026), Alibaba Cloud docs](https://www.alibabacloud.com/help/en/model-studio/newly-released-models)
+- [Model Studio, newly released models, updated 22 October 2026](https://www.alibabacloud.com/help/en/model-studio/newly-released-models): the October Singapore and US (Virginia) entries above.
 - [DeepSeek API changelog, DeepSeek-V4.1-Flash release (10 September 2026)](https://api-docs.deepseek.com/updates)
 - [Model Studio update notice: qwen3.8-max moves to the qwen3.8-max-0902 snapshot on 2026-09-05, Alibaba Cloud](https://www.alibabacloud.com/en/notice/model_studio_update_notice_for_qwen38max_models_863)
 - [Model decommissioning policy (30 days for snapshots, 3 months for mainline models), Alibaba Cloud docs](https://help.aliyun.com/en/model-studio/model-depreciation)

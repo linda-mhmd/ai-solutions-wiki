@@ -4,7 +4,8 @@ description: "How LangGraph models AI agent workflows as stateful graphs, enabli
 date: 2026-03-24
 categories: [Tools]
 tags: ["ai-agents", "intermediate", "langgraph", "stateful-agents", "graphs", "langchain", "orchestration"]
-last_updated: 2026-05-30
+last_updated: 2026-10-25
+lastmod: 2026-10-25
 ---
 
 LangGraph is a library from the LangChain team for building stateful, multi-step AI agent workflows modeled as directed graphs. Unlike linear pipelines, LangGraph workflows can cycle - an agent can reason, take an action, observe the result, and decide whether to continue or loop back - enabling more sophisticated agent behavior than sequential chains allow.
@@ -49,3 +50,11 @@ For production systems requiring fine-grained control over execution flow, error
 LangGraph integrates with LangChain's tool ecosystem (hundreds of pre-built tool integrations) and all major LLM backends. LangSmith provides tracing and debugging for LangGraph executions, making it practical to trace multi-step agent behavior in production.
 
 For AWS-deployed applications, LangGraph agents can use Bedrock as the LLM backend via LangChain's Bedrock integration, keeping LLM calls within AWS infrastructure.
+
+## Security note: Postgres and SQLite stores (October 2026)
+
+If you use LangGraph's **Postgres or SQLite store** and rely on namespaces to keep users or tenants apart, upgrade to **`langgraph-checkpoint-postgres` 3.1.3** or **`langgraph-checkpoint-sqlite` 3.1.2**. Advisory GHSA-6hmw-9432-67qq / CVE-2026-115883 (Medium, CVSS 4.0 6.0) explains that the stores save a namespace as its labels joined with `.`, "so `("tenant", "bob")` and `("tenant.bob",)` map to the same stored namespace". Only `put` rejected labels containing `.`; `get`, `search`, `delete`, `list_namespaces` and `batch` did not, so "A caller that could pass such a label could read, overwrite or delete items in another namespace." `InMemoryStore` is not affected. See the [AI agent security roundup, October 2026](/news/ai-agent-security-roundup-october-2026/).
+
+## Sources
+
+1. LangChain, GitHub security advisory GHSA-6hmw-9432-67qq, "Namespace labels containing `.` reach other namespaces in Postgres and SQLite stores" (CVE-2026-115883; published 23 October 2026): https://github.com/langchain-ai/langgraph/security/advisories/GHSA-6hmw-9432-67qq

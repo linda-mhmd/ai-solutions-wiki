@@ -10,8 +10,8 @@ related:
   - frameworks/ai-regulatory-landscape
   - glossary/ce-marking-ai
   - glossary/conformity-assessment
-last_updated: 2026-09-25
-lastmod: 2026-09-25
+last_updated: 2026-10-25
+lastmod: 2026-10-25
 last_verified: 2026-09-25
 ---
 
@@ -28,6 +28,8 @@ Products must be designed, developed, and produced to ensure an appropriate leve
 ## Vulnerability Handling
 
 Manufacturers must establish and maintain a coordinated vulnerability disclosure policy, document and address vulnerabilities without delay, provide security updates free of charge for the support period (minimum 5 years or the expected product lifetime), and report actively exploited vulnerabilities and severe incidents through ENISA's single reporting platform to the designated national CSIRT and ENISA, with an early warning within 24 hours. This reporting duty has applied since 11 September 2026, including for products already on the market.
+
+**The reporting duty in practice: the PHP vulnerabilities of October 2026.** On 21 October 2026 (updated 22 October) the European Commission's DG CNECT, ENISA, CERT-EU, Europol EC3 and the CSIRTs Network issued a joint statement advising organisations "to take immediate action" on two critical PHP vulnerabilities, CVE-2026-109618 and CVE-2026-109619, which "could allow attackers to remotely execute malicious code on vulnerable servers without authentication". The PHP security team released updates on 21 October 2026 at 13:40 UTC. The statement ties the incident to this regulation explicitly: "as of 11 September 2026, manufacturers of hardware and software products must report actively exploited vulnerabilities through the CRA Single Reporting platform, in accordance with Regulation (EU) 2024/2847 (Cyber Resilience Act)." It also warns that "Many commercial and open-source products rely on PHP in the background", and points to the NCSC-NL php2shell repository for affected third-party software and to ENISA advisory CNW-2026-04. The vulnerabilities themselves are covered in [PHP2Shell](/news/php2shell-php-core-rce/). The statement does not say whether these two flaws are being actively exploited. What it makes plain is the order of questions for a manufacturer whose product embeds PHP: patch first, and if the flaw is actively exploited in your product, the 24-hour early warning through the single reporting platform applies, not only the patch.
 
 For AI products, this means monitoring for AI-specific vulnerabilities (adversarial inputs, model extraction attacks, data poisoning) and having processes to address them. Security updates for AI products may include model updates, guardrail improvements, or patches to inference infrastructure.
 
@@ -51,3 +53,5 @@ AI product companies must integrate security into the development lifecycle (sec
 
 1. European Commission, "Cyber Resilience Act - Summary": [https://digital-strategy.ec.europa.eu/en/policies/cra-summary](https://digital-strategy.ec.europa.eu/en/policies/cra-summary)
 2. Regulation (EU) 2024/2847, EUR-Lex: [https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng](https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng)
+3. European Commission, "Joint statement on critical PHP vulnerabilities" (21 October 2026, updated 22 October 2026): [https://digital-strategy.ec.europa.eu/en/news/joint-statement-critical-php-vulnerabilities](https://digital-strategy.ec.europa.eu/en/news/joint-statement-critical-php-vulnerabilities)
+4. NCSC-NL, php2shell repository (third-party software affected by the PHP vulnerabilities): [https://github.com/NCSC-NL/php2shell](https://github.com/NCSC-NL/php2shell)

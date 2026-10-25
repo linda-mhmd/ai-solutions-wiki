@@ -16,8 +16,8 @@ alternatives:
   aws: tools/amazon-bedrock
   azure: tools/azure-openai
   gcp: tools/google-vertex-ai
-last_updated: 2026-09-25
-lastmod: 2026-09-25
+last_updated: 2026-10-25
+lastmod: 2026-10-25
 last_verified: 2026-09-25
 ---
 
@@ -34,6 +34,15 @@ vLLM has become the industry standard for production LLM serving, used by compan
 - **Tensor Parallelism** - Distribute model layers across multiple GPUs for serving models larger than single-GPU memory
 - **OpenAI-Compatible API** - Production-ready HTTP server with streaming, function calling, and tool use support matching the OpenAI API format
 
+## Security note: upgrade to 0.32.0 (October 2026)
+
+Two vLLM advisories published on 20 October 2026 both name **0.32.0** as the patched version; neither had a CVE ID on 25 October.
+
+- **GHSA-h3rc-j82p-2c3h** (High, CVSS 3.1 8.1): in 0.30.0, `ImageMediaIO` passed attacker-controlled image bytes to Pillow's format autodetection, so "An EPS payload labeled `image/png` reached the host's Ghostscript executable". On a host whose Ghostscript is vulnerable to CVE-2024-29510 that becomes command execution with vLLM's privileges. The reporter reproduced it at the loader level; the HTTP path "is source-traced but was not exercised end to end". It needs an image-capable endpoint the attacker can reach and a vulnerable Ghostscript on the host.
+- **GHSA-6757-hggm-hp2w** (High): with `--mm-processor-cache-type shm` enabled, an authenticated caller could forge a multimodal shared-memory handle that reaches `pickle.loads()` in the worker, "with insecure serialization disabled", through ordinary public HTTP routes. The confirmed affected version is 0.25.1 and earlier. Note the score: the advisory's metadata gives CVSS 3.1 7.5 (`AC:H`), while the report text inside it gives 8.8 (`AC:L`); the advisory does not explain the difference.
+
+The preconditions the advisories list are a vulnerable Ghostscript build on the host for the first and the SHM multimodal cache being enabled for the second; the fix in both cases is 0.32.0. See the [AI agent security roundup, October 2026](/news/ai-agent-security-roundup-october-2026/).
+
 ## Cloud Equivalents
 
 vLLM is the open-source alternative to the inference backends powering AWS Bedrock, Azure OpenAI Service, and Google Vertex AI model endpoints (Vertex AI was rebranded Gemini Enterprise Agent Platform in April 2026 - see [Google Vertex AI](/tools/google-vertex-ai/) for the full story). Cloud services abstract away serving infrastructure entirely, while vLLM gives organizations full control over serving optimization, GPU utilization, and cost per token at the expense of managing infrastructure.
@@ -48,3 +57,5 @@ vLLM was created by Woosuk Kwon, Zhuohan Li, and other researchers at UC Berkele
 2. PyTorch Foundation, hosted projects (vLLM, Ray, DeepSpeed): https://pytorch.org/foundation/
 3. vLLM releases (v0.30.0, 22 September 2026): https://github.com/vllm-project/vllm/releases
 4. Kwon, W. et al. "Efficient Memory Management for Large Language Model Serving with PagedAttention." SOSP, 2023.
+5. vLLM, GitHub security advisory GHSA-h3rc-j82p-2c3h, "Untrusted EPS inputs can trigger denial of service or Ghostscript RCE in vLLM" (20 October 2026): https://github.com/vllm-project/vllm/security/advisories/GHSA-h3rc-j82p-2c3h
+6. vLLM, GitHub security advisory GHSA-6757-hggm-hp2w, "Public multimodal SHM handle forgery reaches worker-side `pickle.loads()` with insecure serialization disabled" (20 October 2026): https://github.com/vllm-project/vllm/security/advisories/GHSA-6757-hggm-hp2w

@@ -2,8 +2,8 @@
 title: "xAI Grok"
 description: "xAI, now a SpaceX subsidiary trading as SpaceXAI, builds the Grok family of large language models, offered through a developer API and a consumer app."
 date: 2026-06-29
-last_updated: 2026-09-25
-lastmod: 2026-09-25
+last_updated: 2026-10-25
+lastmod: 2026-10-25
 last_verified: 2026-09-25
 tags: ["llm", "foundation-models", "api", "frontier-models"]
 tool_category: "AI"
@@ -24,7 +24,7 @@ related:
 
 xAI is the company that builds the Grok family of [large language models](/glossary/llm/). Grok is available two ways: as a consumer chat app and as a developer API that you call from your own applications. If you build software that needs to generate text, hold a conversation, use tools, or work with images and voice, xAI is one of several [foundation model](/glossary/foundation-models/) providers you can wire into your product. This page explains what Grok is, where it fits among frontier model providers, and how you access it.
 
-**Who you are actually buying from.** xAI is no longer an independent company. SpaceX acquired it in an all-stock deal that closed on 2 February 2026, making xAI a wholly owned subsidiary, and the business was rebranded SpaceXAI in July 2026 - x.ai pages now carry "&copy; 2026 SpaceXAI LLC" in the footer. Press reporting puts xAI's value in the deal at roughly $250bn and the combined entity at around $1.25tn, and SpaceX itself listed on Nasdaq in June 2026; those valuation figures come from secondary sources rather than a filing. None of this changes the product surface: the models are still called Grok, the docs still say "xAI", and the API endpoint is still `api.x.ai/v1`. It does change your counterparty for procurement, due diligence, and vendor-risk paperwork, so check which legal entity your contract names.
+**Who you are actually buying from.** xAI is no longer an independent company. SpaceX acquired it in an all-stock deal that closed on 2 February 2026, making xAI a wholly owned subsidiary, and the business was rebranded SpaceXAI in July 2026 - x.ai pages now carry "&copy; 2026 SpaceXAI LLC" in the footer. Press reporting puts xAI's value in the deal at roughly $250bn and the combined entity at around $1.25tn, and SpaceX itself listed on Nasdaq in June 2026; those valuation figures come from secondary sources rather than a filing. None of this changes the product surface: the models are still called Grok and the API endpoint is still `api.x.ai/v1`. **The name itself is now inconsistent across sources.** xAI's own developer documentation, read on 25 October 2026, is titled "SpaceXSI Docs" and its release notes call the company "SpaceXSI" throughout (for example, "Grok 4.7, SpaceXSI's frontier model"), while AWS's 19 October 2026 Bedrock announcement says "SpaceXAI". This page uses xAI's own current spelling where it quotes xAI, and notes that AWS differs; x.ai itself refused automated access on 25 October, so the footer quoted above was not re-checked. It does change your counterparty for procurement, due diligence, and vendor-risk paperwork, so check which legal entity your contract names.
 
 ## Where Grok sits in your stack
 
@@ -105,7 +105,11 @@ The lineup has one counter-intuitive shape worth knowing before you pick: the ol
 
 Figures are from xAI's own models documentation as of 25 September 2026. Check that page for the current list before you build, because the lineup changes quickly: three flagship releases (4.5, 4.6, 4.7) landed between July and September 2026.
 
-**Other September changes on the API.** `grok-voice-transcribe-2.0` is now available for speech-to-text, but `grok-voice-transcribe-1.0` remains the default, so request 2.0 explicitly if you want it. And **`grok-imagine-image-quality` retires on 2 November 2026**. After that date requests to the slug are served by `grok-imagine-image-2.0` with `quality` set to `low`, with the same request and response shape and a lower per-image price ($0.04 against $0.05 today). The one catch: you will silently get low-quality output, so switch explicitly to `grok-imagine-image-2.0` and pin the `quality` you want. The original `grok-imagine-image` (1.0) is not affected. xAI does not publish a release date for grok-4.3 on its docs page, so treat the ordering above as the catalogue's, not a dated timeline.
+**October changes on the API.** On **14 October 2026** xAI released **Grok Voice 3.0**: "`grok-voice-3.0` is now available with Speech to Speech, at the same price as Grok Voice 2.0. `grok-voice-latest` now points to `grok-voice-3.0`, so sessions that use the alias are upgraded automatically. The API is unchanged." The same day `grok-voice-2.0` was deprecated, with no end-of-life date given. And `grok-voice-transcribe-1.0` reached **end of life on 2 October 2026**; "All requests to that slug are routed to `grok-voice-transcribe-2.0` at the same price". (This page said in September that 1.0 remained the default for speech-to-text. xAI's release-note entry for Grok Voice Transcribe 2.0, as read on 25 October, says "the default is `grok-voice-transcribe-2.0`", and since 2 October the question is moot.)
+
+**Grok 4.7 remains xAI's frontier text model**, and it reached Amazon Bedrock in **AWS GovCloud (US)** on 19 October 2026, per AWS.
+
+**Other September changes on the API.** And **`grok-imagine-image-quality` retires on 2 November 2026**. After that date requests to the slug are served by `grok-imagine-image-2.0` with `quality` set to `low`, with the same request and response shape and a lower per-image price ($0.04 against $0.05 today). The one catch: you will silently get low-quality output, so switch explicitly to `grok-imagine-image-2.0` and pin the `quality` you want. The original `grok-imagine-image` (1.0) is not affected. xAI does not publish a release date for grok-4.3 on its docs page, so treat the ordering above as the catalogue's, not a dated timeline.
 
 <div class="bz-flow">
   <div class="bz-flow-step">
@@ -176,7 +180,8 @@ Grok is not always the right pick.
 - [Grok 4.7 announcement](https://x.ai/news/grok-4-7): dated 21 September 2026.
 - [xAI pricing](https://docs.x.ai/developers/pricing): Grok 4.7 Fast rates and the 1.1x US regional endpoint multiplier.
 - [This wiki: Grok 4.7](/news/grok-4-7/).
-- [xAI release notes](https://docs.x.ai/docs/release-notes): Grok 4.7, Grok Voice Transcribe 2.0 and the `grok-imagine-image-quality` retirement (September 2026).
+- [xAI release notes](https://docs.x.ai/developers/release-notes) (fetched 25 October 2026): Grok Voice 3.0 and the Grok Voice 2.0 deprecation (14 October 2026), `grok-voice-transcribe-1.0` end of life (2 October 2026), Grok 4.7, Grok Voice Transcribe 2.0 and the `grok-imagine-image-quality` retirement, and the "SpaceXSI" name.
+- [AWS What's New, "Grok 4.7 is now available on Amazon Bedrock in AWS GovCloud (US)"](https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-bedrock-grok-4-7-govcloud/): 19 October 2026, naming the vendor "SpaceXAI".
 - [Grok 4.7 is now available in GitHub Copilot, GitHub Changelog](https://github.blog/changelog/2026-09-21-grok-4-7-is-now-available-in-github-copilot): 21 September 2026.
 - [Cursor, Grok 4.7 model page](https://cursor.com/docs/models/grok-4-7): Fast variant pricing and "jointly trained by Cursor and SpaceXAI".
 - [Google Cloud release notes](https://cloud.google.com/feeds/gcp-release-notes.xml): Grok 4.6 GA in Vertex AI Model Garden, 18 September 2026.

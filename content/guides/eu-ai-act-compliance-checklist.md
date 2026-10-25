@@ -11,7 +11,7 @@ related:
   - glossary/responsible-ai
   - guides/ai-data-strategy
   - comparisons/eu-vs-us-ai-regulation
-lastmod: 2026-09-26
+lastmod: 2026-10-25
 last_verified: 2026-09-26
 ---
 
@@ -207,6 +207,7 @@ Work through this checklist for each AI system in your inventory.
 - [ ] Benchmark accuracy and robustness against defined performance targets
 - [ ] Implement a human override mechanism that operators can actually use
 - [ ] Draft user-facing transparency notices explaining what the system does and its limitations
+- [ ] Set up a quality management system that meets Article 17. Since October 2026 the harmonised standard **EN 18286:2026** (CEN and CENELEC, referenced through Implementing Decision (EU) 2026/2274) gives a presumption of conformity with the Article 17 requirements it covers; ISO/IEC 42001 alone does not
 - [ ] Complete a conformity assessment and retain the records
 - [ ] Register the system in the EU AI database before deployment
 
@@ -285,11 +286,13 @@ The standard maps directly to many EU AI Act requirements:
 | Post-market monitoring | 9.1 (Monitoring, measurement, analysis) |
 | Incident reporting | 10.1 (Nonconformity and corrective action) |
 
-Achieving ISO 42001 certification does not automatically satisfy EU AI Act conformity assessment. However, a certified management system provides auditable evidence of the governance processes the Act requires. Regulators and notified bodies view ISO 42001 certification favourably when evaluating conformity assessment submissions.
+Achieving ISO 42001 certification does not automatically satisfy EU AI Act conformity assessment, and it carries no presumption of conformity. The first standard that does, for the quality management system duty in Article 17, is **EN 18286:2026**, which the Commission describes as "the only AI QMS standard with a presumption of conformity" and as designed to be layered on top of ISO/IEC 42001, ISO 9001 or ISO 13485 "rather than replace them" (Commission item of 19 October 2026). The Official Journal date was not confirmed for this update. However, a certified management system provides auditable evidence of the governance processes the Act requires. Regulators and notified bodies view ISO 42001 certification favourably when evaluating conformity assessment submissions.
 
 If your organisation is beginning its AI governance programme, implementing ISO 42001 first is a practical approach. The management system you build will contain most of the documentation the EU AI Act requires.
 
 ## Further reading
+
+- [First harmonised standard supporting the AI Act published in the Official Journal (European Commission, 19 October 2026)](https://digital-strategy.ec.europa.eu/en/library/first-harmonised-standard-supporting-ai-act-published-official-journal): EN 18286:2026 and the Article 17 presumption of conformity
 
 - [EU AI Act full text (EUR-Lex)](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689): the official regulation text, including Annexes I to XIII which define prohibited and high-risk system categories
 - [European AI Office](https://digital-strategy.ec.europa.eu/en/policies/european-ai-office): the central EU body overseeing GPAI models and coordinating national supervisory authorities

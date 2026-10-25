@@ -1,6 +1,6 @@
 ---
 title: "GitHub Copilot - AI Pair Programmer"
-description: "GitHub Copilot is Microsoft's multi-model AI coding assistant, integrated into VS Code, JetBrains, Vim, and GitHub.com. It generates code completions, answers questions about your codebase, runs agents, and reviews pull requests. Covers the September 2026 model lineup, deprecation schedule, billing changes, Plugin4Shell and the Doe v. GitHub ruling."
+description: "GitHub Copilot is Microsoft's multi-model AI coding assistant for VS Code, JetBrains, Vim and GitHub.com: completions, chat, agents and PR review. Covers the October 2026 model lineup and deprecation waves, agentic autofix, billing, Plugin4Shell and Doe v. GitHub."
 date: 2026-06-22
 categories: [Tools]
 tags: ["github-copilot", "ai-coding", "microsoft", "openai", "developer-tools", "ide", "code-completion", "pair-programming"]
@@ -11,12 +11,12 @@ related:
   - basics/what-is-github
   - basics/what-is-version-control
   - basics/what-is-vibe-coding
-last_updated: 2026-09-25
-lastmod: 2026-09-25
+last_updated: 2026-10-25
+lastmod: 2026-10-25
 last_verified: 2026-09-25
 ---
 
-GitHub Copilot is Microsoft's AI coding assistant, released publicly in 2022 and now the most widely deployed AI tool in enterprise software development. It is now a multi-model product. The model picker spans OpenAI (GPT-6 Astra, Sol and Luna; GPT-5.6), Anthropic (Claude Opus 5.5, Fable 5.1, Sonnet 5), Google (Gemini 3.8 Flash), xAI (Grok 4.7) and Microsoft's own MAI-Code-1.1-Flash, with an Auto mode that picks per prompt. See [Models and policy changes, September 2026](#models-and-policy-changes-september-2026) below. It is integrated directly into the editors and platforms developers already use: VS Code, JetBrains IDEs, Vim, Neovim, and GitHub.com. It generates inline code completions as you type, answers questions about your codebase in a chat sidebar, reviews pull requests, and in its Enterprise tier, understands the full context of your GitHub repositories.
+GitHub Copilot is Microsoft's AI coding assistant, released publicly in 2022 and now the most widely deployed AI tool in enterprise software development. It is now a multi-model product. The model picker spans OpenAI (GPT-6 Astra, Sol and Luna; GPT-5.6), Anthropic (Claude Opus 5.5, Fable 5.1, Sonnet 5), Google (Gemini 4 Argon, Gemini 3.8 Flash), xAI (Grok 4.7) and Microsoft's own MAI-Code-1.1-Flash, with an Auto mode that picks per prompt. See [Models and policy changes, October 2026](#models-and-policy-changes-october-2026) below. It is integrated directly into the editors and platforms developers already use: VS Code, JetBrains IDEs, Vim, Neovim, and GitHub.com. It generates inline code completions as you type, answers questions about your codebase in a chat sidebar, reviews pull requests, and in its Enterprise tier, understands the full context of your GitHub repositories.
 
 The problem Copilot solves is friction at the implementation layer. A developer who knows what to build still spends significant time on boilerplate, remembering API signatures, writing tests for obvious cases, and translating intent into working syntax. Copilot compresses that gap by making the next line of code available before you have finished thinking about it.
 
@@ -53,7 +53,7 @@ The problem Copilot solves is friction at the implementation layer. A developer 
     <div class="bz-arch-layer-content">
       <span class="bz-arch-chip">GPT-6 Astra / Sol / Luna</span>
       <span class="bz-arch-chip">Claude Opus 5.5 / Fable 5.1 / Sonnet 5</span>
-      <span class="bz-arch-chip">Gemini 3.8 Flash</span>
+      <span class="bz-arch-chip">Gemini 4 Argon / 3.8 Flash</span>
       <span class="bz-arch-chip">Grok 4.7</span>
       <span class="bz-arch-chip">MAI-Code-1.1-Flash</span>
       <span class="bz-arch-chip-note">Users pick per session (plan-dependent); Business and Enterprise admins control availability through model policies</span>
@@ -233,6 +233,37 @@ Copilot Workspace, the GitHub Next technical preview that planned multi-file cha
 
 ---
 
+## Models and policy changes, October 2026
+
+This section covers what GitHub announced between 13 and 19 October 2026. Earlier waves (1 September and 2 October) are in the changelog posts listed under Sources.
+
+**Gemini 4 Argon is generally available (13 October 2026).** GitHub's changelog: "Gemini 4 Argon, Google's newest frontier model, is now generally available in GitHub Copilot." It is available to Copilot Pro+, Max, Business and Enterprise users, in VS Code, Visual Studio, Copilot CLI, JetBrains IDEs, Xcode and Eclipse, with a gradual rollout, and "is billed at provider list pricing under usage-based billing." GitHub's claim that it "solved more tasks than previous Gemini models on every coding benchmark" is GitHub's, with no figures published. Google's own list price is $2 / $10 per MTok until 30 November 2026 and $4 / $20 from 1 December; see [Gemini 4 Argon](/news/gemini-4-argon/).
+
+**The 19 October wave is done.** On 19 October 2026 GitHub deprecated these models "across most GitHub Copilot experiences", as announced on 18 September:
+
+| Model | Deprecated | Suggested alternative |
+|---|---|---|
+| Gemini 3.7 Flash | 19 Oct 2026 | Gemini 3.8 Flash |
+| GPT-5.5 | 19 Oct 2026 | GPT-6.1 Sol |
+| GPT-5.4 | 19 Oct 2026 | GPT-6.1 Sol |
+| GPT-5.4 mini | 19 Oct 2026 | GPT-6 Luna |
+| GPT-5 mini | 19 Oct 2026 | GPT-6 Luna |
+| Grok 4.5 | 19 Oct 2026 | Grok 4.7 |
+
+**Next wave: 16 November 2026.** Announced on 15 October, across all Copilot experiences:
+
+| Model | Deprecation date | Suggested alternative |
+|---|---|---|
+| Claude Opus 4.8 | 16 Nov 2026 | Claude Opus 5.5 |
+| Claude Opus 5 | 16 Nov 2026 | Claude Opus 5.5 |
+| GPT-5.6 Terra | 16 Nov 2026 | GPT-6.1 Sol or GPT-6 Luna |
+
+One exception, in GitHub's words: "Claude Opus 4.8 will remain available to individual GitHub Copilot subscribers on annual plans so they retain an Opus offering." For Business and Enterprise, the suggested alternatives are enabled automatically under default model enablement unless an administrator has turned the global default off.
+
+**Agentic autofix for code scanning is generally available (15 October 2026).** Assigning a code scanning alert to Copilot makes it propose a fix, rerun CodeQL to check that the fix closes the alert, and open a draft pull request. You can select "up to 25 alerts for Copilot to fix together in a single pull request", and only alerts on the default branch can be assigned. It is available to GitHub Code Security and GitHub Advanced Security customers on GitHub Enterprise Cloud, including data residency, needs an enterprise administrator to enable the new "Agentic autofix" policy, and consumes AI Credits from the Code Security budget plus GitHub Actions minutes. When enabled it replaces the free "Generate Fix" button on individual alerts with "Assign to Copilot".
+
+---
+
 ## Enterprise features
 
 **Copilot Enterprise** is the tier aimed at large organisations on GitHub Enterprise Cloud. Key additions over the Business tier:
@@ -288,7 +319,7 @@ Amazon CodeWhisperer was folded into **Amazon Q Developer**; AWS also sells a se
 
 **You need to avoid GitHub vendor lock-in.** Copilot's strongest features, PR review, repository indexing and the cloud agent, are GitHub-specific. If your organisation uses GitLab, Bitbucket, or Azure DevOps as its primary SCM, Copilot's GitHub-native advantages do not apply.
 
-**Model choice flexibility matters more than ecosystem depth.** Copilot now has a model picker on individual plans too, but access is tiered: GPT-6 Astra, GPT-6 Sol, Claude Opus 5.5 and Claude Fable 5.1 need Pro+ or higher, while Pro gets GPT-6 Luna, Grok 4.7 and Gemini 3.8 Flash. Premium models bill under usage-based billing. If you want the widest menu on the cheapest paid tier, compare Cursor's model list and usage pools before committing.
+**Model choice flexibility matters more than ecosystem depth.** Copilot now has a model picker on individual plans too, but access is tiered: GPT-6 Astra, GPT-6 Sol, Claude Opus 5.5 and Claude Fable 5.1 need Pro+ or higher, while Pro gets GPT-6 Luna, Grok 4.7 and Gemini 3.8 Flash. Gemini 4 Argon is Pro+, Max, Business and Enterprise only. Premium models bill under usage-based billing. If you want the widest menu on the cheapest paid tier, compare Cursor's model list and usage pools before committing.
 
 **You are primarily a solo developer on a tight budget.** The free tier covers light use. Devin Desktop (formerly Windsurf) advertises unlimited Tab completions on its free plan, and Amazon Q Developer's free tier includes 50 agentic requests a month. Compare those before paying for Copilot Pro if cost is the primary constraint.
 
@@ -328,6 +359,10 @@ Amazon CodeWhisperer was folded into **Amazon Q Developer**; AWS also sells a se
 18. Gibson Dunn, "Ninth Circuit clarifies limits of DMCA liability for AI-generated code": [https://www.gibsondunn.com/ninth-circuit-clarifies-limits-of-dmca-liability-for-ai-generated-code/](https://www.gibsondunn.com/ninth-circuit-clarifies-limits-of-dmca-liability-for-ai-generated-code/)
 19. This wiki, "Plugin4Shell": [/news/plugin4shell-coding-agents-rce/](/news/plugin4shell-coding-agents-rce/)
 20. This wiki, "Doe v. GitHub at the Ninth Circuit": [/news/doe-v-github-ninth-circuit/](/news/doe-v-github-ninth-circuit/)
+21. GitHub Changelog, 13 October 2026, "Gemini 4 Argon in GitHub Copilot": [https://github.blog/changelog/2026-10-13-gemini-4-argon-in-github-copilot](https://github.blog/changelog/2026-10-13-gemini-4-argon-in-github-copilot)
+22. GitHub Changelog, 15 October 2026, "Upcoming deprecation of selected GitHub Copilot models in mid-November" (16 November wave): [https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november](https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november)
+23. GitHub Changelog, 19 October 2026, "GitHub Copilot models deprecated on October 19, 2026": [https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026](https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026)
+24. GitHub Changelog, 15 October 2026, "Agentic autofix for code scanning alerts general availability": [https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability](https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability)
 21. GitHub Docs, "Plans for GitHub Copilot" (plan prices and AI credit allowances), checked 25 September 2026: [https://docs.github.com/en/copilot/get-started/plans](https://docs.github.com/en/copilot/get-started/plans)
 22. GitHub Docs, "About GitHub Copilot cloud agent": [https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent)
 23. AWS, Amazon Q Developer pricing (Free, Pro $19/user/month), checked 26 September 2026: [https://aws.amazon.com/q/developer/pricing/](https://aws.amazon.com/q/developer/pricing/); Kiro pricing: [https://kiro.dev/pricing/](https://kiro.dev/pricing/)

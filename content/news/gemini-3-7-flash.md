@@ -2,8 +2,8 @@
 title: "Google Ships Gemini 3.7 Flash Three Weeks After 3.6, at Half the Price"
 description: "Gemini 3.7 Flash launched on 13 August 2026 with large gains on coding and agentic benchmarks over 3.6 Flash, at introductory pricing of $0.75/$3.75 per million tokens. Google shipped two Flash-tier models in 23 days."
 date: 2026-08-13
-lastmod: 2026-09-02
-last_updated: 2026-09-02
+lastmod: 2026-10-25
+last_updated: 2026-10-25
 categories: [News]
 tags: [google, gemini, model-release, coding-agents, agentic-ai, pricing]
 related:
@@ -14,6 +14,8 @@ related:
 ---
 
 Google released **Gemini 3.7 Flash on 13 August 2026**, twenty-three days after Gemini 3.6 Flash. Google calls it "our most intelligent workhorse model yet for coding and agents." The benchmark deltas over its three-week-old predecessor are large, and the introductory price is half what 3.6 Flash cost. The interesting fact here is not any single number; it is the cadence.
+
+> **Update, 25 October 2026: deprecated on 8 October.** The Gemini API release notes for 8 October 2026 say `gemini-3.7-flash` "is deprecated and has been replaced by `gemini-3.8-flash`. It is no longer available to select in Google AI Studio, and API requests to `gemini-3.7-flash` are automatically routed to `gemini-3.8-flash`." The deprecations page adds that "the endpoint is not shutting down", so no shutdown date exists. GitHub deprecated Gemini 3.7 Flash across most Copilot experiences on 19 October 2026, with Gemini 3.8 Flash as the suggested alternative. The rest of this entry describes the model as it launched.
 
 ## What happened
 
@@ -65,6 +67,9 @@ Three weeks between workhorse releases changes how you should hold model choice.
 5. OpenRouter, Gemini 3.7 Flash model card (context length, output limit, live pricing): [https://openrouter.ai/google/gemini-3.7-flash](https://openrouter.ai/google/gemini-3.7-flash)
 6. 9to5Google, "Gemini 3.7 Flash launches three weeks after last model, live in Spark" (13 August 2026): [https://9to5google.com/2026/08/13/gemini-3-7-flash-launch/](https://9to5google.com/2026/08/13/gemini-3-7-flash-launch/)
 7. TechCrunch, "Google releases three new Gemini models - but no 3.5 Pro" (21 July 2026): [https://techcrunch.com/2026/07/21/google-releases-three-new-gemini-models-but-no-3-5-pro/](https://techcrunch.com/2026/07/21/google-releases-three-new-gemini-models-but-no-3-5-pro/)
+8. Google, Gemini API release notes, 8 October 2026 entry (fetched 25 October 2026): [https://ai.google.dev/gemini-api/docs/changelog](https://ai.google.dev/gemini-api/docs/changelog)
+9. Google, Gemini API deprecations (fetched 25 October 2026): [https://ai.google.dev/gemini-api/docs/deprecations](https://ai.google.dev/gemini-api/docs/deprecations)
+10. GitHub Changelog, "GitHub Copilot models deprecated on October 19, 2026" (19 October 2026): [https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026](https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026)
 
 ## Further reading
 
