@@ -47,3 +47,13 @@ Claude outputs/
 /weekly-update.yml
 docs/weekly-update.md
 ci/bootstrap-preview-repo.sh
+
+# Local and secret files
+.env
+.env.*
+__pycache__/
+.venv/
+*.pem
+!.env.example
+!.env.sample
+!.env.template
