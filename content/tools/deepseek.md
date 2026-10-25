@@ -2,7 +2,7 @@
 title: "DeepSeek"
 description: "DeepSeek is a Chinese AI lab known for open-weight large language models and a focus on training and inference efficiency."
 date: 2026-06-29
-last_verified: 2026-09-25
+last_verified: 2026-10-25
 tags: ["open-weight", "llm", "reasoning", "mixture-of-experts"]
 tool_category: "AI"
 related:
@@ -11,8 +11,8 @@ related:
   - glossary/inference
   - tools/alibaba-qwen
   - comparisons/llm-landscape-2026
-last_updated: 2026-09-25
-lastmod: 2026-09-25
+last_updated: 2026-10-25
+lastmod: 2026-10-25
 ---
 
 <figure class="bz-figure">
@@ -40,7 +40,7 @@ The lab was established on 2023-07-17 by Liang Wenfeng, who also founded the qua
   <div class="bz-arch-layer">
     <span class="bz-arch-layer-label">Models</span>
     <div class="bz-arch-layer-content">
-      <span class="bz-arch-chip">deepseek-flash (V4.1-Flash)</span>
+      <span class="bz-arch-chip">deepseek-flash (V4.1-Flash-1017)</span>
       <span class="bz-arch-chip">deepseek-v4-pro</span>
       <span class="bz-arch-chip-note">Two API models, MIT-licensed weights, reasoning set per request</span>
     </div>
@@ -69,11 +69,12 @@ DeepSeek's headline models use a Mixture-of-Experts design. The model holds a la
 
 DeepSeek-V3 shipped in December 2024 and the reasoning-focused DeepSeek-R1 followed in January 2025. Both are historically important and still downloadable, but neither is served on DeepSeek's API any more: the V3 line and the `deepseek-chat` and `deepseek-reasoner` aliases were discontinued on 2026-07-24, three months after the V4 launch announced the deprecation. There is no R2. The Financial Times reported in August 2025 that R2 was delayed after DeepSeek, under official pressure to train on Huawei Ascend hardware, could not complete a training run and fell back to Nvidia GPUs, with data-labelling problems compounding the slip; as of 25 September 2026 no R2 model id, model card, or technical report exists.
 
-As of 25 September 2026 the API serves **two models**, both with a 1,000,000-token context window and a maximum output of 384K tokens: **DeepSeek-V4.1-Flash** under the new name `deepseek-flash`, and **DeepSeek-V4-Pro-0813** under `deepseek-v4-pro`.
+As of 25 October 2026 the API serves **two models**, both with a 1,000,000-token context window and a maximum output of 384K tokens: **DeepSeek-V4.1-Flash-1017** under `deepseek-flash`, and **DeepSeek-V4-Pro-0813** under `deepseek-v4-pro`. The `deepseek-flash` name now points at the 17 October checkpoint, not the 10 September one.
 
 | Model | API id | Status | Weights |
 |---|---|---|---|
-| **DeepSeek-V4.1-Flash** | `deepseek-flash` | Released 10 September 2026 | `deepseek-ai/DeepSeek-V4.1-Flash`, MIT |
+| **DeepSeek-V4.1-Flash-1017** | `deepseek-flash` | Released 17 October 2026, served since then | `deepseek-ai/DeepSeek-V4.1-Flash-1017`, MIT |
+| DeepSeek-V4.1-Flash (first checkpoint) | none (replaced behind `deepseek-flash` on 17 October 2026) | Released 10 September 2026 | `deepseek-ai/DeepSeek-V4.1-Flash`, MIT |
 | **DeepSeek-V4-Pro** (checkpoint V4-Pro-0813) | `deepseek-v4-pro` | GA since 13 August 2026, continues unchanged | `deepseek-ai/DeepSeek-V4-Pro-0813`, MIT |
 | DeepSeek-V4-Flash (checkpoint V4-Flash-0731) | `deepseek-v4-flash` (legacy alias) | Retired 10 September 2026 (previous generation, superseded by V4.1-Flash) | `deepseek-ai/DeepSeek-V4-Flash-0731`, MIT |
 | DeepSeek-V4-Flash-Vision-Exp | `deepseek-v4-flash-vision-exp` (legacy alias) | Retired 10 September 2026 (previous generation, superseded by V4.1-Flash) | On Hugging Face, MIT |
@@ -91,9 +92,19 @@ DeepSeek released **DeepSeek-V4.1-Flash on 10 September 2026**, describing it as
 
 DeepSeek's changelog lists vendor-reported scores including GPQA Diamond 90.9, Terminal-Bench 2.1 90.6 and DeepSWE v1.1 74.2. Treat these as DeepSeek's own numbers until independent evaluations appear.
 
+### DeepSeek-V4.1-Flash-1017
+
+On **17 October 2026** DeepSeek upgraded V4.1-Flash to **DeepSeek-V4.1-Flash-1017** and moved the API, web and app to it. The changelog says "The API calling method and pricing remain unchanged" and tells users to "simply use deepseek-flash to access the latest model", and the Models & Pricing page (fetched 25 October 2026) lists DeepSeek-V4.1-Flash-1017 as the model version behind `deepseek-flash`, with the same off-peak and peak prices as before. The legacy `deepseek-v4-flash` and `deepseek-v4-flash-vision-exp` names are now served by 1017 too. If you pinned behaviour on the September checkpoint through `deepseek-flash`, the model changed underneath you on 17 October with no new ID.
+
+The weights are on Hugging Face as `deepseek-ai/DeepSeek-V4.1-Flash-1017`, ungated, under the **MIT licence**. The card calls it "a minor update to DeepSeek-V4.1-Flash", and, like the first checkpoint, "This release does not include a Jinja-format chat template"; it ships a Python reference encoder instead. DeepSeek recommends "DeepSeek Harness 0.2.1-rc.1 or later for the best experience with the new model."
+
+DeepSeek's reported scores for 1017 include HLE without tools 42.6, Terminal-Bench 4.0 42.3, DeepSWE v1.1 77.0 and ProgramBench 29.1, against 36.8, 31.2, 74.2 and 20.3 for the September checkpoint. All are DeepSeek's own figures. One caution: the 1017 note says Terminal-Bench 4.0 "was tested with the Claude Code framework" and DeepSWE with Mini-SWE-V2, while the September note states no harness, so an 11-point Terminal-Bench gain in five weeks may partly be a harness change rather than a model change.
+
+**Search & Fetch API.** Also on 17 October DeepSeek opened its in-house search engine as two endpoints, `POST /v1/tools/search` and `POST /v1/tools/fetch`. The guide prices each at **$0.75 per 1,000 successful requests**; failed requests, empty results and timeouts are not billed. Server-side search and fetch calls made through DeepSeek Harness, Claude Code or Codex "are currently free of charge; per-request billing starts at 00:00 Beijing time on November 1, 2026" (16:00 UTC on 31 October).
+
 ### What happened to V4-Flash and V4-Pro
 
-With the V4.1-Flash launch, **V4-Flash (0731) and V4-Flash-Vision-Exp were retired**. For compatibility, the old ids `deepseek-v4-flash` and `deepseek-v4-flash-vision-exp` are **temporarily routed to V4.1-Flash and billed at the Flash price**. DeepSeek calls this temporary, so move code to `deepseek-flash` now.
+With the V4.1-Flash launch, **V4-Flash (0731) and V4-Flash-Vision-Exp were retired**. For compatibility, the old ids `deepseek-v4-flash` and `deepseek-v4-flash-vision-exp` are **temporarily routed to V4.1-Flash (since 17 October, the 1017 checkpoint) and billed at the Flash price**. DeepSeek calls this temporary, so move code to `deepseek-flash` now.
 
 **V4-Pro is not affected.** DeepSeek's changelog says that "in response to user demand" it will continue providing API services for DeepSeek V4 Pro after 14 September 2026, with billing unchanged. `deepseek-v4-pro` still serves V4-Pro-0813. Some secondary outlets reported before the launch that V4-Pro requests would be routed to V4.1-Flash; that did not happen. Note that V4-Pro has **no image input**, so image work must go to `deepseek-flash`.
 
@@ -182,7 +193,7 @@ Prices in USD per 1M tokens, shown as off-peak / peak:
 
 | Model | Input (cache hit) | Input (cache miss) | Output |
 |---|---|---|---|
-| `deepseek-flash` (V4.1-Flash; also legacy Flash aliases) | **$0.003 / $0.006** | **$0.15 / $0.30** | **$0.60 / $1.20** |
+| `deepseek-flash` (V4.1-Flash-1017 since 17 Oct 2026; also legacy Flash aliases) | **$0.003 / $0.006** | **$0.15 / $0.30** | **$0.60 / $1.20** |
 | `deepseek-v4-pro` | $0.022 / $0.044 | $0.66 / $1.32 | $1.98 / $3.96 |
 | Previous V4-Flash rate (16 Aug to 10 Sep 2026) | $0.007 / $0.014 | $0.22 / $0.44 | $0.66 / $1.32 |
 
@@ -236,7 +247,10 @@ DeepSeek is not the right pick for every team.
 ## Sources
 
 - DeepSeek official site: https://www.deepseek.com/
-- DeepSeek API, "Models & Pricing" (`deepseek-flash` and `deepseek-v4-pro`, legacy alias routing, off-peak/peak prices, Chinese public holiday rule; accessed 25 September 2026): https://api-docs.deepseek.com/quick_start/pricing
+- DeepSeek API, "Models & Pricing" (`deepseek-flash` serving V4.1-Flash-1017 and `deepseek-v4-pro`, legacy alias routing, off-peak/peak prices, Chinese public holiday rule; accessed 25 October 2026 at the trailing-slash URL, because the URL without it now serves the quick-start page): https://api-docs.deepseek.com/quick_start/pricing/
+- DeepSeek API changelog, 17 October 2026 ("DeepSeek-V4.1-Flash-1017 Update" and "Opening up the in-house search API"; fetched 25 October 2026): https://api-docs.deepseek.com/updates
+- DeepSeek-V4.1-Flash-1017 model card (17 October 2026; MIT licence, no Jinja chat template, harness notes for the benchmarks): https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017
+- DeepSeek API, "Search & Fetch" guide (endpoints, $0.75 per 1,000 successful requests, free harness calls until 1 November 2026; fetched 25 October 2026): https://api-docs.deepseek.com/guides/search
 - DeepSeek API changelog, "DeepSeek-V4.1-Flash Release" (10 September 2026: V4-Flash and V4-Flash-Vision-Exp retired, V4-Pro continued with billing unchanged; also V4 launch, V4-Flash, V4-Pro GA, vision preview): https://api-docs.deepseek.com/updates
 - DeepSeek-V4.1-Flash model card (10 September 2026; MIT licence, 552B backbone, 8B/16B active, Engram memory, CSA2, FP4 KV cache, 45T tokens, reasoning effort 1-100, deepseek-recipe): https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash
 - Alibaba Cloud Model Studio, newly released models (`deepseek-v4.1-flash`, 13 September 2026): https://www.alibabacloud.com/help/en/model-studio/newly-released-models

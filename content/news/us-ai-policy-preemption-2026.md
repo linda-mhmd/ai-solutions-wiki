@@ -2,8 +2,8 @@
 title: "The US Moves to Preempt State AI Laws in 2026"
 description: "Through the first half of 2026 the US federal government pushed to override the patchwork of state AI laws: Executive Order 14409, a National AI Legislative Framework, an FTC preemption statement, and DOJ intervention against Colorado's AI Act."
 date: 2026-06-02
-lastmod: 2026-09-03
-last_updated: 2026-09-03
+lastmod: 2026-10-25
+last_updated: 2026-10-25
 categories: [News]
 tags: [ai-regulation, us-policy, preemption, ai-governance, executive-order, state-law]
 related:
@@ -31,6 +31,16 @@ The practical question for any US AI deployment is which rules bind you, and tha
 
 Two things follow. First, do not assume the state laws will be swept away: they are in force now, and the preemption framework and FTC statement are proposals, not law. Second, track the litigation, because *xAI v. Colorado* and any ruling on the FTC statement could reshape the landscape quickly. This contrasts sharply with the EU, where the [AI Act](/news/eu-ai-act-august-2026-obligations/) sets one supranational baseline. Build your [governance](/guides/ai-governance-implementation/) to the strictest obligation that applies to you, and revisit it as these actions resolve.
 
+## Update, October 2026: Executive Order 14434 renames "AI" inside the executive branch
+
+On 29 September 2026 the President signed **Executive Order 14434, "Inaugurating the Era of Super Intelligence"** (Federal Register, Vol. 91, No. 190, 2 October 2026, page 63129). It changes vocabulary, not law. Section 1 sets the policy that "to the maximum extent permitted by law, the executive branch shall use the terms 'Super Intelligence' and 'SI' in place of 'Artificial Intelligence' and 'AI' and will not acknowledge the usage of 'Artificial Intelligence' and 'AI' in any applicable setting." Section 2 applies this to "official correspondence, public communications, websites, reports, policy documents, and other non-statutory documents", and adds that nothing in it "requires the alteration of previously issued regulations, Presidential actions, contracts, grants, or other historical documents."
+
+What "SI" means is, for now, unchanged: Section 3 defines it as "the technologies and systems encompassed by the term 'artificial intelligence' as defined in section 9401(3) of title 15, United States Code", the existing statutory definition. Within 60 days the Assistant to the President for Science and Technology must propose legislative language for a federal definition of "Super Intelligence", including whether it should "modify, expand upon, or otherwise supersede" the statutory definition of artificial intelligence. Arithmetic: 60 days from 29 September 2026 is 28 November 2026.
+
+For builders and compliance teams the practical effect is on search and mapping, not obligations: federal guidance, procurement notices and agency reports may now say "SI" where they said "AI", while statutes, existing regulations and contracts keep the old term. Policy trackers and keyword alerts that look only for "AI" will miss new federal documents.
+
+One related item is unverified. Anthropic wrote on 15 October 2026 that it "signed the White House Accord on Super Intelligence, in which companies pledged to partner with independent external auditors or evaluators". No White House text of that accord was found on whitehouse.gov for this update, so its terms and signatories are known only from Anthropic's description.
+
 ## Sources
 
 - The White House, "Promoting Advanced Artificial Intelligence Innovation and Security" (EO 14409, 2 June 2026): https://www.whitehouse.gov/presidential-actions/2026/06/promoting-advanced-artificial-intelligence-innovation-and-security/
@@ -39,6 +49,10 @@ Two things follow. First, do not assume the state laws will be swept away: they 
 - DOJ, "Justice Department Intervenes in xAI Lawsuit Challenging Colorado's Algorithmic Discrimination [Act]" (24 April 2026): https://www.justice.gov/opa/pr/justice-department-intervenes-xai-lawsuit-challenging-colorados-algorithmic-discrimination
 - Colorado General Assembly, SB26-189: https://leg.colorado.gov/bills/sb26-189
 - The White House, EO 14365 (11 December 2025): https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy/
+
+- The White House, Executive Order 14434, "Inaugurating the Era of Super Intelligence" (29 September 2026): https://www.whitehouse.gov/presidential-actions/2026/09/inaugurating-the-era-of-super-intelligence/
+- Federal Register, Vol. 91, No. 190, 2 October 2026, Executive Order 14434 (PDF): https://www.whitehouse.gov/wp-content/uploads/2026/09/eo-14434.pdf
+- Anthropic, "Anthropic update on independent evaluators" (15 October 2026): https://www.anthropic.com/news/an-update-on-independent-evaluators
 
 ## Further reading
 

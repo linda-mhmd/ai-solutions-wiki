@@ -2,8 +2,9 @@
 title: "Plugin4Shell: A Zero-Click Plugin Flaw in Claude Code, Codex, GitHub Copilot and Gemini CLI"
 description: "AIR Security disclosed Plugin4Shell on 17 September 2026. Four major coding agents checked out a marketplace-pinned plugin commit but never verified the result, so an attacker controlling the plugin repo could swap in code that auto-updates silently. Claude Code and Codex are patched; Copilot had no fix at disclosure and Gemini CLI will not get one."
 date: 2026-09-18
-lastmod: 2026-09-25
-last_verified: 2026-09-25
+lastmod: 2026-10-25
+last_updated: 2026-10-25
+last_verified: 2026-10-25
 categories: [News]
 tags: [coding-agents, supply-chain-security, plugins, claude-code, codex, github-copilot, gemini-cli, vulnerability]
 related:
@@ -11,9 +12,20 @@ related:
   - tools/claude-code
   - tools/github-copilot
   - patterns/ai-supply-chain-security
+  - news/ai-agent-security-roundup-october-2026
 ---
 
 The AI security firm **AIR Security** disclosed **Plugin4Shell** on 17 September 2026. It is a zero-click remote code execution flaw that affected the plugin systems of the four most widely used coding agents: **Anthropic's Claude Code, OpenAI's Codex, GitHub Copilot, and Google's Gemini CLI**. The bug is a single missing check that each vendor made independently. Every agent checked out the plugin commit that its marketplace had pinned, but none confirmed that the working tree actually ended up at that commit. **Anthropic and OpenAI have patched. Microsoft had not shipped a fix for Copilot at the time of disclosure. Google says the consumer Gemini CLI is deprecated and will not be fixed.** No exploitation in the wild has been reported.
+
+## Update, October 2026: Anthropic's own advisory and a CVE
+
+Anthropic has now published its own advisory, which is the primary source for the Claude Code side of this story: **GHSA-pq7j-f95f-qfcv / CVE-2026-86063**, published in the `anthropics/claude-code` repository on 9 October 2026, severity High. It affects `@anthropic-ai/claude-code` below **2.1.179** and is fixed in 2.1.179, with weaknesses CWE-494 (download of code without integrity check) and CWE-829. In Anthropic's words:
+
+> "The plugin install flow in Claude Code and Claude Desktop checked out a marketplace's pinned commit SHA using `git checkout` without verifying that the resulting HEAD matched the pinned SHA."
+
+Two details are new. First, **Claude Desktop's plugin install flow was affected too**, not only the Claude Code CLI; the advisory lists only the npm package with a fixed version, so it does not state a Claude Desktop version. Second, Anthropic describes the preconditions differently from AIR's "zero-click" headline: "Exploitation required a user to install a malicious plugin, pin to a safe hash, and for the plugin source to be hosted on a git host that permitted SHA-shaped branch names." The advisory credits "Or Nevo Michrowski of Air Security" and says users on standard auto-update "have received this fix already."
+
+**The score differs between records.** Anthropic's repository advisory gives CVSS 4.0 **7.7** with `UI:P` (passive user interaction). The CVE record as published on NVD on 13 October 2026, and the GitHub Advisory Database entry reviewed on 15 October, give **7.5** with `UI:A` (active user interaction); the rest of the vector (`AV:N/AC:L/AT:P/PR:N/VC:H/VI:H/VA:H`) is the same. This page uses the vendor's own 7.7, and notes the 7.5 so a reader who sees either number knows both refer to the same flaw. NVD's status on 25 October was "Awaiting Analysis", so NIST has not added its own score. The [October 2026 agent security roundup](/news/ai-agent-security-roundup-october-2026/) lists it with the other Claude Code and Claude Desktop advisories disclosed that month.
 
 ## What happened
 
@@ -31,7 +43,7 @@ Plugin marketplaces for coding agents use **SHA pinning** as their main safeguar
 
 | Agent | Status |
 |---|---|
-| Claude Code | Fixed in **2.1.179** (AIR confirmed 17 June 2026) |
+| Claude Code | Fixed in **2.1.179** (AIR confirmed 17 June 2026); Anthropic advisory GHSA-pq7j-f95f-qfcv / CVE-2026-86063, 9 October 2026, also covers Claude Desktop |
 | OpenAI Codex | Fixed in **0.146.0** (verified 12 August 2026) |
 | GitHub Copilot | **No fix** at disclosure; AIR says Microsoft had not responded |
 | Gemini CLI (consumer) | **Will not be fixed**; Google told AIR on 4 August that it is deprecated and advised migrating to Antigravity |
@@ -60,8 +72,13 @@ It has to check the resolved `HEAD`, not the ref that was requested. That differ
 2. Cyber Security News, "Plugin4Shell Zero-Click RCE Hits Claude Code, Codex, Copilot and Gemini CLI" (18 September 2026): [https://cybersecuritynews.com/plugin4shell-zero-click-rce/](https://cybersecuritynews.com/plugin4shell-zero-click-rce/)
 3. heise online, "Critical flaw in Claude Code, OpenAI Codex, GitHub Copilot, and Gemini CLI" (21 September 2026): [https://www.heise.de/en/news/Critical-flaw-in-Claude-Code-OpenAI-Codex-GitHub-Copilot-and-Gemini-CLI-11460259.html](https://www.heise.de/en/news/Critical-flaw-in-Claude-Code-OpenAI-Codex-GitHub-Copilot-and-Gemini-CLI-11460259.html)
 
+4. Anthropic, GitHub security advisory GHSA-pq7j-f95f-qfcv, "Plugin Commit SHA Pin Bypass Allows Installation of Attacker-Controlled Code" (9 October 2026, fetched 25 October 2026): [https://github.com/anthropics/claude-code/security/advisories/GHSA-pq7j-f95f-qfcv](https://github.com/anthropics/claude-code/security/advisories/GHSA-pq7j-f95f-qfcv)
+5. NIST NVD, CVE-2026-86063 (published 13 October 2026, status Awaiting Analysis on 25 October 2026): [https://nvd.nist.gov/vuln/detail/CVE-2026-86063](https://nvd.nist.gov/vuln/detail/CVE-2026-86063)
+6. GitHub Advisory Database, GHSA-pq7j-f95f-qfcv (reviewed 15 October 2026): [https://github.com/advisories/GHSA-pq7j-f95f-qfcv](https://github.com/advisories/GHSA-pq7j-f95f-qfcv)
+
 ## Further reading
 
 - [Claude Code](/tools/claude-code/) and [GitHub Copilot](/tools/github-copilot/): tool pages for two of the affected agents.
 - [AI agent security incidents 2025-2026](/news/ai-agent-security-incidents-2025-2026/): the broader record of agent-related incidents.
 - [AI supply chain security](/patterns/ai-supply-chain-security/): controls for third-party models, packages and extensions.
+- [AI agent security roundup, October 2026](/news/ai-agent-security-roundup-october-2026/): the month's MCP, Claude Code and framework advisories.

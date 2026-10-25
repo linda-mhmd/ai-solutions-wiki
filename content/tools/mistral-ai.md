@@ -13,8 +13,8 @@ related:
   - tools/claude-anthropic
   - tools/amazon-bedrock
   - tools/openai-api
-last_updated: 2026-09-25
-lastmod: 2026-09-25
+last_updated: 2026-10-25
+lastmod: 2026-10-25
 last_verified: 2026-09-25
 ---
 
@@ -27,9 +27,11 @@ Mistral AI is a French artificial intelligence company that builds [large langua
 
 That split is the whole story, and since December 2025 it has run to three tracks rather than two:
 
-- **Apache 2.0 open weights.** Mistral Large 3 (announced 2 December 2025), the current flagship, is a sparse mixture-of-experts model of roughly 675B total and 41B active parameters with a 256K context window and image input - and Mistral published both base and instruct weights under Apache 2.0. Mistral Small 4 (16 March 2026) and the Ministral 3 line at 14B, 8B and 3B (2 December 2025) are Apache 2.0 too, as are Voxtral Small, Shieldstral and Leanstral. The older exemplars, Mistral 7B and the Mixtral models, are retired from the hosted API and superseded by Ministral 3.
+- **Apache 2.0 open weights.** Mistral Large 3 (announced 2 December 2025), the flagship until October 2026 and still the newest Mistral flagship with published weights, is a sparse mixture-of-experts model of roughly 675B total and 41B active parameters with a 256K context window and image input - and Mistral published both base and instruct weights under Apache 2.0. Mistral Small 4 (16 March 2026) and the Ministral 3 line at 14B, 8B and 3B (2 December 2025) are Apache 2.0 too, as are Voxtral Small, Shieldstral and Leanstral. The older exemplars, Mistral 7B and the Mixtral models, are retired from the hosted API and superseded by Ministral 3.
 - **Modified MIT.** Mistral Medium 3.5 (late April 2026), a 128B dense model that merges the former Magistral reasoning and Devstral 2 coding lines, publishes its weights under a "Modified MIT" licence: commercial use is permitted, with a carve-out for high-revenue companies. It is neither fully open nor API-only, so read the licence before you assume either.
 - **Commercial and premier.** Codestral, Mistral OCR, Moderation 2 and the Embed models stay closed and are served only through Mistral's hosted API.
+
+**New since October 2026: Mistral Large 4, in public preview, licence not yet named.** On 6 October 2026 Mistral launched a public preview of Mistral Large 4 and promised open weights: "We will release the weights by the end of the month." As of 25 October 2026 no Large 4 weights are on Mistral's Hugging Face organisation and Mistral has not named the licence, so it belongs in none of the three tracks yet.
 
 That gives you a spectrum: self-host an open model for full data control, or call a commercial model when you want a capability Mistral does not release as weights.
 
@@ -37,11 +39,12 @@ That gives you a spectrum: self-host an open model for full data control, or cal
   <div class="bz-arch-layer">
     <span class="bz-arch-layer-label">Models</span>
     <div class="bz-arch-layer-content">
+      <span class="bz-arch-chip">Mistral Large 4 (preview)</span>
       <span class="bz-arch-chip">Mistral Large 3</span>
       <span class="bz-arch-chip">Mistral Medium 3.5</span>
       <span class="bz-arch-chip">Mistral Small 4</span>
       <span class="bz-arch-chip">Ministral 3 (14B / 8B / 3B)</span>
-      <span class="bz-arch-chip-note">Apache 2.0 open weights: Large 3, Small 4, Ministral 3. Medium 3.5 ships under a Modified MIT licence</span>
+      <span class="bz-arch-chip-note">Apache 2.0 open weights: Large 3, Small 4, Ministral 3. Medium 3.5 ships under a Modified MIT licence. Large 4 weights promised, not yet published</span>
     </div>
   </div>
   <div class="bz-arch-layer">
@@ -67,7 +70,8 @@ That gives you a spectrum: self-host an open model for full data control, or cal
     <div class="bz-arch-layer-content">
       <span class="bz-arch-chip">Codestral (code)</span>
       <span class="bz-arch-chip">Mistral OCR 4.1</span>
-      <span class="bz-arch-chip">Voxtral (speech)</span>
+      <span class="bz-arch-chip">Voxtral 3 (speech, preview)</span>
+      <span class="bz-arch-chip">Timestral (time series)</span>
       <span class="bz-arch-chip">Mistral Embed</span>
       <span class="bz-arch-chip">Moderation 2 / Shieldstral</span>
     </div>
@@ -78,19 +82,28 @@ That gives you a spectrum: self-host an open model for full data control, or cal
 
 The lineup turned over completely between December 2025 and April 2026. Mistral Large 2, Pixtral Large, Mistral 7B and the Mixtral models are retired from la Plateforme and appear only on Mistral's deprecation list.
 
-- **Mistral Large 3** (announced 2 December 2025) is the flagship: a sparse mixture-of-experts model with roughly 675B total and 41B active parameters, a 256K context window, image input, and coverage of 40+ languages. Mistral released both the base and instruct weights under Apache 2.0.
+- **Mistral Large 4** (`mistral-large-4`, version 26.10, public preview since **6 October 2026**) is Mistral's new top model and, in Mistral's words, "our largest and most capable model to date". The model page gives **1.05T total and 52B active parameters** (the launch post rounds this to "a 1 trillion-parameter natively multimodal model"), a granular mixture-of-experts architecture, a **1.6B vision encoder** and a **1M context window**. It is a hybrid instruct-and-reasoning model with multimodal input, trained on 3,800 NVIDIA Grace Blackwell GPUs in Mistral's own European data centres. Price on the model page, fetched 25 October 2026: **$1.36 input, $0.14 cached input, $4.18 output per MTok**. The 6 October changelog announced "Launch pricing: 50% off for 2 weeks", which would have ended around 20 October; the page does not say whether $1.36 / $4.18 is the full rate or still the discounted one, so confirm on an invoice before budgeting. **Weights are not published as of 25 October 2026** (Mistral promised them "by the end of the month") and the licence is unnamed. Until then Mistral says it is red-teaming with "cybersecurity leaders, vetted partners, and state authorities, who will access the same model with reduced moderation and expanded cyber capabilities." Vendor claims, not reproduced: 61.7% on DeepSWE v1.1, 28.3% on Terminal-Bench 4, 59.9% on AutomationBench, and 82% on one Artificial Analysis Cyber Index test, "the highest of any model". On that last figure Mistral itself notes that Claude Opus 5.5 and GPT-6 Astra "score near zero on the same test because they refuse to perform the task", so the lead measures willingness as much as capability.
+- **Mistral Large 3** (announced 2 December 2025) was the flagship until Large 4's preview, and is still the largest Mistral model with published weights: a sparse mixture-of-experts model with roughly 675B total and 41B active parameters, a 256K context window, image input, and coverage of 40+ languages. Mistral released both the base and instruct weights under Apache 2.0.
 - **Mistral Medium 3.5** (late April 2026 - Mistral's own sources vary between 28, 29 and 30 April) is a 128B dense model that folds the former Magistral reasoning line and Devstral 2 coding line into a single checkpoint with configurable reasoning effort, 256K context, and image input. Its weights are published under a "Modified MIT" licence that permits commercial use with a carve-out for high-revenue companies, so it is neither Apache 2.0 nor API-only.
 - **Mistral Small 4** (16 March 2026) is a 119B-total / ~6B-active MoE under Apache 2.0, with 256K context. It is the first Mistral model to unify reasoning, vision and agentic coding in one self-hostable checkpoint.
 - **Ministral 3** (2 December 2025) covers 14B, 8B and 3B, each shipping base, instruct and reasoning variants with image understanding, all Apache 2.0. These replace the retired Mistral 7B and Mixtral open-weight line.
 
-Choosing between them is mostly a cost-versus-capability call: Ministral 3 or Small 4 for high-volume, cost-sensitive work, Large 3 for complex reasoning, and Medium 3.5 when you want reasoning effort you can tune per request.
+Choosing between them is mostly a cost-versus-capability call: Ministral 3 or Small 4 for high-volume, cost-sensitive work, Large 3 for complex reasoning on weights you can hold today, Large 4 (preview) where you need 1M context or its stronger agentic and coding results and can accept a preview endpoint, and Medium 3.5 when you want reasoning effort you can tune per request.
 
-Alongside its own catalogue, Mistral now also serves a third-party model on la Plateforme: Z.ai's GLM 5.2, with a 1M context window.
+Alongside its own catalogue, Mistral serves third-party Z.ai models on la Plateforme. **GLM 5.3** (`zai-glm-5-3`) became generally available on 28 September 2026, and **GLM 5.2** (`zai-glm-5-2`) is deprecated and **retires on 31 October 2026**, with GLM 5.3 "at the same price" as the replacement. On 22 October 2026 Mistral added **GLM 5.3 Flash** (`zai-glm-5-3-flash`), which the changelog describes as "A multimodal 320B-parameter (18B active) Mixture-of-Experts model from Z.ai with a 1M-token context window", priced at **$0.15 input, $0.03 cached input and $0.50 output per MTok**.
+
+### Speech: Voxtral 3
+
+On **20 October 2026** (changelog date; the announcement page carries 22 October in its metadata) Mistral released the **Voxtral 3** family, all four models in **Public Preview** on the API: Voxtral TTS 3 (`voxtral-mini-tts-3-0`), Voxtral Mini Transcribe 3 (`voxtral-mini-transcribe-3-0`), Voxtral Mini Transcribe Realtime 3 (`voxtral-mini-transcribe-realtime-3-0`) and Voxtral Small Transcribe 3 (`voxtral-small-transcribe-3-0`), plus a managed Voice Agents pipeline and SDK. Mistral gives transcription in 50+ languages, TTS in "35+ languages and 50+ dialects", Voxtral Mini Transcribe 3 at 4B parameters and $0.0035 per minute, and Voxtral TTS at $13 per 1M characters. The post says the family is available "for self-deployment on your own infrastructure", but as of 25 October 2026 **no Voxtral 3 weights are on Mistral's Hugging Face organisation** and no licence is named, so self-deployment appears to be by arrangement rather than by download. Mistral's quality charts use `gemini-3.8-flash` as the judge for its TTS evaluations, which is worth knowing when reading them.
+
+### Time series: Timestral
+
+**Timestral** (15 October 2026) is Mistral's first family of time-series foundation models: four sizes, 5M, 28M, 123M and 209M parameters, producing probabilistic multivariate forecasts (21 quantiles) with past and known-future covariates, and running on CPU. The announcement lists the licence as **"Modified MIT"**, and the weights are on Hugging Face (`mistralai/Timestral-209M` and the smaller sizes, ungated, licence tagged "other"). Mistral says the 209M model "ranks first on all three of the field's main public benchmarks, GIFT-Eval, TIME, and fev-bench"; it also says the results "have been submitted" to the leaderboards, so check the live leaderboards rather than the claim.
 
 ### Specialist models: OCR and Lean
 
 - **Mistral OCR 4.1** (`mistral-ocr-4-1`) was released on 16 July 2026 and became **generally available on 31 August 2026**. The `mistral-ocr-latest` and `mistral-ocr-4` aliases point to it. It is API-only and priced at $4 per 1,000 pages (see pricing below). If you pinned `mistral-ocr-4-0` (June 2026), move to the 4.1 id or the alias.
-- **Leanstral 1.5** (`labs-leanstral-1-5`, 30 June 2026), the Apache 2.0 Lean 4 formal-proof engineering model, **retires from the API on 30 September 2026**; Mistral announced the date when it released the model. The models page lists no hosted successor, so if you rely on it, plan to self-host the open weights or switch provider before then. (Its predecessor, `labs-leanstral-2603`, retired on 30 June 2026.)
+- **Leanstral 1.5** (`labs-leanstral-1-5`, 30 June 2026), the Apache 2.0 Lean 4 formal-proof engineering model, **retired from the API on 30 September 2026** (as did OCR 4.0, `mistral-ocr-4-0`); Mistral announced the date when it released the model. The models page lists no hosted successor, so if you rely on it, plan to self-host the open weights or switch provider before then. (Its predecessor, `labs-leanstral-2603`, retired on 30 June 2026.)
 
 ### Company news: Pimento acquisition
 
@@ -263,12 +276,13 @@ response = client.chat.complete(
 print(response.choices[0].message.content)
 ```
 
-## Pricing (la Plateforme, as of 9 September 2026)
+## Pricing (la Plateforme, as of 9 September 2026; Large 4 and GLM rows added 25 October 2026)
 
 Mistral publishes per-model rates in US dollars on its API pricing page. Earlier versions of this page quoted euro figures for a lineup that no longer exists.
 
 | Model | Input per 1M tokens | Output per 1M tokens |
 |---|---|---|
+| **Mistral Large 4** (preview) | $1.36 | $4.18 |
 | **Mistral Large 3** | $0.50 | $1.50 |
 | **Mistral Medium 3.5** | $1.50 | $7.50 |
 | **Mistral Small 4** | $0.15 | $0.60 |
@@ -278,8 +292,9 @@ Mistral publishes per-model rates in US dollars on its API pricing page. Earlier
 | **Codestral** | $0.30 | $0.90 |
 | **Mistral Embed** | $0.10 | n/a |
 | **Codestral Embed** | $0.15 | n/a |
+| **Z.ai GLM 5.3 Flash** (third party) | $0.15 | $0.50 |
 
-The specialised models price on their own units: Mistral OCR 4.1 at $4 per 1,000 pages, Voxtral TTS at $0.016 per 1,000 characters, and Voxtral Mini Transcribe at $0.003 per audio minute.
+The Large 4 row is the model page's figure on 25 October 2026 (cached input $0.14), with the launch-discount caveat above; the other Mistral rows were not re-checked on 25 October. The specialised models price on their own units: Mistral OCR 4.1 at $4 per 1,000 pages, Voxtral TTS at $0.016 per 1,000 characters, and Voxtral Mini Transcribe at $0.003 per audio minute. For Voxtral 3, the announcement gives $0.0035 per minute for Voxtral Mini Transcribe 3 and $13 per 1M characters for Voxtral TTS 3.
 
 ## Typical use
 
@@ -297,7 +312,7 @@ At the provider level, the distinguishing axes are where the company is based, w
 | | Mistral AI | Anthropic (Claude) | Alibaba (Qwen) | Amazon Bedrock |
 |---|---|---|---|---|
 | **Origin** | France | United States | China | United States |
-| **Open weights** | Yes, including the flagship | No | Yes, some models | No, it is a hosting layer |
+| **Open weights** | Yes, up to Large 3; Large 4 weights promised, not yet published (25 Oct 2026) | No | Yes, some models | No, it is a hosting layer |
 | **Access model** | API and self-host | API only | API and self-host | Managed multi-model API |
 | **Data hosting** | EU infrastructure | US-based | China / global | Your chosen AWS region |
 | **Best for** | EU residency, self-host option | Strongest reasoning via API | Open-weight multilingual | One API over many providers |
@@ -320,7 +335,7 @@ Only the Mistral column is quoted from Mistral's own published price list. GPT-5
 ## When not to use it
 
 - **You want a single API across many vendors.** A managed aggregator like [Amazon Bedrock](/tools/amazon-bedrock/) or [Azure OpenAI](/tools/azure-openai/) lets you switch models without changing providers.
-- **You need a million-token context.** Mistral's own models top out at 256K. For 1M context, use [Gemini](/tools/google-gemini/) or [Claude Opus 5](/tools/claude-anthropic/) - or the third-party GLM 5.2 that Mistral resells on la Plateforme, which carries a 1M window.
+- **You need a million-token context on a generally available model.** Mistral's own GA models top out at 256K; Large 4 has 1M but is a public preview. For 1M context, use [Gemini](/tools/google-gemini/) or [Claude Opus 5.5](/tools/claude-anthropic/), or the third-party GLM 5.3 and GLM 5.3 Flash that Mistral serves on la Plateforme, which carry a 1M window.
 - **You need video or audio-native reasoning.** Large 3, Medium 3.5, Small 4 and Ministral 3 all accept image input, so still images are no longer a reason to route elsewhere. Speech is handled by the separate Voxtral models rather than in the chat models, and there is no video input. For a single model that reasons over video, use [Gemini](/tools/google-gemini/).
 - **You need the strongest available reasoning right now.** Benchmark the specific task against [Claude](/tools/claude-anthropic/) and others rather than assuming any single provider leads. See [how AI models are evaluated](/guides/how-ai-models-are-evaluated/).
 - **You have no data-residency or self-host requirement.** Mistral's main differentiators are EU hosting and open weights. Without those needs, choose on capability and price alone.
@@ -341,7 +356,11 @@ Only the Mistral column is quoted from Mistral's own published price list. GPT-5
 
 - [Mistral AI homepage](https://mistral.ai/)
 - [Mistral models and deprecations](https://docs.mistral.ai/getting-started/models/): the authoritative current lineup, version stamps, and retired models.
-- [Mistral changelog](https://docs.mistral.ai/getting-started/changelog): OCR 4.1 released 16 July and GA 31 August 2026; Leanstral 1.5 released 30 June 2026 with retirement on 30 September 2026.
+- [Mistral changelog](https://docs.mistral.ai/getting-started/changelog/) (fetched 25 October 2026): Mistral Large 4 public preview and the 50%-off launch pricing (6 October 2026), Voxtral 3 (20 October), GLM 5.3 Flash and its price (22 October), GLM 5.3 GA (28 September) and the GLM 5.2 retirement on 31 October 2026, OCR 4.1 released 16 July and GA 31 August 2026, Leanstral 1.5 and OCR 4.0 retired 30 September 2026.
+- [Introducing Mistral Large 4, Mistral, 6 October 2026](https://mistral.ai/news/mistral-large-4/): parameters, training hardware, the weights promise, the red-teaming access, and the benchmark claims including the refusal note.
+- [Mistral Large 4 model page](https://docs.mistral.ai/models/mistral-large-4-0) (fetched 25 October 2026): version 26.10, Public Preview, 1.05T / 52B, 1.6B vision encoder, 1M context, $1.36 / $0.14 / $4.18.
+- [Voxtral 3, Mistral, October 2026](https://mistral.ai/news/voxtral-3/): models, languages, prices and the self-deployment statement.
+- [Timestral, Mistral, 15 October 2026](https://mistral.ai/news/timestral/): sizes, benchmarks and the Modified MIT licence; weights at [huggingface.co/collections/mistralai/timestral](https://huggingface.co/collections/mistralai/timestral).
 - [Exclusive: Mistral acquires adtech startup Pimento in €12.7m cash-and-shares deal, filings show, Sifted, 22 September 2026](https://sifted.eu/articles/exclusive-mistral-pimento-acquisition) (secondary source)
 - [MISTRAL AI acquires Pimento, moving further into business applications, FW.media, September 2026](https://www.fw.media/mistral-ai-acquires-pimento-moving-further-into-business-applications/557) (secondary source)
 - [Mistral open-weight model list and licences](https://docs.mistral.ai/getting-started/open_weight_models)

@@ -4,8 +4,8 @@ description: "How Amazon Bedrock AgentCore provides managed infrastructure for b
 date: 2026-03-25
 categories: [Tools]
 tags: ["ai-agents", "advanced", "bedrock-agentcore", "aws", "agent-runtime", "tool-use", "memory", "aws-service"]
-last_updated: 2026-09-25
-lastmod: 2026-09-25
+last_updated: 2026-10-25
+lastmod: 2026-10-25
 last_verified: 2026-09-25
 ---
 
@@ -28,7 +28,7 @@ The garden way to picture it: an agent crew is a specialist garden team. Each me
 
 **Runtime for code-defined agents** - AgentCore Runtime hosts your own agent code (any framework) in serverless microVMs with session isolation, built-in identity, and support for long-running asynchronous work. The next-generation Runtime, generally available since 18 September 2026 (opt in with `platformVersion` `V2`), reclaims unused memory during a session so you pay for actual rather than peak memory, and restores new instances from a snapshot for consistent cold starts. At launch it was available in us-east-1, us-east-2, us-west-2, eu-west-1, and ap-northeast-1.
 
-**Tools: Gateway, Code Interpreter, Browser** - AgentCore Gateway turns APIs, Lambda functions, and existing services into Model Context Protocol (MCP) tools and connects to existing MCP servers. Code Interpreter provides an isolated sandbox for executing code, and Browser provides a managed cloud browser for web interaction.
+**Tools: Gateway, Code Interpreter, Browser** - AgentCore Gateway turns APIs, Lambda functions, and existing services into Model Context Protocol (MCP) tools and connects to existing MCP servers. Code Interpreter provides an isolated sandbox for executing code, and Browser provides a managed cloud browser for web interaction. Since 22 October 2026 Gateway's inference endpoint also accepts the Bedrock `InvokeModel` and `InvokeModelWithResponseStream` APIs, so an existing Bedrock SDK integration can point at the gateway unchanged, and it supports **model fallback**: "you define an ordered chain of alternative destinations in a gateway rule" with trigger conditions such as throttling, server errors or timeouts, and "A built-in circuit breaker skips destinations that are currently failing". AWS says both are available in all Regions where Gateway is available, except China.
 
 **Session management** - AgentCore maintains conversation state across turns within a session. Multi-turn conversations work without your application managing conversation history manually. Sessions have configurable TTLs.
 
@@ -70,6 +70,7 @@ AgentCore connects to Bedrock Knowledge Bases (for retrieval, including through 
 2. AWS What's New. "The new AgentCore Runtime is now available in Amazon Bedrock AgentCore." 18 September 2026. https://aws.amazon.com/about-aws/whats-new/2026/09/new-agentcore-runtime-generally-available/
 3. AWS. "Amazon Bedrock AgentCore pricing." Accessed 25 September 2026. https://aws.amazon.com/bedrock/agentcore/pricing/
 4. AWS. "Amazon Bedrock Agents Classic maintenance mode." Accessed 25 September 2026. https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html
+5. AWS What's New. "AgentCore Gateway now supports Bedrock InvokeModel APIs and model fallback." 22 October 2026. https://aws.amazon.com/about-aws/whats-new/2026/10/agentcore-gateway-invokemodel-fallback/
 
 ## Related Articles
 

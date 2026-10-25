@@ -2,8 +2,8 @@
 title: "Amazon Nova"
 description: "Amazon's own family of foundation models for text, image, video, speech, and embeddings, delivered through Amazon Bedrock."
 date: 2026-06-29
-last_updated: 2026-09-26
-lastmod: 2026-09-26
+last_updated: 2026-10-25
+lastmod: 2026-10-25
 last_verified: 2026-09-26
 tags: ["aws", "foundation-models", "bedrock", "multimodal"]
 tool_category: "AI"
@@ -51,6 +51,7 @@ Nova is not a standalone product with its own console. It is a set of models you
     <span class="bz-arch-layer-label">Nova 2, generally available</span>
     <div class="bz-arch-layer-content">
       <span class="bz-arch-chip">Nova 2 Lite</span>
+      <span class="bz-arch-chip">Nova 2.5 Sonic</span>
       <span class="bz-arch-chip">Nova 2 Sonic</span>
       <span class="bz-arch-chip">Nova Multimodal Embeddings</span>
       <span class="bz-arch-chip-note">Text, image, video, document, and speech input</span>
@@ -90,7 +91,8 @@ Nova is not a standalone product with its own console. It is a set of models you
 AWS's current Nova models page lists only the first three of these. Nova 2 Pro and Nova 2 Omni are announced but unshipped, and are covered here only so you can rule them out.
 
 - **Nova 2 Lite** (`amazon.nova-2-lite-v1:0`, or `global.amazon.nova-2-lite-v1:0` for global routing) is the workhorse and the default choice. Generally available since 2 December 2025, it takes text, image, video, and document input and returns text, with a 1,000,000-token context window and up to 64K output tokens. It adds extended thinking at three budget levels (low, medium, high), off by default; built-in web grounding with citations and a code interpreter; remote MCP tools and client-side tool calling; and both supervised and reinforcement fine-tuning on Bedrock and SageMaker AI. Knowledge cutoff is October 2025. Its Bedrock model card lists it as Active with an "end of life no sooner than" date of 2 December 2026. Note that it has no in-Region endpoint: you reach it through a geo (`us.`, `eu.`, `jp.`) or `global.` cross-region inference profile.
-- **Nova 2 Sonic** (`amazon.nova-2-sonic-v1:0`) is the speech-to-speech model for real-time voice, generally available since 2 December 2025. It takes speech and text and returns speech and text, over `InvokeModelWithBidirectionalStream` rather than Converse or InvokeModel, with the same 1M-token context. AWS has refreshed it twice in place without any API change: March 2026 brought Amazon Polly-compatible voices, roughly 150 ms off median latency, and better turn-taking on 8 kHz telephony audio, and a deployment between 21 and 28 May 2026 reported 88% fewer speech-generation hallucinations, 52% less speaker drift, and 28% fewer critical errors on Amazon's internal data sets. It covers seven languages and runs in us-east-1, us-west-2, eu-north-1, and ap-northeast-1, plus several more Regions when reached through Amazon Connect.
+- **Nova 2.5 Sonic** became generally available on **5 October 2026** and is now the newest Nova speech-to-speech model. AWS says it brings "improved reasoning, instruction following, and tool-calling accuracy" and lower latency, and keeps "expressive voices in seven languages", controllable turn-taking, voice and text in the same session, asynchronous tool calling and "a 256K context window". It is on Bedrock in US East (N. Virginia), US West (Oregon), Europe (Stockholm) and Asia Pacific (Tokyo), "at the same pricing as Nova 2 Sonic". The announcement gives no model ID and no per-token figures of its own, so neither is stated here; check the Bedrock model catalogue before you pin it. Note that the 256K window AWS states for 2.5 Sonic is smaller than the 1M this page lists for Nova 2 Sonic below. Strands Bidi Agents, for building voice agents with it, reached general availability alongside.
+- **Nova 2 Sonic** (`amazon.nova-2-sonic-v1:0`), no longer the newest Sonic, is the speech-to-speech model for real-time voice, generally available since 2 December 2025. It takes speech and text and returns speech and text, over `InvokeModelWithBidirectionalStream` rather than Converse or InvokeModel, with the same 1M-token context. AWS has refreshed it twice in place without any API change: March 2026 brought Amazon Polly-compatible voices, roughly 150 ms off median latency, and better turn-taking on 8 kHz telephony audio, and a deployment between 21 and 28 May 2026 reported 88% fewer speech-generation hallucinations, 52% less speaker drift, and 28% fewer critical errors on Amazon's internal data sets. It covers seven languages and runs in us-east-1, us-west-2, eu-north-1, and ap-northeast-1, plus several more Regions when reached through Amazon Connect.
 - **Nova Multimodal Embeddings**, generally available since 28 October 2025, puts text, documents, images, video, and audio into a single semantic space, with a synchronous API for near-real-time work and an asynchronous one for large files. It reached AWS GovCloud (US-West) on 12 August 2026. AWS counts it as part of the Nova 2 generation.
 - **Nova 2 Pro** and **Nova 2 Omni** were both announced in preview on 2 December 2025 and, as of 25 September 2026, still are not generally available. Neither has a Bedrock model card, neither appears in the Nova 2 user guide's model table, and both are still labelled "(Preview)" on the AWS Bedrock pricing page. Access runs through Amazon Nova Forge customership or an AWS account team request. Nova 2 Pro is positioned as the most capable Nova for multi-document analysis, video reasoning, migrations, and agentic coding; Nova 2 Omni is a unified model that both reasons over and generates media, taking text, image, video, and speech and emitting text and images. Treat both as not production-available and do not design around them.
 
@@ -166,6 +168,7 @@ On-demand list prices per million tokens, US East (N. Virginia), read on 9 Septe
 | Model | Input | Output | Notes |
 |---|---|---|---|
 | **Nova 2 Lite** | $0.30 | $2.50 | Global routing. Geo or in-Region: $0.33 / $2.75. Flex and Batch: $0.15 / $1.25. Priority: $0.525 / $4.375. Cache read $0.075. |
+| **Nova 2.5 Sonic** | same as Nova 2 Sonic, per AWS | same as Nova 2 Sonic, per AWS | GA 5 October 2026; AWS gives no separate figures |
 | **Nova 2 Sonic** | $3.00 speech, $0.33 text | $12.00 speech, $2.75 text | |
 | **Nova Multimodal Embeddings** | $0.135 | n/a | Batch $0.0675. |
 | **Nova 2 Pro** (preview) | $1.25 | $10.00 | Global routing; same input rate for text, image, video, and audio. Geo: $1.375 / $11.00. |
@@ -239,3 +242,4 @@ Inside Bedrock, the practical choice is often Nova versus Claude. Nova is Amazon
 - Amazon Nova Forge subscription pricing, CNBC, 2 December 2025 (reported, not published by AWS): https://www.cnbc.com/2025/12/02/amazon-nova-forge-lets-clients-customize-ai-models-for-100000-a-year.html
 - Amazon Nova AI Service Cards (Micro, Lite, Pro, Premier): https://docs.aws.amazon.com/ai/responsible-ai/nova-micro-lite-pro/overview.html
 - Amazon Bedrock Agents Classic maintenance mode, AWS documentation (closed to new customers 30 July 2026; fetched 25 September 2026): https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html
+- AWS What's New, "Announcing Amazon Nova 2.5 Sonic with improved reasoning for voice agents" (5 October 2026): https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-nova-2.5-sonic/

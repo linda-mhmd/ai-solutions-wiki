@@ -2,8 +2,8 @@
 title: "Mem0 - Persistent Memory for AI Agents"
 description: "What Mem0 is, how it adds a drop-in persistent memory layer between an LLM and a vector store, how it extracts and recalls facts, and when it fits versus a full agent runtime or a graph memory."
 date: 2026-06-14
-lastmod: 2026-06-14
-last_updated: 2026-06-14
+lastmod: 2026-10-25
+last_updated: 2026-10-25
 categories: [Tools]
 tags: ["ai-agents", "intermediate", "mem0", "agent-memory", "memory", "personalization"]
 related:
@@ -31,6 +31,10 @@ It is less suited when:
 - You need rich temporal reasoning over how facts changed over time, where a graph memory like [Zep]({{< relref "tools/zep" >}}) fits better.
 - You are building a long-running agent from scratch and want memory orchestration as part of a full runtime, where [Letta]({{< relref "tools/letta" >}}) fits better.
 
+## Security note: Databricks vector store (October 2026)
+
+If you configured Mem0 with the **Databricks** vector store backend, upgrade **`mem0ai` to 1.0.8 or later**. Advisory GHSA-7587-9684-52r6 / CVE-2026-115324 (rated **Critical**, CVSS 4.0 9.2) says versions 0.1.117 up to 1.0.8 contain an SQL injection in `mem0/vector_stores/databricks.py`: "Attackers can supply crafted memory text, metadata, or message names that reach unescaped insert() and update() string interpolation to execute injected SQL on the configured Databricks SQL warehouse." The advisory's summary says attackers inject SQL "by influencing stored memory content", and in Mem0 that content is extracted from conversations. Other vector store backends are not named in the advisory. See the [AI agent security roundup, October 2026](/news/ai-agent-security-roundup-october-2026/).
+
 ## How it relates to RAG
 
 Mem0 and [RAG]({{< relref "glossary/rag" >}}) both retrieve relevant text and add it to the prompt, and both often use a vector store. The difference is the source: RAG retrieves from a fixed knowledge base of documents, while Mem0 retrieves from memory it has accumulated about the user and the interaction. Many systems use both, RAG for reference knowledge, Mem0 for personal memory.
@@ -43,3 +47,4 @@ Mem0 emerged as a dedicated, open-source answer to a problem every agent builder
 
 1. Mem0. Official site and documentation. [https://mem0.ai/](https://mem0.ai/)
 2. Atlan. "Best AI agent memory frameworks 2026." [https://atlan.com/know/best-ai-agent-memory-frameworks-2026/](https://atlan.com/know/best-ai-agent-memory-frameworks-2026/)
+3. GitHub Advisory Database, GHSA-7587-9684-52r6, "mem0ai Databricks vector store vulnerable to SQL injection" (CVE-2026-115324, published 22 October 2026). [https://github.com/advisories/GHSA-7587-9684-52r6](https://github.com/advisories/GHSA-7587-9684-52r6)

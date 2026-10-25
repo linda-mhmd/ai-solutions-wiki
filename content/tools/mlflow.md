@@ -14,8 +14,8 @@ alternatives:
   gcp: tools/google-vertex-ai
 solutions:
   - solutions/finance/credit-scoring
-last_updated: 2026-09-25
-lastmod: 2026-09-25
+last_updated: 2026-10-25
+lastmod: 2026-10-25
 last_verified: 2026-09-25
 ---
 
@@ -56,6 +56,10 @@ MLflow 3 (first released in June 2025; 3.16 as of September 2026) reorganised th
 
 **Tracing** - Distributed tracing for multi-step LLM applications (RAG pipelines, agent workflows). Each step is logged with inputs, outputs, latency, and token usage. Built on OpenTelemetry, with one-line autologging for LangChain, LangGraph, LlamaIndex, OpenAI, Anthropic, Bedrock, DSPy, and other libraries.
 
+## Security note: FileStore trace IDs (October 2026)
+
+Upgrade to **MLflow 3.17.2** if your tracking server uses the **FileStore** backend. Advisory GHSA-wqmh-qccw-pqwf / CVE-2026-53995 (High, CVSS 4.0 8.8) says MLflow 3.17.1 and earlier let "unauthenticated attackers" control filesystem paths "by submitting a crafted trace ID containing traversal sequences to the POST /api/3.0/mlflow/traces endpoint", writing trace files outside the experiment directory. FileStore was the default tracking backend before MLflow 3.7.0 and is opt-in since (the default became SQLite), so older deployments are exposed without any special configuration. See the [AI agent security roundup, October 2026](/news/ai-agent-security-roundup-october-2026/).
+
 ## Deployment Patterns
 
 **MLflow Serving** - Deploy a model as a REST API with a single command. MLflow serves the model using the standard inference interface, handling request parsing and response formatting. Suitable for development and moderate-traffic production.
@@ -81,3 +85,4 @@ MLflow is open-source (Apache 2.0 license) and free. Costs are infrastructure on
 1. MLflow documentation. https://mlflow.org/docs/latest/
 2. MLflow releases (v3.16.1, 17 September 2026). https://github.com/mlflow/mlflow/releases
 3. MLflow. "Model Registry" (aliases and deprecation of stages). https://mlflow.org/docs/latest/ml/model-registry/
+4. GitHub Advisory Database, GHSA-wqmh-qccw-pqwf, "MLflow FileStore trace IDs allow path traversal and arbitrary file writes" (CVE-2026-53995, published 20 October 2026). https://github.com/advisories/GHSA-wqmh-qccw-pqwf

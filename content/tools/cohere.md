@@ -2,8 +2,8 @@
 title: "Cohere"
 description: "Enterprise-focused model provider offering Command generation models plus Embed and Rerank models for search and retrieval-augmented generation, with cloud, VPC, on-premises, and since 2026 Apache 2.0 open-weight deployment."
 date: 2026-06-29
-last_updated: 2026-09-25
-lastmod: 2026-09-25
+last_updated: 2026-10-25
+lastmod: 2026-10-25
 last_verified: 2026-09-25
 tags: ["ai", "llm", "rag", "enterprise", "embeddings", "open-weights"]
 tool_category: "AI"
@@ -54,8 +54,8 @@ Cohere spans two roles in a typical AI application: it supplies the generation m
   <div class="bz-arch-layer">
     <span class="bz-arch-layer-label">Retrieval</span>
     <div class="bz-arch-layer-content">
-      <span class="bz-arch-chip">Embed v4.0</span>
-      <span class="bz-arch-chip">Rerank v4.0-pro / v4.0-fast</span>
+      <span class="bz-arch-chip">Embed v5.0-pro / v5.0-fast</span>
+      <span class="bz-arch-chip">Rerank v5.0-pro / v5.0-fast</span>
       <span class="bz-arch-chip">Parse v5.0</span>
       <span class="bz-arch-chip-note">Vectors, relevance scoring, and document parsing for RAG</span>
     </div>
@@ -81,7 +81,7 @@ The models divide by job:
   <div class="bz-flow-step">
     <span class="bz-flow-step-tag">Step 1</span>
     <span class="bz-flow-step-name">Embed</span>
-    <span class="bz-flow-step-desc">Convert documents into vectors with Embed v4.0. It handles text, images, and PDFs with a 128K context window.</span>
+    <span class="bz-flow-step-desc">Convert documents into vectors with Embed 5 (Pro to index, Fast to query, in one shared space). It handles text, images, and mixed text-and-image pages with a 128K context window.</span>
   </div>
   <div class="bz-flow-arrow">→</div>
   <div class="bz-flow-step">
@@ -93,7 +93,7 @@ The models divide by job:
   <div class="bz-flow-step">
     <span class="bz-flow-step-tag">Step 3</span>
     <span class="bz-flow-step-name">Rerank</span>
-    <span class="bz-flow-step-desc">Rerank v4.0-pro or v4.0-fast reorders candidates by relevance across documents, tables, JSON, and code, with a 32K context.</span>
+    <span class="bz-flow-step-desc">Rerank v5.0-pro or v5.0-fast reorders candidates by relevance with a 32K context, and can return the most relevant passages inside each document.</span>
   </div>
   <div class="bz-flow-arrow">→</div>
   <div class="bz-flow-step">
@@ -108,6 +108,10 @@ The models divide by job:
 **Command A+** (`command-a-plus-05-2026`, announced 20 May 2026) is the flagship and the most consequential release Cohere has made in years. It is the company's first [mixture-of-experts](/glossary/mixture-of-experts/) model, at 218B total parameters with 25B active, handling 128K input tokens and up to 64K generated tokens across 48 languages including every official EU language. Cohere released it under Apache 2.0 and positions it explicitly for sovereign and air-gapped deployment. The licence is stated by Cohere itself, not only by coverage of it: the Command A+ docs page says the model "is available under an Apache 2.0 License on Hugging Face", and the weights sit in the CohereLabs repository there. As always, read the licence file in the repository before you build a deployment that depends on it.
 
 **North Mini Code 1.0** (9 June 2026) is Cohere's first fully open developer-facing model, and the first in a new North model family: a 30B MoE with about 3B active parameters, purpose-built for agentic software engineering, with 256K input and 64K output and Apache 2.0 weights that run on a single H100 in FP8. The production model id reached the Chat V2 API in August 2026.
+
+**Embed 5** (30 September 2026) replaces Embed 4 as Cohere's current embeddings family, in two variants: `embed-v5.0-pro`, "Optimized for the highest retrieval quality", and `embed-v5.0-fast`, "Optimized for low latency and high throughput". The two share one embedding space, so a corpus indexed with one can be queried with the other; Cohere's advice is "We recommend indexing with Pro and querying with Fast." It embeds text, images and mixed text-and-image inputs such as PDF pages in a single vector, covers over 100 languages, has a 128K context window, and returns Matryoshka embeddings at 256, 512, 768, 1024, 1536 or 2048 dimensions as float, int8 or binary. The shared space Cohere describes is between Pro and Fast; the changelog says nothing about compatibility with Embed 4 vectors, so do not mix Embed 4 and Embed 5 vectors in one index without testing. (Contrast Rerank 5 below, where Cohere says upgrading needs no re-indexing.)
+
+**Rerank 5** (21 October 2026) replaces Rerank 4: `rerank-v5.0-pro` for the highest ranking quality on "complex, reasoning-heavy queries", and `rerank-v5.0-fast` for latency and throughput. Cohere claims Rerank 5 Fast "outperforms our previous-generation Rerank 4 Pro model"; that is Cohere's own evaluation. New in this generation: **Context Focus**, off by default, which returns "the most relevant passages within each document, as scored character spans" in a `relevant_spans` list, and calibrated relevance scores that Cohere says are "consistent across queries and domains, so you can set one threshold". It supports over 100 languages, a 32K context window, and JSON, tables and other records as YAML strings. Upgrading needs no re-indexing: "Rerank reads raw text at query time". Both families are on the Cohere API, Microsoft Foundry, Amazon SageMaker and Cohere's single-tenant Model Vault. The changelog entries publish no prices for either.
 
 **North Small Translate 1.0** (`north-small-translate-1-0`, 9 September 2026) is a mixture-of-experts model built only for machine translation, covering **more than 50 languages and locale variants**. It has **218B total and 25B active parameters** and a **16K context window**. It is on the **free tier of the Chat V2 API**, and the weights are on Hugging Face (`CohereLabs/North-Small-Translate-1.0`) in W4A16, FP8 and BF16 formats under **CC BY-NC 4.0, so non-commercial use only**. Cohere's suggested hardware is two H100s (or one B200) for W4A16, four H100s for FP8 and eight H100s for BF16. For commercial translation workloads, use the API or talk to Cohere about a licence; do not assume the Apache 2.0 terms of Command A+ carry over.
 
@@ -153,7 +157,7 @@ Cohere is a focused choice, not a default. Consider alternatives when:
 
 - [Cohere homepage](https://cohere.com/): product lines, deployment options, and sovereign AI positioning.
 - [An Overview of Cohere's Models](https://docs.cohere.com/docs/models): current model names, context lengths, cloud availability, deprecations, and retirements, checked 25 September 2026.
-- [Cohere release notes](https://docs.cohere.com/changelog): North Small Translate (9 September 2026: 218B / 25B active, 16K context, 50+ languages, free-tier Chat V2 API, CC BY-NC 4.0 weights in W4A16/FP8/BF16) and Cohere Parse (27 August 2026: `parse-v5.0`, 2.3B, 8K context).
+- [Cohere release notes](https://docs.cohere.com/changelog) (fetched 25 October 2026): Rerank 5 (21 October 2026: `rerank-v5.0-pro` and `-fast`, Context Focus, calibrated scores, 32K context, availability) and Embed 5 (30 September 2026: `embed-v5.0-pro` and `-fast`, shared space, multimodal, 128K context, Matryoshka dimensions and output types); North Small Translate (9 September 2026: 218B / 25B active, 16K context, 50+ languages, free-tier Chat V2 API, CC BY-NC 4.0 weights in W4A16/FP8/BF16) and Cohere Parse (27 August 2026: `parse-v5.0`, 2.3B, 8K context).
 - [North Small Translate 1.0 on Hugging Face](https://huggingface.co/CohereLabs/North-Small-Translate-1.0): open weights, CC BY-NC 4.0.
 - [tiny-aya-en-thinker](https://huggingface.co/CohereLabs/tiny-aya-en-thinker), [tiny-aya-l2-thinker](https://huggingface.co/CohereLabs/tiny-aya-l2-thinker) (2 September 2026) and [tiny-aya-base-32K](https://huggingface.co/CohereLabs/tiny-aya-base-32K) (8 September 2026) on Hugging Face: 3.35B parameters, gated, CC BY-NC 4.0.
 - [Introducing Command A+, Cohere blog, 20 May 2026](https://cohere.com/blog/command-a-plus): 218B total / 25B active, 128K context, 48 languages, Apache 2.0.

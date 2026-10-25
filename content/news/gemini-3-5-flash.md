@@ -2,8 +2,8 @@
 title: "Google Ships Gemini 3.5 Flash at I/O 2026"
 description: "Google announced Gemini 3.5 Flash at I/O on 19 May 2026 as the first model in the Gemini 3.5 family, with gains on coding and agentic benchmarks."
 date: 2026-07-06
-lastmod: 2026-07-06
-last_updated: 2026-07-06
+lastmod: 2026-10-25
+last_updated: 2026-10-25
 categories: [News]
 tags: [google, gemini, reasoning, multimodal, model-release]
 related:
@@ -13,6 +13,8 @@ related:
 ---
 
 Google announced Gemini 3.5 Flash at Google I/O on 19 May 2026. It is the first released model in the Gemini 3.5 family. Google reports gains on coding and agentic benchmarks over the previous Gemini 3.1 Pro, along with faster output.
+
+> **Update, 25 October 2026: deprecated on 8 October.** The Gemini API release notes for 8 October 2026 say `gemini-3.5-flash` "is deprecated and has been replaced by `gemini-3.6-flash`. It is no longer available to select in Google AI Studio, and API requests to `gemini-3.5-flash` are automatically routed to `gemini-3.6-flash`." Google suggests updating the model string to `gemini-3.6-flash` or `gemini-3.8-flash`. The deprecations page adds that "the endpoint is not shutting down", so no shutdown date exists. The rest of this entry describes the model as it launched.
 
 ## What happened
 
@@ -29,6 +31,8 @@ For teams comparing {{< relref "glossary/reasoning-models" >}} across providers,
 ## Sources
 
 1. Google. "Gemini 3.5" (19 May 2026). [https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/)
+2. Google, Gemini API release notes, 8 October 2026 entry (fetched 25 October 2026). [https://ai.google.dev/gemini-api/docs/changelog](https://ai.google.dev/gemini-api/docs/changelog)
+3. Google, Gemini API deprecations (fetched 25 October 2026). [https://ai.google.dev/gemini-api/docs/deprecations](https://ai.google.dev/gemini-api/docs/deprecations)
 
 ## Further reading
 

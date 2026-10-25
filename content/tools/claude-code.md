@@ -5,8 +5,8 @@ date: 2026-06-25
 categories: [Tools]
 tags: ["ai-ml", "claude", "claude-code", "coding-agent", "developer-tools", "cli"]
 tool_category: "AI"
-last_updated: 2026-09-25
-lastmod: 2026-09-25
+last_updated: 2026-10-25
+lastmod: 2026-10-25
 last_verified: 2026-09-25
 ---
 
@@ -104,7 +104,16 @@ A typical task moves through the same loop every time, which is what makes it an
 
 - **Projects as multi-agent cloud threads (17 September 2026).** Anthropic relaunched Projects in Claude Code as a way to run several agents under one goal. A coordinator scopes the request and delegates it to parallel **threads**; each thread is a full Claude Code **cloud session working on its own git branch and copy of the repo**, and can split its work further with subagents. Where threads touch the same code, the overlap surfaces as an ordinary merge conflict. Threads run in the cloud at launch, with local tools and code support described as coming soon. It is a beta for select Pro and Max subscribers (Team and Enterprise later), and Anthropic warns that because every thread is a full session, projects reach usage limits faster. This is distinct from the older claude.ai Projects workspaces. Unlike the local terminal flow shown above, this mode runs on Anthropic's infrastructure rather than your machine. See [Claude Code relaunches Projects as coordinated parallel cloud threads](/news/claude-code-projects-cloud-threads/).
 - **Claude Opus 5.5 (22 September 2026).** The new Opus model is available in Claude Code, including fast mode (up to 2.5x faster output at $8/$40 per million tokens on API billing). See [Claude Opus 5.5 launches at $4/$20, with thinking always on](/news/claude-opus-5-5/) and [Claude by Anthropic](/tools/claude-anthropic/) for the full lineup and pricing.
-- **Plugin4Shell (disclosed 17-18 September 2026).** AIR Security disclosed a zero-click remote-code-execution flaw affecting Claude Code, OpenAI Codex, GitHub Copilot and Gemini CLI: an attacker who controls a plugin repository could create a branch named like the marketplace's pinned 40-character commit SHA, so the agent's background plugin update checked out malicious code while appearing to honour the pin. According to AIR, **Anthropic fixed it in Claude Code 2.1.179** (released 16 June 2026), and no in-the-wild exploitation is known. If you run an older build or install plugins from Bitbucket, GitLab or self-hosted marketplaces, update Claude Code and review which plugins auto-update. See [Plugin4Shell: a zero-click plugin flaw in coding agents](/news/plugin4shell-coding-agents-rce/).
+- **Plugin4Shell (disclosed 17-18 September 2026).** AIR Security disclosed a zero-click remote-code-execution flaw affecting Claude Code, OpenAI Codex, GitHub Copilot and Gemini CLI: an attacker who controls a plugin repository could create a branch named like the marketplace's pinned 40-character commit SHA, so the agent's background plugin update checked out malicious code while appearing to honour the pin. According to AIR, **Anthropic fixed it in Claude Code 2.1.179** (released 16 June 2026), and no in-the-wild exploitation is known. If you run an older build or install plugins from Bitbucket, GitLab or self-hosted marketplaces, update Claude Code and review which plugins auto-update. See [Plugin4Shell: a zero-click plugin flaw in coding agents](/news/plugin4shell-coding-agents-rce/). Anthropic's own advisory followed on 9 October 2026 as **GHSA-pq7j-f95f-qfcv / CVE-2026-86063** (High, CVSS 4.0 7.7 in Anthropic's advisory; the CVE record on NVD gives 7.5), and it says Claude Desktop's plugin install flow was affected too.
+- **Security advisories disclosed in October 2026, all fixed in earlier releases.** Anthropic published three advisories that month. The minimum safe versions are the fixed versions they name:
+
+  | Advisory | What | Severity (Anthropic) | Fixed in |
+  |---|---|---|---|
+  | GHSA-pq7j-f95f-qfcv / CVE-2026-86063 (9 Oct) | Plugin commit SHA pin bypass, Claude Code and Claude Desktop (CWE-494, CWE-829) | High, CVSS 4.0 7.7 | Claude Code 2.1.179 |
+  | GHSA-4p2j-qj3c-6x84 / CVE-2026-88066 (13 Oct) | Claude Desktop on Windows ran `git.exe` without an absolute path, so a `git.exe` planted in a project directory ran when the project was opened (CWE-427) | High, CVSS 4.0 7.5 | Claude Desktop 1.8089.0 |
+  | GHSA-5j29-h97v-84ch / CVE-2026-103435 (5 Oct) | Write-time symlink following (TOCTOU): a path checked at permission time was re-resolved at write time, so an attacker with write access to a shared workspace could redirect a write outside the project (CWE-22, CWE-61, CWE-367) | High, CVSS 4.0 7.7 | Claude Code 2.1.129 |
+
+  Each advisory says users on standard auto-update "have received this fix already". If you pin versions or update by hand, check that you are at or above these. The [October 2026 agent security roundup](/news/ai-agent-security-roundup-october-2026/) covers them alongside the MCP SDK and framework advisories.
 
 ## Which subscription you need
 
@@ -135,6 +144,8 @@ Claude Code is one of several products built on the same models. They differ mai
 
 ## Further reading
 
+- [AI agent security roundup, October 2026](/news/ai-agent-security-roundup-october-2026/): the Claude Code and Claude Desktop advisories in context
+
 - [Claude Cowork](/tools/claude-cowork/): the same agent architecture for knowledge work instead of code
 - [Claude Design](/tools/claude-design/): turning conversation into editable HTML and document layouts
 - [Claude by Anthropic](/tools/claude-anthropic/): the models and apps underneath all of these products
@@ -150,3 +161,6 @@ Claude Code is one of several products built on the same models. They differ mai
 - [Introducing Claude Opus 5.5 (Anthropic, 22 September 2026)](https://www.anthropic.com/claude-opus-5-5): the new Opus model and fast mode in Claude Code
 - [Critical flaw in Claude Code, OpenAI Codex, GitHub Copilot and Gemini CLI (heise, 21 September 2026)](https://www.heise.de/en/news/Critical-flaw-in-Claude-Code-OpenAI-Codex-GitHub-Copilot-and-Gemini-CLI-11460259.html): Plugin4Shell and the Claude Code 2.1.179 fix
 - [Plugin4Shell zero-click RCE hits Claude Code, Codex, Copilot and Gemini CLI (Cyber Security News, 18 September 2026)](https://cybersecuritynews.com/plugin4shell-zero-click-rce/): technical details of the SHA-pinning bypass
+- [GHSA-pq7j-f95f-qfcv, Anthropic, 9 October 2026](https://github.com/anthropics/claude-code/security/advisories/GHSA-pq7j-f95f-qfcv): plugin SHA pin bypass, fixed in 2.1.179, Claude Desktop also affected
+- [GHSA-4p2j-qj3c-6x84, Anthropic, 13 October 2026](https://github.com/anthropics/claude-code/security/advisories/GHSA-4p2j-qj3c-6x84): Claude Desktop for Windows `git.exe` search path, fixed in 1.8089.0
+- [GHSA-5j29-h97v-84ch, Anthropic, 5 October 2026](https://github.com/anthropics/claude-code/security/advisories/GHSA-5j29-h97v-84ch): symlink TOCTOU file write, fixed in 2.1.129

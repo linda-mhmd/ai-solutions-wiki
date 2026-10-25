@@ -2,8 +2,8 @@
 title: "NVIDIA AI Platform (NIM, NeMo, DGX)"
 description: "How NVIDIA combines GPUs, DGX systems, NVIDIA AI Enterprise, NIM inference microservices, and the NeMo framework into one full-stack AI platform."
 date: 2026-06-29
-last_updated: 2026-09-25
-lastmod: 2026-09-25
+last_updated: 2026-10-25
+lastmod: 2026-10-25
 last_verified: 2026-09-25
 tags: ["nvidia", "gpu", "inference", "infrastructure", "enterprise-ai"]
 tool_category: "Infrastructure"
@@ -112,9 +112,14 @@ NVIDIA is no longer only a hardware and tooling vendor. Nemotron is its family o
 | **Nemotron 3 Super** | 11 March 2026 | 120B total / 12B active | Mid-tier reasoning; announced days ahead of GTC, not at it |
 | **Nemotron 3 Nano Omni** | 28 April 2026 | 30B total / 3B active | Multimodal; 300K context, the shortest in the family |
 | **Nemotron 3 Ultra** | 4 June 2026 | 550B total / 55B active | Pretrained largely in NVFP4 for Blackwell |
-| **Nemotron 3.5 Lightning** | 11 August 2026 | 30B total / 3B active | Newest; NVIDIA claims performance near gpt-oss-120b at roughly a quarter of the total parameters |
+| **Nemotron 3.5 Lightning** | 11 August 2026 | 30B total / 3B active | NVIDIA claims performance near gpt-oss-120b at roughly a quarter of the total parameters |
+| **Nemotron 3.5 Super VL** | 15 October 2026 | 120B total / 12B active | Vision-language (C-RADIO encoder), up to 1M context, OpenMDW-1.1; Mamba-2, MoE and attention layers with multi-token prediction |
+| **Nemotron 3.5 Bolt 74B-A9B** | 15 October 2026 | 74B total / 9B active | Up to 256K context; the "24GB" version uses a native 2-bit quantization to fit in 24GB on RTX or DGX Spark; OpenMDW-1.1 |
+| **Nemotron 3.5 Bolt E4B** | 23 October 2026 | 8B (4B effective) | Edge and voice agents; "4GB" version; input and output each up to 64K tokens; OpenMDW-1.1 |
 
-There is **no new general-purpose Nemotron LLM** since 3.5 Lightning. September 2026 brought specialist releases instead:
+**October 2026 brought the first general-purpose Nemotron models since 3.5 Lightning.** On 15 October NVIDIA released **Nemotron 3.5 Super VL** and **Nemotron 3.5 Bolt 74B-A9B**, and said Bolt E4B was "coming Oct. 23"; its Hugging Face card gives 23 October 2026 as the release date. (Until this update this page said there had been no new general-purpose Nemotron LLM since Lightning, which was true when written.) Read NVIDIA's headline claims carefully. The blog's opening line says Super VL "delivers the fastest task completion and highest accuracy for specialized always-on agents", but the body is more measured: its accuracy is "comparable with NVIDIA's largest reasoning model at roughly one-fifth the parameter count", and the speed claim is "5x faster than the next best" in its class, tied to Artificial Analysis throughput. "Highest accuracy" is the headline; "comparable" is the evidence offered. For Bolt 74B-A9B NVIDIA claims "#1 open model in its class on PinchBench" and "#2 open model for BrowseComp". None of these has been reproduced independently here. All three ship under OpenMDW-1.1, ungated, with NVIDIA saying Super VL comes "with open weights, open datasets and training recipes".
+
+September 2026 brought specialist releases:
 
 - **Nemotron-3-Labs-Ultra-Math-RL and -SFT** (Hugging Face, 3 September 2026): math-reasoning fine-tunes of Nemotron 3 Ultra (**550B total / 55B active**, up to 1M context), trained to solve hard problems and find mistakes in proofs. NVIDIA says the RL model was deployed **as part of an ensemble system that achieved a gold-medal-level score at the International Mathematical Olympiad 2026**; the gold is the ensemble's, not the single checkpoint's. Both are under OpenMDW-1.1 and marked ready for commercial use. NVIDIA published the recipe with them: the technical report "An Open Recipe for IMO Gold" (arXiv 2609.10712), the RL training recipe, the inference pipeline and submitted proofs, and the Nemotron-Math-Proofs-v3-RL dataset. The "Labs" prefix signals a research release rather than a supported NIM.
 - **Nemotron 3 Diarization** (`nvidia/Nemotron-3-Diarization`, OpenMDW-1.1, commercial use allowed): a Streaming Sortformer speaker-diarization model that answers "who spoke when" for **up to eight speakers**, in streaming (input buffer down to 80 ms; 0.32 s is the lowest recommended setting) or offline mode. It runs in NeMo Speech or the native NeMo-Speech.cpp runtime and can add word-level speaker tags to transcripts. The repository appeared on 1 September 2026; the model card gives 23 September 2026 as the release date.
@@ -186,4 +191,7 @@ Choose the NVIDIA platform when data must stay in your environment, when you cus
 - [An Open Recipe for IMO Gold: Training Nemotron for Olympiad Mathematics, arXiv 2609.10712](https://arxiv.org/abs/2609.10712): NVIDIA's technical report.
 - [Nemotron 3 Diarization model card](https://huggingface.co/nvidia/Nemotron-3-Diarization): up to eight speakers, streaming and offline, OpenMDW-1.1; card release date 23 September 2026.
 - [DeepSeek-V4.1-Flash-NVFP4](https://huggingface.co/nvidia/DeepSeek-V4.1-Flash-NVFP4), [GLM-5.3-NVFP4](https://huggingface.co/nvidia/GLM-5.3-NVFP4) and [Qwen3.8-27B-NVFP4](https://huggingface.co/nvidia/Qwen3.8-27B-NVFP4) on Hugging Face: September 2026 NVFP4 quantizations.
+- [NVIDIA blog, "Open From Data Center to Desktop: NVIDIA Expands Nemotron Family With Highest Efficiency Super VL and Bolt Models", 15 October 2026](https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/): Super VL, Bolt 74B-A9B and the Bolt E4B date, and the accuracy and speed claims.
+- [Nemotron 3.5 Super VL 120B-A12B BF16 model card](https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16) (fetched 25 October 2026): 120B / 12B active, up to 1M context, OpenMDW-1.1.
+- [Nemotron 3.5 Bolt 74B-A9B BF16 model card](https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16) (fetched 25 October 2026): 74B / 9B active, up to 256K context, the native 2-bit 24GB version, release date 15 October 2026; and the [Bolt E4B 4GB card](https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB): 8B (4B effective), 64K input and output, release date 23 October 2026.
 - [Artificial Analysis on Nemotron 3 Ultra](https://artificialanalysis.ai/articles/nvidia-nemotron-3-ultra-released): third-party Intelligence Index positioning.

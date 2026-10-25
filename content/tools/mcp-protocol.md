@@ -4,8 +4,8 @@ description: "What the Model Context Protocol is, how it enables AI agents to us
 date: 2026-03-25
 categories: [Tools]
 tags: ["ai-agents", "intermediate", "mcp", "tool-use", "agents", "protocol", "integration"]
-last_updated: 2026-09-25
-lastmod: 2026-09-25
+last_updated: 2026-10-25
+lastmod: 2026-10-25
 last_verified: 2026-09-25
 ---
 
@@ -56,7 +56,26 @@ def get_weather(city: str) -> str:
     return fetch_weather(city)
 ```
 
-This uses the high-level `MCPServer` API from the Python SDK 2.x line (2.2 as of September 2026); type hints and the docstring become the tool's JSON schema and description. Code written against SDK 1.x imported `FastMCP` from `mcp.server.fastmcp` instead.
+This uses the high-level `MCPServer` API from the Python SDK 2.x line (v2.3.0, released 2 October 2026, is the latest on 25 October 2026); type hints and the docstring become the tool's JSON schema and description. Code written against SDK 1.x imported `FastMCP` from `mcp.server.fastmcp` instead.
+
+## Security notes: minimum safe SDK versions (October 2026)
+
+Three SDK advisories published in October 2026 set new minimum versions. Each is a GitHub advisory from the MCP SDK maintainers.
+
+| Package | Minimum safe version | Advisory | What it fixes |
+|---|---|---|---|
+| `mcp` (Python), 1.x | **1.30.0** | GHSA-84m7-p3x7-pcfv / CVE-2026-59951, Medium | Streamable HTTP servers in stateful mode (the default) never reclaimed sessions, so any client that could reach the endpoint could grow server memory without bound |
+| `mcp` (Python), 2.x | **2.2.0** | same | same; 2.2.0 adds `session_idle_timeout` (default 1800 s) and `max_sessions` (default 10000) |
+| `@modelcontextprotocol/server` | **2.3.0** | GHSA-jm63-cq47-j5jp / CVE-2026-111770, High | A shared transport or shared `McpServer` instance could deliver one HTTP client's responses to another, because messages were matched by JSON-RPC `id` alone and "SDK clients number requests from 0, so ids collide in normal use" |
+| `@modelcontextprotocol/sdk` (1.x) | **1.32.0** | GHSA-rvq5-wwqv-78pq / CVE-2026-111771, Medium | Bearer authentication could not check a token's audience, so a token issued for another service was accepted |
+| `@modelcontextprotocol/server` (2.x) | **2.3.0**, with `@modelcontextprotocol/express` **2.0.2** and `@modelcontextprotocol/server-legacy` **2.3.1** | same | same |
+
+Two of these need code changes, not just an upgrade:
+
+- **Shared transports.** The TypeScript advisory says that "Until this release, the README examples of `@modelcontextprotocol/hono`, `express`, `fastify` and `node` showed that pattern", meaning one transport or server created once at startup. From 2.3.0 the SDK "now refuses to be shared, so an affected app fails requests after upgrading". Build a new `McpServer` and transport per request, keep one per session with `sessionIdGenerator`, or pass `createMcpHandler()` a factory. `@modelcontextprotocol/sdk` 1.26.0 and later is not affected by this one.
+- **Audience check.** "Upgrading alone changes nothing." The fix adds an `expectedResource` option that is off by default. Pass `expectedResource` to `requireBearerAuth()` and return the token's audience from `verifyAccessToken()` as `AuthInfo.resource`; with only the first change, every request gets a 401. On versions you cannot upgrade, reject tokens whose `aud` does not include your server inside `verifyAccessToken()`.
+
+For the Python session issue, servers using `stateless_http=True` (1.12.0 or later), stdio or SSE are not affected. Newer releases exist (TypeScript SDK 1.32.2 and `@modelcontextprotocol/server` 2.4.0 on 23 October 2026); the versions in the table are the minimums the advisories name. See [MCP security vulnerabilities in 2026](/news/mcp-security-vulnerabilities-2026/) and the [October 2026 agent security roundup](/news/ai-agent-security-roundup-october-2026/).
 
 ## MCP in AI Pipelines on AWS
 
@@ -67,6 +86,7 @@ MCP servers can expose AWS services as tools for agents. An agent hosted on Amaz
 - [Bedrock AgentCore]({{< relref "bedrock-agentcore.md" >}}) - runtime that hosts MCP-compatible agents
 - [Strands Agents]({{< relref "strands-agents.md" >}}) - framework with native MCP support
 - [AI Agents]({{< relref "/glossary/ai-agents.md" >}}) - agent fundamentals
+- [AI agent security roundup, October 2026](/news/ai-agent-security-roundup-october-2026/) - the MCP SDK advisories in context
 
 ## Sources
 
@@ -74,3 +94,7 @@ MCP servers can expose AWS services as tools for agents. An agent hosted on Amaz
 2. Anthropic. "Donating the Model Context Protocol and establishing the Agentic AI Foundation." 9 December 2025. https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation
 3. MCP Python SDK README (`MCPServer` quickstart). https://github.com/modelcontextprotocol/python-sdk
 4. AWS. "Amazon Bedrock Agents Classic maintenance mode." https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html
+5. MCP Python SDK releases (v2.3.0, 2 October 2026). https://github.com/modelcontextprotocol/python-sdk/releases
+6. GHSA-84m7-p3x7-pcfv, "MCP Python SDK: Unbounded Session Accumulation in StreamableHTTP Transport Enables Resource Exhaustion" (GitHub security advisory; reviewed in the GitHub Advisory Database 15 October 2026). https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-84m7-p3x7-pcfv
+7. GHSA-jm63-cq47-j5jp, "Shared transport or server instances delivered one HTTP client's messages to another" (20 October 2026). https://github.com/modelcontextprotocol/typescript-sdk/security/advisories/GHSA-jm63-cq47-j5jp
+8. GHSA-rvq5-wwqv-78pq, "Server bearer authentication accepted tokens issued for another service" (20 October 2026). https://github.com/modelcontextprotocol/typescript-sdk/security/advisories/GHSA-rvq5-wwqv-78pq

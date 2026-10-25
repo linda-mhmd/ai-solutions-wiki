@@ -5,8 +5,8 @@ date: 2026-06-01
 last_verified: 2026-09-25
 categories: [Comparisons]
 tags: ["llm", "gpt", "claude", "gemini", "gemma", "llama", "muse-spark", "mistral", "deepseek", "qwen", "kimi", "glm", "minimax", "mimo", "xiaomi", "tencent-hy", "grok", "nova", "nemotron", "granite", "ibm", "olmo", "falcon", "starcoder", "dbrx", "groq", "together-ai", "fireworks-ai", "ollama", "vllm", "hugging-face", "azure-ai", "vertex-ai", "oci", "open-source", "inference-providers", "comparison", "foundation-models", "model-selection"]
-last_updated: 2026-09-25
-lastmod: 2026-09-25
+last_updated: 2026-10-25
+lastmod: 2026-10-25
 related:
   - glossary/llm
   - glossary/foundation-models
@@ -24,7 +24,7 @@ related:
 
 The LLM market consolidated rapidly between 2023 and 2026. A handful of providers now offer models that are genuinely competitive for most enterprise tasks, while the open-weight ecosystem has expanded to the point where self-hosted options match hosted APIs for many workloads. This article covers every significant model currently in production use, organized by provider.
 
-Prices listed are approximate as of 25 September 2026 and change frequently. Verify current pricing at each provider before architecture decisions. Two current rates are explicitly temporary and worth flagging before you build a cost model on them: OpenAI's GPT-5.6 Sol rate is marked promotional "at least through November 21, 2026" on OpenAI's own pricing page, and Google's Gemini 3.x Flash introductory rate expires 31 December 2026 and doubles on 1 January 2027. Two more are structural rather than temporary: DeepSeek bills on a peak/off-peak schedule (since 16 August 2026), and cut its Flash-tier prices again with the **DeepSeek-V4.1-Flash** release on 10 September 2026; and OpenAI's GPT-6 models, like GPT-5.6, bill the **whole request** at 2x input and 1.5x output once a prompt exceeds 272,000 tokens, so a long-context workload does not cost what the headline rate implies.
+Prices listed are approximate as of 25 September 2026 and change frequently; the OpenAI, Anthropic, Google, Meta, Mistral, DeepSeek, MiniMax, Reflection and NVIDIA entries, and the retirement and licence tables, were re-checked against primary sources on 25 October 2026. Gemini 4 Argon's introductory $2/$10 rate ends on 30 November 2026 and doubles on 1 December. Verify current pricing at each provider before architecture decisions. Two current rates are explicitly temporary and worth flagging before you build a cost model on them: OpenAI's GPT-5.6 Sol rate is marked promotional "at least through November 21, 2026" on OpenAI's own pricing page, and Google's Gemini 3.x Flash introductory rate expires 31 December 2026 and doubles on 1 January 2027. Two more are structural rather than temporary: DeepSeek bills on a peak/off-peak schedule (since 16 August 2026), and cut its Flash-tier prices again with the **DeepSeek-V4.1-Flash** release on 10 September 2026; and OpenAI's GPT-6 models, like GPT-5.6, bill the **whole request** at 2x input and 1.5x output once a prompt exceeds 272,000 tokens, so a long-context workload does not cost what the headline rate implies.
 
 ---
 
@@ -43,7 +43,7 @@ Each model entry covers:
 
 ## OpenAI
 
-OpenAI's current lineup is the **GPT-6** generation: **GPT-6 Astra** (top tier, API since 3 September 2026), and **GPT-6 Sol** and **GPT-6 Luna** (released 22 September 2026). In GPT-6, **Astra is the flagship**, **Sol is the mid tier** (positioned and priced where GPT-5.6 Terra sat) and **Luna** is the low-cost, high-volume tier; **there is no GPT-6 Terra**, and `gpt-5.6-terra` remains available. The naming is easy to misread: in GPT-5.6, Sol was the flagship, in GPT-6 it is not. The **GPT-5.6** family (GA 9 July 2026) is now the previous generation and remains available, with no retirement date. See [OpenAI API](/tools/openai-api/) for the full current lineup, model IDs, and pricing rather than the point-in-time entries below.
+OpenAI's current lineup is the **GPT-6** generation: **GPT-6 Astra** (top tier, API since 3 September 2026), **GPT-6 Sol** and **GPT-6 Luna** (released 22 September 2026), and the point upgrade **GPT-6.1 Sol** (29 September 2026). In GPT-6, **Astra is the flagship**, **Sol is the mid tier** (positioned and priced where GPT-5.6 Terra sat) and **Luna** is the low-cost, high-volume tier; **there is no GPT-6 Terra**, and `gpt-5.6-terra` remains available. The naming is easy to misread: in GPT-5.6, Sol was the flagship, in GPT-6 it is not. The **GPT-5.6** family (GA 9 July 2026) is now the previous generation and remains available, with no retirement date. See [OpenAI API](/tools/openai-api/) for the full current lineup, model IDs, and pricing rather than the point-in-time entries below.
 
 Astra's rollout was staged and publicly rocky, and it is worth being precise about what is and is not gated today, because the two are often conflated. The **base `gpt-6-astra` model is not access-gated**: OpenAI's model documentation lists it with no eligibility note, its rate-limits guide sets no tier minimum, and it is generally available in the API, on Amazon Bedrock (8 September 2026) and in Microsoft Foundry. What *is* gated is the **elevated-cybersecurity configuration**, behind OpenAI's Daybreak program - Daybreak Blue for general security work and Daybreak Red for pen-testing and exploit validation, both introduced on 7 August 2026. Published Astra cyber results reflect Daybreak-configured access rather than default production behaviour. Secondary reporting agrees that OpenAI's Preparedness Framework classifies Astra's cyber capability at the "Critical" threshold (see [Astra crosses the "Critical" cyber threshold](/news/openai-astra-critical-cyber-threshold/)); OpenAI's own launch post could not be re-read directly to confirm the wording, so treat that classification as reported rather than quoted. Sam Altman publicly apologised for the "messy rollout", and in early September some organisations reported uneven API entitlement, so confirm access on your own account rather than assuming it. Microsoft Foundry moved Astra, Sol and Luna to GA together on 22 September 2026 (see the Azure section below).
 
@@ -57,7 +57,7 @@ The GPT-4o and o1/o3/o4-mini models profiled after the current entries were Open
 
 OpenAI's most capable model and the top of the current lineup. Text and image in, text out - there is no audio or video input. Reasoning effort is selectable across low, medium, high, xhigh and max; there is no `none` level, and custom `temperature`/`top_p` and `logprobs` are not supported. Available through the Responses API and Chat Completions, with tool calling limited to the Responses API, alongside web search, file search, code interpreter and computer use. Astra shipped alongside three Responses API features: asynchronous tool calling, mid-turn steering over WebSockets, and changing reasoning effort mid-conversation. An **asynchronous misalignment monitor** runs alongside it and can halt a conversation.
 
-**Pricing:** $10.00 input / $1.00 cached input / $12.50 cache write / $50.00 output per million tokens. Prompts above 272,000 input tokens are billed at 2x input and cache and 1.5x output, giving $20 / $2 / $75. Fast mode is 2x standard; Batch and Flex are both 50%.
+**Pricing:** $10.00 input / $1.00 cached input / $12.50 cache write (30-minute; the 12-hour write added on 20 October 2026 is $25.00) / $50.00 output per million tokens. Prompts above 272,000 input tokens are billed at 2x input and cache and 1.5x output, giving $20 / $2 / $75. Fast mode is 2x standard; Batch and Flex are both 50%.
 
 **Strengths:** Best-in-portfolio reasoning and long-horizon agentic work. Very large context with a documented, rather than implied, long-context billing threshold. Broad first-party tool surface.
 
@@ -81,6 +81,18 @@ The GPT-6 **mid tier** - below the flagship Astra - which OpenAI describes as "b
 
 **API access:** OpenAI API (`gpt-6-sol`), Microsoft Foundry (GA 22 September 2026, with Provisioned Throughput and Priority Processing), Amazon Bedrock (GA 22 September 2026, 1M context), GitHub Copilot (Pro+ and above).
 
+### GPT-6.1 Sol (`gpt-6.1-sol`)
+
+**Released:** 29 September 2026 (DevDay). **Context:** 1,050,000 tokens, 128,000 max output. **Knowledge cutoff:** 30 April 2026 (per its model page, fetched 25 October 2026).
+
+A point upgrade to GPT-6 Sol rather than a new tier, which OpenAI positions as approaching Astra on complex professional work. Reasoning effort runs low, medium (default), high, xhigh and max; unlike GPT-6 Sol there is no `none`. Tool calling needs the Responses API; Chat Completions works without tools.
+
+**Pricing per million tokens** (up to 272,000 input tokens): **$2.00 input / $0.10 cached input / $2.50 30-minute cache write / $5.00 12-hour cache write / $10.00 output**. The cached rate is 5% of input, half of GPT-6 Sol's. Above 272,000 input tokens the full request bills at 2x input and cache and 1.5x output (arithmetic: $4.00 / $0.20 / $15.00). **Ultrafast** (since 8 October 2026) is 6x Standard: $12.00 / $0.60 / $60.00.
+
+**When to use it:** New Sol-tier work, especially prompt-heavy agent loops where the cheaper cached input moves the bill. GitHub Copilot names it as the replacement for GPT-5.5 and GPT-5.4. See [GPT-6.1 Sol and DevDay 2026](/news/openai-gpt-6-1-sol/).
+
+**API access:** OpenAI API (`gpt-6.1-sol`), GitHub Copilot.
+
 ### GPT-6 Luna (`gpt-6-luna`)
 
 **Released:** 22 September 2026. **Context:** 1,050,000 tokens (922,000 max input, 128,000 max output). **Knowledge cutoff:** 18 May 2026.
@@ -95,7 +107,7 @@ The low-cost, high-volume GPT-6 tier: a reasoning model with the same modalities
 
 **Released:** 9 July 2026 (all three). **Context:** 1,050,000 tokens each, 128,000 max output. **Knowledge cutoff:** 16 February 2026 (Sol).
 
-The workhorse tier from July to September 2026, and still available with no announced retirement. Sol is the flagship, Terra the balanced middle, Luna the cost-optimised tier that also backs ChatGPT's free plan. Text and image in, text out. The `gpt-5.6` alias routes to Sol. There is no GPT-6 Terra - GPT-6 Sol now occupies the mid tier - but `gpt-5.6-terra` remains available and is the named replacement in several of the retirements below. OpenAI still names `gpt-5.6-*` models as migration targets throughout its deprecations page, and GitHub Copilot is moving its older GPT-5.x models onto GPT-5.6 Sol and Luna on 19 October 2026.
+The workhorse tier from July to September 2026, and still available with no announced retirement. Sol is the flagship, Terra the balanced middle, Luna the cost-optimised tier that also backs ChatGPT's free plan. Text and image in, text out. The `gpt-5.6` alias routes to Sol. There is no GPT-6 Terra - GPT-6 Sol now occupies the mid tier - but `gpt-5.6-terra` remains available and is the named replacement in several of the retirements below. OpenAI still names `gpt-5.6-*` models as migration targets for its older retirements, but its newest notices name GPT-6 models instead (`gpt-6-luna` for the GPT-4o and GPT-4.1 snapshots, `gpt-6-sol` and `gpt-6-luna` for GPT-5.1, 5.3-codex and 5.4-nano). GitHub Copilot deprecated GPT-5.5, GPT-5.4, GPT-5.4 mini and GPT-5 mini on 19 October 2026 with GPT-6.1 Sol and GPT-6 Luna as the suggested alternatives, and deprecates GPT-5.6 Terra on 16 November 2026.
 
 **Pricing per million tokens** (long-context rates apply above 272,000 input tokens):
 
@@ -117,7 +129,7 @@ The workhorse tier from July to September 2026, and still available with no anno
 
 The first fully agentic retrained OpenAI model, still sold and still listed on Azure Foundry, with no published retirement date. GPT-5.5 is $5.00 / $0.50 cached / $30.00 per MTok ($10 / $1 / $45 long-context); GPT-5.5 Pro, the extended-compute reasoning variant, is $30.00 input / $180.00 output ($60 / $270 long-context), with no published cached-input rate.
 
-**When to use it today:** Existing integrations only. New work at this tier should start on GPT-6 Sol or GPT-6 Astra. GitHub Copilot retires GPT-5.5 in favour of GPT-5.6 Sol on 19 October 2026.
+**When to use it today:** Existing integrations only. New work at this tier should start on GPT-6 Sol or GPT-6 Astra. GitHub Copilot deprecated GPT-5.5 on 19 October 2026, with GPT-6.1 Sol as the suggested alternative.
 
 ### GPT-4o (previous generation, superseded by GPT-5.6)
 
@@ -131,7 +143,7 @@ GPT-4o ("omni") was OpenAI's flagship general-purpose model through 2024 and int
 
 **When to use it today:** Rarely as a first choice - GPT-5.6 Terra or Sol covers the same ground with more current capability (see [OpenAI API](/tools/openai-api/)). GPT-4o remains relevant for reproducing older evaluations, comparing against legacy production deployments, or where an existing integration is still pinned to it.
 
-**Retirement:** GPT-4o was removed from ChatGPT on 13 February 2026, with Business, Enterprise and Edu retaining it inside Custom GPTs until 3 April 2026, and the `chatgpt-4o-latest` API model was retired in February 2026. The base API snapshots (`gpt-4o-2024-11-20`, `gpt-4o-2024-08-06`) remain listed with no announced shutdown, but `gpt-4o-2024-05-13` shuts down **23 October 2026**. If you are pinned to a dated snapshot, check which one.
+**Retirement:** GPT-4o was removed from ChatGPT on 13 February 2026, with Business, Enterprise and Edu retaining it inside Custom GPTs until 3 April 2026, and the `chatgpt-4o-latest` API model was retired in February 2026. `gpt-4o-2024-05-13` was shut down on **23 October 2026**. The remaining base API snapshots (`gpt-4o-2024-11-20`, `gpt-4o-2024-08-06`) were deprecated on 14 October 2026 and shut down on **14 January 2027**, with `gpt-6-luna` as the named replacement; fine-tunes follow the same schedule. That is three months' notice against the six months OpenAI's own policy gives generally available models, and OpenAI gives no reason.
 
 **API access:** OpenAI API (`gpt-4o`), Azure OpenAI (`gpt-4o`), Amazon Bedrock.
 
@@ -145,7 +157,7 @@ Smaller, faster, cheaper version of GPT-4o. Matches or exceeds older GPT-4 on ma
 
 **Weaknesses:** Noticeably weaker on multi-step reasoning and complex analysis than GPT-4o. Reduced quality on nuanced writing tasks.
 
-**When to use it today:** For new low-cost, high-volume work, start with GPT-5.6 Luna instead (see [OpenAI API](/tools/openai-api/)). This entry is kept for comparison against deployments still running on it.
+**When to use it today:** For new low-cost, high-volume work, start with GPT-6 Luna instead (see [OpenAI API](/tools/openai-api/)). This entry is kept for comparison against deployments still running on it. **Retirement:** `gpt-4o-mini-2024-07-18` shuts down on **14 January 2027**, replacement `gpt-6-luna` (deprecated 14 October 2026), as do `gpt-4.1-2025-04-14` and `gpt-4.1-mini-2025-04-14`.
 
 **API access:** OpenAI API (`gpt-4o-mini`), Azure OpenAI.
 
@@ -167,35 +179,40 @@ Extended reasoning now lives in the GPT-6 models (Astra, Sol, Luna) and GPT-5.6;
 
 **What they were used for:** Mathematical calculations that need to be correct, complex code debugging, scientific reasoning where accuracy matters more than speed - never summarization, extraction, or general chat. That job now belongs to GPT-6 Sol and GPT-6 Astra with reasoning effort set high, which is a request parameter rather than a separate model.
 
-**Retirement:** the whole line is either gone or dated. `o1` and `o1-mini` were retired on **27 October 2025** and `o1-preview` on 28 July 2025 - the API access line below is already false for those. `o3-mini` and `o4-mini` shut down **23 October 2026**; `o3` shuts down **11 December 2026**. OpenAI names `gpt-5.6-sol` as the replacement for o1, o3 and o3-mini, and `gpt-5.6-terra` for o4-mini.
+**Retirement:** the whole line is either gone or dated. `o1-mini` was retired on **27 October 2025** and `o1-preview` on 28 July 2025. `o1`, `o1-pro`, `o3-mini` and `o4-mini` were shut down on **23 October 2026** (OpenAI: "Access to these models was shut down on October 23, 2026"); `o3` and `o3-pro` shut down **11 December 2026**. (Earlier versions of this entry dated `o1`'s retirement to 27 October 2025; OpenAI's deprecations table lists `o1-2024-12-17 | o1` in the 23 October 2026 sweep.) OpenAI names `gpt-5.6-sol` as the replacement for o1, o3 and o3-mini, and `gpt-5.6-terra` for o4-mini.
 
-**API access (historical):** OpenAI API (`o3`, `o4-mini` until October/December 2026), Azure OpenAI. `o1` is no longer callable.
+**API access (historical):** OpenAI API (`o3` until 11 December 2026), Azure OpenAI. `o1`, `o3-mini` and `o4-mini` are no longer callable.
 
 ### OpenAI's published retirement schedule
 
-OpenAI now publishes dates for most of its legacy catalogue, and one sweep in particular is large enough to plan around.
+OpenAI now publishes dates for most of its legacy catalogue. Checked against OpenAI's deprecations page on 25 October 2026:
 
 | Date | Retiring | Named replacement |
 |---|---|---|
-| 28 September 2026 | `gpt-3.5-turbo-instruct`, `gpt-3.5-turbo-1106`, `babbage-002`, `davinci-002` | `gpt-5.6-terra` |
-| 1 October 2026 | `gpt-5.4-cyber` | `gpt-5.6-cyber` |
-| 23 October 2026 | `gpt-3.5-turbo`, `gpt-4`, `gpt-4-turbo`, `gpt-4-1106-preview`, `gpt-4o-2024-05-13`, `o1`, `o1-pro`, `o3-mini`, `o4-mini`, `gpt-4.1-nano`, `gpt-image-1` | `gpt-5.6-sol` / `terra` / `luna`, `gpt-image-2` |
-| 1 December 2026 | `gpt-image-1.5`, `gpt-image-1-mini` | `gpt-image-2` |
-| 11 December 2026 | `o3` | `gpt-5.6-sol` |
-| 20 January 2027 | `gpt-realtime`, `gpt-4o-realtime`, `gpt-4o-audio` | `gpt-realtime-2.1`, `gpt-audio-1.5` |
+| 28 September 2026 (done) | `gpt-3.5-turbo-instruct`, `gpt-3.5-turbo-1106`, `babbage-002`, `davinci-002` | `gpt-5.6-terra` |
+| 1 October 2026 (done) | `gpt-5.4-cyber` | "The most capable cyber model available to you" |
+| 23 October 2026 (done) | `gpt-3.5-turbo`, `gpt-4`, `gpt-4-turbo`, `gpt-4-1106-preview`, `gpt-4o-2024-05-13`, `o1`, `o1-pro`, `o3-mini`, `o4-mini`, `gpt-4.1-nano`, `gpt-image-1` | `gpt-5.6-sol` / `terra` / `luna`; `gpt-image-2.5-sunburst` or `gpt-image-2.5-flare` |
+| 1 December 2026 | `gpt-image-1.5`, `gpt-image-1-mini`, `chatgpt-image-latest` | `gpt-image-2.5-sunburst` or `gpt-image-2.5-flare` |
+| 11 December 2026 | `o3`, `o3-pro`, `gpt-5`, `gpt-5-mini`, `gpt-5-nano`, `gpt-5-pro` | `gpt-5.6-sol` / `terra` / `luna` |
+| 6 January 2027 | `tts-1`, `tts-1-hd`, `gpt-4o-mini-tts` (both snapshots) | `gpt-realtime-2.1-mini` (Realtime API, not `/v1/audio/speech`) |
+| 14 January 2027 | `gpt-4o-2024-08-06`, `gpt-4o-2024-11-20`, `gpt-4o-mini-2024-07-18`, `gpt-4.1-2025-04-14`, `gpt-4.1-mini-2025-04-14` (and their fine-tunes) | `gpt-6-luna` |
+| 20 January 2027 | `gpt-realtime`, `gpt-4o-realtime`, `gpt-audio`, `gpt-4o-audio` and the mini variants | `gpt-realtime-2.1`, `gpt-realtime-2.1-mini`, `gpt-audio-1.5` |
 | 26 February 2027 | `whisper-1`, `gpt-4o-transcribe`, `gpt-4o-mini-transcribe`, `gpt-4o-transcribe-diarize` | `gpt-transcribe`, `gpt-live-transcribe` |
+| 1 April 2027 | `gpt-5.1`, `gpt-5.3-codex`, `gpt-5.4-nano` | `gpt-6-sol`; `gpt-6-luna` for 5.4-nano |
+
+OpenAI's pricing page still listed several of the models shut down on 23 October (for example `o1-pro`, `o3-mini` and `gpt-4-turbo-2024-04-09`) when fetched on 25 October 2026, so a price row is not evidence that a model still answers.
 
 Already gone: `o1-preview` (28 July 2025), `o1-mini` (27 October 2025), `gpt-5.1` variants (23 July 2026), `gpt-5.2-chat-latest` (10 August 2026), `dall-e-2` and `dall-e-3` (12 May 2026), the **Assistants API**, which shut down on **26 August 2026** in favour of the Responses and Conversations APIs, and the **Videos API together with `sora-2` and `sora-2-pro`**, which shut down on **24 September 2026 with no named replacement** - OpenAI no longer offers a video-generation API. Any code still calling `v1/assistants` or `v1/videos` now fails.
 
-Outside the text lineup, several September 2026 moves matter. **GPT-Live 1** (`gpt-live-1`) reached GA on 10 September 2026 on a new `v1/live/sessions` endpoint - full-duplex voice with custom voices and telephony, billed at $0.05 per minute (per second) plus the backend model's tokens. The **Agents API** entered public beta the same day, offering a managed Codex harness with durable sessions, MCP, and hosted or bring-your-own sandboxes. And two moves on 8 September 2026 matter for anyone building multimodal pipelines: OpenAI shipped `gpt-image-2.5-flare` (now the default image model for most applications, up to 50% lower generation latency than `gpt-image-2`) and `gpt-image-2.5-sunburst` (premium precision editing), both billed at `gpt-image-2` rates, alongside a consumer ChatGPT Images 2.5 rollout to all tiers. On the audio side, `gpt-transcribe` has been OpenAI's recommended speech-to-text model since 28 July 2026 at $0.0045 per audio minute - 25% below `whisper-1` - with `gpt-live-transcribe` as the streaming counterpart. Text-to-speech is unchanged: `gpt-4o-mini-tts` is still described in OpenAI's own guide as its newest and most reliable TTS model.
+Outside the text lineup, several September 2026 moves matter. **GPT-Live 1** (`gpt-live-1`) reached GA on 10 September 2026 on a new `v1/live/sessions` endpoint - full-duplex voice with custom voices and telephony, billed at $0.05 per minute (per second) plus the backend model's tokens. The **Agents API** entered public beta the same day, offering a managed Codex harness with durable sessions, MCP, and hosted or bring-your-own sandboxes. And two moves on 8 September 2026 matter for anyone building multimodal pipelines: OpenAI shipped `gpt-image-2.5-flare` (now the default image model for most applications, up to 50% lower generation latency than `gpt-image-2`) and `gpt-image-2.5-sunburst` (premium precision editing), both billed at `gpt-image-2` rates, alongside a consumer ChatGPT Images 2.5 rollout to all tiers. On the audio side, `gpt-transcribe` has been OpenAI's recommended speech-to-text model since 28 July 2026 at $0.0045 per audio minute - 25% below `whisper-1` - with `gpt-live-transcribe` as the streaming counterpart. Text-to-speech has now moved too: `tts-1`, `tts-1-hd` and `gpt-4o-mini-tts` were deprecated on 1 October 2026 for shutdown on 6 January 2027, and OpenAI's replacement, `gpt-realtime-2.1-mini`, runs on the Realtime API rather than the Speech endpoint.
 
 ---
 
 ## Anthropic: Claude
 
-Anthropic's models are designed around safety, instruction following, and long-document analysis. Anthropic's current lineup spans four tiers: **Haiku 4.5** (fastest, lowest cost), **Sonnet 5** (balanced, GA 30 June 2026), **Opus 5.5** (flagship and default recommendation, GA 22 September 2026), and **Fable 5.1** - plus the access-gated **Mythos 5.1** - Anthropic's most capable models, positioned above Opus (both GA 1 September 2026). Opus 5.5 is the first model of a **Claude 5.5 family**; Anthropic has announced **Sonnet 5.5 and Haiku 5.5 "in the coming weeks"**, but neither is released as of 25 September 2026. Claude Opus 5 (24 July 2026) has dropped off Anthropic's current-models list and is now the previous generation. See [Claude by Anthropic](/tools/claude-anthropic/) for the full current lineup, model IDs, and pricing rather than the point-in-time entries below.
+Anthropic's models are designed around safety, instruction following, and long-document analysis. Anthropic's current lineup spans four tiers: **Haiku 5.5** (fastest, lowest cost, GA 7 October 2026), **Sonnet 5.5** (balanced, GA 28 September 2026), **Opus 5.5** (flagship and default recommendation, GA 22 September 2026), and **Fable 5.1** - plus the access-gated **Mythos 5.1** - Anthropic's most capable models, positioned above Opus (both GA 1 September 2026). The Claude 5.5 family is complete; Sonnet 5 and Haiku 4.5 are now listed as legacy models that are still available. (This paragraph said on 25 September that Sonnet 5.5 and Haiku 5.5 had not been released; both shipped within two weeks.) Claude Opus 5 (24 July 2026) has dropped off Anthropic's current-models list and is now the previous generation. See [Claude by Anthropic](/tools/claude-anthropic/) for the full current lineup, model IDs, and pricing rather than the point-in-time entries below.
 
-Two structural points before the entries. First, **every current Claude model is a 1M-token context model** except Haiku 4.5 - that has been true since the 4.6 generation, and any comparison that still files Claude under "200K" is a generation out of date. Second, Claude's token accounting changed with Opus 4.7: models from 4.7 onward use a newer tokenizer that Anthropic says produces roughly 30% more tokens for the same text, so 1M tokens is about 555k words on current models where pre-4.7 models fit about 750k words in the same budget. Haiku 4.5, being pre-4.7, is on the old tokenizer, and its 200K window is roughly 150k words.
+Two structural points before the entries. First, **every current Claude model is a 1M-token context model**, including Haiku 5.5; only the legacy Haiku 4.5 is not - that has been true since the 4.6 generation, and any comparison that still files Claude under "200K" is a generation out of date. Second, Claude's token accounting changed with Opus 4.7: models from 4.7 onward use a newer tokenizer that Anthropic says produces roughly 30% more tokens for the same text, so 1M tokens is about 555k words on current models where pre-4.7 models fit about 750k words in the same budget. Haiku 4.5, being pre-4.7, is on the old tokenizer, and its 200K window is roughly 150k words.
 
 The Claude 4 models profiled below (Sonnet 4.6, Opus 4.8) were Anthropic's production flagship and mid-tier through mid-2026 and are now superseded by Sonnet 5 and Opus 5 respectively; Opus 5 is in turn superseded by Opus 5.5, and Claude Fable 5 by Fable 5.1. Claude Haiku 4.5 remains part of the current lineup, though it now has the nearest retirement floor in the family.
 
@@ -231,13 +248,13 @@ The usual shorthand is that Mythos is Fable run with a lighter safeguard stack. 
 
 Anthropic's new default recommendation - "if you're unsure which model to use, start with Claude Opus 5.5 for most workloads" - and the first model of the Claude 5.5 family. Anthropic says it performs at the level of Claude Fable 5.1 on most work, generates output more than 30% faster than Opus 5, and costs about 40% less than Opus 5 to run at default settings on typical workloads, because the per-token price is lower and it uses fewer tokens per task. Adaptive thinking is **always on** - Opus 5.5 can no longer be run with thinking switched off - and default effort drops from **high on Opus 5 to medium**.
 
-**Pricing:** **$4.00 input / $20.00 output per MTok** (20% below Opus 5's $5/$25). Cache reads $0.20 (60% below Opus 5's $0.50) and 5-minute cache writes $5.00 (Opus 5: $6.25). Fast mode, available in Claude Code and on the Claude Platform, is $8/$40 for up to 2.5x speed.
+**Pricing:** **$4.00 input / $20.00 output per MTok** (20% below Opus 5's $5/$25). Cache reads $0.20 (60% below Opus 5's $0.50) and 5-minute cache writes $5.00 (Opus 5: $6.25). Fast mode is $8/$40 for up to 2.5x output speed; since 15 October 2026 it is out of research preview on Opus 5.5 (no beta header, default rate limits in the Start, Build and Scale tiers) and runs on the Claude API, Claude in Microsoft Foundry (Azure-hosted deployments) and, since 22 October, Claude Models on Google Cloud (Anthropic managed).
 
 **Strengths:** Near-Fable capability at Opus price, with cache reads priced for agentic and coding work, where cached context is the majority of the bill. Anthropic highlights long, sprawling jobs such as codebase-wide migrations and audits. Like earlier Opus models it **is available under zero data retention**, which Fable 5.1 is not.
 
 **Weaknesses and constraints:** Because Anthropic rates it comparable to Mythos 5.1 in biology and cybersecurity, it ships with **safeguards similar to Fable 5.1's**. Anthropic says users can still find and fix bugs in their own code as part of routine development, but **"most cybersecurity tasks will be re-routed to Opus 4.8"** - so a security-tooling pipeline that targets Opus 5.5 will in practice be served largely by an older model. The benchmark footnote makes the same point: where safeguards intervened during evaluation, cyber tasks were completed by Opus 4.8 and biology and frontier-LLM-development tasks by Opus 5, which Anthropic says likely lowers Opus 5.5's published scores on those benchmarks. Biology research access runs through the Life Sciences Verification Program, and Anthropic says it will soon extend the Cyber Verification Program to Opus 5.5, with three tiers of increasingly permissive trusted access. Output carries Anthropic's EU AI Act watermarking, as on Fable 5.1. It also launches with **preserved thinking**, the anti-distillation safeguard introduced with Fable 5.1, which stops API users editing Claude's prior context to extract its reasoning; it applies to API accounts created on or after 31 August 2026, so test multi-turn integrations that rewrite history before migrating.
 
-**Breaking changes from Opus 5 (each returns a 400):** disabling thinking or setting `budget_tokens`; forced `tool_choice` (`any` or a named tool); non-default `temperature`, `top_p` or `top_k`; a prefilled final assistant turn; and, on the Claude API and Google Cloud, the older `computer_20251124` computer-use tool. Migrating from Opus 5 is therefore a code change, not just a model-ID swap.
+**Breaking changes from Opus 5 (each returns a 400):** disabling thinking or setting `budget_tokens`; forced `tool_choice` (`any` or a named tool); non-default `temperature`, `top_p` or `top_k` (on API version 2023-06-01; under API version 2026-10-21, released 21 October, sending any of the three returns a 400 even at its default value); a prefilled final assistant turn; and, on the Claude API and Google Cloud, the older `computer_20251124` computer-use tool. Migrating from Opus 5 is therefore a code change, not just a model-ID swap.
 
 **When to use it:** The default for new Claude work that needs more than Sonnet 5, and the first migration target for Opus 5 and Opus 4.x deployments once the breaking changes above are handled. Test it against Fable 5.1 before paying for Fable. See [Claude Opus 5.5](/news/claude-opus-5-5/).
 
@@ -259,7 +276,25 @@ Anthropic's default recommendation from July to September 2026, and no longer on
 
 **API access:** Anthropic API (`claude-opus-5`), Amazon Bedrock, Google Cloud, Microsoft Foundry. Whether it is orderable on **Claude Platform on AWS is disputed inside Anthropic's own documentation**: the 24 July 2026 API release note lists Claude Platform on AWS among its platforms, while the Opus 5 model page omits it from both the model-ID table and the availability row, and the models-overview comparison table prints an em-dash for that column. Confirm with your account team before committing an architecture to that path.
 
-### Claude Sonnet 5 (`claude-sonnet-5`)
+### Claude Sonnet 5.5 (`claude-sonnet-5-5`)
+
+**Released:** 28 September 2026. **Context:** 1,000,000 tokens. **Output limit:** 128,000 tokens.
+
+The current balanced production tier. **Pricing:** $2.00 input / $10.00 output per MTok, the same as Sonnet 5; cache writes $2.50 (5m) and $4.00 (1h); cache reads **$0.10**, halved from $0.20 on 7 October 2026 (0.05x of input). Anthropic reports it runs more than 30% faster than Sonnet 5 and costs up to 30% less for most work, because it uses fewer tokens per task; those are Anthropic's own measurements. Five breaking changes from Sonnet 5, per Anthropic's release notes: turning off up-front thinking now uses `thinking: {"type": "between_tools"}`, forced `tool_choice` returns a 400, thinking blocks are tied to the model and conversation, `computer_20251124` is not accepted on the Claude API and Google Cloud, and the advisor tool rejects some older models as advisors.
+
+**When to use it:** The default for production traffic that does not need Opus 5.5's depth. See [Claude Sonnet 5.5](/news/claude-sonnet-5-5/).
+
+**API access:** Anthropic API (`claude-sonnet-5-5`), Amazon Bedrock, Claude Platform on AWS, Google Cloud, Microsoft Foundry.
+
+### Claude Haiku 5.5 (`claude-haiku-5-5`)
+
+**Released:** 7 October 2026. **Context:** 1,000,000 tokens. **Output limit:** 128,000 tokens.
+
+The current fast, low-cost tier, and the first Claude model priced by prompt length: **$0.10 input / $0.50 output per MTok for prompts up to 100,000 tokens, and $0.50 / $2.50 above**, with cache reads at $0.01 and $0.05. A request over 100,000 prompt tokens is billed at the higher rate for the whole request. It has adaptive thinking with the `effort` parameter, which Haiku 4.5 lacked. Code written for Haiku 4.5 can break: manual extended thinking (`budget_tokens`), the sampling parameters `temperature`, `top_p` and `top_k`, and assistant message prefill "can each return a 400 error", per Anthropic's release notes. See [Claude Haiku 5.5](/news/claude-haiku-5-5/).
+
+**API access:** Anthropic API (`claude-haiku-5-5`), Amazon Bedrock, Claude Platform on AWS, Google Cloud, Microsoft Foundry.
+
+### Claude Sonnet 5 (`claude-sonnet-5`) (previous generation, superseded by Sonnet 5.5)
 
 **Released:** 30 June 2026. **Context:** 1,000,000 tokens. **Output limit:** 128,000 tokens (300,000 on the Batch API with the `output-300k` beta header). **Knowledge cutoff:** January 2026.
 
@@ -267,7 +302,7 @@ The balanced production tier, and the volume model for most Claude deployments. 
 
 **Pricing:** $2.00 input / $10.00 output per MTok - **and this is now the permanent price**. Anthropic's pricing page carries a standing note that the $2/$10 rate, announced at launch as introductory through 31 August 2026, is now standard, and that the scheduled 1 September 2026 increase to $3/$15 will not occur. The change was dated 10 August 2026. Cache writes $2.50 (5m) and $4.00 (1h), cache read $0.20. Batch API $1/$5.
 
-**When to use it:** The default for production traffic that does not need Opus 5.5's depth - coding, analysis, long-document work, structured output at scale. Anthropic has announced a Sonnet 5.5 "in the coming weeks"; it was not released as of 25 September 2026.
+**When to use it today:** Existing integrations. Sonnet 5.5 (below) superseded it on 28 September 2026 at the same $2/$10 headline price with cheaper cache reads, and Anthropic's models overview now lists Sonnet 5 as a legacy model that is still available.
 
 **API access:** Anthropic API (`claude-sonnet-5`), Amazon Bedrock, Google Cloud, Microsoft Foundry, Claude Platform on AWS.
 
@@ -305,19 +340,19 @@ Anthropic's most capable model through mid-2026, launched alongside the company'
 
 **API access:** Anthropic API (`claude-opus-4-8`), Amazon Bedrock.
 
-### Claude Haiku 4.5 (claude-haiku-4-5)
+### Claude Haiku 4.5 (claude-haiku-4-5) (previous generation, superseded by Haiku 5.5)
 
 **Released:** 15 October 2025. **Context:** 200,000 tokens. **Output limit:** 64,000 tokens. **Knowledge cutoff:** February 2025.
 
-Anthropic's fastest and most cost-efficient model, and the one tier that has not turned over in the 5 generation. Trades some reasoning depth for speed and lower cost. $1.00 input / $5.00 output per MTok; cache read $0.10; Batch API $0.50/$2.50.
+Anthropic's fast, low-cost model until Haiku 5.5 shipped on 7 October 2026; Anthropic now lists it as a legacy model that is still available. Trades some reasoning depth for speed and lower cost. $1.00 input / $5.00 output per MTok; cache read $0.10; Batch API $0.50/$2.50.
 
 **Strengths:** Fastest response latency in the Claude family. Lowest cost per token. Good for simple tasks and real-time applications.
 
 **Weaknesses, and the number people get wrong:** at $1/$5 against Sonnet 5's $2/$10, Haiku 4.5 is exactly **half** Sonnet 5's per-token price, not a fifth - the ratio narrowed sharply when Sonnet dropped to $2/$10, so routing volume down to Haiku buys less than it used to. It is also the only current model still on the **previous tokenizer** and the only one that does not support the `effort` parameter, using manual extended thinking with `budget_tokens` instead. Its February 2025 reliable knowledge cutoff is by far the oldest in the lineup.
 
-**Lifecycle:** Haiku 4.5 (`claude-haiku-4-5-20251001`) has the nearest retirement floor in the current lineup - not sooner than **15 October 2026**. As of 25 September 2026 Anthropic's deprecations table still lists it as Active and not deprecated, and Anthropic commits to at least 60 days' notice for publicly released models, so it **cannot retire on 15 October** - the earliest possible date is now late November 2026 - but it is the current model closest to end of life. The same logic applies to **Sonnet 4.5** (`claude-sonnet-4-5-20250929`), whose floor of **29 September 2026** is days away but which is likewise still Active with no deprecation notice; Opus 4.5's floor is 24 November 2026. Anthropic has announced a **Haiku 5.5** "in the coming weeks", which is the likely successor, but it was not released as of 25 September 2026.
+**Lifecycle:** Haiku 4.5 (`claude-haiku-4-5-20251001`) passed its retirement floor of 15 October 2026 and is still listed **Active** with no deprecation notice on Anthropic's deprecations table (25 October 2026); Anthropic commits to at least 60 days' notice, so it cannot retire unannounced. **Sonnet 4.5** (`claude-sonnet-4-5-20250929`) is no longer in that position: Anthropic deprecated it on **30 September 2026** for retirement on the Claude API on **30 November 2026**, with `claude-sonnet-5-5` as the replacement. Opus 4.5's floor is 24 November 2026. The successor to plan on is **Haiku 5.5**, released 7 October 2026.
 
-**When to use it:** Chatbot responses, simple classification, autocomplete-style interactions, high-volume preprocessing - with the price ratio above checked against Sonnet 5 for your actual traffic mix.
+**When to use it today:** Existing integrations. For new high-volume work, Haiku 5.5 is cheaper per token for prompts up to 100,000 tokens ($0.10/$0.50 against $1/$5) and has a 1M window.
 
 **API access:** Anthropic API (`claude-haiku-4-5-20251001`, alias `claude-haiku-4-5`), Amazon Bedrock, Google Cloud, Microsoft Foundry, Claude Platform on AWS.
 
@@ -341,17 +376,31 @@ Fable 5's launch is also the reason Mythos exists as a separate line: Anthropic 
 
 Google maintains two parallel LLM families: the commercial Gemini series (via API) and the open-weight Gemma series.
 
-The single most important structural fact about Google's 2026 lineup is that **the Flash line has run ahead of the Pro line**. Gemini 3.5 Pro was trailed at Google I/O on 19 May 2026 for a June launch and has still not shipped as of 25 September 2026 - DeepMind's own Pro page carries only a "3.5 Pro coming soon" note, and reporting attributes repeated slips to coding-benchmark shortfalls. Meanwhile Google shipped three Flash releases in under two months: 3.6 Flash (21 July 2026), 3.7 Flash (13 August 2026) and 3.8 Flash (2 September 2026). The Pro tier is still on Gemini 3.1 Pro, released 19 February 2026 and **still in preview** (`gemini-3.1-pro-preview`) seven months later - and GitHub Copilot deprecated it on 1 September 2026. In practice, Gemini 3.8 Flash is Google's current flagship shipping model.
+The single most important structural fact about Google's 2026 lineup is that **the Flash line has run ahead of the Pro line**. Gemini 3.5 Pro was trailed at Google I/O on 19 May 2026 for a June launch and has still not shipped as of 25 September 2026 - DeepMind's own Pro page carries only a "3.5 Pro coming soon" note, and reporting attributes repeated slips to coding-benchmark shortfalls. Meanwhile Google shipped three Flash releases in under two months: 3.6 Flash (21 July 2026), 3.7 Flash (13 August 2026) and 3.8 Flash (2 September 2026). The Pro tier is still on Gemini 3.1 Pro, released 19 February 2026 and **still in preview** (`gemini-3.1-pro-preview`) - and GitHub Copilot deprecated it on 1 September 2026. Above both now sits **Gemini 4 Argon**, generally available since 13 October 2026 on paid tiers; until then Gemini 3.8 Flash was Google's flagship shipping model.
 
-Note also that Google no longer offers a 2M-token context model. Current Gemini context is 1M in / 64K out across both the Pro and Flash tiers.
+Note also that Google no longer offers a 2M-token context model. Gemini 3.x context is 1M in / 64K out across both the Pro and Flash tiers; Gemini 4 Argon uses a single 1,048,576-token window shared by input and output, with long outputs past 64K only through background "long decode".
+
+### Gemini 4 Argon (`gemini-4-argon`)
+
+**Announced:** 30 September 2026. **GA:** 13 October 2026 (paid tiers only; not on the Free tier). **Context:** 1,048,576 tokens, shared by input, thinking and output. **Max output:** 65,536 by default in a synchronous call; up to 1,048,576 minus input with background "long decode".
+
+Google's new flagship. Text, image, video, audio and PDF in, text out; no Live API; computer use in preview. Thinking levels `low`, `medium` (default) and `high`; `temperature`, `top_p` and `top_k` are ignored. Explicit context caching (`cachedContents`) is not supported, only implicit caching for prompts of at least 4,096 tokens.
+
+**Pricing per MTok (Standard):** $2.00 input / $0.10 cached / $10.00 output through 30 November 2026, then **$4.00 / $0.20 / $20.00 from 1 December 2026**. Batch and Flex are half; Priority is $3.60 / $18.00 introductory and $7.20 / $36.00 after. Google's footnote: "Applies to the Argon model intended for public access only." Vetted defenders in the Fairwind Program get a build without cyber guardrails.
+
+**Vendor claims, not reproduced:** #1 on the Vals Index, 87% on ERQA, 0.7% attack success on Gray Swan's indirect prompt-injection benchmark.
+
+**When to use it:** The hardest coding, agentic and scientific work on Google's stack, where the doubled December price is acceptable. Migration notes from Google: set `max_output_tokens` to at least 32,768 and client timeouts to at least 15 minutes. See [Gemini 4 Argon](/news/gemini-4-argon/).
+
+**API access:** Gemini API (paid tier) and AI Studio, the "Gemini platform", Google Antigravity for AI Ultra, the Gemini app and AI Mode for AI Ultra and Pro, GitHub Copilot (Pro+, Max, Business, Enterprise).
 
 ### Gemini 3.8 Flash (`gemini-3.8-flash`)
 
 **Released:** 2 September 2026. **Status:** GA. **Context:** 1,000,000 input / 64,000 output tokens.
 
-The current top Flash model and, given the Pro line's stall, Google's de facto flagship. Google positions it for long-horizon software engineering, autonomous agents and complex enterprise workflows.
+The current top Flash model, and Google's de facto flagship until Gemini 4 Argon reached general availability on 13 October 2026. Google positions it for long-horizon software engineering, autonomous agents and complex enterprise workflows.
 
-**Pricing:** $0.75 input / $3.75 output per MTok (cache $0.075) - **introductory, expiring 31 December 2026**. From 1 January 2027 it doubles to $1.50 / $7.50 (cache $0.15). A free tier is available. The same introductory-then-doubling structure applies to 3.7 Flash and 3.6 Flash, so a cost model built on today's Flash price has a hard cliff in it.
+**Pricing:** $0.75 input / $3.75 output per MTok (cache $0.075) - **introductory, expiring 31 December 2026**. From 1 January 2027 it doubles to $1.50 / $7.50 (cache $0.15). A free tier is available. The same introductory-then-doubling structure applies to 3.6 Flash, so a cost model built on today's Flash price has a hard cliff in it.
 
 **Strengths:** Frontier-adjacent capability at Flash pricing. Very broad surface coverage - Gemini API, Google AI Studio, Android Studio, Gemini Enterprise, Google Antigravity, Search AI Mode, Google Sheets.
 
@@ -391,13 +440,13 @@ This is the same pattern as OpenAI's Daybreak and Anthropic's Project Glasswing:
 
 ### Gemini Omni 1.1 Flash (`gemini-omni-1.1-flash`)
 
-**Family announced:** 19 May 2026 (Google I/O). **Version 1.1 released:** 27 August 2026. **Status:** disputed - Google's own model list places it under Preview, while multiple outlets described the 27 August release as generally available.
+**Family announced:** 19 May 2026 (Google I/O). **Version 1.1 released:** 27 August 2026. **Status:** GA; Google's model list files it under Stable as of 25 October 2026 (it listed it under Preview in September, which is why this entry once called the status disputed).
 
 Not a text flagship: a unified multimodal *generative video* family. Text, image, audio and video in; video with native audio out, with conversational multi-turn editing. Version 1.1 adds first/last-frame interpolation, scene extension in 10-second increments to 40 seconds total, 4K upscaling, and a 360p draft mode roughly 60% faster at about a third of the cost.
 
 **Pricing:** $1.50 input per MTok; output $9.00 for text and $17.50 for video.
 
-**When to use it:** Video generation workflows. This is the entry that makes Google's "multimodal" claim different in kind from the rest of this article - the family *generates* video, it does not merely ingest it. Consumer access is through Google Flow for AI Plus/Pro/Ultra, scene extension in the Gemini app, and free in YouTube Shorts Remix. If you are still calling the older **`gemini-omni-flash-preview`** ID, note that it **shuts down on 30 September 2026**.
+**When to use it:** Video generation workflows. This is the entry that makes Google's "multimodal" claim different in kind from the rest of this article - the family *generates* video, it does not merely ingest it. Consumer access is through Google Flow for AI Plus/Pro/Ultra, scene extension in the Gemini app, and free in YouTube Shorts Remix. The older **`gemini-omni-flash-preview`** ID is marked shut down on Google's deprecations page with a date of 22 October 2026, as are the Veo 3.1 preview IDs, for which `gemini-omni-1.1-flash` is the named replacement.
 
 ### Gemini 3.8 Live (`gemini-3.8-live`)
 
@@ -415,7 +464,7 @@ Text-to-speech models replacing `gemini-3.1-flash-tts-preview`, with 150+ voices
 
 ### Gemini 3.7 / 3.6 / 3.5 Flash and Flash-Lite
 
-Still listed and priced. **3.7 Flash** (13 August 2026) and **3.6 Flash** (21 July 2026) are both $0.75/$3.75 introductory through 31 December 2026 then $1.50/$7.50; 3.6 Flash is reported to be the default model for free-tier Gemini app users, though no Google page states that directly. **3.5 Flash** (19 May 2026) is oddly the most expensive of the group at $1.50/$9.00 with no scheduled increase - newer is cheaper here, which is worth checking before pinning a version. **Gemini 3.5 Flash-Lite** is $0.30/$2.50 and **Gemini 3.1 Flash-Lite** (3 March 2026) is the cheapest current Gemini text model at $0.25 input for text, image and video ($0.50 audio) and $1.50 output.
+**3.6 Flash** (21 July 2026) is still listed and priced at $0.75/$3.75 introductory through 31 December 2026, then $1.50/$7.50; it is reported to be the default model for free-tier Gemini app users, though no Google page states that directly. **3.7 Flash** (13 August 2026) and **3.5 Flash** (19 May 2026) were **deprecated on 8 October 2026**: they are no longer selectable in AI Studio, and API requests are "automatically routed" to `gemini-3.8-flash` and `gemini-3.6-flash` respectively. Google's deprecations page says "the endpoint is not shutting down", so the old IDs keep answering, from a different model. Neither is on the pricing page any more (3.5 Flash was $1.50/$9.00). **Gemini 3.5 Flash-Lite** is $0.30/$2.50 and **Gemini 3.1 Flash-Lite** (3 March 2026) is the cheapest current Gemini text model at $0.25 input for text, image and video ($0.50 audio) and $1.50 output.
 
 ### Gemini 2.5 (previous generation, restricted to existing users)
 
@@ -455,27 +504,33 @@ Google's prior open-weight family, still documented on Google's Gemma docs as a 
 
 ### Other current Google models worth knowing
 
-The Gemini API catalogue is much wider than the text tiers: **Nano Banana Pro** (`gemini-3-pro-image`), **Nano Banana 2** (`gemini-3.1-flash-image`) and Nano Banana 2 Lite for image generation, with **Imagen 4 shut down on 17 August 2026** (replacement `gemini-3.1-flash-image`); **Gemini 3.5 Transcribe** and **3.5 Transcribe Live** for speech-to-text (GA 26 August 2026); Gemini 3.8 Live and 3.8 Flash TTS (GA, above) and Gemini 3.5 Live Translate; Gemini Deep Research and Deep Research Max; Gemini Embedding 2; Gemini Robotics ER 2; Veo 3.1 and Veo 3.1 Lite; and the Lyria music models, with **Lyria 3.5** (`lyria-3.5`) GA on 3 September 2026. The coding agent **Google Antigravity** moved to `antigravity-preview-09-2026` on 17 September 2026, and the `antigravity-preview-05-2026` ID shuts down on 5 October 2026. Further out, `gemini-3.1-flash-lite` has a published shutdown of 7 May 2027.
+The Gemini API catalogue is much wider than the text tiers: **Nano Banana Pro** (`gemini-3-pro-image`), **Nano Banana 2.1** (`gemini-nano-banana-2.1`, GA 6 October 2026, adding 1:4, 4:1, 1:8 and 8:1 aspect ratios), **Nano Banana 2** (`gemini-3.1-flash-image`, deprecated 6 October 2026 with no shutdown date) and Nano Banana 2 Lite for image generation, with **Imagen 4 shut down on 17 August 2026** (replacement now `gemini-nano-banana-2.1`); **Gemini 3.5 Transcribe** and **3.5 Transcribe Live** for speech-to-text (GA 26 August 2026); Gemini 3.8 Live and 3.8 Flash TTS (GA, above) and Gemini 3.5 Live Translate; Gemini Deep Research and Deep Research Max (`deep-research-preview-04-2026` and `deep-research-max-preview-04-2026`; the older `deep-research-pro-preview-12-2025` had a 23 October 2026 shutdown date); Gemini Embedding 2; Gemini Robotics ER 2; and the Lyria music models, with **Lyria 3.5** (`lyria-3.5`) GA on 3 September 2026. The coding agent **Google Antigravity** moved to `antigravity-preview-09-2026` on 17 September 2026, and the `antigravity-preview-05-2026` ID was shut down on 5 October 2026. Further out, `gemini-3.1-flash-lite` has a published shutdown of 7 May 2027.
 
 **Consumer tiers**, restructured at I/O on 19 May 2026: a free tier, Google AI Plus at $4.99/month with 400 GB (cut from $7.99/200 GB on 8 June 2026), Google AI Pro at $19.99/month with 5 TB, and Google AI Ultra at $99.99 and $199.99/month - the top level cut from $249.99 at I/O, with a new $99.99 level added below it. Google's own I/O post states the two Ultra prices but not the Plus and Pro figures, which rest on multiple agreeing secondary sources. Deep Think is Ultra only; Gemini 3.8 Flash and 3.1 Pro in the app are Pro and Ultra.
 
 ---
 
-## Meta: Muse Spark, Muse Glimmer, and Llama
+## Meta: Muse Wonder, Muse Spark, Muse Glimmer, and Llama
 
 Meta's lineup changed more than any other vendor's in 2026, and the change is easy to miss because the Llama brand is still everywhere in the ecosystem. **Llama is no longer Meta's frontier line, and it is no longer Meta's open-weight line either.**
 
-Since 8 April 2026, Meta's flagship and assistant model has been **Muse Spark**, a proprietary, closed-weight family from Meta Superintelligence Labs under Alexandr Wang. Since 10 August 2026, Meta's active open-weight model has been **Muse Glimmer**, a 30B dense multimodal model under Apache 2.0 - not a Llama. Llama's newest release remains Llama 4 Scout and Maverick from 5 April 2025; **Meta shipped no new Llama model in 2026**. There is no Llama 4.5 and no Llama 5, whatever content farms claim, and Llama 4 Behemoth was previewed in April 2025, delayed, and never shipped, with no formal cancellation and no timeline.
+From 8 April 2026 Meta's flagship and assistant model was **Muse Spark**, a proprietary, closed-weight family from Meta Superintelligence Labs under Alexandr Wang. Since 12 October 2026 Meta's most capable models are **Muse Wonder** and **Muse Wonder Full**, also proprietary. Meta's open-weight line is now two models: **Muse Glimmer** (10 August 2026), a 30B dense multimodal model under Apache 2.0, and **Muse Spark Open** (15 October 2026), an 816B-total model under the bespoke Muse Model License - neither is a Llama. Llama's newest release remains Llama 4 Scout and Maverick from 5 April 2025; **Meta shipped no new Llama model in 2026**. There is no Llama 4.5 and no Llama 5, whatever content farms claim, and Llama 4 Behemoth was previewed in April 2025, delayed, and never shipped, with no formal cancellation and no timeline.
 
 Meta also now sells a closed commercial API. The **Meta Model API** launched with Muse Spark 1.1 on 9 July 2026, is OpenAI-compatible, and carries a genuinely novel pricing structure described in the Muse Spark entry below. Meta retired its own hosted Llama API on 6 July 2026 and now points developers to third-party hosts - so Meta itself no longer serves Llama inference. `llama.com` 301-redirects to `developer.meta.com/ai/`, where Llama 4 and Llama 3 sit as two entries among the Muse models.
+
+### Muse Wonder and Muse Wonder Full
+
+**Released:** 12 October 2026. **Context:** 1,000,000 tokens (both). **Weights:** proprietary, closed.
+
+Meta's "most capable models to date", built on Muse Spark for personal and professional agentic tasks. **Muse Wonder** (`muse-wonder-1.0`) is on the Meta Model API at **$4.00 input / $0.20 cached / $20.00 output per MTok**; **Muse Wonder Full** (`muse-wonder-full-1.0`) is available only through Muse Code subscriptions on the Power Usage and Maximum Usage plans, whose prices Meta's subscription page does not state. Meta says Muse Wonder "will soon power experiences in Muse, and will roll out first to subscribers"; until then the Muse agent runs on Muse Spark. Meta's benchmark table compares both with Claude Fable 5.1, GPT-6 Astra and Claude Opus 5.5; those are Meta's figures. See [Meta Muse Spark and Llama](/tools/meta-llama/).
 
 ### Muse Spark 1.3
 
 **Released:** 2 September 2026. **Context:** 1,000,000 tokens. **Weights:** proprietary, closed.
 
-Meta's current flagship. Multimodal input (text, image, video; some listings also report audio, which is inconsistent across sources) with text output. It powers Meta AI across Meta's apps and the new Muse consumer agent, and is replacing Llama 4 as the assistant on Ray-Ban Meta and Oakley Meta glasses in the US and Canada - Meta's stated justification being that Muse Spark matches Llama 4 Maverick's performance at roughly one tenth the compute. Meta Ray-Ban Display was still running a custom Llama 4 as of the latest reporting.
+Meta's flagship until Muse Wonder (12 October 2026) and still the model behind the Muse agent. Multimodal input (text, image, video; some listings also report audio, which is inconsistent across sources) with text output. It powers Meta AI across Meta's apps and the new Muse consumer agent, and is replacing Llama 4 as the assistant on Ray-Ban Meta and Oakley Meta glasses in the US and Canada - Meta's stated justification being that Muse Spark matches Llama 4 Maverick's performance at roughly one tenth the compute. Meta Ray-Ban Display was still running a custom Llama 4 as of the latest reporting.
 
-**Pricing - and the distinctive part:** the standard endpoint is $1.25 input / $4.25 output per MTok. The **Contributor endpoint is $0.10 / $0.20 per MTok in exchange for permission to train on your prompts and completions**, rate-limited to roughly 100 RPM. That data-for-price trade is the most distinctive commercial fact about Meta's API right now, and it is a procurement decision as much as a cost one. Web Search Grounding is reported at $2.50 per 1,000 queries. Meta's own pricing page could not be fetched to verify these figures; they are consistent across several independent sources but should be confirmed before contracting. Cached-input pricing is genuinely disputed between sources and is not reproduced here.
+**Pricing - and the distinctive part:** the standard endpoint is $1.25 input / $4.25 output per MTok. The **Contributor endpoint is $0.10 / $0.20 per MTok in exchange for permission to train on your prompts and completions**, rate-limited to roughly 100 RPM. That data-for-price trade is the most distinctive commercial fact about Meta's API right now, and it is a procurement decision as much as a cost one. Web Search Grounding is reported at $2.50 per 1,000 queries. Meta's own Muse Spark page, fetched 25 October 2026, confirms the token rates as separately named models: `muse-spark-1.3` at $1.25 input / $0.15 cached / $4.25 output and `muse-spark-1.3-contributor` at $0.10 / $0.002 / $0.20, both with a 1M context. (This entry previously said Meta's page could not be fetched and left the cached rate out as disputed.)
 
 **Strengths:** 1M context with strong long-context retrieval, aggressive pricing, and Meta's claim of roughly 20% fewer tool calls and 25% fewer tokens than Muse Spark 1.2 on comparable engineering tasks - that efficiency claim is from Meta's own research blog and is the most solidly sourced part of the release. It also asks clarifying questions on ambiguous prompts rather than guessing.
 
@@ -493,7 +548,7 @@ This, not Llama, is Meta's current open-weight line - and the licence upgrade is
 
 Distilled from Muse Spark via logit distillation, then agent-heavy long-context mid-training, supervised fine-tuning, on-policy distillation and RL. Tuned for local always-on agentic workflows rather than chat. Runs on a single 24GB or 32GB GPU, or a Mac, at roughly 4-bit quantisation - under 20GB. Ships with quantized variants and a speculative-decoding drafter.
 
-**When to use it:** Local and self-hosted agentic work, and any deployment that previously wanted Llama but stalled on the community licence. This is Meta's own current recommendation for local agent workloads.
+**When to use it:** Local and self-hosted agentic work, and any deployment that previously wanted Llama but stalled on the community licence. It remains Meta's only Apache 2.0, ungated open-weight model.
 
 **API access:** Hugging Face (ungated), Ollama, LM Studio, vLLM, OpenRouter.
 
@@ -505,9 +560,13 @@ A terminal-based coding agent for macOS and Linux - Meta's direct answer to Clau
 
 Separately, **Muse**, a consumer personal AI agent, launched on 8 September 2026 in the US on iOS, Android and web, running on Muse Spark on a dedicated VM with a user-visible built-in browser. Meta's own announcement says only that it is free for most uses with subscription plans above that; secondary reporting gives those as $20/month (Power) and $100/month (Maximum). On 15 September 2026 Meta introduced **Meta One**, a subscription that raises AI usage limits across its apps, and at Connect (23-24 September 2026) it announced Muse coming to its AI glasses, a voice mode, third-party connectors (including GitHub, Notion, Box and Walmart) and a pocket device, Muse Charm. None of these changes the model underneath: it is still Muse Spark. Ars Technica reported on 21 September 2026 a since-patched flaw in the Mac version of Muse that let malware on the machine hijack the assistant - a reminder that a highly privileged local agent is an attack surface in its own right.
 
-### On the promised Muse Spark open weights
+### Muse Spark Open (open weights)
 
-Zuckerberg and Alexandr Wang publicly pledged on 10 August 2026, alongside the Muse Glimmer launch, that **Muse Spark 1.2 would get an open-weight release "soon"**, with no date. As of 25 September 2026, no Muse Spark weights of any version have been published - Connect 2026 did not change that - and Meta's own Muse Spark 1.3 blog still lists "Muse Spark open weights release" as a roadmap item rather than a shipped thing. Do not plan around it having happened.
+**Released:** 15 October 2026. **Parameters:** 816B total / 42B active MoE (256 experts, 8 active per token, per the model card). **Context:** 1,000,000 tokens. **License:** Muse Model License - bespoke, conditional.
+
+Zuckerberg and Alexandr Wang pledged on 10 August 2026 that Muse Spark 1.2 would get an open-weight release "soon". On 15 October Meta released **Muse Spark Open**, which it calls "the most capable US open-weight model to date"; Meta does not say whether it corresponds to 1.2 or 1.3. (Until this update this entry said no Muse Spark weights had been published and not to plan around it, which was true on 25 September.) Natively multimodal, built for coding and agentic work. Weights are on Hugging Face (`meta-models/Muse-Spark-Open-816B-A42B`, **gated with manual approval**), SageMaker AI, Google Cloud Model Garden and Microsoft Foundry, and hosted by Baseten, Fireworks AI, Groq, Modal, Nebius, OpenRouter and Together AI. Meta says it runs on two Apple M5 Ultra Mac Studios with MLX.
+
+**Licence terms that matter:** use, modification, distillation and resale are permitted, subject to an attached Usage Policy; every product or service using it or a derivative must "prominently display 'Built with Muse Spark Open'"; and a business offering models to third parties as a service ("Model as a Service") whose group revenue exceeds US$20 million in any 12 months must notify Meta and sign a separate agreement first. Internal use, research and powering your own non-MaaS product are exempt from that trigger. Meta describes it as "limited commercial terms". It is not OSI-approved.
 
 ### Llama 4 Scout and Maverick (Meta's last Llama release)
 
@@ -559,15 +618,23 @@ The largest dense Llama model. Competitive with GPT-4 on many tasks. Requires su
 
 Mistral produces both open-weight models and commercial APIs. Known for efficient architectures and strong European data residency story.
 
-Mistral's entire lineup turned over between December 2025 and April 2026, and it got substantially *more* open in the process: the current flagship, Mistral Large 3, is a frontier-scale model released under Apache 2.0. Mistral Large 2, Pixtral Large, Mistral 7B and the Mixtral models are all retired from the API, and the separate Magistral (reasoning), Devstral (agentic coding) and Pixtral (vision) lines have been folded into the general-purpose models. Mistral also now distributes a third party's model on its own platform - Z.ai's GLM 5.2, at 1M context, is served on la Plateforme. The company raised a reported €3bn Series D at more than €21bn post-money in early September 2026, and renamed its chat product from Le Chat to **Vibe** in May 2026. It also reportedly acquired Pimento on 22 September 2026, its third acquisition.
+Mistral's entire lineup turned over between December 2025 and April 2026, and it got substantially *more* open in the process: Mistral Large 3, the flagship until October 2026, is a frontier-scale model released under Apache 2.0. Its successor, **Mistral Large 4**, has been in public preview since 6 October 2026 with weights promised but not yet published. Mistral Large 2, Pixtral Large, Mistral 7B and the Mixtral models are all retired from the API, and the separate Magistral (reasoning), Devstral (agentic coding) and Pixtral (vision) lines have been folded into the general-purpose models. Mistral also distributes third-party models on its own platform: Z.ai's GLM 5.3 (GA 28 September 2026) and GLM 5.3 Flash (22 October 2026), both at 1M context, with GLM 5.2 retiring there on 31 October 2026. The company raised a reported €3bn Series D at more than €21bn post-money in early September 2026, and renamed its chat product from Le Chat to **Vibe** in May 2026. It also reportedly acquired Pimento on 22 September 2026, its third acquisition.
 
 Mistral now publishes in **US dollars**, not euros.
+
+### Mistral Large 4 (`mistral-large-4`, v26.10, public preview)
+
+**Released:** 6 October 2026 (public preview). **Context:** 1,000,000 tokens. **Parameters:** 1.05T total / 52B active, granular MoE, with a 1.6B vision encoder. **License:** not named; weights promised "by the end of the month" and **not published as of 25 October 2026**.
+
+Mistral's "largest and most capable model to date", a hybrid instruct-and-reasoning model with multimodal input, trained on 3,800 NVIDIA Grace Blackwell GPUs in Mistral's European data centres. **Price on the model page (25 October 2026):** $1.36 input / $0.14 cached / $4.18 output per MTok. The changelog announced "Launch pricing: 50% off for 2 weeks" from 6 October, and the page does not say whether the current figure is the full or discounted rate. Mistral's reported results, not reproduced: 61.7% DeepSWE v1.1, 28.3% Terminal-Bench 4, 59.9% AutomationBench, and 82% on one Artificial Analysis Cyber Index test, where Mistral notes Claude Opus 5.5 and GPT-6 Astra "score near zero on the same test because they refuse to perform the task".
+
+**When to use it:** Evaluation now; production once the weights and licence are published and the preview label is gone. See [Mistral AI](/tools/mistral-ai/).
 
 ### Mistral Large 3 (`mistral-large-3`, v25.12)
 
 **Released:** 2 December 2025. **Context:** 256,000 tokens. **Parameters:** 675B total / 41B active, sparse MoE. **License:** Apache 2.0 (base and instruct).
 
-Mistral's flagship, and the most consequential open-weight release from a Western lab in the period: a frontier-scale flagship given away under Apache 2.0. Multimodal - text and image in, text out - across 40+ languages, trained on roughly 3,000 H200s.
+Mistral's flagship until Large 4's preview and still its largest model with published weights, and the most consequential open-weight release from a Western lab in its period: a frontier-scale flagship given away under Apache 2.0. Multimodal - text and image in, text out - across 40+ languages, trained on roughly 3,000 H200s.
 
 **Pricing:** $0.50 input / $1.50 output per MTok. That is roughly a quarter of what Mistral Large 2 cost, and cheap enough to change where Mistral sits in a routing decision.
 
@@ -613,7 +680,7 @@ Mistral's code-specialized model, trained on 80+ programming languages, supporti
 
 ### Mistral's specialist models
 
-Beyond text: **Mistral OCR 4.1** (`mistral-ocr-4-1`) reached GA on 31 August 2026 at $4 per 1,000 pages (OCR 4.0 and OCR 3 remain); the **Voxtral** audio family covers TTS at $0.016 per 1,000 characters and transcription at $0.003 per audio minute; plus **Shieldstral 1.0**, **Mistral Moderation 2**, **Mistral Embed** ($0.10 input) and **Codestral Embed** ($0.15 input). The Lean theorem-proving model **Leanstral 1.5** (`labs-leanstral-1-5`) **retires on 30 September 2026**, so do not start new work on it.
+Beyond text: **Mistral OCR 4.1** (`mistral-ocr-4-1`) reached GA on 31 August 2026 at $4 per 1,000 pages (OCR 4.0 and OCR 3 remain); the **Voxtral** audio family covers TTS at $0.016 per 1,000 characters and transcription at $0.003 per audio minute; plus **Shieldstral 1.0**, **Mistral Moderation 2**, **Mistral Embed** ($0.10 input) and **Codestral Embed** ($0.15 input). The Lean theorem-proving model **Leanstral 1.5** (`labs-leanstral-1-5`) **retired from the API on 30 September 2026**, as did OCR 4.0. New in October 2026: the **Voxtral 3** speech family (20 October, four models in Public Preview, no weights published as of 25 October) and **Timestral** (15 October), time-series forecasting models from 5M to 209M parameters with weights on Hugging Face under a "Modified MIT" licence.
 
 Licences split across this group and are worth checking individually: Voxtral Small, Voxtral Mini Transcribe Realtime, Shieldstral 1.0 and Leanstral 1.5 are Apache 2.0; Voxtral TTS is CC BY-NC 4.0 (non-commercial); and OCR, Moderation 2, the embedding models and Codestral are Premier/closed.
 
@@ -649,7 +716,9 @@ DeepSeek's current flagship, and still fully open-weight at the top tier - the w
 
 ### DeepSeek-V4.1-Flash (`deepseek-flash`)
 
-**Released:** 10 September 2026. **Context:** 1,000,000 tokens. **Max output:** 384,000 tokens. **Parameters:** 552B MoE backbone, activating **8B per token in prefill and 16B in decode**, plus a 196B "Engram" conditional-memory table accessed by token lookup; 1 shared and 384 routed experts per layer, 6 routed experts active. **License:** MIT, weights on Hugging Face as `deepseek-ai/DeepSeek-V4.1-Flash`.
+**Update, 17 October 2026:** `deepseek-flash` now serves **DeepSeek-V4.1-Flash-1017**, a "minor update" with MIT weights at `deepseek-ai/DeepSeek-V4.1-Flash-1017`; DeepSeek says "The API calling method and pricing remain unchanged", and the Models & Pricing page (25 October) confirms the same prices. Its reported scores include Terminal-Bench 4.0 42.3 (with the Claude Code harness, which the September note did not state for its 31.2) and DeepSWE v1.1 77.0. DeepSeek also opened a Search & Fetch API at $0.75 per 1,000 successful requests. See [DeepSeek](/tools/deepseek/).
+
+**Released:** 10 September 2026 (first checkpoint). **Context:** 1,000,000 tokens. **Max output:** 384,000 tokens. **Parameters:** 552B MoE backbone, activating **8B per token in prefill and 16B in decode**, plus a 196B "Engram" conditional-memory table accessed by token lookup; 1 shared and 384 routed experts per layer, 6 routed experts active. **License:** MIT, weights on Hugging Face as `deepseek-ai/DeepSeek-V4.1-Flash`.
 
 The volume tier, and DeepSeek's first model on a new architecture family it says is built for "a higher capability ceiling, faster inference, higher throughput, and scaling to larger models". It is **natively multimodal** - image and text in, text out - which folds the experimental vision model into the mainline Flash tier. Architecturally it is a Causal Encoder-Decoder (a 20-layer causal encoder feeding a 20-layer decoder) with CSA2 sparse attention and an FP4 KV cache that DeepSeek puts at roughly **a quarter of V4-Flash's KV footprint** (890 bytes per token). Trained on 45T tokens. Thinking and non-thinking modes are both supported (thinking by default), with a continuous `reasoning_effort` from 1 to 100 per the model card. There is no Jinja chat template; DeepSeek ships a reference encoder and the **`deepseek-recipe`** toolkit for the prompt format instead, which matters if you self-host.
 
@@ -789,15 +858,23 @@ A post-training-only upgrade over GLM-5.2 - the base model was not retrained. Th
 
 Z.ai also ships **ZCode**, a GLM-coupled agentic coding environment first released 2 July 2026, and keeps GLM-4.7-Flash and GLM-4.5-Flash free on its API. GLM-5.2 remains listed and priced at $1.40/$4.40, and is the model Mistral resells on la Plateforme.
 
-### MiniMax-M3 and MiniMax-H3
+### MiniMax-M3, MiniMax-M3.1-Flash and MiniMax-H3
 
-**MiniMax-M3:** released 1 June 2026 per MiniMax's own release notes (some sources say 31 May). **Context:** 1,048,576 tokens, max output reported at 262,144. **Parameters:** ~428B total / ~23B active MoE, using MiniMax Sparse Attention. Native text, image and video input. Still MiniMax's flagship as of 25 September 2026.
+**MiniMax-M3:** released 1 June 2026 per MiniMax's own release notes (some sources say 31 May). **Context:** 1,048,576 tokens, max output reported at 262,144. **Parameters:** ~428B total / ~23B active MoE, using MiniMax Sparse Attention. Native text, image and video input.
 
-**Pricing:** reported around $0.23-0.30 per MTok input and $0.96-1.20 output, cached input around $0.06, with a higher long-context rate above 512K input tokens. MiniMax's own price page returned a 404 and the secondary sources do not agree precisely, so treat these as indicative only and check before committing.
+**MiniMax-M3.1-Flash:** released 19 October 2026 per MiniMax's release notes ("An ultra-efficient open-weight model for everyday work"), same ~428B / 23B shape, up to 1,000,000 tokens, open weights under the same MINIMAX COMMUNITY LICENSE. It is now the newer of the two, so M3 is no longer the only current MiniMax language model.
+
+**Pricing (MiniMax's pricing page, read 25 October 2026 for the [MiniMax](/tools/minimax/) page):** M3.1-Flash is flat at $0.15 input / $0.60 output / $0.015 cache read per MTok; M3 Standard is $0.30 / $1.20 / $0.06 up to 512K input tokens and $0.60 / $2.40 / $0.12 above, labelled a permanent 50% discount. (This entry said in September that MiniMax's price page returned a 404; it now loads.) MiniMax's claim that M3.1-Flash's agentic "overall usage cost is 70% lower" is not a per-token figure.
 
 **License:** MINIMAX COMMUNITY LICENSE - not OSI-approved. It requires "Built with MiniMax M3" attribution for commercial use; organisations at or above US$20M annual revenue need prior written authorisation from MiniMax, and below that a one-time email notice; plus acceptable-use restrictions including no military use.
 
 **MiniMax-H3:** released 31 July 2026. An omni-modal generative system - text, image, video and audio in, synchronised video with stereo audio out - at 33B parameters per its model card. Its licence adds something the others do not: **a separate application process for users in the USA, EU, UK and South Korea**, which is a geographic gate rather than a revenue one.
+
+### Reflection Beam (Beam-1.0-501B-A23B)
+
+**Announced:** 5 October 2026; **weights released:** 16 October 2026. **Parameters:** 501B total / 23B active MoE, text only. **Context:** 1M tokens. **License:** Apache 2.0, ungated on Hugging Face (`reflection/Beam-1.0-501B-A23B`).
+
+Not a Chinese lab: Reflection is a US company, and Beam is its first open-weight model, trained for coding and agentic work with a reinforcement-learning run Reflection describes as "over 100 million rollouts on 10.5K NVIDIA GB300 GPUs over 4 weeks". It is one of the largest current releases under a standard permissive licence. Reflection's benchmark claims, including that Beam reaches reasoning scores comparable to GLM-5.2 while using three to four times less inference compute, rest on its own FLOPs estimates from active parameters and generated tokens, which it says "represent an approximate compute comparison rather than measured inference cost". See [Reflection Beam](/tools/reflection-beam/).
 
 ### Xiaomi MiMo-V2.6
 
@@ -827,7 +904,7 @@ The open-weight frontier has moved beyond what most teams can self-host. GLM-5.3
 
 ## xAI / SpaceXAI: Grok
 
-Grok is developed by the company formerly known as xAI. **SpaceX acquired xAI in an all-stock deal that closed on 2 February 2026** - xAI valued at roughly $250bn against SpaceX's roughly $1tn, for a combined ~$1.25tn - making it a wholly owned subsidiary, and the entity rebranded to **SpaceXAI** in July 2026. SpaceX itself listed on Nasdaq in June 2026. Product naming is unchanged: Grok is still Grok, the API endpoint is still `api.x.ai/v1`, and the developer docs still say "xAI", but `x.ai` pages now carry "© 2026 SpaceXAI LLC". For contracting and due diligence, the counterparty is a SpaceX subsidiary, not an independent company.
+Grok is developed by the company formerly known as xAI. **SpaceX acquired xAI in an all-stock deal that closed on 2 February 2026** - xAI valued at roughly $250bn against SpaceX's roughly $1tn, for a combined ~$1.25tn - making it a wholly owned subsidiary, and the entity rebranded to **SpaceXAI** in July 2026. SpaceX itself listed on Nasdaq in June 2026. Product naming is unchanged: Grok is still Grok and the API endpoint is still `api.x.ai/v1`. The company name is not consistent across sources: `x.ai` pages carried "© 2026 SpaceXAI LLC" in September, AWS's 19 October 2026 Bedrock announcement says "SpaceXAI", but xAI's own developer documentation, read 25 October 2026, is titled "SpaceXSI Docs" and calls the company "SpaceXSI". For contracting and due diligence, the counterparty is a SpaceX subsidiary, not an independent company.
 
 Grok remains integrated into X and available via API. Grok 5 has not shipped as of 25 September 2026.
 
@@ -835,7 +912,7 @@ Grok remains integrated into X and available via API. Grok 5 has not shipped as 
 
 **Released:** 21 September 2026 (reaching GitHub Copilot the same day). **Context:** 500,000 tokens. **Knowledge cutoff:** May 2026. **Weights:** proprietary.
 
-The current flagship, described by xAI as "SpaceXAI's frontier model built for coding, agentic tasks, and knowledge work". Text and image in, text out, with no fixed text output limit. Reasoning effort is low, medium, high (default) or xhigh, and the Responses API returns reasoning in encrypted form. Tools: function calling, web search, X search and code execution.
+The current flagship, described in xAI's release notes (as read 25 October 2026) as "SpaceXSI's frontier model for coding, agentic tasks, and knowledge work". It reached Amazon Bedrock in AWS GovCloud (US) on 19 October 2026. On the voice side, `grok-voice-3.0` replaced Grok Voice 2.0 on 14 October 2026 at the same price, and `grok-voice-transcribe-1.0` reached end of life on 2 October. Text and image in, text out, with no fixed text output limit. Reasoning effort is low, medium, high (default) or xhigh, and the Responses API returns reasoning in encrypted form. Tools: function calling, web search, X search and code execution.
 
 **Pricing:** $2.00 input / $0.50 cached / $6.00 output per MTok below 200,000 prompt tokens; $4.00 / $1.00 / $12.00 at or above 200,000 - the same structure and rates as Grok 4.6, so the upgrade is price-neutral. xAI strongly recommends setting a `prompt_cache_key` (or the `x-grok-conv-id` header on Chat Completions): without it, requests often land on a cache-cold server and pay full input price. A faster **Grok 4.7 Fast** (the same model on faster infrastructure, at 2x rates: $4.00 / $1.00 cached / $12.00 below 200,000 prompt tokens and $6.00 / $1.50 / $18.00 above) is available only in Cursor and Grok Build, not on the public xAI API. The US regional endpoint adds 10%.
 
@@ -905,7 +982,7 @@ A dedicated translation model covering 50+ languages, on the same 218B/25B MoE s
 
 ### Cohere's supporting lineup
 
-**Command A** (256K) remains available alongside `command-a-reasoning-08-2025` (256K), `command-a-vision-07-2025` (128K), `command-a-translate-08-2025` (8K) and Command R7B (128K). For retrieval: **Embed v4.0** (128K) and a rerank line that has split into **`rerank-v4.0-pro` and `rerank-v4.0-fast`** (32K) rather than a single v4.0 model. **Cohere Parse** (`parse-v5.0`, 27 August 2026) is a 2.3B document-to-Markdown model with an 8K context, for turning PDFs and scans into clean input for RAG, and `cohere-transcribe-03-2026` (open source) and `cohere-transcribe-arabic-07-2026` cover speech. The multilingual **Aya** research models continue as `c4ai-aya-expanse-32b`, `c4ai-aya-vision-32b` and the tiny-aya series, which gained 3.35B reasoning variants (`tiny-aya-en-thinker`, `tiny-aya-l2-thinker`) and a 32K-context `tiny-aya-base-32K` on Hugging Face in early September 2026, all CC-BY-NC.
+**Command A** (256K) remains available alongside `command-a-reasoning-08-2025` (256K), `command-a-vision-07-2025` (128K), `command-a-translate-08-2025` (8K) and Command R7B (128K). For retrieval: **Embed 5** (30 September 2026: `embed-v5.0-pro` and `embed-v5.0-fast` in one shared embedding space, multimodal, 128K, Matryoshka 256 to 2048 dimensions) and **Rerank 5** (21 October 2026: `rerank-v5.0-pro` and `rerank-v5.0-fast`, 32K, with optional "Context Focus" passage spans), which replace Embed v4.0 and Rerank v4.0. Cohere's changelog publishes no prices for either. **Cohere Parse** (`parse-v5.0`, 27 August 2026) is a 2.3B document-to-Markdown model with an 8K context, for turning PDFs and scans into clean input for RAG, and `cohere-transcribe-03-2026` (open source) and `cohere-transcribe-arabic-07-2026` cover speech. The multilingual **Aya** research models continue as `c4ai-aya-expanse-32b`, `c4ai-aya-vision-32b` and the tiny-aya series, which gained 3.35B reasoning variants (`tiny-aya-en-thinker`, `tiny-aya-l2-thinker`) and a 32K-context `tiny-aya-base-32K` on Hugging Face in early September 2026, all CC-BY-NC.
 
 ### Command R+ (previous generation, superseded by Command A+)
 
@@ -950,6 +1027,10 @@ The current default Nova workhorse and the only GA Nova 2 understanding model. E
 **When to use it:** AWS-native architectures where data residency in AWS matters; multimodal pipelines with video; and any Nova 1 workload, since this is AWS's stated migration target for all of them.
 
 **API access:** Amazon Bedrock (`amazon.nova-2-lite-v1:0` / `global.amazon.nova-2-lite-v1:0`).
+
+### Nova 2.5 Sonic
+
+**GA:** 5 October 2026. **Context:** 256K tokens, per AWS. Speech-to-speech with "improved reasoning, instruction following, and tool-calling accuracy", seven languages and asynchronous tool calling, in US East (N. Virginia), US West (Oregon), Europe (Stockholm) and Asia Pacific (Tokyo), "at the same pricing as Nova 2 Sonic". AWS's announcement gives no model ID. See [Amazon Nova](/tools/amazon-nova/).
 
 ### Nova 2 Sonic (`amazon.nova-2-sonic-v1:0`)
 
@@ -1079,9 +1160,15 @@ All Nemotron 3 models are hybrid Mamba-Transformer MoE architectures with a **1,
 
 **Released:** 11 August 2026. **Parameters:** 31.6B total / ~3-3.6B active, MoE. **Context:** 1,000,000 tokens. **License:** OpenMDW-1.1.
 
-The newest Nemotron. NVIDIA claims performance near `gpt-oss-120b` at roughly a quarter of the total parameters. Free weights, a free tier on OpenRouter, and a NIM microservice on build.nvidia.com.
+Until October 2026 the newest Nemotron. NVIDIA claims performance near `gpt-oss-120b` at roughly a quarter of the total parameters. Free weights, a free tier on OpenRouter, and a NIM microservice on build.nvidia.com.
 
 It shipped alongside **NeMo Switchyard**, an open-source model-router library that picks the cheapest appropriate model per task - directly relevant if you are building the kind of multi-model routing this article's selection tables imply.
+
+### Nemotron 3.5 Super VL and Nemotron 3.5 Bolt
+
+**Released:** 15 October 2026 (Super VL and Bolt 74B-A9B); Bolt E4B 23 October 2026. **License:** OpenMDW-1.1.
+
+**Super VL** (`NVIDIA-Nemotron-3.5-Super-VL-120B-A12B`) is a 120B-total, 12B-active vision-language model with up to 1M context. **Bolt 74B-A9B** (74B / 9B active, up to 256K) has a "24GB" version with native 2-bit quantization for RTX and DGX Spark, and **Bolt E4B** (8B, 4B effective, 64K in and out) targets edge and voice agents. Read NVIDIA's claims with care: its headline says Super VL "delivers the fastest task completion and highest accuracy", while the body says its accuracy is "comparable with NVIDIA's largest reasoning model at roughly one-fifth the parameter count". See [NVIDIA AI](/tools/nvidia-ai/).
 
 ### Nemotron 3 family
 
@@ -1283,9 +1370,9 @@ Its only 2026 model release is **Reka Edge** (`reka-edge-2603`, March 2026 - the
 
 **Truly open source** (weights + training data + code): IBM Granite 4.2, Olmo 3 and 3.1, NVIDIA Nemotron 3 and 3.5 (OpenMDW-1.1, covering weights, data and recipes), Pythia (EleutherAI), BLOOM (BigScience RAIL), SmolLM (HuggingFace).
 
-**Open weight and genuinely permissive**: Mistral Large 3 and Small 4 and Ministral 3 (Apache 2.0), Gemma 4 (Apache 2.0 - a change from Gemma 3), Meta Muse Glimmer (Apache 2.0), Cohere Command A+ and North Mini Code (Apache 2.0), Qwen3.8-27B (Apache 2.0), DeepSeek V4-Pro and V4.1-Flash (MIT), GLM-5.3-Flash (MIT), Xiaomi MiMo-V2.6 (MIT), Tencent Hy4-preview (Apache 2.0), Microsoft Phi (MIT).
+**Open weight and genuinely permissive**: Mistral Large 3 and Small 4 and Ministral 3 (Apache 2.0), Gemma 4 (Apache 2.0 - a change from Gemma 3), Meta Muse Glimmer (Apache 2.0), Reflection Beam (Apache 2.0, 16 October 2026), Cohere Command A+ and North Mini Code (Apache 2.0), Qwen3.8-27B (Apache 2.0), DeepSeek V4-Pro, V4.1-Flash and V4.1-Flash-1017 (MIT), GLM-5.3-Flash (MIT), Xiaomi MiMo-V2.6 (MIT), Tencent Hy4-preview (Apache 2.0), Microsoft Phi (MIT).
 
-**Open weight with conditions attached** - this category grew sharply in mid-2026 and is where most of the current open frontier now sits: Qwen3.8-2.4T-A95B (Qwen3.8-Max License), Qwen3.8-Flash-Next (Qwen Community License 1.0), Kimi K3 (Kimi K3 License), GLM-5.3 (GLM-5.3 License), MiniMax-M3 and H3 (MiniMax Community License, H3 adding a geographic application gate for the USA, EU, UK and South Korea), Mistral Medium 3.5 (Modified MIT), Llama 3.x and Llama 4 (Llama Community License), Gemma 3 (Gemma Terms of Use), Reka Edge (commercial use capped at US$1M annual revenue), DBRX (Databricks Open Model License), and Cohere's older Command A and Command R+ research weights and the new North Small Translate (CC-BY-NC 4.0 - downloadable, but non-commercial unless you hold a Cohere licence, which is exactly the restriction Command A+ removed). **Qwen-Image-2.1** belongs in the research-release row rather than here: its Qwen Research License Agreement allows research and evaluation only.
+**Open weight with conditions attached** - this category grew sharply in mid-2026 and is where most of the current open frontier now sits: Qwen3.8-2.4T-A95B (Qwen3.8-Max License), Qwen3.8-Flash-Next (Qwen Community License 1.0), Kimi K3 (Kimi K3 License), GLM-5.3 (GLM-5.3 License), MiniMax-M3, M3.1-Flash and H3 (MiniMax Community License; H3's licence adds excluded territories, the USA, EU, UK and South Korea), **Meta Muse Spark Open** (Muse Model License: attribution, usage policy and a US$20M revenue trigger for Model-as-a-Service businesses; gated download), Mistral Medium 3.5 (Modified MIT), Mistral Timestral (Modified MIT), Llama 3.x and Llama 4 (Llama Community License), Gemma 3 (Gemma Terms of Use), Reka Edge (commercial use capped at US$1M annual revenue), DBRX (Databricks Open Model License), and Cohere's older Command A and Command R+ research weights and the new North Small Translate (CC-BY-NC 4.0 - downloadable, but non-commercial unless you hold a Cohere licence, which is exactly the restriction Command A+ removed). **Not yet classifiable:** Mistral Large 4, whose weights and licence were promised for the end of October 2026 but not published as of 25 October. **Qwen-Image-2.1** and Qwen-Image-2.1-Turbo belong in the research-release row rather than here: its Qwen Research License Agreement allows research and evaluation only.
 
 **The practical consequences are now two, not one.** First, the original point still holds: "open weight" models can be self-hosted and fine-tuned, but you cannot audit, reproduce, or publish the training process, and that gap is increasingly scrutinised under frameworks like the EU AI Act's transparency obligations. Second, and newer: **"open weights" no longer implies "permissively licensed."** Between July and August 2026 the bespoke, revenue-triggered licence became the norm for frontier open-weight releases from the Chinese labs, and Mistral and Reka have their own variants. The common triggers are attribution above 100M monthly active users or US$20M monthly revenue, and a separate commercial licence for Model-as-a-Service businesses above a revenue threshold that ranges from US$20M to US$10bn depending on the lab. Read the LICENSE file on the model card, not the "open weights" badge.
 
@@ -1439,13 +1526,22 @@ Current models only. Where a model's max output ceiling is materially lower than
 |---|---|---|
 | Llama 4 Scout (Meta, legacy line) | 10,000,000 tokens (claimed) | - |
 | GPT-6 Astra / Sol / Luna (OpenAI) | 1,050,000 tokens (922,000 max input) | 128,000 |
+| GPT-6.1 Sol (OpenAI) | 1,050,000 tokens | 128,000 |
+| Gemini 4 Argon (Google) | 1,048,576 tokens, shared by input and output | 65,536 synchronous; up to 1,048,576 minus input with long decode |
 | GPT-5.6 Sol / Terra / Luna (OpenAI) | 1,050,000 tokens | 128,000 |
 | Gemini 3.1 Pro (Google) | 1,048,576 tokens | 65,536 |
 | Kimi K3 (Moonshot) | 1,048,576 tokens | - |
 | MiniMax-M3 | 1,048,576 tokens | 262,144 |
-| Claude Fable 5.1 / Mythos 5.1 / Opus 5.5 / Sonnet 5 (Anthropic) | 1,000,000 tokens | 128,000 (300,000 on Batch beta for Sonnet 5) |
+| MiniMax-M3.1-Flash | 1,000,000 tokens | not published |
+| Mistral Large 4 (preview) | 1,000,000 tokens | not published |
+| Muse Wonder / Wonder Full (Meta) | 1,000,000 tokens | not published |
+| Muse Spark Open (Meta) | 1,000,000 tokens | - |
+| Reflection Beam | 1,000,000 tokens | - |
+| Nemotron 3.5 Super VL (NVIDIA) | up to 1,000,000 tokens | - |
+| Claude Fable 5.1 / Mythos 5.1 / Opus 5.5 / Sonnet 5.5 / Haiku 5.5 / Sonnet 5 (Anthropic) | 1,000,000 tokens | 128,000 (300,000 on Batch beta for Opus 5.5, Sonnet 5 and Haiku 5.5) |
 | Gemini 3.8 Flash (Google) | 1,000,000 tokens | 64,000 |
 | Nova 2 Lite / 2 Sonic / 2 Pro / 2 Omni (Amazon) | 1,000,000 tokens | 64,000 |
+| Nova 2.5 Sonic (Amazon) | 256,000 tokens | - |
 | Muse Spark 1.3 (Meta) | 1,000,000 tokens | - |
 | DeepSeek V4-Pro / V4.1-Flash | 1,000,000 tokens | 384,000 |
 | Xiaomi MiMo-V2.6 Pro / Flash | 1,000,000 tokens | - |
@@ -1464,7 +1560,8 @@ Current models only. Where a model's max output ceiling is materially lower than
 | Qwen3.8-27B / Flash-Next (open weights) | 262,144 native, ~1,000,000 extended | - |
 | Falcon-H1R 7B (TII) | 256,000 tokens | - |
 | Gemma 4 12B / 26B / 31B (Google) | 256,000 tokens | - |
-| Claude Haiku 4.5 (Anthropic) | 200,000 tokens | 64,000 |
+| Claude Haiku 4.5 (Anthropic, legacy) | 200,000 tokens | 64,000 |
+| Nemotron 3.5 Bolt 74B-A9B (NVIDIA) | 256,000 tokens | - |
 | Command A+ (Cohere, current flagship) | 128,000 tokens | 64,000 |
 | Muse Glimmer (Meta) | 128,000 tokens | - |
 | Gemma 4 E2B / E4B (Google) | 128,000 tokens | - |
@@ -1486,6 +1583,7 @@ Two cautions on reading this table. **Token counts are not comparable across tok
 | Mistral Small 4 / Ministral 3 | Apache 2.0 | Yes | No |
 | Gemma 4 | Apache 2.0 | Yes | No |
 | Meta Muse Glimmer | Apache 2.0 | Yes | No |
+| Reflection Beam | Apache 2.0 | Yes | No |
 | Cohere Command A+ / North Mini Code | Apache 2.0 | Yes | No |
 | Qwen3.8-27B | Apache 2.0 | Yes | No |
 | DeepSeek V4-Pro / V4.1-Flash | MIT | Yes | No |
@@ -1499,7 +1597,9 @@ Two cautions on reading this table. **Token counts are not comparable across tok
 | Qwen3.8-Flash-Next | Qwen Community License 1.0 | Yes | No |
 | Kimi K3 | Kimi K3 License (MaaS above $20M) | Yes | No |
 | GLM-5.3 | GLM-5.3 License (MaaS above $10bn) | Yes | No |
-| MiniMax-M3 / H3 | MiniMax Community License (+ geo gate on H3) | Yes | No |
+| MiniMax-M3 / M3.1-Flash / H3 | MiniMax Community License (+ excluded territories on H3) | Yes | No |
+| Meta Muse Spark Open | Muse Model License (attribution; MaaS above US$20M revenue needs a Meta agreement; gated) | Yes | No |
+| Mistral Large 4 | Not published (weights promised, not released as of 25 Oct 2026) | Not yet | No |
 | Reka Edge | Custom (commercial use under $1M revenue only) | Yes | No |
 | Cohere Command A / Command R+ / North Small Translate | CC-BY-NC 4.0 (research weights; commercial use needs a Cohere licence) | Yes (non-commercial) | No |
 | Qwen-Image-2.1 | Qwen Research License (research and evaluation only) | Yes (non-commercial) | No |
@@ -1507,9 +1607,9 @@ Two cautions on reading this table. **Token counts are not comparable across tok
 | Llama 3.x / Llama 4 | Llama Community License | Yes | No |
 | Gemma 3 | Gemma Terms of Use | Yes | No |
 | GPT-6 Astra / Sol / Luna, GPT-5.6 | Proprietary | No | No |
-| Claude 5 and 5.5 family (Fable / Mythos / Opus / Sonnet) | Proprietary | No | No |
-| Gemini 3.x | Proprietary | No | No |
-| Meta Muse Spark | Proprietary | No | No |
+| Claude 5 and 5.5 family (Fable / Mythos / Opus / Sonnet / Haiku) | Proprietary | No | No |
+| Gemini 3.x and Gemini 4 Argon | Proprietary | No | No |
+| Meta Muse Wonder / Muse Spark 1.x | Proprietary | No | No |
 | Grok 4.x | Proprietary | No | No |
 | Amazon Nova / Nova 2 | Proprietary | No | No |
 | Microsoft MAI | Proprietary (no open-weight licence announced) | No | No |
@@ -1537,7 +1637,7 @@ Two cautions on reading this table. **Token counts are not comparable across tok
 | Chinese language | Qwen3.8-Max | Qwen3.8-27B (self-hosted), DeepSeek-V4-Pro |
 | Video *understanding* | Gemini 3.1 Pro | Amazon Nova 2 Lite |
 | Video *generation* | Gemini Omni 1.1 Flash | MiniMax-H3 |
-| Real-time voice (speech-to-speech) | Amazon Nova 2 Sonic | OpenAI `gpt-live-1`, Google Gemini 3.8 Live |
+| Real-time voice (speech-to-speech) | Amazon Nova 2.5 Sonic | OpenAI `gpt-live-1`, Google Gemini 3.8 Live |
 | Speech-to-text | OpenAI `gpt-transcribe` | Gemini 3.5 Transcribe, MAI-Transcribe-2, Mistral Voxtral |
 | Image generation | OpenAI `gpt-image-2.5-flare` | Google Nano Banana Pro |
 | AWS-native, data residency | Amazon Nova 2 Lite | Claude Sonnet 5 or Opus 5.5 via Bedrock |
@@ -1670,3 +1770,17 @@ Two practical consequences. First, **published benchmark results for these confi
 - [Microsoft Foundry Model Catalog](https://ai.azure.com/explore/models): browsable model catalog with deployment options
 - [Vertex AI Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/model-garden/explore-models): GCP-hosted open and commercial models
 - [OCI Generative AI Service](https://docs.oracle.com/en-us/iaas/Content/generative-ai/home.htm): Oracle's managed LLM API documentation
+- [OpenAI deprecations](https://developers.openai.com/api/docs/deprecations) and [pricing](https://developers.openai.com/api/docs/pricing), fetched 25 October 2026: the 14 October 2026 GPT-4o and GPT-4.1 notice, the 1 October TTS and GPT-5.1/5.3-codex/5.4-nano notices, the completed 23 October sweep, and the 30-minute and 12-hour cache-write rates
+- [OpenAI `gpt-6.1-sol` model page](https://developers.openai.com/api/docs/models/gpt-6.1-sol), fetched 25 October 2026: context, cutoff, effort levels and pricing rules
+- [Claude Platform release notes](https://platform.claude.com/docs/en/release-notes/overview), fetched 25 October 2026: Sonnet 5.5 (28 September), the Sonnet 4.5 deprecation (30 September), Haiku 5.5 (7 October), fast mode out of preview (15 October) and API version 2026-10-21
+- [Google, "Gemini 4 Argon: Built to solve your hardest problems"](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/) (13 October 2026) and the [Gemini API release notes](https://ai.google.dev/gemini-api/docs/changelog) and [deprecations](https://ai.google.dev/gemini-api/docs/deprecations), fetched 25 October 2026
+- [Meta, "Introducing Muse Wonder and Muse Wonder Full"](https://about.fb.com/news/2026/10/introducing-muse-wonder-models/) (12 October 2026) and [Muse Wonder on the Meta developer site](https://developer.meta.ai/models/muse-wonder/)
+- [Meta AI Research, "Introducing Muse Spark Open"](https://research.meta.ai/blog/muse-spark-open) (15 October 2026) and the [model card and licence on Hugging Face](https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B)
+- [Mistral, "Introducing Mistral Large 4"](https://mistral.ai/news/mistral-large-4/) (6 October 2026) and the [Mistral Large 4 model page](https://docs.mistral.ai/models/mistral-large-4-0), fetched 25 October 2026
+- [DeepSeek API change log](https://api-docs.deepseek.com/updates), 17 October 2026: DeepSeek-V4.1-Flash-1017 and the Search & Fetch API
+- [MiniMax model release notes](https://platform.minimax.io/docs/release-notes/models): MiniMax M3.1 Flash, 19 October 2026
+- [Reflection, "Introducing Beam"](https://reflection.ai/blog/introducing-beam) (5 October 2026) and [Beam-1.0-501B-A23B on Hugging Face](https://huggingface.co/reflection/Beam-1.0-501B-A23B) (Apache 2.0)
+- [NVIDIA, Nemotron 3.5 Super VL and Bolt](https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/) (15 October 2026)
+- [Cohere changelog](https://docs.cohere.com/changelog): Embed 5 (30 September 2026) and Rerank 5 (21 October 2026)
+- [xAI release notes](https://docs.x.ai/developers/release-notes), fetched 25 October 2026: Grok Voice 3.0 and the "SpaceXSI" name
+- [AWS, "Announcing Amazon Nova 2.5 Sonic"](https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-nova-2.5-sonic/) (5 October 2026)

@@ -13,8 +13,8 @@ related:
   - tools/bedrock-agentcore
   - comparisons/aws-vs-gcp-ai
   - news/gemini-3-8-flash-cyber
-last_updated: 2026-09-25
-lastmod: 2026-09-25
+last_updated: 2026-10-25
+lastmod: 2026-10-25
 last_verified: 2026-09-25
 ---
 
@@ -58,7 +58,9 @@ Model Garden is the catalog of first-party, third-party, and open models deploya
 
 - **Google first-party**: the Gemini family, Imagen and Nano Banana (image generation), Veo (video generation), Lyria (music), Chirp and Gemini Transcribe (speech-to-text), and Gemma (open-weight).
 - **Third-party partner models**: Anthropic's Claude family (Opus, Sonnet, Haiku), Mistral AI, xAI's Grok, and Z.ai's GLM, served as fully managed endpoints alongside Google's own models - no separate Anthropic, Mistral, or xAI account needed. Grok is reachable through the OpenAI-compatible API surface specifically. Recent additions: **Claude Fable 5.1** (1 September 2026), **Claude Opus 5.5** (22 September 2026), and **xAI Grok 4.6 reaching GA** on 18 September 2026 on the global and US multi-region endpoints; GLM 5.2 entered public preview on 24 August 2026. Note that Grok 4.6 is already xAI's previous generation - xAI's September 2026 flagship is Grok 4.7, which Google's release notes had not listed in Model Garden as of 25 September. Anthropic's **Cyber Verification Program** is in preview on the platform (14 September 2026), lifting default dual-use restrictions for verified organizations on Claude Opus 4.7, Opus 4.8, Opus 5 and Sonnet 5; Opus 5.5 was not in that list at launch.
-- **Open models for self-deployment**: Meta's Llama family, DeepSeek, Qwen, OpenAI's open-weight gpt-oss models, and others, deployable via prebuilt containers, as pay-per-token Model-as-a-Service endpoints, or via a custom vLLM setup on your own compute. (This is OpenAI's open-weight `gpt-oss` release, not the closed GPT-4/5-class models - Model Garden hosts the former, not the latter.)
+- **Open models for self-deployment**: Meta's Llama family, DeepSeek, Qwen, OpenAI's open-weight gpt-oss models, and others, deployable via prebuilt containers, as pay-per-token Model-as-a-Service endpoints, or via a custom vLLM setup on your own compute. (This is OpenAI's open-weight `gpt-oss` release, not the closed GPT-4/5-class models - Model Garden hosted the former, not the latter, as of 25 September 2026. On 21 October 2026 OpenAI's news feed announced "OpenAI models are coming to Google Cloud", saying it and Google Cloud "are bringing frontier models and Codex workflows to Gemini's Model Garden, available through Google Cloud Marketplace"; the post itself could not be retrieved, so which models, regions, prices and whether any are generally available yet are unverified.)
+
+**Two ways to run Claude on Google Cloud since 22 October 2026.** The Claude models in Model Garden are the Google-managed option. Anthropic now also offers **Claude Models on Google Cloud (Anthropic managed)**: in Anthropic's words, "the Claude API, run by Anthropic and reached through your Google Cloud project". Access is controlled by Google Cloud IAM (`roles/claude.user`, `roles/claude.admin`), billing runs through a Google Cloud Marketplace subscription, the service endpoint is `claude.googleapis.com`, there are no API keys, and setup creates a new Anthropic organization per project, separate from any existing Anthropic or Claude Enterprise organization. Fast mode for Claude Opus 5.5 is available there. Prices for the Anthropic-managed option were not checked for this page; see [Claude by Anthropic](/tools/claude-anthropic/) for the comparison with the other access paths.
 
 You can deploy from the garden to managed endpoints in a few clicks, or self-host an open model on dedicated infrastructure. This mirrors Bedrock's model marketplace: teams evaluate and swap models without re-architecting the surrounding application, though Vertex/Agent Platform's catalog leans further into self-hosted open models than Bedrock's does.
 
@@ -138,3 +140,5 @@ Confirm current rates against the official pricing page before estimating a prod
 12. Google Cloud, release notes feed (fetched 25 September 2026 - Gemini Enterprise Agent Platform entries for the deferred tier (2 September), Claude Fable 5.1 (1 September), Computer Use and Shell sandboxes GA and Priority PayGo multi-region (9 September), PayGo Tier 4 (10 September), Cyber Verification Program preview (14 September), RL fine-tuning in the console (15 September), Gemini 3.8 Flash Cyber allowlisted GA (16 September), Grok 4.6 GA and Agent Platform SDK 2.0.1 (18 September), Claude Opus 5.5 (22 September) and Gemini 3.8 Live (24 September); API Gateway MCP preview (11 September)) - https://cloud.google.com/feeds/gcp-release-notes.xml
 13. xAI, Grok 4.7 developer docs (xAI's current flagship, for the Grok 4.6 previous-generation note) - https://docs.x.ai/developers/grok-4-7.md
 14. AWS, "Amazon Bedrock Agents Classic maintenance mode" (closed to new customers 30 July 2026; AgentCore recommended) - https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html
+15. Anthropic, "Claude Models on Google Cloud (Anthropic managed)" (fetched 25 October 2026; launched 22 October 2026 per the Claude Platform release notes) - https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed
+16. OpenAI, news RSS feed entry "OpenAI models are coming to Google Cloud" (21 October 2026; post body not retrievable) - https://openai.com/news/rss.xml

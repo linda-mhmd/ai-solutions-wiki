@@ -10,6 +10,132 @@
 #
 # `date` is when the correction landed. `page` must resolve to a real page.
 
+- date: 2026-10-25
+  page: /news/ai-copyright-litigation-2026/
+  headline: The $1.5 billion Anthropic settlement was approved in July, not awaiting approval
+  body: >
+    This entry described the Bartz v. Anthropic settlement as awaiting final
+    approval, and said final approval had not been entered. Judge Araceli
+    Martinez-Olguin signed the order granting final approval and entering
+    judgment on 20 July 2026 (Dkt. 680), two months before our last check. She
+    also cut class counsel's fees from the 12.5 percent requested to
+    $101,561,111, about 6.8 percent of the fund. The only notices of appeal came
+    from lawyers excluded from the fee award, so the parties say the Effective
+    Date has passed, and first payments are expected on or before 15 November
+    2026. We had relied on a docket summary instead of the order itself, which
+    the settlement website posts in full.
+
+- date: 2026-10-25
+  page: /tools/claude-anthropic/
+  headline: Sonnet 4.5 was deprecated, and the page still said Haiku 5.5 had not shipped
+  body: >
+    Two statements here were wrong. The Sonnet paragraph still said Haiku 5.5
+    "has still not shipped", while the paragraph above it, correctly, said it
+    shipped on 7 October 2026. And the page said Sonnet 4.5 had passed its
+    retirement floor "without a deprecation notice, so it remains active".
+    Anthropic deprecated claude-sonnet-4-5-20250929 on 30 September 2026, with
+    retirement on the Claude API on 30 November 2026 and Sonnet 5.5 as the
+    replacement. Haiku 4.5, which also passed its floor on 15 October, is still
+    Active with no notice.
+
+- date: 2026-10-25
+  page: /tools/openai-api/
+  headline: GPT-4o does have a shutdown date now, and our GPT-6.1 Sol model ID was wrong
+  body: >
+    This page said the base gpt-4o snapshots were still listed with no announced
+    retirement. On 14 October 2026 OpenAI deprecated gpt-4o-2024-08-06,
+    gpt-4o-2024-11-20, gpt-4o-mini-2024-07-18, gpt-4.1 and gpt-4.1-mini for
+    shutdown on 14 January 2027, replacement gpt-6-luna. That is three months'
+    notice against the six months OpenAI's own policy gives generally available
+    models, and OpenAI gives no reason. The page also gave GPT-6.1 Sol's model ID
+    as gpt-6-1-sol; OpenAI's model page and changelog use gpt-6.1-sol, with a dot.
+
+- date: 2026-10-25
+  page: /tools/openai-api/
+  headline: gpt-4o-mini-tts is deprecated, not OpenAI's current TTS model
+  body: >
+    We said text-to-speech was the one part of OpenAI's audio stack that had not
+    moved and that gpt-4o-mini-tts was still the current recommendation. On 1
+    October 2026 OpenAI deprecated tts-1, tts-1-hd and both gpt-4o-mini-tts
+    snapshots for shutdown on 6 January 2027. The replacement, gpt-realtime-2.1-mini,
+    runs on the Realtime API and is not supported on /v1/audio/speech, so the
+    migration is a change of workflow, not of model string.
+
+- date: 2026-10-25
+  page: /tools/google-gemini/
+  headline: Gemini 3.7 Flash and 3.5 Flash are deprecated and silently routed to other models
+  body: >
+    This page listed Gemini 3.7 Flash and 3.5 Flash as stable and priced. Google
+    deprecated both on 8 October 2026. They no longer appear in AI Studio, and
+    API requests are automatically routed to gemini-3.8-flash and
+    gemini-3.6-flash. The old model IDs keep answering, because the endpoints are
+    not shutting down, which is exactly why a caller may not notice that the model
+    behind the ID changed. The same pass corrected the shutdown date of
+    gemini-omni-flash-preview, which Google's deprecations page gives as 22
+    October 2026, not the 30 September we had.
+
+- date: 2026-10-25
+  page: /news/gemini-4-argon/
+  headline: Gemini 4 Argon became generally available thirteen days after we said not to plan around it
+  body: >
+    Our 30 September entry said Argon was announced, not generally available,
+    and that builders should not plan a launch around it. Google made
+    gemini-4-argon generally available on the paid Gemini API on 13 October 2026.
+    It is still not on the Free tier, and its $2/$10 price is introductory: from
+    1 December 2026 it is $4/$20. The million-token limit we described as an
+    output limit is a single 1,048,576-token window shared by input and output,
+    with outputs beyond 64K only through background long decode.
+
+- date: 2026-10-25
+  page: /tools/meta-llama/
+  headline: Muse Spark weights were published on 15 October
+  body: >
+    This page said no Muse Spark weights of any version had been published and
+    advised planning as if Muse Spark was closed. On 15 October 2026 Meta
+    released Muse Spark Open, 816B total and 42B active, on Hugging Face. The
+    caveat that matters is the licence: the Muse Model License requires "Built
+    with Muse Spark Open" attribution and a separate agreement for
+    model-as-a-service businesses above US$20 million in revenue, and the
+    download is gated with manual approval. Muse Glimmer is still Meta's only
+    Apache 2.0 model.
+
+- date: 2026-10-25
+  page: /comparisons/llm-landscape-2026/
+  headline: Five statements in the landscape had gone stale or were wrong
+  body: >
+    The landscape said Sonnet 5.5 and Haiku 5.5 were not released (they shipped
+    on 28 September and 7 October), that no Muse Spark weights existed (Muse
+    Spark Open, 15 October), that GitHub Copilot was moving its older GPT-5.x
+    models onto GPT-5.6 Sol and Luna (the 19 October suggested alternatives were
+    GPT-6.1 Sol and GPT-6 Luna), and that MiniMax's price page returned a 404 (it
+    now loads, and MiniMax-M3.1-Flash is $0.15/$0.60). It also dated o1's
+    retirement to 27 October 2025. Only o1-mini went then; OpenAI's deprecations
+    table lists o1 in the 23 October 2026 sweep. GPT-6.1 Sol, Gemini 4 Argon,
+    Muse Wonder, Mistral Large 4, Reflection Beam and Nemotron 3.5 Super VL are
+    now in the reference.
+
+- date: 2026-10-25
+  page: /tools/nvidia-ai/
+  headline: There is a new general-purpose Nemotron, three in fact
+  body: >
+    This page said there had been no new general-purpose Nemotron LLM since 3.5
+    Lightning in August. On 15 October 2026 NVIDIA released Nemotron 3.5 Super VL
+    (120B total, 12B active, up to 1M context) and Bolt 74B-A9B, and Bolt E4B
+    followed on 23 October, all under OpenMDW-1.1. Read the launch claims
+    closely: the headline says "highest accuracy", while the body says Super VL's
+    accuracy is "comparable with" NVIDIA's largest reasoning model.
+
+- date: 2026-10-25
+  page: /tools/xai-grok/
+  headline: Grok's speech-to-text default was already 2.0, and 1.0 is now gone
+  body: >
+    We said grok-voice-transcribe-1.0 remained the default for speech-to-text, so
+    2.0 had to be requested explicitly. xAI's release-note entry for Grok Voice
+    Transcribe 2.0 says the default is grok-voice-transcribe-2.0, and since 2
+    October 2026 version 1.0 has reached end of life, with requests routed to 2.0
+    at the same price. The page also now notes that xAI's own documentation calls
+    the company SpaceXSI, while AWS's announcements say SpaceXAI.
+
 - date: 2026-10-08
   page: /tools/claude-anthropic/
   headline: Haiku 5.5 shipped, and Sonnet 5.5's cache-read price in our table was out of date
