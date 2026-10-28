@@ -2,8 +2,8 @@
 title: "Node.js October 2026 security release: ten CVEs and a Brotli bug that reaches beyond Node"
 description: "Node.js 22.23.4, 24.22.1 and 26.12.1 shipped on 21 October 2026 with fixes for ten CVEs, four rated High. One of them, CVE-2026-111497, is an out-of-bounds write in Google's Brotli decoder that also affects Bun, Envoy, Istio, the PyPI brotli packages and Microsoft .NET."
 date: 2026-10-21
-lastmod: 2026-10-25
-last_updated: 2026-10-25
+lastmod: 2026-10-28
+last_updated: 2026-10-28
 last_verified: 2026-10-25
 categories: [News]
 tags: [security, vulnerabilities, cve, nodejs, brotli, tls, undici, openssl, envoy, istio, dotnet, supply-chain]
@@ -121,7 +121,9 @@ The CVE record, as published on NVD on 22 October, says Brotli 1.0.3 through 1.2
 
 Istio's bulletin does not score CVE-2026-111497 on its own. The single "CVSS Impact Score" in its header, 7.7 with vector `AV:N/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H`, is the same score the bulletin gives the istiod denial of service (GHSA-7p2q-4xvg-vxc6) it also covers, so it should not be read as Istio's rating of the Brotli bug.
 
-The ratings differ because each one scores the bug from its own scale and product. Google, Envoy and Microsoft score the memory corruption as potential code execution; Node uses its own three-level scale; Ubuntu's priority is a triage label. On real-world exploitation the official records agree: CISA's SSVC entry of 23 October records exploitation "none", automatable "no" and technical impact "total"; Microsoft lists "Exploited: No"; and the CVE is not in CISA's Known Exploited Vulnerabilities catalog (version 2026.10.23). "Exploitation More Likely" is Microsoft's forecast, not a report of attacks.
+The ratings differ because each one scores the bug from its own scale and product. Google, Envoy and Microsoft score the memory corruption as potential code execution; Node uses its own three-level scale; Ubuntu's priority is a triage label. On real-world exploitation the records changed during the week. As of 25 October they agreed: CISA's SSVC entry of 23 October recorded exploitation "none", automatable "no" and technical impact "total"; Microsoft lists "Exploited: No"; and the CVE was not in CISA's Known Exploited Vulnerabilities catalog (version 2026.10.23). "Exploitation More Likely" is Microsoft's forecast, not a report of attacks.
+
+**Update, 27 October: CISA lists it as exploited.** CISA added CVE-2026-111497 to the KEV catalog on **27 October 2026** as the "Google Brotli Unchecked Return Value Vulnerability", with a due date of **10 November 2026** for US federal civilian agencies and ransomware use "Unknown". Its description says the flaw lets "a remote unauthenticated attacker to corrupt adjacent decoder state memory, disclose sensitive memory contents, cause a denial of service, or potentially execute arbitrary code using a crafted Brotli-compressed stream." CISA does not publish the evidence behind a KEV listing, and as of 28 October none of the vendors (Google, Node.js, Microsoft, PHP) had published a report of exploitation in the wild. The KEV entry is the only official statement that it is being exploited. Note also that CISA, NVD, Node.js and Microsoft describe the same bug three ways: "unchecked return value", "buffer overflow" and "out-of-bounds write". None of them uses the name "Node2Shell".
 
 Code execution has, however, been demonstrated in a lab. On 22 October Imperva Red Team (post by Ron Masas) reported that its "standalone proof of concept ran code carried in a Brotli response or request body inside applications using the official Node.js 24.22.0 Linux arm64 image", through both the built-in `fetch()` and Express 5 with body-parser 2. "The same inputs were rejected by 24.22.1." Imperva adds that "execution took multiple attempts in our setup" and that it "did not test every Node.js build or application." It published a description and a demo video, not the exploit code, and none of the sources read for this entry reports an independent reproduction. This is a vendor's own test result, in a post that also announces Imperva's WAF rules for the CVE. Node's regression test, added in commit 0392385841, does contain a 22-byte input that triggers the invalid block switch, which is a trigger, not an exploit.
 
@@ -168,7 +170,7 @@ Patch the Planet's interim mitigations, until you can patch:
 
 New: a single upstream decoder bug that every major runtime and proxy bundles, with fixes spread over 19 days, from Envoy on 6 October to Microsoft on 25 October, and four advisory formats. The Brotli fix itself is small, a function that now tells "bad stream" apart from "need more bytes".
 
-Not new: Node's TLS identity checks and Permission Model have been patched in the same places before, as four of the ten CVEs say about themselves. And the claims at the edges deserve care. "Remote code execution" is the worst case every rater names. Imperva reports demonstrating it in a lab on one official build, without publishing the exploit, and CISA records no exploitation in the wild. The Critical labels come from Google's, Envoy's and Microsoft's scoring. They do not describe what is happening in the wild.
+Not new: Node's TLS identity checks and Permission Model have been patched in the same places before, as four of the ten CVEs say about themselves. And the claims at the edges deserve care. "Remote code execution" is the worst case every rater names. Imperva reports demonstrating it in a lab on one official build, without publishing the exploit. The Critical labels come from Google's, Envoy's and Microsoft's scoring and describe potential impact. What is happening in the wild is a separate question: CISA's KEV listing of 27 October says the bug is being exploited, without public detail, and no vendor has yet described an attack.
 
 ## Why it matters for builders
 
@@ -216,6 +218,8 @@ Not new: Node's TLS identity checks and Permission Model have been patched in th
 33. Secondary, for colour: Michael Orlitzky, "Re: Upcoming Node.js security release 2026/10/21", oss-security (23 October 2026, archived under 24 October): https://www.openwall.com/lists/oss-security/2026/10/24/3
 34. Secondary, for colour: Alan Coopersmith, "Re: Brotli CVE-2026-111497", oss-security (24 October 2026): https://www.openwall.com/lists/oss-security/2026/10/24/6
 35. Secondary, for colour: Dania Durnas, Aikido, "Node2Shell evolves to HTTP2Shell" (23 October 2026, updated 25 October 2026): https://www.aikido.dev/blog/python-packages-vulnerable-node2shell-brotli-cve-2026-111497
+36. CISA, "CISA Adds Two Known Exploited Vulnerabilities to Catalog" (27 October 2026): https://www.cisa.gov/news-events/alerts/2026/10/27/cisa-adds-two-known-exploited-vulnerabilities-catalog
+37. CISA, Known Exploited Vulnerabilities JSON feed, catalog version 2026.10.27 (fetched 28 October 2026): https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json
 
 ## Further reading
 

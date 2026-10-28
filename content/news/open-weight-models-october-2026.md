@@ -2,8 +2,8 @@
 title: "Open-weight models, October 2026: Reflection Beam, Nemotron 3.5 Super VL, MiniMax M3.1 Flash"
 description: "October 2026 open weights: Reflection's 501B Beam under Apache 2.0, NVIDIA's Nemotron 3.5 Super VL and Bolt, MiniMax M3.1 Flash, a DeepSeek Flash update and Meta's Muse Spark Open. Four bespoke licences now carry a US$20 million trigger, each measured differently. Mistral Large 4 weights are still not out."
 date: 2026-10-16
-lastmod: 2026-10-25
-last_updated: 2026-10-25
+lastmod: 2026-10-28
+last_updated: 2026-10-28
 last_verified: 2026-10-25
 categories: [News]
 tags: [open-weight-models, licensing, model-release, reflection, beam, mistral, nemotron, minimax, deepseek, stepfun, liquid-ai, granite, meta, mixture-of-experts]
@@ -44,6 +44,7 @@ Read this before the model sections. It decides what you can ship.
 | LFM2.5-24B-A2B | Liquid AI | 13 Oct | LFM Open License v1.0 | Only below US$10M annual revenue |
 | Qwen-Image-2.1-Turbo | Alibaba Qwen | 9 Oct | Qwen Research License | No |
 | Mistral Large 4 | Mistral | Not published | Labelled only "Open", no licence named | Not yet answerable |
+| Kimi K3.1 Pro | Moonshot AI | Not published; promised "by Nov 4" | Not published | Not yet answerable |
 
 **The US$20 million trigger, four ways.** These are the exact tests in each licence file:
 
@@ -158,7 +159,9 @@ Meta released **Muse Spark Open** on 15 October 2026 as a gated download. It is 
 - **Qwen-Image-2.1-Turbo** (9 October). What the card calls "an accelerated checkpoint" of Qwen-Image-2.1, using 8 denoising steps and "the same 7B visual generation architecture". The card does not say how it was accelerated. Like its parent, it is under the Qwen Research License: "FOR NON-COMMERCIAL PURPOSES ONLY".
 - **Ornith-1.5-122B** (16 October, MIT on the card). A 122B MoE from Ornith. The card says Ornith-1.5 extends Ornith-1.0, "which was developed on top of Qwen3.5 and Gemma4". It claims 76.9 on a row labelled "SWE-bench Pro (no-hack)", ahead of every other model in its own table, including the only 500B-class entry, Beam, at 57.0, and Qwen3.8-Flash-Next at 43.9. Treat this with caution. No one has reproduced it, it would be an extraordinary result for the size, and some of Ornith's numbers for other models do not match their vendors' own: Reflection reports 65.5 (blog) and 66.1 (card) for Beam on "SWE Bench Pro v1", though Ornith's "no-hack" label may mean a different protocol, and NVIDIA reports 60.67 for Super VL on Terminal-Bench 2.1 where Ornith lists 66.7. Other cells do match the vendors, for example Beam's 80.1 on Terminal-Bench 2.1.
 
-**Nothing new found** from Moonshot or from Alibaba's Qwen LLM line, and no new Z.ai weights. We checked their Hugging Face organisations on 25 October for repositories created since 1 October.
+- **Moonshot Kimi K3.1 Pro** (announced 23 October, weights not yet published). *Correction, 28 October: an earlier version of this entry said nothing new had come from Moonshot. We had checked only Moonshot's Hugging Face organisation, where there is still no K3.1 repository.* Moonshot calls K3.1 Pro "our most capable 3T-class open-weight model to date" and "a post-trained version of Kimi K3", with a 1-million-token context, and says "The full model weights will be released by Nov 4." No licence has been published, and Moonshot gives no exact parameter count beyond "3T-class". On the API it costs US$2.00 input, US$0.20 cached input and US$10.00 output per million tokens, below Kimi K3's US$3.00, US$0.30 and US$15.00. A Highspeed variant, which Moonshot says delivers "2-3× the speed", costs double for input and output. See [Gemini 4 Carbon, GPT-6.1 Terra and Kimi K3.1 Pro](/news/frontier-models-late-october-2026/).
+
+**Nothing new found** from Alibaba's Qwen LLM line, and no new Z.ai weights. We checked their Hugging Face organisations on 25 October for repositories created since 1 October. (A Qwen3.6-27B listing dated 21 October on one tracker is the April 2026 model, not a new release.)
 
 ## Why it matters for builders
 

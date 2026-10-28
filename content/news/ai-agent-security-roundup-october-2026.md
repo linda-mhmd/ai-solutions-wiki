@@ -2,8 +2,8 @@
 title: "Agent security, October 2026: MCP SDK isolation flaws, Claude Code CVEs, framework advisories"
 description: "October 2026 advisories for AI agent infrastructure, read from the GitHub advisory records: MCP SDKs that mixed up clients and sessions, Claude Code CVEs fixed months before their advisories and a Claude Desktop CVE, A2A and framework isolation bugs, vLLM, AutoGPT and MLflow, plus minimum safe versions."
 date: 2026-10-23
-lastmod: 2026-10-25
-last_updated: 2026-10-25
+lastmod: 2026-10-28
+last_updated: 2026-10-28
 last_verified: 2026-10-25
 categories: [News]
 tags: [ai-security, ai-agents, mcp, a2a, claude-code, vulnerabilities, cve, multi-tenancy, vllm, langgraph, strands-agents, supply-chain]
@@ -153,7 +153,7 @@ The Claude Code changelog for the window also contains sandbox fixes that have n
 
 | Package | Advisory / CVE | Severity as published | Affected | Fixed | Published |
 | --- | --- | --- | --- | --- | --- |
-| `vllm` | GHSA-h3rc-6mm3-gc2m: request-controlled `mm_processor_kwargs.code_revision` allows code execution when `--trust-remote-code` is on | High, CVSS 3.1 8.1 | 0.7.3 to below 0.31.0 | 0.31.0, published 5 October 2026 | Repo 6 Oct |
+| `vllm` | GHSA-h3rc-6mm3-gc2m / CVE-2026-114053 (CVE added to the database 27 October): request-controlled `mm_processor_kwargs.code_revision` allows code execution when `--trust-remote-code` is on | High, CVSS 3.1 8.1 | 0.7.3 to below 0.31.0 | 0.31.0, published 5 October 2026 | Repo 6 Oct |
 | `vllm` | GHSA-h3rc-j82p-2c3h: untrusted EPS input can reach Ghostscript | High, CVSS 3.1 8.1 | 0.30.0 | 0.32.0, published 18 October 2026 | Repo 20 Oct |
 | `vllm` | GHSA-6757-hggm-hp2w: forged multimodal SHM handle reaches `pickle.loads()` | High; metadata CVSS 3.1 7.5 (AC:H), advisory text 8.8 (AC:L) | Metadata: up to 0.25.1 | 0.32.0 | Repo 20 Oct |
 | `vllm` | GHSA-gx7p-2j49-hfq4 / CVE-2026-114055: denial of service via unvalidated `mm_processor_kwargs` | High, CVSS 3.1 7.5 | 0.7.3 to below 0.31.0 | 0.31.0 | Repo 6 Oct; database 23 Oct |
@@ -163,6 +163,8 @@ The Claude Code changelog for the window also contains sandbox fixes that have n
 | `mlflow` | GHSA-wqmh-qccw-pqwf / CVE-2026-53995: FileStore trace-ID path traversal and arbitrary file writes | High, CVSS 4.0 8.8 (CVSS 3.1 8.2) | Up to 3.17.1 | 3.17.2 | NVD 19 Oct; database 20 Oct |
 | `mlflow` | GHSA-2wqp-q3c6-ccj5 / CVE-2026-115886: SSRF via third-party scorer kwargs on unauthenticated servers | Medium, CVSS 3.1 6.5 | 3.12.0rc0 to below 3.17.0 | 3.17.0, published 7 October 2026 | Repo 22 Oct; database 23 Oct |
 | `jupyter-server` | GHSA-354v-3q48-cv69 / CVE-2026-114135: gateway WebSocket handler skips kernel execute authorization | High, CVSS 3.1 8.8 | 2.0.0 to 2.5.0 | 2.6.0, published 25 May 2023 | Repo 10 Sep 2026; NVD 21 Oct; database 22 Oct |
+| `litellm` (proxy) | GHSA-7hp6-4w63-5g45 / CVE-2026-114612: an `internal_user` can forge a `proxy_admin` session token and run commands through the MCP stdio endpoint | High, CVSS 3.1 9.9 (CVSS 4.0 7.7) | 1.91.0 and later in the default configuration; 1.87.0 to 1.90.x only with `EXPERIMENTAL_UI_LOGIN=true` | 1.100.4, 1.101.3, 1.102.2, 1.103.1 | Database 27 Oct |
+| Langchain-Chatchat | GHSA-5rx2-xp53-9x5r / CVE-2026-75128: unauthenticated `POST /tools/call` can invoke the always-registered shell tool | Critical, CVSS 3.1 9.8 (CVSS 4.0 9.3) | Through 0.3.1.3 | None listed in the record as of 28 October | Database 20 Oct |
 
 **vLLM** published 27 repository advisories between 6 and 20 October (7 on 6 October, 11 on 9 October, 9 on 20 October), most of them denial-of-service bugs reachable from a single request. Three stand out:
 
@@ -175,6 +177,8 @@ The Claude Code changelog for the window also contains sandbox fixes that have n
 **MLflow's** path traversal matters most on deployments using FileStore, which the record says was the default tracking backend before MLflow 3.7.0. On the record's own dates, the NVD entry (19 October) and the database entry (20 October 00:31 UTC) were published before 3.17.2 reached PyPI (21 October 02:08 UTC).
 
 **Jupyter Server** is the longest disclosure gap in this roundup. The bug affects gateway mode with a restrictive custom Authorizer in 2.0.0 to 2.5.0. The fix in 2.6.0 dates from May 2023, but the advisory was published in September 2026 and reached the reviewed database in October. The record notes that the deprecated handler "is still present in current releases and can still be registered directly."
+
+**Added 28 October.** Two advisories this roundup missed or that arrived after it. **LiteLLM**, an open-source gateway that puts one API in front of many model providers, used one key both to encrypt stored secrets and to mint session tokens. Per the advisory, a user with `internal_user` rights could request an API key whose metadata held "a forged admin credential as the 'secret' value", get it back encrypted, and present it as a bearer token; the proxy then "trusts the forged admin identity", including access to the MCP stdio endpoint, which runs commands on the host. The stopgap, `EXPERIMENTAL_UI_LOGIN=false`, "also breaks CLI SSO and Claude Code gateway login". **Langchain-Chatchat**, an open-source RAG and agent application, exposes `POST /tools/call` without authentication, and the shell tool is always registered, so "a single request naming the shell tool" runs OS commands "as the server user (root in the shipped Docker image)". The advisory record lists no fixed version; if you run it, do not expose the API server beyond localhost.
 
 ### 5. Defensive changes in coding agents
 
@@ -254,6 +258,7 @@ As stated in the advisory records, for the issues in this article. Later version
 - `vllm` 0.32.0
 - `autogpt-platform-backend` 0.8.0, plus new `JWT_VERIFY_KEY` and `ENCRYPTION_KEY` values
 - `mlflow` 3.17.2; `jupyter-server` 2.6.0
+- `litellm` 1.100.4, 1.101.3, 1.102.2 or 1.103.1 depending on your line; Langchain-Chatchat has no fixed release in the advisory record, so keep its API off the network
 - Storybook 8.6.19, 9.1.21 or 10.6.2
 - Kiro CLI 2.33.0, Gemini CLI 0.65.0 and Codex CLI 0.164.0 for the defensive changes, which have no advisories
 
@@ -300,6 +305,8 @@ All GitHub advisory records were fetched through the GitHub API on 25 October 20
 37. GitHub, MCP TypeScript SDK advisory GHSA-6qxp-vccf-f47h, OAuth client credentials sent to an MCP-server-chosen authorization server (repository 30 September 2026; database 6 October 2026): [https://github.com/modelcontextprotocol/typescript-sdk/security/advisories/GHSA-6qxp-vccf-f47h](https://github.com/modelcontextprotocol/typescript-sdk/security/advisories/GHSA-6qxp-vccf-f47h)
 38. NIST NVD, CVE-2026-86063 (published 13 October 2026): [https://nvd.nist.gov/vuln/detail/CVE-2026-86063](https://nvd.nist.gov/vuln/detail/CVE-2026-86063)
 39. npm registry and PyPI release metadata for the fixed and latest versions named above (fetched 25 October 2026): [https://registry.npmjs.org/@modelcontextprotocol/server](https://registry.npmjs.org/@modelcontextprotocol/server) and [https://pypi.org/project/mcp/](https://pypi.org/project/mcp/)
+40. GitHub Advisory Database, GHSA-7hp6-4w63-5g45, LiteLLM privilege escalation to proxy admin, CVE-2026-114612 (published 27 October 2026): https://github.com/BerriAI/litellm/security/advisories/GHSA-7hp6-4w63-5g45
+41. GitHub Advisory Database, GHSA-5rx2-xp53-9x5r, Langchain-Chatchat unauthenticated tool call, CVE-2026-75128 (published 20 October 2026): https://github.com/advisories/GHSA-5rx2-xp53-9x5r
 
 ## Further reading
 

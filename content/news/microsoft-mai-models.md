@@ -2,8 +2,8 @@
 title: "Microsoft Builds Its Own MAI Models to Reduce OpenAI Reliance"
 description: "Across the first half of 2026 Microsoft shipped its own MAI model family, from Foundry-available speech and image models in April to seven new models led by MAI-Thinking-1 at Build in June, plus the open-weight Phi-4-reasoning-vision."
 date: 2026-06-02
-lastmod: 2026-07-13
-last_updated: 2026-07-13
+lastmod: 2026-10-28
+last_updated: 2026-10-28
 categories: [News]
 tags: [microsoft, mai, phi, model-release, reasoning, foundry]
 related:
@@ -20,6 +20,8 @@ The rollout came in stages. On 2 April 2026 Microsoft released its first in-hous
 
 At Build on 2 June 2026, Microsoft AI unveiled the broader MAI family, led by MAI-Thinking-1 (a mid-weight reasoning model) alongside image, speech, voice, and code models. The consistent message is that these are Microsoft's own models, trained in-house, positioned to run its products and to be offered to developers through Foundry.
 
+**Update, 28 October 2026.** On 27 October Microsoft AI released **MAI-Image-2.7** in preview, "our latest image editing model". It starts with editing only: "We're starting with editing, with text-to-image generation coming soon." Microsoft says it launched at No. 3 on Arena's image-editing leaderboard and No. 2 on Artificial Analysis's, above OpenAI's GPT Image 2.5 Flare there, and that it improves on MAI-Image-2.6 in all 10 use cases and 7 editing actions Artificial Analysis evaluates; these are Microsoft's statements of third-party rankings at launch, which move as models are added. It can be tried on Arena, Artificial Analysis and MAI Playground. Microsoft gives no API price or Foundry availability in the announcement.
+
 ## Why it matters for builders
 
 For years the Microsoft AI story was Azure plus OpenAI. A full in-house stack, spanning reasoning, image, speech, and code, changes the relationship: Microsoft now has models it controls end to end, which affects pricing, availability, and roadmap independence for anyone building on its platforms. It also adds another serious [reasoning model](/glossary/reasoning-models/) option to evaluate.
@@ -31,6 +33,7 @@ The open-weight Phi-4-reasoning-vision matters for a different reason: it is sma
 - Microsoft AI, "Building a hill-climbing machine: launching seven new MAI models" (2 June 2026): https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/
 - Microsoft AI, "Announcing 3 new world-class MAI models available in Foundry" (2 April 2026): https://microsoft.ai/news/today-were-announcing-3-new-world-class-mai-models-available-in-foundry/
 - Microsoft Research, "Phi-4-reasoning-vision and the lessons of training a multimodal reasoning model" (4 March 2026): https://www.microsoft.com/en-us/research/blog/phi-4-reasoning-vision-and-the-lessons-of-training-a-multimodal-reasoning-model/
+- Microsoft AI, "MAI-Image-2.7" announcement (27 October 2026): https://microsoft.ai/news/mai-image-2-7-debut/
 
 ## Further reading
 

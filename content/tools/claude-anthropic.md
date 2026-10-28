@@ -17,8 +17,8 @@ related:
   - news/claude-opus-5-5
   - news/claude-haiku-5-5
   - news/claude-api-version-2026-10-21
-last_updated: 2026-10-25
-lastmod: 2026-10-25
+last_updated: 2026-10-28
+lastmod: 2026-10-28
 ---
 
 Claude is Anthropic's family of large language models, designed with a focus on safety, reliability, and extended context handling. For enterprise AI applications, Claude is one of the most widely deployed models via Amazon Bedrock, where it is available across multiple capability tiers - and, as of September 2026, also via Google Cloud, Microsoft Foundry, and Anthropic's own Claude Platform on AWS.
@@ -148,9 +148,12 @@ Beyond the models and the chat apps, Anthropic ships several products built on t
 | **[Claude Code](/tools/claude-code/)** | Terminal and IDEs | Editing, running, and shipping code | Pro, Max, Team Premium, or API |
 | **[Claude Design](/tools/claude-design/)** | claude.ai (Anthropic Labs) | Designing UI and documents as HTML | Pro, Max, Team, Enterprise |
 | **[Claude Cowork](/tools/claude-cowork/)** | Claude app (desktop, and since September 2026 web and mobile) | Autonomous multi-step knowledge work | Paid plans (Pro and Max first for the merged app) |
+| **Claude Duet** (research preview, waitlist) | Standalone iOS and Android app, and claude.ai | A proactive agent that watches connected apps and messages you when something needs attention | Pro and Max, US only at launch |
 | **[Claude apps and API](/tools/claude-anthropic/)** | Web, mobile, desktop, API | Chat, analysis, building on the model | Free and up |
 
 For teams, Anthropic also offers [Claude Tag](/news/anthropic-claude-agents-in-slack/), a shared agent that lives inside Slack channels.
+
+**Claude Duet** was announced on 21 October 2026 as a research preview of "a new app where Claude works as a proactive agent", built around Claude Opus 5.5, with a waitlist that starts with US Pro and Max subscribers. Before it sends a message, makes a payment, signs a document or deletes anything, it "shows you exactly what it's about to do and waits for your approval"; some actions, such as trading securities or moving money between accounts, are not allowed even with approval. It checks connected accounts "every few hours", is included in Pro and Max, and shares their usage limits, with background checks counting against them. Anthropic's own caveats: it "still might misread a thread or miscalibrate what's urgent", is weaker at personal errands than at work tasks, and "can't yet show you its browser". An update on 23 October added detail on safety, privacy and security.
 
 ## Sources
 
@@ -179,6 +182,7 @@ For teams, Anthropic also offers [Claude Tag](/news/anthropic-claude-agents-in-s
 22. Anthropic, "Claude Models on Google Cloud (Anthropic managed)" (fetched 25 October 2026 - setup, IAM roles, the separate Anthropic organization and Marketplace billing): [https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed)
 23. Anthropic, "Model deprecations" (fetched 25 October 2026 - Sonnet 4.5 deprecated 30 September 2026 for retirement on 30 November 2026, Haiku 4.5 still Active): [https://platform.claude.com/docs/en/about-claude/model-deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations)
 24. Anthropic, "Pricing" (fetched 25 October 2026 - every row of the pricing table above re-checked, and the fast mode prices): [https://platform.claude.com/docs/en/about-claude/pricing](https://platform.claude.com/docs/en/about-claude/pricing)
+25. Anthropic, "Claude Duet" (21 October 2026, updated 23 October 2026, fetched 28 October 2026 - research preview, Opus 5.5, US Pro and Max waitlist, approval gates, check frequency, plan inclusion and limitations): [https://claude.com/blog/claude-duet](https://claude.com/blog/claude-duet)
 
 Three things on this page are deliberately hedged because Anthropic's own sources do not settle them: whether the previous-generation Opus 5 is orderable on Claude Platform on AWS (its model page says no, source 4 says yes), whether Mythos 5.1 runs safety classifiers (stated plainly for Mythos 5, not restated for 5.1), and whether Opus 5.5 is available under zero-data-retention arrangements on Anthropic-operated platforms (AWS says it is on Bedrock; Anthropic's model pages neither require 30-day retention nor state ZDR eligibility). The "40% cheaper than Opus 5" and "Fable 5.1-level" claims for Opus 5.5 are Anthropic's own measurements.
 

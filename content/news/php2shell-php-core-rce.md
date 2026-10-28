@@ -2,8 +2,8 @@
 title: "PHP2Shell: Two Critical PHP Engine Flaws Allow Unauthenticated Remote Code Execution"
 description: "On 21 October 2026 PHP released 8.5.12, 8.4.27, 8.3.36 and 8.2.35 to fix CVE-2026-109618 and CVE-2026-109619, two memory-safety flaws in the engine rated CVSS 4.0 9.2. Found in part with AI tools, leaked a day early, and probed within hours."
 date: 2026-10-21
-lastmod: 2026-10-25
-last_updated: 2026-10-25
+lastmod: 2026-10-28
+last_updated: 2026-10-28
 last_verified: 2026-10-25
 categories: [News]
 tags: [security, vulnerabilities, php, cve, remote-code-execution, coordinated-disclosure, ai-security-research, cyber-resilience-act]
@@ -63,8 +63,11 @@ Reports from security vendors, each attributed to its source:
 - **Cloudflare** says it deployed WAF mitigations for all customers while the vulnerability was leaked "and we observed attack traffic targeting our customers".
 - **Cisco Talos** said that as of 21 October 14:00 UTC it had not seen exploitation in the wild, and then "began observing exploitation attempts within hours of the vulnerabilities' disclosure. So far, most of the activity is scanning".
 - **Unit 42** (Palo Alto Networks, updated 23 October) reports that "At least one European government has taken its website offline as a precaution", and that in one case attackers targeting a European government entity accessed password hashes and multi-factor authentication secrets within two hours of initial exploitation. Unit 42 attributes the post-exploitation activity to "agentic AI attack platforms". That is Unit 42's assessment, not an independently confirmed finding.
+- **Amazon Threat Intelligence** (21 October) says it "identified a PHP2Shell exploitation attempt dating to Oct. 17, 2026, in MadPot telemetry", four days before the release, and adds that "it's unclear if any of these attempts would have succeeded in real-world systems."
 
-The CISA vulnerability enrichment in the CVE records, stamped 21 October, still says "Exploitation: none". Neither CVE was in CISA's Known Exploited Vulnerabilities catalog as of catalog version 2026.10.23. Both statements were true when made; the vendor reports are newer.
+**CISA now lists both as exploited.** On **26 October 2026** CISA added CVE-2026-109618 ("PHP Memory Corruption Vulnerability") and CVE-2026-109619 ("PHP Stale Internal Request-State Vulnerability") to its Known Exploited Vulnerabilities catalog, with a due date of **29 October 2026** for US federal civilian agencies. Both entries carry a new catalog field, `forensicTriage: "Yes"`, and the required action cites CISA's BOD 26-04 and its "Forensics Triage Requirements": patching alone is not enough for agencies, which must also check for signs of compromise. Ransomware use is recorded as "Unknown". CISA revised its 21 October alert twice: on 23 October to add a SIGMA detection rule, and on 26 October to record the KEV listing. The alert also advises taking systems on unsupported PHP 8.1 or earlier offline until they are updated. CISA does not publish the evidence behind a KEV listing.
+
+Until then, the CISA vulnerability enrichment in the CVE records, stamped 21 October, said "Exploitation: none", and neither CVE was in the catalog as of version 2026.10.23. Both statements were true when made.
 
 ### The European response
 
@@ -97,12 +100,15 @@ Wiz's write-up calls the findings "among the most severe vulnerabilities discove
 7. NVD, CVE-2026-109619 (published 21 October 2026, fetched 25 October 2026): [https://nvd.nist.gov/vuln/detail/CVE-2026-109619](https://nvd.nist.gov/vuln/detail/CVE-2026-109619)
 8. The PHP Foundation, "Today's PHP Security Release, and How We're Strengthening PHP Security" (21 October 2026): [https://thephp.foundation/blog/2026/10/21/todays-php-security-release-and-how-were-strengthening-php-security/](https://thephp.foundation/blog/2026/10/21/todays-php-security-release-and-how-were-strengthening-php-security/)
 9. European Commission, "Joint statement on critical PHP vulnerabilities" (21 October 2026, last updated 22 October 2026): [https://digital-strategy.ec.europa.eu/en/news/joint-statement-critical-php-vulnerabilities](https://digital-strategy.ec.europa.eu/en/news/joint-statement-critical-php-vulnerabilities)
-10. CISA, Known Exploited Vulnerabilities catalog, version 2026.10.23 (fetched 25 October 2026): [https://www.cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
+10. CISA, Known Exploited Vulnerabilities catalog, version 2026.10.23 (fetched 25 October 2026) and JSON feed version 2026.10.27 (fetched 28 October 2026): [https://www.cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
 11. Wiz Research, "PHP2Shell: AI uncovers critical RCE vulnerabilities affecting 70% of the Internet" (21 October 2026, secondary, researcher's own account): [https://www.wiz.io/blog/php2shell-php-rce](https://www.wiz.io/blog/php2shell-php-rce)
 12. Cloudflare, "Cloudflare deploys protections against php2shell vulnerability" (21 October 2026, updated 23 October 2026, secondary): [https://blog.cloudflare.com/php-vulnerabilities-waf-protection/](https://blog.cloudflare.com/php-vulnerabilities-waf-protection/)
 13. Cisco Talos, "Two critical RCEs in PHP core" (21 October 2026, updated 22 October 2026, secondary): [https://blog.talosintelligence.com/two-critical-rces-in-php-core/](https://blog.talosintelligence.com/two-critical-rces-in-php-core/)
 14. Unit 42, "Threat Brief: Critical Vulnerabilities in PHP: CVE-2026-109618, CVE-2026-109619" (updated 23 October 2026, secondary): [https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/](https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/)
 15. NCSC-NL, php2shell repository of affected third-party software (fetched 25 October 2026): [https://github.com/NCSC-NL/php2shell](https://github.com/NCSC-NL/php2shell)
+16. CISA, "CISA Adds Two Known Exploited Vulnerabilities to Catalog" (26 October 2026): [https://www.cisa.gov/news-events/alerts/2026/10/26/cisa-adds-two-known-exploited-vulnerabilities-catalog](https://www.cisa.gov/news-events/alerts/2026/10/26/cisa-adds-two-known-exploited-vulnerabilities-catalog)
+17. CISA, "Critical Vulnerabilities in PHP Require Immediate Patching" (21 October 2026, last revised 26 October 2026): [https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching](https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching)
+18. Amazon Web Services, CJ Moses, "Amazon threat intelligence identifies PHP2Shell exploitation prior to public disclosure in MadPot" (21 October 2026, secondary, vendor's own telemetry): [https://aws.amazon.com/blogs/security/amazon-threat-intelligence-identifies-php2shell-exploitation-prior-to-public-disclosure-in-madpot/](https://aws.amazon.com/blogs/security/amazon-threat-intelligence-identifies-php2shell-exploitation-prior-to-public-disclosure-in-madpot/)
 
 ## Further reading
 

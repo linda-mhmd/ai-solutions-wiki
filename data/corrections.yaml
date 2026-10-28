@@ -10,6 +10,34 @@
 #
 # `date` is when the correction landed. `page` must resolve to a real page.
 
+- date: 2026-10-28
+  page: /news/open-weight-models-october-2026/
+  headline: Moonshot did release a model in October, two days before we said it had not
+  body: >
+    The October roundup said "nothing new found from Moonshot", based on a
+    check of Moonshot's Hugging Face organisation on 25 October. Moonshot had
+    announced Kimi K3.1 Pro and K3.1 Pro Highspeed on 23 October, describing
+    K3.1 Pro as an open-weight model, with weights promised "by Nov 4" and API
+    access from launch. Because the weights were not yet on Hugging Face, a
+    check of Hugging Face alone could not find it. The entry now lists K3.1 Pro
+    with its API prices and the unpublished licence. The lesson: a model hub
+    shows weights, not releases. The lab's own blog and API changelog are the
+    primary source for whether something shipped.
+
+- date: 2026-10-28
+  page: /news/dead-internet-theory-confirmed-2026/
+  headline: Thales did not measure a 53 percent bot share in 2023
+  body: >
+    This entry said Thales put bot traffic at 53 percent "as far back as 2023",
+    citing a Fortune article. Thales's own releases say otherwise: its 2025 Bad
+    Bot Report found automated traffic at 51 percent of all web traffic in
+    2024, "for the first time in a decade", and its 2026 report puts bots at
+    over 53 percent. The entry also called Cloudflare's June 2026 figure the
+    first time bots exceeded humans online; that is true only of Cloudflare's
+    measure, requests for HTML pages, which differs from Thales's measure of
+    all web traffic. We had relied on press coverage of the report instead of
+    the report itself.
+
 - date: 2026-10-25
   page: /news/ai-copyright-litigation-2026/
   headline: The $1.5 billion Anthropic settlement was approved in July, not awaiting approval

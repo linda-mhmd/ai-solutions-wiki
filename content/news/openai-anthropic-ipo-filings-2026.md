@@ -1,9 +1,9 @@
 ---
-title: "OpenAI and Anthropic File Confidential IPO Paperwork"
-description: "OpenAI submitted a confidential S-1 to the SEC in June 2026 but says timing is undecided. Anthropic filed a week earlier. Both companies are targeting valuations above $1 trillion, though OpenAI may delay into 2027."
+title: "OpenAI and Anthropic IPO Filings: Anthropic Files Its S-1 Publicly"
+description: "Both labs filed confidentially in June 2026. On 26 October Anthropic filed its S-1 publicly, to list on Nasdaq as ANT with Goldman Sachs and Morgan Stanley; share count and price range are not yet set. OpenAI says its timing is undecided."
 date: 2026-06-08
-lastmod: 2026-07-30
-last_updated: 2026-07-30
+lastmod: 2026-10-28
+last_updated: 2026-10-28
 categories: [News]
 tags: [openai, anthropic, ipo, funding, ai-business]
 related:
@@ -13,6 +13,14 @@ related:
 ---
 
 OpenAI and Anthropic both filed confidential IPO paperwork with US regulators in June 2026. OpenAI submitted its draft S-1 to the SEC and announced the filing publicly, stating that timing remains undecided and may be delayed because "there are things we want to do that are likely easier as a private company." Anthropic filed approximately a week earlier. Both companies are reportedly targeting valuations above $1 trillion.
+
+## Update, 28 October 2026: Anthropic's public S-1
+
+On **26 October 2026** Anthropic announced that it had "filed a registration statement on Form S-1 with the U.S. Securities and Exchange Commission" for a proposed initial public offering of Class A common stock. In its words: "Anthropic intends to list its Class A common stock on the Nasdaq Global Select Market under the symbol 'ANT.'" Goldman Sachs & Co. LLC and Morgan Stanley & Co. LLC are named as underwriters. "The number of shares of Class A common stock to be offered" and "the price range for the proposed offering have not yet been determined", and the registration statement "has not yet become effective", so no shares can be sold yet.
+
+The SEC's EDGAR index lists the filing under **Anthropic, PBC** (CIK 0002130357), Form S-1, filed 26 October 2026, file number 333-299633.
+
+**Financial figures are not repeated here yet.** Press coverage reports revenue, loss, cash and compute-commitment figures from the prospectus, but the SEC did not allow our automated retrieval of the document, and this wiki does not publish financial figures it has only seen second-hand. Read them in the prospectus itself, linked below. The paragraph below that says Anthropic had made no public announcement was true for the June confidential filing and is kept as the record of that stage.
 
 ## What happened
 
@@ -35,6 +43,8 @@ The valuation targets also reflect how much capital frontier AI now requires. Bo
 - OpenAI, "Confidential submission of draft S-1 to the SEC" (June 2026): https://openai.com/index/openai-submits-confidential-s-1/
 - Morningstar, "What a Delayed OpenAI IPO Would Tell Investors" (July 2026)
 - Barchart, "OpenAI, Anthropic IPO: What's Confirmed, What's Still Speculation" (July 2026)
+- Anthropic, "Anthropic files S-1 with the SEC for proposed initial public offering" (26 October 2026): https://www.anthropic.com/news/s1-sec
+- U.S. Securities and Exchange Commission, EDGAR, Anthropic, PBC, Form S-1, file no. 333-299633 (filed 26 October 2026): https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm
 
 ## Further reading
 
