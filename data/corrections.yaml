@@ -24,6 +24,20 @@
     shows weights, not releases. The lab's own blog and API changelog are the
     primary source for whether something shipped.
 
+- date: 2026-10-28
+  page: /news/dead-internet-theory-confirmed-2026/
+  headline: Thales did not measure a 53 percent bot share in 2023
+  body: >
+    This entry said Thales put bot traffic at 53 percent "as far back as 2023",
+    citing a Fortune article. Thales's own releases say otherwise: its 2025 Bad
+    Bot Report found automated traffic at 51 percent of all web traffic in
+    2024, "for the first time in a decade", and its 2026 report puts bots at
+    over 53 percent. The entry also called Cloudflare's June 2026 figure the
+    first time bots exceeded humans online; that is true only of Cloudflare's
+    measure, requests for HTML pages, which differs from Thales's measure of
+    all web traffic. We had relied on press coverage of the report instead of
+    the report itself.
+
 - date: 2026-10-25
   page: /news/ai-copyright-litigation-2026/
   headline: The $1.5 billion Anthropic settlement was approved in July, not awaiting approval
