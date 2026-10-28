@@ -13,6 +13,7 @@ related:
   - tools/openai-api
   - news/gemini-4-argon
   - news/open-weight-models-october-2026
+  - tools/moonshot-kimi
   - guides/how-ai-models-are-evaluated
 ---
 
@@ -116,5 +117,6 @@ Google's Argon announcement on 30 September said Argon ranked "#1 on the Vals In
 - [The 2026 LLM landscape](/comparisons/llm-landscape-2026/)
 - [Gemini 4 Argon](/news/gemini-4-argon/): the model Carbon builds on, and the same staged rollout
 - [OpenAI API](/tools/openai-api/) and [Google Gemini](/tools/google-gemini/)
+- [Moonshot AI (Kimi)](/tools/moonshot-kimi/): the provider page, with K3 and K3.1 prices and the licence
 - [Open-weight models, October 2026](/news/open-weight-models-october-2026/)
 - [How AI models are evaluated](/guides/how-ai-models-are-evaluated/)

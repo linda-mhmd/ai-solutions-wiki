@@ -101,6 +101,7 @@ K3.1 Pro is a third cheaper than K3 on input and output. Highspeed doubles the p
 
 ## Further reading
 
+- [Gemini 4 Carbon, GPT-6.1 Terra, Kimi K3.1 Pro](/news/frontier-models-late-october-2026/): the K3.1 Pro launch in context
 - [The 2026 LLM landscape](/comparisons/llm-landscape-2026/)
 - [Open-weight models, October 2026](/news/open-weight-models-october-2026/)
 - [DeepSeek](/tools/deepseek/), [MiniMax](/tools/minimax/) and [Alibaba Qwen](/tools/alibaba-qwen/): the other Chinese open-weight labs
