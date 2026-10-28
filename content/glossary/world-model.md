@@ -2,7 +2,7 @@
 title: "World Model"
 description: "A model that learns an internal, predictive representation of how an environment evolves, predicting future states in a latent space so it can support understanding and planning."
 date: 2026-07-06
-lastmod: 2026-07-06
+lastmod: 2026-10-28
 categories: [Glossary]
 tags: ["ai-ml", "advanced", "planning", "self-supervised", "robotics"]
 related:
@@ -10,7 +10,7 @@ related:
   - glossary/computer-vision
   - glossary/reinforcement-learning
   - glossary/reasoning-models
-last_updated: 2026-07-06
+last_updated: 2026-10-28
 ---
 
 A world model is a model that learns an internal, predictive representation of how an environment evolves. Rather than generating raw pixels or text, it predicts future states in a latent space, an abstract representation, so that the prediction can be used for understanding and planning rather than for display. A leading self-supervised example is Meta's V-JEPA 2, a video model trained on internet-scale video that learns such a representation without labelled supervision. Its action-conditioned variant, V-JEPA 2-AC, uses the learned model to do zero-shot robot planning, showing that a world model built for understanding and prediction can also drive action.
@@ -27,6 +27,12 @@ Understanding and prediction become useful when they support planning. V-JEPA 2-
 
 Predicting in a latent space, rather than generating raw observations, makes a world model an efficient substrate for understanding, prediction, and planning. Training on internet-scale video with self-supervision means the approach scales without labelled datasets. The V-JEPA 2 and V-JEPA 2-AC results show a single learned model supporting both understanding and zero-shot planning, which is why world models are treated as a route toward agents that plan by simulating consequences.
 
+## Generative world models
+
+The term is also used for a second kind of system that does the opposite of latent prediction: it generates the environment itself, frame by frame, and lets a user or an agent act inside it. Google DeepMind's **Genie** line is the best-known example. Announcing **Genie 4** on 27 October 2026, Google calls it "our new world model for real-time interactive simulation" and says it "brings unprecedented realism and native audio", with scenes that can be steered in natural language, for example moving the camera or changing the weather. Google names "safe training environments for robots and agents" as one goal. Access is limited: it is rolling out "to a limited group of trusted testers", and Google gives no resolution, frame rate, session length or comparison with Genie 3.
+
+The two kinds serve different purposes. A latent world model like V-JEPA 2 is a component an agent uses to predict and plan. A generative world model is an environment in which agents, robots or people can act, which is why it matters for training physical systems where real-world data is scarce.
+
 ## Origins and History
 
 V-JEPA 2 was introduced by Mahmoud Assran, Nicolas Ballas, Yann LeCun, and colleagues at Meta FAIR in "V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning" (arXiv 2506.09985), released on 11 June 2025. The work trains self-supervised video models on internet-scale video and demonstrates that the resulting world model supports understanding and prediction. The action-conditioned variant, V-JEPA 2-AC, extends the model to zero-shot robot planning, making the understanding-to-planning path concrete.
@@ -35,3 +41,4 @@ V-JEPA 2 was introduced by Mahmoud Assran, Nicolas Ballas, Yann LeCun, and colle
 
 1. Assran, M., Ballas, N., LeCun, Y., et al. (Meta FAIR). *V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning.* arXiv:2506.09985, 11 June 2025. [https://arxiv.org/abs/2506.09985](https://arxiv.org/abs/2506.09985)
 2. Meta AI. *V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning.* [https://ai.meta.com/research/publications/v-jepa-2-self-supervised-video-models-enable-understanding-prediction-and-planning/](https://ai.meta.com/research/publications/v-jepa-2-self-supervised-video-models-enable-understanding-prediction-and-planning/)
+3. Google DeepMind. *Introducing Genie 4.* 27 October 2026. [https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/](https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/)
