@@ -2,8 +2,8 @@
 title: "Gemini 4 Argon Ships to Cyber Defenders First, With the Guardrails Off"
 description: "Google announced Gemini 4 Argon on 30 September 2026 and released it first to vetted cyber defenders without cyber guardrails. Since 13 October 2026 it is generally available as gemini-4-argon on the paid Gemini API, at $2/$10 per MTok until 30 November and $4/$20 from 1 December."
 date: 2026-09-30
-lastmod: 2026-10-25
-last_updated: 2026-10-25
+lastmod: 2026-10-28
+last_updated: 2026-10-28
 last_verified: 2026-10-25
 categories: [News]
 tags: [google, gemini, model-release, cybersecurity, ai-governance, pricing, staged-release]
@@ -52,7 +52,7 @@ Arithmetic on the corrected limit: a maximum-length response is at most 1,048,57
 
 **Migration notes from Google's "What's new in Gemini 4 Argon" guide.** Raise `max_output_tokens` to "at least 32,768, since Gemini 4 Argon can spend more of the limit on thinking". Remove calls that create or reference `cachedContents`, because explicit caching "is not supported on Gemini 4 Argon". Remove sampling parameters. "Use background execution, or set HTTP client timeouts to at least 15 minutes." If you set `background: true` without `max_output_tokens`, the guide says "the server stops after 64K tokens."
 
-**Vendor claims, attributed.** Google says Argon ranks "#1 on the Vals Index", scores 87% on the Embodied Reasoning (ERQA) benchmark "relying on pure reasoning", and cuts attack success on the Gray Swan Indirect Prompt Injection benchmark "across 15 adaptive attempts to 0.7%". It also says Argon produced "a 2.85x end-to-end inference speedup on an A100 via vLLM" for Gemma 4 E2B, from about 37,900 to over 108,000 tokens per second. The ratio is consistent (108,000 / 37,900 is 2.85), but the post does not state batch size, concurrency or sequence lengths, so the speedup cannot be compared with anything else. None of these figures has been reproduced independently as of 25 October.
+**Vendor claims, attributed.** Google says Argon ranks "#1 on the Vals Index", scores 87% on the Embodied Reasoning (ERQA) benchmark "relying on pure reasoning", and cuts attack success on the Gray Swan Indirect Prompt Injection benchmark "across 15 adaptive attempts to 0.7%". It also says Argon produced "a 2.85x end-to-end inference speedup on an A100 via vLLM" for Gemma 4 E2B, from about 37,900 to over 108,000 tokens per second. The ratio is consistent (108,000 / 37,900 is 2.85), but the post does not state batch size, concurrency or sequence lengths, so the speedup cannot be compared with anything else. None of these figures has been reproduced independently as of 25 October. Update, 28 October: on Vals Index v2.2 (updated 27 October 2026) Argon ranks fourth at 69.24%, behind Claude Sonnet 5.5, Gemini 4 Carbon and Claude Opus 5.5; Google's "#1" refers to the index as it stood at announcement. See [three models in six days](/news/frontier-models-late-october-2026/).
 
 **GitHub Copilot.** GitHub made Gemini 4 Argon generally available in Copilot the same day, for Copilot Pro+, Max, Business and Enterprise, and says it "is billed at provider list pricing under usage-based billing."
 

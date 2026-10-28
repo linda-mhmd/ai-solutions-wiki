@@ -5,8 +5,8 @@ date: 2026-06-01
 last_verified: 2026-09-25
 categories: [Comparisons]
 tags: ["llm", "gpt", "claude", "gemini", "gemma", "llama", "muse-spark", "mistral", "deepseek", "qwen", "kimi", "glm", "minimax", "mimo", "xiaomi", "tencent-hy", "grok", "nova", "nemotron", "granite", "ibm", "olmo", "falcon", "starcoder", "dbrx", "groq", "together-ai", "fireworks-ai", "ollama", "vllm", "hugging-face", "azure-ai", "vertex-ai", "oci", "open-source", "inference-providers", "comparison", "foundation-models", "model-selection"]
-last_updated: 2026-10-25
-lastmod: 2026-10-25
+last_updated: 2026-10-28
+lastmod: 2026-10-28
 related:
   - glossary/llm
   - glossary/foundation-models
@@ -92,6 +92,20 @@ A point upgrade to GPT-6 Sol rather than a new tier, which OpenAI positions as a
 **When to use it:** New Sol-tier work, especially prompt-heavy agent loops where the cheaper cached input moves the bill. GitHub Copilot names it as the replacement for GPT-5.5 and GPT-5.4. See [GPT-6.1 Sol and DevDay 2026](/news/openai-gpt-6-1-sol/).
 
 **API access:** OpenAI API (`gpt-6.1-sol`), GitHub Copilot.
+
+### GPT-6.1 Terra (`gpt-6.1-terra`)
+
+**Released:** 26 October 2026. **Context:** 1,050,000 tokens (922,000 max input), 128,000 max output. **Knowledge cutoff:** 1 June 2026 (model page, fetched 28 October 2026).
+
+OpenAI's GPT-6-generation mid-tier and the successor to GPT-5.6 Terra, described in the API changelog as "a fast, efficient model for visual reasoning, precise computer use, and clear, natural writing". Text and image in, text out. Reasoning effort `none` to `max`, default `medium`. Chat Completions, Responses and Batch; no Realtime and no fine-tuning. OpenAI's system card addendum treats it as "Critical in cybersecurity".
+
+**Pricing per million tokens** (up to 272,000 input tokens): **$1.00 input / $0.05 cached input / $5.00 output**; above 272,000 input tokens $2.00 / $0.10 / $7.50 for the full request. Batch and Flex are half; Fast is double. That is half of GPT-5.6 Terra's input price and 58% less on output.
+
+**Vendor claims, not reproduced:** on par with GPT-6 Astra "at only one-tenth its price per token" and "over three times faster" than Astra and GPT-6.1 Sol (OpenAI's launch post, as quoted by BleepingComputer); 50.3% on Terminal-Bench 4.0 at max effort. Independent: 51 on Artificial Analysis Intelligence Index v5.0 (max effort) and 60.47% on Vals Index v2.2, rank 11 of 29.
+
+**When to use it:** The new default to test for high-volume agent, computer-use and writing work that does not need Sol or Astra. OpenAI still recommends Sol or Astra for the most complex coding. See [three models in six days](/news/frontier-models-late-october-2026/).
+
+**API access:** OpenAI API (`gpt-6.1-terra`); ChatGPT Plus, Pro, Enterprise and Edu in ChatGPT Work and Codex.
 
 ### GPT-6 Luna (`gpt-6-luna`)
 
@@ -388,11 +402,23 @@ Google's new flagship. Text, image, video, audio and PDF in, text out; no Live A
 
 **Pricing per MTok (Standard):** $2.00 input / $0.10 cached / $10.00 output through 30 November 2026, then **$4.00 / $0.20 / $20.00 from 1 December 2026**. Batch and Flex are half; Priority is $3.60 / $18.00 introductory and $7.20 / $36.00 after. Google's footnote: "Applies to the Argon model intended for public access only." Vetted defenders in the Fairwind Program get a build without cyber guardrails.
 
-**Vendor claims, not reproduced:** #1 on the Vals Index, 87% on ERQA, 0.7% attack success on Gray Swan's indirect prompt-injection benchmark.
+**Vendor claims, not reproduced:** #1 on the Vals Index (at announcement; fourth on Vals Index v2.2 as of 27 October 2026, behind Sonnet 5.5, Gemini 4 Carbon and Opus 5.5), 87% on ERQA, 0.7% attack success on Gray Swan's indirect prompt-injection benchmark.
 
 **When to use it:** The hardest coding, agentic and scientific work on Google's stack, where the doubled December price is acceptable. Migration notes from Google: set `max_output_tokens` to at least 32,768 and client timeouts to at least 15 minutes. See [Gemini 4 Argon](/news/gemini-4-argon/).
 
 **API access:** Gemini API (paid tier) and AI Studio, the "Gemini platform", Google Antigravity for AI Ultra, the Gemini app and AI Mode for AI Ultra and Pro, GitHub Copilot (Pro+, Max, Business, Enterprise).
+
+### Gemini 4 Carbon (announced, limited access)
+
+**Announced:** 28 October 2026. **Access:** "a subset of cyber defenders" first, then trusted partners through the Fairwind Program, then developers, businesses and consumers at an unannounced date. **Model ID:** not published as of 28 October 2026. **Context, knowledge cutoff, modalities:** not published by Google.
+
+Google calls it "our strongest model with state-of-the-art cybersecurity and long horizon capabilities", "Building on Gemini 4 Argon".
+
+**Pricing per MTok:** $2 input / $10 output introductory, cached input 95% off; "After the introductory period expires", $4 / $20. Google does not give the end date for Carbon.
+
+**Vendor claims, not reproduced:** #1 on Artificial Analysis Intelligence Index v5.0 at 59; 88.2% on SEC-bench Pro, 54.8% on ExploitGym and 71.0% on Collinear's CWE-bench, all "evaluated without guardrails". Independent: Vals Index v2.2 rank 2 of 29 at 70.36%.
+
+**When to use it:** Not yet available for general use. See [three models in six days](/news/frontier-models-late-october-2026/).
 
 ### Gemini 3.8 Flash (`gemini-3.8-flash`)
 
@@ -833,6 +859,18 @@ On the downloadable-weights side, **Qwen-Image-2.1** (Hugging Face, 14 September
 Three more Chinese labs shipped frontier-scale models with published weights between June and August 2026, and two large consumer-tech companies - Xiaomi and Tencent - joined them at the trillion-parameter-class frontier in late August and September. Together with DeepSeek and Qwen they now account for most of the open-weight frontier, and any 2026 landscape that stops at DeepSeek and Qwen is missing roughly half of it.
 
 **Read the licences.** The single most actionable change across all five labs is that bespoke, revenue-gated licences became the norm in July and August 2026 - the Qwen3.8-Max License, Qwen Community License 1.0, the Kimi K3 License, the GLM-5.3 License and the MiniMax Community License all carry revenue or user-count triggers. Among these five labs only three current releases are standard permissive: DeepSeek's V4 and V4.1 line (MIT), Qwen3.8-27B (Apache 2.0) and GLM-5.3-Flash (MIT). The two newcomers below cut the other way - Xiaomi's MiMo-V2.6 is MIT and Tencent's Hy4-preview Apache 2.0. "Open weights" can no longer be read as a synonym for "permissive" when clearing procurement.
+
+### Kimi K3.1 Pro and K3.1 Pro Highspeed (Moonshot AI)
+
+**Announced:** 23 October 2026. **Context:** 1,048,576 tokens (Kimi pricing page: "All K3 series models support a 1,048,576-token context window"). **Parameters:** Moonshot says only "3T-class". **Weights and licence:** not published; Moonshot says "The full model weights will be released by Nov 4."
+
+"A post-trained version of Kimi K3". The Highspeed variant "delivers 2-3× the speed of K3.1 Pro".
+
+**Pricing per MTok (Kimi API):** K3.1 Pro $2.00 input / $0.20 cached / $10.00 output; Highspeed $4.00 / $0.20 / $20.00. Both below Kimi K3's $3.00 / $0.30 / $15.00. Moonshot closes its K2 models to new users from 31 October 2026 and retires them by the end of December 2026.
+
+**Independent:** 46 on Artificial Analysis Intelligence Index v5.0, the highest of any model announced as open-weight, though its weights are not yet out; 62.52% on Vals Index v2.2, rank 9 of 29. **Vendor claims, not reproduced:** 65.7% on Terminal-Bench 4.0.
+
+**When to use it:** API evaluation now; self-hosting only once the weights and licence are published. See [three models in six days](/news/frontier-models-late-october-2026/).
 
 ### Kimi K3 (Moonshot AI)
 
@@ -1527,10 +1565,12 @@ Current models only. Where a model's max output ceiling is materially lower than
 | Llama 4 Scout (Meta, legacy line) | 10,000,000 tokens (claimed) | - |
 | GPT-6 Astra / Sol / Luna (OpenAI) | 1,050,000 tokens (922,000 max input) | 128,000 |
 | GPT-6.1 Sol (OpenAI) | 1,050,000 tokens | 128,000 |
+| GPT-6.1 Terra (OpenAI) | 1,050,000 tokens (922,000 max input) | 128,000 |
 | Gemini 4 Argon (Google) | 1,048,576 tokens, shared by input and output | 65,536 synchronous; up to 1,048,576 minus input with long decode |
 | GPT-5.6 Sol / Terra / Luna (OpenAI) | 1,050,000 tokens | 128,000 |
 | Gemini 3.1 Pro (Google) | 1,048,576 tokens | 65,536 |
 | Kimi K3 (Moonshot) | 1,048,576 tokens | - |
+| Kimi K3.1 Pro (Moonshot) | 1,048,576 tokens | not published |
 | MiniMax-M3 | 1,048,576 tokens | 262,144 |
 | MiniMax-M3.1-Flash | 1,000,000 tokens | not published |
 | Mistral Large 4 (preview) | 1,000,000 tokens | not published |
@@ -1600,15 +1640,16 @@ Two cautions on reading this table. **Token counts are not comparable across tok
 | MiniMax-M3 / M3.1-Flash / H3 | MiniMax Community License (+ excluded territories on H3) | Yes | No |
 | Meta Muse Spark Open | Muse Model License (attribution; MaaS above US$20M revenue needs a Meta agreement; gated) | Yes | No |
 | Mistral Large 4 | Not published (weights promised, not released as of 25 Oct 2026) | Not yet | No |
+| Kimi K3.1 Pro | Not published (weights promised "by Nov 4") | Not yet | No |
 | Reka Edge | Custom (commercial use under $1M revenue only) | Yes | No |
 | Cohere Command A / Command R+ / North Small Translate | CC-BY-NC 4.0 (research weights; commercial use needs a Cohere licence) | Yes (non-commercial) | No |
 | Qwen-Image-2.1 | Qwen Research License (research and evaluation only) | Yes (non-commercial) | No |
 | DBRX | Databricks Open Model License | Yes | No |
 | Llama 3.x / Llama 4 | Llama Community License | Yes | No |
 | Gemma 3 | Gemma Terms of Use | Yes | No |
-| GPT-6 Astra / Sol / Luna, GPT-5.6 | Proprietary | No | No |
+| GPT-6 Astra / Sol / Luna, GPT-6.1 Sol / Terra, GPT-5.6 | Proprietary | No | No |
 | Claude 5 and 5.5 family (Fable / Mythos / Opus / Sonnet / Haiku) | Proprietary | No | No |
-| Gemini 3.x and Gemini 4 Argon | Proprietary | No | No |
+| Gemini 3.x, Gemini 4 Argon and Carbon | Proprietary | No | No |
 | Meta Muse Wonder / Muse Spark 1.x | Proprietary | No | No |
 | Grok 4.x | Proprietary | No | No |
 | Amazon Nova / Nova 2 | Proprietary | No | No |
@@ -1733,6 +1774,11 @@ Two practical consequences. First, **published benchmark results for these confi
 - [Qwen-Image-2.1](https://qwen.ai/blog?id=qwen-image-2.1): Qwen's 14 September 2026 release post
 - [Qwen on Hugging Face](https://huggingface.co/Qwen): Qwen3.8 open-weight model cards and their individual LICENSE files
 - [Kimi K3 on Hugging Face](https://huggingface.co/moonshotai/Kimi-K3): specifications and the Kimi K3 License
+- [Moonshot AI, "Kimi K3.1 Pro" (23 October 2026)](https://www.kimi.ai/blog/kimi-k3-1-pro) and [Kimi API pricing (fetched 28 October 2026)](https://platform.kimi.ai/docs/pricing/chat)
+- [OpenAI, GPT-6.1 Terra model page (fetched 28 October 2026)](https://developers.openai.com/api/docs/models/gpt-6.1-terra)
+- [Google, "Introducing Gemini 4 Carbon" (28 October 2026)](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/)
+- [Artificial Analysis, "Artificial Analysis Intelligence Index v5" (27 October 2026)](https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5)
+- [Vals AI, Vals Index v2.2 (updated 27 October 2026)](https://www.vals.ai/benchmarks/vals_index)
 - [Z.ai pricing](https://docs.z.ai/guides/overview/pricing): current GLM model rates
 - [Xiaomi MiMo-V2.6-Pro-RL on Hugging Face](https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL): specifications and MIT licence (21 September 2026)
 - [Tencent Hy4-preview on Hugging Face](https://huggingface.co/tencent/Hy4-preview): specifications, known issues and Apache 2.0 licence (27 August 2026)
