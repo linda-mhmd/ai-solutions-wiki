@@ -1,5 +1,6 @@
 ---
 title: "Version Control Fundamentals and Git"
+description: "What version control is, how Git stores history as snapshots identified by content hashes, and the working practices that keep a shared repository usable: branching models, atomic commits, commit messages and pull requests."
 date: 2026-03-31
 draft: false
 tags: ["software-engineering", "intermediate", "git", "version-control", "devops", "methodology"]
@@ -161,3 +162,7 @@ Even on small teams, opening a pull request before merging to the main branch cr
 - Driessen, V. (2010). "A successful Git branching model." nvie.com.
 - Chacon, S. (2011). "GitHub Flow." scottchacon.com.
 - Spinellis, D. (2005). "Version Control Systems." *IEEE Software*, 22(5), 108-109.
+
+## Further reading
+
+- [Pin a shared theme to a commit](/blog/pin-a-shared-theme-to-a-commit/): a case study of seven sites that share one theme through git submodules, with the build failure and the upgrade lag that came with it.

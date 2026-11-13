@@ -197,3 +197,4 @@ Documenting what was deployed is not sufficient for reproducibility. You must be
 - AWS Documentation: Bedrock Agents Classic maintenance mode, accessed 25 September 2026. [https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html)
 - AWS Documentation: S3 object versioning. [https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html)
 - Sculley, D. et al. (2015). "Hidden Technical Debt in Machine Learning Systems." Advances in Neural Information Processing Systems 28. - The original paper identifying reproducibility as a core ML operations challenge.
+- Further reading on this wiki: [Pin a shared theme to a commit](/blog/pin-a-shared-theme-to-a-commit/), a case study of the same pinning trade-off one layer down, in a theme shared by seven sites.

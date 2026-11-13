@@ -185,3 +185,4 @@ Some protections:
 - [What is npm?](/glossary/npm/): The package manager that handles all this
 - [What is Node.js?](/glossary/nodejs/): The runtime that makes JavaScript work outside browsers
 - [Slopsquatting](/glossary/slopsquatting/): A supply chain attack involving AI-hallucinated packages
+- [Pin a shared theme to a commit](/blog/pin-a-shared-theme-to-a-commit/): a case study of seven sites on one theme, and what pinning bought and cost

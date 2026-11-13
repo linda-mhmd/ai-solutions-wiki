@@ -5,6 +5,13 @@
         Curated by <a href="https://lindamohamed.com" target="_blank" rel="noopener author">Linda Mohamed</a>
       </p>
       <p class="author-byline-role">AWS Community Hero | AI Architect</p>
+      {{/* A page that grew out of a learning someone handed in names that person.
+           Front matter: submitted_by: { name, url, source, source_label } */}}
+      {{ with .Params.submitted_by }}
+      <p class="author-byline-submitter">
+        Learning submitted by {{ with .url }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $.Params.submitted_by.name }}</a>{{ else }}{{ .name }}{{ end }}{{ with .source }}, first written down in the <a href="{{ . }}" target="_blank" rel="noopener">{{ $.Params.submitted_by.source_label | default "original note" }}</a>{{ end }}
+      </p>
+      {{ end }}
       <p class="author-byline-note">Content curated with Claude, grounded in real project experience and active client work.</p>
     </div>
     <div class="author-byline-links">
