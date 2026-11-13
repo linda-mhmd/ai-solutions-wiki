@@ -2,9 +2,9 @@
 title: "Jensen Huang Resigns as NVIDIA CEO After 33 Years; Colette Kress Is Interim CEO"
 description: "NVIDIA said on 12 November 2026 that co-founder Jensen Huang resigned as president, CEO and director with immediate effect, after a week of reports about his personal conduct. CFO Colette Kress is interim CEO. The stock reaction, the research on sudden CEO exits, and what it means for builders."
 date: 2026-11-12
-lastmod: 2026-11-12
-last_updated: 2026-11-12
-last_verified: 2026-11-12
+lastmod: 2026-11-13
+last_updated: 2026-11-13
+last_verified: 2026-11-13
 categories: [News]
 tags: [nvidia, leadership, corporate-governance, stock-market, key-person-risk, ai-infrastructure, gpu]
 related:
@@ -46,7 +46,7 @@ We are deliberately not naming the two individuals, neither of whom holds public
 
 ## What it did to the stock
 
-The market reaction is the measurable part. The figures below are reported intraday numbers from 12 November, while trading was still under way; we have not been able to confirm a closing price at the time of writing, and different outlets measured at different moments.
+The market reaction is the measurable part. Most figures below are intraday numbers reported while trading was under way, and different outlets measured at different moments. The one firm number is the close: **NVIDIA ended 12 November at $166.19, down $7.54 or 4.34%**, far less than the intraday loss.
 
 | When | What was reported |
 | --- | --- |
@@ -55,9 +55,10 @@ The market reaction is the measurable part. The figures below are reported intra
 | Wed 11 Nov | Closed at $173.73; then fell about 8% after hours on the second report and the board report |
 | Thu 12 Nov, pre-market | Down about 11% to 12.5%, quoted around $152 to $155 |
 | Thu 12 Nov, after the open | Down as much as 13% to 14%, a reported low near $149, erasing close to $600 billion of market value at the trough, before paring to a loss of roughly 7% to 10%. Market value fell below $4 trillion |
+| **Thu 12 Nov, close** | **$166.19, down 4.34%** from $173.73 (Yahoo Finance, The Motley Fool). Down about 11% for the week to Thursday's close (StockAnalysis) |
 | Week to date | CBS reported NVIDIA on track to lose more than $700 billion of value since the previous week's close |
 
-**The wider market, as reported during the session:** the Nasdaq Composite was down about 1.5% and the S&P 500 about 0.7%, while the Dow, which weights NVIDIA less heavily, was up. The iShares Semiconductor ETF fell about 3.2%. AMD and Broadcom, by contrast, held up better, with traders betting that NVIDIA's troubles could send business their way.
+**The wider market, as reported during the session** (indices recovered later and closed only slightly lower, per StockTitan's close report): the Nasdaq Composite was down about 1.5% and the S&P 500 about 0.7%, while the Dow, which weights NVIDIA less heavily, was up. The iShares Semiconductor ETF fell about 3.2%. AMD and Broadcom, by contrast, held up better, with traders betting that NVIDIA's troubles could send business their way.
 
 **Analysts, as reported:** Bernstein halved its price target from $400 to $200, and was reported to have downgraded the stock to market-perform; Stifel cut its target from $315 to $205 but kept its buy rating; Citi cut from $285 to $225. FactSet counted at least 10 analysts turning more bearish during the week. JPMorgan said the risk of tighter restrictions on chip shipments into China had risen, because Huang had been NVIDIA's chief advocate in Washington for easing them.
 
@@ -69,12 +70,14 @@ A few points of method, because a headline percentage is not a measurement of wh
 
 **The benchmark is contaminated.** The usual correction is to subtract the market's move. But NVIDIA is one of the largest weights in the Nasdaq and the S&P 500, so on 12 November the index fell partly *because* NVIDIA fell. Subtracting the Nasdaq's 1.5% from NVIDIA's drop understates the company-specific effect. A careful estimate would use a benchmark that excludes NVIDIA, which we have not computed.
 
-**Dollar losses depend on the moment.** "Nearly $600 billion" was measured at the intraday low; "$300 billion to $440 billion" figures were measured later in the session. All are snapshots of a price that kept moving, and none is a realised loss.
+**Dollar losses depend on the moment.** "Nearly $600 billion" was measured at the intraday low; "$300 billion to $440 billion" figures were measured later in the session. All are snapshots of a price that kept moving, and none is a realised loss. The close tells its own story: from a fall of up to 14% the stock recovered to a 4.34% loss on the day, so the market, after its first reaction, priced a known interim arrangement as less bad than four days of uncertainty. One day is far too short to say whether that holds.
+
+**A rough check against the research.** The day's 4.34% close-to-close fall is almost exactly the 4.1% average CEO-scandal loss in Cline, Walkling and Yore (2018), below. But the week's cumulative fall of about 11% to Thursday's close is the better comparison, because the information arrived over four days, and that is between two and three times the average. This is arithmetic on reported prices, not an event study: it does not subtract the market's move or adjust for NVIDIA's beta.
 
 **What the research says.** Three strands of academic work help put the move in context:
 
 - **Sudden departures reveal how much the market valued an executive.** Johnson, Magee, Nagarajan and Newman (1985) studied the stock-price reaction to 53 sudden executive deaths and found that the reaction varied with whether the executive was a founder and with their decision-making responsibilities. Nguyen and Nielsen (2014) extended the method to 149 sudden deaths of US executives and found that the market's reaction was *positive* in 42% of CEO cases, and that top executives capture on average about 71% of the value they create (65% for CEOs). In this literature, founder-CEOs tend to carry the largest valuation premium, which is consistent with the size of NVIDIA's move. A resignation is not a death, but the logic is the same: an unexpected exit shows what the market thought one person was worth.
-- **Personal scandals cost firms money, beyond the individual.** Cline, Walkling and Yore (2018, *Journal of Financial Economics*), studying roughly 35 years of managerial indiscretions, found an average firm-value loss of about 4.1% when the indiscretion involved the CEO and 1.6% for other managers, with continued underperformance and lost partnerships and customers afterwards. NVIDIA's move this week was several times that average, which is what you would expect if the market was pricing the loss of the founder and the China-policy risk rather than the scandal alone.
+- **Personal scandals cost firms money, beyond the individual.** Cline, Walkling and Yore (2018, *Journal of Financial Economics*), studying roughly 35 years of managerial indiscretions, found an average firm-value loss of about 4.1% when the indiscretion involved the CEO and 1.6% for other managers, with continued underperformance and lost partnerships and customers afterwards. NVIDIA's cumulative move this week was well above that average, which is what you would expect if the market was pricing the loss of the founder and the China-policy risk rather than the scandal alone.
 - **Boards act faster on personal misconduct than on financial misconduct.** Research by Aaron Hill and colleagues at the University of Florida, comparing 59 personal-misconduct cases with more than 300 financial scandals from 1997 to 2020, found CEOs were about five times more likely to be dismissed for personal misconduct than for overseeing financial fraud. NVIDIA's board moved within four days of the first report.
 
 The honest conclusion is that the market treated Huang as a large part of NVIDIA's value, as founder-CEO research would predict, and that the week's moves bundle together the loss of the founder, uncertainty about succession, the investigation, and the policy risk around China. Separating those requires the earnings call on 17 November and a proper event study after the dust settles.
@@ -111,6 +114,10 @@ Reporting (12 November 2026 unless dated otherwise):
 - Yahoo Finance, "Stock market today: S&P 500, Nasdaq sink as Nvidia CEO Jensen Huang resigns": https://finance.yahoo.com/markets/live/stock-market-today-thursday-november-12-sp-500-nasdaq-dow-nvidia-invest-110027430.html
 - Quartz, "Nvidia stock falls about 12% premarket after Jensen Huang resigned": https://qz.com/jensen-huang-resigns-nvidia-ceo-affairs-stock-sinks-111226
 - 24/7 Wall St., on the 11 November after-hours decline (11 November 2026): https://247wallst.com/investing/2026/11/11/nvidia-just-fell-8-3-after-hours-on-a-report-of-a-second-jensen-huang-affair-heres-what-2000-shares-have-lost-this-week/
+- Yahoo Finance, NVDA historical prices, for the 12 November close of $166.19 (accessed 13 November 2026): https://ca.finance.yahoo.com/quote/NVDA/history/
+- The Motley Fool, "Stock Market Today, Nov. 12: Nvidia Shares Slide on Reports of CEO Jensen Huang's Resignation": https://www.fool.com/coverage/stock-market-today/2026/11/12/stock-market-today-nov-12-nvidia-shares-slide-on-reports-of-ceo-jensen-huang-s-resignation/
+- StockTitan, "Stocks Closed Slightly Lower in the Stock Market Today, November 12, 2026": https://www.stocktitan.net/articles/stock-market-today-live-november-12-2026
+- StockAnalysis, NVDA overview, for the weekly change to Thursday's close (accessed 13 November 2026): https://stockanalysis.com/stocks/nvda/
 - IBTimes, on AMD and Broadcom during the session: https://www.ibtimes.com.au/nvidia-shares-fall-jensen-huang-resigns-ceo-1878502
 
 Memes:
