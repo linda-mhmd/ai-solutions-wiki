@@ -2,8 +2,8 @@
 title: "NVIDIA AI Platform (NIM, NeMo, DGX)"
 description: "How NVIDIA combines GPUs, DGX systems, NVIDIA AI Enterprise, NIM inference microservices, and the NeMo framework into one full-stack AI platform."
 date: 2026-06-29
-last_updated: 2026-10-25
-lastmod: 2026-10-25
+last_updated: 2026-11-12
+lastmod: 2026-11-12
 last_verified: 2026-09-25
 tags: ["nvidia", "gpu", "inference", "infrastructure", "enterprise-ai"]
 tool_category: "Infrastructure"
@@ -14,6 +14,7 @@ related:
   - tools/amazon-bedrock
   - tools/azure-openai
   - guides/multi-cloud-ai-strategy
+  - news/nvidia-ceo-jensen-huang-resigns
 ---
 
 <figure class="bz-figure">
@@ -22,6 +23,8 @@ related:
 </figure>
 
 NVIDIA supplies the dominant hardware for training and running AI models, plus a layered software stack that turns raw GPUs into a supported enterprise platform. The problem it solves is fragmentation. Teams that buy GPUs still face driver management, inference optimisation, model packaging, and lifecycle tooling. NVIDIA bundles these into named products so you can deploy models in your own data center or cloud with vendor support instead of assembling everything yourself.
+
+**Leadership change, 12 November 2026.** Co-founder Jensen Huang resigned as president, CEO and director with immediate effect; CFO Colette Kress is interim CEO and Harvey C. Jones is the company's first board chair. The products, roadmaps and contracts described on this page are not affected by the announcement itself. See [Jensen Huang resigns as NVIDIA CEO](/news/nvidia-ceo-jensen-huang-resigns/).
 
 This page covers the platform at a high level: GPUs and DGX systems as the hardware, NVIDIA AI Enterprise as the supported software suite, NIM as the [inference](/glossary/inference/) delivery layer, and NeMo as the framework for building and customising models. It also explains when a NVIDIA-based deployment makes sense versus a cloud-managed model API.
 
@@ -167,6 +170,7 @@ Choose the NVIDIA platform when data must stay in your environment, when you cus
 
 ## Further reading
 
+- [Jensen Huang resigns as NVIDIA CEO](/news/nvidia-ceo-jensen-huang-resigns/): the November 2026 leadership change and what it means for buyers.
 - [What is inference?](/glossary/inference/): the runtime step NIM is built to optimise.
 - [What are foundation models?](/glossary/foundation-models/): the models NeMo builds and NIM serves.
 - [CoreWeave](/tools/coreweave/): a specialist cloud for renting NVIDIA GPUs.
