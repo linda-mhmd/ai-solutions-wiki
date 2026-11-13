@@ -1,6 +1,6 @@
 ---
 title: "Google Gemini"
-description: "Google's family of frontier multimodal models: the current lineup as of October 2026 (4 Argon, 4 Carbon announced, 3.8 Flash, 3.1 Pro, Flash-Lite, Omni, Deep Think, 3.8 Live and TTS), what each tier costs, and how Gemma 4 fits alongside it."
+description: "Google's family of frontier multimodal models: the current lineup as of November 2026 (4 Carbon, 4 Argon, 4 Hydrogen, 3.8 Flash, 3.1 Pro, Flash-Lite, Omni, Deep Think, 3.8 Live and TTS), what each tier costs, and how Gemma 4 fits alongside it."
 date: 2026-09-03
 tags: ["gemini", "google", "multimodal", "foundation-models", "llm", "gemma"]
 tool_category: "AI"
@@ -13,8 +13,9 @@ related:
   - comparisons/llm-landscape-2026
   - news/gemini-3-8-flash-cyber
   - news/gemini-4-argon
-last_updated: 2026-10-28
-lastmod: 2026-10-28
+  - news/gemini-4-hydrogen
+last_updated: 2026-11-13
+lastmod: 2026-11-13
 last_verified: 2026-10-25
 ---
 
@@ -35,7 +36,9 @@ Google ships Gemini as tiers, not a single model. The naming follows a generatio
 
 **Gemini 4 Argon is generally available since 13 October 2026, on paid tiers only.** Google announced it on 30 September and released it first to vetted cyber defenders through the Fairwind Program, for whom it runs **without cyber guardrails**. On 13 October the Gemini API release notes listed `gemini-4-argon` as "generally available (GA)", and Google's launch post says it is available "via the API in AI Studio and Gemini platform, for Google AI Ultra subscribers in Google Antigravity, and Google AI Ultra and Pro subscribers in the Gemini app and AI Mode in Search." It is not on the Free tier. Its context is a single 1,048,576-token window shared by input, thinking and output; a synchronous call returns at most 65,536 output tokens by default, and "long decode" in background execution continues in hops of up to 64K tokens to as much as 1,048,576 minus the input. Explicit context caching (`cachedContents`) is not supported, only implicit caching for prompts of at least 4,096 tokens; `temperature`, `top_p` and `top_k` are ignored. The $2 / $10 per MTok price is introductory and ends on 30 November 2026; from 1 December it is $4 / $20. Google's migration guide asks for `max_output_tokens` of "at least 32,768" and client timeouts of "at least 15 minutes". See [Gemini 4 Argon](/news/gemini-4-argon/) for the full limits, tier prices and the vendor claims.
 
-**Gemini 4 Carbon was announced on 28 October 2026 and is not yet available to developers.** Google calls it "our strongest model with state-of-the-art cybersecurity and long horizon capabilities", "Building on Gemini 4 Argon". It follows Argon's route: first "a subset of cyber defenders", then trusted partners through the Fairwind Program, then developers, businesses and consumers at an unannounced date. As of 28 October there is no Carbon model ID in the Gemini API docs or changelog. Google gives the same introductory price as Argon, $2 / $10 per MTok, rising to $4 / $20 "After the introductory period expires", without saying when that is. Context window, knowledge cutoff and modalities are not published. Google says Carbon ranks first on Artificial Analysis Intelligence Index v5.0 at 59; Vals places it second on Vals Index v2.2 at 70.36%. See [three models in six days](/news/frontier-models-late-october-2026/).
+**Gemini 4 Carbon has been generally available to developers since 10 November 2026.** Announced on 28 October as "our strongest model with state-of-the-art cybersecurity and long horizon capabilities", `gemini-4-carbon` reached paying developers and enterprises on 10 November through the Gemini API, AI Studio, Gemini for business and Google Cloud, with an allowlisted `gemini-4-carbon-cyber-permissive` variant for defensive security. Its introductory price matches Argon's, $2 / $10 per MTok until 30 November 2026, then $4 / $20. Google Cloud's pricing page lists different introductory figures for some endpoints, so check the one you call.
+
+**Gemini 4 Hydrogen, released 12 November 2026, is the new everyday model.** `gemini-4-hydrogen` is adapted from Carbon, priced at $1.50 / $7.50 per MTok "flat across its entire 1 million-token context window" ($1.65 input on non-global Google Cloud endpoints), and available on all tiers of the Gemini API and AI Studio, in the Gemini app and in Google Search. Google's migration guidance points `gemini-3.8-flash` users to it and says it finishes tasks 2.5 times faster than 3.8 Flash at its default setting. Thinking levels run LOW to XHIGH (default HIGH), and the knowledge cutoff is March 2026. See [Gemini 4 Hydrogen](/news/gemini-4-hydrogen/).
 
 **The Gemini agent, announced 8 October 2026, is a product rather than a model.** At Gemini at Work 2026 Google Cloud introduced a single agent for chat, tasks and code that spawns sub-agents, gives persistent "coworker" agents their own identity and `@agents.company.com` email address, and routes each job to a Gemini model or, notably, to Anthropic's Claude models. Google published no price, no general-availability date and no regions; launch coverage describes an enterprise private preview. See [Google's Gemini agent](/news/google-gemini-agent-gemini-at-work/).
 
@@ -146,9 +149,11 @@ Gemini API rates, per million tokens, paid tier, as published on the pricing pag
 | Model | Model ID | Status | Input / output per MTok |
 |---|---|---|---|
 | Gemini 4 Argon | `gemini-4-argon` | GA, 13 Oct 2026 (paid tiers only) | $2.00 / $10.00 to 30 Nov 2026; $4.00 / $20.00 from 1 Dec 2026 |
+| Gemini 4 Carbon | `gemini-4-carbon` | GA, 10 Nov 2026 (paying developers) | $2.00 / $10.00 to 30 Nov 2026; $4.00 / $20.00 from 1 Dec 2026 |
+| Gemini 4 Hydrogen | `gemini-4-hydrogen` | GA, 12 Nov 2026, all tiers | $1.50 / $7.50, flat across the 1M context |
 | Gemini 3.8 Flash | `gemini-3.8-flash` | GA, 2 Sep 2026 | $0.75 / $3.75 introductory |
 | Gemini 3.7 Flash | `gemini-3.7-flash` | Deprecated 8 Oct 2026; requests routed to `gemini-3.8-flash` | no longer listed |
-| Gemini 3.6 Flash | `gemini-3.6-flash` | GA, 21 Jul 2026 | $0.75 / $3.75 introductory |
+| Gemini 3.6 Flash | `gemini-3.6-flash` | GA, 21 Jul 2026; retires 19 Nov 2026 | $0.75 / $3.75 introductory |
 | Gemini 3.5 Flash | `gemini-3.5-flash` | Deprecated 8 Oct 2026; requests routed to `gemini-3.6-flash` | no longer listed (was $1.50 / $9.00) |
 | Gemini 3.1 Pro | `gemini-3.1-pro-preview` | Preview, 19 Feb 2026 | $2.00 / $12.00 up to 200K tokens; $4.00 / $18.00 above |
 | Gemini 3.5 Flash-Lite | `gemini-3.5-flash-lite` | GA, 21 Jul 2026 | $0.30 / $2.50 |
@@ -265,6 +270,9 @@ Match the tier to the task even when Gemini is the right family. Flash-Lite for 
 - Google, "Gemini 4 Argon: Built to solve your hardest problems", Koray Kavukcuoglu, 13 October 2026: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/ - general availability, surfaces, and the introductory price footnote.
 - Google AI for Developers, "What's new in Gemini 4 Argon" (last updated 16 October 2026, fetched 25 October 2026): https://ai.google.dev/gemini-api/docs/latest-model - long decode, thinking levels, caching and the migration checklist.
 - Google, "The latest AI news we announced in September 2026", 2 October 2026: https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/ - the Gemini 3.8 series line-up alongside Argon.
+- Google, "Introducing Gemini 4 Hydrogen for Agentic Workflows", 12 November 2026: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/ - price, context, availability; Google Cloud's developer guide (https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-hydrogen) for the model ID, thinking levels and endpoints.
+- Google, "Gemini 4 Carbon is now available", 10 November 2026: https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/ - developer availability and the 1 December price.
+- Google Cloud, Gemini 3.6 Flash model page, for the 19 November 2026 retirement: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash
 - Google, "Introducing Gemini 4 Carbon", Koray Kavukcuoglu, 28 October 2026: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/
 - Google Cloud, "Gemini Robotics Embodied Reasoning 2 is now available on Google Cloud", Carolina Parada and Adrian Jones, 27 October 2026: https://cloud.google.com/blog/products/ai-machine-learning/gemini-robotics-embodied-reasoning-2-is-now-available-on-google-cloud
 - Google DeepMind, "Introducing Genie 4", 27 October 2026: https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/
