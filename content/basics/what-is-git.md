@@ -192,6 +192,7 @@ There are also alternatives to GitHub: [GitLab](https://gitlab.com/) (popular fo
 - [Oh Shit, Git!](https://ohshitgit.com/), plain-language recipes for common Git disasters ("I committed to main when I meant to commit to a branch")
 - [Git Immersion](https://gitimmersion.com/), guided walkthrough of Git fundamentals
 - [.gitignore templates, GitHub](https://github.com/github/gitignore), official templates for every language
+- [Pin a shared theme to a commit](/blog/pin-a-shared-theme-to-a-commit/), a case study of git submodules across seven sites that share one theme
 
 ## What's next
 
