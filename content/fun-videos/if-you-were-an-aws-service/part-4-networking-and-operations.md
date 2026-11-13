@@ -6,6 +6,7 @@ last_updated: 2026-11-13
 lastmod: 2026-11-13
 weight: 4
 part: 4
+thumb: "explainers/part-4.jpg"
 group: "Networking & operations"
 summary: "How requests find your services, how infrastructure gets built from a template, how work runs step by step, and how you watch it all."
 tags: ["aws", "beginner", "video", "networking", "infrastructure-as-code", "observability"]
@@ -18,7 +19,7 @@ This part is about the services that connect, build, run and watch everything el
 
 > **The answers:** two people pick VPC Lattice.
 
-{{< video src="fun-videos/if-you-were-an-aws-service/p4-vpclattice.mp4" title="Amazon VPC Lattice: the explanation" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
+{{< video src="fun-videos/if-you-were-an-aws-service/p4-vpclattice.mp4" title="The explanation, from the film" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
 
 VPC Lattice connects your services across VPCs and accounts, without peering or a transit gateway in between. You put services into a service network and Lattice does the routing. Who may call whom can be set with an IAM policy.
 
@@ -26,7 +27,7 @@ VPC Lattice connects your services across VPCs and accounts, without peering or 
 
 > **The answer:** one person picks Route 53.
 
-{{< video src="fun-videos/if-you-were-an-aws-service/p4-route53.mp4" title="Amazon Route 53: the explanation" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
+{{< video src="fun-videos/if-you-were-an-aws-service/p4-route53.mp4" title="The explanation, from the film" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
 
 Route 53 is AWS's DNS service: it registers domains, answers DNS lookups and checks the health of your endpoints. When you type a name, a resolver asks a root server first, then the server for dot com, and only then the name servers that hold the answer. The name comes from the port DNS answers on: 53.
 
@@ -34,7 +35,7 @@ Route 53 is AWS's DNS service: it registers domains, answers DNS lookups and che
 
 > **The answers:** one person picks CloudFormation. Another names a service that does not exist: "AWS Terraform".
 
-{{< video src="fun-videos/if-you-were-an-aws-service/p4-cloudformation.mp4" title="AWS CloudFormation: the explanation" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
+{{< video src="fun-videos/if-you-were-an-aws-service/p4-cloudformation.mp4" title="The explanation, from the film" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
 
 CloudFormation sets up your AWS resources from a template, a text file in YAML or JSON that describes everything you want. It creates it all as one stack, works out what depends on what, and builds everything in the right order. Many people now write it as code with the open-source AWS CDK. "AWS Terraform" is the joke: Terraform is not an AWS service but a separate infrastructure-as-code tool from HashiCorp, and the explainer tells where it comes from and how it meets CloudFormation.
 
@@ -42,7 +43,7 @@ CloudFormation sets up your AWS resources from a template, a text file in YAML o
 
 > **The answers:** Step Functions, because it can orchestrate whatever workflow you like. And CodeBuild, the worker that runs the commands.
 
-{{< video src="fun-videos/if-you-were-an-aws-service/p4-stepfunctions-codebuild.mp4" title="AWS Step Functions and AWS CodeBuild: the explanation" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
+{{< video src="fun-videos/if-you-were-an-aws-service/p4-stepfunctions-codebuild.mp4" title="The explanation, from the film" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
 
 Step Functions lets you build workflows, called state machines, that run AWS services step by step, with tasks, choices, parallel branches, loops and waits. CodeBuild is a managed build service: it compiles your code, runs tests and produces artifacts. The two answers fit together: a workflow can start a CodeBuild job and wait until it is done.
 
@@ -50,7 +51,7 @@ Step Functions lets you build workflows, called state machines, that run AWS ser
 
 > **The answer:** one person picks the Application Load Balancer.
 
-{{< video src="fun-videos/if-you-were-an-aws-service/p4-alb.mp4" title="Application Load Balancer: the explanation" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
+{{< video src="fun-videos/if-you-were-an-aws-service/p4-alb.mp4" title="The explanation, from the film" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
 
 An Application Load Balancer is one front door that spreads web requests across your servers and functions. It reads every request, checks which targets are healthy, and sends the request on to an EC2 instance, an IP address or a Lambda function. Listeners, rules and target groups decide where each request goes.
 
@@ -58,7 +59,7 @@ An Application Load Balancer is one front door that spreads web requests across 
 
 > **The answer:** CloudWatch, because it likes to collect all the insights and then act on them.
 
-{{< video src="fun-videos/if-you-were-an-aws-service/p4-cloudwatch.mp4" title="Amazon CloudWatch: the explanation" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
+{{< video src="fun-videos/if-you-were-an-aws-service/p4-cloudwatch.mp4" title="The explanation, from the film" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
 
 That is how CloudWatch works. It collects metrics, logs and traces from your AWS resources and your apps. An alarm watches a metric, and when its state changes, it acts: it sends a notification, scales out, or runs a Lambda function.
 
@@ -66,7 +67,7 @@ That is how CloudWatch works. It collects metrics, logs and traces from your AWS
 
 > **The answers:** one person picks the Management Console, another Wavelength.
 
-{{< video src="fun-videos/if-you-were-an-aws-service/p4-console-wavelength.mp4" title="AWS Management Console and AWS Wavelength: the explanation" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
+{{< video src="fun-videos/if-you-were-an-aws-service/p4-console-wavelength.mp4" title="The explanation, from the film" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
 
 The console is one web app that opens every AWS service console, with search and even a shell in your browser, CloudShell. It started in 2009, with just EC2. Wavelength puts AWS compute and storage at the edge of mobile networks, close to the people using them.
 

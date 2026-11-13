@@ -6,6 +6,7 @@ last_updated: 2026-11-13
 lastmod: 2026-11-13
 weight: 1
 level: "Beginner"
+thumb: "explainers/part-3.jpg"
 duration: "About 37 min"
 youtube: "https://www.youtube.com/@mrs_lee_g"
 channel: "Linda Mohamed"

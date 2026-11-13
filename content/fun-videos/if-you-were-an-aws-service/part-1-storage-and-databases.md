@@ -6,6 +6,7 @@ last_updated: 2026-11-13
 lastmod: 2026-11-13
 weight: 1
 part: 1
+thumb: "explainers/part-1.jpg"
 group: "Storage & databases"
 summary: "Where data lives: S3 for files, Aurora and Aurora DSQL for relational data, DynamoDB for fast key-value data."
 tags: ["aws", "beginner", "video", "storage", "database"]
@@ -18,7 +19,7 @@ This part is about where data lives.
 
 > **The answers:** S3, because it is basic but useful. Because it is simple. Infinitely scalable. Old school and trustworthy. Eleven nines reliable. Easy and cheaper. The service the world runs on.
 
-{{< video src="fun-videos/if-you-were-an-aws-service/p1-s3.mp4" title="Amazon S3: the explanation" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
+{{< video src="fun-videos/if-you-were-an-aws-service/p1-s3.mp4" title="The explanation, from the film" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
 
 S3 gets more answers than any other service in the film. S3 is AWS's object storage service. You keep data as objects in buckets and get them back by name. It has two main moves: PUT stores a file, GET gives it back. A normal (general purpose) bucket has no real folders. Every file has a name, its key, and the slashes in that name only look like folders. Only the newer directory buckets keep data in real directories.
 
@@ -33,7 +34,7 @@ The explainers take the answers in turn:
 
 > **The answers:** one person picks Aurora, another Aurora DSQL. Their reasons are in the full video.
 
-{{< video src="fun-videos/if-you-were-an-aws-service/p1-aurora.mp4" title="Amazon Aurora and Aurora DSQL: the explanation" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
+{{< video src="fun-videos/if-you-were-an-aws-service/p1-aurora.mp4" title="The explanation, from the film" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
 
 Aurora is AWS's fully managed relational database engine, compatible with MySQL and PostgreSQL. It cuts your data into 10 GiB segments and copies each one six ways, across three Availability Zones. Aurora DSQL is a serverless, distributed relational database for transactions. It became generally available in May 2025.
 
@@ -41,7 +42,7 @@ Aurora is AWS's fully managed relational database engine, compatible with MySQL 
 
 > **The answer:** DynamoDB, because it is speedy, efficient, and like a Swiss army knife.
 
-{{< video src="fun-videos/if-you-were-an-aws-service/p1-dynamodb.mp4" title="Amazon DynamoDB: the explanation" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
+{{< video src="fun-videos/if-you-were-an-aws-service/p1-dynamodb.mp4" title="The explanation, from the film" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
 
 DynamoDB is a serverless, fully managed NoSQL database with single-digit millisecond performance at any scale. The explainer opens the Swiss army knife: it holds key-value items and documents, streams every change, runs all-or-nothing transactions and replicates tables across Regions. The knife has a catch too: AWS's own documentation calls DynamoDB data modelling a challenging skill to learn.
 

@@ -4622,7 +4622,9 @@ a.idx-stat-block:hover .idx-stat-label {
 @media (max-width: 620px) { .co-acc-summary { display: none; } .co-acc-body { padding-left: 18px; } }
 
 /* Course landing: curriculum (index + five-layer diagram rail, video-card grid) */
-.co-curriculum { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 40px; align-items: start; padding: 28px 0 60px; }
+.co-curriculum { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 40px; align-items: start; padding-top: 28px; padding-bottom: 60px; }
+.co-curriculum--single { grid-template-columns: minmax(0, 1fr); }
+.co-curriculum--single .co-intro { max-width: 760px; }
 .co-rail { position: sticky; top: 78px; display: flex; flex-direction: column; gap: 24px; }
 .co-rail-label { display: block; font: 600 .64rem/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
 .fl-mini { gap: 3px; margin: 0; }

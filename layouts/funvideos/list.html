@@ -2,8 +2,8 @@
 {{- /* Fun videos. Two kinds of list page share this layout:
        - the overview (/fun-videos/): one card per playlist (its child sections);
        - a playlist (/fun-videos/if-you-were-an-aws-service/): one card per part.
-       No footage or images of people are shown: interviewees did not consent to appearing on this site;
-       the part pages carry only the explanation clips. The full video's length and YouTube link come from the playlist's front matter. */ -}}
+       No footage or images of people are shown: interviewees did not consent to appearing on this site.
+       Card thumbnails (`thumb`) are frames from the explanation animations, which show no one. The full video's length and YouTube link come from the playlist's front matter. */ -}}
 {{ $parts := .RegularPages.ByWeight }}
 {{ $lists := .Sections.ByWeight }}
 <section class="sl-hero">
@@ -37,7 +37,7 @@
   </div>
 </section>
 
-<div class="bz-container co-curriculum">
+<div class="bz-container co-curriculum{{ if not $parts }} co-curriculum--single{{ end }}">
   {{ if $parts }}
   <aside class="co-rail" data-pagefind-ignore>
     <div class="co-rail-block">
@@ -61,7 +61,10 @@
       {{ if $parts }}
       {{ range $parts }}
       <a href="{{ .RelPermalink }}" class="co-card">
-        <span class="co-card-body">
+        {{ $alt := printf "A frame from the Part %v explanation" .Params.part }}{{ with .Params.thumb }}        <span class="co-card-thumb">
+          <img src="{{ (printf "/images/fun-videos/%s" .) | relURL }}" alt="{{ $alt }}" loading="lazy">
+        </span>
+        {{ end }}<span class="co-card-body">
           <span class="co-card-eyebrow"><span class="co-card-mnum">Part {{ .Params.part }}</span>{{ with .Params.services }}<span class="co-card-layer">{{ len . }} wiki page{{ if ne (len .) 1 }}s{{ end }}</span>{{ end }}</span>
           <span class="co-card-title">{{ .Params.group }}</span>
           {{ with .Params.summary }}<span class="co-card-summary">{{ . }}</span>{{ end }}
@@ -72,7 +75,10 @@
       {{ else }}
       {{ range $lists }}
       <a href="{{ .RelPermalink }}" class="co-card">
-        <span class="co-card-body">
+        {{ $alt := printf "A frame from %s" .Title }}{{ with .Params.thumb }}        <span class="co-card-thumb">
+          <img src="{{ (printf "/images/fun-videos/%s" .) | relURL }}" alt="{{ $alt }}" loading="lazy">
+        </span>
+        {{ end }}<span class="co-card-body">
           <span class="co-card-eyebrow"><span class="co-card-mnum">Playlist · {{ len .RegularPages }} parts</span>{{ with .Params.level }}<span class="co-card-layer">{{ . }}</span>{{ end }}</span>
           <span class="co-card-title">{{ .Title }}</span>
           {{ with .Params.summary }}<span class="co-card-summary">{{ . }}</span>{{ end }}

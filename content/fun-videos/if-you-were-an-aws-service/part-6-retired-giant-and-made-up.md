@@ -6,6 +6,7 @@ last_updated: 2026-11-13
 lastmod: 2026-11-13
 weight: 6
 part: 6
+thumb: "explainers/part-6.jpg"
 group: "Retired, giant and made-up"
 summary: "How AWS retires a service, a data centre on a truck, an AI development environment, and two services that do not exist yet."
 tags: ["aws", "beginner", "video", "history"]
@@ -17,7 +18,7 @@ The last part collects the answers that do not fit a service group: the old, the
 
 > **The answers:** SimpleDB, and DeepRacer, both services AWS has retired.
 
-{{< video src="fun-videos/if-you-were-an-aws-service/p6-retired.mp4" title="Retired services: the explanation" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
+{{< video src="fun-videos/if-you-were-an-aws-service/p6-retired.mp4" title="The explanation, from the film" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
 
 AWS retires services in three stages it calls maintenance, sunset and full shutdown. In maintenance, existing customers keep using a service, but new ones cannot join. Usually there is somewhere to go: EC2-Classic customers moved to VPC, and DynamoDB was built for what SimpleDB could not do. SimpleDB was announced in December 2007. DeepRacer's console closed in December 2025, and it lives on as open source.
 
@@ -25,7 +26,7 @@ AWS retires services in three stages it calls maintenance, sunset and full shutd
 
 > **The answers:** one person picks two services: Snowmobile, and Kiro.
 
-{{< video src="fun-videos/if-you-were-an-aws-service/p6-snowmobile-kiro.mp4" title="AWS Snowmobile and Kiro: the explanation" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
+{{< video src="fun-videos/if-you-were-an-aws-service/p6-snowmobile-kiro.mp4" title="The explanation, from the film" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
 
 Snowmobile was AWS's truck-sized data transfer service: a forty-five-foot shipping container pulled by a semi-trailer truck, carrying up to one hundred petabytes to the cloud. AWS shut it down on 14 March 2024. Today data travels over the network with DataSync, or, for Enterprise Support customers, you bring your own disks to a Data Transfer Terminal. Kiro is AWS's agentic development environment, built for spec-driven development: it writes a spec with you first, and the agent works through it, task by task. It started in July 2025 as an IDE and now also comes as a CLI, a web interface and a mobile app.
 
@@ -33,7 +34,7 @@ Snowmobile was AWS's truck-sized data transfer service: a forty-five-foot shippi
 
 > **The answers:** a feedback service, invented for cranky feedback. And AWS Classic Elastic Lambda.
 
-{{< video src="fun-videos/if-you-were-an-aws-service/p6-madeup.mp4" title="Two made-up services: the explanation" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
+{{< video src="fun-videos/if-you-were-an-aws-service/p6-madeup.mp4" title="The explanation, from the film" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
 
 Neither exists, and both jokes point at something real. Feedback shapes AWS: Jeff Barr wrote in 2017 that about ninety percent of the items on the AWS roadmap originate with customer requests, every docs page asks whether it helped you, and some teams keep their roadmap in the open on GitHub, where anyone can open an issue or upvote one. And Elastic and Classic are both real words in AWS service names. In November 2025 AWS launched Lambda Managed Instances, which runs Lambda functions on EC2 instances in your account.
 
