@@ -4625,6 +4625,20 @@ a.idx-stat-block:hover .idx-stat-label {
 .co-curriculum { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 40px; align-items: start; padding-top: 28px; padding-bottom: 60px; }
 .co-curriculum--single { grid-template-columns: minmax(0, 1fr); }
 .co-curriculum--single .co-intro { max-width: 760px; }
+.fv-feature { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-top: 8px; }
+.fv-feature-media { display: block; background: #000; min-height: 100%; }
+.fv-feature-media img { width: 100%; height: 100%; object-fit: cover; display: block; aspect-ratio: 16 / 9; }
+.fv-feature-body { display: flex; flex-direction: column; gap: 10px; padding: 24px 26px; }
+.fv-feature-title { margin: 2px 0 0; font-size: 1.45rem; line-height: 1.2; }
+.fv-feature-title a { color: var(--text-primary); text-decoration: none; }
+.fv-feature-title a:hover { color: var(--primary); }
+.fv-feature-summary { margin: 0; font-size: .95rem; line-height: 1.55; color: var(--text-secondary); }
+.fv-feature-parts { list-style: none; margin: 6px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2px 14px; }
+.fv-feature-parts a { display: flex; align-items: center; gap: 9px; padding: 6px 4px; border-radius: 7px; font-size: .86rem; color: var(--text-secondary); text-decoration: none; }
+.fv-feature-parts a:hover { background: var(--surface-hover); color: var(--text-primary); }
+.fv-feature-parts .co-rail-num { flex-shrink: 0; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 5px; background: var(--surface-hover); border: 1px solid var(--border); font: 600 .66rem/1 var(--font-mono); color: var(--text-muted); }
+.fv-feature-cta { margin-top: auto; padding-top: 8px; display: inline-flex; align-items: center; gap: 8px; font: 600 .8rem/1 var(--font-mono); color: var(--primary); text-decoration: none; }
+@media (max-width: 900px) { .fv-feature { grid-template-columns: 1fr; } .fv-feature-parts { grid-template-columns: 1fr; } }
 .co-rail { position: sticky; top: 78px; display: flex; flex-direction: column; gap: 24px; }
 .co-rail-label { display: block; font: 600 .64rem/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
 .fl-mini { gap: 3px; margin: 0; }
