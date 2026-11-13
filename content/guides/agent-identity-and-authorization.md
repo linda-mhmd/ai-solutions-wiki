@@ -2,8 +2,8 @@
 title: "Agent Identity and Authorization: Who Is the Agent Acting As?"
 description: "Why a shared service account destroys attribution the moment agents act autonomously, how MCP's OAuth 2.1 model binds tokens to a single resource, and the delegation, scope, and revocation questions to answer before agents reach production."
 date: 2026-09-02
-lastmod: 2026-09-25
-last_updated: 2026-09-25
+lastmod: 2026-11-13
+last_updated: 2026-11-13
 last_verified: 2026-09-25
 categories: [Guides]
 tags: ["ai-agents", "identity", "authorization", "oauth", "mcp", "security", "zero-trust", "non-human-identity"]
@@ -35,7 +35,7 @@ The fix is to stop collapsing distinct things into one credential. Any agent act
 
 | Identity | Answers | Typical mechanism |
 |---|---|---|
-| **Workload** | Which process is running? | SPIFFE/SPIRE, IRSA, managed identity, mTLS certificate |
+| **Workload** | Which process is running? | [SPIFFE/SPIRE](/guides/spiffe-spire-hybrid-cloud/), IRSA, managed identity, mTLS certificate |
 | **Agent** | Which agent definition and version? | Client ID per agent, registered as an OAuth client |
 | **Principal** | On whose authority is it acting? | Delegated user token with explicit scopes |
 
@@ -79,6 +79,7 @@ MCP's first year also demonstrated what happens when an agent standard scales fa
 
 ## Further reading
 
+- [SPIFFE and SPIRE in hybrid cloud](/guides/spiffe-spire-hybrid-cloud/): how to issue the workload identity in the table above, across clouds and on-prem.
 - [Zero trust for AI](/patterns/zero-trust-ai/): workload identity, mTLS, and authorization policy.
 - [Model Context Protocol](/glossary/model-context-protocol/): what MCP is and where authorization fits.
 - [MCP security vulnerabilities 2026](/news/mcp-security-vulnerabilities-2026/): the failure modes this guards against.

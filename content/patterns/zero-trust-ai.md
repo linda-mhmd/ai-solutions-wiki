@@ -9,7 +9,7 @@ related:
   - glossary/devsecops
   - guides/devsecops-ai
   - patterns/compliance-as-code
-last_updated: 2026-05-30
+last_updated: 2026-11-13
 ---
 
 Traditional perimeter-based security assumes that internal services are trustworthy. In AI systems, this assumption is dangerous. A compromised inference service can exfiltrate model weights (valuable intellectual property). A compromised data pipeline can poison training data. A prompt injection can manipulate model behaviour from outside the perimeter. Zero trust for AI applies "never trust, always verify" to every layer of the ML stack.
@@ -31,7 +31,7 @@ Before applying zero trust, understand what you are protecting:
 Every component in the ML pipeline gets a verified identity. No shared credentials, no long-lived API keys:
 
 - **Kubernetes Service Accounts** with IRSA (IAM Roles for Service Accounts) or Pod Identity for AWS resource access
-- **SPIFFE/SPIRE** for workload identity in multi-cluster or multi-cloud environments
+- **SPIFFE/SPIRE** for workload identity in multi-cluster or multi-cloud environments (see [SPIFFE and SPIRE in hybrid cloud](/guides/spiffe-spire-hybrid-cloud/))
 - **Short-lived tokens** issued by the identity provider, rotated automatically
 
 ### Mutual TLS (mTLS)

@@ -205,6 +205,7 @@ Portability is not free. Two environments mean two sets of networking, two secur
 
 ## Further reading
 
+- [SPIFFE and SPIRE in hybrid cloud](/guides/spiffe-spire-hybrid-cloud/): one workload identity across on-prem and every cloud, without static keys.
 - [Multi-cloud AI strategy](/guides/multi-cloud-ai-strategy/): choosing and combining providers at the strategy level.
 - [What is sovereign AI?](/glossary/sovereign-ai/): the jurisdiction and control concept behind the on-prem half of a hybrid split.
 - [On-premise vs cloud AI](/comparisons/on-premise-vs-cloud-ai/): the cost and control trade-off per workload.
