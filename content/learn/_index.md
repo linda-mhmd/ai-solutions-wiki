@@ -155,7 +155,7 @@ Five ways to enter the wiki. Each is built for a different starting point and go
 
 **Who it is for:** Someone who wants a light first look at AWS services before reading about them.
 
-**What it covers:** At AWS Hero Summit Seattle 2025 people answered one question: if you were an AWS service, which one and why? Six parts, one per service group, quote the answers without names and explain the service behind each joke, with links to the wiki's service pages. The full video is on Linda's YouTube channel.
+**What it covers:** At AWS Hero Summit Seattle 2025 people answered one question: if you were an AWS service, which one and why? Six parts, one per service group, quote the answers without names and show the explanation behind each joke, with the people cut out, with links to the wiki's service pages. The full video is on Linda's YouTube channel.
 
 **Start:** [If You Were an AWS Service: a fun intro to AWS](/fun-videos/if-you-were-an-aws-service/)
 

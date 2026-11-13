@@ -2,8 +2,8 @@
 {{- /* Fun videos. Two kinds of list page share this layout:
        - the overview (/fun-videos/): one card per playlist (its child sections);
        - a playlist (/fun-videos/if-you-were-an-aws-service/): one card per part.
-       No video is embedded and no images of people are shown: interviewees did not consent to appearing
-       on this site. The full video's length and YouTube link come from the playlist's front matter. */ -}}
+       No footage or images of people are shown: interviewees did not consent to appearing on this site;
+       the part pages carry only the explanation clips. The full video's length and YouTube link come from the playlist's front matter. */ -}}
 {{ $parts := .RegularPages.ByWeight }}
 {{ $lists := .Sections.ByWeight }}
 <section class="sl-hero">

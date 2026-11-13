@@ -18,6 +18,8 @@ Compute is where your code runs. This part goes from no servers at all to the ha
 
 > **The answers:** Lambda, because it can burst into explosion. Because it is short and ephemeral. Because everybody loves it. Because it meets and mingles with everybody. Because it is event-driven, like the first coffee of the morning. And because it takes a couple of minutes to get going.
 
+{{< video src="fun-videos/if-you-were-an-aws-service/p2-lambda.mp4" title="AWS Lambda: the explanation" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
+
 Lambda runs your code without you managing servers. It runs when something happens: a file lands in S3, a message arrives in a queue, a request comes in through API Gateway.
 
 - **Burst into explosion.** When requests pour in, each function can add up to a thousand execution environments every ten seconds.
@@ -29,6 +31,8 @@ Lambda runs your code without you managing servers. It runs when something happe
 
 > **The answers:** several people pick EC2. One of them adds: expensive and high maintenance.
 
+{{< video src="fun-videos/if-you-were-an-aws-service/p2-ec2.mp4" title="Amazon EC2: the explanation" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
+
 EC2 gives you virtual servers that you start whenever you need them. It launched as a beta in August 2006 with a single instance type. Today AWS counts over a thousand, and its twentieth-birthday post in August 2026 says over 1,200.
 
 The explainer takes "expensive and high maintenance" seriously. With your own virtual server you look after the operating system, its updates and security patches, your software and your firewall rules. The price depends on how you buy: by the second, with Savings Plans, or as Spot Instances.
@@ -36,6 +40,8 @@ The explainer takes "expensive and high maintenance" seriously. With your own vi
 ### AWS Nitro System
 
 > **The answer:** one person picks Nitro. The reason is in the full video.
+
+{{< video src="fun-videos/if-you-were-an-aws-service/p2-nitro.mp4" title="AWS Nitro System: the explanation" caption="The explanation from the full video, with the people cut out. Narrated by Linda Mohamed (her cloned voice)." >}}
 
 Nitro is the hardware and software platform underneath modern EC2 instances. Dedicated Nitro Cards take networking, storage and management off the main server, and a minimal hypervisor built on the open-source KVM splits up CPU and memory. By design, no system or person can log in to a Nitro host.
 

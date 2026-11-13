@@ -1,8 +1,8 @@
 {{ define "main" }}
 {{- /* One part of a fun-videos playlist. Front matter: part (number), group, summary, services.
-       The pages show no video and no images of people: interviewees did not consent to appearing on this
-       site. Each part quotes the answers without names, explains the service behind each one, and links to
-       the full video on the playlist's YouTube channel (`youtube` on the playlist section). */ -}}
+       The pages show no footage of people: interviewees did not consent to appearing on this site. Each part
+       quotes the answers without names, shows the explanation clips cut from the film without the people
+       (static/videos/fun-videos/), and links to the full video on the playlist's YouTube channel. */ -}}
 {{ $chapters := .CurrentSection.RegularPages.ByWeight }}
 {{ $count := len $chapters }}
 {{ $idx := -1 }}{{ range $i, $c := $chapters }}{{ if eq $c.RelPermalink $.RelPermalink }}{{ $idx = $i }}{{ end }}{{ end }}
