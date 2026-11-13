@@ -10,6 +10,28 @@
 #
 # `date` is when the correction landed. `page` must resolve to a real page.
 
+- date: 2026-11-13
+  page: /tools/claude-anthropic/
+  headline: Fable 5.1 was no longer Anthropic's top model, and its price was out of date
+  body: >
+    This page presented Claude Fable 5.1 at $10/$50 per MTok as Anthropic's
+    most capable generally available model. Claude Fable 5.2 and Mythos 5.2
+    shipped on 9 November 2026 at $8/$40, with cache reads at $0.20, and the
+    page was last updated on 28 October. Fable 5.1 is still Active and is
+    now listed as the previous generation. The page also did not mention that
+    fast mode on Opus 4.8 is removed on 30 November 2026.
+
+- date: 2026-11-13
+  page: /tools/google-gemini/
+  headline: Gemini 4 Carbon is available, and Gemini 4 Hydrogen now exists
+  body: >
+    This page said Gemini 4 Carbon was announced but not yet available to
+    developers. It became generally available to paying developers on 10
+    November 2026, at the same introductory $2/$10 as Argon, rising to $4/$20
+    on 1 December. Gemini 4 Hydrogen, released on 12 November at a flat
+    $1.50/$7.50 across its 1M context, was missing entirely, and Gemini 3.6
+    Flash's 19 November retirement was not in the price table.
+
 - date: 2026-10-28
   page: /news/open-weight-models-october-2026/
   headline: Moonshot did release a model in October, two days before we said it had not
