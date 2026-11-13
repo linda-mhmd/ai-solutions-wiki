@@ -1,0 +1,74 @@
+{{ define "main" }}
+{{- /* One part of a fun-videos playlist. Front matter: part (number), group, summary, services.
+       The pages show no video and no images of people: interviewees did not consent to appearing on this
+       site. Each part quotes the answers without names, explains the service behind each one, and links to
+       the full video on the playlist's YouTube channel (`youtube` on the playlist section). */ -}}
+{{ $chapters := .CurrentSection.RegularPages.ByWeight }}
+{{ $count := len $chapters }}
+{{ $idx := -1 }}{{ range $i, $c := $chapters }}{{ if eq $c.RelPermalink $.RelPermalink }}{{ $idx = $i }}{{ end }}{{ end }}
+{{ $prev := false }}{{ if gt $idx 0 }}{{ $prev = index $chapters (sub $idx 1) }}{{ end }}
+{{ $next := false }}{{ if and (ge $idx 0) (lt $idx (sub $count 1)) }}{{ $next = index $chapters (add $idx 1) }}{{ end }}
+{{ $yt := .CurrentSection.Params.youtube }}
+
+<div class="article-layout">
+  <div class="article-container">
+    {{ partial "breadcrumbs.html" . }}
+    <article class="article-content course-chapter">
+
+      <header class="course-ch-head">
+        <div class="course-ch-eyebrow">
+          <a href="{{ .CurrentSection.RelPermalink }}">{{ .CurrentSection.Title }}</a>
+          <span>Part {{ .Params.part }} of {{ $count }}</span>
+          <span>Beginner</span>
+        </div>
+        <h1 data-pagefind-meta="title">{{ .Title }}</h1>
+        {{ with .Params.summary }}<p class="article-description">{{ . }}</p>{{ end }}
+      </header>
+
+      {{ partial "funvideos-watch.html" (dict "url" $yt "channel" .CurrentSection.Params.channel "credit" .CurrentSection.Params.credit) }}
+
+      <div class="course-block">
+        <h2 class="course-h2">The answers, and what they mean</h2>
+        <div class="article-body co-fulltext" data-pagefind-body>
+          {{ .Content }}
+        </div>
+      </div>
+
+      {{ with .Params.services }}
+      <section class="course-block">
+        <h2 class="course-h2">Read more on the wiki</h2>
+        <div class="course-tool-grid">
+          {{ range . }}{{ $tp := site.GetPage (printf "/tools/%s" .) }}{{ with $tp }}
+          {{ $icon := "" }}{{ with .File }}{{ $icon = partial "svc-icon-file.html" .BaseFileName }}{{ end }}
+          {{ $parts := split .Title " - " }}
+          <a href="{{ .RelPermalink }}" class="course-tool">
+            {{ if $icon }}<span class="course-tool-icon {{ partial "darklogo-class.html" $icon }}">{{ partial "render-icon.html" (dict "res" $icon "class" "" "alt" "") }}</span>{{ end }}
+            <span class="course-tool-text"><span class="course-tool-name">{{ index $parts 0 }}</span>{{ with .Description }}<span class="course-tool-desc">{{ . | truncate 80 }}</span>{{ end }}</span>
+          </a>
+          {{ end }}{{ end }}
+        </div>
+      </section>
+      {{ end }}
+
+      <nav class="course-chapter-nav" aria-label="Part navigation">
+        {{ if $prev }}<a href="{{ $prev.RelPermalink }}" class="course-nav-link course-nav-prev"><span class="course-nav-dir">Previous part</span><span class="course-nav-title">{{ $prev.Title }}</span></a>{{ else }}<a href="{{ .CurrentSection.RelPermalink }}" class="course-nav-link course-nav-prev"><span class="course-nav-dir">Back to</span><span class="course-nav-title">All parts</span></a>{{ end }}
+        {{ if $next }}<a href="{{ $next.RelPermalink }}" class="course-nav-link course-nav-next"><span class="course-nav-dir">Next part</span><span class="course-nav-title">{{ $next.Title }}</span></a>{{ else }}<a href="{{ .CurrentSection.RelPermalink }}" class="course-nav-link course-nav-next"><span class="course-nav-dir">Finished</span><span class="course-nav-title">Back to all parts</span></a>{{ end }}
+      </nav>
+
+    </article>
+  </div>
+
+  <div class="article-sidebar" data-pagefind-ignore>
+    {{ partial "library-panel.html" . }}
+    <div class="course-progress-rail">
+      <span class="course-rail-title">Parts</span>
+      <ol class="course-rail-list">
+        {{ range $chapters }}
+        <li><a href="{{ .RelPermalink }}" class="course-rail-link{{ if eq .RelPermalink $.RelPermalink }} is-current{{ end }}"><span class="course-rail-num">{{ .Params.part }}</span>{{ .Params.group }}</a></li>
+        {{ end }}
+      </ol>
+    </div>
+    {{ partial "wiki-sections.html" . }}
+  </div>
+</div>
+{{ end }}
