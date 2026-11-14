@@ -1,0 +1,115 @@
+{{ define "main" }}
+{{- /* Fun videos. Two kinds of list page share this layout:
+       - the overview (/fun-videos/): one card per playlist, or one wide feature while there is only one;
+       - a playlist (/fun-videos/if-you-were-an-aws-service/): one card per part.
+       No footage or images of people are shown: interviewees did not consent to appearing on this site.
+       Card thumbnails (`thumb`) are frames from the explanation animations, which show no one. The full video's length and YouTube link come from the playlist's front matter. */ -}}
+{{ $parts := .RegularPages.ByWeight }}
+{{ $lists := .Sections.ByWeight }}
+<section class="sl-hero">
+  <div class="bz-container">
+    <nav class="sl-breadcrumb" aria-label="breadcrumb">
+      <a href="{{ "/" | relURL }}" class="sl-breadcrumb-home">AI Solutions Wiki</a>
+      {{ with .Parent }}{{ if not .IsHome }}
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      {{ end }}{{ end }}
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      <span aria-current="page">{{ .Title }}</span>
+    </nav>
+    <div class="sl-hero-grid">
+      <div class="sl-hero-inner">
+        <h1 class="sl-h1">{{ .Title }}</h1>
+        {{ with .Description }}<p class="sl-desc">{{ . }}</p>{{ end }}
+        <div class="tg-stats">
+          {{ if $parts }}
+          <span class="tg-stat is-active"><b>{{ len $parts }}</b> Parts</span>
+          {{ with .Params.duration }}<span class="tg-stat"><b>{{ . }}</b> Full video on YouTube</span>{{ end }}
+          <span class="tg-stat"><b>Beginner</b> No AWS knowledge needed</span>
+          {{ else }}
+          {{ $n := 0 }}{{ range $lists }}{{ $n = add $n (len .RegularPages) }}{{ end }}
+          {{ if gt (len $lists) 1 }}<span class="tg-stat is-active"><b>{{ len $lists }}</b> Playlists</span>{{ end }}
+          <span class="tg-stat is-active"><b>{{ $n }}</b> Parts</span>
+          {{ if eq (len $lists) 1 }}{{ with (index $lists 0).Params.duration }}<span class="tg-stat"><b>{{ . }}</b> Full video on YouTube</span>{{ end }}{{ end }}
+          <span class="tg-stat"><b>Beginner</b> No AWS knowledge needed</span>
+          {{ end }}
+        </div>
+      </div>
+      <div class="sl-hero-aside">{{ partial "wiki-sections.html" . }}</div>
+    </div>
+  </div>
+</section>
+
+<div class="bz-container co-curriculum{{ if not $parts }} co-curriculum--single{{ end }}">
+  {{ if $parts }}
+  <aside class="co-rail" data-pagefind-ignore>
+    <div class="co-rail-block">
+      <span class="co-rail-label">All {{ len $parts }} parts</span>
+      <ol class="co-rail-index">
+        {{ range $parts }}
+        <li><a href="{{ .RelPermalink }}"><span class="co-rail-num">{{ .Params.part }}</span><span class="co-rail-t">{{ .Params.group }}</span></a></li>{{ end }}
+      </ol>
+    </div>
+    <div class="co-rail-block">
+      <span class="co-rail-label">Credit</span>
+      <p class="co-rail-note">{{ .Params.credit }}</p>
+    </div>
+  </aside>
+  {{ end }}
+
+  <div class="co-main">
+    {{ with .Content }}<div class="article-body co-intro" data-pagefind-body>{{ . }}</div>{{ end }}
+    {{ if $parts }}{{ partial "funvideos-watch.html" (dict "url" .Params.youtube "channel" .Params.channel) }}{{ end }}
+    {{ if and (not $parts) (eq (len $lists) 1) }}
+    {{ with index $lists 0 }}
+    <article class="fv-feature">
+      <a href="{{ .RelPermalink }}" class="fv-feature-media" tabindex="-1" aria-hidden="true">
+        {{ with .Params.thumb }}<img src="{{ (printf "/images/fun-videos/%s" .) | relURL }}" alt="" loading="lazy">{{ end }}
+      </a>
+      <div class="fv-feature-body">
+        <span class="co-card-eyebrow"><span class="co-card-mnum">Playlist · {{ len .RegularPages }} parts</span>{{ with .Params.level }}<span class="co-card-layer">{{ . }}</span>{{ end }}</span>
+        <h2 class="fv-feature-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        {{ with .Params.summary }}<p class="fv-feature-summary">{{ . }}</p>{{ end }}
+        <ol class="fv-feature-parts">
+          {{ range .RegularPages.ByWeight }}<li><a href="{{ .RelPermalink }}"><span class="co-rail-num">{{ .Params.part }}</span>{{ .Params.group }}</a></li>{{ end }}
+        </ol>
+        <a href="{{ .RelPermalink }}" class="fv-feature-cta">Start the playlist<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </article>
+    {{ end }}
+    {{ else }}
+    <div class="co-cards">
+      {{ if $parts }}
+      {{ range $parts }}
+      <a href="{{ .RelPermalink }}" class="co-card">
+        {{ $alt := printf "A frame from the Part %v explanation" .Params.part }}{{ with .Params.thumb }}        <span class="co-card-thumb">
+          <img src="{{ (printf "/images/fun-videos/%s" .) | relURL }}" alt="{{ $alt }}" loading="lazy">
+        </span>
+        {{ end }}<span class="co-card-body">
+          <span class="co-card-eyebrow"><span class="co-card-mnum">Part {{ .Params.part }}</span>{{ with .Params.services }}<span class="co-card-layer">{{ len . }} wiki page{{ if ne (len .) 1 }}s{{ end }}</span>{{ end }}</span>
+          <span class="co-card-title">{{ .Params.group }}</span>
+          {{ with .Params.summary }}<span class="co-card-summary">{{ . }}</span>{{ end }}
+          <span class="co-card-foot">Read the answers<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </span>
+      </a>
+      {{ end }}
+      {{ else }}
+      {{ range $lists }}
+      <a href="{{ .RelPermalink }}" class="co-card">
+        {{ $alt := printf "A frame from %s" .Title }}{{ with .Params.thumb }}        <span class="co-card-thumb">
+          <img src="{{ (printf "/images/fun-videos/%s" .) | relURL }}" alt="{{ $alt }}" loading="lazy">
+        </span>
+        {{ end }}<span class="co-card-body">
+          <span class="co-card-eyebrow"><span class="co-card-mnum">Playlist · {{ len .RegularPages }} parts</span>{{ with .Params.level }}<span class="co-card-layer">{{ . }}</span>{{ end }}</span>
+          <span class="co-card-title">{{ .Title }}</span>
+          {{ with .Params.summary }}<span class="co-card-summary">{{ . }}</span>{{ end }}
+          <span class="co-card-foot">Open the playlist<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </span>
+      </a>
+      {{ end }}
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

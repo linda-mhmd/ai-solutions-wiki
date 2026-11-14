@@ -2,7 +2,7 @@
 title: "Learn"
 description: "Every learning path on the wiki. Whether you are starting from zero or deepening your understanding of AI systems, pick the route that fits where you are now."
 date: 2026-06-22
-last_updated: 2026-06-22
+last_updated: 2026-11-13
 ---
 
 <figure class="bz-figure">
@@ -148,6 +148,16 @@ Five ways to enter the wiki. Each is built for a different starting point and go
 **What it covers:** Nine modules covering how software systems are actually built, organised around five architectural layers. Designed for people who need to speak to both business and engineering audiences.
 
 **Start:** [Module 1: Start at Zero](/course/module-1-start-at-zero-the-basics/)
+
+---
+
+## Path 6: Fun intro videos
+
+**Who it is for:** Someone who wants a light first look at AWS services before reading about them.
+
+**What it covers:** At AWS Hero Summit Seattle 2025 people answered one question: if you were an AWS service, which one and why? Six parts, one per service group, quote the answers without names and show the explanation behind each joke, with the people cut out, with links to the wiki's service pages. The full video is on Linda's YouTube channel.
+
+**Start:** [If You Were an AWS Service: a fun intro to AWS](/fun-videos/if-you-were-an-aws-service/)
 
 ---
 

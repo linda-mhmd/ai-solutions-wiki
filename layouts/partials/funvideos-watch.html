@@ -1,0 +1,17 @@
+{{- /* "Watch the full video on YouTube" box for the fun-videos pages. A plain link: nothing is loaded
+       from YouTube on this site. The explanation clips on the pages are cut from the film without any footage of people.
+       Params: url (YouTube URL), channel (name shown), credit (optional line under the link). */ -}}
+{{- with .url -}}
+<aside class="fv-watch" data-pagefind-ignore>
+  <style>
+  .fv-watch{margin:1.5rem 0;padding:1.1rem 1.25rem;border:1px solid rgba(148,163,184,.25);border-radius:14px;background:rgba(15,23,42,.04)}
+  .fv-watch p{margin:.25rem 0;font-size:.95rem;line-height:1.5}
+  .fv-watch-btn{display:inline-block;margin:.5rem 0 .25rem;padding:.55rem 1.05rem;border-radius:999px;background:var(--primary,#b91c1c);color:#fff;font-weight:600;text-decoration:none}
+  .fv-watch a.fv-watch-btn,.fv-watch a.fv-watch-btn:hover,.fv-watch a.fv-watch-btn:visited{color:#fff;text-decoration:none;border-bottom:0}
+  .fv-watch-note{color:var(--text-muted,#64748b);font-size:.85rem}
+  </style>
+  <p>The full video, with everyone's answers, is on {{ $.channel | default "YouTube" }}'s YouTube channel. This page quotes the answers without names and shows only the explanations, with the people cut out.</p>
+  <a class="fv-watch-btn" href="{{ . }}" rel="noopener" target="_blank">Watch the full video on YouTube</a>
+  {{- with $.credit }}<p class="fv-watch-note">{{ . }}</p>{{ end }}
+</aside>
+{{- end -}}
